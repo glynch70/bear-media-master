@@ -1,0 +1,39 @@
+# BEAR MEDIA - 301 REDIRECT MAP
+# All 22 Legacy URLs → Current URLs (Permanent Redirects)
+
+## VIDEO & PRODUCTION PORTFOLIO (10 URLs → /projects)
+/website-video-content-west-lothian → /projects
+/social-media-video-content-west-lothian → /projects
+/corporate-video-production-west-lothian → /projects
+/product-video-production-west-lothian → /projects
+/video-production-edinburgh → /projects
+/video-production-west-lothian → /projects
+/drone-services-edinburgh → /projects
+/drone-video-services-west-lothian → /projects
+/glasgow-videographer-small-business → /projects
+/content-creation-edinburgh → /projects
+
+## LOCATION-BASED SERVICES (3 URLs → /contact)
+/broxburn-video-production-services → /contact
+/linlithgow-video-production-services → /contact
+/east-calder-video-production-services → /contact
+
+## SERVICES SUB-PAGES (3 URLs → /services)
+/services/life-small-business-content → /services
+/services/fife-drone-video → /services
+/services/seo-google-business → /services
+
+## MAIN ROUTE REDIRECTS (2 URLs)
+/services → /
+/packages → /contact
+
+## PRIVACY & LEGAL (2 URLs → /)
+/privacy → /
+/terms → /
+
+═══════════════════════════════════════════════════
+TOTAL: 22 Redirects (All Permanent 301)
+STATUS: ✓ Implemented in next.config.mjs
+BUILD: ✓ Clean
+READY: ✓ For Production Deployment
+═══════════════════════════════════════════════════
