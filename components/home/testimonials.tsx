@@ -111,11 +111,11 @@ export default function Testimonials() {
                 
                 {t.projectUrl && (
                   t.projectUrl.startsWith('http') ? (
-                    <a href={t.projectUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-accent hover:text-accent/80 transition-colors inline-block mt-4">
+                    <a href={t.projectUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-accent hover:text-accent/80 transition-colors inline-block mt-4" aria-label={`Read full review from ${t.author}`}>
                       Read full review →
                     </a>
                   ) : (
-                    <Link href={t.projectUrl} className="text-sm font-medium text-accent hover:text-accent/80 transition-colors inline-block mt-4">
+                    <Link href={t.projectUrl} className="text-sm font-medium text-accent hover:text-accent/80 transition-colors inline-block mt-4" aria-label={`Read full review from ${t.author}`}>
                       Read full review →
                     </Link>
                   )

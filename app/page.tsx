@@ -1,13 +1,15 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import Hero from '@/components/home/hero'
-import WhatIDo from '@/components/home/what-i-do'
-import FeaturedProjects from '@/components/home/featured-projects'
-import Clients from '@/components/home/clients'
-import Testimonials from '@/components/home/testimonials'
-import CTA from '@/components/home/cta'
-import WhyBearMedia from '@/components/home/why-bear-media'
+
+const WhatIDo = dynamic(() => import('@/components/home/what-i-do'))
+const FeaturedProjects = dynamic(() => import('@/components/home/featured-projects'))
+const Clients = dynamic(() => import('@/components/home/clients'))
+const Testimonials = dynamic(() => import('@/components/home/testimonials'))
+const CTA = dynamic(() => import('@/components/home/cta'))
+const WhyBearMedia = dynamic(() => import('@/components/home/why-bear-media'))
 
 export const metadata: Metadata = {
   title: 'Bear Media | Helping Scottish Businesses Stand Out Online',

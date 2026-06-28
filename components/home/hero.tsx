@@ -11,11 +11,11 @@ export default function Hero() {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
         poster="/assets/hero/hero-poster.jpg"
         aria-hidden="true"
       >
-        <source src="/01-HERO/169 NEW BM DRONE HERO-copy.mp4" type="video/mp4" />
+        <source src="/01-HERO/169 NEW BM DRONE HERO-copy(1).mp4" type="video/mp4" />
       </video>
 
       {/* ── Tablet/mobile video (<1024px, portrait) ──────────────────────── */}
@@ -30,7 +30,7 @@ export default function Hero() {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
         poster="/assets/hero/hero-poster.jpg"
         aria-hidden="true"
       >
