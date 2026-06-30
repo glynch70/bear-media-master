@@ -49,10 +49,10 @@ export default function Home() {
       <Navigation />
       <Hero />
       <WhatIDo />
-      <Clients />
       <FeaturedProjects />
       <Testimonials />
       <WhyBearMedia />
+      <Clients />
       <CTA />
       <Footer />
     </main>
