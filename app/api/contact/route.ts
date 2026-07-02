@@ -121,7 +121,7 @@ async function sendEmails(
 
     // Send confirmation email to user
     try {
-      const confirmationResult = await resend.emails.send({
+      await resend.emails.send({
         from: senderEmail,
         to: email,
         replyTo: contactEmail,

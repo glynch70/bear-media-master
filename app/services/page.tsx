@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
+import { BreadcrumbSchema } from '@/components/structured-data'
 import WebsitesShowcase from '@/components/services/websites-showcase'
 import { SocialMediaCarousel } from '@/components/services/social-media-carousel'
 import { PhotographyCarousel } from '@/components/services/photography-carousel'
@@ -8,37 +9,15 @@ import { AITrainingCards } from '@/components/services/ai-training-cards'
 import { ProcessFlow } from '@/components/services/process-flow'
 import ServicesFaq from '@/components/services/services-faq'
 import { RecentWork } from '@/components/services/recent-work'
+import { createMetadata, siteUrl } from '@/lib/seo'
 
 export const metadata = {
-  title: 'Services | Bear Media',
-  description: 'Professional content creation, web design, photography, video, and AI training for Scottish businesses.',
-  openGraph: {
-    title: 'Services | Bear Media',
-    description: 'Professional content creation, web design, photography, video, and AI training for Scottish businesses.',
-    url: 'https://bear-media.com/services',
-    siteName: 'Bear Media',
-    images: [
-      {
-        url: 'https://bear-media.com/assets/brand/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Bear Media - Services',
-        type: 'image/jpeg',
-      },
-    ],
-    type: 'website',
-    locale: 'en_GB',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Services | Bear Media',
-    description: 'Professional content creation, web design, photography, video, and AI training for Scottish businesses.',
-    images: ['https://bear-media.com/assets/brand/og-image.jpg'],
-    creator: '@bearmediascot',
-  },
-  alternates: {
-    canonical: 'https://bear-media.com/services',
-  },
+  ...createMetadata({
+    title: 'Creative Services Scotland | Websites, Photography & Social Media',
+    description: 'Bear Media services include website design, photography, video, drone content, social media management and AI training for businesses in West Lothian, Edinburgh and Scotland.',
+    path: '/services',
+    imageAlt: 'Bear Media services for Scottish businesses',
+  }),
 }
 
 export default function ServicesPage() {
@@ -46,6 +25,10 @@ export default function ServicesPage() {
     <>
       <Navigation />
       <main className="w-full min-h-screen">
+      <BreadcrumbSchema items={[
+        { name: 'Home', url: siteUrl },
+        { name: 'Services', url: `${siteUrl}/services` },
+      ]} />
       {/* Hero */}
       <section className="w-full bg-background py-20 md:py-24 lg:py-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">

@@ -1,8 +1,9 @@
 import type { MetadataRoute } from 'next'
 import { projects } from '@/lib/projects'
+import { siteUrl } from '@/lib/seo'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://bear-media.com'
+  const baseUrl = siteUrl
   const today = new Date().toISOString().split('T')[0]
 
   // Static pages

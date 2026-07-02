@@ -1,12 +1,19 @@
+import { defaultOgImageUrl, siteUrl, socialProfiles } from '@/lib/seo'
+
+const businessId = `${siteUrl}/#localbusiness`
+const organizationId = `${siteUrl}/#organization`
+const personId = `${siteUrl}/#garry-lynch`
+const websiteId = `${siteUrl}/#website`
+
 export function LocalBusinessSchema() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': 'https://bear-media.com',
+    '@id': businessId,
     name: 'Bear Media',
-    image: 'https://bear-media.com/assets/brand/og-image.jpg',
-    description: 'Professional photography, video, drone content, social media management and web design for businesses across Scotland.',
-    url: 'https://bear-media.com',
+    image: defaultOgImageUrl,
+    description: 'Professional photography, video, drone content, social media management and website design for businesses across West Lothian, Edinburgh and Scotland.',
+    url: siteUrl,
     telephone: '+447879011860',
     email: 'info@bear-media.com',
     address: {
@@ -22,17 +29,13 @@ export function LocalBusinessSchema() {
       longitude: -3.5909,
     },
     priceRange: '£££',
-    sameAs: [
-      'https://www.facebook.com/profile.php?id=61553562716650',
-      'https://www.instagram.com/bearmedia70/',
-      'https://www.youtube.com/@bearmedia70',
-      'https://www.linkedin.com/in/garrylynch70',
+    sameAs: socialProfiles,
+    areaServed: [
+      { '@type': 'Place', name: 'West Lothian' },
+      { '@type': 'Place', name: 'Livingston' },
+      { '@type': 'Place', name: 'Edinburgh' },
+      { '@type': 'Place', name: 'Scotland' },
     ],
-    areaServed: {
-      '@type': 'GeoShape',
-      addressCountry: 'GB',
-      description: 'Scotland',
-    },
   }
 
   return (
@@ -69,13 +72,15 @@ export function OrganizationSchema() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': organizationId,
     name: 'Bear Media',
-    url: 'https://bear-media.com',
-    logo: 'https://bear-media.com/assets/brand/logo.png',
+    url: siteUrl,
+    logo: `${siteUrl}/assets/brand/logo.png`,
     description: 'Photography, video, drone content, social media management and web design for Scottish businesses.',
     foundingDate: '2020',
     founder: {
       '@type': 'Person',
+      '@id': personId,
       name: 'Garry Lynch',
     },
     address: {
@@ -90,13 +95,100 @@ export function OrganizationSchema() {
       contactType: 'Customer Service',
       telephone: '+447879011860',
       email: 'info@bear-media.com',
+      areaServed: 'GB',
+      availableLanguage: 'English',
     },
-    sameAs: [
-      'https://www.facebook.com/profile.php?id=61553562716650',
-      'https://www.instagram.com/bearmedia70/',
-      'https://www.youtube.com/@bearmedia70',
-      'https://www.linkedin.com/in/garrylynch70',
-    ],
+    sameAs: socialProfiles,
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      suppressHydrationWarning
+    />
+  )
+}
+
+export function ProfessionalServiceSchema() {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    '@id': `${siteUrl}/#professionalservice`,
+    name: 'Bear Media',
+    url: siteUrl,
+    image: defaultOgImageUrl,
+    telephone: '+447879011860',
+    email: 'info@bear-media.com',
+    description: 'Creative media, website design, photography, video, drone content, social media management and AI training for businesses in West Lothian, Edinburgh and Scotland.',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Broxburn',
+      addressRegion: 'West Lothian',
+      addressCountry: 'GB',
+    },
+    areaServed: ['West Lothian', 'Livingston', 'Edinburgh', 'Fife', 'Scotland'],
+    founder: {
+      '@type': 'Person',
+      '@id': personId,
+      name: 'Garry Lynch',
+    },
+    sameAs: socialProfiles,
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      suppressHydrationWarning
+    />
+  )
+}
+
+export function PersonSchema() {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': personId,
+    name: 'Garry Lynch',
+    jobTitle: 'Founder of Bear Media',
+    worksFor: {
+      '@type': 'Organization',
+      '@id': organizationId,
+      name: 'Bear Media',
+    },
+    url: `${siteUrl}/about`,
+    image: `${siteUrl}/assets/about/garry-with-camera.png`,
+    address: {
+      '@type': 'PostalAddress',
+      addressRegion: 'West Lothian',
+      addressCountry: 'GB',
+    },
+    sameAs: socialProfiles,
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      suppressHydrationWarning
+    />
+  )
+}
+
+export function WebSiteSchema() {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': websiteId,
+    name: 'Bear Media',
+    url: siteUrl,
+    publisher: {
+      '@type': 'Organization',
+      '@id': organizationId,
+      name: 'Bear Media',
+    },
+    inLanguage: 'en-GB',
   }
 
   return (
@@ -126,11 +218,12 @@ export function ServiceSchema({
     description,
     provider: {
       '@type': 'LocalBusiness',
+      '@id': businessId,
       name: provider,
-      url: 'https://bear-media.com',
+      url: siteUrl,
     },
     areaServed,
-    url: 'https://bear-media.com',
+    url: siteUrl,
   }
 
   return (

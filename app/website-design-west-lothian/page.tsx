@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
-import { LocalBusinessSchema, ServiceSchema } from '@/components/structured-data'
+import { ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
   title: 'Professional Website Design in West Lothian | Bear Media',

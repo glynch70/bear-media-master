@@ -1,37 +1,25 @@
 import type { Metadata } from 'next'
+import { BreadcrumbSchema } from '@/components/structured-data'
+import { createMetadata, siteUrl } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'About | Bear Media',
-  description: 'Meet Garry Lynch. Why I started Bear Media and how I help businesses look as good online as they do in real life.',
-  openGraph: {
-    title: 'About | Bear Media',
-    description: 'Meet Garry Lynch. Why I started Bear Media and how I help businesses look as good online as they do in real life.',
-    url: 'https://bear-media.com/about',
-    siteName: 'Bear Media',
-    images: [
-      {
-        url: 'https://bear-media.com/assets/brand/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Garry Lynch - Bear Media Founder',
-        type: 'image/jpeg',
-      },
-    ],
-    type: 'website',
-    locale: 'en_GB',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'About | Bear Media',
-    description: 'Meet Garry Lynch. Why I started Bear Media and how I help businesses look as good online as they do in real life.',
-    images: ['https://bear-media.com/assets/brand/og-image.jpg'],
-    creator: '@bearmediascot',
-  },
-  alternates: {
-    canonical: 'https://bear-media.com/about',
-  },
+  ...createMetadata({
+    title: 'About Bear Media | Garry Lynch, Creative Media in West Lothian',
+    description: 'Meet Garry Lynch, founder of Bear Media. Learn how Bear Media helps businesses in West Lothian, Edinburgh and Scotland look professional online.',
+    path: '/about',
+    image: '/assets/about/garry-with-camera.png',
+    imageAlt: 'Garry Lynch, founder of Bear Media',
+  }),
 }
 
 export default function AboutLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>
+  return (
+    <>
+      <BreadcrumbSchema items={[
+        { name: 'Home', url: siteUrl },
+        { name: 'About', url: `${siteUrl}/about` },
+      ]} />
+      {children}
+    </>
+  )
 }

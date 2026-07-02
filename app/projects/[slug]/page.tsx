@@ -5,7 +5,9 @@ import { Check } from 'lucide-react'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import { ProjectImageGallery } from '@/components/projects/project-image-gallery'
+import { BreadcrumbSchema } from '@/components/structured-data'
 import { getProject, getRelatedProjects, projects } from '@/lib/projects'
+import { createMetadata, siteUrl } from '@/lib/seo'
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }))
@@ -15,10 +17,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const project = getProject(slug)
   if (!project) return {}
-  return {
-    title: `${project.title} | Bear Media`,
-    description: project.description,
-  }
+  return createMetadata({
+    title: `${project.title} Case Study | Bear Media Scotland`,
+    description: `${project.description} Explore Bear Media creative work including ${project.category.toLowerCase()} for Scottish businesses.`,
+    path: `/projects/${project.slug}`,
+    image: project.heroImage,
+    imageAlt: `${project.title} project by Bear Media`,
+  })
 }
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -30,6 +35,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <main className="w-full min-h-screen bg-background">
+      <BreadcrumbSchema items={[
+        { name: 'Home', url: siteUrl },
+        { name: 'Projects', url: `${siteUrl}/projects` },
+        { name: project.title, url: `${siteUrl}/projects/${project.slug}` },
+      ]} />
       <Navigation />
 
       {/* Full-bleed hero image */}

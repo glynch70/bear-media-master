@@ -2,7 +2,8 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { LocalBusinessSchema, OrganizationSchema } from '@/components/structured-data'
+import { LocalBusinessSchema, OrganizationSchema, PersonSchema, ProfessionalServiceSchema, WebSiteSchema } from '@/components/structured-data'
+import { createMetadata, defaultOgImageUrl, siteUrl } from '@/lib/seo'
 
 const inter = Inter({
   variable: '--font-inter',
@@ -10,11 +11,25 @@ const inter = Inter({
   display: 'swap',
 })
 
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+
 export const metadata: Metadata = {
-  title: 'Bear Media | Helping Scottish Businesses Stand Out Online',
-  description: 'Photography, video, drone content, websites and social media for businesses across Scotland. Founded by Garry Lynch.',
+  ...createMetadata({
+    title: 'Bear Media | Creative Media Studio in Scotland',
+    description: 'Bear Media is a creative media studio in West Lothian helping Scottish businesses with website design, photography, video, drone content, social media and AI training.',
+    path: '/',
+    imageAlt: 'Bear Media creative services in Scotland',
+  }),
+  title: {
+    default: 'Bear Media | Creative Media Studio in Scotland',
+    template: '%s',
+  },
   generator: 'v0.app',
-  metadataBase: new URL('https://bear-media.com'),
+  metadataBase: new URL(siteUrl),
+  applicationName: 'Bear Media',
+  category: 'Professional Services',
+  manifest: '/manifest.webmanifest',
+  verification: googleVerification ? { google: googleVerification } : undefined,
   icons: {
     icon: [
       { url: '/assets/brand/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
@@ -23,30 +38,8 @@ export const metadata: Metadata = {
     ],
     apple: '/assets/brand/apple-touch-icon.png',
   },
-  openGraph: {
-    title: 'Bear Media | Helping Scottish Businesses Stand Out Online',
-    description: 'Photography, video, drone content, websites and social media for businesses across Scotland.',
-    url: 'https://bear-media.com',
-    siteName: 'Bear Media',
-    images: [
-      {
-        url: 'https://bear-media.com/assets/brand/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Bear Media - Scottish Media Agency',
-        type: 'image/jpeg',
-      },
-    ],
-    type: 'website',
-    locale: 'en_GB',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Bear Media | Helping Scottish Businesses Stand Out Online',
-    description: 'Photography, video, drone content, websites and social media for businesses across Scotland.',
-    images: ['https://bear-media.com/assets/brand/og-image.jpg'],
-    creator: '@bearmediascot',
-    siteId: 'bearmediascot',
+  other: {
+    'og:image:secure_url': defaultOgImageUrl,
   },
 }
 
@@ -72,6 +65,9 @@ export default function RootLayout({
       <head>
         <LocalBusinessSchema />
         <OrganizationSchema />
+        <ProfessionalServiceSchema />
+        <PersonSchema />
+        <WebSiteSchema />
         {gaId && (
           <>
             <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />

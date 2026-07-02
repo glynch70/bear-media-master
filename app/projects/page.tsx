@@ -2,7 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
+import { BreadcrumbSchema } from '@/components/structured-data'
 import { projects } from '@/lib/projects'
+import { createMetadata, siteUrl } from '@/lib/seo'
 
 const additionalProjects = [
   {
@@ -44,40 +46,21 @@ const additionalProjects = [
 ]
 
 export const metadata = {
-  title: 'Projects | Bear Media',
-  description: 'A selection of photography, video, drone and social media work for businesses across Scotland.',
-  openGraph: {
-    title: 'Projects | Bear Media',
-    description: 'A selection of photography, video, drone and social media work for businesses across Scotland.',
-    url: 'https://bear-media.com/projects',
-    siteName: 'Bear Media',
-    images: [
-      {
-        url: 'https://bear-media.com/assets/brand/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Bear Media - Portfolio Projects',
-        type: 'image/jpeg',
-      },
-    ],
-    type: 'website',
-    locale: 'en_GB',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Projects | Bear Media',
-    description: 'A selection of photography, video, drone and social media work for businesses across Scotland.',
-    images: ['https://bear-media.com/assets/brand/og-image.jpg'],
-    creator: '@bearmediascot',
-  },
-  alternates: {
-    canonical: 'https://bear-media.com/projects',
-  },
+  ...createMetadata({
+    title: 'Creative Portfolio Scotland | Bear Media Projects',
+    description: 'Explore Bear Media projects across Scotland, including website design, photography, video, drone content and social media work for real businesses.',
+    path: '/projects',
+    imageAlt: 'Bear Media portfolio projects in Scotland',
+  }),
 }
 
 export default function ProjectsPage() {
   return (
     <main className="w-full min-h-screen bg-background">
+      <BreadcrumbSchema items={[
+        { name: 'Home', url: siteUrl },
+        { name: 'Projects', url: `${siteUrl}/projects` },
+      ]} />
       <Navigation />
 
       <section className="pt-32 md:pt-44 pb-16 md:pb-24 px-6 lg:px-8">

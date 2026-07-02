@@ -169,8 +169,8 @@ export default function ContactPage() {
               </div>
               <div className="relative aspect-square rounded-3xl overflow-hidden bg-muted">
                 <Image
-                  src="/assets/about/garry-portrait-2.png"
-                  alt="Garry Lynch, founder of Bear Media"
+                  src="/05-BTS/garry branding bts.png"
+                  alt="Garry Lynch working on Bear Media branding"
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -339,7 +339,7 @@ export default function ContactPage() {
               What Happens Next
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {steps.map((step, index) => (
+              {steps.map((step) => (
                 <div key={step.number} className="flex flex-col">
                   <div className="w-12 h-12 rounded-full bg-accent text-foreground flex items-center justify-center font-heading text-xl font-medium mb-4">
                     {step.number}
