@@ -9,37 +9,54 @@ const featuredProjects = [
     id: 'cg-developments',
     title: 'C&G Developments',
     image: '/assets/projects/cg-cover.jpg',
-    slug: 'cg-developments',
+    href: '/projects/cg-developments',
   },
   {
     id: 'seamus-corry',
     title: 'Seamus Corry',
     image: '/assets/projects/seamus-portrait.png',
-    slug: 'seamus-corry',
+    href: '/projects/seamus-corry',
   },
   {
     id: 'simply-sheds',
     title: 'Simply Sheds Scotland',
     image: '/assets/projects/sheds-cover.jpg',
-    slug: 'simply-sheds',
+    href: '/projects/simply-sheds',
   },
   {
     id: 'procoat',
     title: 'Procoat Exterior Coatings',
     image: '/assets/projects/procoat-after.png',
-    slug: 'procoat-exterior-coatings', // placeholder slug
+    href: 'https://procoatexteriorcoatings.com/',
+    external: true,
   },
   {
     id: 'mm-compliance',
     title: 'M&M Compliance',
     image: '/assets/projects/mm-compliance-cover.jpg',
-    slug: 'mm-compliance', // placeholder slug
+    href: 'https://mmcts.co.uk/',
+    external: true,
   },
   {
     id: 'colins-canines',
     title: 'Colin’s Canines',
     image: '/assets/projects/colin-canines-cover.jpg',
-    slug: 'colins-canines', // placeholder slug
+    href: 'https://www.facebook.com/colinscanines/',
+    external: true,
+  },
+  {
+    id: 'herb-soul',
+    title: 'Herb & Soul',
+    image: '/assets/websites/herb-soul.png',
+    href: 'https://herbandsoul.uk/',
+    external: true,
+  },
+  {
+    id: 'almond-vet',
+    title: 'Almond Vet Care',
+    image: '/assets/websites/almond-vet.png',
+    href: 'https://www.almondvetcare.co.uk/',
+    external: true,
   },
 ]
 
@@ -84,13 +101,9 @@ export default function FeaturedProjects() {
           ref={containerRef}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
         >
-          {featuredProjects.map((project, index) => (
-            <Link 
-              key={project.id} 
-              href={`/projects/${project.slug}`} 
-              className="project-card group flex flex-col h-full opacity-0 translate-y-6 data-[state=visible]:opacity-100 data-[state=visible]:translate-y-0 transition-all duration-700"
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
+          {featuredProjects.map((project, index) => {
+            const CardContent = (
+              <>
               <div className="relative w-full aspect-[4/5] rounded-2xl md:rounded-3xl overflow-hidden bg-muted flex-shrink-0">
                 <Image
                   src={project.image}
@@ -104,8 +117,29 @@ export default function FeaturedProjects() {
               <h3 className="font-heading text-lg md:text-xl font-medium text-foreground mt-4 md:mt-5 line-clamp-1 group-hover:text-accent transition-colors">
                 {project.title}
               </h3>
-            </Link>
-          ))}
+              </>
+            )
+
+            const className = 'project-card group flex flex-col h-full opacity-0 translate-y-6 data-[state=visible]:opacity-100 data-[state=visible]:translate-y-0 transition-all duration-700'
+            const style = { transitionDelay: `${index * 100}ms` }
+
+            return project.external ? (
+              <a
+                key={project.id}
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={className}
+                style={style}
+              >
+                {CardContent}
+              </a>
+            ) : (
+              <Link key={project.id} href={project.href} className={className} style={style}>
+                {CardContent}
+              </Link>
+            )
+          })}
         </div>
       </div>
     </section>

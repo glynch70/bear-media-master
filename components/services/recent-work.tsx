@@ -1,6 +1,95 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { projects } from '@/lib/projects'
+
+type WorkItem = {
+  title: string
+  description: string
+  image: string
+  href: string
+  external?: boolean
+}
+
+const recentWork: Record<string, WorkItem[]> = {
+  'social-media': [
+    {
+      title: 'C&G Developments',
+      description: 'Drone-led build content for social channels.',
+      image: '/03-PROJECTS/:cg-developments/drone roof.png',
+      href: '/projects/cg-developments',
+    },
+    {
+      title: 'Simply Sheds Scotland',
+      description: 'On-site install content with a clear product focus.',
+      image: '/03-PROJECTS/:simply-sheds/at work.2.png',
+      href: '/projects/simply-sheds',
+    },
+    {
+      title: 'Procoat Exterior Coatings',
+      description: 'Transformation content for exterior home upgrades.',
+      image: '/03-PROJECTS/:procoat/procoat promo/Procoat Exterior Coatings-Cover.jpg',
+      href: 'https://procoatexteriorcoatings.com/',
+      external: true,
+    },
+  ],
+  'website-design': [
+    {
+      title: 'Herb & Soul',
+      description: 'A calm website for herbalism and nature connection.',
+      image: '/assets/websites/herb-soul.png',
+      href: 'https://herbandsoul.uk/',
+      external: true,
+    },
+    {
+      title: 'Almond Vet Care',
+      description: 'A warm launch site for an independent vet practice.',
+      image: '/assets/websites/almond-vet.png',
+      href: 'https://www.almondvetcare.co.uk/',
+      external: true,
+    },
+    {
+      title: 'Managing What Matters',
+      description: 'A clear website for practical manager training.',
+      image: '/assets/websites/managing-what-matters.png',
+      href: 'https://managingwhatmatters.co.uk/',
+      external: true,
+    },
+  ],
+  photography: [
+    {
+      title: 'C&G Developments',
+      description: 'Property photography and drone visuals.',
+      image: '/assets/projects/cg-newbuild.png',
+      href: '/projects/cg-developments',
+    },
+    {
+      title: 'Seamus Corry',
+      description: 'Natural brand portraits for a training consultant.',
+      image: '/assets/projects/seamus-portrait.png',
+      href: '/projects/seamus-corry',
+    },
+    {
+      title: 'Simply Sheds Scotland',
+      description: 'Product and installation photography.',
+      image: '/assets/projects/sheds-feature.png',
+      href: '/projects/simply-sheds',
+    },
+  ],
+  drone: [
+    {
+      title: 'C&G Developments',
+      description: 'Aerial views showing scale and progress.',
+      image: '/03-PROJECTS/:cg-developments/drone new build.png',
+      href: '/projects/cg-developments',
+    },
+    {
+      title: 'Simply Sheds Scotland',
+      description: 'Overhead content for garden building installs.',
+      image: '/assets/projects/sheds-overhead.png',
+      href: '/projects/simply-sheds',
+    },
+  ],
+  ai: [],
+}
 
 export function RecentWork({
   title,
@@ -9,17 +98,7 @@ export function RecentWork({
   title: string
   serviceType: 'social-media' | 'website-design' | 'photography' | 'drone' | 'ai'
 }) {
-  // Map service types to relevant projects
-  const projectMap: Record<string, string[]> = {
-    'social-media': ['simply-sheds', 'cg-developments'],
-    'website-design': ['seamus-corry', 'cg-developments'],
-    'photography': ['cg-developments', 'seamus-corry', 'simply-sheds'],
-    'drone': ['cg-developments', 'simply-sheds'],
-    'ai': ['seamus-corry'],
-  }
-
-  const projectSlugs = projectMap[serviceType] || []
-  const recentProjects = projects.filter((p) => projectSlugs.includes(p.slug))
+  const recentProjects = recentWork[serviceType] || []
 
   if (recentProjects.length === 0) return null
 
@@ -35,16 +114,13 @@ export function RecentWork({
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {recentProjects.slice(0, 3).map((project) => (
-            <Link
-              key={project.slug}
-              href={`/projects/${project.slug}`}
-              className="group flex flex-col gap-4"
-            >
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {recentProjects.map((project) => {
+            const CardContent = (
+              <>
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-muted">
                 <Image
-                  src={project.heroImage}
+                  src={project.image}
                   alt={project.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -58,12 +134,29 @@ export function RecentWork({
                 </h4>
                 <p className="text-sm text-muted-foreground mt-1">{project.description}</p>
                 <p className="inline-flex items-center gap-2 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors mt-3 group-hover:gap-3">
-                  View case study
+                  View work
                   <span aria-hidden="true">→</span>
                 </p>
               </div>
-            </Link>
-          ))}
+              </>
+            )
+
+            return project.external ? (
+              <a
+                key={project.title}
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col gap-4"
+              >
+                {CardContent}
+              </a>
+            ) : (
+              <Link key={project.title} href={project.href} className="group flex flex-col gap-4">
+                {CardContent}
+              </Link>
+            )
+          })}
         </div>
       </div>
     </section>

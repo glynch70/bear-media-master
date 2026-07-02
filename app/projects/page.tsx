@@ -4,6 +4,45 @@ import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import { projects } from '@/lib/projects'
 
+const additionalProjects = [
+  {
+    name: 'Procoat Exterior Coatings',
+    services: 'Photography · Video · Social',
+    image: '/03-PROJECTS/:procoat/procoat promo/Procoat Exterior Coatings-Cover.jpg',
+    href: 'https://procoatexteriorcoatings.com/',
+  },
+  {
+    name: 'M&M Compliance',
+    services: 'Training · Photography · Website',
+    image: '/assets/projects/mm-compliance-cover.jpg',
+    href: 'https://mmcts.co.uk/',
+  },
+  {
+    name: 'Colin’s Canines',
+    services: 'Brand Content · Social',
+    image: '/assets/projects/colin-canines-cover.jpg',
+    href: 'https://www.facebook.com/colinscanines/',
+  },
+  {
+    name: 'Herb & Soul',
+    services: 'Website · Brand Presence',
+    image: '/assets/websites/herb-soul.png',
+    href: 'https://herbandsoul.uk/',
+  },
+  {
+    name: 'Almond Vet Care',
+    services: 'Website · Launch Content',
+    image: '/assets/websites/almond-vet.png',
+    href: 'https://www.almondvetcare.co.uk/',
+  },
+  {
+    name: 'Robertsons Transport',
+    services: 'Website · Local Business',
+    image: '/assets/websites/robertsons-transport.png',
+    href: 'https://rt-ltd.uk/',
+  },
+]
+
 export const metadata = {
   title: 'Projects | Bear Media',
   description: 'A selection of photography, video, drone and social media work for businesses across Scotland.',
@@ -129,11 +168,15 @@ export default function ProjectsPage() {
           <h2 className="font-heading text-3xl md:text-4xl font-medium mb-12 tracking-tight">
             Additional projects
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {[
-              { name: 'Procoat Exterior Coatings', services: 'Photography · Video · Social', image: '/assets/projects/procoat.png' },
-            ].map((item) => (
-              <div key={item.name} className="group">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {additionalProjects.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+              >
                 <div className="relative aspect-[4/3] rounded-2xl md:rounded-3xl overflow-hidden bg-muted mb-4">
                   <Image
                     src={item.image}
@@ -148,7 +191,7 @@ export default function ProjectsPage() {
                   {item.name}
                 </h3>
                 <p className="text-sm text-muted-foreground">{item.services}</p>
-              </div>
+              </a>
             ))}
           </div>
         </div>
