@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Carousel, CarouselItem } from '@/components/carousel'
+import { trustedClientLinks } from '@/lib/trusted-client-links'
 
 const testimonials = [
   {
@@ -28,7 +29,7 @@ const testimonials = [
     title: 'Training Consultant',
     image: '/assets/testimonials/seamus.png',
     initials: 'SC',
-    projectUrl: '/projects/seamus-corry',
+    projectUrl: trustedClientLinks.seamusCorry,
   },
   {
     quote: 'Professional, efficient and genuinely invested in getting the right results. Exactly what our business needed.',

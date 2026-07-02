@@ -1,3 +1,5 @@
+import { getTrustedClientAriaLabel, getTrustedClientLink } from '@/lib/trusted-client-links'
+
 const businesses = [
   { name: 'C&G Developments', category: 'Construction & Property' },
   { name: 'Seamus Corry', category: 'Personal Brand' },
@@ -29,12 +31,31 @@ export default function Businesses() {
               key={business.name}
               className="group flex flex-col justify-center bg-background px-7 py-9 md:px-9 md:py-12 transition-colors duration-300 hover:bg-secondary"
             >
-              <span className="text-xs font-medium text-accent uppercase tracking-[0.18em] mb-3">
-                {business.category}
-              </span>
-              <span className="font-heading text-xl md:text-2xl font-medium tracking-tight text-foreground">
-                {business.name}
-              </span>
+              {getTrustedClientLink(business.name) ? (
+                <a
+                  href={getTrustedClientLink(business.name)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={getTrustedClientAriaLabel(business.name)}
+                  className="-m-3 flex min-h-28 flex-col justify-center rounded-2xl p-3 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                >
+                  <span className="text-xs font-medium text-accent uppercase tracking-[0.18em] mb-3">
+                    {business.category}
+                  </span>
+                  <span className="font-heading text-xl md:text-2xl font-medium tracking-tight text-foreground">
+                    {business.name}
+                  </span>
+                </a>
+              ) : (
+                <>
+                  <span className="text-xs font-medium text-accent uppercase tracking-[0.18em] mb-3">
+                    {business.category}
+                  </span>
+                  <span className="font-heading text-xl md:text-2xl font-medium tracking-tight text-foreground">
+                    {business.name}
+                  </span>
+                </>
+              )}
             </li>
           ))}
           {/* Closing card */}

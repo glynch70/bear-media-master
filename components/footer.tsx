@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, Mail, MapPin, AtSign } from 'lucide-react'
+import { getTrustedClientAriaLabel, trustedClientLinks } from '@/lib/trusted-client-links'
 
 function FacebookIcon({ className }: { className?: string }) {
   return (
@@ -49,10 +50,10 @@ export default function Footer() {
   ]
 
   const trustedClients = [
-    { name: 'C&G Developments', logo: '/07- CLIENT LOGOS/c&g.png' },
-    { name: 'Simply Sheds Scotland', logo: '/07- CLIENT LOGOS/simply sheds.png' },
-    { name: 'Master Chefs', logo: '/07- CLIENT LOGOS/master chefs.png' },
-    { name: 'Seamus Corry', logo: '/07- CLIENT LOGOS/seamus.png' },
+    { name: 'C&G Developments', logo: '/07- CLIENT LOGOS/c&g.png', href: trustedClientLinks.cgDevelopments },
+    { name: 'Simply Sheds Scotland', logo: '/07- CLIENT LOGOS/simply sheds.png', href: trustedClientLinks.simplySheds },
+    { name: 'Master Chefs', logo: '/07- CLIENT LOGOS/master chefs.png', href: trustedClientLinks.masterChefs },
+    { name: 'Seamus Corry', logo: '/07- CLIENT LOGOS/seamus.png', href: trustedClientLinks.seamusCorry },
   ]
 
   return (
@@ -74,9 +75,13 @@ export default function Footer() {
           </p>
           <div className="grid grid-cols-2 items-center gap-3 rounded-3xl bg-white p-3 ring-1 ring-border/70 sm:grid-cols-4 sm:gap-4 sm:p-4">
             {trustedClients.map((client) => (
-              <div
+              <a
                 key={client.name}
-                className="relative flex h-24 items-center justify-center rounded-2xl px-5 py-4 transition-colors duration-300 hover:bg-secondary sm:h-28 md:h-32"
+                href={client.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={getTrustedClientAriaLabel(client.name)}
+                className="group relative flex h-24 items-center justify-center rounded-2xl px-5 py-4 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:h-28 md:h-32"
               >
                 <Image
                   src={client.logo}
@@ -84,10 +89,10 @@ export default function Footer() {
                   height={88}
                   width={180}
                   sizes="(max-width: 640px) 45vw, 180px"
-                  className="max-h-16 w-auto object-contain opacity-75 transition-all duration-300 hover:scale-[1.03] hover:opacity-100 sm:max-h-20 md:max-h-24"
+                  className="max-h-16 w-auto object-contain opacity-75 transition-all duration-300 group-hover:scale-[1.03] group-hover:opacity-100 sm:max-h-20 md:max-h-24"
                   loading="lazy"
                 />
-              </div>
+              </a>
             ))}
           </div>
         </div>

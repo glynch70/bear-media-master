@@ -3,25 +3,29 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useRef } from 'react'
+import { getTrustedClientAriaLabel, trustedClientLinks } from '@/lib/trusted-client-links'
 
 const featuredProjects = [
   {
     id: 'cg-developments',
     title: 'C&G Developments',
     image: '/assets/projects/cg-cover.jpg',
-    href: '/projects/cg-developments',
+    href: trustedClientLinks.cgDevelopments,
+    external: true,
   },
   {
     id: 'seamus-corry',
     title: 'Seamus Corry',
     image: '/assets/projects/seamus-portrait.png',
-    href: '/projects/seamus-corry',
+    href: trustedClientLinks.seamusCorry,
+    external: true,
   },
   {
     id: 'simply-sheds',
     title: 'Simply Sheds Scotland',
     image: '/assets/projects/sheds-cover.jpg',
-    href: '/projects/simply-sheds',
+    href: trustedClientLinks.simplySheds,
+    external: true,
   },
   {
     id: 'procoat',
@@ -129,6 +133,7 @@ export default function FeaturedProjects() {
                 href={project.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={getTrustedClientAriaLabel(project.title)}
                 className={className}
                 style={style}
               >

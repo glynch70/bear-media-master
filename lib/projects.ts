@@ -1,3 +1,5 @@
+import { trustedClientLinks } from './trusted-client-links'
+
 export type Project = {
   id: number
   slug: string
@@ -49,7 +51,7 @@ export const projects: Project[] = [
       'YouTube channel with regular property showcase videos',
       'Increased online visibility and customer inquiries',
     ],
-    websiteUrl: 'https://cgdevelopments.co.uk',
+    websiteUrl: trustedClientLinks.cgDevelopments,
     testimonial: {
       quote:
         'Garry made the whole process easy. The drone footage and photography completely changed how we show our developments.',
@@ -87,7 +89,7 @@ export const projects: Project[] = [
       'Increased professional inquiries and opportunities',
       'Authentic personal brand that builds trust',
     ],
-    websiteUrl: 'https://seamuscorry.com',
+    websiteUrl: trustedClientLinks.seamusCorry,
     testimonial: {
       quote:
         'Working with Bear Media gave my personal brand real consistency. Genuine, professional and a pleasure to work with.',
@@ -128,7 +130,7 @@ export const projects: Project[] = [
       'Increased customer inquiries from social content',
       'Consistent brand presence across all platforms',
     ],
-    websiteUrl: 'https://simplyshedsscotland.com',
+    websiteUrl: trustedClientLinks.simplySheds,
     testimonial: {
       quote:
         'Our social media and YouTube have come alive. Garry just gets what small businesses need and delivers it.',

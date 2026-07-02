@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { Carousel, CarouselItem } from '@/components/carousel'
+import { getTrustedClientAriaLabel, trustedClientLinks } from '@/lib/trusted-client-links'
 
 // Portfolio data structure - fully data-driven
 type SocialMediaPortfolioItem = {
@@ -36,18 +37,18 @@ const socialMediaPortfolio: SocialMediaPortfolioItem[] = [
     id: 4,
     title: 'From This → To This',
     image: '/services/social media/From This → To This.png',
-    projectUrl: '/projects/cg-developments',
+    projectUrl: trustedClientLinks.cgDevelopments,
     instagramUrl: 'https://www.instagram.com/reel/DYReaNnjSy_/',
-    websiteUrl: 'https://cgdevelopments.co.uk',
+    websiteUrl: trustedClientLinks.cgDevelopments,
     featured: true,
   },
   {
     id: 5,
     title: 'Before & After Roof',
     image: '/services/social media/Before & After Roof.png',
-    projectUrl: '/projects/cg-developments',
+    projectUrl: trustedClientLinks.cgDevelopments,
     instagramUrl: 'https://www.instagram.com/reel/DP1LDahASxS/',
-    websiteUrl: 'https://cgdevelopments.co.uk',
+    websiteUrl: trustedClientLinks.cgDevelopments,
     featured: true,
   },
   {
@@ -115,6 +116,9 @@ export function SocialMediaCarousel() {
                 {item.projectUrl && (
                   <a
                     href={item.projectUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={getTrustedClientAriaLabel('C&G Developments')}
                     className="inline-flex items-center gap-2 px-4 py-2.5 bg-secondary hover:bg-secondary/80 rounded-full text-sm font-medium text-foreground transition-colors"
                   >
                     <span aria-hidden="true">📄</span>

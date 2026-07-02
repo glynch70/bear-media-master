@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { useRef, useState, useCallback } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { getTrustedClientAriaLabel, trustedClientLinks } from '@/lib/trusted-client-links'
 
 function BeforeAfterSlider({
   beforeSrc,
@@ -175,12 +176,18 @@ export default function TransformationStories() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-20 md:mb-32">
           <div className="order-1">
             {/* Browser frame */}
-            <div className="rounded-2xl overflow-hidden bg-card shadow-xl ring-1 ring-border">
+            <a
+              href={trustedClientLinks.seamusCorry}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={getTrustedClientAriaLabel('Seamus Corry')}
+              className="group block rounded-2xl overflow-hidden bg-card shadow-xl ring-1 ring-border transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            >
               <div className="flex items-center gap-1.5 px-4 py-3 bg-secondary border-b border-border">
                 <span className="h-2.5 w-2.5 rounded-full bg-foreground/15" />
                 <span className="h-2.5 w-2.5 rounded-full bg-foreground/15" />
                 <span className="h-2.5 w-2.5 rounded-full bg-foreground/15" />
-                <span className="ml-3 text-[11px] text-foreground/40 font-light">seamuscorry.com</span>
+                <span className="ml-3 text-[11px] text-foreground/40 font-light">seamuscorry.co.uk</span>
               </div>
               <div className="relative aspect-[4/3] bg-muted">
                 <Image
@@ -188,10 +195,10 @@ export default function TransformationStories() {
                   alt="Seamus Corry personal brand website designed by Bear Media"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover object-top"
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
                 />
               </div>
-            </div>
+            </a>
           </div>
           <div className="order-2">
             <p className="text-xs font-medium uppercase tracking-[0.15em] text-foreground/40 mb-3">
@@ -224,7 +231,13 @@ export default function TransformationStories() {
             />
           </div>
           <div className="order-1 lg:order-2">
-            <div className="grid grid-cols-2 gap-3 md:gap-4">
+            <a
+              href={trustedClientLinks.cgDevelopments}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={getTrustedClientAriaLabel('C&G Developments')}
+              className="group grid grid-cols-2 gap-3 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent md:gap-4"
+            >
               {[
                 { src: '/assets/projects/cg-newbuild.png', alt: 'C&G new build home exterior' },
                 { src: '/assets/projects/cg-drone-roof.png', alt: 'C&G drone shot of new roof' },
@@ -237,11 +250,11 @@ export default function TransformationStories() {
                     alt={img.alt}
                     fill
                     sizes="(max-width: 1024px) 50vw, 25vw"
-                    className="object-cover"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                 </div>
               ))}
-            </div>
+            </a>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
+import { getTrustedClientAriaLabel, trustedClientLinks } from '@/lib/trusted-client-links'
 
 type Website = {
   name: string
@@ -13,7 +14,7 @@ const websites: Website[] = [
     name: 'Seamus Corry',
     category: 'Personal brand',
     image: '/assets/websites/seamus-corry.png',
-    url: 'https://seamuscorry.co.uk/',
+    url: trustedClientLinks.seamusCorry,
   },
   {
     name: 'Herb & Soul',
@@ -67,8 +68,8 @@ export default function WebsitesShowcase() {
               href={site.url}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={getTrustedClientAriaLabel(site.name)}
               className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-background"
-              aria-label={`Visit ${site.name} website`}
             >
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-muted shadow-sm transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-xl md:rounded-3xl">
                 <Image

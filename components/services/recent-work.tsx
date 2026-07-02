@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { getTrustedClientAriaLabel, trustedClientLinks } from '@/lib/trusted-client-links'
 
 type WorkItem = {
   title: string
@@ -15,13 +16,15 @@ const recentWork: Record<string, WorkItem[]> = {
       title: 'C&G Developments',
       description: 'Drone-led build content for social channels.',
       image: '/03-PROJECTS/:cg-developments/drone roof.png',
-      href: '/projects/cg-developments',
+      href: trustedClientLinks.cgDevelopments,
+      external: true,
     },
     {
       title: 'Simply Sheds Scotland',
       description: 'On-site install content with a clear product focus.',
       image: '/03-PROJECTS/:simply-sheds/at work.2.png',
-      href: '/projects/simply-sheds',
+      href: trustedClientLinks.simplySheds,
+      external: true,
     },
     {
       title: 'Procoat Exterior Coatings',
@@ -59,19 +62,22 @@ const recentWork: Record<string, WorkItem[]> = {
       title: 'C&G Developments',
       description: 'Property photography and drone visuals.',
       image: '/assets/projects/cg-newbuild.png',
-      href: '/projects/cg-developments',
+      href: trustedClientLinks.cgDevelopments,
+      external: true,
     },
     {
       title: 'Seamus Corry',
       description: 'Natural brand portraits for a training consultant.',
       image: '/assets/projects/seamus-portrait.png',
-      href: '/projects/seamus-corry',
+      href: trustedClientLinks.seamusCorry,
+      external: true,
     },
     {
       title: 'Simply Sheds Scotland',
       description: 'Product and installation photography.',
       image: '/assets/projects/sheds-feature.png',
-      href: '/projects/simply-sheds',
+      href: trustedClientLinks.simplySheds,
+      external: true,
     },
   ],
   drone: [
@@ -79,13 +85,15 @@ const recentWork: Record<string, WorkItem[]> = {
       title: 'C&G Developments',
       description: 'Aerial views showing scale and progress.',
       image: '/03-PROJECTS/:cg-developments/drone new build.png',
-      href: '/projects/cg-developments',
+      href: trustedClientLinks.cgDevelopments,
+      external: true,
     },
     {
       title: 'Simply Sheds Scotland',
       description: 'Overhead content for garden building installs.',
       image: '/assets/projects/sheds-overhead.png',
-      href: '/projects/simply-sheds',
+      href: trustedClientLinks.simplySheds,
+      external: true,
     },
   ],
   ai: [],
@@ -147,12 +155,13 @@ export function RecentWork({
                 href={project.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col gap-4"
+                aria-label={getTrustedClientAriaLabel(project.title)}
+                className="group flex flex-col gap-4 transition-transform duration-300 hover:-translate-y-1"
               >
                 {CardContent}
               </a>
             ) : (
-              <Link key={project.title} href={project.href} className="group flex flex-col gap-4">
+              <Link key={project.title} href={project.href} className="group flex flex-col gap-4 transition-transform duration-300 hover:-translate-y-1">
                 {CardContent}
               </Link>
             )
