@@ -7,9 +7,10 @@ interface CarouselProps {
   children: ReactNode
   title?: string
   subtitle?: string
+  showControls?: boolean
 }
 
-export function Carousel({ children, title, subtitle }: CarouselProps) {
+export function Carousel({ children, title, subtitle, showControls = false }: CarouselProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const [canScrollLeft, setCanScrollLeft] = useState(false)
   const [canScrollRight, setCanScrollRight] = useState(true)
@@ -46,7 +47,7 @@ export function Carousel({ children, title, subtitle }: CarouselProps) {
 
   return (
     <div className="w-full bg-transparent">
-      {(title || subtitle) && (
+      {(title || subtitle || showControls) && (
         <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-10 md:mb-12 flex items-end justify-between gap-6">
           <div>
             {title && (
@@ -57,8 +58,7 @@ export function Carousel({ children, title, subtitle }: CarouselProps) {
             {subtitle && <p className="text-lg text-muted-foreground text-pretty">{subtitle}</p>}
           </div>
 
-          {/* Desktop nav arrows */}
-          <div className="hidden lg:flex items-center gap-3 shrink-0 pb-1">
+          <div className={`${showControls ? 'flex' : 'hidden lg:flex'} items-center gap-3 shrink-0 pb-1`}>
             <button
               type="button"
               onClick={() => scrollByCards('left')}

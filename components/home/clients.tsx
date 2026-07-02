@@ -63,21 +63,13 @@ function ClientCard({ client }: { client: Client }) {
 export default function Clients() {
   return (
     <section className="w-full overflow-hidden bg-background py-16 md:py-24 lg:py-28">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-10 md:mb-14">
-        <span className="inline-block text-xs md:text-sm font-medium text-accent uppercase tracking-[0.2em] mb-3">
-          Trusted Partners
-        </span>
-        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-foreground text-balance mb-3">
-          Businesses I've Helped
-        </h2>
-        <p className="text-lg text-muted-foreground text-pretty max-w-2xl">
-          A final layer of social proof from brands, trades and local businesses across Scotland.
-        </p>
-      </div>
-
-      <Carousel>
+      <Carousel
+        title="Businesses I've Helped"
+        subtitle="A final layer of social proof from brands, trades and local businesses across Scotland."
+        showControls
+      >
         {clientsData.map((client) => (
-          <CarouselItem key={client.name} widthClassName="w-[82vw] sm:w-80 md:w-[24rem] lg:w-[26rem] flex-shrink-0 pt-2 pb-8">
+          <CarouselItem key={client.name} widthClassName="w-[calc(100vw-3rem)] sm:w-80 md:w-[24rem] lg:w-[26rem] flex-shrink-0 pt-2 pb-8">
             <ClientCard client={client} />
           </CarouselItem>
         ))}
