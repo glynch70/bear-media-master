@@ -76,7 +76,7 @@ export default function StoryTwo() {
                   alt={service.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   style={{
                     objectFit: service.objectFit || 'cover',
                     objectPosition: service.objectPosition || 'center',

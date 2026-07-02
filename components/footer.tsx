@@ -67,20 +67,25 @@ export default function Footer() {
       </div>
 
       {/* Trusted Partners Strip */}
-      <div className="border-b border-border">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
+      <div className="border-b border-border bg-background">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10 md:py-12">
           <p className="text-center text-xs font-medium text-muted-foreground uppercase tracking-wider mb-6">
             Trusted by Businesses Across Scotland
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8">
+          <div className="grid grid-cols-2 items-center gap-3 rounded-3xl bg-white p-3 ring-1 ring-border/70 sm:grid-cols-4 sm:gap-4 sm:p-4">
             {trustedClients.map((client) => (
-              <div key={client.name} className="h-10 sm:h-12 relative flex-shrink-0">
+              <div
+                key={client.name}
+                className="relative flex h-24 items-center justify-center rounded-2xl px-5 py-4 transition-colors duration-300 hover:bg-secondary sm:h-28 md:h-32"
+              >
                 <Image
                   src={client.logo}
                   alt={client.name}
-                  height={48}
-                  width={120}
-                  className="h-full w-auto object-contain opacity-60 hover:opacity-100 transition-opacity"
+                  height={88}
+                  width={180}
+                  sizes="(max-width: 640px) 45vw, 180px"
+                  className="max-h-16 w-auto object-contain opacity-75 transition-all duration-300 hover:scale-[1.03] hover:opacity-100 sm:max-h-20 md:max-h-24"
+                  loading="lazy"
                 />
               </div>
             ))}

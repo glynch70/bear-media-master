@@ -17,8 +17,8 @@ export default function CTA() {
       </video>
 
       {/* Layered overlays for depth + legibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-black/60" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.4)_100%)] opacity-20" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/32 via-black/22 to-black/42" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_42%,rgba(0,0,0,0.34)_100%)] opacity-15" />
       {/* Subtle Bear Media gold accent glow */}
       <div
         className="absolute -top-1/3 left-1/2 -translate-x-1/2 w-[120%] h-[80%] opacity-30 blur-3xl pointer-events-none"
@@ -42,7 +42,7 @@ export default function CTA() {
         <div className="mt-11 flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center bg-accent text-accent-foreground px-10 py-4 rounded-full font-medium hover:opacity-90 transition-all hover:scale-[1.03] text-lg shadow-lg shadow-black/20"
+          className="inline-flex items-center justify-center bg-accent text-accent-foreground px-10 py-4 rounded-full font-medium hover:opacity-90 transition-all hover:scale-[1.03] text-lg shadow-lg shadow-black/20"
           >
             Start A Project
           </Link>

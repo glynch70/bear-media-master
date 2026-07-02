@@ -41,7 +41,7 @@ export default function ProjectsPage() {
     <main className="w-full min-h-screen bg-background">
       <Navigation />
 
-      <section className="pt-32 md:pt-44 pb-20 md:pb-28 px-6 lg:px-8">
+      <section className="pt-32 md:pt-44 pb-16 md:pb-24 px-6 lg:px-8">
         <div className="max-w-2xl mx-auto">
           <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.05] tracking-tight text-balance mb-8">
             Real Businesses. Real Content. Real Results.
@@ -55,7 +55,7 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <section className="w-full bg-background pb-24 md:pb-32">
+      <section className="w-full bg-background pb-20 md:pb-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="space-y-16 md:space-y-28">
             {projects.map((project, index) => (
@@ -65,12 +65,13 @@ export default function ProjectsPage() {
                     index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
                   }`}
                 >
-                  <div className="w-full lg:w-3/5 relative aspect-[4/3] rounded-3xl overflow-hidden bg-muted">
+                  <div className="w-full lg:w-3/5 relative aspect-[4/3] rounded-2xl md:rounded-3xl overflow-hidden bg-muted">
                     <Image
                       src={project.heroImage || "/placeholder.svg"}
                       alt={project.title}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      sizes="(max-width: 1024px) 100vw, 60vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                     />
                   </div>
 
@@ -123,7 +124,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* More Client Projects */}
-      <section className="w-full bg-background py-20 md:py-28 px-6 lg:px-8">
+      <section className="w-full bg-background py-16 md:py-24 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="font-heading text-3xl md:text-4xl font-medium mb-12 tracking-tight">
             Additional projects
@@ -133,13 +134,14 @@ export default function ProjectsPage() {
               { name: 'Procoat Exterior Coatings', services: 'Photography · Video · Social', image: '/assets/projects/procoat.png' },
             ].map((item) => (
               <div key={item.name} className="group">
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-muted mb-4">
+                <div className="relative aspect-[4/3] rounded-2xl md:rounded-3xl overflow-hidden bg-muted mb-4">
                   <Image
                     src={item.image}
                     alt={item.name}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    loading="lazy"
                   />
                 </div>
                 <h3 className="font-heading text-lg md:text-xl font-medium tracking-tight mb-2">

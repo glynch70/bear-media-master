@@ -1,130 +1,86 @@
 'use client'
 
 import Image from 'next/image'
-import useEmblaCarousel from 'embla-carousel-react'
-import Autoplay from 'embla-carousel-autoplay'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { useCallback } from 'react'
+import { Carousel, CarouselItem } from '@/components/carousel'
 
 type Client = {
   name: string
-  category: string
   logo: string
+  sector: string
+  href: string
 }
 
 const clientsData: Client[] = [
-  { name: 'Procoat Exterior Coatings', category: 'Exterior Coatings', logo: '/07- CLIENT LOGOS/procoat.png' },
-  { name: 'Plean Pharmacy', category: 'Pharmacy', logo: '/07- CLIENT LOGOS/plean pharmacy.png' },
-  { name: 'C&G Developments', category: 'Construction', logo: '/07- CLIENT LOGOS/c&g.png' },
-  { name: 'Sage House Therapy', category: 'Property', logo: '/07- CLIENT LOGOS/sage house.png' },
-  { name: 'Almond Vet Care', category: 'Veterinary', logo: '/07- CLIENT LOGOS/almond vet.png' },
-  { name: 'M&M Compliance', category: 'Training', logo: '/07- CLIENT LOGOS/m&mcompliance.png' },
-  { name: 'Colin’s Canines', category: 'Dog Training', logo: '/07- CLIENT LOGOS/colin canines.png' },
-  { name: 'Simply Sheds Scotland', category: 'Retail & Product', logo: '/07- CLIENT LOGOS/simply sheds.png' },
-  { name: 'Seamus Corry', category: 'Personal Brand', logo: '/07- CLIENT LOGOS/seamus.png' },
-  { name: 'Master Chefs', category: 'Hospitality', logo: '/07- CLIENT LOGOS/master chefs.png' },
-  { name: 'Muirhouse Medical Group', category: 'Healthcare', logo: '/07- CLIENT LOGOS/muirhouse.png' },
-  { name: 'K Lewis Joinery', category: 'Construction', logo: '/07- CLIENT LOGOS/klewis.png' },
-  { name: 'Johnstone & Robertson', category: 'Property', logo: '/07- CLIENT LOGOS/johnstone&robertson.png' },
-  { name: 'We Buy Any Home', category: 'Property', logo: '/07- CLIENT LOGOS/webuyanyhome.png' },
-  { name: 'The PYP', category: 'Community', logo: '/07- CLIENT LOGOS/the pyp.png' },
+  { name: 'Procoat Exterior Coatings', sector: 'Home Improvement', logo: '/07- CLIENT LOGOS/procoat.png', href: 'https://procoatexteriorcoatings.com/' },
+  { name: 'Plean Pharmacy', sector: 'Pharmacy', logo: '/07- CLIENT LOGOS/plean pharmacy.png', href: 'https://www.pleanpharmacy.co.uk/' },
+  { name: 'C&G Developments', sector: 'Construction & Property', logo: '/07- CLIENT LOGOS/c&g.png', href: 'https://www.candgdevelopment.co.uk/' },
+  { name: 'Sage House Therapy', sector: 'Therapy & Wellness', logo: '/07- CLIENT LOGOS/sage house.png', href: 'https://sagehousetherapy.com/' },
+  { name: 'Almond Vet Care', sector: 'Veterinary Healthcare', logo: '/07- CLIENT LOGOS/almond vet.png', href: 'https://www.almondvetcare.co.uk/' },
+  { name: 'M&M Compliance', sector: 'Training & Compliance', logo: '/07- CLIENT LOGOS/m&mcompliance.png', href: 'https://mmcts.co.uk/' },
+  { name: 'Colin’s Canines', sector: 'Dog Training', logo: '/07- CLIENT LOGOS/colin canines.png', href: 'https://www.facebook.com/colinscanines/' },
+  { name: 'Simply Sheds Scotland', sector: 'Retail & Product', logo: '/07- CLIENT LOGOS/simply sheds.png', href: 'https://simplyshedsscotland.com/' },
+  { name: 'Seamus Corry', sector: 'Wellbeing & Training', logo: '/07- CLIENT LOGOS/seamus.png', href: 'https://seamuscorry.co.uk/' },
+  { name: 'Master Chefs', sector: 'Hospitality', logo: '/07- CLIENT LOGOS/master chefs.png', href: 'https://www.masterchefsgb.co.uk/' },
+  { name: 'Muirhouse Medical Group', sector: 'Healthcare', logo: '/07- CLIENT LOGOS/muirhouse.png', href: 'https://www.muirhousemedicalgroup.co.uk/' },
+  { name: 'K Lewis Joinery', sector: 'Construction', logo: '/07- CLIENT LOGOS/klewis.png', href: 'https://www.facebook.com/klewisjoinery/' },
+  { name: 'Johnstone & Robertson', sector: 'Property', logo: '/07- CLIENT LOGOS/johnstone&robertson.png', href: 'https://johnstoneandrobertson.co.uk/' },
+  { name: 'We Buy Any Home', sector: 'Property', logo: '/07- CLIENT LOGOS/webuyanyhome.png', href: 'https://www.webuyanyhome.com/' },
+  { name: 'The PYP', sector: 'Coaching & Wellbeing', logo: '/07- CLIENT LOGOS/the pyp.png', href: 'https://www.seamuscorry.co.uk/' },
 ]
 
 function ClientCard({ client }: { client: Client }) {
   return (
-    <article className="h-[15.5rem] md:h-64 rounded-2xl md:rounded-3xl bg-background p-6 md:p-7 shadow-sm ring-1 ring-border/15 flex flex-col justify-between overflow-hidden">
-      <div className="relative w-full h-24 md:h-28 rounded-2xl bg-white ring-1 ring-border/10 flex items-center justify-center">
-        <Image
-          src={client.logo}
-          alt={client.name + ' logo'}
-          fill
-          sizes="(max-width: 640px) 80vw, (max-width: 1024px) 33vw, 25vw"
-          className="object-contain p-4 md:p-5"
-          loading="lazy"
-        />
+    <a
+      href={client.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex h-full min-h-[19rem] flex-col items-center justify-between rounded-2xl bg-background p-7 text-center shadow-sm ring-1 ring-border/15 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:ring-foreground/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent md:min-h-[21rem] md:rounded-3xl md:p-9"
+      aria-label={`Visit ${client.name} website`}
+    >
+      <div className="flex flex-1 items-center justify-center py-5">
+        <div className="relative h-32 w-52 transition-transform duration-500 group-hover:scale-[1.03] md:h-40 md:w-64">
+          <Image
+            src={client.logo}
+            alt={`${client.name} logo`}
+            fill
+            sizes="(max-width: 768px) 208px, 256px"
+            className="object-contain"
+            loading="lazy"
+          />
+        </div>
       </div>
-      <div>
-        <h3 className="font-heading text-xl md:text-2xl font-medium tracking-tight text-foreground text-balance">
+      <div className="border-t border-border/60 pt-5">
+        <h3 className="font-heading text-lg font-medium tracking-tight text-foreground md:text-xl">
           {client.name}
         </h3>
-        <p className="mt-2 text-xs md:text-sm font-medium uppercase tracking-[0.18em] text-accent">
-          {client.category}
-        </p>
+        <p className="mt-2 text-sm text-muted-foreground">{client.sector}</p>
       </div>
-    </article>
+    </a>
   )
 }
 
 export default function Clients() {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    {
-      loop: true,
-      align: 'start',
-      dragFree: false,
-      skipSnaps: false,
-    },
-    [Autoplay({ delay: 3500, stopOnInteraction: false, stopOnMouseEnter: true })]
-  )
-
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev()
-  }, [emblaApi])
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext()
-  }, [emblaApi])
-
   return (
-    <section className="w-full bg-background py-20 md:py-24 lg:py-32 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="mb-12 md:mb-16 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
-          <div className="max-w-2xl text-center sm:text-left">
-            <span className="inline-block text-xs md:text-sm font-medium text-accent uppercase tracking-[0.2em] mb-2 md:mb-3">
-              Trusted Partners
-            </span>
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-foreground text-balance">
-              Businesses I've Helped
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground text-pretty">
-              A final layer of social proof from brands, trades and local businesses across Scotland.
-            </p>
-          </div>
-
-          <div className="flex items-center justify-center sm:justify-end gap-3 shrink-0">
-            <button
-              type="button"
-              onClick={scrollPrev}
-              className="flex items-center justify-center w-11 h-11 rounded-full border border-border text-foreground bg-background hover:bg-foreground hover:text-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-              aria-label="Previous clients"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              type="button"
-              onClick={scrollNext}
-              className="flex items-center justify-center w-11 h-11 rounded-full border border-border text-foreground bg-background hover:bg-foreground hover:text-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-              aria-label="Next clients"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-
-        <div className="relative -mx-6 px-6 lg:mx-0 lg:px-0">
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex -ml-4 md:-ml-5">
-              {clientsData.map((client, index) => (
-                <div
-                  key={client.name + '-' + index}
-                  className="min-w-0 flex-[0_0_100%] pl-4 sm:flex-[0_0_50%] md:flex-[0_0_33.333%] md:pl-5 lg:flex-[0_0_25%]"
-                >
-                  <ClientCard client={client} />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+    <section className="w-full overflow-hidden bg-background py-16 md:py-24 lg:py-28">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-10 md:mb-14">
+        <span className="inline-block text-xs md:text-sm font-medium text-accent uppercase tracking-[0.2em] mb-3">
+          Trusted Partners
+        </span>
+        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-foreground text-balance mb-3">
+          Businesses I've Helped
+        </h2>
+        <p className="text-lg text-muted-foreground text-pretty max-w-2xl">
+          A final layer of social proof from brands, trades and local businesses across Scotland.
+        </p>
       </div>
+
+      <Carousel>
+        {clientsData.map((client) => (
+          <CarouselItem key={client.name} widthClassName="w-[82vw] sm:w-80 md:w-[24rem] lg:w-[26rem] flex-shrink-0 pt-2 pb-8">
+            <ClientCard client={client} />
+          </CarouselItem>
+        ))}
+      </Carousel>
     </section>
   )
 }

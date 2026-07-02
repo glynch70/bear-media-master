@@ -49,8 +49,8 @@ function AvatarFallback({ initials, name }: { initials: string; name: string }) 
   ]
   const colorIndex = name.charCodeAt(0) % colors.length
   return (
-    <div className={`${colors[colorIndex]} w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center flex-shrink-0`}>
-      <span className="text-white font-semibold text-sm md:text-base">{initials}</span>
+    <div className={`${colors[colorIndex]} w-24 h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center flex-shrink-0`}>
+      <span className="text-white font-semibold text-base md:text-lg">{initials}</span>
     </div>
   )
 }
@@ -63,12 +63,12 @@ function TestimonialPortrait({ image, author, initials }: { image: string; autho
   }
 
   return (
-    <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden bg-background shrink-0 ring-1 ring-border/20 shadow-sm">
+    <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden bg-background shrink-0 ring-1 ring-border/20 shadow-sm">
       <Image
         src={image}
         alt={author}
         fill
-        sizes="(max-width: 768px) 80px, 96px"
+        sizes="(max-width: 768px) 96px, 112px"
         className="object-cover"
         onError={() => setImageError(true)}
       />
@@ -78,8 +78,8 @@ function TestimonialPortrait({ image, author, initials }: { image: string; autho
 
 export default function Testimonials() {
   return (
-    <section className="w-full bg-secondary py-20 md:py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-12 md:mb-16">
+    <section className="w-full bg-secondary py-16 md:py-24 lg:py-28">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-10 md:mb-14">
         <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-foreground text-balance mb-3">
           What clients say.
         </h2>
@@ -89,21 +89,17 @@ export default function Testimonials() {
       </div>
       <Carousel>
         {testimonials.map((t) => (
-          <CarouselItem key={t.author} widthClassName="w-[85vw] sm:w-80 md:w-[24rem] lg:w-[26rem] flex-shrink-0 pt-2 pb-6">
-            <figure className="flex flex-col h-full rounded-2xl md:rounded-3xl bg-background p-8 md:p-10 shadow-sm ring-1 ring-border/10 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-              
-              {/* Portrait image */}
-              <div className="flex mb-6 md:mb-8">
+          <CarouselItem key={t.author} widthClassName="w-[84vw] sm:w-80 md:w-[24rem] lg:w-[26rem] flex-shrink-0 pt-2 pb-8">
+            <figure className="flex h-full min-h-[28rem] flex-col rounded-2xl bg-background p-7 shadow-sm ring-1 ring-border/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:min-h-[30rem] md:rounded-3xl md:p-9">
+              <div className="flex mb-7 md:mb-8">
                 <TestimonialPortrait image={t.image} author={t.author} initials={t.initials} />
               </div>
 
-              {/* Quote */}
-              <blockquote className="font-heading text-lg md:text-xl font-medium leading-relaxed text-foreground flex-1 mb-6 md:mb-8 text-pretty">
+              <blockquote className="font-heading text-lg md:text-xl font-medium leading-[1.45] text-foreground flex-1 mb-7 md:mb-8 text-pretty">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
 
-              {/* Author details */}
-              <figcaption className="border-t border-border/40 pt-5">
+              <figcaption className="border-t border-border/50 pt-5">
                 <p className="font-semibold text-base text-foreground">{t.author}</p>
                 <p className="text-sm text-muted-foreground mt-1">
                   {t.title}

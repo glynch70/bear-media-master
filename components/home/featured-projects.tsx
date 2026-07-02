@@ -69,7 +69,7 @@ export default function FeaturedProjects() {
   }, [])
 
   return (
-    <section className="w-full bg-background py-20 md:py-24 lg:py-32">
+    <section className="w-full bg-background py-16 md:py-24 lg:py-28">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="mb-12 md:mb-16">
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-foreground text-balance mb-3">
@@ -82,7 +82,7 @@ export default function FeaturedProjects() {
 
         <div 
           ref={containerRef}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
         >
           {featuredProjects.map((project, index) => (
             <Link 
@@ -91,13 +91,14 @@ export default function FeaturedProjects() {
               className="project-card group flex flex-col h-full opacity-0 translate-y-6 data-[state=visible]:opacity-100 data-[state=visible]:translate-y-0 transition-all duration-700"
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="relative w-full aspect-[4/5] rounded-xl md:rounded-2xl overflow-hidden bg-muted flex-shrink-0">
+              <div className="relative w-full aspect-[4/5] rounded-2xl md:rounded-3xl overflow-hidden bg-muted flex-shrink-0">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  loading={index < 3 ? 'eager' : 'lazy'}
                 />
               </div>
               <h3 className="font-heading text-lg md:text-xl font-medium text-foreground mt-4 md:mt-5 line-clamp-1 group-hover:text-accent transition-colors">

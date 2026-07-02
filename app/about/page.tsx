@@ -1,35 +1,7 @@
-'use client'
-
-import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
-
-
-function TestimonialAvatar({
-  image,
-  author,
-  initials,
-}: {
-  image: string
-  author: string
-  initials: string
-}) {
-  const [imageError, setImageError] = useState(false)
-  if (imageError) return <AvatarFallback initials={initials} name={author} />
-  return (
-    <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
-      <Image
-        src={image}
-        alt={author}
-        fill
-        className="object-cover"
-        onError={() => setImageError(true)}
-      />
-    </div>
-  )
-}
 
 // ---------------------------------------------------------------------------
 // Page
@@ -146,7 +118,7 @@ export default function AboutPage() {
                     alt="Garry Lynch, Founder of Bear Media"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                 </div>
                 <div className="p-8 flex-1 flex flex-col">
@@ -171,7 +143,7 @@ export default function AboutPage() {
                     alt="Rory, Head of Security at Bear Media"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                 </div>
                 <div className="p-8 flex-1 flex flex-col">
@@ -194,7 +166,7 @@ export default function AboutPage() {
                     alt="Lola, Head of Snacks and Treat Procurement at Bear Media"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                 </div>
                 <div className="p-8 flex-1 flex flex-col">

@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { Check } from 'lucide-react'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
+import { ProjectImageGallery } from '@/components/projects/project-image-gallery'
 import { getProject, getRelatedProjects, projects } from '@/lib/projects'
 
 export function generateStaticParams() {
@@ -67,21 +68,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
       {/* Image gallery - large, image first */}
       <section className="w-full bg-background pb-4">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-4 md:space-y-6">
-          <div className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden bg-muted">
-            <Image src={project.images[1] || project.heroImage} alt={`${project.title} work`} fill className="object-cover" />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            {project.images.slice(2).map((image, idx) => (
-              <div key={idx} className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-muted">
-                <Image src={image || "/placeholder.svg"} alt={`${project.title} detail ${idx + 1}`} fill className="object-cover" />
-              </div>
-            ))}
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-muted">
-              <Image src={project.images[0] || "/placeholder.svg"} alt={`${project.title} overview`} fill className="object-cover" />
-            </div>
-          </div>
-        </div>
+        <ProjectImageGallery title={project.title} heroImage={project.heroImage} images={project.images} />
       </section>
 
       {/* Approach */}
@@ -129,7 +116,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                       src={rp.heroImage || "/placeholder.svg"}
                       alt={rp.title}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                     />
                   </div>
                   <p className="text-sm font-medium text-accent uppercase tracking-[0.15em] mb-2">{rp.category}</p>

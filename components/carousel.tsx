@@ -45,7 +45,7 @@ export function Carousel({ children, title, subtitle }: CarouselProps) {
   }
 
   return (
-    <div className="w-full bg-background">
+    <div className="w-full bg-transparent">
       {(title || subtitle) && (
         <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-10 md:mb-12 flex items-end justify-between gap-6">
           <div>

@@ -84,7 +84,7 @@ export function SocialMediaCarousel() {
                 alt={item.title}
                 fill
                 sizes="(max-width: 640px) 80vw, (max-width: 1024px) 22rem, 24rem"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 loading="lazy"
               />
               
