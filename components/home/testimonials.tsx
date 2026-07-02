@@ -50,7 +50,7 @@ function AvatarFallback({ initials, name }: { initials: string; name: string }) 
   ]
   const colorIndex = name.charCodeAt(0) % colors.length
   return (
-    <div className={`${colors[colorIndex]} w-24 h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center flex-shrink-0`}>
+    <div className={`${colors[colorIndex]} w-28 h-28 md:w-32 md:h-32 rounded-[22px] flex items-center justify-center flex-shrink-0`}>
       <span className="text-white font-semibold text-base md:text-lg">{initials}</span>
     </div>
   )
@@ -64,12 +64,12 @@ function TestimonialPortrait({ image, author, initials }: { image: string; autho
   }
 
   return (
-    <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden bg-background shrink-0 ring-1 ring-border/20 shadow-sm">
+    <div className="relative w-28 h-28 md:w-32 md:h-32 overflow-hidden rounded-[22px] bg-background shrink-0 ring-1 ring-border/20 shadow-sm">
       <Image
         src={image}
         alt={author}
         fill
-        sizes="(max-width: 768px) 96px, 112px"
+        sizes="(max-width: 768px) 112px, 128px"
         className="object-cover"
         onError={() => setImageError(true)}
       />
