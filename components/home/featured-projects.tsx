@@ -1,8 +1,9 @@
 'use client'
 
+import Link from 'next/link'
 import { Carousel, CarouselItem } from '@/components/carousel'
 import { ProjectImageCarousel } from '@/components/project-image-carousel'
-import { getTrustedClientAriaLabel, trustedClientLinks } from '@/lib/trusted-client-links'
+import { getTrustedClientAriaLabel } from '@/lib/trusted-client-links'
 
 const featuredProjects = [
   {
@@ -32,7 +33,7 @@ const featuredProjects = [
         alt: 'C&G Developments team brand content',
       },
     ],
-    href: trustedClientLinks.cgDevelopments,
+    href: '/projects/cg-developments',
   },
   {
     id: 'seamus-corry',
@@ -61,7 +62,7 @@ const featuredProjects = [
         alt: 'Seamus Corry rebrand creative',
       },
     ],
-    href: trustedClientLinks.seamusCorry,
+    href: '/projects/seamus-corry',
   },
   {
     id: 'simply-sheds',
@@ -90,7 +91,7 @@ const featuredProjects = [
         alt: 'Completed shed build by Simply Sheds Scotland',
       },
     ],
-    href: trustedClientLinks.simplySheds,
+    href: '/projects/simply-sheds',
   },
   {
     id: 'procoat',
@@ -103,7 +104,7 @@ const featuredProjects = [
         alt: 'Procoat Exterior Coatings project content',
       },
     ],
-    href: 'https://procoatexteriorcoatings.com/',
+    href: '/projects/procoat-exterior-coatings',
   },
   {
     id: 'mm-compliance',
@@ -132,7 +133,7 @@ const featuredProjects = [
         alt: 'M&M Compliance exterior business photography',
       },
     ],
-    href: 'https://mmcts.co.uk/',
+    href: '/projects/mm-compliance',
   },
   {
     id: 'colins-canines',
@@ -161,7 +162,7 @@ const featuredProjects = [
         alt: 'Colin’s Canines advert creative',
       },
     ],
-    href: 'https://www.facebook.com/colinscanines/',
+    href: '/projects/colins-canines',
   },
   {
     id: 'herb-soul',
@@ -174,7 +175,7 @@ const featuredProjects = [
         alt: 'Herb & Soul website design by Bear Media',
       },
     ],
-    href: 'https://herbandsoul.uk/',
+    href: '/projects/herb-soul',
   },
   {
     id: 'almond-vet',
@@ -187,7 +188,7 @@ const featuredProjects = [
         alt: 'Almond Vet Care website design by Bear Media',
       },
     ],
-    href: 'https://www.almondvetcare.co.uk/',
+    href: '/projects/almond-vet-care',
   },
 ]
 
@@ -204,10 +205,8 @@ export default function FeaturedProjects() {
             key={project.id}
             widthClassName="w-[calc(100vw-3rem)] sm:w-80 md:w-[24rem] lg:w-[26rem] flex-shrink-0 pt-2 pb-8"
           >
-            <a
+            <Link
               href={project.href}
-              target="_blank"
-              rel="noopener noreferrer"
               aria-label={getTrustedClientAriaLabel(project.title)}
               className="group flex h-full flex-col transition-all duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-background"
             >
@@ -228,7 +227,7 @@ export default function FeaturedProjects() {
                   ))}
                 </div>
               </div>
-            </a>
+            </Link>
           </CarouselItem>
         ))}
       </Carousel>

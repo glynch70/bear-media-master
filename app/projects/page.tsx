@@ -6,45 +6,6 @@ import { BreadcrumbSchema } from '@/components/structured-data'
 import { projects } from '@/lib/projects'
 import { createMetadata, siteUrl } from '@/lib/seo'
 
-const additionalProjects = [
-  {
-    name: 'Procoat Exterior Coatings',
-    services: 'Photography · Video · Social',
-    image: '/03-PROJECTS/:procoat/procoat promo/Procoat Exterior Coatings-Cover.jpg',
-    href: 'https://procoatexteriorcoatings.com/',
-  },
-  {
-    name: 'M&M Compliance',
-    services: 'Training · Photography · Website',
-    image: '/assets/projects/mm-compliance-cover.jpg',
-    href: 'https://mmcts.co.uk/',
-  },
-  {
-    name: 'Colin’s Canines',
-    services: 'Brand Content · Social',
-    image: '/assets/projects/colin-canines-cover.jpg',
-    href: 'https://www.facebook.com/colinscanines/',
-  },
-  {
-    name: 'Herb & Soul',
-    services: 'Website · Brand Presence',
-    image: '/assets/websites/herb-soul.png',
-    href: 'https://herbandsoul.uk/',
-  },
-  {
-    name: 'Almond Vet Care',
-    services: 'Website · Launch Content',
-    image: '/assets/websites/almond-vet.png',
-    href: 'https://www.almondvetcare.co.uk/',
-  },
-  {
-    name: 'Robertsons Transport',
-    services: 'Website · Local Business',
-    image: '/assets/websites/robertsons-transport.png',
-    href: 'https://rt-ltd.uk/',
-  },
-]
-
 export const metadata = {
   ...createMetadata({
     title: 'Creative Portfolio Scotland | Bear Media Projects',
@@ -101,7 +62,7 @@ export default function ProjectsPage() {
                     <div>
                       <p className="text-sm font-medium text-accent uppercase tracking-[0.15em]">{project.category}</p>
                       <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium leading-tight tracking-tight">
-                        {project.title}
+                        {project.clientName}
                       </h2>
                     </div>
                     <p className="text-lg text-muted-foreground leading-relaxed">{project.description}</p>
@@ -125,56 +86,10 @@ export default function ProjectsPage() {
                         View case study
                         <span aria-hidden="true">&rarr;</span>
                       </p>
-                      {project.websiteUrl && (
-                        <a
-                          href={project.websiteUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-foreground/60 hover:text-foreground font-medium transition-colors text-sm"
-                        >
-                          Visit Website
-                          <span aria-hidden="true">↗</span>
-                        </a>
-                      )}
                     </div>
                   </div>
                 </div>
               </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* More Client Projects */}
-      <section className="w-full bg-background py-16 md:py-24 px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="font-heading text-3xl md:text-4xl font-medium mb-12 tracking-tight">
-            Additional projects
-          </h2>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {additionalProjects.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-background"
-              >
-                <div className="relative aspect-[4/3] rounded-2xl md:rounded-3xl overflow-hidden bg-muted mb-4">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                    loading="lazy"
-                  />
-                </div>
-                <h3 className="font-heading text-lg md:text-xl font-medium tracking-tight mb-2">
-                  {item.name}
-                </h3>
-                <p className="text-sm text-muted-foreground">{item.services}</p>
-              </a>
             ))}
           </div>
         </div>
