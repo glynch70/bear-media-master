@@ -1,6 +1,7 @@
 'use client'
 
-import { ReactNode, useRef, useEffect, useState } from 'react'
+import { ReactNode, useCallback, useEffect, useState } from 'react'
+import useEmblaCarousel from 'embla-carousel-react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 interface CarouselProps {
@@ -11,39 +12,37 @@ interface CarouselProps {
 }
 
 export function Carousel({ children, title, subtitle, showControls = false }: CarouselProps) {
-  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: 'start',
+    containScroll: 'trimSnaps',
+    dragFree: false,
+  })
   const [canScrollLeft, setCanScrollLeft] = useState(false)
-  const [canScrollRight, setCanScrollRight] = useState(true)
+  const [canScrollRight, setCanScrollRight] = useState(false)
 
-  const handleScroll = () => {
-    if (!scrollContainerRef.current) return
+  const updateScrollState = useCallback(() => {
+    if (!emblaApi) return
 
-    const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current
-    setCanScrollLeft(scrollLeft > 8)
-    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 8)
-  }
+    setCanScrollLeft(emblaApi.canScrollPrev())
+    setCanScrollRight(emblaApi.canScrollNext())
+  }, [emblaApi])
 
   useEffect(() => {
-    const container = scrollContainerRef.current
-    if (!container) return
+    if (!emblaApi) return
 
-    container.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
-    window.addEventListener('resize', handleScroll)
+    const frame = requestAnimationFrame(updateScrollState)
+    emblaApi.on('select', updateScrollState)
+    emblaApi.on('reInit', updateScrollState)
 
     return () => {
-      container.removeEventListener('scroll', handleScroll)
-      window.removeEventListener('resize', handleScroll)
+      cancelAnimationFrame(frame)
+      emblaApi.off('select', updateScrollState)
+      emblaApi.off('reInit', updateScrollState)
     }
-  }, [])
+  }, [emblaApi, updateScrollState])
 
-  const scrollByCards = (direction: 'left' | 'right') => {
-    const container = scrollContainerRef.current
-    if (!container) return
-    // Scroll by ~85% of the visible width for a natural paged feel
-    const amount = container.clientWidth * 0.85
-    container.scrollBy({ left: direction === 'left' ? -amount : amount, behavior: 'smooth' })
-  }
+  const scrollPrevious = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
 
   return (
     <div className="w-full bg-transparent">
@@ -61,7 +60,7 @@ export function Carousel({ children, title, subtitle, showControls = false }: Ca
           <div className={`${showControls ? 'flex' : 'hidden lg:flex'} items-center gap-3 shrink-0 pb-1`}>
             <button
               type="button"
-              onClick={() => scrollByCards('left')}
+              onClick={scrollPrevious}
               disabled={!canScrollLeft}
               aria-label="Previous"
               className="flex items-center justify-center w-11 h-11 rounded-full border border-foreground/15 text-foreground transition-all duration-200 hover:bg-foreground hover:text-background disabled:opacity-30 disabled:pointer-events-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
@@ -70,7 +69,7 @@ export function Carousel({ children, title, subtitle, showControls = false }: Ca
             </button>
             <button
               type="button"
-              onClick={() => scrollByCards('right')}
+              onClick={scrollNext}
               disabled={!canScrollRight}
               aria-label="Next"
               className="flex items-center justify-center w-11 h-11 rounded-full border border-foreground/15 text-foreground transition-all duration-200 hover:bg-foreground hover:text-background disabled:opacity-30 disabled:pointer-events-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
@@ -87,22 +86,11 @@ export function Carousel({ children, title, subtitle, showControls = false }: Ca
           <div className="absolute right-0 top-0 bottom-0 w-10 md:w-16 bg-gradient-to-l from-background to-transparent pointer-events-none z-10" />
         )}
 
-        {/* Scrollable container */}
         <div
-          ref={scrollContainerRef}
-          className="overflow-x-auto scroll-smooth"
-          style={{
-            scrollBehavior: 'smooth',
-            scrollbarWidth: 'none',
-            msOverflowStyle: 'none',
-          }}
+          ref={emblaRef}
+          className="overflow-hidden"
         >
-          <style>{`
-            div::-webkit-scrollbar {
-              display: none;
-            }
-          `}</style>
-          <div className="flex gap-5 md:gap-6 px-6 lg:px-8 pb-2 snap-x snap-mandatory">
+          <div className="flex gap-5 px-6 pb-2 md:gap-6 lg:px-8">
             {children}
           </div>
         </div>
@@ -124,7 +112,7 @@ export function CarouselItem({
   className = '',
 }: CarouselItemProps) {
   return (
-    <div className={`flex-shrink-0 snap-start ${widthClassName} ${className}`}>
+    <div className={`min-w-0 flex-shrink-0 ${widthClassName} ${className}`}>
       {children}
     </div>
   )
