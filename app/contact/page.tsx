@@ -7,11 +7,12 @@ import Footer from '@/components/footer'
 import { useState, useRef } from 'react'
 import { Phone, Mail, MapPin } from 'lucide-react'
 import Turnstile from 'react-turnstile'
+import type { BoundTurnstileObject } from 'react-turnstile'
 // Note: Metadata for client components must be set via metadata export in layout or through Head component
 // This page uses 'use client' so metadata is handled by route groups or must be moved to a layout
 
 export default function ContactPage() {
-  const turnstileRef = useRef<any>(null)
+  const turnstileRef = useRef<BoundTurnstileObject | null>(null)
   const [formState, setFormState] = useState({
     name: '',
     business: '',
@@ -38,7 +39,11 @@ export default function ContactPage() {
     }))
   }
 
-  const handleTurnstileChange = (token: string) => {
+  const handleTurnstileChange = (token: string, boundTurnstile?: BoundTurnstileObject) => {
+    if (boundTurnstile) {
+      turnstileRef.current = boundTurnstile
+    }
+
     setFormState((prev) => ({
       ...prev,
       turnstileToken: token,
@@ -312,9 +317,8 @@ export default function ContactPage() {
                   />
                   <div className="flex justify-center mb-6">
                     <Turnstile
-                      ref={turnstileRef}
                       sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ''}
-                      onChange={handleTurnstileChange}
+                      onVerify={handleTurnstileChange}
                       theme="light"
                       size="normal"
                     />

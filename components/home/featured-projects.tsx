@@ -1,7 +1,7 @@
 'use client'
 
-import Image from 'next/image'
 import { Carousel, CarouselItem } from '@/components/carousel'
+import { ProjectImageCarousel } from '@/components/project-image-carousel'
 import { getTrustedClientAriaLabel, trustedClientLinks } from '@/lib/trusted-client-links'
 
 const featuredProjects = [
@@ -9,56 +9,184 @@ const featuredProjects = [
     id: 'cg-developments',
     title: 'C&G Developments',
     category: 'Construction & Property',
-    image: '/assets/projects/cg-cover.jpg',
+    tags: ['Drone', 'Photography', 'Social'],
+    images: [
+      {
+        src: '/03-PROJECTS/:cg-developments/drone roof.png',
+        alt: 'Drone roof footage for C&G Developments',
+      },
+      {
+        src: '/03-PROJECTS/:cg-developments/drone new build.png',
+        alt: 'Aerial new build photography for C&G Developments',
+      },
+      {
+        src: '/03-PROJECTS/:cg-developments/new build.png',
+        alt: 'New build property content for C&G Developments',
+      },
+      {
+        src: '/03-PROJECTS/:cg-developments/kitchen.png',
+        alt: 'Kitchen interior photography for C&G Developments',
+      },
+      {
+        src: '/03-PROJECTS/:cg-developments/callum & graeme.png',
+        alt: 'C&G Developments team brand content',
+      },
+    ],
     href: trustedClientLinks.cgDevelopments,
   },
   {
     id: 'seamus-corry',
     title: 'Seamus Corry',
     category: 'Personal Brand',
-    image: '/assets/projects/seamus-portrait.png',
+    tags: ['Brand', 'Video', 'Web'],
+    images: [
+      {
+        src: '/03-PROJECTS/:seamus-corry/seamus portrait.png',
+        alt: 'Seamus Corry personal brand portrait',
+      },
+      {
+        src: '/03-PROJECTS/:seamus-corry/seamus on stage talking.png',
+        alt: 'Seamus Corry speaking on stage',
+      },
+      {
+        src: '/03-PROJECTS/:seamus-corry/seamus delivering training.2.png',
+        alt: 'Seamus Corry delivering training',
+      },
+      {
+        src: '/03-PROJECTS/:seamus-corry/seamus podcasts.png',
+        alt: 'Seamus Corry podcast content',
+      },
+      {
+        src: '/03-PROJECTS/:seamus-corry/seamus rebrand.jpg',
+        alt: 'Seamus Corry rebrand creative',
+      },
+    ],
     href: trustedClientLinks.seamusCorry,
   },
   {
     id: 'simply-sheds',
     title: 'Simply Sheds Scotland',
     category: 'Retail & Product',
-    image: '/assets/projects/sheds-cover.jpg',
+    tags: ['Social', 'Photo', 'Retail'],
+    images: [
+      {
+        src: '/03-PROJECTS/:simply-sheds/at work.2.png',
+        alt: 'Simply Sheds Scotland team at work',
+      },
+      {
+        src: '/03-PROJECTS/:simply-sheds/feature.png',
+        alt: 'Featured shed product for Simply Sheds Scotland',
+      },
+      {
+        src: '/03-PROJECTS/:simply-sheds/happy customer.png',
+        alt: 'Happy Simply Sheds Scotland customer',
+      },
+      {
+        src: '/03-PROJECTS/:simply-sheds/overhead.png',
+        alt: 'Overhead view of Simply Sheds Scotland products',
+      },
+      {
+        src: '/03-PROJECTS/:simply-sheds/shed built.png',
+        alt: 'Completed shed build by Simply Sheds Scotland',
+      },
+    ],
     href: trustedClientLinks.simplySheds,
   },
   {
     id: 'procoat',
     title: 'Procoat Exterior Coatings',
     category: 'Home Improvement',
-    image: '/assets/projects/procoat-after.png',
+    tags: ['Social', 'Photo', 'Design'],
+    images: [
+      {
+        src: '/03-PROJECTS/:procoat/procoat.png',
+        alt: 'Procoat Exterior Coatings project content',
+      },
+    ],
     href: 'https://procoatexteriorcoatings.com/',
   },
   {
     id: 'mm-compliance',
     title: 'M&M Compliance',
     category: 'Training & Compliance',
-    image: '/assets/projects/mm-compliance-cover.jpg',
+    tags: ['Photo', 'Training', 'Brand'],
+    images: [
+      {
+        src: '/03-PROJECTS/:m&mcompliance/classroom.png',
+        alt: 'M&M Compliance classroom training content',
+      },
+      {
+        src: '/03-PROJECTS/:m&mcompliance/f-gas training.png',
+        alt: 'F-gas training photography for M&M Compliance',
+      },
+      {
+        src: '/03-PROJECTS/:m&mcompliance/training equipment.png',
+        alt: 'Training equipment content for M&M Compliance',
+      },
+      {
+        src: '/03-PROJECTS/:m&mcompliance/training room.png',
+        alt: 'M&M Compliance training room photography',
+      },
+      {
+        src: '/03-PROJECTS/:m&mcompliance/exterior.png',
+        alt: 'M&M Compliance exterior business photography',
+      },
+    ],
     href: 'https://mmcts.co.uk/',
   },
   {
     id: 'colins-canines',
     title: 'Colin’s Canines',
     category: 'Dog Training',
-    image: '/assets/projects/colin-canines-cover.jpg',
+    tags: ['Social', 'Photo', 'Brand'],
+    images: [
+      {
+        src: '/03-PROJECTS/:colin-canines/colin and dog.png',
+        alt: 'Colin’s Canines brand photography with client dog',
+      },
+      {
+        src: '/03-PROJECTS/:colin-canines/colin walking.png',
+        alt: 'Colin’s Canines dog walking content',
+      },
+      {
+        src: '/03-PROJECTS/:colin-canines/colin and dogs.png',
+        alt: 'Colin’s Canines dog training photography',
+      },
+      {
+        src: '/03-PROJECTS/:colin-canines/colin van.png',
+        alt: 'Colin’s Canines branded van content',
+      },
+      {
+        src: '/03-PROJECTS/:colin-canines/colin advert.png',
+        alt: 'Colin’s Canines advert creative',
+      },
+    ],
     href: 'https://www.facebook.com/colinscanines/',
   },
   {
     id: 'herb-soul',
     title: 'Herb & Soul',
     category: 'Wellness & Coaching',
-    image: '/assets/websites/herb-soul.png',
+    tags: ['Website', 'Brand'],
+    images: [
+      {
+        src: '/assets/websites/herb-soul.png',
+        alt: 'Herb & Soul website design by Bear Media',
+      },
+    ],
     href: 'https://herbandsoul.uk/',
   },
   {
     id: 'almond-vet',
     title: 'Almond Vet Care',
     category: 'Veterinary Healthcare',
-    image: '/assets/websites/almond-vet.png',
+    tags: ['Website', 'Healthcare'],
+    images: [
+      {
+        src: '/assets/websites/almond-vet.png',
+        alt: 'Almond Vet Care website design by Bear Media',
+      },
+    ],
     href: 'https://www.almondvetcare.co.uk/',
   },
 ]
@@ -83,21 +211,22 @@ export default function FeaturedProjects() {
               aria-label={getTrustedClientAriaLabel(project.title)}
               className="group flex h-full flex-col transition-all duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-background"
             >
-              <div className="relative w-full aspect-[4/5] rounded-2xl md:rounded-3xl overflow-hidden bg-muted flex-shrink-0 shadow-sm transition-shadow duration-300 group-hover:shadow-xl">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 768px) calc(100vw - 3rem), (max-width: 1024px) 24rem, 26rem"
-                  className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  loading={index < 2 ? 'eager' : 'lazy'}
-                />
-              </div>
+              <ProjectImageCarousel images={project.images} title={project.title} eager={index < 2} />
               <div className="mt-4 md:mt-5">
                 <h3 className="font-heading text-lg md:text-xl font-medium text-foreground line-clamp-1 group-hover:text-accent transition-colors">
                   {project.title}
                 </h3>
                 <p className="mt-1 text-sm text-muted-foreground">{project.category}</p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={`${project.id}-${tag}`}
+                      className="rounded-full border border-border/60 bg-background/60 px-2.5 py-1 text-xs font-medium text-muted-foreground"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </a>
           </CarouselItem>
