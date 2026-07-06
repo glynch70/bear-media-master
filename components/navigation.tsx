@@ -3,18 +3,28 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { X } from 'lucide-react'
+import { ChevronDown, X } from 'lucide-react'
 
 const links = [
   { href: '/', label: 'Home' },
   { href: '/projects', label: 'Projects' },
-  { href: '/insights', label: 'Insights' },
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
   { href: '/contact', label: 'Contact' },
 ]
 
 const services = ['Photography', 'Video', 'Drone', 'Websites', 'Social Media']
+
+const serviceMenuItems = [
+  { href: '/services#website-design', label: 'Website Design' },
+  { href: '/services#social-media', label: 'Social Media' },
+  { href: '/services#photography', label: 'Photography' },
+  { href: '/services#photography', label: 'Video Production' },
+  { href: '/services#drone', label: 'Drone Photography' },
+  { label: 'AI & Automation', note: 'Coming Soon' },
+  { divider: true },
+  { href: '/insights', label: 'Journal' },
+] as const
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
@@ -46,6 +56,7 @@ function TikTokIcon({ className }: { className?: string }) {
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const [servicesOpen, setServicesOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
   const isHome = pathname === '/'
@@ -70,6 +81,9 @@ export default function Navigation() {
   const textColor = transparent ? 'text-white' : 'text-foreground'
 
   const desktopLinks = links.filter((l) => l.href !== '/' && l.href !== '/contact')
+  const mobileTopLinks = links.filter((l) => l.href === '/' || l.href === '/projects')
+  const mobileBottomLinks = links.filter((l) => l.href === '/about' || l.href === '/contact')
+  const servicesActive = pathname === '/services' || pathname === '/insights'
 
   return (
     <>
@@ -93,6 +107,63 @@ export default function Navigation() {
           <div className="hidden md:flex items-center gap-8">
             {desktopLinks.map((link) => {
               const isActive = pathname === link.href
+
+              if (link.href === '/services') {
+                return (
+                  <div key={link.href} className="group relative">
+                    <Link
+                      href="/services"
+                      className={`relative inline-flex items-center gap-1.5 text-sm font-medium transition-colors duration-200 ${
+                        servicesActive
+                          ? textColor === 'text-white'
+                            ? 'text-white'
+                            : 'text-accent'
+                          : `${textColor} hover:opacity-70`
+                      }`}
+                      aria-current={pathname === '/services' ? 'page' : undefined}
+                    >
+                      Services
+                      <ChevronDown className="h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180" aria-hidden="true" />
+                      {servicesActive && (
+                        <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent animate-in fade-in duration-300" />
+                      )}
+                    </Link>
+
+                    <div className="absolute left-1/2 top-full z-50 mt-4 w-72 -translate-x-1/2 translate-y-2 rounded-3xl border border-border/80 bg-background/95 p-2 opacity-0 shadow-[0_24px_70px_rgba(0,0,0,0.08)] backdrop-blur-xl transition duration-200 pointer-events-none group-hover:translate-y-0 group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto">
+                      <div className="absolute -top-4 left-0 right-0 h-4" />
+                      {serviceMenuItems.map((item, index) => {
+                        if ('divider' in item) {
+                          return <div key={`divider-${index}`} className="my-2 h-px bg-border" />
+                        }
+
+                        if (!('href' in item)) {
+                          return (
+                            <div key={item.label} className="flex items-center justify-between rounded-2xl px-4 py-3 text-sm text-foreground/40">
+                              <span>{item.label}</span>
+                              <span className="text-[11px] font-medium uppercase tracking-[0.12em]">{item.note}</span>
+                            </div>
+                          )
+                        }
+
+                        const itemActive = item.href === '/insights' && pathname === '/insights'
+                        return (
+                          <Link
+                            key={`${item.href}-${item.label}`}
+                            href={item.href}
+                            className={`block rounded-2xl px-4 py-3 text-sm font-medium transition ${
+                              itemActive ? 'bg-secondary text-accent' : 'text-foreground/72 hover:bg-secondary hover:text-foreground'
+                            }`}
+                            aria-current={itemActive ? 'page' : undefined}
+                          >
+                            {item.label}
+                          </Link>
+                        )
+                      })}
+                    </div>
+                  </div>
+                )
+              }
+
               return (
                 <Link
                   key={link.href}
@@ -172,8 +243,8 @@ export default function Navigation() {
 
           {/* Links */}
           <div className="flex-1 flex flex-col justify-center">
-            <ul className="flex flex-col gap-7">
-              {links.map((link, i) => {
+            <ul className="flex flex-col gap-5">
+              {mobileTopLinks.map((link, i) => {
                 const active = pathname === link.href
                 return (
                   <li
@@ -182,6 +253,108 @@ export default function Navigation() {
                       isOpen ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
                     }`}
                     style={{ transitionDelay: isOpen ? `${120 + i * 60}ms` : '0ms' }}
+                  >
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className="group relative inline-flex items-center gap-4"
+                      aria-current={active ? 'page' : undefined}
+                    >
+                      <span
+                        className={`font-heading text-4xl font-medium tracking-tight transition-colors duration-300 ${
+                          active ? 'text-accent' : 'text-foreground group-hover:text-accent'
+                        }`}
+                      >
+                        {link.label}
+                      </span>
+                      {active && (
+                        <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse" aria-hidden="true" />
+                      )}
+                      {active && (
+                        <span className="absolute -bottom-2 left-0 w-16 h-0.5 bg-accent" aria-hidden="true" />
+                      )}
+                    </Link>
+                  </li>
+                )
+              })}
+              <li
+                className={`transition-all duration-500 ease-out ${
+                  isOpen ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+                }`}
+                style={{ transitionDelay: isOpen ? `${120 + mobileTopLinks.length * 60}ms` : '0ms' }}
+              >
+                <button
+                  type="button"
+                  onClick={() => setServicesOpen((open) => !open)}
+                  className="group relative flex w-full items-center justify-between gap-4 py-1 text-left"
+                  aria-expanded={servicesOpen}
+                  aria-controls="mobile-services-menu"
+                >
+                  <span
+                    className={`font-heading text-4xl font-medium tracking-tight transition-colors duration-300 ${
+                      servicesActive ? 'text-accent' : 'text-foreground group-hover:text-accent'
+                    }`}
+                  >
+                    Services
+                  </span>
+                  <ChevronDown
+                    className={`h-7 w-7 text-foreground/45 transition-transform duration-300 ${
+                      servicesOpen ? 'rotate-180' : ''
+                    }`}
+                    aria-hidden="true"
+                  />
+                </button>
+                <div
+                  id="mobile-services-menu"
+                  className={`grid transition-all duration-300 ${
+                    servicesOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <div className="mt-5 space-y-1 border-l border-foreground/10 pl-5">
+                      {serviceMenuItems.map((item, index) => {
+                        if ('divider' in item) {
+                          return <div key={`mobile-divider-${index}`} className="my-3 h-px bg-foreground/10" />
+                        }
+
+                        if (!('href' in item)) {
+                          return (
+                            <div key={item.label} className="flex min-h-12 items-center justify-between gap-3 rounded-2xl py-2 text-foreground/40">
+                              <span className="text-lg font-medium">{item.label}</span>
+                              <span className="text-[11px] font-medium uppercase tracking-[0.12em]">{item.note}</span>
+                            </div>
+                          )
+                        }
+
+                        const itemActive = item.href === '/insights' && pathname === '/insights'
+                        return (
+                          <Link
+                            key={`mobile-${item.href}-${item.label}`}
+                            href={item.href}
+                            onClick={() => setIsOpen(false)}
+                            className={`flex min-h-12 items-center rounded-2xl text-lg font-medium transition ${
+                              itemActive ? 'text-accent' : 'text-foreground/70 hover:text-accent'
+                            }`}
+                            aria-current={itemActive ? 'page' : undefined}
+                          >
+                            {item.label}
+                          </Link>
+                        )
+                      })}
+                    </div>
+                  </div>
+                </div>
+              </li>
+              {mobileBottomLinks.map((link, i) => {
+                const active = pathname === link.href
+                const delayIndex = mobileTopLinks.length + 1 + i
+                return (
+                  <li
+                    key={link.href}
+                    className={`transition-all duration-500 ease-out ${
+                      isOpen ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+                    }`}
+                    style={{ transitionDelay: isOpen ? `${120 + delayIndex * 60}ms` : '0ms' }}
                   >
                     <Link
                       href={link.href}

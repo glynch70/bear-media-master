@@ -69,7 +69,7 @@ export const insights: InsightArticle[] = [
     readTime: '5 min read',
     author: {
       name: 'Garry Lynch',
-      role: 'Founder, Bear Media',
+      role: 'Founder of Bear Media',
       url: '/about',
     },
     featuredImage: {
@@ -93,7 +93,7 @@ export const insights: InsightArticle[] = [
     readTime: '6 min read',
     author: {
       name: 'Garry Lynch',
-      role: 'Founder, Bear Media',
+      role: 'Founder of Bear Media',
       url: '/about',
     },
     featuredImage: {
@@ -117,7 +117,7 @@ export const insights: InsightArticle[] = [
     readTime: '5 min read',
     author: {
       name: 'Garry Lynch',
-      role: 'Founder, Bear Media',
+      role: 'Founder of Bear Media',
       url: '/about',
     },
     featuredImage: {
@@ -141,7 +141,7 @@ export const insights: InsightArticle[] = [
     readTime: '4 min read',
     author: {
       name: 'Garry Lynch',
-      role: 'Founder, Bear Media',
+      role: 'Founder of Bear Media',
       url: '/about',
     },
     featuredImage: {
@@ -165,7 +165,7 @@ export const insights: InsightArticle[] = [
     readTime: '4 min read',
     author: {
       name: 'Garry Lynch',
-      role: 'Founder, Bear Media',
+      role: 'Founder of Bear Media',
       url: '/about',
     },
     featuredImage: {
@@ -189,7 +189,7 @@ export const insights: InsightArticle[] = [
     readTime: '5 min read',
     author: {
       name: 'Garry Lynch',
-      role: 'Founder, Bear Media',
+      role: 'Founder of Bear Media',
       url: '/about',
     },
     featuredImage: {
