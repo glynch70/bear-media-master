@@ -22,6 +22,11 @@ export function ArticleTemplate({
     month: 'long',
     year: 'numeric',
   }).format(new Date(article.publishedDate))
+  const updated = new Intl.DateTimeFormat('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }).format(new Date(article.modifiedDate))
   const articleUrl = absoluteUrl(`/insights/${article.slug}`)
   const shareText = encodeURIComponent(article.title)
   const shareUrl = encodeURIComponent(articleUrl)
@@ -35,20 +40,21 @@ export function ArticleTemplate({
             className="mb-10 inline-flex items-center gap-2 text-sm font-medium text-foreground/60 transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
           >
             <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-            Back to Insights
+            Back to The Bear Media Journal
           </Link>
           <CategoryBadge category={article.category} />
           <h1 className="mt-6 font-heading text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.03] tracking-tight text-balance">
             {article.title}
           </h1>
-          <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-medium uppercase tracking-[0.12em] text-foreground/45">
-            <time dateTime={article.publishedDate}>{published}</time>
-            <span aria-hidden="true">/</span>
-            <span>{article.readTime}</span>
-            <span aria-hidden="true">/</span>
-            <Link href={article.author.url} className="transition hover:text-foreground">
-              {article.author.name}
-            </Link>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-foreground/58 md:text-lg">
+            Written from my own experience building websites, creating content and using AI with real clients across Scotland.
+          </p>
+          <div className="mt-8 grid gap-3 border-y border-border/70 py-5 text-sm text-foreground/58 sm:grid-cols-2 lg:grid-cols-5">
+            <MetadataItem label="Published" value={published} dateTime={article.publishedDate} />
+            <MetadataItem label="Updated" value={updated} dateTime={article.modifiedDate} />
+            <MetadataItem label="Read time" value={article.readTime} />
+            <MetadataItem label="Category" value={article.category} />
+            <MetadataItem label="Author" value={article.author.name} href={article.author.url} />
           </div>
         </div>
       </section>
@@ -85,14 +91,6 @@ export function ArticleTemplate({
           </article>
 
           <aside className="space-y-8 lg:sticky lg:top-28 lg:self-start">
-            <div className="rounded-3xl border border-border/70 bg-secondary p-6">
-              <p className="font-heading text-xl font-medium tracking-tight">{article.author.name}</p>
-              <p className="mt-1 text-sm font-medium text-accent">{article.author.role}</p>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                Content creator, photographer and website designer based in West Lothian.
-              </p>
-            </div>
-
             <div>
               <p className="text-sm font-medium text-foreground">Share</p>
               <div className="mt-4 flex gap-3 lg:flex-col">
@@ -127,6 +125,25 @@ export function ArticleTemplate({
         </div>
       </section>
 
+      <AuthorSection />
+
+      <section className="bg-background px-6 pb-16 md:pb-24 lg:px-8">
+        <div className="mx-auto max-w-5xl rounded-3xl bg-foreground p-8 text-background md:p-12">
+          <p className="font-heading text-3xl font-medium leading-tight tracking-tight text-balance md:text-5xl">
+            Thinking about improving your website or online presence?
+          </p>
+          <p className="mt-5 text-lg leading-relaxed text-background/70 md:text-xl">
+            Let&apos;s build something great together.
+          </p>
+          <Link
+            href="/contact"
+            className="mt-8 inline-flex items-center justify-center rounded-full bg-accent px-8 py-3.5 text-base font-medium text-accent-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-foreground"
+          >
+            Start a Project
+          </Link>
+        </div>
+      </section>
+
       <section className="border-y border-border/70 bg-secondary px-6 py-12 lg:px-8">
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-2">
           <AdjacentArticleLink label="Previous" article={previousArticle} direction="previous" />
@@ -140,7 +157,7 @@ export function ArticleTemplate({
             <div className="mb-10 max-w-2xl">
               <p className="text-sm font-medium uppercase tracking-[0.16em] text-accent">Related Articles</p>
               <h2 className="mt-3 font-heading text-4xl font-medium tracking-tight md:text-5xl">
-                Continue reading
+                You Might Also Like
               </h2>
             </div>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -152,6 +169,66 @@ export function ArticleTemplate({
         </section>
       )}
     </>
+  )
+}
+
+function MetadataItem({
+  label,
+  value,
+  href,
+  dateTime,
+}: {
+  label: string
+  value: string
+  href?: string
+  dateTime?: string
+}) {
+  return (
+    <div>
+      <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-foreground/38">{label}</p>
+      {href ? (
+        <Link href={href} className="mt-1 block font-medium text-foreground/68 transition hover:text-foreground">
+          {value}
+        </Link>
+      ) : dateTime ? (
+        <time dateTime={dateTime} className="mt-1 block font-medium text-foreground/68">
+          {value}
+        </time>
+      ) : (
+        <p className="mt-1 font-medium text-foreground/68">{value}</p>
+      )}
+    </div>
+  )
+}
+
+function AuthorSection() {
+  return (
+    <section className="bg-background px-6 pb-14 lg:px-8">
+      <div className="mx-auto max-w-5xl rounded-3xl border border-border/70 bg-secondary p-8 md:p-10">
+        <p className="text-sm font-medium uppercase tracking-[0.16em] text-accent">About Garry Lynch</p>
+        <h2 className="mt-4 font-heading text-3xl font-medium tracking-tight md:text-4xl">
+          Founder of Bear Media.
+        </h2>
+        <div className="mt-5 max-w-2xl space-y-3 text-lg leading-relaxed text-muted-foreground">
+          <p>I build websites, create content and help Scottish businesses use AI without the jargon.</p>
+          <p>Working across Edinburgh, Fife and West Lothian.</p>
+        </div>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Link
+            href="/projects"
+            className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
+          >
+            View Projects
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center rounded-full border border-foreground/15 px-6 py-3 text-sm font-medium text-foreground transition hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
+          >
+            Contact
+          </Link>
+        </div>
+      </div>
+    </section>
   )
 }
 

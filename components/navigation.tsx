@@ -21,9 +21,7 @@ const serviceMenuItems = [
   { href: '/services#photography', label: 'Photography' },
   { href: '/services#photography', label: 'Video Production' },
   { href: '/services#drone', label: 'Drone Photography' },
-  { label: 'AI & Automation', note: 'Coming Soon' },
-  { divider: true },
-  { href: '/insights', label: 'Journal' },
+  { href: '/insights', label: 'The Bear Media Journal' },
 ] as const
 
 function InstagramIcon({ className }: { className?: string }) {
@@ -131,20 +129,7 @@ export default function Navigation() {
 
                     <div className="absolute left-1/2 top-full z-50 mt-4 w-72 -translate-x-1/2 translate-y-2 rounded-3xl border border-border/80 bg-background/95 p-2 opacity-0 shadow-[0_24px_70px_rgba(0,0,0,0.08)] backdrop-blur-xl transition duration-200 pointer-events-none group-hover:translate-y-0 group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto">
                       <div className="absolute -top-4 left-0 right-0 h-4" />
-                      {serviceMenuItems.map((item, index) => {
-                        if ('divider' in item) {
-                          return <div key={`divider-${index}`} className="my-2 h-px bg-border" />
-                        }
-
-                        if (!('href' in item)) {
-                          return (
-                            <div key={item.label} className="flex items-center justify-between rounded-2xl px-4 py-3 text-sm text-foreground/40">
-                              <span>{item.label}</span>
-                              <span className="text-[11px] font-medium uppercase tracking-[0.12em]">{item.note}</span>
-                            </div>
-                          )
-                        }
-
+                      {serviceMenuItems.map((item) => {
                         const itemActive = item.href === '/insights' && pathname === '/insights'
                         return (
                           <Link
@@ -312,20 +297,7 @@ export default function Navigation() {
                 >
                   <div className="overflow-hidden">
                     <div className="mt-5 space-y-1 border-l border-foreground/10 pl-5">
-                      {serviceMenuItems.map((item, index) => {
-                        if ('divider' in item) {
-                          return <div key={`mobile-divider-${index}`} className="my-3 h-px bg-foreground/10" />
-                        }
-
-                        if (!('href' in item)) {
-                          return (
-                            <div key={item.label} className="flex min-h-12 items-center justify-between gap-3 rounded-2xl py-2 text-foreground/40">
-                              <span className="text-lg font-medium">{item.label}</span>
-                              <span className="text-[11px] font-medium uppercase tracking-[0.12em]">{item.note}</span>
-                            </div>
-                          )
-                        }
-
+                      {serviceMenuItems.map((item) => {
                         const itemActive = item.href === '/insights' && pathname === '/insights'
                         return (
                           <Link

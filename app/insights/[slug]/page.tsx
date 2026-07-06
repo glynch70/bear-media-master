@@ -52,7 +52,7 @@ export default async function InsightArticlePage({ params }: { params: Promise<{
     <main className="w-full min-h-screen bg-background">
       <BreadcrumbSchema items={[
         { name: 'Home', url: siteUrl },
-        { name: 'Insights', url: `${siteUrl}/insights` },
+        { name: 'The Bear Media Journal', url: `${siteUrl}/insights` },
         { name: article.title, url: articleUrl },
       ]} />
       <ArticleSchema

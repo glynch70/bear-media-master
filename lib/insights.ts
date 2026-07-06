@@ -1,11 +1,11 @@
 export const insightCategories = [
-  'Website Design',
   'AI',
-  'Content Creation',
+  'Website Design',
   'Photography',
   'Video',
   'Drone',
-  'Social Media',
+  'Marketing',
+  'Behind the Scenes',
   'Business',
 ] as const
 
@@ -58,7 +58,7 @@ export const insights: InsightArticle[] = [
   {
     slug: 'building-websites-with-codex',
     title: "How I'm Building Websites with Codex",
-    metaTitle: "How I'm Building Websites with Codex | Bear Media Insights",
+    metaTitle: "How I'm Building Websites with Codex | The Bear Media Journal",
     metaDescription:
       'A practical Bear Media article placeholder for building websites with Codex, AI workflows and modern web production.',
     excerpt:
@@ -82,7 +82,7 @@ export const insights: InsightArticle[] = [
   {
     slug: 'claude-code-vs-codex',
     title: 'Claude Code vs Codex',
-    metaTitle: 'Claude Code vs Codex | Bear Media Insights',
+    metaTitle: 'Claude Code vs Codex | The Bear Media Journal',
     metaDescription:
       'A Bear Media comparison placeholder for Claude Code, Codex and practical AI coding workflows.',
     excerpt:
@@ -106,7 +106,7 @@ export const insights: InsightArticle[] = [
   {
     slug: 'building-better-websites-with-ai',
     title: 'Building Better Websites with AI',
-    metaTitle: 'Building Better Websites with AI | Bear Media Insights',
+    metaTitle: 'Building Better Websites with AI | The Bear Media Journal',
     metaDescription:
       'A Bear Media article placeholder about using AI to improve website planning, content and performance.',
     excerpt:
@@ -130,7 +130,7 @@ export const insights: InsightArticle[] = [
   {
     slug: 'why-every-small-business-still-needs-a-website',
     title: 'Why Every Small Business Still Needs a Website',
-    metaTitle: 'Why Every Small Business Still Needs a Website | Bear Media Insights',
+    metaTitle: 'Why Every Small Business Still Needs a Website | The Bear Media Journal',
     metaDescription:
       'A Bear Media article placeholder on why small businesses still need a clear, trustworthy website.',
     excerpt:
@@ -154,7 +154,7 @@ export const insights: InsightArticle[] = [
   {
     slug: 'photography-that-builds-trust',
     title: 'Photography That Builds Trust',
-    metaTitle: 'Photography That Builds Trust | Bear Media Insights',
+    metaTitle: 'Photography That Builds Trust | The Bear Media Journal',
     metaDescription:
       'A Bear Media article placeholder about business photography that helps customers trust a company faster.',
     excerpt:
@@ -178,7 +178,7 @@ export const insights: InsightArticle[] = [
   {
     slug: 'video-content-that-generates-enquiries',
     title: 'Video Content That Generates Enquiries',
-    metaTitle: 'Video Content That Generates Enquiries | Bear Media Insights',
+    metaTitle: 'Video Content That Generates Enquiries | The Bear Media Journal',
     metaDescription:
       'A Bear Media article placeholder about using video content to build trust and generate business enquiries.',
     excerpt:
@@ -203,6 +203,19 @@ export const insights: InsightArticle[] = [
 
 export function getInsight(slug: string) {
   return insights.find((article) => article.slug === slug)
+}
+
+export function getJournalArticles(category?: InsightCategory) {
+  const articles = category
+    ? insights.filter((article) => article.category === category)
+    : insights
+
+  return [...articles].sort((a, b) => {
+    const dateDifference = new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
+    if (dateDifference !== 0) return dateDifference
+
+    return insights.indexOf(a) - insights.indexOf(b)
+  })
 }
 
 export function getRelatedInsights(slug: string, limit = 3) {

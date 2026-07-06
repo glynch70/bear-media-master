@@ -50,7 +50,7 @@ export function BlogCard({ article, priority = false }: { article: InsightArticl
             className="mt-5 inline-flex text-sm font-medium text-foreground transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
             aria-label={`Read article: ${article.title}`}
           >
-            Read Article
+            Read Article →
           </Link>
         </div>
       </div>
