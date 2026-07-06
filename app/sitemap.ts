@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { insights } from '@/lib/insights'
 import { projects } from '@/lib/projects'
 import { siteUrl } from '@/lib/seo'
 
@@ -25,6 +26,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: today,
       changeFrequency: 'weekly',
       priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/insights`,
+      lastModified: today,
+      changeFrequency: 'weekly',
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/services`,
@@ -66,5 +73,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...staticPages, ...locationPages, ...projectPages]
+  const insightPages: MetadataRoute.Sitemap = insights.map((article) => ({
+    url: `${baseUrl}/insights/${article.slug}`,
+    lastModified: article.modifiedDate,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  return [...staticPages, ...locationPages, ...projectPages, ...insightPages]
 }

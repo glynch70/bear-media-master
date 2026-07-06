@@ -234,3 +234,94 @@ export function ServiceSchema({
     />
   )
 }
+
+export function ArticleSchema({
+  title,
+  description,
+  url,
+  image,
+  datePublished,
+  dateModified,
+  authorName,
+  authorUrl,
+}: {
+  title: string
+  description: string
+  url: string
+  image: string
+  datePublished: string
+  dateModified: string
+  authorName: string
+  authorUrl: string
+}) {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    image,
+    datePublished,
+    dateModified,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': url,
+    },
+    author: {
+      '@type': 'Person',
+      '@id': authorUrl,
+      name: authorName,
+      url: authorUrl,
+    },
+    publisher: {
+      '@type': 'Organization',
+      '@id': organizationId,
+      name: 'Bear Media',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${siteUrl}/assets/brand/logo.png`,
+      },
+    },
+    inLanguage: 'en-GB',
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      suppressHydrationWarning
+    />
+  )
+}
+
+export function AuthorSchema({
+  name,
+  url,
+  role,
+}: {
+  name: string
+  url: string
+  role: string
+}) {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': url,
+    name,
+    jobTitle: role,
+    url,
+    worksFor: {
+      '@type': 'Organization',
+      '@id': organizationId,
+      name: 'Bear Media',
+    },
+    sameAs: socialProfiles,
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      suppressHydrationWarning
+    />
+  )
+}
