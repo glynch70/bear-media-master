@@ -13,37 +13,37 @@ const websites: Website[] = [
   {
     name: 'Seamus Corry',
     category: 'Personal brand',
-    image: '/assets/websites/seamus-corry.png',
+    image: '/assets/websites/seamus-corry.webp',
     url: trustedClientLinks.seamusCorry,
   },
   {
     name: 'Herb & Soul',
     category: 'Wellness',
-    image: '/assets/websites/herb-soul.png',
+    image: '/assets/websites/herb-soul.webp',
     url: 'https://herbandsoul.uk/',
   },
   {
     name: 'Almond Vet Care',
     category: 'Veterinary care',
-    image: '/assets/websites/almond-vet.png',
+    image: '/assets/websites/almond-vet.webp',
     url: 'https://www.almondvetcare.co.uk/',
   },
   {
     name: 'K. Lewis Joinery',
     category: 'Trades',
-    image: '/assets/websites/k-lewis-joinery.png',
+    image: '/assets/websites/k-lewis-joinery.webp',
     url: 'https://klewisjoineryltd.co.uk/',
   },
   {
     name: 'Managing What Matters',
     category: 'Training',
-    image: '/assets/websites/managing-what-matters.png',
+    image: '/assets/websites/managing-what-matters.webp',
     url: 'https://managingwhatmatters.co.uk/',
   },
   {
     name: 'Robertsons Transport',
     category: 'Logistics',
-    image: '/assets/websites/robertsons-transport.png',
+    image: '/assets/websites/robertsons-transport.webp',
     url: 'https://rt-ltd.uk/',
   },
 ]

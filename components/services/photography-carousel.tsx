@@ -7,27 +7,27 @@ import { LightboxGallery } from '@/components/lightbox'
 const photography = [
   {
     id: 1,
-    image: '/services/photography/Conference_Event.png',
+    image: '/services/photography/Conference_Event.webp',
     alt: 'Event photography',
   },
   {
     id: 2,
-    image: '/services/photography/Chef_Hospitality.png',
+    image: '/services/photography/Chef_Hospitality.webp',
     alt: 'Hospitality photography',
   },
   {
     id: 3,
-    image: '/services/photography/Edinburgh Drone.png',
+    image: '/services/photography/Edinburgh Drone.webp',
     alt: 'Drone photography',
   },
   {
     id: 4,
-    image: '/services/photography/Aerial Landmark.png',
+    image: '/services/photography/Aerial Landmark.webp',
     alt: 'Aerial photography',
   },
   {
     id: 5,
-    image: '/services/photography/harley.png',
+    image: '/services/photography/harley.webp',
     alt: 'On-location shoot',
   },
 ]

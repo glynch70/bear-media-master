@@ -50,10 +50,10 @@ export default function Footer() {
   ]
 
   const trustedClients = [
-    { name: 'C&G Developments', logo: '/07- CLIENT LOGOS/c&g.png', href: trustedClientLinks.cgDevelopments },
-    { name: 'Simply Sheds Scotland', logo: '/07- CLIENT LOGOS/simply sheds.png', href: trustedClientLinks.simplySheds },
-    { name: 'Master Chefs', logo: '/07- CLIENT LOGOS/master chefs.png', href: trustedClientLinks.masterChefs },
-    { name: 'Seamus Corry', logo: '/07- CLIENT LOGOS/seamus.png', href: trustedClientLinks.seamusCorry },
+    { name: 'C&G Developments', logo: '/07- CLIENT LOGOS/c&g.webp', href: trustedClientLinks.cgDevelopments },
+    { name: 'Simply Sheds Scotland', logo: '/07- CLIENT LOGOS/simply sheds.webp', href: trustedClientLinks.simplySheds },
+    { name: 'Master Chefs', logo: '/07- CLIENT LOGOS/master chefs.webp', href: trustedClientLinks.masterChefs },
+    { name: 'Seamus Corry', logo: '/07- CLIENT LOGOS/seamus.webp', href: trustedClientLinks.seamusCorry },
   ]
 
   return (

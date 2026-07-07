@@ -8,7 +8,7 @@ export default function StoryThree() {
       {/* Full-width image */}
       <div className="relative w-full h-[60vh] md:h-[80vh]">
         <Image
-          src="/assets/bts/office-client-shoot.jpg"
+          src="/assets/bts/office-client-shoot.webp"
           alt="Garry photographing a business client with professional studio lighting in an office"
           fill
           className="object-cover object-center"

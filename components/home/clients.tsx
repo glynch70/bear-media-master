@@ -12,21 +12,21 @@ type Client = {
 }
 
 const clientsData: Client[] = [
-  { name: 'Procoat Exterior Coatings', sector: 'Home Improvement', logo: '/07- CLIENT LOGOS/procoat.png', href: 'https://procoatexteriorcoatings.com/' },
-  { name: 'Plean Pharmacy', sector: 'Pharmacy', logo: '/07- CLIENT LOGOS/plean pharmacy.png', href: 'https://www.pleanpharmacy.co.uk/' },
-  { name: 'C&G Developments', sector: 'Construction & Property', logo: '/07- CLIENT LOGOS/c&g.png', href: trustedClientLinks.cgDevelopments },
-  { name: 'Sage House Therapy', sector: 'Therapy & Wellness', logo: '/07- CLIENT LOGOS/sage house.png', href: 'https://sagehousetherapy.com/' },
-  { name: 'Almond Vet Care', sector: 'Veterinary Healthcare', logo: '/07- CLIENT LOGOS/almond vet.png', href: 'https://www.almondvetcare.co.uk/' },
-  { name: 'M&M Compliance', sector: 'Training & Compliance', logo: '/07- CLIENT LOGOS/m&mcompliance.png', href: 'https://mmcts.co.uk/' },
-  { name: 'Colin’s Canines', sector: 'Dog Training', logo: '/07- CLIENT LOGOS/colin canines.png', href: 'https://www.facebook.com/colinscanines/' },
-  { name: 'Simply Sheds Scotland', sector: 'Retail & Product', logo: '/07- CLIENT LOGOS/simply sheds.png', href: trustedClientLinks.simplySheds },
-  { name: 'Seamus Corry', sector: 'Wellbeing & Training', logo: '/07- CLIENT LOGOS/seamus.png', href: trustedClientLinks.seamusCorry },
-  { name: 'Master Chefs', sector: 'Hospitality', logo: '/07- CLIENT LOGOS/master chefs.png', href: trustedClientLinks.masterChefs },
-  { name: 'Muirhouse Medical Group', sector: 'Healthcare', logo: '/07- CLIENT LOGOS/muirhouse.png', href: 'https://www.muirhousemedicalgroup.co.uk/' },
-  { name: 'K Lewis Joinery', sector: 'Construction', logo: '/07- CLIENT LOGOS/klewis.png', href: 'https://www.facebook.com/klewisjoinery/' },
-  { name: 'Johnstone & Robertson', sector: 'Property', logo: '/07- CLIENT LOGOS/johnstone&robertson.png', href: 'https://johnstoneandrobertson.co.uk/' },
-  { name: 'We Buy Any Home', sector: 'Property', logo: '/07- CLIENT LOGOS/webuyanyhome.png', href: 'https://www.webuyanyhome.com/' },
-  { name: 'The PYP', sector: 'Coaching & Wellbeing', logo: '/07- CLIENT LOGOS/the pyp.png', href: 'https://www.seamuscorry.co.uk/' },
+  { name: 'Procoat Exterior Coatings', sector: 'Home Improvement', logo: '/07- CLIENT LOGOS/procoat.webp', href: 'https://procoatexteriorcoatings.com/' },
+  { name: 'Plean Pharmacy', sector: 'Pharmacy', logo: '/07- CLIENT LOGOS/plean pharmacy.webp', href: 'https://www.pleanpharmacy.co.uk/' },
+  { name: 'C&G Developments', sector: 'Construction & Property', logo: '/07- CLIENT LOGOS/c&g.webp', href: trustedClientLinks.cgDevelopments },
+  { name: 'Sage House Therapy', sector: 'Therapy & Wellness', logo: '/07- CLIENT LOGOS/sage house.webp', href: 'https://sagehousetherapy.com/' },
+  { name: 'Almond Vet Care', sector: 'Veterinary Healthcare', logo: '/07- CLIENT LOGOS/almond vet.webp', href: 'https://www.almondvetcare.co.uk/' },
+  { name: 'M&M Compliance', sector: 'Training & Compliance', logo: '/07- CLIENT LOGOS/m&mcompliance.webp', href: 'https://mmcts.co.uk/' },
+  { name: 'Colin’s Canines', sector: 'Dog Training', logo: '/07- CLIENT LOGOS/colin canines.webp', href: 'https://www.facebook.com/colinscanines/' },
+  { name: 'Simply Sheds Scotland', sector: 'Retail & Product', logo: '/07- CLIENT LOGOS/simply sheds.webp', href: trustedClientLinks.simplySheds },
+  { name: 'Seamus Corry', sector: 'Wellbeing & Training', logo: '/07- CLIENT LOGOS/seamus.webp', href: trustedClientLinks.seamusCorry },
+  { name: 'Master Chefs', sector: 'Hospitality', logo: '/07- CLIENT LOGOS/master chefs.webp', href: trustedClientLinks.masterChefs },
+  { name: 'Muirhouse Medical Group', sector: 'Healthcare', logo: '/07- CLIENT LOGOS/muirhouse.webp', href: 'https://www.muirhousemedicalgroup.co.uk/' },
+  { name: 'K Lewis Joinery', sector: 'Construction', logo: '/07- CLIENT LOGOS/klewis.webp', href: 'https://www.facebook.com/klewisjoinery/' },
+  { name: 'Johnstone & Robertson', sector: 'Property', logo: '/07- CLIENT LOGOS/johnstone&robertson.webp', href: 'https://johnstoneandrobertson.co.uk/' },
+  { name: 'We Buy Any Home', sector: 'Property', logo: '/07- CLIENT LOGOS/webuyanyhome.webp', href: 'https://www.webuyanyhome.com/' },
+  { name: 'The PYP', sector: 'Coaching & Wellbeing', logo: '/07- CLIENT LOGOS/the pyp.webp', href: 'https://www.seamuscorry.co.uk/' },
 ]
 
 function ClientCard({ client }: { client: Client }) {

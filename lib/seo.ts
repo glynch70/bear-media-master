@@ -18,6 +18,12 @@ export function absoluteUrl(path = '/') {
   return `${siteUrl}${path.startsWith('/') ? path : `/${path}`}`
 }
 
+function getImageMimeType(imageUrl: string) {
+  if (imageUrl.endsWith('.png')) return 'image/png'
+  if (imageUrl.endsWith('.webp')) return 'image/webp'
+  return 'image/jpeg'
+}
+
 export function createMetadata({
   title,
   description,
@@ -51,7 +57,7 @@ export function createMetadata({
           width: 1200,
           height: 630,
           alt: imageAlt,
-          type: imageUrl.endsWith('.png') ? 'image/png' : 'image/jpeg',
+          type: getImageMimeType(imageUrl),
         },
       ],
       type: 'website',

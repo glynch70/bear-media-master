@@ -47,7 +47,7 @@ export default function AboutPage() {
               </div>
               <div className="relative aspect-square rounded-3xl overflow-hidden bg-muted">
                 <Image
-                  src="/assets/about/garry-with-camera.png"
+                  src="/assets/about/garry-with-camera.webp"
                   alt="Garry Lynch with camera, founder of Bear Media"
                   fill
                   priority
@@ -114,7 +114,7 @@ export default function AboutPage() {
               <div className="group flex flex-col rounded-3xl overflow-hidden bg-secondary transition-shadow hover:shadow-lg">
                 <div className="relative aspect-square overflow-hidden">
                   <Image
-                    src="/TeamBearMedia/teambm.png"
+                    src="/TeamBearMedia/teambm.webp"
                     alt="Garry Lynch, Founder of Bear Media"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
@@ -139,7 +139,7 @@ export default function AboutPage() {
               <div className="group flex flex-col rounded-3xl overflow-hidden bg-secondary transition-shadow hover:shadow-lg">
                 <div className="relative aspect-square overflow-hidden">
                   <Image
-                    src="/TeamBearMedia/rory.png"
+                    src="/TeamBearMedia/rory.webp"
                     alt="Rory, Head of Security at Bear Media"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
@@ -162,7 +162,7 @@ export default function AboutPage() {
               <div className="group flex flex-col rounded-3xl overflow-hidden bg-secondary transition-shadow hover:shadow-lg">
                 <div className="relative aspect-square overflow-hidden">
                   <Image
-                    src="/TeamBearMedia/lola.png"
+                    src="/TeamBearMedia/lola.webp"
                     alt="Lola, Head of Snacks and Treat Procurement at Bear Media"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
@@ -238,7 +238,7 @@ export default function AboutPage() {
                 {/* Photo */}
                 <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[520px]">
                   <Image
-                    src="/TRUSTED PARTNERS SECTION/stevensummone.1.png"
+                    src="/TRUSTED PARTNERS SECTION/stevensummone.1.webp"
                     alt="Steven Summone, Founder of Summone Labs"
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
@@ -320,26 +320,26 @@ export default function AboutPage() {
                   {
                     category: 'Content Creation',
                     tools: [
-                      { name: 'Canon',  logo: '/toolsiuse/canon.png' },
-                      { name: 'DJI',    logo: '/toolsiuse/dji.png' },
-                      { name: 'CapCut', logo: '/toolsiuse/capcut.png' },
-                      { name: 'Canva',  logo: '/toolsiuse/canva.png' },
+                      { name: 'Canon',  logo: '/toolsiuse/canon.webp' },
+                      { name: 'DJI',    logo: '/toolsiuse/dji.webp' },
+                      { name: 'CapCut', logo: '/toolsiuse/capcut.webp' },
+                      { name: 'Canva',  logo: '/toolsiuse/canva.webp' },
                     ],
                   },
                   {
                     category: 'Websites & AI',
                     tools: [
-                      { name: 'Antigravity', logo: '/toolsiuse/google antigravity.png' },
+                      { name: 'Antigravity', logo: '/toolsiuse/google antigravity.webp' },
                       { name: 'ChatGPT',     logo: null },
-                      { name: 'Claude',      logo: '/toolsiuse/claude.png' },
-                      { name: 'Vercel',      logo: '/toolsiuse/vercel.png' },
-                      { name: 'GitHub',      logo: '/toolsiuse/github.png' },
+                      { name: 'Claude',      logo: '/toolsiuse/claude.webp' },
+                      { name: 'Vercel',      logo: '/toolsiuse/vercel.webp' },
+                      { name: 'GitHub',      logo: '/toolsiuse/github.webp' },
                     ],
                   },
                   {
                     category: 'Automation',
                     tools: [
-                      { name: 'n8n',  logo: '/toolsiuse/n8n.png' },
+                      { name: 'n8n',  logo: '/toolsiuse/n8n.webp' },
                       { name: 'Make', logo: null },
                     ],
                   },

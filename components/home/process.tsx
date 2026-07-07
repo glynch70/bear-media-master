@@ -5,27 +5,27 @@ export default function Process() {
     {
       title: "Let's Have A Chat",
       description: "Every project starts with a conversation.\n\nI want to understand your business, your goals and where you need support.\n\nNo pressure.\n\nNo sales pitch.\n\nJust a straightforward discussion.",
-      image: '/assets/bts/corporate.jpg',
+      image: '/assets/bts/corporate.webp',
     },
     {
       title: 'Visit Your Business',
       description: "If needed, I'll come to your business.\n\nThis helps me understand how you work, meet your team and identify opportunities to create useful content.",
-      image: '/assets/bts/event.jpg',
+      image: '/assets/bts/event.webp',
     },
     {
       title: 'Create The Content',
       description: 'Using professional photography, video and drone equipment, I create content that shows your business at its best.\n\nReal people.\n\nReal work.\n\nReal stories.',
-      image: '/assets/bts/harley-drone.jpg',
+      image: '/assets/bts/harley-drone.webp',
     },
     {
       title: 'Put It To Work',
       description: 'The content can then be used across your social media channels, website, YouTube channel and Google Business Profile.\n\nMaking sure everything feels consistent and professional.',
-      image: '/assets/projects/sheds-overhead.png',
+      image: '/assets/projects/sheds-overhead.webp',
     },
     {
       title: 'Ongoing Support',
       description: 'Many clients continue working with me month after month.\n\nThat means regular content creation, social media support and helping their online presence grow over time.',
-      image: '/assets/bts/setup.png',
+      image: '/assets/bts/setup.webp',
     },
   ]
 

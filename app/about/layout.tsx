@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     title: 'About Bear Media | Garry Lynch, Creative Media in West Lothian',
     description: 'Meet Garry Lynch, founder of Bear Media. Learn how Bear Media helps businesses in West Lothian, Edinburgh and Scotland look professional online.',
     path: '/about',
-    image: '/assets/about/garry-with-camera.png',
+    image: '/assets/about/garry-with-camera.webp',
     imageAlt: 'Garry Lynch, founder of Bear Media',
   }),
 }

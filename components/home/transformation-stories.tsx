@@ -164,8 +164,8 @@ export default function TransformationStories() {
           </div>
           <div className="order-1 lg:order-2">
             <BeforeAfterSlider
-              beforeSrc="/assets/projects/procoat-before.png"
-              afterSrc="/assets/projects/procoat-after.png"
+              beforeSrc="/assets/projects/procoat-before.webp"
+              afterSrc="/assets/projects/procoat-after.webp"
               beforeAlt="House exterior before Procoat coating — weathered grey pebbledash"
               afterAlt="Same house after Procoat coating — clean white smooth render"
             />
@@ -191,7 +191,7 @@ export default function TransformationStories() {
               </div>
               <div className="relative aspect-[4/3] bg-muted">
                 <Image
-                  src="/assets/websites/seamus-corry.png"
+                  src="/assets/websites/seamus-corry.webp"
                   alt="Seamus Corry personal brand website designed by Bear Media"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -239,10 +239,10 @@ export default function TransformationStories() {
               className="group grid grid-cols-2 gap-3 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent md:gap-4"
             >
               {[
-                { src: '/assets/projects/cg-newbuild.png', alt: 'C&G new build home exterior' },
-                { src: '/assets/projects/cg-drone-roof.png', alt: 'C&G drone shot of new roof' },
-                { src: '/assets/projects/cg-kitchen.png', alt: 'C&G finished kitchen interior' },
-                { src: '/assets/projects/cg-drone-newbuild.png', alt: 'C&G aerial drone view of development' },
+                { src: '/assets/projects/cg-newbuild.webp', alt: 'C&G new build home exterior' },
+                { src: '/assets/projects/cg-drone-roof.webp', alt: 'C&G drone shot of new roof' },
+                { src: '/assets/projects/cg-kitchen.webp', alt: 'C&G finished kitchen interior' },
+                { src: '/assets/projects/cg-drone-newbuild.webp', alt: 'C&G aerial drone view of development' },
               ].map((img) => (
                 <div key={img.src} className="relative aspect-square rounded-2xl overflow-hidden bg-muted">
                   <Image

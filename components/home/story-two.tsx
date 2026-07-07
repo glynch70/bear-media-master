@@ -17,7 +17,7 @@ export default function StoryTwo() {
     {
       title: 'Photography',
       description: 'Professional photography that showcases your business, team and brand.',
-      image: '/assets/services/photography.jpg',
+      image: '/assets/services/photography.webp',
       href: '/services#photography',
       objectFit: 'cover',
       objectPosition: 'center',
@@ -25,7 +25,7 @@ export default function StoryTwo() {
     {
       title: 'Video Production',
       description: 'Engaging video content for websites, social media and marketing campaigns.',
-      image: '/assets/services/video.png',
+      image: '/assets/services/video.webp',
       href: '/services#video',
       objectFit: 'cover',
       objectPosition: 'center',
@@ -33,7 +33,7 @@ export default function StoryTwo() {
     {
       title: 'Drone Services',
       description: 'Licensed aerial photography and video that helps your business stand out.',
-      image: '/assets/services/drone.png',
+      image: '/assets/services/drone.webp',
       href: '/services#drone',
       objectFit: 'cover',
       objectPosition: 'center',
@@ -41,7 +41,7 @@ export default function StoryTwo() {
     {
       title: 'Website Design',
       description: 'Modern websites designed to look great and generate enquiries.',
-      image: '/assets/services/websites.png',
+      image: '/assets/services/websites.webp',
       href: '/services#websites',
       objectFit: 'cover',
       objectPosition: 'center',

@@ -174,7 +174,7 @@ export default function ContactPage() {
               </div>
               <div className="relative aspect-square rounded-3xl overflow-hidden bg-muted">
                 <Image
-                  src="/05-BTS/garry branding bts.png"
+                  src="/05-BTS/garry branding bts.webp"
                   alt="Garry Lynch working on Bear Media branding"
                   fill
                   priority
@@ -364,7 +364,7 @@ export default function ContactPage() {
         <section className="relative w-full h-96 md:h-screen flex items-center justify-center overflow-hidden">
           {/* Image background */}
           <Image
-            src="/assets/bts/event-photography.jpg"
+            src="/assets/bts/event-photography.webp"
             alt="Garry on location at an event shoot"
             fill
             sizes="100vw"

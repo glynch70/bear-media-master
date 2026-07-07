@@ -75,7 +75,7 @@ export function AITrainingCards() {
             <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-3xl bg-background shadow-xl ring-1 ring-border/60 sm:max-w-md lg:max-w-lg">
               <div className="relative aspect-[2/3]">
                 <Image
-                  src="/services/Training/canva training advert may 26.png"
+                  src="/services/Training/canva training advert may 26.webp"
                   alt="Canva training advert for Bear Media"
                   fill
                   sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 520px"

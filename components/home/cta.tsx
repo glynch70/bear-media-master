@@ -1,20 +1,21 @@
 import Link from 'next/link'
+import { DesktopVideo, MobileImage } from '@/components/responsive-media'
 
 export default function CTA() {
   return (
     <section className="relative w-full min-h-[100svh] flex items-center justify-center overflow-hidden">
+      <MobileImage
+        src="/01-HERO/hero-mobile-2.webp"
+        alt="Bear Media client project"
+        className="absolute inset-0 object-cover"
+      />
+
       {/* Full-bleed cinematic drone background from real client work */}
-      <video
+      <DesktopVideo
+        src="/assets/hero/hero.mp4"
+        poster="/assets/projects/sheds-feature.webp"
         className="absolute inset-0 w-full h-full object-cover scale-105"
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster="/assets/projects/sheds-feature.png"
-        aria-hidden="true"
-      >
-        <source src="/assets/hero/hero.mp4" type="video/mp4" />
-      </video>
+      />
 
       {/* Layered overlays for depth + legibility */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/32 via-black/22 to-black/42" />

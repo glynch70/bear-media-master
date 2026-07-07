@@ -8,7 +8,7 @@ export default function StoryOne() {
       {/* Full-width image of real work */}
       <div className="relative w-full h-[70vh] md:h-screen">
         <Image
-          src="/assets/bts/drone-goggles.png"
+          src="/assets/bts/drone-goggles.webp"
           alt="Garry flying a drone on location"
           fill
           className="object-cover"

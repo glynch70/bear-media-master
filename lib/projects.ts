@@ -60,14 +60,14 @@ export const projects: Project[] = [
       'C&G Developments needed their online presence to match the quality, scale and craft of their property work across Scotland.',
     challenge:
       'The work was impressive in person, but their digital channels needed a stronger rhythm of professional content that could build trust, show progress and turn real projects into visibility.',
-    heroImage: '/03-PROJECTS/:cg-developments/drone roof.png',
+    heroImage: '/assets/project-gallery/cg-developments-drone-roof.webp',
     images: [
-      { src: '/03-PROJECTS/:cg-developments/drone roof.png', alt: 'Drone roof footage for C&G Developments' },
-      { src: '/03-PROJECTS/:cg-developments/drone new build.png', alt: 'Aerial view of a C&G Developments new build project' },
-      { src: '/03-PROJECTS/:cg-developments/new build.png', alt: 'C&G Developments new build exterior' },
-      { src: '/03-PROJECTS/:cg-developments/kitchen.png', alt: 'Finished kitchen interior by C&G Developments' },
-      { src: '/03-PROJECTS/:cg-developments/timber kit.png', alt: 'Timber kit construction content for C&G Developments' },
-      { src: '/03-PROJECTS/:cg-developments/callum & graeme.png', alt: 'C&G Developments team brand content' },
+      { src: '/assets/project-gallery/cg-developments-drone-roof.webp', alt: 'Drone roof footage for C&G Developments' },
+      { src: '/assets/project-gallery/cg-developments-drone-new-build.webp', alt: 'Aerial view of a C&G Developments new build project' },
+      { src: '/assets/project-gallery/cg-developments-new-build.webp', alt: 'C&G Developments new build exterior' },
+      { src: '/assets/project-gallery/cg-developments-kitchen.webp', alt: 'Finished kitchen interior by C&G Developments' },
+      { src: '/assets/project-gallery/cg-developments-timber-kit.webp', alt: 'Timber kit construction content for C&G Developments' },
+      { src: '/assets/project-gallery/cg-developments-callum-and-graeme.webp', alt: 'C&G Developments team brand content' },
     ],
     services: ['Photography', 'Drone', 'Video Production', 'Social Media', 'YouTube'],
     deliverables: [
@@ -107,7 +107,7 @@ export const projects: Project[] = [
     ],
     websiteUrl: trustedClientLinks.cgDevelopments,
     performanceReport: {
-      src: '/03-PROJECTS/:cg-developments/cg-developments-performance-report.jpeg',
+      src: '/assets/project-gallery/cg-developments-cg-developments-performance-report.webp',
       alt: 'C&G Developments social media performance report by Bear Media',
       title: '3 month social media performance report',
       description: 'The campaign generated strong organic growth across Facebook and YouTube, with no paid advertising.',
@@ -117,7 +117,7 @@ export const projects: Project[] = [
         'Garry made the whole process easy. The drone footage and photography completely changed how we show our developments.',
       author: 'Rachel',
       role: 'C&G Developments',
-      image: '/03-PROJECTS/:cg-developments/callum & graeme.png',
+      image: '/assets/project-gallery/cg-developments-callum-and-graeme.webp',
     },
   },
   {
@@ -131,19 +131,19 @@ export const projects: Project[] = [
       'Simply Sheds Scotland needed consistent content that showed the quality of their installations and made their social channels feel alive again.',
     challenge:
       'Two channels had gone quiet, while YouTube and TikTok had to be launched from scratch. The goal was simple: make high-quality shed installations visible, useful and easy to trust.',
-    heroImage: '/03-PROJECTS/:simply-sheds/feature.png',
+    heroImage: '/assets/project-gallery/simply-sheds-feature.webp',
     images: [
-      { src: '/03-PROJECTS/:simply-sheds/feature.png', alt: 'Featured Simply Sheds Scotland garden building' },
-      { src: '/03-PROJECTS/:simply-sheds/at work.2.png', alt: 'Simply Sheds Scotland team at work' },
-      { src: '/03-PROJECTS/:simply-sheds/overhead.png', alt: 'Overhead view of a Simply Sheds Scotland installation' },
-      { src: '/03-PROJECTS/:simply-sheds/shed built.png', alt: 'Completed shed build by Simply Sheds Scotland' },
-      { src: '/03-PROJECTS/:simply-sheds/happy customer.png', alt: 'Happy Simply Sheds Scotland customer' },
-      { src: '/03-PROJECTS/:simply-sheds/happy customers.2.png', alt: 'Simply Sheds Scotland customer handover content' },
-      { src: '/03-PROJECTS/:simply-sheds/potting shed.png', alt: 'Potting shed product content for Simply Sheds Scotland' },
-      { src: '/03-PROJECTS/:simply-sheds/shed 6x4.png', alt: '6x4 shed installation by Simply Sheds Scotland' },
-      { src: '/03-PROJECTS/:simply-sheds/at work.png', alt: 'Simply Sheds Scotland installation process content' },
-      { src: '/03-PROJECTS/:simply-sheds/at work.3.png', alt: 'Simply Sheds Scotland behind-the-scenes installation content' },
-      { src: '/03-PROJECTS/:simply-sheds/simply sheds.png', alt: 'Simply Sheds Scotland branded project content' },
+      { src: '/assets/project-gallery/simply-sheds-feature.webp', alt: 'Featured Simply Sheds Scotland garden building' },
+      { src: '/assets/project-gallery/simply-sheds-at-work-2.webp', alt: 'Simply Sheds Scotland team at work' },
+      { src: '/assets/project-gallery/simply-sheds-overhead.webp', alt: 'Overhead view of a Simply Sheds Scotland installation' },
+      { src: '/assets/project-gallery/simply-sheds-shed-built.webp', alt: 'Completed shed build by Simply Sheds Scotland' },
+      { src: '/assets/project-gallery/simply-sheds-happy-customer.webp', alt: 'Happy Simply Sheds Scotland customer' },
+      { src: '/assets/project-gallery/simply-sheds-happy-customers-2.webp', alt: 'Simply Sheds Scotland customer handover content' },
+      { src: '/assets/project-gallery/simply-sheds-potting-shed.webp', alt: 'Potting shed product content for Simply Sheds Scotland' },
+      { src: '/assets/project-gallery/simply-sheds-shed-6x4.webp', alt: '6x4 shed installation by Simply Sheds Scotland' },
+      { src: '/assets/project-gallery/simply-sheds-at-work.webp', alt: 'Simply Sheds Scotland installation process content' },
+      { src: '/assets/project-gallery/simply-sheds-at-work-3.webp', alt: 'Simply Sheds Scotland behind-the-scenes installation content' },
+      { src: '/assets/project-gallery/simply-sheds-simply-sheds.webp', alt: 'Simply Sheds Scotland branded project content' },
     ],
     services: ['Photography', 'Video Production', 'Drone', 'Social Media', 'YouTube', 'TikTok'],
     deliverables: [
@@ -182,7 +182,7 @@ export const projects: Project[] = [
     ],
     websiteUrl: trustedClientLinks.simplySheds,
     performanceReport: {
-      src: '/03-PROJECTS/:simply-sheds/simply-sheds-performance-report.jpeg',
+      src: '/assets/project-gallery/simply-sheds-simply-sheds-performance-report.webp',
       alt: 'Simply Sheds Scotland performance report by Bear Media',
       title: '6 week performance brief',
       description: 'A concise proof piece showing how dormant and new channels generated more than 12K views.',
@@ -192,7 +192,7 @@ export const projects: Project[] = [
         'Our social media and YouTube have come alive. Garry just gets what small businesses need and delivers it.',
       author: 'Steven',
       role: 'Simply Sheds Scotland',
-      image: '/03-PROJECTS/:simply-sheds/happy customer.png',
+      image: '/assets/project-gallery/simply-sheds-happy-customer.webp',
     },
   },
   {
@@ -206,17 +206,17 @@ export const projects: Project[] = [
       'Seamus wanted a sharper personal brand across web, photography and LinkedIn without losing the approachable quality people already knew him for.',
     challenge:
       'The challenge was to create a professional presence that felt credible but still human, avoiding overly staged content while making every touchpoint feel consistent.',
-    heroImage: '/03-PROJECTS/:seamus-corry/seamus portrait.png',
+    heroImage: '/assets/project-gallery/seamus-corry-seamus-portrait.webp',
     images: [
-      { src: '/03-PROJECTS/:seamus-corry/seamus portrait.png', alt: 'Seamus Corry personal brand portrait' },
-      { src: '/03-PROJECTS/:seamus-corry/seamus at work.png', alt: 'Seamus Corry at work' },
-      { src: '/03-PROJECTS/:seamus-corry/seamus on stage.png', alt: 'Seamus Corry speaking on stage' },
-      { src: '/03-PROJECTS/:seamus-corry/seamus on stage talking.png', alt: 'Seamus Corry presenting to an audience' },
-      { src: '/03-PROJECTS/:seamus-corry/seamus delivering training.png', alt: 'Seamus Corry delivering training' },
-      { src: '/03-PROJECTS/:seamus-corry/seamus delivering training.2.png', alt: 'Seamus Corry training content' },
-      { src: '/03-PROJECTS/:seamus-corry/seamus delivering training.3.png', alt: 'Seamus Corry workshop content' },
-      { src: '/03-PROJECTS/:seamus-corry/seamus podcasts.png', alt: 'Seamus Corry podcast content' },
-      { src: '/03-PROJECTS/:seamus-corry/seamus rebrand.jpg', alt: 'Seamus Corry rebrand creative' },
+      { src: '/assets/project-gallery/seamus-corry-seamus-portrait.webp', alt: 'Seamus Corry personal brand portrait' },
+      { src: '/assets/project-gallery/seamus-corry-seamus-at-work.webp', alt: 'Seamus Corry at work' },
+      { src: '/assets/project-gallery/seamus-corry-seamus-on-stage.webp', alt: 'Seamus Corry speaking on stage' },
+      { src: '/assets/project-gallery/seamus-corry-seamus-on-stage-talking.webp', alt: 'Seamus Corry presenting to an audience' },
+      { src: '/assets/project-gallery/seamus-corry-seamus-delivering-training.webp', alt: 'Seamus Corry delivering training' },
+      { src: '/assets/project-gallery/seamus-corry-seamus-delivering-training-2.webp', alt: 'Seamus Corry training content' },
+      { src: '/assets/project-gallery/seamus-corry-seamus-delivering-training-3.webp', alt: 'Seamus Corry workshop content' },
+      { src: '/assets/project-gallery/seamus-corry-seamus-podcasts.webp', alt: 'Seamus Corry podcast content' },
+      { src: '/assets/project-gallery/seamus-corry-seamus-rebrand.webp', alt: 'Seamus Corry rebrand creative' },
     ],
     services: ['Website Design', 'Personal Branding', 'Photography', 'LinkedIn Content'],
     deliverables: [
@@ -249,7 +249,7 @@ export const projects: Project[] = [
         'Working with Bear Media gave my personal brand real consistency. Genuine, professional and a pleasure to work with.',
       author: 'Seamus Corry',
       role: 'Business Professional',
-      image: '/03-PROJECTS/:seamus-corry/seamus portrait.png',
+      image: '/assets/project-gallery/seamus-corry-seamus-portrait.webp',
     },
   },
   {
@@ -263,13 +263,13 @@ export const projects: Project[] = [
       'M&M Compliance needed practical visual content that explained their training environment, equipment and expertise at a glance.',
     challenge:
       'Technical services can be hard to communicate online. The content had to make the training offer feel professional, tangible and trustworthy without overcomplicating the message.',
-    heroImage: '/03-PROJECTS/:m&mcompliance/classroom.png',
+    heroImage: '/assets/project-gallery/m-and-mcompliance-classroom.webp',
     images: [
-      { src: '/03-PROJECTS/:m&mcompliance/classroom.png', alt: 'M&M Compliance classroom training environment' },
-      { src: '/03-PROJECTS/:m&mcompliance/f-gas training.png', alt: 'F-gas training content for M&M Compliance' },
-      { src: '/03-PROJECTS/:m&mcompliance/training equipment.png', alt: 'M&M Compliance training equipment' },
-      { src: '/03-PROJECTS/:m&mcompliance/training room.png', alt: 'M&M Compliance training room' },
-      { src: '/03-PROJECTS/:m&mcompliance/exterior.png', alt: 'M&M Compliance business exterior' },
+      { src: '/assets/project-gallery/m-and-mcompliance-classroom.webp', alt: 'M&M Compliance classroom training environment' },
+      { src: '/assets/project-gallery/m-and-mcompliance-f-gas-training.webp', alt: 'F-gas training content for M&M Compliance' },
+      { src: '/assets/project-gallery/m-and-mcompliance-training-equipment.webp', alt: 'M&M Compliance training equipment' },
+      { src: '/assets/project-gallery/m-and-mcompliance-training-room.webp', alt: 'M&M Compliance training room' },
+      { src: '/assets/project-gallery/m-and-mcompliance-exterior.webp', alt: 'M&M Compliance business exterior' },
     ],
     services: ['Photography', 'Brand Content', 'Website Support'],
     deliverables: [
@@ -309,13 +309,13 @@ export const projects: Project[] = [
       'Colin’s Canines needed content that felt approachable, local and professional while showing the personality behind the service.',
     challenge:
       'For a service built on trust, the visuals needed to feel warm and real. The goal was to show Colin, the dogs and the brand in a way that felt natural rather than overly posed.',
-    heroImage: '/03-PROJECTS/:colin-canines/colin and dog.png',
+    heroImage: '/assets/project-gallery/colin-canines-colin-and-dog.webp',
     images: [
-      { src: '/03-PROJECTS/:colin-canines/colin and dog.png', alt: 'Colin’s Canines brand photography with a client dog' },
-      { src: '/03-PROJECTS/:colin-canines/colin walking.png', alt: 'Colin’s Canines dog walking content' },
-      { src: '/03-PROJECTS/:colin-canines/colin and dogs.png', alt: 'Colin’s Canines dog training group content' },
-      { src: '/03-PROJECTS/:colin-canines/colin van.png', alt: 'Colin’s Canines branded van photography' },
-      { src: '/03-PROJECTS/:colin-canines/colin advert.png', alt: 'Colin’s Canines advert creative' },
+      { src: '/assets/project-gallery/colin-canines-colin-and-dog.webp', alt: 'Colin’s Canines brand photography with a client dog' },
+      { src: '/assets/project-gallery/colin-canines-colin-walking.webp', alt: 'Colin’s Canines dog walking content' },
+      { src: '/assets/project-gallery/colin-canines-colin-and-dogs.webp', alt: 'Colin’s Canines dog training group content' },
+      { src: '/assets/project-gallery/colin-canines-colin-van.webp', alt: 'Colin’s Canines branded van photography' },
+      { src: '/assets/project-gallery/colin-canines-colin-advert.webp', alt: 'Colin’s Canines advert creative' },
     ],
     services: ['Photography', 'Social Media', 'Brand Content'],
     deliverables: [
@@ -355,9 +355,9 @@ export const projects: Project[] = [
       'Procoat needed simple, polished content that made their exterior coating service feel credible and easy to trust.',
     challenge:
       'Home improvement customers want proof before they enquire. The creative needed to show the service clearly and support a more professional first impression.',
-    heroImage: '/03-PROJECTS/:procoat/procoat.png',
+    heroImage: '/assets/project-gallery/procoat-procoat.webp',
     images: [
-      { src: '/03-PROJECTS/:procoat/procoat.png', alt: 'Procoat Exterior Coatings project content' },
+      { src: '/assets/project-gallery/procoat-procoat.webp', alt: 'Procoat Exterior Coatings project content' },
     ],
     services: ['Photography', 'Social Media', 'Design'],
     deliverables: [
@@ -397,9 +397,9 @@ export const projects: Project[] = [
       'Herb & Soul needed a website presence that felt warm, clear and easy to trust, with a visual tone suited to wellness and personal connection.',
     challenge:
       'The site needed to feel professional without becoming cold or overdesigned. The priority was clarity, calm pacing and a first impression that matched the nature of the work.',
-    heroImage: '/assets/websites/herb-soul.png',
+    heroImage: '/assets/websites/herb-soul.webp',
     images: [
-      { src: '/assets/websites/herb-soul.png', alt: 'Herb & Soul website design by Bear Media' },
+      { src: '/assets/websites/herb-soul.webp', alt: 'Herb & Soul website design by Bear Media' },
     ],
     services: ['Website Design', 'Brand Presence', 'Content Direction'],
     deliverables: [
@@ -439,9 +439,9 @@ export const projects: Project[] = [
       'Almond Vet Care needed a website that felt professional, accessible and reassuring for pet owners looking for local veterinary support.',
     challenge:
       'Healthcare websites need to balance trust, clarity and warmth. The experience had to feel easy to use on mobile while giving visitors confidence quickly.',
-    heroImage: '/assets/websites/almond-vet.png',
+    heroImage: '/assets/websites/almond-vet.webp',
     images: [
-      { src: '/assets/websites/almond-vet.png', alt: 'Almond Vet Care website design by Bear Media' },
+      { src: '/assets/websites/almond-vet.webp', alt: 'Almond Vet Care website design by Bear Media' },
     ],
     services: ['Website Design', 'Healthcare Content', 'Local SEO Direction'],
     deliverables: [

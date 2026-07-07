@@ -8,7 +8,7 @@ export default function StoryFour() {
       {/* Full-screen portrait image */}
       <div className="relative w-full h-screen md:h-[120vh]">
         <Image
-          src="/assets/about/garry.png"
+          src="/assets/about/garry.webp"
           alt="Garry Lynch, founder of Bear Media"
           fill
           className="object-cover object-center"

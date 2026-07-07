@@ -19,24 +19,24 @@ const socialMediaPortfolio: SocialMediaPortfolioItem[] = [
   {
     id: 1,
     title: 'House Transformation',
-    image: '/services/social media/House transformation.png',
+    image: '/services/social media/House transformation.webp',
   },
   {
     id: 2,
     title: 'Quality Builds',
-    image: '/services/social media/Quality Builds.png',
+    image: '/services/social media/Quality Builds.webp',
   },
   {
     id: 3,
     title: 'Built the Right Way',
-    image: '/services/social media/Built the Right Way.png',
+    image: '/services/social media/Built the Right Way.webp',
     instagramUrl: 'https://www.instagram.com/reel/DZ4r8jxjVJ0/',
     featured: true,
   },
   {
     id: 4,
     title: 'From This → To This',
-    image: '/services/social media/From This → To This.png',
+    image: '/services/social media/From This → To This.webp',
     projectUrl: trustedClientLinks.cgDevelopments,
     instagramUrl: 'https://www.instagram.com/reel/DYReaNnjSy_/',
     websiteUrl: trustedClientLinks.cgDevelopments,
@@ -45,7 +45,7 @@ const socialMediaPortfolio: SocialMediaPortfolioItem[] = [
   {
     id: 5,
     title: 'Before & After Roof',
-    image: '/services/social media/Before & After Roof.png',
+    image: '/services/social media/Before & After Roof.webp',
     projectUrl: trustedClientLinks.cgDevelopments,
     instagramUrl: 'https://www.instagram.com/reel/DP1LDahASxS/',
     websiteUrl: trustedClientLinks.cgDevelopments,
@@ -54,18 +54,18 @@ const socialMediaPortfolio: SocialMediaPortfolioItem[] = [
   {
     id: 6,
     title: 'Chef',
-    image: '/services/social media/Chef.png',
+    image: '/services/social media/Chef.webp',
     instagramUrl: 'https://www.instagram.com/p/DP32qu2jogh/',
   },
   {
     id: 7,
     title: 'Meet Callum',
-    image: '/services/social media/Meet Callum.png',
+    image: '/services/social media/Meet Callum.webp',
   },
   {
     id: 8,
     title: 'Bass Rock',
-    image: '/services/social media/Bass Rock.png',
+    image: '/services/social media/Bass Rock.webp',
   },
 ]
 

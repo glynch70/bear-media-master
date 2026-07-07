@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import { BreadcrumbSchema } from '@/components/structured-data'
+import { DesktopVideo, MobileImage } from '@/components/responsive-media'
 import WebsitesShowcase from '@/components/services/websites-showcase'
 import { SocialMediaCarousel } from '@/components/services/social-media-carousel'
 import { PhotographyCarousel } from '@/components/services/photography-carousel'
@@ -90,16 +91,18 @@ export default function ServicesPage() {
 
       {/* Final CTA */}
       <section className="relative w-full h-96 md:h-screen flex items-center justify-center overflow-hidden">
+        <MobileImage
+          src="/01-HERO/hero-mobile-1.webp"
+          alt="Bear Media drone content"
+          className="absolute inset-0 object-cover"
+        />
+
         {/* Video background */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
+        <DesktopVideo
+          src="/assets/hero/hero-desktop.mp4"
+          poster="/assets/hero/hero-poster.webp"
           className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/assets/hero/hero-desktop.mp4" type="video/mp4" />
-        </video>
+        />
 
         {/* Layered overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-black/60" />

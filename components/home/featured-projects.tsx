@@ -13,23 +13,23 @@ const featuredProjects = [
     tags: ['Drone', 'Photography', 'Social'],
     images: [
       {
-        src: '/03-PROJECTS/:cg-developments/drone roof.png',
+        src: '/assets/project-gallery/cg-developments-drone-roof.webp',
         alt: 'Drone roof footage for C&G Developments',
       },
       {
-        src: '/03-PROJECTS/:cg-developments/drone new build.png',
+        src: '/assets/project-gallery/cg-developments-drone-new-build.webp',
         alt: 'Aerial new build photography for C&G Developments',
       },
       {
-        src: '/03-PROJECTS/:cg-developments/new build.png',
+        src: '/assets/project-gallery/cg-developments-new-build.webp',
         alt: 'New build property content for C&G Developments',
       },
       {
-        src: '/03-PROJECTS/:cg-developments/kitchen.png',
+        src: '/assets/project-gallery/cg-developments-kitchen.webp',
         alt: 'Kitchen interior photography for C&G Developments',
       },
       {
-        src: '/03-PROJECTS/:cg-developments/callum & graeme.png',
+        src: '/assets/project-gallery/cg-developments-callum-and-graeme.webp',
         alt: 'C&G Developments team brand content',
       },
     ],
@@ -42,23 +42,23 @@ const featuredProjects = [
     tags: ['Brand', 'Video', 'Web'],
     images: [
       {
-        src: '/03-PROJECTS/:seamus-corry/seamus portrait.png',
+        src: '/assets/project-gallery/seamus-corry-seamus-portrait.webp',
         alt: 'Seamus Corry personal brand portrait',
       },
       {
-        src: '/03-PROJECTS/:seamus-corry/seamus on stage talking.png',
+        src: '/assets/project-gallery/seamus-corry-seamus-on-stage-talking.webp',
         alt: 'Seamus Corry speaking on stage',
       },
       {
-        src: '/03-PROJECTS/:seamus-corry/seamus delivering training.2.png',
+        src: '/assets/project-gallery/seamus-corry-seamus-delivering-training-2.webp',
         alt: 'Seamus Corry delivering training',
       },
       {
-        src: '/03-PROJECTS/:seamus-corry/seamus podcasts.png',
+        src: '/assets/project-gallery/seamus-corry-seamus-podcasts.webp',
         alt: 'Seamus Corry podcast content',
       },
       {
-        src: '/03-PROJECTS/:seamus-corry/seamus rebrand.jpg',
+        src: '/assets/project-gallery/seamus-corry-seamus-rebrand.webp',
         alt: 'Seamus Corry rebrand creative',
       },
     ],
@@ -71,23 +71,23 @@ const featuredProjects = [
     tags: ['Social', 'Photo', 'Retail'],
     images: [
       {
-        src: '/03-PROJECTS/:simply-sheds/at work.2.png',
+        src: '/assets/project-gallery/simply-sheds-at-work-2.webp',
         alt: 'Simply Sheds Scotland team at work',
       },
       {
-        src: '/03-PROJECTS/:simply-sheds/feature.png',
+        src: '/assets/project-gallery/simply-sheds-feature.webp',
         alt: 'Featured shed product for Simply Sheds Scotland',
       },
       {
-        src: '/03-PROJECTS/:simply-sheds/happy customer.png',
+        src: '/assets/project-gallery/simply-sheds-happy-customer.webp',
         alt: 'Happy Simply Sheds Scotland customer',
       },
       {
-        src: '/03-PROJECTS/:simply-sheds/overhead.png',
+        src: '/assets/project-gallery/simply-sheds-overhead.webp',
         alt: 'Overhead view of Simply Sheds Scotland products',
       },
       {
-        src: '/03-PROJECTS/:simply-sheds/shed built.png',
+        src: '/assets/project-gallery/simply-sheds-shed-built.webp',
         alt: 'Completed shed build by Simply Sheds Scotland',
       },
     ],
@@ -100,7 +100,7 @@ const featuredProjects = [
     tags: ['Social', 'Photo', 'Design'],
     images: [
       {
-        src: '/03-PROJECTS/:procoat/procoat.png',
+        src: '/assets/project-gallery/procoat-procoat.webp',
         alt: 'Procoat Exterior Coatings project content',
       },
     ],
@@ -113,23 +113,23 @@ const featuredProjects = [
     tags: ['Photo', 'Training', 'Brand'],
     images: [
       {
-        src: '/03-PROJECTS/:m&mcompliance/classroom.png',
+        src: '/assets/project-gallery/m-and-mcompliance-classroom.webp',
         alt: 'M&M Compliance classroom training content',
       },
       {
-        src: '/03-PROJECTS/:m&mcompliance/f-gas training.png',
+        src: '/assets/project-gallery/m-and-mcompliance-f-gas-training.webp',
         alt: 'F-gas training photography for M&M Compliance',
       },
       {
-        src: '/03-PROJECTS/:m&mcompliance/training equipment.png',
+        src: '/assets/project-gallery/m-and-mcompliance-training-equipment.webp',
         alt: 'Training equipment content for M&M Compliance',
       },
       {
-        src: '/03-PROJECTS/:m&mcompliance/training room.png',
+        src: '/assets/project-gallery/m-and-mcompliance-training-room.webp',
         alt: 'M&M Compliance training room photography',
       },
       {
-        src: '/03-PROJECTS/:m&mcompliance/exterior.png',
+        src: '/assets/project-gallery/m-and-mcompliance-exterior.webp',
         alt: 'M&M Compliance exterior business photography',
       },
     ],
@@ -142,23 +142,23 @@ const featuredProjects = [
     tags: ['Social', 'Photo', 'Brand'],
     images: [
       {
-        src: '/03-PROJECTS/:colin-canines/colin and dog.png',
+        src: '/assets/project-gallery/colin-canines-colin-and-dog.webp',
         alt: 'Colin’s Canines brand photography with client dog',
       },
       {
-        src: '/03-PROJECTS/:colin-canines/colin walking.png',
+        src: '/assets/project-gallery/colin-canines-colin-walking.webp',
         alt: 'Colin’s Canines dog walking content',
       },
       {
-        src: '/03-PROJECTS/:colin-canines/colin and dogs.png',
+        src: '/assets/project-gallery/colin-canines-colin-and-dogs.webp',
         alt: 'Colin’s Canines dog training photography',
       },
       {
-        src: '/03-PROJECTS/:colin-canines/colin van.png',
+        src: '/assets/project-gallery/colin-canines-colin-van.webp',
         alt: 'Colin’s Canines branded van content',
       },
       {
-        src: '/03-PROJECTS/:colin-canines/colin advert.png',
+        src: '/assets/project-gallery/colin-canines-colin-advert.webp',
         alt: 'Colin’s Canines advert creative',
       },
     ],
@@ -171,7 +171,7 @@ const featuredProjects = [
     tags: ['Website', 'Brand'],
     images: [
       {
-        src: '/assets/websites/herb-soul.png',
+        src: '/assets/websites/herb-soul.webp',
         alt: 'Herb & Soul website design by Bear Media',
       },
     ],
@@ -184,7 +184,7 @@ const featuredProjects = [
     tags: ['Website', 'Healthcare'],
     images: [
       {
-        src: '/assets/websites/almond-vet.png',
+        src: '/assets/websites/almond-vet.webp',
         alt: 'Almond Vet Care website design by Bear Media',
       },
     ],

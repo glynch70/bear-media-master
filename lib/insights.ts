@@ -70,7 +70,7 @@ export const insights: InsightArticle[] = [
       url: '/about',
     },
     featuredImage: {
-      src: '/assets/bts/training.png',
+      src: '/assets/bts/training.webp',
       alt: 'Bear Media AI and website workflow session',
     },
     body: articleBody([
@@ -109,7 +109,7 @@ export const insights: InsightArticle[] = [
       url: '/about',
     },
     featuredImage: {
-      src: '/assets/bts/office-client-shoot.jpg',
+      src: '/assets/bts/office-client-shoot.webp',
       alt: 'Bear Media desk setup for AI-assisted website work',
     },
     body: articleBody([
@@ -152,7 +152,7 @@ export const insights: InsightArticle[] = [
       url: '/about',
     },
     featuredImage: {
-      src: '/assets/projects/seamus-new.jpg',
+      src: '/assets/projects/seamus-new.webp',
       alt: 'Website and brand content created by Bear Media',
     },
     body: articleBody([
@@ -202,7 +202,7 @@ export const insights: InsightArticle[] = [
       url: '/about',
     },
     featuredImage: {
-      src: '/assets/projects/procoat-before-after.png',
+      src: '/assets/projects/procoat-before-after.webp',
       alt: 'Small business website transformation by Bear Media',
     },
     body: articleBody([
@@ -252,7 +252,7 @@ export const insights: InsightArticle[] = [
       url: '/about',
     },
     featuredImage: {
-      src: '/assets/bts/corporate.jpg',
+      src: '/assets/bts/corporate.webp',
       alt: 'Bear Media business photography session',
     },
     body: articleBody([
@@ -304,7 +304,7 @@ export const insights: InsightArticle[] = [
       url: '/about',
     },
     featuredImage: {
-      src: '/assets/bts/event.jpg',
+      src: '/assets/bts/event.webp',
       alt: 'Bear Media video production behind the scenes',
     },
     body: articleBody([
