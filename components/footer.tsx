@@ -149,7 +149,7 @@ export default function Footer() {
               <li><Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">About</Link></li>
               <li><Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contact</Link></li>
               <li><Link href="/services" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Services</Link></li>
-              <li><Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Blog</Link></li>
+              <li><Link href="/insights" className="text-sm text-muted-foreground hover:text-foreground transition-colors">The Bear Media Journal</Link></li>
             </ul>
           </div>
 
@@ -174,21 +174,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="border-t border-border pt-8 flex items-center justify-center">
           <p className="text-xs text-muted-foreground text-center md:text-left">
             © {currentYear} Bear Media • Founded by Garry Lynch • Built in Scotland
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
-            <Link href="/privacy" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/cookies" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
-              Cookie Policy
-            </Link>
-            <Link href="/sitemap" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
-              Sitemap
-            </Link>
-          </div>
         </div>
       </div>
     </footer>
