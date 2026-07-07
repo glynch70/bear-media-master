@@ -81,6 +81,7 @@ function CategoryFilters({
 }
 
 function FeaturedArticle({ article }: { article: InsightArticle }) {
+  const articleHref = article.href ?? `/insights/${article.slug}`
   const published = new Intl.DateTimeFormat('en-GB', {
     day: 'numeric',
     month: 'long',
@@ -90,7 +91,7 @@ function FeaturedArticle({ article }: { article: InsightArticle }) {
   return (
     <section className="px-6 pb-8 lg:px-8">
       <Link
-        href={`/insights/${article.slug}`}
+        href={articleHref}
         className="group mx-auto grid max-w-7xl grid-cols-1 overflow-hidden rounded-3xl border border-border/70 bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 lg:grid-cols-[1.12fr_0.88fr]"
         aria-label={`Read featured article: ${article.title}`}
       >

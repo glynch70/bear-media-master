@@ -23,6 +23,7 @@ export type InsightBodyBlock =
 
 export type InsightArticle = {
   slug: string
+  href?: string
   title: string
   metaTitle: string
   metaDescription: string
@@ -52,6 +53,154 @@ function articleBody(paragraphs: string[]): InsightBodyBlock[] {
 }
 
 export const insights: InsightArticle[] = [
+  {
+    slug: 'my-process',
+    href: '/journal/my-process',
+    title: 'My Process: From Idea to Content',
+    metaTitle: 'My Process: From Idea to Content',
+    metaDescription:
+      'A simple look at how Bear Media turns rough ideas into content without overthinking or waiting for perfection.',
+    excerpt:
+      'A simple look at how rough ideas become content through capture, review, editing and publishing without waiting for perfection.',
+    category: 'Marketing',
+    publishedDate: '2026-07-07',
+    modifiedDate: '2026-07-07',
+    readTime: '3 min read',
+    author: {
+      name: 'Garry Lynch',
+      role: 'Founder of Bear Media',
+      url: '/about',
+    },
+    featuredImage: {
+      src: '/images/journal/workspace-setup/bear-media-content-creation-typing-keyboard-01.jpg',
+      alt: 'Hands typing on a keyboard during Bear Media content planning and creation',
+    },
+    body: articleBody([
+      'People think content creation is filming and editing.',
+      'It’s not.',
+      'It starts here.',
+      'An idea. Usually rough. Usually not fully formed.',
+      'I’ll jot it down straight away. Notes app, notebook, whatever’s closest.',
+      'From there it’s simple:',
+      '• Capture – quick clips, no overthinking',
+      '• Review – what’s usable, what’s not',
+      '• Edit – cut fast, keep it tight',
+      '• Publish – don’t sit on it',
+      'That’s it.',
+      'No complicated workflow. No waiting for perfection.',
+      'The biggest mistake I see is people getting stuck before they even start.',
+      'You don’t need better ideas. You need to move faster on the ones you’ve got.',
+    ]),
+    source: { type: 'structured', futureFormats: ['md', 'mdx'] },
+  },
+  {
+    slug: 'client-work',
+    href: '/journal/client-work',
+    title: 'Client Work: What It Actually Looks Like',
+    metaTitle: 'Client Work: What It Actually Looks Like',
+    metaDescription:
+      'What Bear Media client work really involves: reviewing, editing, refining and keeping consistent content moving.',
+    excerpt:
+      'A behind-the-scenes look at the reviewing, editing, refining and consistency that sits behind regular client content.',
+    category: 'Behind the Scenes',
+    publishedDate: '2026-07-07',
+    modifiedDate: '2026-07-07',
+    readTime: '2 min read',
+    author: {
+      name: 'Garry Lynch',
+      role: 'Founder of Bear Media',
+      url: '/about',
+    },
+    featuredImage: {
+      src: '/images/journal/workspace-setup/bear-media-workspace-desk-setup-night-02.jpg',
+      alt: 'Bear Media desk setup with monitors, editing tools and content review workspace',
+    },
+    body: articleBody([
+      'This is the part people don’t see.',
+      'It’s not just filming and handing over a video.',
+      'It’s reviewing footage. Cutting clips. Reworking edits. Sending versions. Making changes. Keeping things moving.',
+      'Most clients don’t need more content.',
+      'They need consistency.',
+      'That’s where I come in.',
+      'Simple systems. Regular output. Content that actually gets used.',
+      'No overcomplication. No big agency process.',
+      'Just getting it done properly, every week.',
+    ]),
+    source: { type: 'structured', futureFormats: ['md', 'mdx'] },
+  },
+  {
+    slug: 'gear-setup',
+    href: '/journal/gear-setup',
+    title: 'Gear Setup: Keep It Simple',
+    metaTitle: 'Gear Setup: Keep It Simple',
+    metaDescription:
+      'A practical Bear Media note on keeping content gear simple and using the setup consistently.',
+    excerpt:
+      'Good content does not need loads of kit. It needs a simple setup that gets used properly and consistently.',
+    category: 'Behind the Scenes',
+    publishedDate: '2026-07-07',
+    modifiedDate: '2026-07-07',
+    readTime: '2 min read',
+    author: {
+      name: 'Garry Lynch',
+      role: 'Founder of Bear Media',
+      url: '/about',
+    },
+    featuredImage: {
+      src: '/images/journal/workspace-setup/bear-media-workspace-keyboard-closeup-01.jpg',
+      alt: 'Close-up of a simple keyboard and desk setup for content creation',
+    },
+    body: articleBody([
+      'I’ve used a lot of gear over the years.',
+      'Most of it unnecessary.',
+      'Now it’s simple.',
+      'Camera. Light. Mic. Laptop.',
+      'That’s it.',
+      'You don’t need loads of kit to create good content.',
+      'You need to know how to use what you’ve got.',
+      'I’d rather have a simple setup I use every day than expensive gear that sits in a bag.',
+      'Clients don’t care what camera you used.',
+      'They care if the content works.',
+      'Keep it simple. Use it properly.',
+    ]),
+    source: { type: 'structured', futureFormats: ['md', 'mdx'] },
+  },
+  {
+    slug: 'why-i-do-this',
+    href: '/journal/why-i-do-this',
+    title: 'Why I Do This',
+    metaTitle: 'Why I Do This',
+    metaDescription:
+      'Why Bear Media exists: to take content pressure off businesses and help them keep posting without jargon.',
+    excerpt:
+      'Bear Media exists to take the pressure of content off busy businesses so they can keep showing up online.',
+    category: 'Business',
+    publishedDate: '2026-07-07',
+    modifiedDate: '2026-07-07',
+    readTime: '2 min read',
+    author: {
+      name: 'Garry Lynch',
+      role: 'Founder of Bear Media',
+      url: '/about',
+    },
+    featuredImage: {
+      src: '/images/journal/workspace-setup/bear-media-workspace-desk-setup-night-01.jpg',
+      alt: 'Bear Media workspace where client content is planned, created and posted',
+    },
+    body: articleBody([
+      'I started Bear Media to keep things simple.',
+      'Most businesses struggle with content because it feels like a full-time job.',
+      'They overthink it. Or they don’t have time.',
+      'So nothing gets posted.',
+      'That’s where I come in.',
+      'I take that pressure off.',
+      'Capture. Create. Post.',
+      'So they can focus on running their business.',
+      'No big strategy decks. No jargon.',
+      'Just content that actually gets done.',
+    ]),
+    source: { type: 'structured', futureFormats: ['md', 'mdx'] },
+  },
   {
     slug: 'how-im-building-websites-with-codex',
     title: "How I'm Building Websites with Codex",

@@ -267,7 +267,7 @@ function AdjacentArticleLink({
 
   return (
     <Link
-      href={`/insights/${article.slug}`}
+      href={article.href ?? `/insights/${article.slug}`}
       className={`group flex min-h-44 flex-col justify-between rounded-3xl border border-border/70 bg-background p-6 transition hover:-translate-y-1 hover:border-foreground/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 md:p-8 ${
         isNext ? 'md:text-right' : ''
       }`}

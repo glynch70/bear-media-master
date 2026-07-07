@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import { ArticleTemplate } from '@/components/insights/article-template'
@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const metadata = createMetadata({
     title: article.metaTitle,
     description: article.metaDescription,
-    path: `/insights/${article.slug}`,
+    path: article.href ?? `/insights/${article.slug}`,
     image: article.featuredImage.src,
     imageAlt: article.featuredImage.alt,
   })
@@ -42,6 +42,7 @@ export default async function InsightArticlePage({ params }: { params: Promise<{
   const { slug } = await params
   const article = getInsight(slug)
   if (!article) notFound()
+  if (article.href) redirect(article.href)
 
   const relatedArticles = getRelatedInsights(slug, 3)
   const { previous, next } = getAdjacentInsights(slug)
