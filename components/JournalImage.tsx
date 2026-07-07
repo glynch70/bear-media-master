@@ -2,7 +2,10 @@ import Image from 'next/image'
 import type { ReactNode } from 'react'
 import { cn } from '@/lib/utils'
 
-const journalImageSizes = '(max-width: 768px) 100vw, 800px'
+const journalImageSizes = {
+  hero: '(max-width: 768px) 100vw, 1200px',
+  inline: '(max-width: 768px) 100vw, 800px',
+} as const
 
 type JournalImageVariant = 'hero' | 'inline'
 
@@ -27,22 +30,28 @@ export function JournalImage({
   imageClassName,
   objectPosition = 'center',
 }: JournalImageProps) {
+  const isHero = variant === 'hero'
+  const shouldPrioritize = priority || isHero
+
   return (
-    <figure className={cn('mx-auto mt-6 mb-6 w-full max-w-[800px]', className)}>
+    <figure
+      className={cn(
+        'mx-auto my-8 flex w-full flex-col',
+        isHero ? 'max-w-[1200px]' : 'max-w-[800px]',
+        className,
+      )}
+    >
       <div
-        className={cn(
-          'relative w-full overflow-hidden rounded-lg bg-muted',
-          variant === 'hero' ? 'aspect-[4/3]' : 'aspect-[16/10]',
-        )}
+        className="group relative aspect-[16/9] w-full overflow-hidden rounded-lg bg-muted"
       >
         <Image
           src={src}
           alt={alt}
           fill
-          priority={priority}
-          loading={priority ? undefined : 'lazy'}
-          sizes={journalImageSizes}
-          className={cn('object-cover', imageClassName)}
+          priority={shouldPrioritize}
+          loading={shouldPrioritize ? undefined : 'lazy'}
+          sizes={isHero ? journalImageSizes.hero : journalImageSizes.inline}
+          className={cn('object-cover transition-transform duration-500 motion-safe:group-hover:scale-[1.015]', imageClassName)}
           style={{ objectPosition }}
         />
       </div>
@@ -63,7 +72,7 @@ export function JournalImageGrid({
   className?: string
 }) {
   return (
-    <div className={cn('mx-auto mt-6 mb-6 grid w-full max-w-[800px] grid-cols-1 gap-4 md:grid-cols-2', className)}>
+    <div className={cn('mx-auto my-8 grid w-full max-w-[800px] grid-cols-1 items-stretch gap-4 md:grid-cols-2', className)}>
       {children}
     </div>
   )

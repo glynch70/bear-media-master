@@ -101,14 +101,14 @@ export default function WorkspaceSetupJournalPage() {
           <JournalImage
             src={`${imageBase}/bear-media-workspace-keyboard-closeup-01.jpg`}
             alt="Close-up of the Bear Media keyboard used for writing, editing and content planning"
-            className="m-0 max-w-none"
+            className="m-0 h-full max-w-none"
             caption="The keyboard close-up."
             objectPosition="center"
           />
           <JournalImage
             src={`${imageBase}/bear-media-workspace-desk-setup-night-02.jpg`}
             alt="Alternative night view of the Bear Media workspace with monitors, microphone and desk tools"
-            className="m-0 max-w-none"
+            className="m-0 h-full max-w-none"
             caption="A second view of the desk setup."
             objectPosition="center"
           />

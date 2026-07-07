@@ -106,7 +106,7 @@ export function JournalPostPage({
                 key={image.src}
                 src={image.src}
                 alt={image.alt}
-                className="m-0 max-w-none"
+                className="m-0 h-full max-w-none"
                 caption={image.caption}
                 objectPosition={image.objectPosition}
               />

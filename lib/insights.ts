@@ -184,8 +184,8 @@ export const insights: InsightArticle[] = [
       url: '/about',
     },
     featuredImage: {
-      src: '/images/journal/workspace-setup/bear-media-workspace-desk-setup-night-01.jpg',
-      alt: 'Bear Media workspace where client content is planned, created and posted',
+      src: '/02-ABOUT/garry & rory.webp',
+      alt: 'Garry and Rory from Bear Media together',
     },
     body: articleBody([
       'I started Bear Media to keep things simple.',
@@ -258,8 +258,8 @@ export const insights: InsightArticle[] = [
       url: '/about',
     },
     featuredImage: {
-      src: '/assets/bts/office-client-shoot.webp',
-      alt: 'Bear Media desk setup for AI-assisted website work',
+      src: '/02-ABOUT/Garry in restaurant.webp',
+      alt: 'Garry from Bear Media in a restaurant setting',
     },
     body: articleBody([
       "I'm using Codex and Claude Code a lot just now.",
@@ -301,8 +301,8 @@ export const insights: InsightArticle[] = [
       url: '/about',
     },
     featuredImage: {
-      src: '/assets/projects/seamus-new.webp',
-      alt: 'Website and brand content created by Bear Media',
+      src: '/Websites/WEBSITE DESIGN  Almond Vet Care Brand Website.webp',
+      alt: 'Almond Vet Care website design by Bear Media',
     },
     body: articleBody([
       'One of the biggest risks with AI-built websites is that they can all start to feel the same.',
@@ -351,8 +351,8 @@ export const insights: InsightArticle[] = [
       url: '/about',
     },
     featuredImage: {
-      src: '/assets/projects/procoat-before-after.webp',
-      alt: 'Small business website transformation by Bear Media',
+      src: '/05-BTS/client reaction.webp',
+      alt: 'Client reaction during a Bear Media content session',
     },
     body: articleBody([
       'I work with a lot of small businesses, and I still hear this question:',
@@ -453,8 +453,8 @@ export const insights: InsightArticle[] = [
       url: '/about',
     },
     featuredImage: {
-      src: '/assets/bts/event.webp',
-      alt: 'Bear Media video production behind the scenes',
+      src: '/services/social media/Quality Builds.webp',
+      alt: 'Quality Builds social media content created by Bear Media',
     },
     body: articleBody([
       'This article is being prepared. The full guide will be added here soon, with practical examples and clear next steps for small businesses.',

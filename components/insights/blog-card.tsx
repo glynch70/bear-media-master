@@ -15,7 +15,7 @@ export function BlogCard({ article, priority = false }: { article: InsightArticl
     <article className="group flex h-full min-h-[520px] flex-col overflow-hidden rounded-3xl border border-border/70 bg-background transition duration-300 hover:-translate-y-1 hover:border-foreground/15">
       <Link
         href={articleHref}
-        className="relative block aspect-[1.18] overflow-hidden bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
+        className="relative block aspect-[16/9] overflow-hidden bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
         aria-label={`Read ${article.title}`}
       >
         <Image
