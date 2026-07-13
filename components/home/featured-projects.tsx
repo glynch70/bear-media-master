@@ -196,7 +196,7 @@ export default function FeaturedProjects() {
   return (
     <section className="w-full overflow-hidden bg-background py-16 md:py-24 lg:py-28">
       <Carousel
-        title="Businesses I've Helped"
+        title="Recent Work"
         subtitle="A showcase of real client work."
         showControls
       >

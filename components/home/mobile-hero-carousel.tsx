@@ -1,52 +1,114 @@
 'use client'
 
 import Image from 'next/image'
+import type { CSSProperties } from 'react'
 import { useEffect, useState } from 'react'
 
 const slides = [
-  { src: '/01-HERO/hero-mobile-1.webp', alt: 'Drone view of Scottish building work' },
-  { src: '/01-HERO/hero-mobile-2.webp', alt: 'Finished garden building project' },
-  { src: '/01-HERO/hero-mobile-3.webp', alt: 'Personal brand portrait created by Bear Media' },
-  { src: '/01-HERO/hero-mobile-4.webp', alt: 'Interior photography from a client project' },
-  { src: '/01-HERO/hero-mobile-5.webp', alt: 'Aerial project photography by Bear Media' },
+  {
+    src: '/assets/hero-carousel/aerial-landmark.webp',
+    alt: 'Aerial view of a landmark venue captured by Bear Media',
+    mobilePosition: '50% 54%',
+  },
+  {
+    src: '/assets/hero-carousel/branding-shoot.webp',
+    alt: 'Bear Media brand photography session with studio lighting',
+    mobilePosition: '50% 52%',
+  },
+  {
+    src: '/assets/hero-carousel/checking-camera.webp',
+    alt: 'Photographer checking a Canon camera on location',
+    mobilePosition: '50% 50%',
+  },
+  {
+    src: '/assets/hero-carousel/chef-hospitality.webp',
+    alt: 'Hospitality content shoot with chefs preparing food',
+    mobilePosition: '50% 46%',
+  },
+  {
+    src: '/assets/hero-carousel/conference-event.webp',
+    alt: 'Conference speaker photographed at a live event',
+    mobilePosition: '50% 44%',
+  },
+  {
+    src: '/assets/hero-carousel/edinburgh-drone.webp',
+    alt: 'Drone image of Edinburgh city architecture at sunset',
+    mobilePosition: '50% 46%',
+  },
+  {
+    src: '/assets/hero-carousel/garry-drone.webp',
+    alt: 'Bear Media drone operator launching a drone by the coast',
+    mobilePosition: '50% 38%',
+  },
+  {
+    src: '/assets/hero-carousel/howies-trails.webp',
+    alt: 'Night street photography with light trails outside Howies',
+    mobilePosition: '67% 50%',
+  },
+  {
+    src: '/assets/hero-carousel/interview-setup.webp',
+    alt: 'Professional interview filming setup with lighting and cameras',
+    mobilePosition: '48% 50%',
+  },
+  {
+    src: '/assets/hero-carousel/on-location.webp',
+    alt: 'Photographer capturing content on location in woodland',
+    mobilePosition: '52% 46%',
+  },
 ]
 
 export default function MobileHeroCarousel() {
   const [activeIndex, setActiveIndex] = useState(0)
-  const [isPaused, setIsPaused] = useState(false)
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
 
   useEffect(() => {
-    if (isPaused) return
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const updateMotionPreference = () => setPrefersReducedMotion(mediaQuery.matches)
+
+    updateMotionPreference()
+    mediaQuery.addEventListener('change', updateMotionPreference)
+
+    return () => mediaQuery.removeEventListener('change', updateMotionPreference)
+  }, [])
+
+  useEffect(() => {
+    if (prefersReducedMotion) return
 
     const timer = window.setInterval(() => {
       setActiveIndex((currentIndex) => (currentIndex + 1) % slides.length)
-    }, 3000)
+    }, 5600)
 
     return () => window.clearInterval(timer)
-  }, [isPaused])
+  }, [prefersReducedMotion])
 
   return (
-    <div
-      className="md:hidden absolute inset-0 h-screen w-full overflow-hidden bg-black"
-      onPointerDown={() => setIsPaused(true)}
-      onTouchStart={() => setIsPaused(true)}
-      onFocus={() => setIsPaused(true)}
-    >
+    <div className="absolute inset-0 h-full w-full overflow-hidden bg-black md:hidden" aria-hidden="true">
       {slides.map((slide, index) => (
-        <Image
+        <div
           key={slide.src}
-          src={slide.src}
-          alt={slide.alt}
-          fill
-          priority={index === 0}
-          loading={index === 0 ? undefined : 'lazy'}
-          sizes="100vw"
-          className={`object-cover transition-opacity duration-700 ease-out ${
+          className={`absolute inset-0 transition-opacity duration-[1400ms] ease-in-out ${
             index === activeIndex ? 'opacity-100' : 'opacity-0'
           }`}
-        />
+        >
+          <Image
+            src={slide.src}
+            alt={slide.alt}
+            fill
+            preload={index === 0}
+            loading={index === 0 ? undefined : 'lazy'}
+            sizes="100vw"
+            style={
+              {
+                '--hero-mobile-position': slide.mobilePosition,
+              } as CSSProperties
+            }
+            className={`object-cover object-[var(--hero-mobile-position)] ${
+              !prefersReducedMotion && index === activeIndex ? 'animate-hero-ken-burns' : ''
+            }`}
+          />
+        </div>
       ))}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/45" />
     </div>
   )
 }

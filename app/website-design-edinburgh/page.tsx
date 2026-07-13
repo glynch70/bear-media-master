@@ -121,7 +121,7 @@ export default function WebsiteDesignEdinburgh() {
             <h2 className="text-2xl font-bold mb-8">Related Services for Edinburgh</h2>
             <div className="grid md:grid-cols-3 gap-6">
               <a href="/social-media-edinburgh" className="p-6 border rounded-lg hover:border-primary transition-colors"><h3 className="font-bold mb-2">Social Media Management</h3><p className="text-sm text-muted-foreground">Grow your audience on social platforms</p></a>
-              <a href="/content-creation-edinburgh" className="p-6 border rounded-lg hover:border-primary transition-colors"><h3 className="font-bold mb-2">Content Creation</h3><p className="text-sm text-muted-foreground">Professional photography and videography</p></a>
+              <a href="/services#content-creation" className="p-6 border rounded-lg hover:border-primary transition-colors"><h3 className="font-bold mb-2">Content Creation</h3><p className="text-sm text-muted-foreground">Professional photography and videography</p></a>
               <a href="/services" className="p-6 border rounded-lg hover:border-primary transition-colors"><h3 className="font-bold mb-2">All Services</h3><p className="text-sm text-muted-foreground">View complete service list</p></a>
             </div>
           </div>

@@ -74,6 +74,20 @@ export default function Navigation() {
     }
   }, [isOpen])
 
+  useEffect(() => {
+    if (!isOpen) return
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false)
+        setServicesOpen(false)
+      }
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [isOpen])
+
   // On the homepage the hero is dark, so use light text until scrolled.
   const transparent = isHome && !scrolled && !isOpen
   const textColor = transparent ? 'text-white' : 'text-foreground'
@@ -186,8 +200,10 @@ export default function Navigation() {
           {!isOpen && (
             <button
               onClick={() => setIsOpen(true)}
-              className={`md:hidden flex flex-col gap-1.5 w-8 h-8 items-center justify-center ${textColor}`}
+              className={`flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-full transition-colors active:bg-white/10 md:hidden ${textColor}`}
               aria-label="Open menu"
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
             >
               <span className="w-6 h-0.5 bg-current" />
               <span className="w-6 h-0.5 bg-current" />
@@ -199,6 +215,7 @@ export default function Navigation() {
 
       {/* Full-screen mobile overlay */}
       <div
+        id="mobile-navigation"
         className={`md:hidden fixed inset-0 z-[60] transition-opacity duration-500 ${
           isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
@@ -208,7 +225,7 @@ export default function Navigation() {
         <div className="absolute inset-0 backdrop-blur-xl" style={{ backgroundColor: '#FAF8F5' }} />
 
         <div
-          className={`relative h-full flex flex-col px-6 pt-5 pb-10 transition-all duration-500 ease-out ${
+          className={`relative flex h-full min-h-0 flex-col overflow-y-auto px-6 pb-[max(2.5rem,env(safe-area-inset-bottom))] pt-[max(1.25rem,env(safe-area-inset-top))] transition-all duration-500 ease-out ${
             isOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
           }`}
         >
@@ -219,7 +236,7 @@ export default function Navigation() {
             </span>
             <button
               onClick={() => setIsOpen(false)}
-              className="w-10 h-10 -mr-2 flex items-center justify-center text-foreground/70 hover:text-foreground transition-colors"
+              className="flex h-11 w-11 -mr-2 items-center justify-center rounded-full text-foreground/70 transition-colors hover:text-foreground active:bg-foreground/5"
               aria-label="Close menu"
             >
               <X className="w-7 h-7" strokeWidth={1.5} />
@@ -227,8 +244,8 @@ export default function Navigation() {
           </div>
 
           {/* Links */}
-          <div className="flex-1 flex flex-col justify-center">
-            <ul className="flex flex-col gap-5">
+          <div className="flex flex-1 flex-col justify-center py-8">
+            <ul className="flex flex-col gap-4 min-[390px]:gap-5">
               {mobileTopLinks.map((link, i) => {
                 const active = pathname === link.href
                 return (
@@ -246,14 +263,14 @@ export default function Navigation() {
                       aria-current={active ? 'page' : undefined}
                     >
                       <span
-                        className={`font-heading text-4xl font-medium tracking-tight transition-colors duration-300 ${
+                        className={`font-heading text-3xl font-medium tracking-tight transition-colors duration-300 min-[390px]:text-4xl ${
                           active ? 'text-accent' : 'text-foreground group-hover:text-accent'
                         }`}
                       >
                         {link.label}
                       </span>
                       {active && (
-                        <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse" aria-hidden="true" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-accent motion-safe:animate-pulse" aria-hidden="true" />
                       )}
                       {active && (
                         <span className="absolute -bottom-2 left-0 w-16 h-0.5 bg-accent" aria-hidden="true" />
@@ -276,7 +293,7 @@ export default function Navigation() {
                   aria-controls="mobile-services-menu"
                 >
                   <span
-                    className={`font-heading text-4xl font-medium tracking-tight transition-colors duration-300 ${
+                    className={`font-heading text-3xl font-medium tracking-tight transition-colors duration-300 min-[390px]:text-4xl ${
                       servicesActive ? 'text-accent' : 'text-foreground group-hover:text-accent'
                     }`}
                   >
@@ -335,14 +352,14 @@ export default function Navigation() {
                       aria-current={active ? 'page' : undefined}
                     >
                       <span
-                        className={`font-heading text-4xl font-medium tracking-tight transition-colors duration-300 ${
+                        className={`font-heading text-3xl font-medium tracking-tight transition-colors duration-300 min-[390px]:text-4xl ${
                           active ? 'text-accent' : 'text-foreground group-hover:text-accent'
                         }`}
                       >
                         {link.label}
                       </span>
                       {active && (
-                        <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse" aria-hidden="true" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-accent motion-safe:animate-pulse" aria-hidden="true" />
                       )}
                       {active && (
                         <span className="absolute -bottom-2 left-0 w-16 h-0.5 bg-accent" aria-hidden="true" />

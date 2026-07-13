@@ -58,7 +58,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Edinburgh
     { url: `${baseUrl}/social-media-edinburgh`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/website-design-edinburgh`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${baseUrl}/content-creation-edinburgh`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
     // Fife
     { url: `${baseUrl}/social-media-fife`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/website-design-fife`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
@@ -74,7 +73,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   const insightPages: MetadataRoute.Sitemap = insights.map((article) => ({
-    url: `${baseUrl}/insights/${article.slug}`,
+    url: `${baseUrl}${article.href ?? `/insights/${article.slug}`}`,
     lastModified: article.modifiedDate,
     changeFrequency: 'monthly' as const,
     priority: 0.7,

@@ -5,9 +5,9 @@ export default function CTA() {
   return (
     <section className="relative w-full min-h-[100svh] flex items-center justify-center overflow-hidden">
       <MobileImage
-        src="/01-HERO/hero-mobile-2.webp"
+        src="/assets/hero-carousel/branding-shoot.webp"
         alt="Bear Media client project"
-        className="absolute inset-0 object-cover"
+        className="absolute inset-0 object-cover object-[50%_52%]"
       />
 
       {/* Full-bleed cinematic drone background from real client work */}
@@ -43,13 +43,13 @@ export default function CTA() {
         <div className="mt-11 flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/contact"
-          className="inline-flex items-center justify-center bg-accent text-accent-foreground px-10 py-4 rounded-full font-medium hover:opacity-90 transition-all hover:scale-[1.03] text-lg shadow-lg shadow-black/20"
+            className="inline-flex min-h-12 items-center justify-center rounded-full bg-accent px-10 py-4 text-lg font-medium text-accent-foreground shadow-lg shadow-black/20 transition-all hover:scale-[1.03] hover:opacity-90 active:scale-[0.98]"
           >
             Start A Project
           </Link>
           <Link
             href="/projects"
-            className="inline-flex items-center justify-center border border-white/50 text-white px-10 py-4 rounded-full font-medium hover:bg-white/10 transition-colors text-lg backdrop-blur-sm"
+            className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/50 px-10 py-4 text-lg font-medium text-white backdrop-blur-sm transition-all hover:scale-[1.03] hover:bg-white/10 active:scale-[0.98]"
           >
             View Recent Work
           </Link>

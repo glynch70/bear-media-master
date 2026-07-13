@@ -73,7 +73,7 @@ export function ProjectImageCarousel({ images, title, eager = false }: ProjectIm
     return () => window.clearInterval(timer)
   }, [emblaApi, hasMultipleImages, isPaused, prefersReducedMotion])
 
-  const imageClassName = 'object-cover transition-transform duration-700 group-hover:scale-[1.03]'
+  const imageClassName = 'object-cover transition-transform duration-700 motion-safe:group-hover:scale-[1.03]'
   const firstImage = validImages[0]
 
   if (!firstImage) {
@@ -93,7 +93,7 @@ export function ProjectImageCarousel({ images, title, eager = false }: ProjectIm
           className={imageClassName}
           loading={eager ? 'eager' : 'lazy'}
         />
-        <div className="pointer-events-none absolute inset-0 hidden items-center justify-center bg-black/30 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-100 md:flex">
+        <div className="pointer-events-none absolute inset-0 hidden items-center justify-center bg-black/30 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 md:flex">
           <span className="rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-black shadow-sm">
             View project →
           </span>
@@ -127,7 +127,7 @@ export function ProjectImageCarousel({ images, title, eager = false }: ProjectIm
         </div>
       </div>
 
-      <div className="pointer-events-none absolute inset-0 hidden items-center justify-center bg-black/30 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-100 md:flex">
+      <div className="pointer-events-none absolute inset-0 hidden items-center justify-center bg-black/30 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 md:flex">
         <span className="rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-black shadow-sm">
           View project →
         </span>

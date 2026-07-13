@@ -133,10 +133,20 @@
   }
   body {
     @apply bg-background text-foreground;
+    min-width: 320px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
   }
   html {
     @apply font-sans;
     scroll-behavior: smooth;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 5rem;
+  }
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
@@ -146,6 +156,38 @@
   }
   to {
     transform: scale(1);
+  }
+}
+
+@keyframes heroKenBurns {
+  from {
+    transform: scale(1.02);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+.animate-hero-ken-burns {
+  animation: heroKenBurns 11.2s ease-in-out alternate infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animate-hero-ken-burns {
+    animation: none;
   }
 }
 

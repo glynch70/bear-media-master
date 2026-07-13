@@ -15,7 +15,8 @@ export function Carousel({ children, title, subtitle, showControls = false }: Ca
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: 'start',
     containScroll: 'trimSnaps',
-    dragFree: false,
+    dragFree: true,
+    skipSnaps: false,
   })
   const [canScrollLeft, setCanScrollLeft] = useState(false)
   const [canScrollRight, setCanScrollRight] = useState(false)
@@ -48,7 +49,7 @@ export function Carousel({ children, title, subtitle, showControls = false }: Ca
     <div className="w-full bg-transparent">
       {(title || subtitle || showControls) && (
         <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-10 md:mb-12 flex items-end justify-between gap-6">
-          <div>
+          <div className="min-w-0">
             {title && (
               <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-foreground mb-3">
                 {title}
@@ -63,7 +64,7 @@ export function Carousel({ children, title, subtitle, showControls = false }: Ca
               onClick={scrollPrevious}
               disabled={!canScrollLeft}
               aria-label="Previous"
-              className="flex items-center justify-center w-11 h-11 rounded-full border border-foreground/15 text-foreground transition-all duration-200 hover:bg-foreground hover:text-background disabled:opacity-30 disabled:pointer-events-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-foreground/15 text-foreground transition-all duration-200 hover:bg-foreground hover:text-background active:scale-95 disabled:pointer-events-none disabled:opacity-30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
@@ -72,7 +73,7 @@ export function Carousel({ children, title, subtitle, showControls = false }: Ca
               onClick={scrollNext}
               disabled={!canScrollRight}
               aria-label="Next"
-              className="flex items-center justify-center w-11 h-11 rounded-full border border-foreground/15 text-foreground transition-all duration-200 hover:bg-foreground hover:text-background disabled:opacity-30 disabled:pointer-events-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-foreground/15 text-foreground transition-all duration-200 hover:bg-foreground hover:text-background active:scale-95 disabled:pointer-events-none disabled:opacity-30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -85,12 +86,16 @@ export function Carousel({ children, title, subtitle, showControls = false }: Ca
         {canScrollRight && (
           <div className="absolute right-0 top-0 bottom-0 w-10 md:w-16 bg-gradient-to-l from-background to-transparent pointer-events-none z-10" />
         )}
+        {canScrollLeft && (
+          <div className="absolute left-0 top-0 bottom-0 w-8 md:w-12 bg-gradient-to-r from-background to-transparent pointer-events-none z-10" />
+        )}
 
         <div
           ref={emblaRef}
           className="overflow-hidden"
+          aria-label={title ? `${title} carousel` : 'Carousel'}
         >
-          <div className="flex gap-5 px-6 pb-2 md:gap-6 lg:px-8">
+          <div className="flex gap-5 px-6 pb-2 will-change-transform md:gap-6 lg:px-8">
             {children}
           </div>
         </div>
