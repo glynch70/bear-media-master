@@ -76,6 +76,18 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               </span>
             ))}
           </div>
+
+          {project.websiteUrl && (
+            <a
+              href={project.websiteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-foreground transition-all duration-200 hover:scale-[1.02] hover:bg-white/90 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+            >
+              Visit live website
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+          )}
         </div>
       </section>
 

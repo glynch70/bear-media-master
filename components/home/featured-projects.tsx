@@ -7,6 +7,31 @@ import { getTrustedClientAriaLabel } from '@/lib/trusted-client-links'
 
 const featuredProjects = [
   {
+    id: 'midlothian-wildflowers',
+    title: 'Midlothian Wildflowers',
+    category: 'Community & Conservation',
+    tags: ['Website', 'Community', 'Launch'],
+    images: [
+      {
+        src: '/assets/websites/midlothian-wildflowers/desktop-home.webp',
+        alt: 'Midlothian Wildflowers website desktop homepage by Bear Media',
+      },
+      {
+        src: '/assets/websites/midlothian-wildflowers/mobile-home.webp',
+        alt: 'Midlothian Wildflowers website mobile homepage by Bear Media',
+      },
+      {
+        src: '/assets/websites/midlothian-wildflowers/desktop-what-we-do.webp',
+        alt: 'Midlothian Wildflowers website project section by Bear Media',
+      },
+      {
+        src: '/assets/websites/midlothian-wildflowers/desktop-gallery.webp',
+        alt: 'Midlothian Wildflowers website gallery page by Bear Media',
+      },
+    ],
+    href: '/projects/midlothian-wildflowers',
+  },
+  {
     id: 'cg-developments',
     title: 'C&G Developments',
     category: 'Construction & Property',

@@ -50,6 +50,71 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: 9,
+    slug: 'midlothian-wildflowers',
+    title: 'Midlothian Wildflowers Website Launch',
+    clientName: 'Midlothian Wildflowers',
+    category: 'Website Design · Community · Conservation',
+    description: 'Launching a warm, accessible website for a grassroots conservation project.',
+    intro:
+      'Midlothian Wildflowers needed a clear online home for its community planting, outdoor learning and conservation work across Midlothian.',
+    challenge:
+      'The website had to bring together a lot of grassroots activity without feeling busy. It needed to explain the project, celebrate the BBC Make a Difference Awards recognition, and make it easy for local people to get involved.',
+    heroImage: '/assets/websites/midlothian-wildflowers/desktop-home.webp',
+    images: [
+      {
+        src: '/assets/websites/midlothian-wildflowers/desktop-home.webp',
+        alt: 'Midlothian Wildflowers website homepage desktop design',
+      },
+      {
+        src: '/assets/websites/midlothian-wildflowers/mobile-home.webp',
+        alt: 'Midlothian Wildflowers website homepage mobile design',
+      },
+      {
+        src: '/assets/websites/midlothian-wildflowers/desktop-what-we-do.webp',
+        alt: 'Midlothian Wildflowers practical projects page desktop design',
+      },
+      {
+        src: '/assets/websites/midlothian-wildflowers/desktop-gallery.webp',
+        alt: 'Midlothian Wildflowers gallery page desktop design',
+      },
+      {
+        src: '/assets/websites/midlothian-wildflowers/desktop-get-involved.webp',
+        alt: 'Midlothian Wildflowers get involved page desktop design',
+      },
+      {
+        src: '/assets/websites/midlothian-wildflowers/mobile-gallery.webp',
+        alt: 'Midlothian Wildflowers gallery page mobile design',
+      },
+    ],
+    services: ['Website Design', 'Responsive Design', 'Content Structure', 'Community Storytelling'],
+    deliverables: [
+      {
+        title: 'Website Design',
+        description: 'A soft, nature-led website design gave the project a more polished and welcoming online home.',
+      },
+      {
+        title: 'Mobile Experience',
+        description: 'The site was shaped for mobile visitors, with clear navigation and simple routes into volunteering and local action.',
+      },
+      {
+        title: 'Content Structure',
+        description: 'Project, gallery, partner and get-involved content was organised so visitors can understand the work quickly.',
+      },
+    ],
+    stats: [
+      { label: 'Launch', value: '2026', context: 'New website' },
+      { label: 'Pages', value: '6+', context: 'Community site structure' },
+      { label: 'Recognition', value: 'BBC', context: 'Make a Difference finalist' },
+    ],
+    results: [
+      'A clearer public home for local conservation and wildflower activity.',
+      'A mobile-friendly route for volunteers, supporters and community partners.',
+      'A warmer, more credible first impression for a newly launched grassroots project.',
+    ],
+    websiteUrl: 'https://www.midlothianwildflowers-co.uk/',
+  },
+  {
     id: 1,
     slug: 'cg-developments',
     title: 'C&G Developments Case Study',
