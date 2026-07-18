@@ -61,11 +61,6 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: '/video-production-west-lothian',
-        destination: '/projects',
-        permanent: true,
-      },
-      {
         source: '/drone-services-edinburgh',
         destination: '/projects',
         permanent: true,

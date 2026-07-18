@@ -15,18 +15,32 @@ const featuredProjects = [
       {
         src: '/assets/websites/midlothian-wildflowers/desktop-home.webp',
         alt: 'Midlothian Wildflowers website desktop homepage by Bear Media',
+        fit: 'contain' as const,
       },
       {
         src: '/assets/websites/midlothian-wildflowers/mobile-home.webp',
         alt: 'Midlothian Wildflowers website mobile homepage by Bear Media',
-      },
-      {
-        src: '/assets/websites/midlothian-wildflowers/desktop-what-we-do.webp',
-        alt: 'Midlothian Wildflowers website project section by Bear Media',
+        fit: 'contain' as const,
       },
       {
         src: '/assets/websites/midlothian-wildflowers/desktop-gallery.webp',
-        alt: 'Midlothian Wildflowers website gallery page by Bear Media',
+        alt: 'Midlothian Wildflowers website desktop gallery by Bear Media',
+        fit: 'contain' as const,
+      },
+      {
+        src: '/assets/websites/midlothian-wildflowers/mobile-gallery.webp',
+        alt: 'Midlothian Wildflowers website compact gallery by Bear Media',
+        fit: 'contain' as const,
+      },
+      {
+        src: '/assets/websites/midlothian-wildflowers/desktop-about.webp',
+        alt: 'Midlothian Wildflowers website desktop about page by Bear Media',
+        fit: 'contain' as const,
+      },
+      {
+        src: '/assets/websites/midlothian-wildflowers/mobile-about.webp',
+        alt: 'Midlothian Wildflowers website compact about page by Bear Media',
+        fit: 'contain' as const,
       },
     ],
     href: '/projects/midlothian-wildflowers',

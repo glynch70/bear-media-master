@@ -50,7 +50,7 @@ export default function Footer() {
   ]
 
   const trustedClients = [
-    { name: 'C&G Developments', logo: '/07- CLIENT LOGOS/c&g.webp', href: trustedClientLinks.cgDevelopments },
+    { name: 'C&G Developments', logo: '/07-%20CLIENT%20LOGOS/c%26g.webp', href: trustedClientLinks.cgDevelopments },
     { name: 'Simply Sheds Scotland', logo: '/07- CLIENT LOGOS/simply sheds.webp', href: trustedClientLinks.simplySheds },
     { name: 'Master Chefs', logo: '/07- CLIENT LOGOS/master chefs.webp', href: trustedClientLinks.masterChefs },
     { name: 'Seamus Corry', logo: '/07- CLIENT LOGOS/seamus.webp', href: trustedClientLinks.seamusCorry },
@@ -91,6 +91,7 @@ export default function Footer() {
                   sizes="(max-width: 640px) 45vw, 180px"
                   className="max-h-16 w-auto object-contain opacity-75 transition-all duration-300 group-hover:scale-[1.03] group-hover:opacity-100 sm:max-h-20 md:max-h-24"
                   loading="lazy"
+                  unoptimized
                 />
               </a>
             ))}
@@ -134,6 +135,7 @@ export default function Footer() {
             <h3 className="font-medium text-sm uppercase tracking-wider text-foreground mb-5">Services</h3>
             <ul className="space-y-3">
               <li><Link href="/services#photography" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Photography</Link></li>
+              <li><Link href="/video-production-west-lothian" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Video Production</Link></li>
               <li><Link href="/services#website-design" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Websites</Link></li>
               <li><Link href="/services#social-media" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Social Media</Link></li>
               <li><Link href="/services#content-creation" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Content Creation</Link></li>

@@ -38,6 +38,20 @@ const testimonials = [
     image: '/assets/testimonials/stephen-johnstone.webp',
     initials: 'SJ',
   },
+  {
+    quote: 'Great experience working with Garry and Bear Media. A slick process, reliable service, good communication and excellent results.',
+    author: 'Gary Young',
+    title: 'Client',
+    image: '/assets/testimonials/gary-young.webp',
+    initials: 'GY',
+  },
+  {
+    quote: 'Bear Media created an amazing social media campaign for my coaching and healing business. Garry took time to understand the business and promoted the programme brilliantly.',
+    author: 'Leanne Murphy',
+    title: 'Business Owner',
+    image: '/assets/testimonials/leanne-murphy.webp',
+    initials: 'LM',
+  },
 ]
 
 function AvatarFallback({ initials, name }: { initials: string; name: string }) {
@@ -80,15 +94,11 @@ function TestimonialPortrait({ image, author, initials }: { image: string; autho
 export default function Testimonials() {
   return (
     <section className="w-full bg-secondary py-16 md:py-24 lg:py-28">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-10 md:mb-14">
-        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-foreground text-balance mb-3">
-          What clients say.
-        </h2>
-        <p className="text-lg text-muted-foreground text-pretty max-w-2xl">
-          Real feedback from businesses who've worked with Bear Media.
-        </p>
-      </div>
-      <Carousel>
+      <Carousel
+        title="What clients say."
+        subtitle="Real feedback from businesses who've worked with Bear Media."
+        showControls
+      >
         {testimonials.map((t) => (
           <CarouselItem key={t.author} widthClassName="w-[84vw] sm:w-80 md:w-[24rem] lg:w-[26rem] flex-shrink-0 pt-2 pb-8">
             <figure className="flex h-full min-h-[28rem] flex-col rounded-2xl bg-background p-7 shadow-sm ring-1 ring-border/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:min-h-[30rem] md:rounded-3xl md:p-9">

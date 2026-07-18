@@ -19,7 +19,7 @@ const serviceMenuItems = [
   { href: '/services#website-design', label: 'Website Design' },
   { href: '/services#social-media', label: 'Social Media' },
   { href: '/services#photography', label: 'Photography' },
-  { href: '/services#photography', label: 'Video Production' },
+  { href: '/video-production-west-lothian', label: 'Video Production' },
   { href: '/services#drone', label: 'Drone Photography' },
   { href: '/insights', label: 'The Bear Media Journal' },
 ] as const
@@ -95,7 +95,10 @@ export default function Navigation() {
   const desktopLinks = links.filter((l) => l.href !== '/' && l.href !== '/contact')
   const mobileTopLinks = links.filter((l) => l.href === '/' || l.href === '/projects')
   const mobileBottomLinks = links.filter((l) => l.href === '/about' || l.href === '/contact')
-  const servicesActive = pathname === '/services' || pathname === '/insights'
+  const servicesActive =
+    pathname === '/services' ||
+    pathname === '/insights' ||
+    pathname === '/video-production-west-lothian'
 
   return (
     <>
@@ -144,7 +147,7 @@ export default function Navigation() {
                     <div className="absolute left-1/2 top-full z-50 mt-4 w-72 -translate-x-1/2 translate-y-2 rounded-3xl border border-border/80 bg-background/95 p-2 opacity-0 shadow-[0_24px_70px_rgba(0,0,0,0.08)] backdrop-blur-xl transition duration-200 pointer-events-none group-hover:translate-y-0 group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto">
                       <div className="absolute -top-4 left-0 right-0 h-4" />
                       {serviceMenuItems.map((item) => {
-                        const itemActive = item.href === '/insights' && pathname === '/insights'
+                        const itemActive = item.href === pathname
                         return (
                           <Link
                             key={`${item.href}-${item.label}`}

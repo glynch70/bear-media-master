@@ -6,11 +6,6 @@ import { useEffect, useState } from 'react'
 
 const slides = [
   {
-    src: '/assets/hero-carousel/aerial-landmark.webp',
-    alt: 'Aerial view of a landmark venue captured by Bear Media',
-    mobilePosition: '50% 54%',
-  },
-  {
     src: '/assets/hero-carousel/branding-shoot.webp',
     alt: 'Bear Media brand photography session with studio lighting',
     mobilePosition: '50% 52%',
@@ -108,7 +103,7 @@ export default function MobileHeroCarousel() {
           />
         </div>
       ))}
-      <div className="absolute inset-0 bg-black/45" />
+      <div className="absolute inset-0 bg-black/35" />
     </div>
   )
 }

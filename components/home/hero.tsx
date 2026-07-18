@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import MobileHeroCarousel from '@/components/home/mobile-hero-carousel'
 import { DesktopVideo } from '@/components/responsive-media'
 
@@ -8,23 +7,13 @@ export default function Hero() {
     <section className="relative flex min-h-[100svh] w-full items-center overflow-hidden">
       <MobileHeroCarousel />
 
-      <Image
-        src="/assets/hero-carousel/aerial-landmark.webp"
-        alt=""
-        fill
-        loading="lazy"
-        sizes="100vw"
-        className="absolute inset-0 hidden object-cover object-[50%_56%] md:block"
-        aria-hidden="true"
-      />
-
       <DesktopVideo
         src="/assets/hero/hero-desktop.mp4"
         poster="/assets/hero/hero-poster.webp"
         className="absolute inset-0 hidden h-full w-full object-cover md:block"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/35" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/25" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-7xl justify-center px-5 py-24 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl space-y-5 text-center sm:space-y-6">

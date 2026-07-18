@@ -205,11 +205,13 @@ export function ServiceSchema({
   description,
   areaServed,
   provider,
+  url = siteUrl,
 }: {
   name: string
   description: string
   areaServed: string
   provider: string
+  url?: string
 }) {
   const schema = {
     '@context': 'https://schema.org',
@@ -223,7 +225,7 @@ export function ServiceSchema({
       url: siteUrl,
     },
     areaServed,
-    url: siteUrl,
+    url,
   }
 
   return (

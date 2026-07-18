@@ -9,9 +9,10 @@ interface CarouselProps {
   title?: string
   subtitle?: string
   showControls?: boolean
+  mobileHint?: string
 }
 
-export function Carousel({ children, title, subtitle, showControls = false }: CarouselProps) {
+export function Carousel({ children, title, subtitle, showControls = false, mobileHint }: CarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: 'start',
     containScroll: 'trimSnaps',
@@ -56,6 +57,12 @@ export function Carousel({ children, title, subtitle, showControls = false }: Ca
               </h2>
             )}
             {subtitle && <p className="text-lg text-muted-foreground text-pretty">{subtitle}</p>}
+            {mobileHint && (
+              <p className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-accent/10 px-3.5 py-2 text-sm font-medium text-foreground sm:hidden">
+                {mobileHint}
+                <ChevronRight className="h-4 w-4 text-accent" aria-hidden="true" />
+              </p>
+            )}
           </div>
 
           <div className={`${showControls ? 'flex' : 'hidden lg:flex'} items-center gap-3 shrink-0 pb-1`}>

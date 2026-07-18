@@ -71,20 +71,20 @@ export const projects: Project[] = [
         alt: 'Midlothian Wildflowers website homepage mobile design',
       },
       {
-        src: '/assets/websites/midlothian-wildflowers/desktop-what-we-do.webp',
-        alt: 'Midlothian Wildflowers practical projects page desktop design',
-      },
-      {
         src: '/assets/websites/midlothian-wildflowers/desktop-gallery.webp',
         alt: 'Midlothian Wildflowers gallery page desktop design',
       },
       {
-        src: '/assets/websites/midlothian-wildflowers/desktop-get-involved.webp',
-        alt: 'Midlothian Wildflowers get involved page desktop design',
+        src: '/assets/websites/midlothian-wildflowers/mobile-gallery.webp',
+        alt: 'Midlothian Wildflowers gallery page compact design',
       },
       {
-        src: '/assets/websites/midlothian-wildflowers/mobile-gallery.webp',
-        alt: 'Midlothian Wildflowers gallery page mobile design',
+        src: '/assets/websites/midlothian-wildflowers/desktop-about.webp',
+        alt: 'Midlothian Wildflowers about page desktop design',
+      },
+      {
+        src: '/assets/websites/midlothian-wildflowers/mobile-about.webp',
+        alt: 'Midlothian Wildflowers about page compact design',
       },
     ],
     services: ['Website Design', 'Responsive Design', 'Content Structure', 'Community Storytelling'],

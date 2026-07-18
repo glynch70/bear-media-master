@@ -7,6 +7,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 interface ProjectCarouselImage {
   src: string
   alt: string
+  fit?: 'cover' | 'contain'
 }
 
 interface ProjectImageCarouselProps {
@@ -73,24 +74,25 @@ export function ProjectImageCarousel({ images, title, eager = false }: ProjectIm
     return () => window.clearInterval(timer)
   }, [emblaApi, hasMultipleImages, isPaused, prefersReducedMotion])
 
-  const imageClassName = 'object-cover transition-transform duration-700 motion-safe:group-hover:scale-[1.03]'
+  const getImageClassName = (fit: ProjectCarouselImage['fit']) =>
+    `${fit === 'contain' ? 'object-contain p-2 md:p-3' : 'object-cover'} transition-transform duration-700 motion-safe:group-hover:scale-[1.03]`
   const firstImage = validImages[0]
 
   if (!firstImage) {
     return (
-      <div className="relative w-full aspect-[4/5] rounded-2xl md:rounded-3xl overflow-hidden bg-muted flex-shrink-0 shadow-sm transition-shadow duration-300 group-hover:shadow-xl" />
+      <div className="relative w-full aspect-square md:aspect-[4/5] rounded-2xl md:rounded-3xl overflow-hidden bg-muted flex-shrink-0 shadow-sm transition-shadow duration-300 group-hover:shadow-xl" />
     )
   }
 
   if (!hasMultipleImages) {
     return (
-      <div className="relative w-full aspect-[4/5] rounded-2xl md:rounded-3xl overflow-hidden bg-muted flex-shrink-0 shadow-sm transition-shadow duration-300 group-hover:shadow-xl">
+      <div className="relative w-full aspect-square md:aspect-[4/5] rounded-2xl md:rounded-3xl overflow-hidden bg-muted flex-shrink-0 shadow-sm transition-shadow duration-300 group-hover:shadow-xl">
         <Image
           src={firstImage.src}
           alt={firstImage.alt || title}
           fill
           sizes="(max-width: 768px) calc(100vw - 3rem), (max-width: 1024px) 24rem, 26rem"
-          className={imageClassName}
+          className={getImageClassName(firstImage.fit)}
           loading={eager ? 'eager' : 'lazy'}
         />
         <div className="pointer-events-none absolute inset-0 hidden items-center justify-center bg-black/30 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 md:flex">
@@ -104,7 +106,7 @@ export function ProjectImageCarousel({ images, title, eager = false }: ProjectIm
 
   return (
     <div
-      className="relative w-full aspect-[4/5] rounded-2xl md:rounded-3xl overflow-hidden bg-muted flex-shrink-0 shadow-sm transition-shadow duration-300 group-hover:shadow-xl"
+      className="relative w-full aspect-square md:aspect-[4/5] rounded-2xl md:rounded-3xl overflow-hidden bg-muted flex-shrink-0 shadow-sm transition-shadow duration-300 group-hover:shadow-xl"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onFocus={() => setIsPaused(true)}
@@ -119,7 +121,7 @@ export function ProjectImageCarousel({ images, title, eager = false }: ProjectIm
                 alt={image.alt}
                 fill
                 sizes="(max-width: 768px) calc(100vw - 3rem), (max-width: 1024px) 24rem, 26rem"
-                className={imageClassName}
+                className={getImageClassName(image.fit)}
                 loading={eager && imageIndex === 0 ? 'eager' : 'lazy'}
               />
             </div>

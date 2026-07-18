@@ -47,7 +47,11 @@ export default function WhatIDo() {
 
   return (
     <section className="w-full bg-background py-20 md:py-24 lg:py-32">
-      <Carousel title="What I do." subtitle="Helping businesses improve their online presence and grow.">
+      <Carousel
+        title="What I do."
+        subtitle="Helping businesses improve their online presence and grow."
+        mobileHint="Swipe to view all services"
+      >
         {services.map((service) => (
           <CarouselItem key={service.title}>
             <Link
