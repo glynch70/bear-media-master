@@ -96,7 +96,7 @@ export const journalPages = {
     category: 'Gear Setup',
     path: '/journal/gear-setup',
     description:
-      'A practical Bear Media note on keeping content gear simple and using the setup consistently.',
+      'A practical guide to keeping your content creation kit simple, choosing useful gear and building a reliable setup you will use consistently.',
     heroImage: {
       src: `${imageBase}/bear-media-workspace-keyboard-closeup-01.jpg`,
       alt: 'Close-up of a simple keyboard and desk setup for content creation',

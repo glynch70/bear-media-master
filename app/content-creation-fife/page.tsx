@@ -4,7 +4,7 @@ import Footer from '@/components/footer'
 import { ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Professional Content Creation in Fife | Photography & Video | Bear Media',
+  title: 'Content Creation Fife | Photography & Video | Bear Media',
   description: 'Professional photography, videography, and content creation services for Fife businesses. High-quality visual content that engages your audience and drives results.',
   openGraph: {
     title: 'Professional Content Creation in Fife | Bear Media',

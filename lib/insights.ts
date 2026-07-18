@@ -134,12 +134,12 @@ export const insights: InsightArticle[] = [
     title: 'Gear Setup: Keep It Simple',
     metaTitle: 'Gear Setup: Keep It Simple',
     metaDescription:
-      'A practical Bear Media note on keeping content gear simple and using the setup consistently.',
+      'A practical guide to keeping your content creation kit simple, choosing useful gear and building a reliable setup you will use consistently.',
     excerpt:
       'Good content does not need loads of kit. It needs a simple setup that gets used properly and consistently.',
     category: 'Behind the Scenes',
     publishedDate: '2026-07-07',
-    modifiedDate: '2026-07-07',
+    modifiedDate: '2026-07-18',
     readTime: '2 min read',
     author: {
       name: 'Garry Lynch',
@@ -169,14 +169,14 @@ export const insights: InsightArticle[] = [
     slug: 'why-i-do-this',
     href: '/journal/why-i-do-this',
     title: 'Why I Do This',
-    metaTitle: 'Why I Do This',
+    metaTitle: 'Why Bear Media Exists | Supporting Businesses with Content',
     metaDescription:
       'Why Bear Media exists: to take content pressure off businesses and help them keep posting without jargon.',
     excerpt:
       'Bear Media exists to take the pressure of content off busy businesses so they can keep showing up online.',
     category: 'Business',
     publishedDate: '2026-07-07',
-    modifiedDate: '2026-07-07',
+    modifiedDate: '2026-07-18',
     readTime: '2 min read',
     author: {
       name: 'Garry Lynch',
@@ -243,14 +243,14 @@ export const insights: InsightArticle[] = [
   {
     slug: 'codex-vs-claude-code',
     title: "Codex vs Claude Code: What I'm Using Right Now",
-    metaTitle: "Codex vs Claude Code: What I'm Using Right Now | The Bear Media Journal",
+    metaTitle: 'Codex vs Claude Code: My Current Workflow | Bear Media',
     metaDescription:
       'How Bear Media is using Codex and Claude Code in real website workflows without treating either tool as a magic button.',
     excerpt:
       "I use both Codex and Claude Code in my workflow. They're powerful tools, but they are not the same. Here's how I'm using them when building websites.",
     category: 'AI',
     publishedDate: '2026-07-06',
-    modifiedDate: '2026-07-06',
+    modifiedDate: '2026-07-18',
     readTime: '6 min read',
     author: {
       name: 'Garry Lynch',
@@ -286,14 +286,14 @@ export const insights: InsightArticle[] = [
   {
     slug: 'building-better-websites-with-ai',
     title: 'Building Better Websites with AI Without Making Them Look Generic',
-    metaTitle: 'Building Better Websites with AI Without Making Them Look Generic | The Bear Media Journal',
+    metaTitle: 'Building Better Websites with AI | Bear Media Journal',
     metaDescription:
       'How Bear Media uses AI to build websites faster while keeping them personal, polished and right for each business.',
     excerpt:
       'AI can help build websites quickly, but fast is not enough. The challenge is making the end result feel personal, polished and right for the business.',
     category: 'Website Design',
     publishedDate: '2026-07-06',
-    modifiedDate: '2026-07-06',
+    modifiedDate: '2026-07-18',
     readTime: '5 min read',
     author: {
       name: 'Garry Lynch',
@@ -336,14 +336,14 @@ export const insights: InsightArticle[] = [
   {
     slug: 'why-every-small-business-still-needs-a-website',
     title: 'Why Every Small Business Still Needs a Website',
-    metaTitle: 'Why Every Small Business Still Needs a Website | The Bear Media Journal',
+    metaTitle: 'Why Small Businesses Still Need a Website | Bear Media',
     metaDescription:
       'Why social media is useful but Scottish small businesses still need a clear, trustworthy website they control.',
     excerpt:
       'Social media is useful, but it should not be the only place your business exists online. A proper website still gives you control, trust and long-term visibility.',
     category: 'Business',
     publishedDate: '2026-07-06',
-    modifiedDate: '2026-07-06',
+    modifiedDate: '2026-07-18',
     readTime: '4 min read',
     author: {
       name: 'Garry Lynch',

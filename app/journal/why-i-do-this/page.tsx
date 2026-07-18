@@ -6,7 +6,7 @@ const page = journalPages.whyIDoThis
 
 export const metadata = {
   ...createMetadata({
-    title: page.title,
+    title: 'Why Bear Media Exists | Supporting Businesses with Content',
     description: page.description,
     path: page.path,
     image: page.heroImage.src,
