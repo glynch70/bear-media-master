@@ -5,7 +5,7 @@ import { ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
   title: 'Drone Photography & Videography in West Lothian | Bear Media',
-  description: 'Professional drone services for West Lothian. Aerial photography and videography for properties, events, and marketing. Licensed and insured. Serving Livingston, and Linlithgow.',
+  description: 'Licensed and insured drone photography and video for West Lothian properties, events and marketing across Livingston, Broxburn and Linlithgow.',
   openGraph: {
     title: 'Drone Photography & Videography in West Lothian | Bear Media',
     description: 'Professional drone services for West Lothian. Aerial photography and videography for properties, events, and marketing.',

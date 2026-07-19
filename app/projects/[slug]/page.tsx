@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!project) return {}
   return createMetadata({
     title: `${project.clientName} Case Study | Bear Media Scotland`,
-    description: `${project.description} Explore Bear Media results, imagery and creative delivery for ${project.clientName}.`,
+    description: `${project.description} See the creative work and results for ${project.clientName}.`,
     path: `/projects/${project.slug}`,
     image: project.heroImage,
     imageAlt: `${project.clientName} case study by Bear Media`,

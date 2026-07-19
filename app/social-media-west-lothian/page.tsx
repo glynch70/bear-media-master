@@ -5,7 +5,7 @@ import { ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
   title: 'Social Media Management Services in West Lothian | Bear Media',
-  description: 'Professional social media management for West Lothian businesses. Grow your audience, increase engagement, and build your brand with Bear Media\'s proven social media strategies.',
+  description: 'Social media management for West Lothian businesses, with strategy, content creation and engagement to grow an audience and strengthen your brand.',
   openGraph: {
     title: 'Social Media Management Services in West Lothian | Bear Media',
     description: 'Professional social media management for West Lothian businesses. Grow your audience, increase engagement, and build your brand with Bear Media\'s proven social media strategies.',

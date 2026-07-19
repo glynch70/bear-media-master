@@ -5,7 +5,7 @@ import { ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
   title: 'Professional Content Creation in West Lothian | Bear Media',
-  description: 'Professional photography, videography, and content creation services for West Lothian businesses. High-quality visual content that tells your story and engages your audience.',
+  description: 'Professional photography, video and content creation for West Lothian businesses, with high-quality visuals that tell your story and engage customers.',
   openGraph: {
     title: 'Professional Content Creation in West Lothian | Bear Media',
     description: 'Professional photography, videography, and content creation services for West Lothian businesses.',

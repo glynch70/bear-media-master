@@ -5,7 +5,7 @@ import { ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
   title: 'Professional Website Design in Fife | Bear Media',
-  description: 'Custom website design for Fife businesses. Mobile-responsive, SEO-optimized websites that drive results. Serving Dunfermline, Kirkcaldy, St Andrews, and across Fife.',
+  description: 'Custom, responsive website design for Fife businesses in Dunfermline, Kirkcaldy and St Andrews, with SEO-focused sites that drive results.',
   openGraph: {
     title: 'Professional Website Design in Fife | Bear Media',
     description: 'Custom website design for Fife businesses. Mobile-responsive, SEO-optimized websites.',

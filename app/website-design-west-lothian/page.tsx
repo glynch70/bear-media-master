@@ -19,7 +19,7 @@ const pageUrl = 'https://bear-media.com/website-design-west-lothian'
 export const metadata: Metadata = {
   title: 'Website Design West Lothian | Bear Media',
   description:
-    'Custom, mobile-first website design for businesses in Livingston, Broxburn, Linlithgow and across West Lothian. See recent work and arrange a free discovery call.',
+    'Custom, mobile-first website design for businesses in Livingston, Broxburn, Linlithgow and across West Lothian. View recent work and book a call.',
   openGraph: {
     title: 'Website Design in West Lothian | Bear Media',
     description:

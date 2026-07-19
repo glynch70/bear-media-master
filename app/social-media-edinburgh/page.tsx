@@ -5,7 +5,7 @@ import { ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
   title: 'Social Media Management Services in Edinburgh | Bear Media',
-  description: 'Professional social media management for Edinburgh businesses. Grow your audience, increase engagement, and build your brand with proven social media strategies tailored for the Scottish capital.',
+  description: 'Social media management for Edinburgh businesses, with strategy, content creation and engagement to grow your audience and strengthen your brand.',
   openGraph: {
     title: 'Social Media Management Services in Edinburgh | Bear Media',
     description: 'Professional social media management for Edinburgh businesses. Grow your audience and increase engagement with proven strategies.',

@@ -5,7 +5,7 @@ import { ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
   title: 'Social Media Management Services in Fife | Bear Media',
-  description: 'Professional social media management for Fife businesses. Grow your audience and engage your Fife customers with proven social media strategies tailored for the region.',
+  description: 'Social media management for Fife businesses, with strategy, content creation and audience engagement to build visibility and grow your brand.',
   openGraph: {
     title: 'Social Media Management Services in Fife | Bear Media',
     description: 'Professional social media management for Fife businesses. Grow your audience and increase engagement.',

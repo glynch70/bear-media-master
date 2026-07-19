@@ -15,7 +15,7 @@ import { createMetadata, siteUrl } from '@/lib/seo'
 export const metadata = {
   ...createMetadata({
     title: 'Creative Services Scotland | Websites, Photography & Social Media',
-    description: 'Bear Media services include website design, photography, video, drone content, social media management and AI training for businesses in West Lothian, Edinburgh and Scotland.',
+    description: 'Explore Bear Media website design, photography, video, drone content, social media management and AI training services for Scottish businesses.',
     path: '/services',
     imageAlt: 'Bear Media services for Scottish businesses',
   }),

@@ -5,7 +5,7 @@ import { ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
   title: 'Professional Website Design in Edinburgh | Bear Media',
-  description: 'Custom website design for Edinburgh businesses. Mobile-responsive, SEO-optimized websites that convert visitors into customers. Serving the Scottish capital and beyond.',
+  description: 'Custom website design for Edinburgh businesses. Responsive, SEO-focused sites built to attract visitors, generate enquiries and support growth.',
   openGraph: {
     title: 'Professional Website Design in Edinburgh | Bear Media',
     description: 'Custom website design for Edinburgh businesses. Mobile-responsive, SEO-optimized websites that convert.',

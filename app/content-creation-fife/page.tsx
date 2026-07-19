@@ -5,7 +5,7 @@ import { ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
   title: 'Content Creation Fife | Photography & Video | Bear Media',
-  description: 'Professional photography, videography, and content creation services for Fife businesses. High-quality visual content that engages your audience and drives results.',
+  description: 'Professional photography, video and content creation for Fife businesses, producing high-quality visuals that engage audiences and support growth.',
   openGraph: {
     title: 'Professional Content Creation in Fife | Bear Media',
     description: 'Professional photography, videography, and content creation services for Fife businesses.',
