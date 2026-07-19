@@ -125,12 +125,15 @@ export const projects: Project[] = [
       'C&G Developments needed their online presence to match the quality, scale and craft of their property work across Scotland.',
     challenge:
       'The work was impressive in person, but their digital channels needed a stronger rhythm of professional content that could build trust, show progress and turn real projects into visibility.',
-    heroImage: '/assets/project-gallery/cg-developments-drone-roof.webp',
+    heroImage: '/assets/client-work/cg-developments/new-build-exterior-progress.webp',
     images: [
+      { src: '/assets/client-work/cg-developments/reviewing-project-plans.webp', alt: 'C&G Developments reviewing plans for a client project' },
+      { src: '/assets/client-work/cg-developments/client-project-review.webp', alt: 'C&G Developments reviewing completed work with a client' },
+      { src: '/assets/client-work/cg-developments/fitted-kitchen.webp', alt: 'Fitted kitchen photographed for C&G Developments' },
+      { src: '/assets/client-work/cg-developments/st-andrews-seafood-restaurant-interior.webp', alt: 'Seafood restaurant interior project in St Andrews' },
+      { src: '/assets/client-work/cg-developments/st-andrews-aerial.webp', alt: 'Aerial view across the St Andrews waterfront' },
+      { src: '/assets/client-work/cg-developments/east-lothian-new-build-social-graphic.webp', alt: 'C&G Developments East Lothian new build social media graphic' },
       { src: '/assets/project-gallery/cg-developments-drone-roof.webp', alt: 'Drone roof footage for C&G Developments' },
-      { src: '/assets/project-gallery/cg-developments-drone-new-build.webp', alt: 'Aerial view of a C&G Developments new build project' },
-      { src: '/assets/project-gallery/cg-developments-new-build.webp', alt: 'C&G Developments new build exterior' },
-      { src: '/assets/project-gallery/cg-developments-kitchen.webp', alt: 'Finished kitchen interior by C&G Developments' },
       { src: '/assets/project-gallery/cg-developments-timber-kit.webp', alt: 'Timber kit construction content for C&G Developments' },
       { src: '/assets/project-gallery/cg-developments-callum-and-graeme.webp', alt: 'C&G Developments team brand content' },
     ],
@@ -506,7 +509,9 @@ export const projects: Project[] = [
       'Healthcare websites need to balance trust, clarity and warmth. The experience had to feel easy to use on mobile while giving visitors confidence quickly.',
     heroImage: '/assets/websites/almond-vet.webp',
     images: [
-      { src: '/assets/websites/almond-vet.webp', alt: 'Almond Vet Care website design by Bear Media' },
+      { src: '/assets/client-work/almond-vet-care/clinic-entrance-golden-retriever.webp', alt: 'Golden retriever outside the Almond Vet Care clinic' },
+      { src: '/assets/client-work/almond-vet-care/vet-caring-for-bulldog.webp', alt: 'Almond Vet Care vet caring for a bulldog patient' },
+      { src: '/assets/client-work/almond-vet-care/vet-team-with-puppy.webp', alt: 'Almond Vet Care team with a puppy at the practice' },
     ],
     services: ['Website Design', 'Healthcare Content', 'Local SEO Direction'],
     deliverables: [

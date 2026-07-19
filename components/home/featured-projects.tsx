@@ -52,24 +52,24 @@ const featuredProjects = [
     tags: ['Drone', 'Photography', 'Social'],
     images: [
       {
-        src: '/assets/project-gallery/cg-developments-drone-roof.webp',
-        alt: 'Drone roof footage for C&G Developments',
+        src: '/assets/client-work/cg-developments/new-build-exterior-progress.webp',
+        alt: 'C&G Developments new build exterior during construction',
       },
       {
-        src: '/assets/project-gallery/cg-developments-drone-new-build.webp',
-        alt: 'Aerial new build photography for C&G Developments',
+        src: '/assets/client-work/cg-developments/reviewing-project-plans.webp',
+        alt: 'C&G Developments reviewing client project plans',
       },
       {
-        src: '/assets/project-gallery/cg-developments-new-build.webp',
-        alt: 'New build property content for C&G Developments',
+        src: '/assets/client-work/cg-developments/fitted-kitchen.webp',
+        alt: 'Fitted kitchen photographed for C&G Developments',
       },
       {
-        src: '/assets/project-gallery/cg-developments-kitchen.webp',
-        alt: 'Kitchen interior photography for C&G Developments',
+        src: '/assets/client-work/cg-developments/st-andrews-seafood-restaurant-interior.webp',
+        alt: 'Seafood restaurant interior project in St Andrews',
       },
       {
-        src: '/assets/project-gallery/cg-developments-callum-and-graeme.webp',
-        alt: 'C&G Developments team brand content',
+        src: '/assets/client-work/cg-developments/st-andrews-aerial.webp',
+        alt: 'Aerial photography across the St Andrews waterfront',
       },
     ],
     href: '/projects/cg-developments',
@@ -222,6 +222,14 @@ const featuredProjects = [
     category: 'Veterinary Healthcare',
     tags: ['Website', 'Healthcare'],
     images: [
+      {
+        src: '/assets/client-work/almond-vet-care/clinic-entrance-golden-retriever.webp',
+        alt: 'Golden retriever outside the Almond Vet Care clinic',
+      },
+      {
+        src: '/assets/client-work/almond-vet-care/vet-team-with-puppy.webp',
+        alt: 'Almond Vet Care team with a puppy at the practice',
+      },
       {
         src: '/assets/websites/almond-vet.webp',
         alt: 'Almond Vet Care website design by Bear Media',

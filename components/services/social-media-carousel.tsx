@@ -75,7 +75,7 @@ export function SocialMediaCarousel() {
       title="Social Media Management"
       subtitle="Content strategy, creation, and ongoing management to keep your audience engaged."
     >
-      {socialMediaPortfolio.map((item) => (
+      {socialMediaPortfolio.map((item, index) => (
         <CarouselItem key={item.id}>
           <div className="flex flex-col gap-4">
             {/* Image card with optional Instagram badge */}
@@ -86,7 +86,8 @@ export function SocialMediaCarousel() {
                 fill
                 sizes="(max-width: 640px) 80vw, (max-width: 1024px) 22rem, 24rem"
                 className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                loading="lazy"
+                preload={index === 0}
+                loading={index === 0 ? undefined : 'lazy'}
               />
               
               {/* Instagram badge in top-right */}
