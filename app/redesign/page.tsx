@@ -6,6 +6,7 @@ import { createMetadata } from '@/lib/seo'
 import { CinematicVideo } from './cinematic-video'
 import { JourneyProgress } from './journey-progress'
 import { RedesignFooter, RedesignHeader } from './redesign-chrome'
+import { RedesignGallery } from './redesign-gallery'
 import { ScrollCinematic } from './scroll-cinematic'
 import styles from './redesign.module.css'
 
@@ -153,6 +154,11 @@ export default function RedesignPage() {
             className={styles.journeyCover}
           />
           <div className={styles.journeyShade} />
+          <Link
+            href="/redesign/services#photography-service"
+            className={styles.chapterServiceLink}
+            aria-label="Explore Bear Media photography services"
+          />
           <div className={styles.chapterCopy}>
             <p>02 / 09</p>
             <h2 id="photography-title">Photography</h2>
@@ -181,6 +187,11 @@ export default function RedesignPage() {
             src="/assets/hero/hero.mp4"
           />
           <div className={styles.droneJourneyShade} />
+          <Link
+            href="/redesign/services#drone-service"
+            className={styles.chapterServiceLink}
+            aria-label="Explore Bear Media drone services"
+          />
           <div className={styles.chapterCopy}>
             <p>04 / 09</p>
             <h2 id="drone-title">Drone</h2>
@@ -190,99 +201,110 @@ export default function RedesignPage() {
 
         <section
           id="social-content"
-          className={styles.socialJourneyChapter}
+          className={`${styles.journeyGalleryChapter} ${styles.socialGalleryChapter}`}
           data-chapter="05"
           aria-labelledby="social-title"
         >
-          <div className={styles.journeySticky}>
-            <div className={styles.chapterCopy}>
-              <p>05 / 09</p>
-              <h2 id="social-title">Social content</h2>
-              <span>Made for the way people watch.</span>
-            </div>
-            <div className={styles.socialJourneyRail}>
-              {socialContent.map((item, index) => (
-                <figure key={item.src} data-index={index}>
+          <div className={styles.journeyGalleryHeading}>
+            <p>05 / 09</p>
+            <h2 id="social-title">Social content</h2>
+            <span>Swipe through genuine campaign work.</span>
+          </div>
+          <RedesignGallery label="social content" variant="capability">
+            {socialContent.map((item) => (
+              <Link
+                href="/redesign/services#social-service"
+                className={styles.journeySocialCard}
+                aria-label="Explore Bear Media social content services"
+                key={item.src}
+              >
+                <div className={styles.journeySocialImage} data-gallery-media>
                   <Image
                     src={item.src}
                     alt={item.alt}
                     fill
-                    sizes="(max-width: 767px) 66vw, 28vw"
+                    sizes="(max-width: 767px) 78vw, 32vw"
                     className={styles.journeyCover}
                   />
-                </figure>
-              ))}
-            </div>
-          </div>
+                </div>
+                <span>View social content services <ArrowUpRight aria-hidden="true" /></span>
+              </Link>
+            ))}
+          </RedesignGallery>
         </section>
 
         <section
           id="websites"
-          className={styles.websiteJourneyChapter}
+          className={`${styles.journeyGalleryChapter} ${styles.websiteGalleryChapter}`}
           data-chapter="06"
           aria-labelledby="websites-title"
         >
-          <div className={styles.journeySticky}>
-            <div className={styles.chapterCopy}>
-              <p>06 / 09</p>
-              <h2 id="websites-title">Websites</h2>
-              <span>Modern websites for real businesses.</span>
-            </div>
-            <div className={styles.websiteJourneyRail}>
-              {websites.map((website) => (
-                <figure key={website.name}>
-                  <div>
-                    <Image
-                      src={website.src}
-                      alt={website.alt}
-                      fill
-                      sizes="(max-width: 767px) 82vw, 46vw"
-                      className={styles.containImage}
-                    />
-                  </div>
-                  <figcaption>{website.name}</figcaption>
-                </figure>
-              ))}
-            </div>
+          <div className={styles.journeyGalleryHeading}>
+            <p>06 / 09</p>
+            <h2 id="websites-title">Websites</h2>
+            <span>Swipe through completed Bear Media websites.</span>
           </div>
+          <RedesignGallery label="website projects" variant="website">
+            {websites.map((website) => (
+              <Link
+                href="/redesign/services#website-service"
+                className={styles.journeyWebsiteCard}
+                aria-label={`Explore website services, featuring ${website.name}`}
+                key={website.name}
+              >
+                <div className={styles.journeyWebsiteImage} data-gallery-media>
+                  <Image
+                    src={website.src}
+                    alt={website.alt}
+                    fill
+                    sizes="(max-width: 767px) 86vw, 42vw"
+                    className={styles.containImage}
+                  />
+                </div>
+                <span>
+                  {website.name} <ArrowUpRight aria-hidden="true" />
+                </span>
+              </Link>
+            ))}
+          </RedesignGallery>
         </section>
 
         <section
           id="selected-work"
-          className={styles.workJourneyChapter}
+          className={`${styles.journeyGalleryChapter} ${styles.workGalleryChapter}`}
           data-chapter="07"
           aria-labelledby="selected-work-title"
         >
-          <header className={styles.workJourneyIntro}>
+          <header className={styles.journeyGalleryHeading}>
             <p>07 / 09 · Selected work</p>
             <h2 id="selected-work-title">Real businesses. Real work.</h2>
           </header>
-          {selectedProjects.map((project, index) => (
-            <Link
-              href={project.href}
-              className={styles.journeyProject}
-              aria-label={`View ${project.client} project`}
-              key={project.client}
-            >
-              <Image
-                src={project.src}
-                alt={project.alt}
-                fill
-                sizes="100vw"
-                data-position={project.position}
-                className={styles.journeyCover}
-              />
-              <div className={styles.projectJourneyShade} />
-              <div className={styles.projectJourneyCopy}>
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                <div>
+          <RedesignGallery label="selected work">
+            {selectedProjects.map((project) => (
+              <Link
+                href={project.href}
+                className={styles.journeyWorkCard}
+                aria-label={`View ${project.client} project`}
+                key={project.client}
+              >
+                <div className={styles.journeyWorkImage} data-gallery-media>
+                  <Image
+                    src={project.src}
+                    alt={project.alt}
+                    fill
+                    sizes="(max-width: 767px) 84vw, 42vw"
+                    data-position={project.position}
+                    className={styles.journeyCover}
+                  />
+                </div>
+                <div className={styles.journeyWorkMeta}>
                   <p>{project.discipline}</p>
                   <h3>{project.client}</h3>
+                  <ArrowUpRight aria-hidden="true" />
                 </div>
-                <ArrowUpRight aria-hidden="true" />
-              </div>
-            </Link>
-          ))}
+              </Link>
+            ))}
+          </RedesignGallery>
         </section>
 
         <section

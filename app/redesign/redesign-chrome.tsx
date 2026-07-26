@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { RedesignMobileMenu } from './redesign-mobile-menu'
 import styles from './redesign.module.css'
 
 type RedesignHeaderProps = {
@@ -21,6 +22,7 @@ export function RedesignHeader({ fixed = false, surface = false }: RedesignHeade
           Let&apos;s talk
         </Link>
       </nav>
+      <RedesignMobileMenu />
     </header>
   )
 }

@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import styles from './redesign.module.css'
 
@@ -243,6 +244,11 @@ export function ScrollCinematic() {
         ) : null}
 
         <div className={styles.cinematicShade} />
+        <Link
+          href="/redesign/services#video-service"
+          className={styles.chapterServiceLink}
+          aria-label="Explore Bear Media video services"
+        />
         <div className={styles.chapterCopy}>
           <p>03 / 09</p>
           <h2 id="cinematic-title">Video</h2>

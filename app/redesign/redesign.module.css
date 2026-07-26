@@ -2204,6 +2204,376 @@
   }
 }
 
+/* Mobile navigation and tactile chapter galleries */
+
+.redesignMobileMenu {
+  display: none;
+}
+
+.redesignMenuButton {
+  display: flex;
+  width: 2.85rem;
+  height: 2.85rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border-radius: 50%;
+  background: #1769ff;
+  color: white;
+  box-shadow: 0 0.7rem 2rem rgba(23, 105, 255, 0.3);
+}
+
+.redesignMenuButton span {
+  width: 1.1rem;
+  height: 1.5px;
+  background: currentColor;
+}
+
+.redesignMenuButton:focus-visible,
+.redesignMenuTop button:focus-visible {
+  outline: 2px solid #1769ff;
+  outline-offset: 3px;
+}
+
+.redesignMenuOverlay {
+  position: fixed;
+  z-index: 80;
+  inset: 0;
+  display: flex;
+  visibility: hidden;
+  flex-direction: column;
+  justify-content: space-between;
+  padding:
+    max(1.25rem, env(safe-area-inset-top))
+    1.25rem
+    max(2rem, env(safe-area-inset-bottom));
+  background: #fdfdfb;
+  color: var(--ink);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 360ms cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0s linear 360ms;
+}
+
+.redesignMenuOverlay[data-open='true'] {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+.redesignMenuTop {
+  display: flex;
+  height: 2.85rem;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.05rem;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+}
+
+.redesignMenuTop button {
+  display: grid;
+  width: 2.85rem;
+  height: 2.85rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--ink);
+  color: white;
+}
+
+.redesignMenuTop svg {
+  width: 1.25rem;
+}
+
+.redesignMenuOverlay nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.redesignMenuOverlay nav a {
+  --menu-index: 0;
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  align-items: baseline;
+  border-bottom: 1px solid var(--line);
+  padding: 0.65rem 0;
+  font-size: clamp(2.7rem, 13vw, 4.2rem);
+  font-weight: 510;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  opacity: 0;
+  transform: translate3d(0, 1rem, 0);
+  transition:
+    opacity 420ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.redesignMenuOverlay[data-open='true'] nav a {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: calc(80ms + var(--menu-index) * 45ms);
+}
+
+.redesignMenuOverlay nav a > span {
+  color: #88867e;
+  font-size: 0.6rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.1em;
+}
+
+.redesignMenuOverlay > p {
+  color: #77756e;
+  font-size: 0.65rem;
+  font-weight: 620;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.chapterServiceLink {
+  position: absolute;
+  z-index: 6;
+  inset: 0;
+  cursor: pointer;
+}
+
+.chapterServiceLink::after {
+  position: absolute;
+  top: clamp(6rem, 10vw, 8rem);
+  right: clamp(1.25rem, 5vw, 5rem);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(17, 17, 15, 0.18);
+  padding: 0.7rem 0.9rem;
+  color: white;
+  font-size: 0.62rem;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  backdrop-filter: blur(16px);
+  content: 'Explore service ↗';
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+.chapterServiceLink:hover::after {
+  background: white;
+  color: var(--ink);
+}
+
+.chapterServiceLink:focus-visible {
+  outline: 2px solid white;
+  outline-offset: -6px;
+}
+
+.journeyGalleryChapter {
+  min-height: 100svh;
+  overflow: hidden;
+  padding: clamp(7rem, 12vw, 11rem) 0 clamp(5rem, 9vw, 8rem);
+}
+
+.journeyGalleryHeading {
+  max-width: 92rem;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 5rem);
+}
+
+.journeyGalleryHeading > p {
+  margin-bottom: 1.4rem;
+  color: #77756e;
+  font-size: 0.66rem;
+  font-weight: 650;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.journeyGalleryHeading h2 {
+  max-width: 11ch;
+  font-size: clamp(3.8rem, 10vw, 9rem);
+  font-weight: 510;
+  letter-spacing: -0.07em;
+  line-height: 0.88;
+  text-wrap: balance;
+  font-variation-settings: 'opsz' 72;
+}
+
+.journeyGalleryHeading > span {
+  display: block;
+  max-width: 30rem;
+  margin-top: 1.5rem;
+  color: #77756e;
+  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+}
+
+.journeyGalleryChapter .galleryShell {
+  margin-top: clamp(2.5rem, 6vw, 5rem);
+}
+
+.socialGalleryChapter {
+  background: #ebe8e1;
+  color: var(--ink);
+}
+
+.journeySocialCard,
+.journeyWebsiteCard,
+.journeyWorkCard {
+  display: block;
+}
+
+.journeySocialImage,
+.journeyWebsiteImage,
+.journeyWorkImage {
+  position: relative;
+  overflow: hidden;
+  border-radius: clamp(1.4rem, 2.5vw, 2.6rem);
+  box-shadow: 0 2rem 6rem rgba(30, 28, 22, 0.12);
+}
+
+.journeySocialImage {
+  aspect-ratio: 4 / 5;
+  background: #d4d1ca;
+}
+
+.journeySocialCard > span,
+.journeyWebsiteCard > span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  color: #66645e;
+  font-size: 0.75rem;
+  font-weight: 620;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.journeySocialCard svg,
+.journeyWebsiteCard svg {
+  width: 1rem;
+}
+
+.websiteGalleryChapter {
+  background: #11110f;
+  color: white;
+}
+
+.websiteGalleryChapter .journeyGalleryHeading > p,
+.websiteGalleryChapter .journeyGalleryHeading > span {
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.journeyWebsiteImage {
+  aspect-ratio: 4 / 5;
+  background: white;
+}
+
+.journeyWebsiteImage img {
+  padding: clamp(0.75rem, 2vw, 1.5rem);
+}
+
+.journeyWebsiteCard > span {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.websiteGalleryChapter .galleryStatus,
+.websiteGalleryChapter .galleryControls button {
+  color: white;
+}
+
+.websiteGalleryChapter .galleryProgress,
+.websiteGalleryChapter .galleryControls button {
+  border-color: rgba(255, 255, 255, 0.18);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.workGalleryChapter {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.journeyWorkImage {
+  aspect-ratio: 4 / 5;
+  background: var(--soft);
+}
+
+.journeyWorkMeta {
+  position: relative;
+  padding: 1.1rem 2rem 0 0;
+}
+
+.journeyWorkMeta > p {
+  color: #77756e;
+  font-size: 0.65rem;
+  font-weight: 620;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.journeyWorkMeta h3 {
+  margin-top: 0.45rem;
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  font-weight: 540;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.journeyWorkMeta svg {
+  position: absolute;
+  top: 1.2rem;
+  right: 0;
+  width: 1.15rem;
+  transition: transform 260ms ease;
+}
+
+.journeyWorkCard:hover .journeyWorkMeta svg {
+  transform: translate(0.2rem, -0.2rem);
+}
+
+@media (max-width: 767px) {
+  .headerFixed .nav {
+    display: none;
+  }
+
+  .redesignMobileMenu {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .chapterServiceLink::after {
+    top: 5.75rem;
+    right: 1rem;
+  }
+
+  .journeyGalleryChapter {
+    padding-top: 7rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .journeyGalleryHeading h2 {
+    font-size: clamp(3.7rem, 17vw, 5.3rem);
+  }
+
+  .journeyGalleryChapter .galleryTrack {
+    padding-top: 0.5rem;
+  }
+
+  .journeySocialImage,
+  .journeyWebsiteImage,
+  .journeyWorkImage {
+    border-radius: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .redesignMenuOverlay,
+  .redesignMenuOverlay nav a,
+  .chapterServiceLink::after {
+    transition: none;
+  }
+}
+
 /* 2026 homepage journey */
 
 .headerFixed {
