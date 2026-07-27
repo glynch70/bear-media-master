@@ -1,0 +1,38 @@
+import Link from 'next/link'
+import { RedesignMobileMenu } from './redesign-mobile-menu'
+import styles from './redesign.module.css'
+
+type RedesignHeaderProps = {
+  fixed?: boolean
+  surface?: boolean
+}
+
+export function RedesignHeader({ fixed = false, surface = false }: RedesignHeaderProps) {
+  return (
+    <header
+      className={`${styles.header} ${surface ? styles.headerSurface : ''} ${fixed ? styles.headerFixed : ''}`}
+    >
+      <Link href="/" className={styles.wordmark} aria-label="Bear Media home">
+        Bear Media
+      </Link>
+      <nav className={styles.nav} aria-label="Redesign concept navigation">
+        <Link href="/projects">Work</Link>
+        <Link href="/services">Services</Link>
+        <Link href="/contact" className={styles.navCta}>
+          Let&apos;s talk
+        </Link>
+      </nav>
+      <RedesignMobileMenu />
+    </header>
+  )
+}
+
+export function RedesignFooter() {
+  return (
+    <footer className={styles.footer}>
+      <span>Bear Media</span>
+      <span>West Lothian · Scotland</span>
+      <span>Photography · Video · Drone · Websites</span>
+    </footer>
+  )
+}
