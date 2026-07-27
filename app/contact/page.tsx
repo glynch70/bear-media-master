@@ -12,6 +12,7 @@ import type { BoundTurnstileObject } from 'react-turnstile'
 // This page uses 'use client' so metadata is handled by route groups or must be moved to a layout
 
 export default function ContactPage() {
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
   const turnstileRef = useRef<BoundTurnstileObject | null>(null)
   const [formState, setFormState] = useState({
     name: '',
@@ -315,17 +316,22 @@ export default function ContactPage() {
                     autoComplete="off"
                     aria-hidden="true"
                   />
-                  <div className="flex justify-center mb-6">
-                    <Turnstile
-                      sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ''}
-                      onVerify={handleTurnstileChange}
-                      theme="light"
-                      size="normal"
-                    />
-                  </div>
+                  {turnstileSiteKey && (
+                    <div className="flex justify-center mb-6">
+                      <Turnstile
+                        sitekey={turnstileSiteKey}
+                        onVerify={handleTurnstileChange}
+                        theme="light"
+                        size="normal"
+                      />
+                    </div>
+                  )}
                   <button
                     type="submit"
-                    disabled={formState.loading || !formState.turnstileToken}
+                    disabled={
+                      formState.loading ||
+                      Boolean(turnstileSiteKey && !formState.turnstileToken)
+                    }
                     className="w-full bg-accent text-foreground px-8 py-4 rounded-full font-medium hover:opacity-90 transition-opacity text-lg disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {formState.loading ? 'Sending...' : 'Send Message'}
