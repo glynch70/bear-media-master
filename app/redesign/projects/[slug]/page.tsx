@@ -58,7 +58,7 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
 
       <article id="case-content">
         <header className={styles.caseHero}>
-          <Link href="/redesign/projects" className={styles.caseBack}>
+          <Link href="/projects" className={styles.caseBack}>
             <ArrowLeft aria-hidden="true" />
             All projects
           </Link>
@@ -180,7 +180,7 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
       </article>
 
       <Link
-        href={`/redesign/projects/${nextProject.slug}`}
+        href={`/projects/${nextProject.slug}`}
         className={styles.nextProject}
         aria-label={`Next project: ${nextProject.clientName}`}
       >

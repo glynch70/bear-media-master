@@ -12,12 +12,12 @@ export function RedesignHeader({ fixed = false, surface = false }: RedesignHeade
     <header
       className={`${styles.header} ${surface ? styles.headerSurface : ''} ${fixed ? styles.headerFixed : ''}`}
     >
-      <Link href="/redesign" className={styles.wordmark} aria-label="Bear Media redesign home">
+      <Link href="/" className={styles.wordmark} aria-label="Bear Media home">
         Bear Media
       </Link>
       <nav className={styles.nav} aria-label="Redesign concept navigation">
-        <Link href="/redesign/projects">Work</Link>
-        <Link href="/redesign/services">Services</Link>
+        <Link href="/projects">Work</Link>
+        <Link href="/services">Services</Link>
         <Link href="/contact" className={styles.navCta}>
           Let&apos;s talk
         </Link>

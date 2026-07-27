@@ -2218,10 +2218,15 @@
   align-items: center;
   justify-content: center;
   gap: 0.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: 50%;
-  background: #1769ff;
+  background-color: #1769ff;
   color: white;
-  box-shadow: 0 0.7rem 2rem rgba(23, 105, 255, 0.3);
+  box-shadow:
+    0 0 0 3px rgba(253, 253, 251, 0.82),
+    0 0.7rem 2rem rgba(17, 17, 15, 0.28);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .redesignMenuButton span {
@@ -2237,9 +2242,14 @@
 }
 
 .redesignMenuOverlay {
+  --ink: #11110f;
+  --line: rgba(17, 17, 15, 0.12);
   position: fixed;
   z-index: 80;
   inset: 0;
+  width: 100vw;
+  min-height: 100vh;
+  height: 100dvh;
   display: flex;
   visibility: hidden;
   flex-direction: column;

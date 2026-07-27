@@ -49,7 +49,7 @@ export default function RedesignProjectsPage() {
 
           return (
             <Link
-              href={`/redesign/projects/${project.slug}`}
+              href={`/projects/${project.slug}`}
               className={styles.projectIndexCard}
               data-website={isWebsite}
               key={project.id}

@@ -245,7 +245,7 @@ export function ScrollCinematic() {
 
         <div className={styles.cinematicShade} />
         <Link
-          href="/redesign/services#video-service"
+          href="/services#video-service"
           className={styles.chapterServiceLink}
           aria-label="Explore Bear Media video services"
         />

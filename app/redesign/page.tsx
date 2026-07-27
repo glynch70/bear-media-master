@@ -75,7 +75,7 @@ const selectedProjects = [
   {
     client: 'C&G Developments',
     discipline: 'Photography · Drone · Social',
-    href: '/redesign/projects/cg-developments',
+    href: '/projects/cg-developments',
     src: '/assets/project-gallery/cg-developments-drone-roof.webp',
     alt: 'Aerial project photography for C&G Developments',
     position: 'centre',
@@ -83,7 +83,7 @@ const selectedProjects = [
   {
     client: 'Simply Sheds Scotland',
     discipline: 'Photography · Video · Social',
-    href: '/redesign/projects/simply-sheds',
+    href: '/projects/simply-sheds',
     src: '/assets/project-gallery/simply-sheds-feature.webp',
     alt: 'Simply Sheds Scotland project captured by Bear Media',
     position: 'centre',
@@ -91,7 +91,7 @@ const selectedProjects = [
   {
     client: 'Seamus Corry',
     discipline: 'Personal brand · Photography · Website',
-    href: '/redesign/projects/seamus-corry',
+    href: '/projects/seamus-corry',
     src: '/assets/project-gallery/seamus-corry-seamus-portrait.webp',
     alt: 'Personal brand portrait of Seamus Corry',
     position: 'high',
@@ -155,7 +155,7 @@ export default function RedesignPage() {
           />
           <div className={styles.journeyShade} />
           <Link
-            href="/redesign/services#photography-service"
+            href="/services#photography-service"
             className={styles.chapterServiceLink}
             aria-label="Explore Bear Media photography services"
           />
@@ -188,7 +188,7 @@ export default function RedesignPage() {
           />
           <div className={styles.droneJourneyShade} />
           <Link
-            href="/redesign/services#drone-service"
+            href="/services#drone-service"
             className={styles.chapterServiceLink}
             aria-label="Explore Bear Media drone services"
           />
@@ -213,7 +213,7 @@ export default function RedesignPage() {
           <RedesignGallery label="social content" variant="capability">
             {socialContent.map((item) => (
               <Link
-                href="/redesign/services#social-service"
+                href="/services#social-service"
                 className={styles.journeySocialCard}
                 aria-label="Explore Bear Media social content services"
                 key={item.src}
@@ -247,7 +247,7 @@ export default function RedesignPage() {
           <RedesignGallery label="website projects" variant="website">
             {websites.map((website) => (
               <Link
-                href="/redesign/services#website-service"
+                href="/services#website-service"
                 className={styles.journeyWebsiteCard}
                 aria-label={`Explore website services, featuring ${website.name}`}
                 key={website.name}

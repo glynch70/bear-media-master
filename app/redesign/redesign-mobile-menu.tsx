@@ -6,9 +6,9 @@ import { X } from 'lucide-react'
 import styles from './redesign.module.css'
 
 const menuLinks = [
-  { href: '/redesign', label: 'Home' },
-  { href: '/redesign/projects', label: 'Work' },
-  { href: '/redesign/services', label: 'Services' },
+  { href: '/', label: 'Home' },
+  { href: '/projects', label: 'Work' },
+  { href: '/services', label: 'Services' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ] as const
