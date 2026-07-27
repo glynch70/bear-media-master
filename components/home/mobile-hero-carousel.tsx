@@ -6,29 +6,29 @@ import { useEffect, useState } from 'react'
 
 const slides = [
   {
-    src: '/assets/hero-carousel/branding-shoot.webp',
-    alt: 'Bear Media brand photography session with studio lighting',
-    mobilePosition: '50% 52%',
+    src: '/assets/client-work/edinburgh-windows-doors/crafting-curved-timber-frame.webp',
+    alt: 'Craftsperson shaping a curved timber window frame',
+    mobilePosition: '50% 48%',
   },
   {
-    src: '/assets/hero-carousel/checking-camera.webp',
-    alt: 'Photographer checking a Canon camera on location',
+    src: '/assets/client-work/cg-developments/client-project-review.webp',
+    alt: 'C&G Developments reviewing completed work with a client',
+    mobilePosition: '50% 40%',
+  },
+  {
+    src: '/assets/client-work/almond-vet-care/vet-caring-for-bulldog.webp',
+    alt: 'Almond Vet Care vet caring for a bulldog patient',
+    mobilePosition: '55% 44%',
+  },
+  {
+    src: '/assets/client-work/edinburgh-windows-doors/branded-van-workshop.webp',
+    alt: 'Edinburgh Windows & Doors branded van outside the workshop',
+    mobilePosition: '49% 46%',
+  },
+  {
+    src: '/assets/client-work/cg-developments/east-lothian-new-build-social-graphic.webp',
+    alt: 'C&G Developments East Lothian new build project',
     mobilePosition: '50% 50%',
-  },
-  {
-    src: '/assets/hero-carousel/chef-hospitality.webp',
-    alt: 'Hospitality content shoot with chefs preparing food',
-    mobilePosition: '50% 46%',
-  },
-  {
-    src: '/assets/hero-carousel/conference-event.webp',
-    alt: 'Conference speaker photographed at a live event',
-    mobilePosition: '50% 44%',
-  },
-  {
-    src: '/assets/hero-carousel/edinburgh-drone.webp',
-    alt: 'Drone image of Edinburgh city architecture at sunset',
-    mobilePosition: '50% 46%',
   },
   {
     src: '/assets/hero-carousel/garry-drone.webp',
@@ -91,7 +91,7 @@ export default function MobileHeroCarousel() {
             fill
             preload={index === 0}
             loading={index === 0 ? undefined : 'lazy'}
-            sizes="100vw"
+            sizes="(max-width: 767px) 100vw, 1px"
             style={
               {
                 '--hero-mobile-position': slide.mobilePosition,

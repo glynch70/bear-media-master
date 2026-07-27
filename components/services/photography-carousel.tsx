@@ -7,28 +7,33 @@ import { LightboxGallery } from '@/components/lightbox'
 const photography = [
   {
     id: 1,
-    image: '/services/photography/Conference_Event.webp',
-    alt: 'Event photography',
+    image: '/assets/client-work/edinburgh-windows-doors/crafting-curved-timber-frame.webp',
+    alt: 'Edinburgh Windows & Doors craftsperson shaping a curved timber frame',
   },
   {
     id: 2,
-    image: '/services/photography/Chef_Hospitality.webp',
-    alt: 'Hospitality photography',
+    image: '/assets/client-work/almond-vet-care/vet-caring-for-bulldog.webp',
+    alt: 'Almond Vet Care vet caring for a bulldog patient',
   },
   {
     id: 3,
-    image: '/services/photography/Edinburgh Drone.webp',
-    alt: 'Drone photography',
+    image: '/assets/client-work/cg-developments/st-andrews-seafood-restaurant-interior.webp',
+    alt: 'Commercial interior photography at a St Andrews seafood restaurant',
   },
   {
     id: 4,
-    image: '/services/photography/Aerial Landmark.webp',
-    alt: 'Aerial photography',
+    image: '/assets/client-work/edinburgh-windows-doors/joiner-at-workbench.webp',
+    alt: 'Edinburgh Windows & Doors joiner working at a workshop bench',
   },
   {
     id: 5,
-    image: '/services/photography/harley.webp',
-    alt: 'On-location shoot',
+    image: '/assets/client-work/almond-vet-care/vet-team-with-puppy.webp',
+    alt: 'Almond Vet Care team photographed with a puppy',
+  },
+  {
+    id: 6,
+    image: '/assets/client-work/edinburgh-windows-doors/branded-van-workshop.webp',
+    alt: 'Edinburgh Windows & Doors branded van outside the workshop',
   },
 ]
 

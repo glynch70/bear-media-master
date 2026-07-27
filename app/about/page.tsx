@@ -102,6 +102,41 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* ─── Real client work ─────────────────────────────────────────── */}
+        <section className="w-full bg-secondary pb-12 md:pb-16">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5">
+              <div className="relative col-span-2 aspect-[16/10] overflow-hidden rounded-3xl md:col-span-1 md:aspect-[4/5]">
+                <Image
+                  src="/assets/client-work/cg-developments/client-project-review.webp"
+                  alt="C&G Developments reviewing a completed project with a client"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover object-[50%_42%]"
+                />
+              </div>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
+                <Image
+                  src="/assets/client-work/edinburgh-windows-doors/headquarters-front.webp"
+                  alt="Edinburgh Windows & Doors headquarters"
+                  fill
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
+                <Image
+                  src="/assets/client-work/almond-vet-care/vet-caring-for-bulldog.webp"
+                  alt="Almond Vet Care vet caring for a bulldog patient"
+                  fill
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ─── Team Bear Media ──────────────────────────────────────────── */}
         <section className="w-full bg-background pt-12 md:pt-16 pb-12 md:pb-16">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -356,8 +391,7 @@ export default function AboutPage() {
                           /* Logo tile */
                           <div className="group flex flex-col items-center gap-2.5">
                             <div className="w-14 h-14 rounded-2xl overflow-hidden bg-secondary ring-1 ring-foreground/8 transition-all duration-200 ease-out group-hover:ring-foreground/20 group-hover:shadow-md group-hover:-translate-y-px">
-                              {/* eslint-disable-next-line @next/next/no-img-element */}
-                              <img
+                              <Image
                                 src={tool.logo}
                                 alt={tool.name}
                                 width={56}
