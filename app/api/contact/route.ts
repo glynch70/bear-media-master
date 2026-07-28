@@ -51,9 +51,44 @@ function sanitizeInput(input: string): string {
   return input.trim().substring(0, 500)
 }
 
+function escapeHtml(input: string): string {
+  return input
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;')
+}
+
 function validateEmail(email: string): boolean {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   return emailRegex.test(email)
+}
+
+function isSameSiteRequest(request: NextRequest): boolean {
+  const origin = request.headers.get('origin')
+  if (!origin) {
+    return false
+  }
+
+  try {
+    const originUrl = new URL(origin)
+    const allowedHosts = new Set([
+      request.nextUrl.hostname,
+      'bear-media.com',
+      'www.bear-media.com',
+    ])
+
+    return originUrl.protocol === request.nextUrl.protocol && allowedHosts.has(originUrl.hostname)
+  } catch {
+    return false
+  }
+}
+
+function isObviousSpam(message: string): boolean {
+  // The current bot campaign submits only a phone-like number as the message.
+  // A genuine project enquiry should contain at least one letter.
+  return !/\p{L}/u.test(message)
 }
 
 async function sendEmails(
@@ -64,6 +99,10 @@ async function sendEmails(
 ): Promise<{ success: boolean; error?: string }> {
   try {
     const resend = getResendClient()
+    const safeName = escapeHtml(name)
+    const safeEmail = escapeHtml(email)
+    const safeBusiness = escapeHtml(business)
+    const safeMessage = escapeHtml(message)
     
     // Send notification email to Garry
     let notificationResult
@@ -84,18 +123,18 @@ async function sendEmails(
           
           <div style="margin-bottom: 24px;">
             <h3 style="color: #666; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; margin: 0 0 8px 0;">From</h3>
-            <p style="margin: 0; font-size: 16px; color: #000;">${name}</p>
-            ${business ? `<p style="margin: 4px 0 0 0; font-size: 14px; color: #666;">${business}</p>` : ''}
+            <p style="margin: 0; font-size: 16px; color: #000;">${safeName}</p>
+            ${safeBusiness ? `<p style="margin: 4px 0 0 0; font-size: 14px; color: #666;">${safeBusiness}</p>` : ''}
           </div>
 
           <div style="margin-bottom: 24px;">
             <h3 style="color: #666; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; margin: 0 0 8px 0;">Email</h3>
-            <p style="margin: 0; font-size: 16px; color: #000;"><a href="mailto:${email}" style="color: #ff6b35; text-decoration: none;">${email}</a></p>
+            <p style="margin: 0; font-size: 16px; color: #000;"><a href="mailto:${safeEmail}" style="color: #ff6b35; text-decoration: none;">${safeEmail}</a></p>
           </div>
 
           <div style="margin-bottom: 24px;">
             <h3 style="color: #666; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; margin: 0 0 8px 0;">Message</h3>
-            <p style="margin: 0; font-size: 16px; color: #000; line-height: 1.6; white-space: pre-wrap;">${message}</p>
+            <p style="margin: 0; font-size: 16px; color: #000; line-height: 1.6; white-space: pre-wrap;">${safeMessage}</p>
           </div>
 
           <div style="border-top: 1px solid #e5e5e5; padding-top: 16px; margin-top: 24px;">
@@ -135,7 +174,7 @@ async function sendEmails(
               <h2 style="margin: 0; color: #000; font-size: 24px;">Thanks for reaching out</h2>
             </div>
             
-            <p style="font-size: 16px; color: #000; margin-bottom: 16px;">Hi ${name},</p>
+            <p style="font-size: 16px; color: #000; margin-bottom: 16px;">Hi ${safeName},</p>
             
             <p style="font-size: 16px; color: #000; line-height: 1.6; margin-bottom: 16px;">
               We've received your message and appreciate you taking the time to get in touch. Garry will review it personally and get back to you within 24 hours.
@@ -183,8 +222,7 @@ async function verifyTurnstileToken(token: string): Promise<boolean> {
   try {
     const turnstileSecret = process.env.TURNSTILE_SECRET_KEY
     if (!turnstileSecret) {
-      console.warn('[v0] TURNSTILE_SECRET_KEY not set - skipping verification')
-      return true
+      return false
     }
 
     const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
@@ -208,8 +246,20 @@ async function verifyTurnstileToken(token: string): Promise<boolean> {
 
 export async function POST(request: NextRequest) {
   try {
+    if (!isSameSiteRequest(request)) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Invalid request origin',
+        },
+        { status: 403 },
+      )
+    }
+
     // Check rate limit
-    const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || null
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
+      || request.headers.get('x-real-ip')
+      || null
     
     if (!checkRateLimit(ip)) {
       return NextResponse.json(
@@ -225,19 +275,21 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     const { name, email, business, message, honeypot, turnstileToken } = body
 
-    // Verify Turnstile token
-    if (turnstileToken) {
-      const isValidToken = await verifyTurnstileToken(turnstileToken)
-      if (!isValidToken) {
-        console.log('[v0] Turnstile verification failed')
-        return NextResponse.json(
-          {
-            success: false,
-            error: 'Verification failed. Please try again.',
-          },
-          { status: 400 },
-        )
-      }
+    if (
+      typeof name !== 'string'
+      || typeof email !== 'string'
+      || typeof message !== 'string'
+      || (business !== undefined && typeof business !== 'string')
+      || (honeypot !== undefined && typeof honeypot !== 'string')
+      || (turnstileToken !== undefined && typeof turnstileToken !== 'string')
+    ) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Invalid form data',
+        },
+        { status: 400 },
+      )
     }
 
     // Honeypot check - silently reject spam bots
@@ -250,6 +302,31 @@ export async function POST(request: NextRequest) {
         },
         { status: 200 },
       )
+    }
+
+    // Require and verify Turnstile whenever production keys are configured.
+    if (process.env.TURNSTILE_SECRET_KEY) {
+      if (!turnstileToken) {
+        return NextResponse.json(
+          {
+            success: false,
+            error: 'Verification required. Please try again.',
+          },
+          { status: 400 },
+        )
+      }
+
+      const isValidToken = await verifyTurnstileToken(turnstileToken)
+      if (!isValidToken) {
+        console.log('[v0] Turnstile verification failed')
+        return NextResponse.json(
+          {
+            success: false,
+            error: 'Verification failed. Please try again.',
+          },
+          { status: 400 },
+        )
+      }
     }
 
     // Validate required fields
@@ -288,6 +365,17 @@ export async function POST(request: NextRequest) {
           error: 'Message must be at least 10 characters',
         },
         { status: 400 },
+      )
+    }
+
+    if (isObviousSpam(sanitizedMessage)) {
+      console.log('[v0] Contact form content rejected as obvious spam')
+      return NextResponse.json(
+        {
+          success: true,
+          message: 'Message sent successfully',
+        },
+        { status: 200 },
       )
     }
 
