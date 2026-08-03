@@ -134,12 +134,12 @@ export default function Footer() {
           <div>
             <h3 className="font-medium text-sm uppercase tracking-wider text-foreground mb-5">Services</h3>
             <ul className="space-y-3">
-              <li><Link href="/services#photography" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Photography</Link></li>
+              <li><Link href="/services#photography-service" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Photography</Link></li>
               <li><Link href="/video-production-west-lothian" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Video Production</Link></li>
-              <li><Link href="/services#website-design" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Websites</Link></li>
-              <li><Link href="/services#social-media" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Social Media</Link></li>
-              <li><Link href="/services#content-creation" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Content Creation</Link></li>
-              <li><Link href="/services#drone" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Drone Services</Link></li>
+              <li><Link href="/services#website-service" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Websites</Link></li>
+              <li><Link href="/services#social-service" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Social Media</Link></li>
+              <li><Link href="/content-creation-west-lothian" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Content Creation</Link></li>
+              <li><Link href="/services#drone-service" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Drone Services</Link></li>
               <li><Link href="/training" className="text-sm text-muted-foreground hover:text-foreground transition-colors">AI &amp; Canva Training</Link></li>
             </ul>
           </div>

@@ -16,31 +16,31 @@ export default function WhatIDo() {
     {
       title: 'Social Media Management',
       description: 'Content planning, posting, strategy and ongoing management for growth.',
-      href: '/services#social-media',
+      href: '/services#social-service',
       icon: <Smartphone className="w-5 h-5" />,
     },
     {
       title: 'Content Creation',
       description: 'Photography, video and drone content that helps businesses stand out online.',
-      href: '/services#content-creation',
+      href: '/content-creation-west-lothian',
       icon: <Camera className="w-5 h-5" />,
     },
     {
       title: 'Photography',
       description: 'Professional photography for businesses, brands and teams.',
-      href: '/services#photography',
+      href: '/services#photography-service',
       icon: <Camera className="w-5 h-5" />,
     },
     {
       title: 'Drone Photography',
       description: 'Aerial photography and video to showcase your property, site or event.',
-      href: '/services#drone',
+      href: '/services#drone-service',
       icon: <Film className="w-5 h-5" />,
     },
     {
       title: 'Website Design',
       description: 'Modern websites that showcase your business and generate enquiries.',
-      href: '/services#website-design',
+      href: '/services#website-service',
       icon: <Globe className="w-5 h-5" />,
     },
   ]

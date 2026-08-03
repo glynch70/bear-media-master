@@ -219,7 +219,7 @@ export default function SocialMediaEdinburgh() {
                 <h3 className="font-bold mb-2">Website Design</h3>
                 <p className="text-sm text-muted-foreground">Professional web design for Edinburgh businesses</p>
               </a>
-              <a href="/services#content-creation" className="p-6 border rounded-lg hover:border-primary transition-colors">
+              <a href="/content-creation-edinburgh" className="p-6 border rounded-lg hover:border-primary transition-colors">
                 <h3 className="font-bold mb-2">Content Creation</h3>
                 <p className="text-sm text-muted-foreground">Professional photography and videography</p>
               </a>

@@ -74,7 +74,7 @@ const recentWork: Record<string, WorkItem[]> = {
       title: 'Edinburgh Windows & Doors',
       description: 'Workshop, team and brand photography on location.',
       image: '/assets/client-work/edinburgh-windows-doors/headquarters-exterior.webp',
-      href: '/services#photography',
+      href: '/services#photography-service',
     },
   ],
   drone: [

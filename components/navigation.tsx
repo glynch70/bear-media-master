@@ -16,11 +16,11 @@ const links = [
 const services = ['Photography', 'Video', 'Drone', 'Websites', 'Social Media']
 
 const serviceMenuItems = [
-  { href: '/services#website-design', label: 'Website Design' },
-  { href: '/services#social-media', label: 'Social Media' },
-  { href: '/services#photography', label: 'Photography' },
+  { href: '/services#website-service', label: 'Website Design' },
+  { href: '/services#social-service', label: 'Social Media' },
+  { href: '/services#photography-service', label: 'Photography' },
   { href: '/video-production-west-lothian', label: 'Video Production' },
-  { href: '/services#drone', label: 'Drone Photography' },
+  { href: '/services#drone-service', label: 'Drone Photography' },
   { href: '/training', label: 'AI & Canva Training' },
   { href: '/insights', label: 'The Bear Media Journal' },
 ] as const
