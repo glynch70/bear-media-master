@@ -34,6 +34,13 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Preserve search equity for the former generic website design URL.
+      {
+        source: '/web-design',
+        destination: '/website-design-west-lothian',
+        permanent: true,
+      },
+
       // Video/Production content URLs -> /projects
       {
         source: '/website-video-content-west-lothian',
@@ -75,12 +82,6 @@ const nextConfig = {
         destination: '/projects',
         permanent: true,
       },
-      {
-        source: '/content-creation-edinburgh',
-        destination: '/projects',
-        permanent: true,
-      },
-
       // Location-based service URLs -> /contact
       {
         source: '/broxburn-video-production-services',
