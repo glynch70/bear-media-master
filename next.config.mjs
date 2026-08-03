@@ -40,26 +40,61 @@ const nextConfig = {
         destination: '/website-design-west-lothian',
         permanent: true,
       },
+      {
+        source: '/services/videography',
+        destination: '/video-production-west-lothian',
+        permanent: true,
+      },
+      {
+        source: '/services/social-media-content',
+        destination: '/social-media-west-lothian',
+        permanent: true,
+      },
+      {
+        source: '/west-lothian-content-creation',
+        destination: '/content-creation-west-lothian',
+        permanent: true,
+      },
+      {
+        source: '/portfolio/almond-vet-care',
+        destination: '/projects/almond-vet-care',
+        permanent: true,
+      },
+      {
+        source: '/social-media',
+        destination: '/social-media-west-lothian',
+        permanent: true,
+      },
+      {
+        source: '/services/content-planning',
+        destination: '/social-media-west-lothian',
+        permanent: true,
+      },
+      {
+        source: '/services/fife-small-business-content',
+        destination: '/content-creation-fife',
+        permanent: true,
+      },
 
-      // Video/Production content URLs -> /projects
+      // Legacy video/content URLs -> closest current service or portfolio page
       {
         source: '/website-video-content-west-lothian',
-        destination: '/projects',
+        destination: '/video-production-west-lothian',
         permanent: true,
       },
       {
         source: '/social-media-video-content-west-lothian',
-        destination: '/projects',
+        destination: '/social-media-west-lothian',
         permanent: true,
       },
       {
         source: '/corporate-video-production-west-lothian',
-        destination: '/projects',
+        destination: '/video-production-west-lothian',
         permanent: true,
       },
       {
         source: '/product-video-production-west-lothian',
-        destination: '/projects',
+        destination: '/video-production-west-lothian',
         permanent: true,
       },
       {
@@ -74,7 +109,7 @@ const nextConfig = {
       },
       {
         source: '/drone-video-services-west-lothian',
-        destination: '/projects',
+        destination: '/drone-photography-west-lothian',
         permanent: true,
       },
       {
@@ -82,24 +117,24 @@ const nextConfig = {
         destination: '/projects',
         permanent: true,
       },
-      // Location-based service URLs -> /contact
+      // Local video service URLs -> current West Lothian video page
       {
         source: '/broxburn-video-production-services',
-        destination: '/contact',
+        destination: '/video-production-west-lothian',
         permanent: true,
       },
       {
         source: '/linlithgow-video-production-services',
-        destination: '/contact',
+        destination: '/video-production-west-lothian',
         permanent: true,
       },
       {
         source: '/east-calder-video-production-services',
-        destination: '/contact',
+        destination: '/video-production-west-lothian',
         permanent: true,
       },
 
-      // Services sub-pages -> /services (main services page)
+      // Legacy service sub-pages -> closest current service page
       {
         source: '/services/life-small-business-content',
         destination: '/services',
@@ -107,12 +142,7 @@ const nextConfig = {
       },
       {
         source: '/services/fife-drone-video',
-        destination: '/services',
-        permanent: true,
-      },
-      {
-        source: '/services/seo-google-business',
-        destination: '/services',
+        destination: '/content-creation-fife',
         permanent: true,
       },
 
@@ -132,18 +162,6 @@ const nextConfig = {
       {
         source: '/packages',
         destination: '/contact',
-        permanent: true,
-      },
-
-      // Privacy and Terms -> / (pages don't exist yet)
-      {
-        source: '/privacy',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/terms',
-        destination: '/',
         permanent: true,
       },
     ]

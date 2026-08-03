@@ -21,6 +21,7 @@ const serviceMenuItems = [
   { href: '/services#photography', label: 'Photography' },
   { href: '/video-production-west-lothian', label: 'Video Production' },
   { href: '/services#drone', label: 'Drone Photography' },
+  { href: '/training', label: 'AI & Canva Training' },
   { href: '/insights', label: 'The Bear Media Journal' },
 ] as const
 
@@ -97,6 +98,7 @@ export default function Navigation() {
   const mobileBottomLinks = links.filter((l) => l.href === '/about' || l.href === '/contact')
   const servicesActive =
     pathname === '/services' ||
+    pathname === '/training' ||
     pathname === '/insights' ||
     pathname === '/video-production-west-lothian'
 

@@ -140,6 +140,7 @@ export default function Footer() {
               <li><Link href="/services#social-media" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Social Media</Link></li>
               <li><Link href="/services#content-creation" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Content Creation</Link></li>
               <li><Link href="/services#drone" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Drone Services</Link></li>
+              <li><Link href="/training" className="text-sm text-muted-foreground hover:text-foreground transition-colors">AI &amp; Canva Training</Link></li>
             </ul>
           </div>
 
