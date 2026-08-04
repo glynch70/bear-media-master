@@ -8,6 +8,7 @@ import { JourneyProgress } from './journey-progress'
 import { RedesignFooter, RedesignHeader } from './redesign-chrome'
 import { RedesignGallery } from './redesign-gallery'
 import { ScrollCinematic } from './scroll-cinematic'
+import { PriorityServiceLinks } from '@/components/priority-service-links'
 import styles from './redesign.module.css'
 
 export const metadata: Metadata = {
@@ -306,6 +307,8 @@ export default function RedesignPage() {
             ))}
           </RedesignGallery>
         </section>
+
+        <PriorityServiceLinks headingId="homepage-priority-services" />
 
         <section
           id="about"

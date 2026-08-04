@@ -6,6 +6,7 @@ import { createMetadata } from '@/lib/seo'
 import { CinematicVideo } from '../cinematic-video'
 import { RedesignFooter, RedesignHeader } from '../redesign-chrome'
 import { RedesignGallery } from '../redesign-gallery'
+import { PriorityServiceLinks } from '@/components/priority-service-links'
 import styles from '../redesign.module.css'
 
 export const metadata: Metadata = {
@@ -262,6 +263,8 @@ export default function RedesignServicesPage() {
           </RedesignGallery>
         </section>
       </div>
+
+      <PriorityServiceLinks headingId="services-priority-pages" />
 
       <section className={styles.projectsCta}>
         <p className={styles.eyebrow}>Start a conversation</p>
