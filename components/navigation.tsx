@@ -16,12 +16,12 @@ const links = [
 const services = ['Photography', 'Video', 'Drone', 'Websites', 'Social Media']
 
 const serviceMenuItems = [
-  { href: '/services#website-service', label: 'Website Design' },
-  { href: '/services#social-service', label: 'Social Media' },
-  { href: '/services#photography-service', label: 'Photography' },
+  { href: '/services#website-design', label: 'Website Design' },
+  { href: '/services#social-media', label: 'Social Media' },
+  { href: '/social-media-pricing', label: 'Social Media Pricing' },
+  { href: '/services#photography', label: 'Photography' },
   { href: '/video-production-west-lothian', label: 'Video Production' },
-  { href: '/services#drone-service', label: 'Drone Photography' },
-  { href: '/training', label: 'AI & Canva Training' },
+  { href: '/services#drone', label: 'Drone Photography' },
   { href: '/insights', label: 'The Bear Media Journal' },
 ] as const
 
@@ -98,7 +98,7 @@ export default function Navigation() {
   const mobileBottomLinks = links.filter((l) => l.href === '/about' || l.href === '/contact')
   const servicesActive =
     pathname === '/services' ||
-    pathname === '/training' ||
+    pathname === '/social-media-pricing' ||
     pathname === '/insights' ||
     pathname === '/video-production-west-lothian'
 

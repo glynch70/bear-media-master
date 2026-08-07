@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { Carousel, CarouselItem } from '@/components/carousel'
 import { getTrustedClientAriaLabel, trustedClientLinks } from '@/lib/trusted-client-links'
+import Link from 'next/link'
 
 // Portfolio data structure - fully data-driven
 type SocialMediaPortfolioItem = {
@@ -71,11 +72,12 @@ const socialMediaPortfolio: SocialMediaPortfolioItem[] = [
 
 export function SocialMediaCarousel() {
   return (
-    <Carousel
-      title="Social Media Management"
-      subtitle="Content strategy, creation, and ongoing management to keep your audience engaged."
-    >
-      {socialMediaPortfolio.map((item, index) => (
+    <>
+      <Carousel
+        title="Social Media Management"
+        subtitle="Content strategy, creation, and ongoing management to keep your audience engaged."
+      >
+        {socialMediaPortfolio.map((item, index) => (
         <CarouselItem key={item.id}>
           <div className="flex flex-col gap-4">
             {/* Image card with optional Instagram badge */}
@@ -154,7 +156,13 @@ export function SocialMediaCarousel() {
             )}
           </div>
         </CarouselItem>
-      ))}
-    </Carousel>
+        ))}
+      </Carousel>
+      <div className="mx-auto mt-8 max-w-7xl px-6 lg:px-8">
+        <Link href="/social-media-pricing" className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-medium text-foreground transition hover:border-accent hover:text-accent">
+          View social media packages and pricing <span aria-hidden="true">→</span>
+        </Link>
+      </div>
+    </>
   )
 }
