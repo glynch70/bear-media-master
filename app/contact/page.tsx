@@ -2,8 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import Navigation from '@/components/navigation'
-import Footer from '@/components/footer'
+import { RedesignFooter, RedesignHeader } from '@/app/redesign/redesign-chrome'
 import { useState, useRef } from 'react'
 import { Phone, Mail, MapPin } from 'lucide-react'
 import Turnstile from 'react-turnstile'
@@ -159,7 +158,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <Navigation />
+      <RedesignHeader surface />
       <main className="w-full min-h-screen">
         {/* Hero Section */}
         <section className="w-full bg-background py-16 md:py-20 lg:py-24">
@@ -403,7 +402,7 @@ export default function ContactPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <RedesignFooter />
     </>
   )
 }

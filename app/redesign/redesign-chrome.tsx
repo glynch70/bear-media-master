@@ -18,6 +18,7 @@ export function RedesignHeader({ fixed = false, surface = false }: RedesignHeade
       <nav className={styles.nav} aria-label="Redesign concept navigation">
         <Link href="/projects">Work</Link>
         <Link href="/services">Services</Link>
+        <Link href="/about">About</Link>
         <Link href="/contact" className={styles.navCta}>
           Let&apos;s talk
         </Link>

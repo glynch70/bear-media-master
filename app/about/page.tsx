@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import Navigation from '@/components/navigation'
-import Footer from '@/components/footer'
+import { RedesignFooter, RedesignHeader } from '@/app/redesign/redesign-chrome'
 
 // ---------------------------------------------------------------------------
 // Page
@@ -10,7 +9,7 @@ import Footer from '@/components/footer'
 export default function AboutPage() {
   return (
     <>
-      <Navigation />
+      <RedesignHeader surface />
       <main className="w-full min-h-screen">
 
         {/* ─── Hero ─────────────────────────────────────────────────────── */}
@@ -454,7 +453,7 @@ export default function AboutPage() {
         </section>
 
       </main>
-      <Footer />
+      <RedesignFooter />
     </>
   )
 }

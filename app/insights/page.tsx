@@ -1,5 +1,4 @@
-import Navigation from '@/components/navigation'
-import Footer from '@/components/footer'
+import { RedesignFooter, RedesignHeader } from '@/app/redesign/redesign-chrome'
 import { JournalIndex } from '@/components/insights/journal-index'
 import { BreadcrumbSchema } from '@/components/structured-data'
 import { getJournalArticles } from '@/lib/insights'
@@ -24,7 +23,7 @@ export default function InsightsPage() {
         { name: 'Home', url: siteUrl },
         { name: 'The Bear Media Journal', url: `${siteUrl}/insights` },
       ]} />
-      <Navigation />
+      <RedesignHeader surface />
 
       <section className="pt-32 md:pt-44 pb-12 md:pb-20 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -42,7 +41,7 @@ export default function InsightsPage() {
 
       <JournalIndex articles={articles} />
 
-      <Footer />
+      <RedesignFooter />
     </main>
   )
 }
