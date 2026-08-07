@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import Footer from '@/components/footer'
-import Navigation from '@/components/navigation'
+import { RedesignFooter, RedesignHeader } from '@/app/redesign/redesign-chrome'
 import { AITrainingCards } from '@/components/services/ai-training-cards'
 import { BreadcrumbSchema, ServiceSchema } from '@/components/structured-data'
 import { createMetadata, siteUrl } from '@/lib/seo'
@@ -26,7 +25,7 @@ const outcomes = [
 export default function TrainingPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
-      <Navigation />
+      <RedesignHeader surface />
       <main className="flex-1 pt-16 md:pt-20">
         <BreadcrumbSchema
           items={[
@@ -103,7 +102,7 @@ export default function TrainingPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <RedesignFooter />
     </div>
   )
 }
