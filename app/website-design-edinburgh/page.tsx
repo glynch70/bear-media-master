@@ -4,11 +4,11 @@ import Footer from '@/components/footer'
 import { ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Professional Website Design in Edinburgh | Bear Media',
-  description: 'Custom website design for Edinburgh businesses. Responsive, SEO-focused sites built to attract visitors, generate enquiries and support growth.',
+  title: 'Website Design in Edinburgh | Bear Media',
+  description: 'Custom website design in Edinburgh for businesses that need a responsive, SEO-focused site to attract visitors and generate enquiries.',
   openGraph: {
-    title: 'Professional Website Design in Edinburgh | Bear Media',
-    description: 'Custom website design for Edinburgh businesses. Mobile-responsive, SEO-optimized websites that convert.',
+    title: 'Website Design in Edinburgh | Bear Media',
+    description: 'Responsive, SEO-focused website design for Edinburgh businesses.',
     url: 'https://bear-media.com/website-design-edinburgh',
     siteName: 'Bear Media',
     images: [
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Professional Website Design in Edinburgh | Bear Media',
+    title: 'Website Design in Edinburgh | Bear Media',
     description: 'Custom website design for Edinburgh businesses',
     images: ['https://bear-media.com/assets/brand/og-image.jpg'],
     creator: '@bearmediascot',

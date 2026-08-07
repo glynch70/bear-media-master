@@ -17,13 +17,13 @@ import { ServiceSchema } from '@/components/structured-data'
 const pageUrl = 'https://bear-media.com/website-design-west-lothian'
 
 export const metadata: Metadata = {
-  title: 'Website Design West Lothian | Bear Media',
+  title: 'Website Design in West Lothian | Bear Media',
   description:
-    'Custom, mobile-first website design for businesses in Livingston, Broxburn, Linlithgow and across West Lothian. View recent work and book a call.',
+    'Custom website design in West Lothian for small businesses in Livingston, Broxburn and Linlithgow. Mobile-first websites built to earn trust and enquiries.',
   openGraph: {
     title: 'Website Design in West Lothian | Bear Media',
     description:
-      'Custom websites built around your business, your customers and the actions you want them to take.',
+      'Mobile-first website design for West Lothian businesses in Livingston, Broxburn and Linlithgow.',
     url: pageUrl,
     siteName: 'Bear Media',
     images: [
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Website Design in West Lothian | Bear Media',
-    description: 'Custom, mobile-first websites for West Lothian businesses.',
+    description: 'Mobile-first website design for West Lothian businesses in Livingston, Broxburn and Linlithgow.',
     images: ['https://bear-media.com/assets/websites/midlothian-wildflowers/desktop-home.webp'],
     creator: '@bearmediascot',
   },

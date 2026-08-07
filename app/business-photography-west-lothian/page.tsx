@@ -4,11 +4,11 @@ import Footer from '@/components/footer'
 import { ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Business Photography West Lothian | Bear Media',
-  description: 'Professional business photography for West Lothian companies. Corporate headshots, team photos, workplace photography, and professional business imagery.',
+  title: 'Business Photography in West Lothian | Bear Media',
+  description: 'Business photography in West Lothian for companies that need professional headshots, team photos, workplace photography and brand imagery.',
   openGraph: {
-    title: 'Business Photography West Lothian | Bear Media',
-    description: 'Professional business photography for West Lothian companies. Corporate headshots, team photos, and workplace photography.',
+    title: 'Business Photography in West Lothian | Bear Media',
+    description: 'Corporate headshots, team photos and workplace photography for West Lothian businesses.',
     url: 'https://bear-media.com/business-photography-west-lothian',
     siteName: 'Bear Media',
     images: [{ url: 'https://bear-media.com/assets/brand/og-image.jpg', width: 1200, height: 630, alt: 'Business Photography in West Lothian', type: 'image/jpeg' }],
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Business Photography West Lothian | Bear Media',
-    description: 'Professional business photography and corporate headshots for West Lothian companies',
+    title: 'Business Photography in West Lothian | Bear Media',
+    description: 'Professional business photography for West Lothian companies.',
     images: ['https://bear-media.com/assets/brand/og-image.jpg'],
     creator: '@bearmediascot',
   },

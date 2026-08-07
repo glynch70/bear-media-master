@@ -4,11 +4,11 @@ import Footer from '@/components/footer'
 import { ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Social Media Management Services in West Lothian | Bear Media',
-  description: 'Social media management for West Lothian businesses, with strategy, content creation and engagement to grow an audience and strengthen your brand.',
+  title: 'Social Media Management in West Lothian | Bear Media',
+  description: 'Social media management in West Lothian for local businesses, including strategy, content creation and engagement that grows your audience.',
   openGraph: {
-    title: 'Social Media Management Services in West Lothian | Bear Media',
-    description: 'Professional social media management for West Lothian businesses. Grow your audience, increase engagement, and build your brand with Bear Media\'s proven social media strategies.',
+    title: 'Social Media Management in West Lothian | Bear Media',
+    description: 'Professional social media management and content creation for West Lothian businesses.',
     url: 'https://bear-media.com/social-media-west-lothian',
     siteName: 'Bear Media',
     images: [
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Social Media Management Services in West Lothian | Bear Media',
-    description: 'Professional social media management for West Lothian businesses. Grow your audience and increase engagement.',
+    title: 'Social Media Management in West Lothian | Bear Media',
+    description: 'Social media management for West Lothian businesses.',
     images: ['https://bear-media.com/assets/brand/og-image.jpg'],
     creator: '@bearmediascot',
   },
@@ -54,7 +54,7 @@ export default function SocialMediaWestLothian() {
               Social Media Management Services in West Lothian
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8">
-              Transform your online presence with professional social media management tailored for West Lothian businesses. Across to Linlithgow, we help local companies engage their audience, build community, and drive real results on social platforms.
+              Transform your online presence with professional social media management tailored for West Lothian businesses. From Livingston to Linlithgow, we help local companies engage their audience, build community, and drive real results on social platforms.
             </p>
             <a href="/contact" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
               Get Started Today

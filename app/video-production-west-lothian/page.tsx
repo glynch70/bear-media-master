@@ -11,14 +11,14 @@ import { siteUrl } from '@/lib/seo'
 const pageUrl = `${siteUrl}/video-production-west-lothian`
 
 export const metadata: Metadata = {
-  title: 'Video Production West Lothian | Bear Media',
+  title: 'Video Production in West Lothian | Bear Media',
   description:
-    'Professional video production for West Lothian businesses. Promotional films, interviews, social media video and project content from Bear Media in Broxburn.',
+    'Video content marketing and professional video production for West Lothian businesses. Promotional films, interviews, social media video and project content from Bear Media in Broxburn.',
   alternates: { canonical: pageUrl },
   openGraph: {
-    title: 'Video Production West Lothian | Bear Media',
+    title: 'Video Production in West Lothian | Bear Media',
     description:
-      'Professional promotional films, interviews and social media video for businesses across West Lothian.',
+      'Video content marketing, promotional films and social media video for West Lothian businesses.',
     url: pageUrl,
     siteName: 'Bear Media',
     images: [
@@ -34,9 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Video Production West Lothian | Bear Media',
-    description:
-      'Professional promotional films, interviews and social media video for West Lothian businesses.',
+    title: 'Video Production in West Lothian | Bear Media',
+    description: 'Video production and content marketing for West Lothian businesses.',
     images: [`${siteUrl}/assets/services/video-on-location.webp`],
   },
 }
@@ -118,7 +117,7 @@ export default function VideoProductionWestLothianPage() {
             </h1>
             <div className="mt-7 flex max-w-5xl flex-col gap-7 md:flex-row md:items-end md:justify-between">
               <p className="max-w-2xl text-base leading-relaxed text-white/78 sm:text-lg md:text-xl">
-                Cinematic video, interviews and social content for businesses across Edinburgh, Fife, the Lothians and wider Scotland—planned, filmed and edited by Bear Media.
+                Video production and content marketing for businesses across Edinburgh, Fife, the Lothians and wider Scotland—planned, filmed and edited by Bear Media.
               </p>
               <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
                 <Link

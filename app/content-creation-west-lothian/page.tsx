@@ -4,11 +4,11 @@ import Footer from '@/components/footer'
 import { ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Professional Content Creation in West Lothian | Bear Media',
-  description: 'Professional photography, video and content creation for West Lothian businesses, with high-quality visuals that tell your story and engage customers.',
+  title: 'Content Creation in West Lothian | Bear Media',
+  description: 'Professional content creation in West Lothian: photography, video and visual content that helps local businesses tell their story and engage customers.',
   openGraph: {
-    title: 'Professional Content Creation in West Lothian | Bear Media',
-    description: 'Professional photography, videography, and content creation services for West Lothian businesses.',
+    title: 'Content Creation in West Lothian | Bear Media',
+    description: 'Photography, videography and content creation for West Lothian businesses.',
     url: 'https://bear-media.com/content-creation-west-lothian',
     siteName: 'Bear Media',
     images: [{ url: 'https://bear-media.com/assets/brand/og-image.jpg', width: 1200, height: 630, alt: 'Content Creation Services in West Lothian', type: 'image/jpeg' }],
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Professional Content Creation in West Lothian | Bear Media',
-    description: 'Professional photography, videography, and content creation services',
+    title: 'Content Creation in West Lothian | Bear Media',
+    description: 'Professional content creation for West Lothian businesses.',
     images: ['https://bear-media.com/assets/brand/og-image.jpg'],
     creator: '@bearmediascot',
   },

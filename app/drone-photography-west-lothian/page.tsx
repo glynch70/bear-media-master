@@ -4,11 +4,11 @@ import Footer from '@/components/footer'
 import { ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Drone Photography & Videography in West Lothian | Bear Media',
-  description: 'Licensed and insured drone photography and video for West Lothian properties, events and marketing across Livingston, Broxburn and Linlithgow.',
+  title: 'Drone Photography in West Lothian | Bear Media',
+  description: 'Drone photography in West Lothian for properties, events and marketing, with licensed aerial photography and video across Livingston, Broxburn and Linlithgow.',
   openGraph: {
-    title: 'Drone Photography & Videography in West Lothian | Bear Media',
-    description: 'Professional drone services for West Lothian. Aerial photography and videography for properties, events, and marketing.',
+    title: 'Drone Photography in West Lothian | Bear Media',
+    description: 'Licensed drone photography and aerial video for West Lothian properties, events and businesses.',
     url: 'https://bear-media.com/drone-photography-west-lothian',
     siteName: 'Bear Media',
     images: [{ url: 'https://bear-media.com/assets/brand/og-image.jpg', width: 1200, height: 630, alt: 'Drone Photography in West Lothian', type: 'image/jpeg' }],
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Drone Photography & Videography in West Lothian | Bear Media',
-    description: 'Professional drone services for West Lothian properties, events, and marketing',
+    title: 'Drone Photography in West Lothian | Bear Media',
+    description: 'Drone photography and aerial video for West Lothian businesses.',
     images: ['https://bear-media.com/assets/brand/og-image.jpg'],
     creator: '@bearmediascot',
   },
