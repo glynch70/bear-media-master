@@ -34,6 +34,18 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Keep one canonical hostname for search engines and visitors.
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.bear-media.com',
+          },
+        ],
+        destination: 'https://bear-media.com/:path*',
+        permanent: true,
+      },
       // Preserve search equity for the former generic website design URL.
       {
         source: '/web-design',
