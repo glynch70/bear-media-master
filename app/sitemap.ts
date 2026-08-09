@@ -51,6 +51,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
+    {
+      url: `${baseUrl}/terms-and-conditions`,
+      lastModified: today,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
   ]
 
   // Location-based service pages

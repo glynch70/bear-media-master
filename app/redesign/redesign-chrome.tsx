@@ -34,6 +34,7 @@ export function RedesignFooter() {
       <span>Bear Media</span>
       <span>West Lothian · Scotland</span>
       <span>Photography · Video · Drone · Websites</span>
+      <Link href="/terms-and-conditions">Terms &amp; Conditions</Link>
     </footer>
   )
 }
