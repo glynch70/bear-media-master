@@ -101,7 +101,7 @@ export default function Footer() {
 
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-10 mb-12">
           {/* Column 1: Bear Media */}
           <div>
             <h3 className="font-heading text-lg font-semibold text-foreground mb-4">Bear Media</h3>
@@ -173,6 +173,14 @@ export default function Footer() {
                 <span>West Lothian, Scotland</span>
               </div>
             </div>
+          </div>
+
+          {/* Column 5: Policies */}
+          <div>
+            <h3 className="font-medium text-sm uppercase tracking-wider text-foreground mb-5">Policies</h3>
+            <ul className="space-y-3">
+              <li><Link href="/terms-and-conditions" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms &amp; Conditions</Link></li>
+            </ul>
           </div>
         </div>
 

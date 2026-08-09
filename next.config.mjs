@@ -176,6 +176,11 @@ const nextConfig = {
         destination: '/contact',
         permanent: true,
       },
+      {
+        source: '/terms',
+        destination: '/terms-and-conditions',
+        permanent: true,
+      },
     ]
   },
 }
