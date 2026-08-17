@@ -35,6 +35,42 @@ const nextConfig = {
   async redirects() {
     return [
       // Keep one canonical hostname for search engines and visitors.
+      // The old portfolio subdomain is no longer a separate site. Send its
+      // known legal URLs to the live canonical pages, and preserve the path
+      // for any other legacy links.
+      {
+        source: '/terms',
+        has: [
+          {
+            type: 'host',
+            value: 'portfolio.bear-media.com',
+          },
+        ],
+        destination: 'https://bear-media.com/terms-and-conditions',
+        permanent: true,
+      },
+      {
+        source: '/privacy',
+        has: [
+          {
+            type: 'host',
+            value: 'portfolio.bear-media.com',
+          },
+        ],
+        destination: 'https://bear-media.com/terms-and-conditions',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'portfolio.bear-media.com',
+          },
+        ],
+        destination: 'https://bear-media.com/:path*',
+        permanent: true,
+      },
       {
         source: '/:path*',
         has: [
@@ -179,6 +215,21 @@ const nextConfig = {
       {
         source: '/terms',
         destination: '/terms-and-conditions',
+        permanent: true,
+      },
+      {
+        source: '/privacy',
+        destination: '/terms-and-conditions',
+        permanent: true,
+      },
+      {
+        source: '/industries/trades',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/portfolio/seamus-corry',
+        destination: '/projects/seamus-corry',
         permanent: true,
       },
     ]
