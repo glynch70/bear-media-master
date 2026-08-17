@@ -14,7 +14,13 @@ export function CinematicVideo({ className, poster, src }: CinematicVideoProps) 
 
   useEffect(() => {
     const video = videoRef.current
-    if (!video || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    // Keep the mobile hero on its poster image. Loading the cinematic video
+    // competes with the first paint and delays the above-the-fold heading.
+    if (
+      !video ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      window.matchMedia('(max-width: 767px)').matches
+    ) return
 
     const observer = new IntersectionObserver(
       ([entry]) => {

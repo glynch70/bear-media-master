@@ -127,7 +127,7 @@ export default function RedesignServicesPage() {
             className={styles.coverImage}
           />
           <div className={styles.servicesHeroShade} />
-          <a href="#service-list" aria-label="Explore Bear Media services">
+          <a href="#service-list" aria-label="Explore services from Bear Media">
             Explore
             <ArrowDown aria-hidden="true" />
           </a>

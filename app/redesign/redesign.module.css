@@ -2513,7 +2513,7 @@
 }
 
 .journeyWorkMeta > p {
-  color: #77756e;
+  color: #5f5d56;
   font-size: 0.65rem;
   font-weight: 620;
   letter-spacing: 0.11em;
@@ -2922,7 +2922,7 @@
 }
 
 .workJourneyIntro > p {
-  color: rgba(255, 255, 255, 0.48);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .workJourneyIntro h2 {
@@ -3015,7 +3015,7 @@
 }
 
 .aboutJourneyCopy > p {
-  color: #77756e;
+  color: #5f5d56;
 }
 
 .aboutJourneyCopy h2 {
@@ -3063,7 +3063,7 @@
 }
 
 .contactJourneyChapter > p {
-  color: rgba(255, 255, 255, 0.46);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .contactJourneyChapter h2 {

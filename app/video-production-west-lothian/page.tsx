@@ -13,7 +13,7 @@ const pageUrl = `${siteUrl}/video-production-west-lothian`
 export const metadata: Metadata = {
   title: 'Video Production in West Lothian | Bear Media',
   description:
-    'Video content marketing and professional video production for West Lothian businesses. Promotional films, interviews, social media video and project content from Bear Media in Broxburn.',
+    'Video production and content marketing for West Lothian businesses: promotional films, interviews and social video from Bear Media in Broxburn.',
   alternates: { canonical: pageUrl },
   openGraph: {
     title: 'Video Production in West Lothian | Bear Media',

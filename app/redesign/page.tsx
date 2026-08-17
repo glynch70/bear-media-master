@@ -216,7 +216,7 @@ export default function RedesignPage() {
               <Link
                 href="/services#social-service"
                 className={styles.journeySocialCard}
-                aria-label="Explore Bear Media social content services"
+                aria-label="View social content services from Bear Media"
                 key={item.src}
               >
                 <div className={styles.journeySocialImage} data-gallery-media>
