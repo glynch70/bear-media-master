@@ -1,4 +1,5 @@
 import { Analytics } from '@vercel/analytics/next'
+import Script from 'next/script'
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
@@ -12,6 +13,7 @@ const inter = Inter({
 })
 
 const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+const clarityProjectId = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID || 'wt02mqo6ya'
 
 export const metadata: Metadata = {
   ...createMetadata({
@@ -88,6 +90,11 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased text-foreground">
         {children}
+        {process.env.NODE_ENV === 'production' && (
+          <Script id="microsoft-clarity" strategy="afterInteractive">
+            {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${clarityProjectId}");`}
+          </Script>
+        )}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
