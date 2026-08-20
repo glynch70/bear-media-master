@@ -72,14 +72,14 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
           </div>
         </header>
 
-        <div className={styles.caseHeroMedia} data-website={isWebsite}>
+          <div className={styles.caseHeroMedia} data-website={isWebsite} data-fit={project.heroFit ?? 'cover'}>
           <Image
             src={project.heroImage}
             alt={`${project.clientName} project hero`}
             fill
             preload
             sizes="100vw"
-            className={isWebsite ? styles.containImage : styles.coverImage}
+            className={isWebsite || project.heroFit === 'contain' ? styles.containImage : styles.coverImage}
           />
         </div>
 
@@ -99,10 +99,10 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
         <section className={styles.caseGallery} aria-label={`${project.clientName} image gallery`}>
           <RedesignGallery label={`${project.clientName} project images`}>
             {project.images.map((image) => {
-              const contain = image.src.includes('/websites/')
+                const contain = image.src.includes('/websites/') || image.fit === 'contain'
 
               return (
-                <figure className={styles.caseGalleryItem} data-website={contain} key={image.src}>
+                  <figure className={styles.caseGalleryItem} data-website={image.src.includes('/websites/')} data-fit={contain ? 'contain' : 'cover'} key={image.src}>
                   <div className={styles.caseGalleryImage} data-gallery-media>
                     <Image
                       src={image.src}

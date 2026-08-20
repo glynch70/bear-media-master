@@ -23,6 +23,13 @@ export const metadata: Metadata = {
 }
 
 export default function RedesignProjectsPage() {
+  const projectOrder = ['cg-developments', 'seamus-corry', 'simply-sheds', 'bear-media-content-day', 'dalkeith-country-park', 'midlothian-wildflowers']
+  const orderedProjects = [...projects].sort((a, b) => {
+    const aIndex = projectOrder.indexOf(a.slug)
+    const bIndex = projectOrder.indexOf(b.slug)
+    return (aIndex === -1 ? 999 : aIndex) - (bIndex === -1 ? 999 : bIndex)
+  })
+
   return (
     <main className={`${styles.page} ${styles.projectsPage}`}>
       <div className={styles.pageProgress} aria-hidden="true" />
@@ -44,18 +51,20 @@ export default function RedesignProjectsPage() {
       </section>
 
       <section id="project-list" className={styles.projectIndex} aria-label="Bear Media projects">
-        {projects.map((project, index) => {
+        {orderedProjects.map((project, index) => {
           const isWebsite = project.heroImage.includes('/websites/')
+          const shouldContain = isWebsite || project.heroFit === 'contain'
 
           return (
             <Link
               href={`/projects/${project.slug}`}
               className={styles.projectIndexCard}
               data-website={isWebsite}
+              data-fit={shouldContain ? 'contain' : 'cover'}
               key={project.id}
               aria-label={`View ${project.clientName} case study`}
             >
-              <div className={styles.projectIndexMedia}>
+              <div className={styles.projectIndexMedia} data-aspect={project.heroAspect ?? 'portrait'}>
                 <Image
                   src={project.heroImage}
                   alt={project.title}
@@ -67,7 +76,7 @@ export default function RedesignProjectsPage() {
                       ? '(max-width: 760px) 100vw, 92vw'
                       : '(max-width: 760px) 100vw, 52vw'
                   }
-                  className={isWebsite ? styles.containImage : styles.coverImage}
+                  className={shouldContain ? styles.containImage : styles.coverImage}
                 />
               </div>
               <div className={styles.projectIndexMeta}>

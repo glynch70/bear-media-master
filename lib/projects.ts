@@ -14,6 +14,7 @@ export type ProjectDeliverable = {
 export type ProjectImage = {
   src: string
   alt: string
+  fit?: 'cover' | 'contain'
 }
 
 export type PerformanceReport = {
@@ -33,6 +34,8 @@ export type Project = {
   intro: string
   challenge: string
   heroImage: string
+  heroFit?: 'cover' | 'contain'
+  heroAspect?: 'wide' | 'portrait' | 'square'
   images: ProjectImage[]
   services: string[]
   deliverables: ProjectDeliverable[]
@@ -125,8 +128,15 @@ export const projects: Project[] = [
       'C&G Developments needed their online presence to match the quality, scale and craft of their property work across Scotland.',
     challenge:
       'The work was impressive in person, but their digital channels needed a stronger rhythm of professional content that could build trust, show progress and turn real projects into visibility.',
-    heroImage: '/assets/client-work/cg-developments/new-build-exterior-progress.webp',
+    heroImage: '/assets/project-gallery/cg-developments/new/cg-new-build-captured.jpg',
+    heroFit: 'contain',
+    heroAspect: 'wide',
     images: [
+      { src: '/assets/project-gallery/cg-developments/new/cg-new-build-captured.jpg', alt: 'Finished new-build home captured for C&G Developments', fit: 'contain' },
+      { src: '/assets/project-gallery/cg-developments/new/cg-from-build-to-home.jpg', alt: 'Finished C&G Developments home featured in the From Build to Home project film', fit: 'contain' },
+      { src: '/assets/project-gallery/cg-developments/new/cg-from-build-to-home-vertical.jpg', alt: 'Aerial view of a C&G Developments home surrounded by countryside', fit: 'contain' },
+      { src: '/assets/project-gallery/cg-developments/new/cg-progress-update.jpg', alt: 'C&G Developments project update showing a home under construction', fit: 'contain' },
+      { src: '/assets/project-gallery/cg-developments/new/cg-transforming-homes.jpg', alt: 'C&G Developments Transforming Homes across Scotland video cover', fit: 'contain' },
       { src: '/assets/client-work/cg-developments/reviewing-project-plans.webp', alt: 'C&G Developments reviewing plans for a client project' },
       { src: '/assets/client-work/cg-developments/client-project-review.webp', alt: 'C&G Developments reviewing completed work with a client' },
       { src: '/assets/client-work/cg-developments/fitted-kitchen.webp', alt: 'Fitted kitchen photographed for C&G Developments' },
@@ -202,6 +212,7 @@ export const projects: Project[] = [
     heroImage: '/assets/project-gallery/simply-sheds-feature.webp',
     images: [
       { src: '/assets/project-gallery/simply-sheds-feature.webp', alt: 'Featured Simply Sheds Scotland garden building' },
+      { src: '/assets/project-gallery/simply-sheds-new-which-shed.jpg', alt: 'Simply Sheds Which Shed creative video cover', fit: 'contain' },
       { src: '/assets/project-gallery/simply-sheds-at-work-2.webp', alt: 'Simply Sheds Scotland team at work' },
       { src: '/assets/project-gallery/simply-sheds-overhead.webp', alt: 'Overhead view of a Simply Sheds Scotland installation' },
       { src: '/assets/project-gallery/simply-sheds-shed-built.webp', alt: 'Completed shed build by Simply Sheds Scotland' },
@@ -266,16 +277,29 @@ export const projects: Project[] = [
   {
     id: 3,
     slug: 'seamus-corry',
-    title: 'Seamus Corry Case Study',
-    clientName: 'Seamus Corry',
-    category: 'Website · Personal Branding · LinkedIn · Photography',
-    description: 'Building a professional personal brand that feels genuine and consistent.',
+    title: 'Séamus Corry Mental Wellbeing Campaign',
+    clientName: 'Séamus Corry',
+    category: 'Campaign Creative · Mental Wellbeing · Social Media',
+    description: 'A practical social campaign for mental health training, workplace wellbeing and positive change.',
     intro:
-      'Seamus wanted a sharper personal brand across web, photography and LinkedIn without losing the approachable quality people already knew him for.',
+      'Séamus needed a clear, credible visual campaign to explain his mental health first aid training, stress management workshops and wellbeing audits to organisations across the UK.',
     challenge:
-      'The challenge was to create a professional presence that felt credible but still human, avoiding overly staged content while making every touchpoint feel consistent.',
-    heroImage: '/assets/project-gallery/seamus-corry-seamus-portrait.webp',
+      'The creative had to make a serious subject approachable: balance practical workplace messages with human photography, strong calls to action and a visual system that could repeat across social content.',
+    heroImage: '/assets/project-gallery/seamus-corry/campaign/1.png',
+    heroFit: 'contain',
     images: [
+      { src: '/assets/project-gallery/seamus-corry/campaign/1.png', alt: 'Séamus Corry Mental Health Training campaign graphic', fit: 'contain' },
+      { src: '/assets/project-gallery/seamus-corry/campaign/2.png', alt: 'Séamus Corry campaign graphic highlighting 250 plus five-star Google reviews', fit: 'contain' },
+      { src: '/assets/project-gallery/seamus-corry/campaign/3.png', alt: 'Séamus Corry testimonial graphic from Sean Morrow of Rosemount Lifelong Learning', fit: 'contain' },
+      { src: '/assets/project-gallery/seamus-corry/campaign/4.png', alt: 'Séamus Corry campaign graphic about work-related stress as a business risk', fit: 'contain' },
+      { src: '/assets/project-gallery/seamus-corry/campaign/5.png', alt: 'Séamus Corry Mental Health First Aid training campaign graphic', fit: 'contain' },
+      { src: '/assets/project-gallery/seamus-corry/campaign/6.png', alt: 'Séamus Corry stress management workshops campaign graphic', fit: 'contain' },
+      { src: '/assets/project-gallery/seamus-corry/campaign/7.png', alt: 'Séamus Corry campaign graphic about building a healthier workplace culture', fit: 'contain' },
+      { src: '/assets/project-gallery/seamus-corry/campaign/8.png', alt: 'Séamus Corry workplace wellbeing campaign graphic inviting a conversation', fit: 'contain' },
+      { src: '/assets/project-gallery/seamus-corry/campaign/9.png', alt: 'Séamus Corry testimonial graphic from David Burrows', fit: 'contain' },
+      { src: '/assets/project-gallery/seamus-corry/campaign/10.png', alt: 'Séamus Corry wellbeing audit campaign graphic', fit: 'contain' },
+      { src: '/assets/project-gallery/seamus-corry/campaign/11.png', alt: 'Séamus Corry campaign graphic highlighting 29 years of experience in people and wellbeing', fit: 'contain' },
+      { src: '/assets/project-gallery/seamus-corry/campaign/12.png', alt: 'Séamus Corry campaign graphic about preventing stress-related sickness absence', fit: 'contain' },
       { src: '/assets/project-gallery/seamus-corry-seamus-portrait.webp', alt: 'Seamus Corry personal brand portrait' },
       { src: '/assets/project-gallery/seamus-corry-seamus-at-work.webp', alt: 'Seamus Corry at work' },
       { src: '/assets/project-gallery/seamus-corry-seamus-on-stage.webp', alt: 'Seamus Corry speaking on stage' },
@@ -286,30 +310,30 @@ export const projects: Project[] = [
       { src: '/assets/project-gallery/seamus-corry-seamus-podcasts.webp', alt: 'Seamus Corry podcast content' },
       { src: '/assets/project-gallery/seamus-corry-seamus-rebrand.webp', alt: 'Seamus Corry rebrand creative' },
     ],
-    services: ['Website Design', 'Personal Branding', 'Photography', 'LinkedIn Content'],
+    services: ['Campaign Creative', 'Social Media Design', 'Photography', 'Content Strategy'],
     deliverables: [
       {
-        title: 'Photography',
-        description: 'Natural portraits and working shots gave the brand a more personal and credible visual language.',
+        title: 'Campaign System',
+        description: 'A repeatable visual system brought consistency across training, workplace wellbeing, testimonial and enquiry-led posts.',
       },
       {
-        title: 'Website Design',
-        description: 'The website presence was aligned with his expertise, tone and professional positioning.',
+        title: 'Message-led Creative',
+        description: 'Each graphic turns a specific wellbeing message into a clear, accessible social post with a practical next step.',
       },
       {
-        title: 'Social Media',
-        description: 'LinkedIn content became more consistent, recognisable and easier to connect back to the brand.',
+        title: 'Social Content',
+        description: 'Portraits, testimonials and service explainers create a useful content library for ongoing organisation-facing communication.',
       },
     ],
     stats: [
-      { label: 'Brand Assets', value: '30+', context: 'Photography set' },
-      { label: 'Core Channels', value: '3', context: 'Web, LinkedIn, imagery' },
-      { label: 'Content Direction', value: 'Clear', context: 'Personal brand system' },
+      { label: 'Campaign Assets', value: '12', context: 'Social graphics' },
+      { label: 'Core Offers', value: '4', context: 'Training and wellbeing services' },
+      { label: 'Visual Direction', value: 'Clear', context: 'Human and practical' },
     ],
     results: [
-      'A more consistent personal brand across web and social.',
-      'A practical library of professional images for ongoing use.',
-      'A more credible digital presence for enquiries and opportunities.',
+      'A cohesive campaign that explains mental wellbeing services at a glance.',
+      'A practical library of social-first assets for awareness, education and enquiries.',
+      'A more recognisable and credible visual presence for organisation-facing work.',
     ],
     websiteUrl: trustedClientLinks.seamusCorry,
     testimonial: {
@@ -319,6 +343,68 @@ export const projects: Project[] = [
       role: 'Business Professional',
       image: '/assets/project-gallery/seamus-corry-seamus-portrait.webp',
     },
+  },
+  {
+    id: 10,
+    slug: 'bear-media-content-day',
+    title: 'Bear Media Content Day',
+    clientName: 'Bear Media Content Day',
+    category: 'Content Creation · Photography · Editorial',
+    description: 'A behind-the-scenes content set showing how a day of making becomes a library of useful visual stories.',
+    intro: 'Content Day is Bear Media’s own editorial look at the tools, textures and locations behind thoughtful content production.',
+    challenge: 'A content day should produce more than one finished post. This set documents the process and the range of material that can be shaped into social, website and campaign assets.',
+    heroImage: '/assets/project-gallery/bear-media-content-day/content-day-cover.jpg',
+    heroFit: 'contain',
+    images: [
+      { src: '/assets/project-gallery/bear-media-content-day/content-day-cover.jpg', alt: 'Bear Media Content Day cover showing a production setup outdoors', fit: 'contain' },
+      { src: '/assets/project-gallery/bear-media-content-day/studio-setup.jpg', alt: 'Bear Media studio and production setup' },
+      { src: '/assets/project-gallery/bear-media-content-day/golden-field.jpg', alt: 'Golden field photographed by Bear Media' },
+    ],
+    services: ['Content Creation', 'Photography', 'Editorial Direction'],
+    deliverables: [
+      { title: 'Content Planning', description: 'A clear visual direction helps a single production day create a range of usable content.' },
+      { title: 'Photography', description: 'Textures, tools and location details add variety to the finished content library.' },
+      { title: 'Editorial Selection', description: 'The strongest frames are chosen for clarity, atmosphere and future reuse across channels.' },
+    ],
+    stats: [
+      { label: 'Format', value: 'Editorial', context: 'Process-led content' },
+      { label: 'Content Mix', value: '3', context: 'Setup, detail, location' },
+      { label: 'Use', value: 'Multi-channel', context: 'Web and social ready' },
+    ],
+    results: [
+      'A compact visual story that makes the content process tangible.',
+      'A mix of behind-the-scenes and atmospheric imagery for future publishing.',
+      'A clear example of how one production day can create a richer content library.',
+    ],
+  },
+  {
+    id: 11,
+    slug: 'dalkeith-country-park',
+    title: 'Dalkeith Country Park',
+    clientName: 'Dalkeith Country Park',
+    category: 'Location Photography · Scotland',
+    description: 'Location-led photography capturing the character of Dalkeith Country Park and the wider Scottish landscape.',
+    intro: 'A small location study built around atmosphere, scale and the details that make a Scottish place memorable.',
+    challenge: 'Location photography needs to feel specific rather than generic. The edit pairs a recognisable Dalkeith Country Park view with a quieter coastal frame to show range without losing the sense of place.',
+    heroImage: '/assets/project-gallery/dalkeith-country-park/dalkeith-country-park.jpg',
+    images: [
+      { src: '/assets/project-gallery/dalkeith-country-park/dalkeith-country-park.jpg', alt: 'Dalkeith Country Park photographed by Bear Media' },
+      { src: '/assets/project-gallery/dalkeith-country-park/coastal-rocks.jpg', alt: 'Scottish coastal rocks photographed by Bear Media' },
+    ],
+    services: ['Photography', 'Location Content', 'Visual Storytelling'],
+    deliverables: [
+      { title: 'Location Photography', description: 'A considered edit of place-led images designed to communicate atmosphere and setting.' },
+      { title: 'Visual Storytelling', description: 'The images use scale, texture and natural light to give a location a more distinctive visual voice.' },
+    ],
+    stats: [
+      { label: 'Locations', value: '2', context: 'Park and coast' },
+      { label: 'Approach', value: 'Natural', context: 'Atmosphere-led' },
+      { label: 'Content Use', value: 'Flexible', context: 'Web and social' },
+    ],
+    results: [
+      'A focused location story with a strong sense of place.',
+      'Natural imagery suitable for editorial, web and social use.',
+    ],
   },
   {
     id: 4,
