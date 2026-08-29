@@ -17,11 +17,11 @@ import { ServiceSchema } from '@/components/structured-data'
 const pageUrl = 'https://bear-media.com/website-design-west-lothian'
 
 export const metadata: Metadata = {
-  title: 'Website Design in West Lothian | Bear Media',
+  title: 'Website Design West Lothian | Bear Media',
   description:
     'Custom website design in West Lothian for small businesses in Livingston, Broxburn and Linlithgow. Mobile-first websites built to earn trust and enquiries.',
   openGraph: {
-    title: 'Website Design in West Lothian | Bear Media',
+    title: 'Website Design West Lothian | Bear Media',
     description:
       'Mobile-first website design for West Lothian businesses in Livingston, Broxburn and Linlithgow.',
     url: pageUrl,
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Website Design in West Lothian | Bear Media',
+    title: 'Website Design West Lothian | Bear Media',
     description: 'Mobile-first website design for West Lothian businesses in Livingston, Broxburn and Linlithgow.',
     images: ['https://bear-media.com/assets/websites/midlothian-wildflowers/desktop-home.webp'],
     creator: '@bearmediascot',
@@ -96,7 +96,7 @@ const process = [
   {
     number: '01',
     title: 'Discovery',
-    description: 'We clarify your audience, priorities, content and what a successful website needs to achieve.',
+    description: 'I clarify your audience, priorities, content and what a successful website needs to achieve.',
   },
   {
     number: '02',
@@ -106,12 +106,12 @@ const process = [
   {
     number: '03',
     title: 'Design & build',
-    description: 'Your responsive website is built, populated and reviewed with you at practical milestones.',
+    description: 'I build and populate your responsive website, then review it with you at practical milestones.',
   },
   {
     number: '04',
     title: 'Launch & support',
-    description: 'After final checks, the site goes live with a clear handover and support options if you need them.',
+    description: 'After final checks, I launch the site with a clear handover and support options if you need them.',
   },
 ]
 
@@ -129,12 +129,12 @@ const faqs = [
   {
     question: 'Can you redesign my existing website?',
     answer:
-      'Yes. We can review what is worth keeping, identify what is getting in the customer’s way and rebuild the site around a clearer experience. Existing URLs and important search content are considered as part of the move.',
+      'Yes. I can review what is worth keeping, identify what is getting in the customer’s way and rebuild the site around a clearer experience. Existing URLs and important search content are considered as part of the move.',
   },
   {
     question: 'Will I be able to update the website?',
     answer:
-      'That depends on how much control you want. We can provide an editing setup and handover guidance, or manage ongoing updates for you. We’ll agree the right approach before development starts.',
+      'That depends on how much control you want. I can provide an editing setup and handover guidance, or manage ongoing updates for you. We’ll agree the right approach before development starts.',
   },
   {
     question: 'Do you provide content and photography too?',
@@ -164,10 +164,13 @@ export default function WebsiteDesignWestLothian() {
                 Based in West Lothian
               </div>
               <h1 className="max-w-3xl font-heading text-5xl font-medium leading-[0.98] tracking-tight text-balance sm:text-6xl lg:text-7xl">
-                Websites that make your business easier to trust.
+                Website Design West Lothian
               </h1>
+              <p className="mt-5 max-w-2xl font-heading text-2xl font-medium leading-tight text-balance sm:text-3xl">
+                Modern websites that make your business easier to trust
+              </p>
               <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-                Custom website design for businesses in Livingston, Broxburn, Linlithgow and across West Lothian—built to explain your value clearly and turn interest into action.
+                I design and build clear, modern websites for businesses in Broxburn, Livingston, Linlithgow and across West Lothian. Your site should explain what you do quickly, look good on every screen and make it easier for the right people to enquire.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <Link
@@ -239,6 +242,24 @@ export default function WebsiteDesignWestLothian() {
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Creative support</p>
               <p className="mt-2 font-heading text-xl font-semibold">Copy, photo, video & web</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-secondary py-20 md:py-28">
+          <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 lg:px-8">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">The bigger picture</p>
+              <h2 className="mt-4 font-heading text-4xl font-medium tracking-tight text-balance md:text-5xl">More than just a website</h2>
+            </div>
+            <div className="max-w-3xl space-y-5 text-lg leading-relaxed text-muted-foreground">
+              <p>A strong website needs more than a good-looking layout. I can help with the website, copy, photography, video, drone content and ongoing content that bring it to life.</p>
+              <p>That means you can deal directly with one person from the first idea through to launch and future updates, with the words and visuals working together instead of being pieced together from different suppliers.</p>
+              <div className="flex flex-wrap gap-3 pt-2 text-sm font-semibold text-foreground">
+                {['Website', 'Copy', 'Photography', 'Video', 'Drone', 'Ongoing content'].map((item) => (
+                  <span key={item} className="rounded-full border border-border bg-background px-4 py-2">{item}</span>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -323,7 +344,7 @@ export default function WebsiteDesignWestLothian() {
                   The essentials, handled properly.
                 </h2>
                 <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-                  A good website needs more than an attractive homepage. We bring the structure, content and technical details together as one joined-up project.
+                  A good website needs more than an attractive homepage. I bring the structure, content and technical details together as one joined-up project.
                 </p>
                 <Link href="/contact" className="mt-8 inline-flex items-center gap-2 font-semibold text-foreground hover:text-accent">
                   Discuss your website
@@ -404,7 +425,7 @@ export default function WebsiteDesignWestLothian() {
               Let’s make your next website worth visiting.
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-foreground/70">
-              Tell us what is working, what is not and what you want the new site to achieve. We’ll help you work out the right next step.
+              Tell me what is working, what is not and what you want the new site to achieve. I’ll help you work out the right next step.
             </p>
             <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
               <Link
@@ -431,6 +452,7 @@ export default function WebsiteDesignWestLothian() {
               <Link href="/social-media-west-lothian" className="rounded-full border border-border px-4 py-2 text-sm font-medium transition hover:border-accent hover:text-accent">Social media management</Link>
               <Link href="/content-creation-west-lothian" className="rounded-full border border-border px-4 py-2 text-sm font-medium transition hover:border-accent hover:text-accent">Content creation</Link>
               <Link href="/business-photography-west-lothian" className="rounded-full border border-border px-4 py-2 text-sm font-medium transition hover:border-accent hover:text-accent">Business photography</Link>
+              <Link href="/property-photography-west-lothian" className="rounded-full border border-border px-4 py-2 text-sm font-medium transition hover:border-accent hover:text-accent">Property photography</Link>
               <Link href="/drone-photography-west-lothian" className="rounded-full border border-border px-4 py-2 text-sm font-medium transition hover:border-accent hover:text-accent">Drone photography</Link>
             </div>
           </div>

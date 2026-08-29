@@ -4,10 +4,10 @@ import Footer from '@/components/footer'
 import { ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Business Photography in West Lothian | Bear Media',
-  description: 'Business photography in West Lothian for companies that need professional headshots, team photos, workplace photography and brand imagery.',
+  title: 'Business Photography West Lothian | Bear Media',
+  description: 'Business photography in West Lothian for headshots, team photos, workplace photography and brand imagery.',
   openGraph: {
-    title: 'Business Photography in West Lothian | Bear Media',
+    title: 'Business Photography West Lothian | Bear Media',
     description: 'Corporate headshots, team photos and workplace photography for West Lothian businesses.',
     url: 'https://bear-media.com/business-photography-west-lothian',
     siteName: 'Bear Media',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Business Photography in West Lothian | Bear Media',
+    title: 'Business Photography West Lothian | Bear Media',
     description: 'Professional business photography for West Lothian companies.',
     images: ['https://bear-media.com/assets/brand/og-image.jpg'],
     creator: '@bearmediascot',
@@ -32,13 +32,13 @@ export default function BusinessPhotographyWestLothian() {
     <div className="flex flex-col min-h-screen">
       <Navigation />
       <main className="flex-1">
-        <ServiceSchema name="Business Photography in West Lothian" description="Professional business photography, corporate headshots, and team photography" areaServed="West Lothian" provider="Bear Media" />
+        <ServiceSchema name="Business Photography West Lothian" description="Business photography, headshots, team photography and workplace imagery across West Lothian" areaServed="West Lothian" provider="Bear Media" />
 
         <section className="bg-gradient-to-b from-background to-muted py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">Professional Business Photography in West Lothian</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">Business Photography West Lothian</h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8">
-              Strengthen your professional image with high-quality business photography. From corporate headshots to team photos and workplace imagery, we help West Lothian businesses present themselves professionally.
+              I create professional business photography for companies in Broxburn, Livingston, Linlithgow and across West Lothian—from headshots and team photos to workplace imagery for your website and marketing.
             </p>
             <a href="/contact" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
               Book Your Session
@@ -50,7 +50,7 @@ export default function BusinessPhotographyWestLothian() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-6">Professional Photography Builds Trust</h2>
             <p className="text-lg text-muted-foreground mb-6">
-              Across West Lothian, professional photography matters. Whether you're building your company website, creating LinkedIn profiles, or updating marketing materials, quality business photography communicates professionalism and builds credibility with potential clients and customers.
+              Good photography gives people a clearer sense of who you are and what you do. I can create the images you need for your website, profiles, marketing materials and ongoing content.
             </p>
           </div>
         </section>
@@ -65,11 +65,11 @@ export default function BusinessPhotographyWestLothian() {
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-3">Team Photography</h3>
-                <p className="text-muted-foreground">Group photos that showcase your West Lothian team's professionalism and culture. Great for websites and annual reports.</p>
+                <p className="text-muted-foreground">Group photos that show the people behind your business, for your website and marketing materials.</p>
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-3">Workplace Photography</h3>
-                <p className="text-muted-foreground">Authentic photographs of your workplace, staff at work, and company culture. Show clients what your business is really about.</p>
+                <p className="text-muted-foreground">Natural photographs of your workplace and the way you work, helping potential customers see the real business behind the service.</p>
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-3">Corporate Events</h3>
@@ -77,7 +77,7 @@ export default function BusinessPhotographyWestLothian() {
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-3">Product & Service Photography</h3>
-                <p className="text-muted-foreground">Professional photography of your products or services to use across marketing channels and your website.</p>
+                <p className="text-muted-foreground">Photography of your products or services for your website, social media and marketing materials.</p>
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-3">Before & After</h3>
@@ -143,23 +143,23 @@ export default function BusinessPhotographyWestLothian() {
             <div className="space-y-8">
               <div>
                 <h3 className="text-xl font-bold mb-3">Experience with Companies</h3>
-                <p className="text-muted-foreground">We've photographed dozens of West Lothian businesses and understand what works for professional imagery.</p>
+                <p className="text-muted-foreground">I’ll plan the session around your business, the people involved and the places where you need to use the images.</p>
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-3">Professional Direction</h3>
-                <p className="text-muted-foreground">We guide subjects to look their best, creating flattering, professional images that boost confidence.</p>
+                <p className="text-muted-foreground">I’ll give clear direction during the session so the photographs feel natural and professional.</p>
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-3">Studio & On-Location</h3>
-                <p className="text-muted-foreground">We can work in our studio or at your West Lothian workplace, whichever works best for your needs.</p>
+                <p className="text-muted-foreground">I can discuss the most suitable location with you, including your workplace when that helps tell the story of your business.</p>
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-3">Quick Turnaround</h3>
-                <p className="text-muted-foreground">Fast editing and delivery so you can use your photos quickly across your marketing channels.</p>
+                <p className="text-muted-foreground">I’ll agree the editing and delivery timescale with you before the session.</p>
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-3">Flexible Packages</h3>
-                <p className="text-muted-foreground">Whether you need one headshot or a full day of workplace photography, we have flexible options.</p>
+                <p className="text-muted-foreground">Whether you need headshots, team photography or a broader set of workplace images, I’ll scope the session around your needs.</p>
               </div>
             </div>
           </div>
@@ -171,7 +171,7 @@ export default function BusinessPhotographyWestLothian() {
             <div className="space-y-8">
               <details className="border-b pb-6 cursor-pointer">
                 <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">How much do professional headshots cost?</summary>
-                <p className="text-muted-foreground">Headshot pricing varies based on how many people you need photographed. We offer packages starting at various price points and can give you a quote based on your needs.</p>
+                <p className="text-muted-foreground">Headshot pricing varies based on how many people you need photographed. I can give you a clear quote based on your needs.</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
                 <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">How long does a headshot session take?</summary>
@@ -179,23 +179,23 @@ export default function BusinessPhotographyWestLothian() {
               </details>
               <details className="border-b pb-6 cursor-pointer">
                 <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">Can we do group photos?</summary>
-                <p className="text-muted-foreground">Absolutely. We specialize in team photos and can work with groups of any size at your West Lothian location or our studio.</p>
+                <p className="text-muted-foreground">Yes. I can discuss the group size and the most suitable location for your team photographs.</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
                 <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">Do you provide retouching?</summary>
-                <p className="text-muted-foreground">Yes, professional retouching is included. We enhance images tastefully to look professional without being overdone.</p>
+                <p className="text-muted-foreground">The agreed editing and retouching will be set out in your proposal so you know what is included.</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
                 <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">How quickly will I get my photos?</summary>
-                <p className="text-muted-foreground">Typically within 1-2 weeks of your session. Rush delivery available for additional cost if needed.</p>
+                <p className="text-muted-foreground">Delivery depends on the size of the session and the agreed editing. I’ll give you a clear timescale before we start.</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
                 <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">What should we wear for business photos?</summary>
-                <p className="text-muted-foreground">We recommend business or business-casual attire in solid colors. We'll give you detailed guidance before your session.</p>
+                <p className="text-muted-foreground">Wear something that feels appropriate for your work and the impression you want to create. I’ll talk through any practical preparation beforehand.</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
                 <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">Can we do photos at our workplace?</summary>
-                <p className="text-muted-foreground">Yes! On-location photography at your West Lothian office or workplace is part of what we offer. This shows your actual work environment.</p>
+                <p className="text-muted-foreground">Yes. Your workplace can be a useful setting when you want the photographs to show the real environment behind your business.</p>
               </details>
             </div>
           </div>
@@ -204,7 +204,7 @@ export default function BusinessPhotographyWestLothian() {
         <section className="py-16 md:py-24 px-4 md:px-6 bg-primary text-primary-foreground">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready for Professional Business Photography?</h2>
-            <p className="text-lg mb-8 opacity-90">Let's create professional imagery that represents your West Lothian business well.</p>
+            <p className="text-lg mb-8 opacity-90">Let’s create professional imagery that represents your West Lothian business well.</p>
             <a href="/contact" className="inline-block bg-background text-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
               Schedule a Consultation
             </a>
@@ -222,6 +222,10 @@ export default function BusinessPhotographyWestLothian() {
               <a href="/website-design-west-lothian" className="p-6 border rounded-lg hover:border-primary transition-colors">
                 <h3 className="font-bold mb-2">Website Design</h3>
                 <p className="text-sm text-muted-foreground">Showcase your professional photos on a beautiful website</p>
+              </a>
+              <a href="/property-photography-west-lothian" className="p-6 border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-bold mb-2">Property Photography</h3>
+                <p className="text-sm text-muted-foreground">Clear images for properties, websites and listings</p>
               </a>
               <a href="/services" className="p-6 border rounded-lg hover:border-primary transition-colors">
                 <h3 className="font-bold mb-2">All Services</h3>

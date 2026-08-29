@@ -11,12 +11,12 @@ import { siteUrl } from '@/lib/seo'
 const pageUrl = `${siteUrl}/video-production-west-lothian`
 
 export const metadata: Metadata = {
-  title: 'Video Production in West Lothian | Bear Media',
+  title: 'Video Production West Lothian | Bear Media',
   description:
     'Video content marketing and professional video production for West Lothian businesses. Promotional films, interviews, social media video and project content from Bear Media in Broxburn.',
   alternates: { canonical: pageUrl },
   openGraph: {
-    title: 'Video Production in West Lothian | Bear Media',
+    title: 'Video Production West Lothian | Bear Media',
     description:
       'Video content marketing, promotional films and social media video for West Lothian businesses.',
     url: pageUrl,
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Video Production in West Lothian | Bear Media',
+    title: 'Video Production West Lothian | Bear Media',
     description: 'Video production and content marketing for West Lothian businesses.',
     images: [`${siteUrl}/assets/services/video-on-location.webp`],
   },
@@ -88,8 +88,8 @@ export default function VideoProductionWestLothianPage() {
           ]}
         />
         <ServiceSchema
-          name="Video Production in West Lothian"
-          description="Professional promotional video, interviews, social media video and project filming for West Lothian businesses."
+          name="Video Production West Lothian"
+          description="Promotional films, interviews, social media video and project filming for businesses across West Lothian."
           areaServed="West Lothian"
           provider="Bear Media"
           url={pageUrl}
@@ -113,11 +113,14 @@ export default function VideoProductionWestLothianPage() {
               Based in West Lothian · Working across Scotland
             </p>
             <h1 className="max-w-5xl font-heading text-5xl font-medium leading-[0.95] tracking-[-0.04em] text-balance sm:text-6xl md:text-7xl lg:text-[6.5rem]">
-              Stories people stop and watch.
+              Video Production West Lothian
             </h1>
+            <p className="mt-5 max-w-3xl font-heading text-2xl font-medium leading-tight text-white sm:text-3xl">
+              Promotional films, interviews and social video made around your business.
+            </p>
             <div className="mt-7 flex max-w-5xl flex-col gap-7 md:flex-row md:items-end md:justify-between">
               <p className="max-w-2xl text-base leading-relaxed text-white/78 sm:text-lg md:text-xl">
-                Video production and content marketing for businesses across Edinburgh, Fife, the Lothians and wider Scotland—planned, filmed and edited by Bear Media.
+                I plan, film and edit video for businesses in Broxburn, Livingston, Linlithgow and across West Lothian. From a project film to short social content, I’ll shape the work around what you want people to understand, feel or do.
               </p>
               <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
                 <Link

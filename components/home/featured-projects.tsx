@@ -52,19 +52,8 @@ const featuredProjects = [
     tags: ['Drone', 'Photography', 'Social'],
     images: [
       {
-        src: '/assets/project-gallery/cg-developments/new/cg-new-build-captured.jpg',
-        alt: 'Finished new-build home captured for C&G Developments',
-        fit: 'contain' as const,
-      },
-      {
-        src: '/assets/project-gallery/cg-developments/new/cg-from-build-to-home.jpg',
-        alt: 'Finished C&G Developments home featured in the From Build to Home project film',
-        fit: 'contain' as const,
-      },
-      {
-        src: '/assets/project-gallery/cg-developments/new/cg-progress-update.jpg',
-        alt: 'C&G Developments project update showing a home under construction',
-        fit: 'contain' as const,
+        src: '/assets/client-work/cg-developments/new-build-exterior-progress.webp',
+        alt: 'C&G Developments new build exterior during construction',
       },
       {
         src: '/assets/client-work/cg-developments/reviewing-project-plans.webp',
@@ -87,34 +76,29 @@ const featuredProjects = [
   },
   {
     id: 'seamus-corry',
-    title: 'Séamus Corry',
-    category: 'Mental Wellbeing Campaign',
-    tags: ['Campaign', 'Social', 'Wellbeing'],
+    title: 'Seamus Corry',
+    category: 'Personal Brand',
+    tags: ['Brand', 'Video', 'Web'],
     images: [
       {
-        src: '/assets/project-gallery/seamus-corry/campaign/1.png',
-        alt: 'Séamus Corry Mental Health Training campaign graphic',
-        fit: 'contain' as const,
+        src: '/assets/project-gallery/seamus-corry-seamus-portrait.webp',
+        alt: 'Seamus Corry personal brand portrait',
       },
       {
-        src: '/assets/project-gallery/seamus-corry/campaign/6.png',
-        alt: 'Séamus Corry stress management workshops campaign graphic',
-        fit: 'contain' as const,
+        src: '/assets/project-gallery/seamus-corry-seamus-on-stage-talking.webp',
+        alt: 'Seamus Corry speaking on stage',
       },
       {
-        src: '/assets/project-gallery/seamus-corry/campaign/10.png',
-        alt: 'Séamus Corry wellbeing audit campaign graphic',
-        fit: 'contain' as const,
+        src: '/assets/project-gallery/seamus-corry-seamus-delivering-training-2.webp',
+        alt: 'Seamus Corry delivering training',
       },
       {
-        src: '/assets/project-gallery/seamus-corry/campaign/11.png',
-        alt: 'Séamus Corry campaign graphic highlighting experience in people and wellbeing',
-        fit: 'contain' as const,
+        src: '/assets/project-gallery/seamus-corry-seamus-podcasts.webp',
+        alt: 'Seamus Corry podcast content',
       },
       {
-        src: '/assets/project-gallery/seamus-corry/campaign/12.png',
-        alt: 'Séamus Corry campaign graphic about preventing stress-related sickness absence',
-        fit: 'contain' as const,
+        src: '/assets/project-gallery/seamus-corry-seamus-rebrand.webp',
+        alt: 'Seamus Corry rebrand creative',
       },
     ],
     href: '/projects/seamus-corry',
@@ -128,11 +112,6 @@ const featuredProjects = [
       {
         src: '/assets/project-gallery/simply-sheds-at-work-2.webp',
         alt: 'Simply Sheds Scotland team at work',
-      },
-      {
-        src: '/assets/project-gallery/simply-sheds-new-which-shed.jpg',
-        alt: 'Simply Sheds Which Shed creative video cover',
-        fit: 'contain' as const,
       },
       {
         src: '/assets/project-gallery/simply-sheds-feature.webp',
@@ -152,29 +131,6 @@ const featuredProjects = [
       },
     ],
     href: '/projects/simply-sheds',
-  },
-  {
-    id: 'bear-media-content-day',
-    title: 'Bear Media Content Day',
-    category: 'Content Creation',
-    tags: ['Editorial', 'Photo', 'Behind the scenes'],
-    images: [
-      { src: '/assets/project-gallery/bear-media-content-day/content-day-cover.jpg', alt: 'Bear Media Content Day cover showing a production setup outdoors', fit: 'contain' as const },
-      { src: '/assets/project-gallery/bear-media-content-day/studio-setup.jpg', alt: 'Bear Media studio and production setup' },
-      { src: '/assets/project-gallery/bear-media-content-day/golden-field.jpg', alt: 'Golden field photographed by Bear Media' },
-    ],
-    href: '/projects/bear-media-content-day',
-  },
-  {
-    id: 'dalkeith-country-park',
-    title: 'Dalkeith Country Park',
-    category: 'Location Photography',
-    tags: ['Scotland', 'Location', 'Photo'],
-    images: [
-      { src: '/assets/project-gallery/dalkeith-country-park/dalkeith-country-park.jpg', alt: 'Dalkeith Country Park photographed by Bear Media' },
-      { src: '/assets/project-gallery/dalkeith-country-park/coastal-rocks.jpg', alt: 'Scottish coastal rocks photographed by Bear Media' },
-    ],
-    href: '/projects/dalkeith-country-park',
   },
   {
     id: 'procoat',
@@ -284,11 +240,6 @@ const featuredProjects = [
 ]
 
 export default function FeaturedProjects() {
-  const featuredProjectOrder = ['cg-developments', 'seamus-corry', 'simply-sheds', 'bear-media-content-day', 'dalkeith-country-park', 'midlothian-wildflowers']
-  const orderedProjects = [...featuredProjects].sort(
-    (a, b) => (featuredProjectOrder.indexOf(a.id) === -1 ? 999 : featuredProjectOrder.indexOf(a.id)) - (featuredProjectOrder.indexOf(b.id) === -1 ? 999 : featuredProjectOrder.indexOf(b.id)),
-  )
-
   return (
     <section className="w-full overflow-hidden bg-background py-16 md:py-24 lg:py-28">
       <Carousel
@@ -296,7 +247,7 @@ export default function FeaturedProjects() {
         subtitle="A showcase of real client work."
         showControls
       >
-        {orderedProjects.map((project, index) => (
+        {featuredProjects.map((project, index) => (
           <CarouselItem
             key={project.id}
             widthClassName="w-[calc(100vw-3rem)] sm:w-80 md:w-[24rem] lg:w-[26rem] flex-shrink-0 pt-2 pb-8"

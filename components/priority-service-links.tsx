@@ -32,6 +32,11 @@ const priorityServices = [
     title: 'Business photography in West Lothian',
     description: 'Professional images for teams, workplaces, products and local businesses.',
   },
+  {
+    href: '/property-photography-west-lothian',
+    title: 'Property photography in West Lothian',
+    description: 'Clear images for homes, venues, businesses, listings and websites.',
+  },
 ] as const
 
 export function PriorityServiceLinks({ headingId }: { headingId: string }) {

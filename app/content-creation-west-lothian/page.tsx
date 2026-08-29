@@ -4,10 +4,10 @@ import Footer from '@/components/footer'
 import { ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Content Creation in West Lothian | Bear Media',
-  description: 'Professional content creation in West Lothian: photography, video and visual content that helps local businesses tell their story and engage customers.',
+  title: 'Content Creation West Lothian | Bear Media',
+  description: 'Content creation in West Lothian covering photography, video and visual content for local businesses.',
   openGraph: {
-    title: 'Content Creation in West Lothian | Bear Media',
+    title: 'Content Creation West Lothian | Bear Media',
     description: 'Photography, videography and content creation for West Lothian businesses.',
     url: 'https://bear-media.com/content-creation-west-lothian',
     siteName: 'Bear Media',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Content Creation in West Lothian | Bear Media',
+    title: 'Content Creation West Lothian | Bear Media',
     description: 'Professional content creation for West Lothian businesses.',
     images: ['https://bear-media.com/assets/brand/og-image.jpg'],
     creator: '@bearmediascot',
@@ -32,13 +32,13 @@ export default function ContentCreationWestLothian() {
     <div className="flex flex-col min-h-screen">
       <Navigation />
       <main className="flex-1">
-        <ServiceSchema name="Content Creation in West Lothian" description="Professional photography, videography, and content creation services" areaServed="West Lothian" provider="Bear Media" />
+        <ServiceSchema name="Content Creation West Lothian" description="Photography, video and visual content creation for businesses across West Lothian" areaServed="West Lothian" provider="Bear Media" />
 
         <section className="bg-gradient-to-b from-background to-muted py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">Professional Content Creation in West Lothian</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">Content Creation West Lothian</h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8">
-              High-quality visual content is essential for engaging your West Lothian audience. From professional photography and videography to drone services and graphic design, we create compelling content that tells your story.
+              I create useful visual content for West Lothian businesses, including photography, video and drone content where it fits the brief.
             </p>
             <a href="/contact" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
               Start Creating Content
@@ -50,14 +50,14 @@ export default function ContentCreationWestLothian() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-6">Why Professional Content Matters</h2>
             <p className="text-lg text-muted-foreground mb-6">
-              Across West Lothian, businesses compete for attention. Professional content sets you apart. Whether you need stunning product photography, engaging videos for social media, or drone footage to showcase your property, quality content drives engagement and builds trust with your audience.
+              I create photography, video and visual content for businesses in Broxburn, Livingston, Linlithgow and across West Lothian. The work is planned around your audience, your message and where you need to use the finished content.
             </p>
           </div>
         </section>
 
         <section className="py-16 md:py-24 px-4 md:px-6 bg-muted">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-12">Our Content Creation Services</h2>
+            <h2 className="text-3xl font-bold mb-12">My Content Creation Services</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-xl font-bold mb-3">Product Photography</h3>
@@ -123,7 +123,7 @@ export default function ContentCreationWestLothian() {
                 <span className="text-primary font-bold text-xl">✓</span>
                 <div>
                   <h3 className="font-bold mb-2">Time Savings</h3>
-                  <p className="text-muted-foreground">Let us handle the creative work while you focus on running your business.</p>
+                  <p className="text-muted-foreground">Let me handle the creative work while you focus on running your business.</p>
                 </div>
               </li>
             </ul>
@@ -140,15 +140,15 @@ export default function ContentCreationWestLothian() {
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-3">Creative Expertise</h3>
-                <p className="text-muted-foreground">Our creative team brings years of experience creating content that works. Every photo and video is crafted with your goals in mind.</p>
+                <p className="text-muted-foreground">I create photography and video around your goals, audience and the places where you need to use the finished content.</p>
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-3">Local Knowledge</h3>
-                <p className="text-muted-foreground">We know West Lothian and what resonates with local audiences. We'll capture your business in the best possible light.</p>
+                <p className="text-muted-foreground">I’m based in West Lothian and can capture your business in a way that feels specific to you and your customers.</p>
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-3">Fast Turnaround</h3>
-                <p className="text-muted-foreground">We understand you need content quickly. Quick turnarounds without sacrificing quality.</p>
+                <p className="text-muted-foreground">I’ll agree a practical schedule with you before the shoot and keep the delivery plan clear.</p>
               </div>
             </div>
           </div>
@@ -160,27 +160,27 @@ export default function ContentCreationWestLothian() {
             <div className="space-y-8">
               <details className="border-b pb-6 cursor-pointer">
                 <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">What types of content do you create?</summary>
-                <p className="text-muted-foreground">We create photography, videography, drone content, graphic design, social media content, and more. We're a full-service creative agency.</p>
+                <p className="text-muted-foreground">I provide photography, video and drone content, with the scope agreed around what your business actually needs.</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
                 <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">How much does professional photography cost?</summary>
-                <p className="text-muted-foreground">Pricing depends on the scope of work. A few hours of photography might be one price, while a full day or video production would be different. We offer flexible packages to fit various budgets.</p>
+                <p className="text-muted-foreground">Pricing depends on the scope of work. I’ll provide a clear proposal based on the photography, video or other agreed content you need.</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
                 <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">Can you do drone photography in West Lothian?</summary>
-                <p className="text-muted-foreground">Yes! We're fully licensed and insured for drone operations. We can capture aerial footage for properties, events, landscapes, and more.</p>
+                <p className="text-muted-foreground">Drone content can be discussed as part of a wider project where the location and intended use make it a good fit.</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
                 <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">Do you include editing and retouching?</summary>
-                <p className="text-muted-foreground">Absolutely. Professional editing is included with all our photography and video services. We ensure every image and video looks its absolute best.</p>
+                <p className="text-muted-foreground">I edit the agreed photography and video so the finished content is ready for your website, social media or marketing materials.</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
                 <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">How quickly can you turn around content?</summary>
-                <p className="text-muted-foreground">Depends on the project scope. Simple photography might be ready in a few days, while more complex video projects take longer. We'll discuss timeline expectations upfront.</p>
+                <p className="text-muted-foreground">The timeline depends on the scope. I’ll discuss delivery expectations with you before the work begins.</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
                 <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">Can I use the content on all platforms?</summary>
-                <p className="text-muted-foreground">Yes! All content we create is yours to use across your website, social media, marketing materials, and beyond.</p>
+                <p className="text-muted-foreground">I’ll confirm the agreed deliverables and usage as part of the project proposal.</p>
               </details>
             </div>
           </div>
@@ -202,7 +202,7 @@ export default function ContentCreationWestLothian() {
             <div className="grid md:grid-cols-3 gap-6">
               <a href="/social-media-west-lothian" className="p-6 border rounded-lg hover:border-primary transition-colors">
                 <h3 className="font-bold mb-2">Social Media Management</h3>
-                <p className="text-sm text-muted-foreground">We create and share your content across all platforms</p>
+                <p className="text-sm text-muted-foreground">I create content for the platforms and channels you use</p>
               </a>
               <a href="/website-design-west-lothian" className="p-6 border rounded-lg hover:border-primary transition-colors">
                 <h3 className="font-bold mb-2">Website Design</h3>

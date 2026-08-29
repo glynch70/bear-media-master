@@ -68,6 +68,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/video-production-west-lothian`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/drone-photography-west-lothian`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/business-photography-west-lothian`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/property-photography-west-lothian`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
     // Edinburgh
     { url: `${baseUrl}/social-media-edinburgh`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/website-design-edinburgh`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },

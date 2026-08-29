@@ -75,33 +75,27 @@ const websites = [
 const selectedProjects = [
   {
     client: 'C&G Developments',
-    discipline: 'Photography · Video · Drone · Social',
+    discipline: 'Photography · Drone · Social',
     href: '/projects/cg-developments',
-    src: '/assets/project-gallery/cg-developments/new/cg-new-build-captured.jpg',
-    alt: 'Finished new-build home captured for C&G Developments',
+    src: '/assets/project-gallery/cg-developments-drone-roof.webp',
+    alt: 'Aerial project photography for C&G Developments',
     position: 'centre',
-    fit: 'contain',
-    aspect: 'wide',
   },
   {
     client: 'Simply Sheds Scotland',
     discipline: 'Photography · Video · Social',
     href: '/projects/simply-sheds',
-    src: '/assets/project-gallery/simply-sheds-new-which-shed.jpg',
-    alt: 'Simply Sheds Which Shed creative video cover',
+    src: '/assets/project-gallery/simply-sheds-feature.webp',
+    alt: 'Simply Sheds Scotland project captured by Bear Media',
     position: 'centre',
-    fit: 'contain',
-    aspect: 'portrait',
   },
   {
-    client: 'Séamus Corry',
-    discipline: 'Campaign Creative · Mental Wellbeing · Social',
+    client: 'Seamus Corry',
+    discipline: 'Personal brand · Photography · Website',
     href: '/projects/seamus-corry',
-    src: '/assets/project-gallery/seamus-corry/campaign/1.png',
-    alt: 'Séamus Corry Mental Health Training campaign graphic',
+    src: '/assets/project-gallery/seamus-corry-seamus-portrait.webp',
+    alt: 'Personal brand portrait of Seamus Corry',
     position: 'high',
-    fit: 'contain',
-    aspect: 'portrait',
   },
 ] as const
 
@@ -294,14 +288,14 @@ export default function RedesignPage() {
                 aria-label={`View ${project.client} project`}
                 key={project.client}
               >
-                <div className={styles.journeyWorkImage} data-gallery-media data-aspect={project.aspect}>
+                <div className={styles.journeyWorkImage} data-gallery-media>
                   <Image
                     src={project.src}
                     alt={project.alt}
                     fill
                     sizes="(max-width: 767px) 84vw, 42vw"
                     data-position={project.position}
-                    className={project.fit === 'contain' ? styles.containImage : styles.journeyCover}
+                    className={styles.journeyCover}
                   />
                 </div>
                 <div className={styles.journeyWorkMeta}>

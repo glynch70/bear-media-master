@@ -4,11 +4,11 @@ import Footer from '@/components/footer'
 import { ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Drone Photography in West Lothian | Bear Media',
-  description: 'Drone photography in West Lothian for properties, events and marketing, with licensed aerial photography and video across Livingston, Broxburn and Linlithgow.',
+  title: 'Drone Photography West Lothian | Bear Media',
+  description: 'Drone photography and video in West Lothian for properties, events and marketing across Livingston, Broxburn and Linlithgow.',
   openGraph: {
-    title: 'Drone Photography in West Lothian | Bear Media',
-    description: 'Licensed drone photography and aerial video for West Lothian properties, events and businesses.',
+    title: 'Drone Photography West Lothian | Bear Media',
+    description: 'Drone photography and aerial video for West Lothian properties, events and businesses.',
     url: 'https://bear-media.com/drone-photography-west-lothian',
     siteName: 'Bear Media',
     images: [{ url: 'https://bear-media.com/assets/brand/og-image.jpg', width: 1200, height: 630, alt: 'Drone Photography in West Lothian', type: 'image/jpeg' }],
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Drone Photography in West Lothian | Bear Media',
+    title: 'Drone Photography West Lothian | Bear Media',
     description: 'Drone photography and aerial video for West Lothian businesses.',
     images: ['https://bear-media.com/assets/brand/og-image.jpg'],
     creator: '@bearmediascot',
@@ -32,13 +32,13 @@ export default function DronePhotographyWestLothian() {
     <div className="flex flex-col min-h-screen">
       <Navigation />
       <main className="flex-1">
-        <ServiceSchema name="Drone Photography in West Lothian" description="Professional drone photography and videography services" areaServed="West Lothian" provider="Bear Media" />
+        <ServiceSchema name="Drone Photography West Lothian" description="Drone photography and video for properties, events and businesses across West Lothian" areaServed="West Lothian" provider="Bear Media" />
 
         <section className="bg-gradient-to-b from-background to-muted py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">Drone Photography & Videography in West Lothian</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">Drone Photography West Lothian</h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8">
-              Capture stunning aerial perspectives of your West Lothian property, event, or business. Our licensed and insured drone services deliver professional-quality aerial photography and videography.
+              I capture considered aerial perspectives of your West Lothian property, event or business, with photography and video shaped around where you plan to use the finished content.
             </p>
             <a href="/contact" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
               Book Your Drone Session
@@ -50,14 +50,14 @@ export default function DronePhotographyWestLothian() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-6">Aerial Perspectives for Your West Lothian Business</h2>
             <p className="text-lg text-muted-foreground mb-6">
-              Drone photography offers a unique perspective that traditional ground-level photography simply can't match. Whether you're showcasing a property in capturing event coverage in Livingston, or documenting a landscape project across West Lothian, aerial imagery creates impact and engagement.
+              Aerial photography and video can help people understand a property, event or project from a different perspective. I’ll plan the capture around the location and where you need to use the finished content.
             </p>
           </div>
         </section>
 
         <section className="py-16 md:py-24 px-4 md:px-6 bg-muted">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-12">Drone Services We Offer</h2>
+            <h2 className="text-3xl font-bold mb-12">Drone Services I Offer</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-xl font-bold mb-3">Real Estate Photography</h3>
@@ -102,14 +102,14 @@ export default function DronePhotographyWestLothian() {
                 <span className="text-primary font-bold text-xl">✓</span>
                 <div>
                   <h3 className="font-bold mb-2">Licensed & Insured</h3>
-                  <p className="text-muted-foreground">All our operations are fully compliant with UK aviation regulations and we carry comprehensive insurance.</p>
+                <p className="text-muted-foreground">I plan each flight around the location, conditions and intended use of the finished photography or video.</p>
                 </div>
               </li>
               <li className="flex gap-4">
                 <span className="text-primary font-bold text-xl">✓</span>
                 <div>
                   <h3 className="font-bold mb-2">Expert Editing</h3>
-                  <p className="text-muted-foreground">Professional post-production editing, color grading, and video editing brings out the best in your footage.</p>
+                <p className="text-muted-foreground">I edit the selected photography and video so it is ready for your website, social channels or marketing materials.</p>
                 </div>
               </li>
               <li className="flex gap-4">
@@ -143,19 +143,19 @@ export default function DronePhotographyWestLothian() {
             <div className="space-y-8">
               <div>
                 <h3 className="text-xl font-bold mb-3">Local Experience</h3>
-                <p className="text-muted-foreground">Based in we're familiar with West Lothian landscapes and have experience capturing aerial footage of local landmarks and properties.</p>
+                <p className="text-muted-foreground">I’m based in West Lothian and can work with businesses and property owners across Livingston, Broxburn, Linlithgow and the surrounding area.</p>
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-3">Full Compliance</h3>
-                <p className="text-muted-foreground">All drone operations are conducted in full compliance with CAA regulations. We handle all the technical and legal requirements.</p>
+                <p className="text-muted-foreground">I’ll talk through the location and practical requirements before the shoot, then handle the agreed capture and editing.</p>
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-3">Creative Vision</h3>
-                <p className="text-muted-foreground">We don't just fly drones—we create cinematic aerial content that tells your story and achieves your marketing goals.</p>
+                <p className="text-muted-foreground">The aim is useful content, not aerial footage for its own sake: imagery that helps people understand the place, project or business.</p>
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-3">Complete Production</h3>
-                <p className="text-muted-foreground">From flight planning to final editing, we handle every aspect of your drone project. You get ready-to-use content.</p>
+                <p className="text-muted-foreground">From planning to final editing, I keep the process clear and deliver content ready for the places you want to use it.</p>
               </div>
             </div>
           </div>
@@ -171,11 +171,11 @@ export default function DronePhotographyWestLothian() {
               </details>
               <details className="border-b pb-6 cursor-pointer">
                 <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">What weather conditions can you fly in?</summary>
-                <p className="text-muted-foreground">We can fly in various conditions, but wind speed and precipitation limits apply. We'll advise on the best day for your shoot.</p>
+                <p className="text-muted-foreground">Weather affects every aerial shoot. I’ll advise on the practical conditions and the best day for your project.</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
                 <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">How high can drones fly?</summary>
-                <p className="text-muted-foreground">Maximum altitude is 400 feet above ground level in most cases. We plan flights accordingly for your specific needs.</p>
+                <p className="text-muted-foreground">I’ll plan the capture around the location and the practical requirements of your project.</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
                 <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">How long does a typical drone shoot take?</summary>
@@ -183,11 +183,11 @@ export default function DronePhotographyWestLothian() {
               </details>
               <details className="border-b pb-6 cursor-pointer">
                 <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">Can you do 4K video?</summary>
-                <p className="text-muted-foreground">Yes, we capture in 4K and can deliver in various formats. We also edit down to 1080p or other specifications as needed.</p>
+                <p className="text-muted-foreground">The available formats and editing will be agreed around where you plan to use the finished content.</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
                 <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">How quickly can you turn around drone footage?</summary>
-                <p className="text-muted-foreground">Simple edits might be ready in a few days. More complex editing takes longer. We'll discuss timeline expectations when you book.</p>
+                <p className="text-muted-foreground">The delivery time depends on the capture and editing required. I’ll discuss the timescale when you book.</p>
               </details>
             </div>
           </div>
