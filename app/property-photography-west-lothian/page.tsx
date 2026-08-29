@@ -22,8 +22,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: socialImage,
-        width: 1200,
-        height: 630,
+        width: 1024,
+        height: 576,
         alt: 'Bear Media property photography in West Lothian',
       },
     ],
