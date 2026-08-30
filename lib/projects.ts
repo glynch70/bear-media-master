@@ -279,6 +279,44 @@ export const projects: Project[] = [
     challenge:
       'Two channels had gone quiet, while YouTube and TikTok had to be launched from scratch. The goal was simple: make high-quality shed installations visible, useful and easy to trust.',
     heroImage: '/assets/project-gallery/simply-sheds-feature.webp',
+    featuredVideo: {
+      src: 'https://stream.mux.com/KaiydYBFRGcQgE2GUnXMnLiJIFNFRIm9LcZoGNlNyMk.m3u8',
+      playbackId: 'KaiydYBFRGcQgE2GUnXMnLiJIFNFRIm9LcZoGNlNyMk',
+      poster:
+        'https://image.mux.com/KaiydYBFRGcQgE2GUnXMnLiJIFNFRIm9LcZoGNlNyMk/thumbnail.webp?time=3',
+      title: 'Find Your Perfect Shed',
+      description:
+        'A concise vertical showcase that helps customers compare garden-building styles and see the finished quality clearly.',
+      duration: 'PT31S',
+      uploadDate: '2026-08-30',
+      aspectRatio: '9 / 16',
+    },
+    additionalVideos: [
+      {
+        src: 'https://stream.mux.com/x7OWXJce4JRbkGU8hE6sXIMgvaQg6X6oXv1toWY3sHE.m3u8',
+        playbackId: 'x7OWXJce4JRbkGU8hE6sXIMgvaQg6X6oXv1toWY3sHE',
+        poster:
+          'https://image.mux.com/x7OWXJce4JRbkGU8hE6sXIMgvaQg6X6oXv1toWY3sHE/thumbnail.webp?time=3',
+        title: 'Fully Custom Garden Buildings',
+        description:
+          'A short product-led film showing the variety of custom sizes, roof styles and practical options available.',
+        duration: 'PT36S',
+        uploadDate: '2026-08-30',
+        aspectRatio: '9 / 16',
+      },
+      {
+        src: 'https://stream.mux.com/g9bAM9sKiPSydltfBXJ6fwbZvtsruLs4FQno4cOMbYI.m3u8',
+        playbackId: 'g9bAM9sKiPSydltfBXJ6fwbZvtsruLs4FQno4cOMbYI',
+        poster:
+          'https://image.mux.com/g9bAM9sKiPSydltfBXJ6fwbZvtsruLs4FQno4cOMbYI/thumbnail.webp?time=3',
+        title: 'Rain or Shine',
+        description:
+          'A behind-the-scenes installation film that shows the team delivering and building through real Scottish conditions.',
+        duration: 'PT41S',
+        uploadDate: '2026-08-30',
+        aspectRatio: '9 / 16',
+      },
+    ],
     images: [
       { src: '/assets/project-gallery/simply-sheds-feature.webp', alt: 'Featured Simply Sheds Scotland garden building' },
       { src: '/assets/project-gallery/simply-sheds-at-work-2.webp', alt: 'Simply Sheds Scotland team at work' },
@@ -328,6 +366,10 @@ export const projects: Project[] = [
       'Organic reach came from platform discovery rather than paid ads.',
     ],
     websiteUrl: trustedClientLinks.simplySheds,
+    relatedService: {
+      href: '/video-production-west-lothian',
+      label: 'Explore video production in West Lothian',
+    },
     performanceReport: {
       src: '/assets/project-gallery/simply-sheds-simply-sheds-performance-report.webp',
       alt: 'Simply Sheds Scotland performance report by Bear Media',
@@ -496,17 +538,29 @@ export const projects: Project[] = [
     slug: 'procoat-exterior-coatings',
     title: 'Procoat Exterior Coatings Case Study',
     clientName: 'Procoat Exterior Coatings',
-    category: 'Photography · Social · Design',
+    category: 'Photography · Video · Social · Design',
     description: 'Turning exterior coating work into clean, confidence-building visual content.',
     intro:
       'Procoat needed simple, polished content that made their exterior coating service feel credible and easy to trust.',
     challenge:
       'Home improvement customers want proof before they enquire. The creative needed to show the service clearly and support a more professional first impression.',
     heroImage: '/assets/project-gallery/procoat-procoat.webp',
+    featuredVideo: {
+      src: 'https://stream.mux.com/UzGH6W002u01m7twCjKAsmZ01YOE4UPfsQlVFasYcpDx0200.m3u8',
+      playbackId: 'UzGH6W002u01m7twCjKAsmZ01YOE4UPfsQlVFasYcpDx0200',
+      poster:
+        'https://image.mux.com/UzGH6W002u01m7twCjKAsmZ01YOE4UPfsQlVFasYcpDx0200/thumbnail.webp?time=3',
+      title: 'Another Home Transformed',
+      description:
+        'A mobile-first transformation film showing how a fresh exterior coating changes the look and feel of a home.',
+      duration: 'PT27S',
+      uploadDate: '2026-08-30',
+      aspectRatio: '9 / 16',
+    },
     images: [
       { src: '/assets/project-gallery/procoat-procoat.webp', alt: 'Procoat Exterior Coatings project content' },
     ],
-    services: ['Photography', 'Social Media', 'Design'],
+    services: ['Photography', 'Video Production', 'Social Media', 'Design'],
     deliverables: [
       {
         title: 'Photography',
@@ -515,6 +569,10 @@ export const projects: Project[] = [
       {
         title: 'Social Media',
         description: 'Content was shaped for simple, proof-led posts that communicate the service quickly.',
+      },
+      {
+        title: 'Video Production',
+        description: 'A concise transformation film turned a completed job into clear visual proof for mobile audiences.',
       },
       {
         title: 'Design',
@@ -532,6 +590,10 @@ export const projects: Project[] = [
       'Simple content that quickly explains the value of the service.',
     ],
     websiteUrl: 'https://procoatexteriorcoatings.com/',
+    relatedService: {
+      href: '/video-production-west-lothian',
+      label: 'Explore video production in West Lothian',
+    },
   },
   {
     id: 7,

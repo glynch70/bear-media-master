@@ -1635,6 +1635,12 @@
   box-shadow: 0 2rem 6rem rgba(30, 28, 22, 0.12);
 }
 
+.caseVideoFrame[data-vertical='true'] {
+  width: min(100%, 30rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .caseVideoFrame video {
   display: block;
   width: 100%;

@@ -19,8 +19,9 @@ export function absoluteUrl(path = '/') {
 }
 
 function getImageMimeType(imageUrl: string) {
-  if (imageUrl.endsWith('.png')) return 'image/png'
-  if (imageUrl.endsWith('.webp')) return 'image/webp'
+  const pathname = imageUrl.split('?')[0].toLowerCase()
+  if (pathname.endsWith('.png')) return 'image/png'
+  if (pathname.endsWith('.webp')) return 'image/webp'
   return 'image/jpeg'
 }
 

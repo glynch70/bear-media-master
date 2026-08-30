@@ -110,7 +110,10 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
               <h2 id="case-video-title">{project.featuredVideo.title}</h2>
               <p id={`case-video-description-${project.slug}`}>{project.featuredVideo.description}</p>
             </div>
-            <div className={styles.caseVideoFrame}>
+            <div
+              className={styles.caseVideoFrame}
+              data-vertical={project.featuredVideo.aspectRatio === '9 / 16'}
+            >
               {project.featuredVideo.playbackId ? (
                 <MuxVideoPlayer
                   playbackId={project.featuredVideo.playbackId}
@@ -135,7 +138,7 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
               )}
             </div>
             <div className={styles.caseVideoFooter}>
-              <p>Filmed across the build and edited for web, YouTube and social media.</p>
+              <p>Planned, filmed and edited for web and social media.</p>
               {project.relatedService ? (
                 <Link href={project.relatedService.href}>
                   {project.relatedService.label} <ArrowUpRight aria-hidden="true" />

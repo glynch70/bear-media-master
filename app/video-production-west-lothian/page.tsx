@@ -5,6 +5,7 @@ import { ArrowRight, MapPin, Play } from 'lucide-react'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import { Carousel, CarouselItem } from '@/components/carousel'
+import { MuxVideoPlayer } from '@/components/mux-video-player'
 import { BreadcrumbSchema, ServiceSchema } from '@/components/structured-data'
 import { siteUrl } from '@/lib/seo'
 
@@ -75,6 +76,25 @@ const projects = [
   },
 ] as const
 
+const featuredFilms = [
+  {
+    client: 'Edinburgh Windows & Doors',
+    title: 'Crafted by Hand',
+    description: 'A detail-led vertical film showing the people and workmanship behind a specialist product.',
+    playbackId: 'NUPBs01nxDTJywH8ddiGJDPrlcG1v1hYqmOIY2I68p01Y',
+    duration: 'PT36S',
+    uploadDate: '2026-08-30',
+  },
+  {
+    client: 'Property & drone content',
+    title: 'Recent Property Marketing',
+    description: 'A concise aerial-led reel designed to make a property project feel immediate and premium on mobile.',
+    playbackId: 'oUdiTOcEvBBgQJqDljVzNshrQos7ND9mQTyOvoxpLv4',
+    duration: 'PT12S',
+    uploadDate: '2026-08-30',
+  },
+] as const
+
 export default function VideoProductionWestLothianPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -94,6 +114,27 @@ export default function VideoProductionWestLothianPage() {
           provider="Bear Media"
           url={pageUrl}
         />
+        {featuredFilms.map((film) => (
+          <script
+            key={`video-schema-${film.playbackId}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'VideoObject',
+                name: film.title,
+                description: film.description,
+                thumbnailUrl: `https://image.mux.com/${film.playbackId}/thumbnail.webp?time=3`,
+                uploadDate: film.uploadDate,
+                duration: film.duration,
+                contentUrl: `https://stream.mux.com/${film.playbackId}.m3u8`,
+                embedUrl: `https://player.mux.com/${film.playbackId}`,
+                inLanguage: 'en-GB',
+              }),
+            }}
+            suppressHydrationWarning
+          />
+        ))}
 
         <section className="relative flex min-h-[100svh] items-end overflow-hidden bg-black">
           <Image
@@ -193,6 +234,44 @@ export default function VideoProductionWestLothianPage() {
               </CarouselItem>
             ))}
           </Carousel>
+        </section>
+
+        <section className="bg-secondary px-6 py-20 md:py-28 lg:px-8 lg:py-32" aria-labelledby="featured-films-title">
+          <div className="mx-auto max-w-7xl">
+            <div className="max-w-3xl">
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent md:text-sm">Watch the work</p>
+              <h2 id="featured-films-title" className="mt-4 font-heading text-4xl font-medium leading-[1.02] tracking-[-0.03em] text-balance sm:text-5xl md:text-6xl">
+                Short films. Proper production.
+              </h2>
+              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+                These mobile-first edits stream at the best quality for each viewer and only load the full Mux player after play is pressed.
+              </p>
+            </div>
+
+            <div className="mt-12 grid gap-12 md:grid-cols-2 md:gap-8 lg:gap-12">
+              {featuredFilms.map((film, index) => {
+                const descriptionId = `featured-film-description-${index}`
+
+                return (
+                  <article key={film.playbackId} className="mx-auto w-full max-w-md">
+                    <div className="overflow-hidden rounded-[2rem] bg-black shadow-[0_28px_80px_rgba(0,0,0,0.14)]">
+                      <MuxVideoPlayer
+                        playbackId={film.playbackId}
+                        poster={`https://image.mux.com/${film.playbackId}/thumbnail.webp?time=3`}
+                        title={film.title}
+                        descriptionId={descriptionId}
+                        aspectRatio="9 / 16"
+                        sizes="(max-width: 767px) calc(100vw - 3rem), 28rem"
+                      />
+                    </div>
+                    <p className="mt-6 text-xs font-medium uppercase tracking-[0.18em] text-accent">{film.client}</p>
+                    <h3 className="mt-2 font-heading text-3xl font-medium tracking-[-0.02em]">{film.title}</h3>
+                    <p id={descriptionId} className="mt-3 leading-relaxed text-muted-foreground">{film.description}</p>
+                  </article>
+                )
+              })}
+            </div>
+          </div>
         </section>
 
         <section className="bg-black px-6 py-24 text-white md:py-36 lg:px-8 lg:py-44">

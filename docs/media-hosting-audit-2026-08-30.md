@@ -24,6 +24,12 @@ The large number of sub-1400px source files is the main reason some full-screen 
 | C&G From Build to Home | Customer-facing vertical project film | Mux | Live |
 | C&G Kitchen Extension | Customer-facing vertical project film | Mux | Live |
 | C&G More Space for Family Life | Customer-facing vertical project film | Mux | Live |
+| Simply Sheds — Find Your Perfect Shed | Customer-facing vertical project film | Mux | Added to the Simply Sheds case study |
+| Simply Sheds — Fully Custom | Customer-facing vertical project film | Mux | Added to the Simply Sheds case study |
+| Simply Sheds — Rain or Shine | Customer-facing vertical project film | Mux | Added to the Simply Sheds case study |
+| Edinburgh Windows & Doors — Crafted by Hand | Customer-facing vertical project film | Mux | Added to the video-production landing page |
+| Procoat — Another Home Transformed | Customer-facing vertical project film | Mux | Added to the Procoat case study |
+| Recent Property Marketing | Customer-facing vertical drone/property film | Mux | Added to the video-production landing page |
 | `hero-desktop.mp4` (1600×900, 10 seconds, 2.5 MB) | Muted decorative background | Vercel | Keep |
 | `hero.mp4` (1280×720, 25 seconds, 2.5 MB) | Muted decorative drone background | Vercel | Keep |
 | Legacy local C&G timeline MP4 (960×632, 104 seconds, 21.3 MB) | Previous direct-download fallback | No longer used by the live player | Leave in the repository for now; safe removal can be handled separately |
@@ -53,4 +59,4 @@ When originals are supplied, export photographs as high-quality WebP or AVIF at 
 
 ## Cost guidance
 
-Keeping photographs on Vercel avoids paying Mux Video for a job it is not designed to do. The four deliberate-play project films are the high-value Mux assets. The two lightweight background loops remain ordinary site assets, preserving Mux capacity for future client films.
+Keeping photographs on Vercel avoids paying Mux Video for a job it is not designed to do. The ten deliberate-play project films are the high-value Mux assets. The two lightweight background loops remain ordinary site assets, so they do not consume streaming capacity or add unnecessary delivery cost.
