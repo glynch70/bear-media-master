@@ -144,6 +144,46 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
           </section>
         ) : null}
 
+        {project.additionalVideos?.length ? (
+          <section className={styles.caseVideoLibrary} aria-labelledby="case-video-library-title">
+            <div className={styles.caseVideoLibraryHeading}>
+              <p className={styles.eyebrow}>More project films</p>
+              <h2 id="case-video-library-title">Real work. More useful stories.</h2>
+              <p>
+                Short, mobile-first films turn individual stages of a project into proof that can
+                be shared across the website and social channels.
+              </p>
+            </div>
+            <div className={styles.caseVideoLibraryGrid}>
+              {project.additionalVideos.map((video, index) => {
+                const descriptionId = `case-video-library-description-${project.slug}-${index}`
+
+                return (
+                  <article className={styles.caseVideoCard} key={video.playbackId ?? video.src}>
+                    <div className={styles.caseVerticalVideoFrame}>
+                      {video.playbackId ? (
+                        <MuxVideoPlayer
+                          playbackId={video.playbackId}
+                          poster={video.poster}
+                          title={video.title}
+                          descriptionId={descriptionId}
+                          aspectRatio={video.aspectRatio}
+                          sizes="(max-width: 759px) calc(100vw - 2rem), 28vw"
+                        />
+                      ) : null}
+                    </div>
+                    <div className={styles.caseVideoCardCopy}>
+                      <p>Film {String(index + 2).padStart(2, '0')}</p>
+                      <h3>{video.title}</h3>
+                      <p id={descriptionId}>{video.description}</p>
+                    </div>
+                  </article>
+                )
+              })}
+            </div>
+          </section>
+        ) : null}
+
         <section className={styles.caseGallery} aria-label={`${project.clientName} image gallery`}>
           <RedesignGallery label={`${project.clientName} project images`}>
             {project.images.map((image) => {

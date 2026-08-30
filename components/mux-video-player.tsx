@@ -10,6 +10,7 @@ type MuxVideoPlayerProps = {
   title: string
   descriptionId: string
   aspectRatio?: string
+  sizes?: string
 }
 
 export function MuxVideoPlayer({
@@ -18,6 +19,7 @@ export function MuxVideoPlayer({
   title,
   descriptionId,
   aspectRatio = '16 / 9',
+  sizes = '(max-width: 760px) 100vw, 90vw',
 }: MuxVideoPlayerProps) {
   const [hasStarted, setHasStarted] = useState(false)
   const playerUrl = `https://player.mux.com/${playbackId}?autoplay=true&metadata-video-title=${encodeURIComponent(title)}&video-title=${encodeURIComponent(title)}`
@@ -47,7 +49,7 @@ export function MuxVideoPlayer({
             src={poster}
             alt=""
             fill
-            sizes="(max-width: 760px) 100vw, 90vw"
+            sizes={sizes}
             className="object-contain"
           />
           <span className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-black/20 group-focus-visible:bg-black/20" />

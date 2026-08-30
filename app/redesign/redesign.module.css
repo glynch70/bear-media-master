@@ -1668,6 +1668,84 @@
   width: 1rem;
 }
 
+.caseVideoLibrary {
+  max-width: 92rem;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 5vw, 5rem) clamp(7rem, 12vw, 11rem);
+}
+
+.caseVideoLibraryHeading {
+  max-width: 48rem;
+}
+
+.caseVideoLibraryHeading .eyebrow {
+  color: #77756e;
+}
+
+.caseVideoLibraryHeading h2 {
+  max-width: 14ch;
+  margin-top: 1rem;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 510;
+  letter-spacing: -0.06em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.caseVideoLibraryHeading > p:last-child {
+  max-width: 40rem;
+  margin-top: 1.5rem;
+  color: #68665f;
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.7;
+}
+
+.caseVideoLibraryGrid {
+  display: grid;
+  justify-items: center;
+  margin-top: clamp(2.5rem, 6vw, 5rem);
+  gap: 3rem;
+}
+
+.caseVideoCard {
+  width: 100%;
+  max-width: 28rem;
+}
+
+.caseVerticalVideoFrame {
+  overflow: hidden;
+  border-radius: clamp(1.2rem, 2.5vw, 2.3rem);
+  background: #11110f;
+  box-shadow: 0 2rem 6rem rgba(30, 28, 22, 0.12);
+}
+
+.caseVideoCardCopy {
+  padding-top: 1.35rem;
+}
+
+.caseVideoCardCopy > p:first-child {
+  color: #9a6f16;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.caseVideoCardCopy h3 {
+  margin-top: 0.65rem;
+  font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+  font-weight: 560;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+}
+
+.caseVideoCardCopy > p:last-child {
+  margin-top: 0.75rem;
+  color: #68665f;
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
 .caseGallery {
   padding: 0 0 clamp(7rem, 12vw, 11rem);
 }
@@ -2062,6 +2140,17 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .caseVideoLibraryGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    justify-items: stretch;
+    gap: clamp(1.25rem, 2.5vw, 2.5rem);
+  }
+
+  .caseVideoCard {
+    max-width: none;
   }
 
   .caseDeliverableGrid {

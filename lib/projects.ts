@@ -52,6 +52,7 @@ export type Project = {
   websiteUrl?: string
   performanceReport?: PerformanceReport
   featuredVideo?: ProjectVideo
+  additionalVideos?: ProjectVideo[]
   relatedService?: {
     href: string
     label: string
@@ -159,6 +160,44 @@ export const projects: Project[] = [
       uploadDate: '2026-08-20',
       aspectRatio: '1638 / 1080',
     },
+    additionalVideos: [
+      {
+        src: 'https://stream.mux.com/7KAxI4mSNGuIuM8II94aWp6f32SHTvKcxJguISJhwug.m3u8',
+        playbackId: '7KAxI4mSNGuIuM8II94aWp6f32SHTvKcxJguISJhwug',
+        poster:
+          'https://image.mux.com/7KAxI4mSNGuIuM8II94aWp6f32SHTvKcxJguISJhwug/thumbnail.webp?time=0',
+        title: 'From Build to Home',
+        description:
+          'A vertical project film following a new build through construction and into a finished family home.',
+        duration: 'PT1M19S',
+        uploadDate: '2026-08-30',
+        aspectRatio: '9 / 16',
+      },
+      {
+        src: 'https://stream.mux.com/v2pjivrhjwdO3yccqdMaSwzDhWx4H5002SfVHrM3xlzk.m3u8',
+        playbackId: 'v2pjivrhjwdO3yccqdMaSwzDhWx4H5002SfVHrM3xlzk',
+        poster:
+          'https://image.mux.com/v2pjivrhjwdO3yccqdMaSwzDhWx4H5002SfVHrM3xlzk/thumbnail.webp?time=0',
+        title: 'Kitchen Extension Progress Update',
+        description:
+          'A concise site update showing the stages, detail and workmanship behind a family kitchen extension.',
+        duration: 'PT51S',
+        uploadDate: '2026-08-30',
+        aspectRatio: '9 / 16',
+      },
+      {
+        src: 'https://stream.mux.com/e00eLg008bPFCwp7TdomlRgM4yEjtcYCvLWaQpII00P02Rk.m3u8',
+        playbackId: 'e00eLg008bPFCwp7TdomlRgM4yEjtcYCvLWaQpII00P02Rk',
+        poster:
+          'https://image.mux.com/e00eLg008bPFCwp7TdomlRgM4yEjtcYCvLWaQpII00P02Rk/thumbnail.webp?time=0',
+        title: 'Creating More Space for Family Life',
+        description:
+          'A short before-and-progress story showing how an extension creates more practical space for family life.',
+        duration: 'PT39S',
+        uploadDate: '2026-08-30',
+        aspectRatio: '9 / 16',
+      },
+    ],
     relatedService: {
       href: '/video-production-west-lothian',
       label: 'Explore video production in West Lothian',
