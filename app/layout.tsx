@@ -1,7 +1,9 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
+import { ConversionTracker } from '@/components/analytics/conversion-tracker'
 import { LocalBusinessSchema, OrganizationSchema, PersonSchema, ProfessionalServiceSchema, WebSiteSchema } from '@/components/structured-data'
 import { createMetadata, defaultOgImageUrl, siteUrl } from '@/lib/seo'
 
@@ -68,26 +70,26 @@ export default function RootLayout({
         <ProfessionalServiceSchema />
         <PersonSchema />
         <WebSiteSchema />
-        {gaId && (
-          <>
-            <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', '${gaId}', {
-                    page_path: window.location.pathname,
-                  });
-                `,
-              }}
-            />
-          </>
-        )}
       </head>
       <body className="font-sans antialiased text-foreground">
         {children}
+        <ConversionTracker />
+        {gaId && (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                window.gtag = gtag;
+                gtag('js', new Date());
+                gtag('config', '${gaId}', {
+                  page_path: window.location.pathname,
+                });
+              `}
+            </Script>
+          </>
+        )}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

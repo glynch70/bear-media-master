@@ -236,6 +236,12 @@ export default function RedesignServicesPage() {
               </figure>
             ))}
           </RedesignGallery>
+          <div className={styles.websiteServiceCta}>
+            <Link href="/website-design-west-lothian">
+              See mobile-first website design for West Lothian businesses
+              <ArrowUpRight aria-hidden="true" />
+            </Link>
+          </div>
         </section>
 
         <section className={styles.socialService} aria-labelledby="social-service">

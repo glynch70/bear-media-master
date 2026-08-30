@@ -7,6 +7,7 @@ import { useState, useRef } from 'react'
 import { Phone, Mail, MapPin } from 'lucide-react'
 import Turnstile from 'react-turnstile'
 import type { BoundTurnstileObject } from 'react-turnstile'
+import { trackConversion } from '@/components/analytics/conversion-tracker'
 // Note: Metadata for client components must be set via metadata export in layout or through Head component
 // This page uses 'use client' so metadata is handled by route groups or must be moved to a layout
 
@@ -95,13 +96,11 @@ export default function ContactPage() {
         return
       }
 
-      // Track successful submission with Google Analytics (graceful fallback if GA not installed)
-      if (typeof window !== 'undefined' && (window as any).gtag) {
-        (window as any).gtag('event', 'contact_form_submit', {
-          form_name: 'contact',
-          source: 'website',
-        })
-      }
+      trackConversion('generate_lead', {
+        form_name: 'contact',
+        method: 'website_form',
+        value: 1,
+      })
 
       setFormState((prev) => ({
         ...prev,

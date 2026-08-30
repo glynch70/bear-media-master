@@ -128,6 +128,10 @@ export const projects: Project[] = [
       'A mobile-friendly route for volunteers, supporters and community partners.',
       'A warmer, more credible first impression for a newly launched grassroots project.',
     ],
+    relatedService: {
+      href: '/website-design-west-lothian',
+      label: 'Explore mobile-first website design in West Lothian',
+    },
     websiteUrl: 'https://www.midlothianwildflowers-co.uk/',
   },
   {

@@ -93,6 +93,11 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
                 Visit live website <ArrowUpRight aria-hidden="true" />
               </a>
             ) : null}
+            {project.relatedService && !project.featuredVideo ? (
+              <Link href={project.relatedService.href}>
+                {project.relatedService.label} <ArrowUpRight aria-hidden="true" />
+              </Link>
+            ) : null}
           </div>
         </section>
 
