@@ -96,6 +96,38 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
           </div>
         </section>
 
+        {project.featuredVideo ? (
+          <section className={styles.caseFeaturedVideo} aria-labelledby="case-video-title">
+            <div className={styles.caseVideoHeading}>
+              <p className={styles.eyebrow}>Featured project film</p>
+              <h2 id="case-video-title">{project.featuredVideo.title}</h2>
+              <p id={`case-video-description-${project.slug}`}>{project.featuredVideo.description}</p>
+            </div>
+            <div className={styles.caseVideoFrame}>
+              <video
+                controls
+                playsInline
+                preload="metadata"
+                poster={project.featuredVideo.poster}
+                aria-label={project.featuredVideo.title}
+                aria-describedby={`case-video-description-${project.slug}`}
+              >
+                <source src={project.featuredVideo.src} type="video/mp4" />
+                Your browser does not support embedded video.{' '}
+                <a href={project.featuredVideo.src}>Open the project film</a>.
+              </video>
+            </div>
+            <div className={styles.caseVideoFooter}>
+              <p>Filmed across the build and edited for web, YouTube and social media.</p>
+              {project.relatedService ? (
+                <Link href={project.relatedService.href}>
+                  {project.relatedService.label} <ArrowUpRight aria-hidden="true" />
+                </Link>
+              ) : null}
+            </div>
+          </section>
+        ) : null}
+
         <section className={styles.caseGallery} aria-label={`${project.clientName} image gallery`}>
           <RedesignGallery label={`${project.clientName} project images`}>
             {project.images.map((image) => {

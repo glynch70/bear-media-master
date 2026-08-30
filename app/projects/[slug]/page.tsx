@@ -14,10 +14,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!project) return {}
 
   return createMetadata({
-    title: `${project.clientName} Case Study | Bear Media Scotland`,
-    description: `${project.description} See the creative work and results for ${project.clientName}.`,
+    title: project.seoTitle ?? `${project.clientName} Case Study | Bear Media Scotland`,
+    description: project.seoDescription ?? `${project.description} See the creative work and results for ${project.clientName}.`,
     path: `/projects/${project.slug}`,
-    image: project.heroImage,
+    image: project.featuredVideo?.poster ?? project.heroImage,
     imageAlt: `${project.clientName} case study by Bear Media`,
   })
 }
@@ -36,6 +36,25 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           { name: project.clientName, url: `${siteUrl}/projects/${project.slug}` },
         ]}
       />
+      {project.featuredVideo ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'VideoObject',
+              name: project.featuredVideo.title,
+              description: project.featuredVideo.description,
+              thumbnailUrl: `${siteUrl}${project.featuredVideo.poster}`,
+              uploadDate: project.featuredVideo.uploadDate,
+              duration: project.featuredVideo.duration,
+              contentUrl: `${siteUrl}${project.featuredVideo.src}`,
+              inLanguage: 'en-GB',
+            }),
+          }}
+          suppressHydrationWarning
+        />
+      ) : null}
       <RedesignProjectPage params={params} />
     </>
   )

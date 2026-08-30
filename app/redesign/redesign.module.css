@@ -1574,6 +1574,79 @@
   width: 1rem;
 }
 
+.caseFeaturedVideo {
+  max-width: 92rem;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 5vw, 5rem) clamp(7rem, 12vw, 11rem);
+}
+
+.caseVideoHeading {
+  max-width: 52rem;
+}
+
+.caseVideoHeading .eyebrow {
+  color: #77756e;
+}
+
+.caseVideoHeading h2 {
+  max-width: 15ch;
+  margin-top: 1rem;
+  font-size: clamp(2.8rem, 7vw, 7rem);
+  font-weight: 510;
+  letter-spacing: -0.065em;
+  line-height: 0.95;
+  text-wrap: balance;
+}
+
+.caseVideoHeading > p:last-child {
+  max-width: 42rem;
+  margin-top: 1.5rem;
+  color: #68665f;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.7;
+}
+
+.caseVideoFrame {
+  margin-top: clamp(2rem, 5vw, 4rem);
+  overflow: hidden;
+  border-radius: clamp(1.2rem, 2.5vw, 2.8rem);
+  background: #11110f;
+  box-shadow: 0 2rem 6rem rgba(30, 28, 22, 0.12);
+}
+
+.caseVideoFrame video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1638 / 1080;
+  background: #11110f;
+  object-fit: contain;
+}
+
+.caseVideoFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 1.25rem;
+  gap: 1rem;
+  color: #68665f;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.caseVideoFooter a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.35rem;
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.caseVideoFooter svg {
+  width: 1rem;
+}
+
 .caseGallery {
   padding: 0 0 clamp(7rem, 12vw, 11rem);
 }
@@ -1962,6 +2035,12 @@
 
   .caseOverview > div {
     padding-top: 0.7rem;
+  }
+
+  .caseVideoFooter {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .caseDeliverableGrid {

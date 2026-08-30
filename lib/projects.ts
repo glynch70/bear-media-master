@@ -23,6 +23,15 @@ export type PerformanceReport = {
   description: string
 }
 
+export type ProjectVideo = {
+  src: string
+  poster: string
+  title: string
+  description: string
+  duration: string
+  uploadDate: string
+}
+
 export type Project = {
   id: number
   slug: string
@@ -40,6 +49,13 @@ export type Project = {
   results?: string[]
   websiteUrl?: string
   performanceReport?: PerformanceReport
+  featuredVideo?: ProjectVideo
+  relatedService?: {
+    href: string
+    label: string
+  }
+  seoTitle?: string
+  seoDescription?: string
   testimonial?: {
     quote: string
     author: string
@@ -117,15 +133,31 @@ export const projects: Project[] = [
   {
     id: 1,
     slug: 'cg-developments',
-    title: 'C&G Developments Case Study',
+    title: 'C&G Developments Video Case Study',
     clientName: 'C&G Developments',
     category: 'Photography · Video · Drone · Social · YouTube',
-    description: 'Turning construction progress into a high-performing organic content engine.',
+    description: 'Turning a six-month new-build story into a high-performing organic content engine.',
     intro:
-      'C&G Developments needed their online presence to match the quality, scale and craft of their property work across Scotland.',
+      'From February to August, Bear Media followed a C&G new build from active construction to finished family home—combining site footage, drone progress and completed interiors in one concise project film.',
     challenge:
       'The work was impressive in person, but their digital channels needed a stronger rhythm of professional content that could build trust, show progress and turn real projects into visibility.',
     heroImage: '/assets/client-work/cg-developments/new-build-exterior-progress.webp',
+    featuredVideo: {
+      src: '/assets/project-gallery/cg-developments-new-build-timeline.mp4',
+      poster: '/assets/project-gallery/cg-developments-new-build-timeline-poster.jpg',
+      title: 'New Build Captured: February to August',
+      description:
+        'A 104-second construction timeline showing monthly progress, on-site work, aerial context and the finished home.',
+      duration: 'PT1M44S',
+      uploadDate: '2026-08-20',
+    },
+    relatedService: {
+      href: '/video-production-west-lothian',
+      label: 'Explore video production in West Lothian',
+    },
+    seoTitle: 'C&G Construction Video Case Study | Bear Media',
+    seoDescription:
+      'See how Bear Media turned six months of C&G construction progress into organic video content generating 143,595 views without paid advertising.',
     images: [
       { src: '/assets/client-work/cg-developments/reviewing-project-plans.webp', alt: 'C&G Developments reviewing plans for a client project' },
       { src: '/assets/client-work/cg-developments/client-project-review.webp', alt: 'C&G Developments reviewing completed work with a client' },
