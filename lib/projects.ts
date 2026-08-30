@@ -278,7 +278,7 @@ export const projects: Project[] = [
       'Simply Sheds Scotland needed consistent content that showed the quality of their installations and made their social channels feel alive again.',
     challenge:
       'Two channels had gone quiet, while YouTube and TikTok had to be launched from scratch. The goal was simple: make high-quality shed installations visible, useful and easy to trust.',
-    heroImage: '/assets/project-gallery/simply-sheds-summerhouse-finished.jpg',
+    heroImage: '/assets/project-gallery/simply-sheds-pent-hero.png',
     featuredVideo: {
       src: 'https://stream.mux.com/KaiydYBFRGcQgE2GUnXMnLiJIFNFRIm9LcZoGNlNyMk.m3u8',
       playbackId: 'KaiydYBFRGcQgE2GUnXMnLiJIFNFRIm9LcZoGNlNyMk',
