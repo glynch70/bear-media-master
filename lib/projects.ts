@@ -278,7 +278,7 @@ export const projects: Project[] = [
       'Simply Sheds Scotland needed consistent content that showed the quality of their installations and made their social channels feel alive again.',
     challenge:
       'Two channels had gone quiet, while YouTube and TikTok had to be launched from scratch. The goal was simple: make high-quality shed installations visible, useful and easy to trust.',
-    heroImage: '/assets/project-gallery/simply-sheds-feature.webp',
+    heroImage: '/assets/project-gallery/simply-sheds-summerhouse-finished.jpg',
     featuredVideo: {
       src: 'https://stream.mux.com/KaiydYBFRGcQgE2GUnXMnLiJIFNFRIm9LcZoGNlNyMk.m3u8',
       playbackId: 'KaiydYBFRGcQgE2GUnXMnLiJIFNFRIm9LcZoGNlNyMk',
@@ -318,17 +318,46 @@ export const projects: Project[] = [
       },
     ],
     images: [
-      { src: '/assets/project-gallery/simply-sheds-feature.webp', alt: 'Featured Simply Sheds Scotland garden building' },
-      { src: '/assets/project-gallery/simply-sheds-at-work-2.webp', alt: 'Simply Sheds Scotland team at work' },
-      { src: '/assets/project-gallery/simply-sheds-overhead.webp', alt: 'Overhead view of a Simply Sheds Scotland installation' },
-      { src: '/assets/project-gallery/simply-sheds-shed-built.webp', alt: 'Completed shed build by Simply Sheds Scotland' },
-      { src: '/assets/project-gallery/simply-sheds-happy-customer.webp', alt: 'Happy Simply Sheds Scotland customer' },
-      { src: '/assets/project-gallery/simply-sheds-happy-customers-2.webp', alt: 'Simply Sheds Scotland customer handover content' },
-      { src: '/assets/project-gallery/simply-sheds-potting-shed.webp', alt: 'Potting shed product content for Simply Sheds Scotland' },
-      { src: '/assets/project-gallery/simply-sheds-shed-6x4.webp', alt: '6x4 shed installation by Simply Sheds Scotland' },
-      { src: '/assets/project-gallery/simply-sheds-at-work.webp', alt: 'Simply Sheds Scotland installation process content' },
-      { src: '/assets/project-gallery/simply-sheds-at-work-3.webp', alt: 'Simply Sheds Scotland behind-the-scenes installation content' },
-      { src: '/assets/project-gallery/simply-sheds-simply-sheds.webp', alt: 'Simply Sheds Scotland branded project content' },
+      {
+        src: '/assets/project-gallery/simply-sheds-summerhouse-finished.jpg',
+        alt: 'Finished glazed garden building installed by Simply Sheds Scotland',
+      },
+      {
+        src: '/assets/project-gallery/simply-sheds-installation-aerial.jpg',
+        alt: 'Aerial view of the Simply Sheds Scotland team installing a garden building',
+      },
+      {
+        src: '/assets/project-gallery/simply-sheds-team-finishing.jpg',
+        alt: 'Simply Sheds Scotland installers finishing a timber garden building',
+      },
+      {
+        src: '/assets/project-gallery/simply-sheds-customer-handover.jpg',
+        alt: 'Happy Simply Sheds Scotland customer at the handover of a new garden building',
+      },
+      {
+        src: '/assets/project-gallery/simply-sheds-team-assembly.jpg',
+        alt: 'Simply Sheds Scotland team assembling a garden building on site',
+      },
+      {
+        src: '/assets/project-gallery/simply-sheds-7x5-pent.jpg',
+        alt: 'Completed 7 by 5 pent shed installed by Simply Sheds Scotland',
+      },
+      {
+        src: '/assets/project-gallery/simply-sheds-recent-double-door.jpg',
+        alt: 'Recent timber shed with wide double doors by Simply Sheds Scotland',
+      },
+      {
+        src: '/assets/project-gallery/simply-sheds-recent-pent-window.jpg',
+        alt: 'Recent pent shed with a side window by Simply Sheds Scotland',
+      },
+      {
+        src: '/assets/project-gallery/simply-sheds-recent-twin-builds.jpg',
+        alt: 'Pair of matching timber garden buildings by Simply Sheds Scotland',
+      },
+      {
+        src: '/assets/project-gallery/simply-sheds-recent-workshop.jpg',
+        alt: 'Recent apex workshop shed with double doors by Simply Sheds Scotland',
+      },
     ],
     services: ['Photography', 'Video Production', 'Drone', 'Social Media', 'YouTube', 'TikTok'],
     deliverables: [
@@ -381,7 +410,7 @@ export const projects: Project[] = [
         'Our social media and YouTube have come alive. Garry just gets what small businesses need and delivers it.',
       author: 'Steven',
       role: 'Simply Sheds Scotland',
-      image: '/assets/project-gallery/simply-sheds-happy-customer.webp',
+      image: '/assets/project-gallery/simply-sheds-customer-handover.jpg',
     },
   },
   {
