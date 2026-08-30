@@ -25,11 +25,13 @@ export type PerformanceReport = {
 
 export type ProjectVideo = {
   src: string
+  playbackId?: string
   poster: string
   title: string
   description: string
   duration: string
   uploadDate: string
+  aspectRatio?: string
 }
 
 export type Project = {
@@ -148,12 +150,14 @@ export const projects: Project[] = [
     heroImage: '/assets/client-work/cg-developments/new-build-exterior-progress.webp',
     featuredVideo: {
       src: '/assets/project-gallery/cg-developments-new-build-timeline.mp4',
+      playbackId: 'mi7qP7CO6azUI9CnHbyVi7yXq01X01JvaiTeakoYt01uMU',
       poster: '/assets/project-gallery/cg-developments-new-build-timeline-poster.jpg',
       title: 'New Build Captured: February to August',
       description:
         'A 104-second construction timeline showing monthly progress, on-site work, aerial context and the finished home.',
       duration: 'PT1M44S',
       uploadDate: '2026-08-20',
+      aspectRatio: '1638 / 1080',
     },
     relatedService: {
       href: '/video-production-west-lothian',
