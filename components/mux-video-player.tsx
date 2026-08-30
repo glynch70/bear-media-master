@@ -50,6 +50,7 @@ export function MuxVideoPlayer({
             alt=""
             fill
             sizes={sizes}
+            quality={90}
             className="object-contain"
           />
           <span className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-black/20 group-focus-visible:bg-black/20" />

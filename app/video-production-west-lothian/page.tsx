@@ -101,7 +101,8 @@ export default function VideoProductionWestLothianPage() {
             alt="Bear Media video production setup on location in West Lothian"
             fill
             priority
-            sizes="100vw"
+            sizes="(max-width: 767px) 100vh, 100vw"
+            quality={90}
             className="object-cover object-center"
           />
           <div className="absolute inset-0 bg-black/30" />
@@ -168,6 +169,7 @@ export default function VideoProductionWestLothianPage() {
                     alt={project.alt}
                     fill
                     sizes="(max-width: 640px) 88vw, (max-width: 1024px) 72vw, 1024px"
+                    quality={85}
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/5" />

@@ -80,6 +80,7 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
             fill
             preload
             sizes="100vw"
+            quality={90}
             className={isWebsite ? styles.containImage : styles.coverImage}
           />
         </div>
@@ -197,6 +198,7 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
                       alt={image.alt}
                       fill
                       sizes="(max-width: 760px) 84vw, 42vw"
+                      quality={85}
                       className={contain ? styles.containImage : styles.coverImage}
                     />
                   </div>
@@ -254,6 +256,7 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
                   alt={project.testimonial.author}
                   fill
                   sizes="96px"
+                  quality={85}
                   className={styles.coverImage}
                 />
               </div>

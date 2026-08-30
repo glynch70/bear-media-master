@@ -208,6 +208,7 @@ export default function WebsiteDesignWestLothian() {
                     priority
                     loading="eager"
                     sizes="(max-width: 1024px) 100vw, 54vw"
+                    quality={90}
                     className="object-cover"
                   />
                 </div>
@@ -289,6 +290,7 @@ export default function WebsiteDesignWestLothian() {
                       alt={`${project.title} website design by Bear Media`}
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
+                      quality={85}
                       className="object-cover transition duration-500 group-hover:scale-[1.02]"
                     />
                   </div>
@@ -315,6 +317,7 @@ export default function WebsiteDesignWestLothian() {
                 alt="Steven Summone, Bear Media website client"
                 fill
                 sizes="(max-width: 1024px) 384px, 30vw"
+                quality={85}
                 className="object-cover"
               />
             </div>

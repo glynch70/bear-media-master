@@ -67,6 +67,7 @@ export default function RedesignProjectsPage() {
                       ? '(max-width: 760px) 100vw, 92vw'
                       : '(max-width: 760px) 100vw, 52vw'
                   }
+                  quality={index === 0 ? 90 : 85}
                   className={isWebsite ? styles.containImage : styles.coverImage}
                 />
               </div>

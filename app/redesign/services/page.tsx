@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description:
       'An isolated redesign concept for Bear Media photography, video, drone, website and social media services.',
     path: '/redesign/services',
-    image: '/services/photography/Conference_Event.webp',
+    image: '/google-business/speaker-event.jpg',
     imageAlt: 'Bear Media photography and creative services in Scotland',
   }),
   robots: {
@@ -119,11 +119,12 @@ export default function RedesignServicesPage() {
         </div>
         <div className={styles.servicesHeroMedia}>
           <Image
-            src="/services/photography/Conference_Event.webp"
+            src="/google-business/speaker-event.jpg"
             alt="Conference event photography captured by Bear Media"
             fill
             preload
-            sizes="(max-width: 760px) 100vw, 52vw"
+            sizes="(max-width: 760px) 190vw, 52vw"
+            quality={90}
             className={styles.coverImage}
           />
           <div className={styles.servicesHeroShade} />
@@ -150,6 +151,7 @@ export default function RedesignServicesPage() {
                   alt="Chef preparing food during a hospitality event"
                   fill
                   sizes="(max-width: 760px) 100vw, 55vw"
+                  quality={85}
                   className={styles.coverImage}
                 />
               </div>
@@ -162,6 +164,7 @@ export default function RedesignServicesPage() {
                   alt="Colin with dogs photographed for Colin's Canines"
                   fill
                   sizes="(max-width: 760px) 76vw, 29vw"
+                  quality={85}
                   className={styles.coverImage}
                 />
               </div>
@@ -195,10 +198,11 @@ export default function RedesignServicesPage() {
           />
           <div className={styles.droneServiceMedia}>
             <Image
-              src="/services/photography/Aerial Landmark.webp"
+              src="/assets/client-work/cg-developments/st-andrews-aerial.webp"
               alt="Aerial landmark photography captured by Bear Media"
               fill
-              sizes="100vw"
+              sizes="(max-width: 760px) 140vh, 100vw"
+              quality={90}
               className={styles.coverImage}
             />
             <span>Scotland · From above</span>
@@ -226,6 +230,7 @@ export default function RedesignServicesPage() {
                     alt={`${website.name} website designed by Bear Media`}
                     fill
                     sizes="(max-width: 760px) 86vw, 42vw"
+                    quality={85}
                     className={styles.containImage}
                   />
                 </div>
@@ -260,6 +265,7 @@ export default function RedesignServicesPage() {
                     alt={`${item.title} social media content created by Bear Media`}
                     fill
                     sizes="(max-width: 760px) 78vw, 32vw"
+                    quality={85}
                     className={styles.coverImage}
                   />
                 </div>

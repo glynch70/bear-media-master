@@ -27,6 +27,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const project = getProject(slug)
   if (!project) notFound()
 
+  const featuredVideoPoster = project.featuredVideo?.poster.startsWith('http')
+    ? project.featuredVideo.poster
+    : `${siteUrl}${project.featuredVideo?.poster}`
+  const featuredVideoUrl = project.featuredVideo?.src.startsWith('http')
+    ? project.featuredVideo.src
+    : `${siteUrl}${project.featuredVideo?.src}`
+
   return (
     <>
       <BreadcrumbSchema
@@ -45,10 +52,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               '@type': 'VideoObject',
               name: project.featuredVideo.title,
               description: project.featuredVideo.description,
-              thumbnailUrl: `${siteUrl}${project.featuredVideo.poster}`,
+              thumbnailUrl: featuredVideoPoster,
               uploadDate: project.featuredVideo.uploadDate,
               duration: project.featuredVideo.duration,
-              contentUrl: `${siteUrl}${project.featuredVideo.src}`,
+              contentUrl: featuredVideoUrl,
               inLanguage: 'en-GB',
             }),
           }}

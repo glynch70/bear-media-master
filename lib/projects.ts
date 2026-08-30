@@ -150,7 +150,7 @@ export const projects: Project[] = [
       'The work was impressive in person, but their digital channels needed a stronger rhythm of professional content that could build trust, show progress and turn real projects into visibility.',
     heroImage: '/assets/client-work/cg-developments/new-build-exterior-progress.webp',
     featuredVideo: {
-      src: '/assets/project-gallery/cg-developments-new-build-timeline.mp4',
+      src: 'https://stream.mux.com/mi7qP7CO6azUI9CnHbyVi7yXq01X01JvaiTeakoYt01uMU.m3u8',
       playbackId: 'mi7qP7CO6azUI9CnHbyVi7yXq01X01JvaiTeakoYt01uMU',
       poster: '/assets/project-gallery/cg-developments-new-build-timeline-poster.jpg',
       title: 'New Build Captured: February to August',

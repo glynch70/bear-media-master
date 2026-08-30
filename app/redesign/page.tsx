@@ -77,8 +77,8 @@ const selectedProjects = [
     client: 'C&G Developments',
     discipline: 'Photography · Drone · Social',
     href: '/projects/cg-developments',
-    src: '/assets/project-gallery/cg-developments-drone-roof.webp',
-    alt: 'Aerial project photography for C&G Developments',
+    src: '/assets/client-work/cg-developments/new-build-exterior-progress.webp',
+    alt: 'C&G Developments new-build project captured by Bear Media',
     position: 'centre',
   },
   {
@@ -122,7 +122,8 @@ export default function RedesignPage() {
             alt=""
             fill
             preload
-            sizes="100vw"
+            sizes="(max-width: 767px) 178vh, 100vw"
+            quality={90}
             className={styles.journeyCover}
           />
           <CinematicVideo
@@ -148,10 +149,11 @@ export default function RedesignPage() {
           aria-labelledby="photography-title"
         >
           <Image
-            src="/assets/hero-carousel/chef-hospitality.webp"
-            alt="Chef preparing food during a hospitality event photographed by Bear Media"
+            src="/assets/client-work/cg-developments/st-andrews-seafood-restaurant-interior.webp"
+            alt="St Andrews hospitality interior photographed by Bear Media"
             fill
-            sizes="100vw"
+            sizes="(max-width: 767px) 129vh, 100vw"
+            quality={90}
             className={styles.journeyCover}
           />
           <div className={styles.journeyShade} />
@@ -176,15 +178,16 @@ export default function RedesignPage() {
           aria-labelledby="drone-title"
         >
           <Image
-            src="/assets/hero-carousel/aerial-landmark.webp"
+            src="/assets/client-work/cg-developments/st-andrews-aerial.webp"
             alt=""
             fill
-            sizes="100vw"
+            sizes="(max-width: 767px) 140vh, 100vw"
+            quality={90}
             className={styles.journeyCover}
           />
           <CinematicVideo
             className={styles.journeyCoverVideo}
-            poster="/assets/hero-carousel/aerial-landmark.webp"
+            poster="/assets/client-work/cg-developments/st-andrews-aerial.webp"
             src="/assets/hero/hero.mp4"
           />
           <div className={styles.droneJourneyShade} />
@@ -225,6 +228,7 @@ export default function RedesignPage() {
                     alt={item.alt}
                     fill
                     sizes="(max-width: 767px) 78vw, 32vw"
+                    quality={85}
                     className={styles.journeyCover}
                   />
                 </div>
@@ -259,6 +263,7 @@ export default function RedesignPage() {
                     alt={website.alt}
                     fill
                     sizes="(max-width: 767px) 86vw, 42vw"
+                    quality={85}
                     className={styles.containImage}
                   />
                 </div>
@@ -294,6 +299,7 @@ export default function RedesignPage() {
                     alt={project.alt}
                     fill
                     sizes="(max-width: 767px) 84vw, 42vw"
+                    quality={85}
                     data-position={project.position}
                     className={styles.journeyCover}
                   />
@@ -322,6 +328,7 @@ export default function RedesignPage() {
               alt="Garry Lynch, independent creator behind Bear Media"
               fill
               sizes="(max-width: 767px) 100vw, 52vw"
+              quality={85}
               className={styles.journeyCover}
             />
           </div>

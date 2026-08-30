@@ -216,13 +216,16 @@ export function ScrollCinematic() {
       aria-labelledby="cinematic-title"
     >
       <div className={styles.cinematicSticky}>
-        <Image
-          src="/assets/hero/hero-poster.webp"
-          alt=""
-          fill
-          sizes="100vw"
-          className={styles.cinematicPoster}
-        />
+        <div className={styles.cinematicMedia}>
+          <Image
+            src="/assets/hero/hero-poster.webp"
+            alt=""
+            fill
+            sizes="(max-width: 767px) 178vh, 100vw"
+            quality={90}
+            className={styles.cinematicPoster}
+          />
+        </div>
 
         {mode === 'sequence' ? (
           <canvas ref={canvasRef} className={styles.cinematicCanvas} aria-hidden="true" />
