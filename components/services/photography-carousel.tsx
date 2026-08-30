@@ -17,8 +17,8 @@ const photography = [
   },
   {
     id: 3,
-    image: '/assets/client-work/cg-developments/st-andrews-seafood-restaurant-interior.webp',
-    alt: 'Commercial interior photography at a St Andrews seafood restaurant',
+    image: '/assets/client-work/cg-developments/open-plan-kitchen-living.jpg',
+    alt: 'Open-plan kitchen and living space photographed for C&G Developments',
   },
   {
     id: 4,

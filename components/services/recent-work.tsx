@@ -15,7 +15,7 @@ const recentWork: Record<string, WorkItem[]> = {
     {
       title: 'C&G Developments',
       description: 'Drone-led build content for social channels.',
-      image: '/assets/project-gallery/cg-developments-drone-roof.webp',
+      image: '/assets/client-work/cg-developments/new-build-rural-aerial.jpg',
       href: trustedClientLinks.cgDevelopments,
       external: true,
     },
@@ -61,7 +61,7 @@ const recentWork: Record<string, WorkItem[]> = {
     {
       title: 'C&G Developments',
       description: 'Property photography and drone visuals.',
-      image: '/assets/client-work/cg-developments/fitted-kitchen.webp',
+      image: '/assets/client-work/cg-developments/finished-kitchen-wide.jpg',
       href: '/projects/cg-developments',
     },
     {
@@ -81,7 +81,7 @@ const recentWork: Record<string, WorkItem[]> = {
     {
       title: 'C&G Developments',
       description: 'Aerial views showing scale and progress.',
-      image: '/assets/project-gallery/cg-developments-drone-new-build.webp',
+      image: '/assets/client-work/cg-developments/new-build-aerial-close.jpg',
       href: trustedClientLinks.cgDevelopments,
       external: true,
     },

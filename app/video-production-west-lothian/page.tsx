@@ -46,8 +46,8 @@ const projects = [
     client: 'C&G Developments',
     service: 'Video · Drone · Social',
     description: 'Construction stories, interviews and project films built around real work.',
-    image: '/assets/project-gallery/cg-developments-drone-roof.webp',
-    alt: 'Aerial video production for C&G Developments',
+    image: '/assets/client-work/cg-developments/new-build-aerial-close.jpg',
+    alt: 'Aerial video production for a finished C&G Developments home',
     href: '/projects/cg-developments',
   },
   {

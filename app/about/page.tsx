@@ -107,8 +107,8 @@ export default function AboutPage() {
             <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5">
               <div className="relative col-span-2 aspect-[16/10] overflow-hidden rounded-3xl md:col-span-1 md:aspect-[4/5]">
                 <Image
-                  src="/assets/client-work/cg-developments/client-project-review.webp"
-                  alt="C&G Developments reviewing a completed project with a client"
+                  src="/assets/client-work/cg-developments/extension-project-review.jpg"
+                  alt="C&G Developments reviewing progress on a home extension"
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover object-[50%_42%]"

@@ -11,9 +11,9 @@ const slides = [
     mobilePosition: '50% 48%',
   },
   {
-    src: '/assets/client-work/cg-developments/client-project-review.webp',
-    alt: 'C&G Developments reviewing completed work with a client',
-    mobilePosition: '50% 40%',
+    src: '/assets/client-work/cg-developments/extension-installation-team.jpg',
+    alt: 'C&G Developments team installing glazed doors on an extension',
+    mobilePosition: '50% 46%',
   },
   {
     src: '/assets/client-work/almond-vet-care/vet-caring-for-bulldog.webp',
@@ -26,9 +26,9 @@ const slides = [
     mobilePosition: '49% 46%',
   },
   {
-    src: '/assets/client-work/cg-developments/east-lothian-new-build-social-graphic.webp',
-    alt: 'C&G Developments East Lothian new build project',
-    mobilePosition: '50% 50%',
+    src: '/assets/client-work/cg-developments/new-build-rural-aerial.jpg',
+    alt: 'Finished C&G Developments home photographed from the air',
+    mobilePosition: '50% 48%',
   },
   {
     src: '/assets/hero-carousel/garry-drone.webp',

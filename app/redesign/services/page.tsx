@@ -198,8 +198,8 @@ export default function RedesignServicesPage() {
           />
           <div className={styles.droneServiceMedia}>
             <Image
-              src="/assets/client-work/cg-developments/st-andrews-aerial.webp"
-              alt="Aerial landmark photography captured by Bear Media"
+              src="/assets/client-work/cg-developments/new-build-rural-aerial.jpg"
+              alt="Aerial view of a finished rural home captured for C&G Developments"
               fill
               sizes="(max-width: 760px) 140vh, 100vw"
               quality={90}

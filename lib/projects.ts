@@ -148,7 +148,7 @@ export const projects: Project[] = [
       'From February to August, Bear Media followed a C&G new build from active construction to finished family home—combining site footage, drone progress and completed interiors in one concise project film.',
     challenge:
       'The work was impressive in person, but their digital channels needed a stronger rhythm of professional content that could build trust, show progress and turn real projects into visibility.',
-    heroImage: '/assets/client-work/cg-developments/new-build-exterior-progress.webp',
+    heroImage: '/assets/client-work/cg-developments/finished-new-build-exterior.jpg',
     featuredVideo: {
       src: 'https://stream.mux.com/mi7qP7CO6azUI9CnHbyVi7yXq01X01JvaiTeakoYt01uMU.m3u8',
       playbackId: 'mi7qP7CO6azUI9CnHbyVi7yXq01X01JvaiTeakoYt01uMU',
@@ -206,15 +206,19 @@ export const projects: Project[] = [
     seoDescription:
       'See how Bear Media turned six months of C&G construction progress into organic video content generating 143,595 views without paid advertising.',
     images: [
-      { src: '/assets/client-work/cg-developments/reviewing-project-plans.webp', alt: 'C&G Developments reviewing plans for a client project' },
-      { src: '/assets/client-work/cg-developments/client-project-review.webp', alt: 'C&G Developments reviewing completed work with a client' },
-      { src: '/assets/client-work/cg-developments/fitted-kitchen.webp', alt: 'Fitted kitchen photographed for C&G Developments' },
-      { src: '/assets/client-work/cg-developments/st-andrews-seafood-restaurant-interior.webp', alt: 'Seafood restaurant interior project in St Andrews' },
-      { src: '/assets/client-work/cg-developments/st-andrews-aerial.webp', alt: 'Aerial view across the St Andrews waterfront' },
-      { src: '/assets/client-work/cg-developments/east-lothian-new-build-social-graphic.webp', alt: 'C&G Developments East Lothian new build social media graphic' },
-      { src: '/assets/project-gallery/cg-developments-drone-roof.webp', alt: 'Drone roof footage for C&G Developments' },
-      { src: '/assets/project-gallery/cg-developments-timber-kit.webp', alt: 'Timber kit construction content for C&G Developments' },
-      { src: '/assets/project-gallery/cg-developments-callum-and-graeme.webp', alt: 'C&G Developments team brand content' },
+      { src: '/assets/client-work/cg-developments/finished-new-build-exterior.jpg', alt: 'Finished C&G Developments new-build home in rural Scotland' },
+      { src: '/assets/client-work/cg-developments/new-build-rural-aerial.jpg', alt: 'Drone view of a finished C&G Developments home in its rural setting' },
+      { src: '/assets/client-work/cg-developments/new-build-aerial-close.jpg', alt: 'Close aerial view of the completed new-build home and solar panels' },
+      { src: '/assets/client-work/cg-developments/new-build-sandstone-exterior.jpg', alt: 'Finished sandstone exterior of the C&G Developments new-build home' },
+      { src: '/assets/client-work/cg-developments/new-build-sandstone-patio.jpg', alt: 'Completed sandstone home and patio photographed for C&G Developments' },
+      { src: '/assets/client-work/cg-developments/finished-kitchen-wide.jpg', alt: 'Finished dark green kitchen and island photographed for C&G Developments' },
+      { src: '/assets/client-work/cg-developments/open-plan-kitchen-living.jpg', alt: 'Open-plan kitchen and living space in a completed C&G Developments home' },
+      { src: '/assets/client-work/cg-developments/finished-kitchen-cabinetry.jpg', alt: 'Bespoke kitchen cabinetry in a finished C&G Developments home' },
+      { src: '/assets/client-work/cg-developments/new-build-dining-view.jpg', alt: 'Dining area overlooking the rural setting of a C&G Developments home' },
+      { src: '/assets/client-work/cg-developments/extension-installation-team.jpg', alt: 'C&G Developments team installing glazed doors on a home extension' },
+      { src: '/assets/client-work/cg-developments/project-plans-on-site.jpg', alt: 'Detailed project plans photographed on a C&G Developments site' },
+      { src: '/assets/client-work/cg-developments/extension-project-review.jpg', alt: 'C&G Developments reviewing progress on a home extension' },
+      { src: '/assets/client-work/cg-developments/finished-garden-extension.jpg', alt: 'Completed garden extension and patio by C&G Developments' },
     ],
     services: ['Photography', 'Drone', 'Video Production', 'Social Media', 'YouTube'],
     deliverables: [
@@ -264,7 +268,7 @@ export const projects: Project[] = [
         'Garry made the whole process easy. The drone footage and photography completely changed how we show our developments.',
       author: 'Rachel',
       role: 'C&G Developments',
-      image: '/assets/project-gallery/cg-developments-callum-and-graeme.webp',
+      image: '/assets/client-work/cg-developments/extension-project-review.jpg',
     },
   },
   {

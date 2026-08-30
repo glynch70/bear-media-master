@@ -239,10 +239,10 @@ export default function TransformationStories() {
               className="group grid grid-cols-2 gap-3 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent md:gap-4"
             >
               {[
-                { src: '/assets/projects/cg-newbuild.webp', alt: 'C&G new build home exterior' },
-                { src: '/assets/projects/cg-drone-roof.webp', alt: 'C&G drone shot of new roof' },
-                { src: '/assets/projects/cg-kitchen.webp', alt: 'C&G finished kitchen interior' },
-                { src: '/assets/projects/cg-drone-newbuild.webp', alt: 'C&G aerial drone view of development' },
+                { src: '/assets/client-work/cg-developments/finished-new-build-exterior.jpg', alt: 'Finished C&G new-build home exterior' },
+                { src: '/assets/client-work/cg-developments/new-build-rural-aerial.jpg', alt: 'Drone view of a finished C&G home in rural Scotland' },
+                { src: '/assets/client-work/cg-developments/finished-kitchen-wide.jpg', alt: 'Finished kitchen interior in a C&G new-build home' },
+                { src: '/assets/client-work/cg-developments/finished-garden-extension.jpg', alt: 'Completed garden extension and patio by C&G Developments' },
               ].map((img) => (
                 <div key={img.src} className="relative aspect-square rounded-2xl overflow-hidden bg-muted">
                   <Image

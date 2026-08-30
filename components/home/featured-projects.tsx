@@ -52,24 +52,24 @@ const featuredProjects = [
     tags: ['Drone', 'Photography', 'Social'],
     images: [
       {
-        src: '/assets/client-work/cg-developments/new-build-exterior-progress.webp',
-        alt: 'C&G Developments new build exterior during construction',
+        src: '/assets/client-work/cg-developments/finished-new-build-exterior.jpg',
+        alt: 'Finished C&G Developments new-build home exterior',
       },
       {
-        src: '/assets/client-work/cg-developments/reviewing-project-plans.webp',
-        alt: 'C&G Developments reviewing client project plans',
+        src: '/assets/client-work/cg-developments/extension-project-review.jpg',
+        alt: 'C&G Developments reviewing progress on a home extension',
       },
       {
-        src: '/assets/client-work/cg-developments/fitted-kitchen.webp',
-        alt: 'Fitted kitchen photographed for C&G Developments',
+        src: '/assets/client-work/cg-developments/finished-kitchen-wide.jpg',
+        alt: 'Finished kitchen and island photographed for C&G Developments',
       },
       {
-        src: '/assets/client-work/cg-developments/st-andrews-seafood-restaurant-interior.webp',
-        alt: 'Seafood restaurant interior project in St Andrews',
+        src: '/assets/client-work/cg-developments/new-build-sandstone-exterior.jpg',
+        alt: 'Finished sandstone exterior of a C&G Developments home',
       },
       {
-        src: '/assets/client-work/cg-developments/st-andrews-aerial.webp',
-        alt: 'Aerial photography across the St Andrews waterfront',
+        src: '/assets/client-work/cg-developments/new-build-rural-aerial.jpg',
+        alt: 'Aerial photography of a finished C&G Developments home',
       },
     ],
     href: '/projects/cg-developments',
