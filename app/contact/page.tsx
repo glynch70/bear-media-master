@@ -99,7 +99,6 @@ export default function ContactPage() {
       trackConversion('generate_lead', {
         form_name: 'contact',
         method: 'website_form',
-        value: 1,
       })
 
       setFormState((prev) => ({
