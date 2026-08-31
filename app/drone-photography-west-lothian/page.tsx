@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import { ServiceSchema } from '@/components/structured-data'
@@ -43,6 +44,21 @@ export default function DronePhotographyWestLothian() {
             <a href="/contact" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
               Book Your Drone Session
             </a>
+            <figure className="mt-12 overflow-hidden rounded-3xl bg-muted shadow-sm">
+              <Image
+                src="/assets/client-work/bear-media/kelpies-miniature-aerial.jpg"
+                alt="Aerial view of The Kelpies in Falkirk photographed by Bear Media"
+                width={864}
+                height={636}
+                sizes="(max-width: 896px) calc(100vw - 2rem), 896px"
+                quality={90}
+                preload
+                className="h-auto w-full"
+              />
+              <figcaption className="px-5 py-4 text-sm text-muted-foreground">
+                The Kelpies, Falkirk · aerial photography by Bear Media
+              </figcaption>
+            </figure>
           </div>
         </section>
 

@@ -147,15 +147,15 @@ export default function RedesignServicesPage() {
             <figure>
               <div className={styles.serviceImageTall}>
                 <Image
-                  src="/services/photography/Chef_Hospitality.webp"
-                  alt="Chef preparing food during a hospitality event"
+                  src="/assets/client-work/bear-media/highland-single-track-road.jpg"
+                  alt="Single-track road leading through a Highland glen photographed by Bear Media"
                   fill
                   sizes="(max-width: 760px) 100vw, 55vw"
                   quality={85}
                   className={styles.coverImage}
                 />
               </div>
-              <figcaption>Hospitality · On location</figcaption>
+              <figcaption>Landscape photography · Scotland</figcaption>
             </figure>
             <figure>
               <div className={styles.serviceImagePortrait}>
