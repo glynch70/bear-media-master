@@ -12,7 +12,6 @@ type Client = {
 }
 
 const clientsData: Client[] = [
-  { name: 'Procoat Exterior Coatings', sector: 'Home Improvement', logo: '/07- CLIENT LOGOS/procoat.webp', href: 'https://procoatexteriorcoatings.com/' },
   { name: 'Plean Pharmacy', sector: 'Pharmacy', logo: '/07- CLIENT LOGOS/plean pharmacy.webp', href: 'https://www.pleanpharmacy.co.uk/' },
   { name: 'C&G Developments', sector: 'Construction & Property', logo: '/07- CLIENT LOGOS/c&g.webp', href: trustedClientLinks.cgDevelopments },
   { name: 'Sage House Therapy', sector: 'Therapy & Wellness', logo: '/07- CLIENT LOGOS/sage house.webp', href: 'https://sagehousetherapy.com/' },

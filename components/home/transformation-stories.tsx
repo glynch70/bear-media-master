@@ -1,112 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useRef, useState, useCallback } from 'react'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { getTrustedClientAriaLabel, trustedClientLinks } from '@/lib/trusted-client-links'
-
-function BeforeAfterSlider({
-  beforeSrc,
-  afterSrc,
-  beforeAlt,
-  afterAlt,
-}: {
-  beforeSrc: string
-  afterSrc: string
-  beforeAlt: string
-  afterAlt: string
-}) {
-  const [pos, setPos] = useState(50)
-  const [dragging, setDragging] = useState(false)
-  const containerRef = useRef<HTMLDivElement>(null)
-
-  const setFromClientX = useCallback((clientX: number) => {
-    const el = containerRef.current
-    if (!el) return
-    const rect = el.getBoundingClientRect()
-    let p = ((clientX - rect.left) / rect.width) * 100
-    p = Math.max(0, Math.min(100, p))
-    setPos(p)
-  }, [])
-
-  return (
-    <div
-      ref={containerRef}
-      className="relative w-full aspect-[760/800] overflow-hidden rounded-3xl bg-muted select-none touch-none cursor-ew-resize"
-      onPointerDown={(e) => {
-        setDragging(true)
-        setFromClientX(e.clientX)
-        try {
-          ;(e.currentTarget as HTMLElement).setPointerCapture(e.pointerId)
-        } catch {
-          /* ignore capture errors (e.g. synthetic events) */
-        }
-      }}
-      onPointerMove={(e) => {
-        if (dragging) setFromClientX(e.clientX)
-      }}
-      onPointerUp={() => setDragging(false)}
-      onPointerCancel={() => setDragging(false)}
-    >
-      {/* After (base layer) */}
-      <Image
-        src={afterSrc || "/placeholder.svg"}
-        alt={afterAlt}
-        fill
-        draggable={false}
-        sizes="(max-width: 1024px) 100vw, 50vw"
-        className="object-cover pointer-events-none"
-      />
-
-      {/* Before (clipped top layer) */}
-      <div
-        className="absolute inset-0"
-        style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
-      >
-        <Image
-          src={beforeSrc || "/placeholder.svg"}
-          alt={beforeAlt}
-          fill
-          draggable={false}
-          sizes="(max-width: 1024px) 100vw, 50vw"
-          className="object-cover pointer-events-none"
-        />
-      </div>
-
-      {/* Divider + handle */}
-      <div
-        className="absolute top-0 bottom-0 w-0.5 bg-background/90 shadow-[0_0_0_1px_rgba(0,0,0,0.06)]"
-        style={{ left: `${pos}%`, transform: 'translateX(-50%)' }}
-      >
-        <button
-          type="button"
-          aria-label="Drag to compare before and after"
-          role="slider"
-          aria-valuenow={Math.round(pos)}
-          aria-valuemin={0}
-          aria-valuemax={100}
-          onKeyDown={(e) => {
-            if (e.key === 'ArrowLeft') setPos((p) => Math.max(0, p - 3))
-            if (e.key === 'ArrowRight') setPos((p) => Math.min(100, p + 3))
-          }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center h-11 w-11 rounded-full bg-background shadow-lg ring-1 ring-black/5 cursor-ew-resize"
-        >
-          <ChevronLeft className="h-4 w-4 text-foreground/70 -mr-0.5" aria-hidden="true" />
-          <ChevronRight className="h-4 w-4 text-foreground/70 -ml-0.5" aria-hidden="true" />
-        </button>
-      </div>
-
-      {/* Hint */}
-      <div
-        className={`absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-foreground/70 px-3 py-1 text-xs font-medium text-background backdrop-blur-sm transition-opacity duration-300 ${
-          dragging ? 'opacity-0' : 'opacity-100'
-        }`}
-      >
-        Drag to compare
-      </div>
-    </div>
-  )
-}
 
 function CSR({ challenge, solution, result }: { challenge: string; solution: string; result: string }) {
   const items = [
@@ -147,32 +42,7 @@ export default function TransformationStories() {
           </p>
         </div>
 
-        {/* Story 1: Procoat — interactive before/after slider */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-20 md:mb-32">
-          <div className="order-2 lg:order-1">
-            <p className="text-xs font-medium uppercase tracking-[0.15em] text-foreground/40 mb-3">
-              Procoat Exterior Coatings · Photography
-            </p>
-            <h3 className="font-heading text-3xl md:text-4xl font-medium tracking-tight mb-8 text-balance">
-              A weathered exterior, transformed
-            </h3>
-            <CSR
-              challenge="Procoat do exceptional work, but tired before-and-after snaps on a phone never did their finishes justice or stopped the scroll."
-              solution="On-site photography capturing each property from the same angle, edited into a clean, dramatic before-and-after that tells the whole story in one frame."
-              result="Scroll-stopping social proof that makes the difference impossible to ignore — and turns finished jobs into their best source of new enquiries."
-            />
-          </div>
-          <div className="order-1 lg:order-2">
-            <BeforeAfterSlider
-              beforeSrc="/assets/projects/procoat-before.webp"
-              afterSrc="/assets/projects/procoat-after.webp"
-              beforeAlt="House exterior before Procoat coating — weathered grey pebbledash"
-              afterAlt="Same house after Procoat coating — clean white smooth render"
-            />
-          </div>
-        </div>
-
-        {/* Story 2: Seamus Corry — website redesign */}
+        {/* Story 1: Seamus Corry — website redesign */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-20 md:mb-32">
           <div className="order-1">
             {/* Browser frame */}
@@ -215,7 +85,7 @@ export default function TransformationStories() {
           </div>
         </div>
 
-        {/* Story 3: C&G Developments — content & social transformation */}
+        {/* Story 2: C&G Developments — content & social transformation */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div className="order-2 lg:order-1">
             <p className="text-xs font-medium uppercase tracking-[0.15em] text-foreground/40 mb-3">
@@ -239,7 +109,7 @@ export default function TransformationStories() {
               className="group grid grid-cols-2 gap-3 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent md:gap-4"
             >
               {[
-                { src: '/assets/client-work/cg-developments/finished-new-build-exterior.jpg', alt: 'Finished C&G new-build home exterior' },
+                { src: '/assets/client-work/cg-developments/new-build-aerial-close.jpg', alt: 'Aerial view of a completed C&G new-build home in rural Scotland' },
                 { src: '/assets/client-work/cg-developments/new-build-rural-aerial.jpg', alt: 'Drone view of a finished C&G home in rural Scotland' },
                 { src: '/assets/client-work/cg-developments/finished-kitchen-wide.jpg', alt: 'Finished kitchen interior in a C&G new-build home' },
                 { src: '/assets/client-work/cg-developments/finished-garden-extension.jpg', alt: 'Completed garden extension and patio by C&G Developments' },

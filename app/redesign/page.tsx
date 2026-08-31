@@ -77,8 +77,8 @@ const selectedProjects = [
     client: 'C&G Developments',
     discipline: 'Photography · Drone · Social',
     href: '/projects/cg-developments',
-    src: '/assets/client-work/cg-developments/finished-new-build-exterior.jpg',
-    alt: 'Finished C&G Developments new-build home captured by Bear Media',
+    src: '/assets/client-work/cg-developments/finished-kitchen-cabinetry.jpg',
+    alt: 'Finished fitted kitchen in a C&G Developments new-build home',
     position: 'centre',
   },
   {

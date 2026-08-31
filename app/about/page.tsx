@@ -116,19 +116,23 @@ export default function AboutPage() {
               </div>
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
                 <Image
-                  src="/assets/client-work/edinburgh-windows-doors/headquarters-front.webp"
-                  alt="Edinburgh Windows & Doors headquarters"
+                  src="/assets/client-work/bear-media/kelpies-miniature-aerial.jpg"
+                  alt="Creative aerial photograph of the Kelpies by Bear Media"
                   fill
                   sizes="(max-width: 768px) 50vw, 33vw"
+                  quality={85}
+                  loading="eager"
                   className="object-cover"
                 />
               </div>
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
                 <Image
-                  src="/assets/client-work/almond-vet-care/vet-caring-for-bulldog.webp"
-                  alt="Almond Vet Care vet caring for a bulldog patient"
+                  src="/assets/client-work/bear-media/highland-single-track-road.jpg"
+                  alt="Landscape photograph of a Highland single-track road by Bear Media"
                   fill
                   sizes="(max-width: 768px) 50vw, 33vw"
+                  quality={85}
+                  loading="eager"
                   className="object-cover"
                 />
               </div>

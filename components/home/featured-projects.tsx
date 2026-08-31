@@ -52,8 +52,8 @@ const featuredProjects = [
     tags: ['Drone', 'Photography', 'Social'],
     images: [
       {
-        src: '/assets/client-work/cg-developments/finished-new-build-exterior.jpg',
-        alt: 'Finished C&G Developments new-build home exterior',
+        src: '/assets/client-work/cg-developments/finished-kitchen-cabinetry.jpg',
+        alt: 'Finished fitted kitchen in a C&G Developments new-build home',
       },
       {
         src: '/assets/client-work/cg-developments/extension-project-review.jpg',
@@ -131,19 +131,6 @@ const featuredProjects = [
       },
     ],
     href: '/projects/simply-sheds',
-  },
-  {
-    id: 'procoat',
-    title: 'Procoat Exterior Coatings',
-    category: 'Home Improvement',
-    tags: ['Social', 'Photo', 'Design'],
-    images: [
-      {
-        src: '/assets/project-gallery/procoat-procoat.webp',
-        alt: 'Procoat Exterior Coatings project content',
-      },
-    ],
-    href: '/projects/procoat-exterior-coatings',
   },
   {
     id: 'mm-compliance',

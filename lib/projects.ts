@@ -148,7 +148,7 @@ export const projects: Project[] = [
       'From February to August, Bear Media followed a C&G new build from active construction to finished family home—combining site footage, drone progress and completed interiors in one concise project film.',
     challenge:
       'The work was impressive in person, but their digital channels needed a stronger rhythm of professional content that could build trust, show progress and turn real projects into visibility.',
-    heroImage: '/assets/client-work/cg-developments/finished-new-build-exterior.jpg',
+    heroImage: '/assets/client-work/cg-developments/finished-kitchen-cabinetry.jpg',
     featuredVideo: {
       src: 'https://stream.mux.com/mi7qP7CO6azUI9CnHbyVi7yXq01X01JvaiTeakoYt01uMU.m3u8',
       playbackId: 'mi7qP7CO6azUI9CnHbyVi7yXq01X01JvaiTeakoYt01uMU',
@@ -565,68 +565,6 @@ export const projects: Project[] = [
       'Clearer trust signals for dog owners considering the service.',
     ],
     websiteUrl: 'https://www.facebook.com/colinscanines/',
-  },
-  {
-    id: 6,
-    slug: 'procoat-exterior-coatings',
-    title: 'Procoat Exterior Coatings Case Study',
-    clientName: 'Procoat Exterior Coatings',
-    category: 'Photography · Video · Social · Design',
-    description: 'Turning exterior coating work into clean, confidence-building visual content.',
-    intro:
-      'Procoat needed simple, polished content that made their exterior coating service feel credible and easy to trust.',
-    challenge:
-      'Home improvement customers want proof before they enquire. The creative needed to show the service clearly and support a more professional first impression.',
-    heroImage: '/assets/project-gallery/procoat-procoat.webp',
-    featuredVideo: {
-      src: 'https://stream.mux.com/UzGH6W002u01m7twCjKAsmZ01YOE4UPfsQlVFasYcpDx0200.m3u8',
-      playbackId: 'UzGH6W002u01m7twCjKAsmZ01YOE4UPfsQlVFasYcpDx0200',
-      poster:
-        'https://image.mux.com/UzGH6W002u01m7twCjKAsmZ01YOE4UPfsQlVFasYcpDx0200/thumbnail.webp?time=3',
-      title: 'Another Home Transformed',
-      description:
-        'A mobile-first transformation film showing how a fresh exterior coating changes the look and feel of a home.',
-      duration: 'PT27S',
-      uploadDate: '2026-08-30',
-      aspectRatio: '9 / 16',
-    },
-    images: [
-      { src: '/assets/project-gallery/procoat-procoat.webp', alt: 'Procoat Exterior Coatings project content' },
-    ],
-    services: ['Photography', 'Video Production', 'Social Media', 'Design'],
-    deliverables: [
-      {
-        title: 'Photography',
-        description: 'Project imagery created a cleaner visual base for customer-facing content.',
-      },
-      {
-        title: 'Social Media',
-        description: 'Content was shaped for simple, proof-led posts that communicate the service quickly.',
-      },
-      {
-        title: 'Video Production',
-        description: 'A concise transformation film turned a completed job into clear visual proof for mobile audiences.',
-      },
-      {
-        title: 'Design',
-        description: 'Branded creative helped package the offer in a more polished way.',
-      },
-    ],
-    stats: [
-      { label: 'Creative Direction', value: 'Clear', context: 'Proof-led content' },
-      { label: 'Visual Trust', value: 'Improved', context: 'Cleaner presentation' },
-      { label: 'Content Use', value: 'Multi', context: 'Web and social' },
-    ],
-    results: [
-      'A more polished presentation of exterior coating work.',
-      'Visuals that support social media and customer enquiries.',
-      'Simple content that quickly explains the value of the service.',
-    ],
-    websiteUrl: 'https://procoatexteriorcoatings.com/',
-    relatedService: {
-      href: '/video-production-west-lothian',
-      label: 'Explore video production in West Lothian',
-    },
   },
   {
     id: 7,

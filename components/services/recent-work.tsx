@@ -26,13 +26,6 @@ const recentWork: Record<string, WorkItem[]> = {
       href: trustedClientLinks.simplySheds,
       external: true,
     },
-    {
-      title: 'Procoat Exterior Coatings',
-      description: 'Transformation content for exterior home upgrades.',
-      image: '/assets/project-gallery/procoat-procoat-promo-procoat-exterior-coatings-cover.webp',
-      href: 'https://procoatexteriorcoatings.com/',
-      external: true,
-    },
   ],
   'website-design': [
     {
