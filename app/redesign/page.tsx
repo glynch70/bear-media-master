@@ -128,6 +128,8 @@ export default function RedesignPage() {
           />
           <CinematicVideo
             className={styles.journeyCoverVideo}
+            mobilePoster="/assets/hero/hero-mobile-poster.jpg"
+            mobileSrc="/assets/hero/hero-mobile-new.mp4"
             poster="/assets/hero/hero-poster.webp"
             src="/assets/hero/hero-desktop.mp4"
           />

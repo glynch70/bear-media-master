@@ -4,13 +4,28 @@ import { useEffect, useRef, useState } from 'react'
 
 type CinematicVideoProps = {
   className: string
+  mobilePoster?: string
+  mobileSrc?: string
   poster: string
   src: string
 }
 
-export function CinematicVideo({ className, poster, src }: CinematicVideoProps) {
+export function CinematicVideo({ className, mobilePoster, mobileSrc, poster, src }: CinematicVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isNearViewport, setIsNearViewport] = useState(false)
+  const [isMobile, setIsMobile] = useState<boolean | null>(mobileSrc ? null : false)
+
+  useEffect(() => {
+    if (!mobileSrc) return
+
+    const mediaQuery = window.matchMedia('(max-width: 767px)')
+    const updateViewport = () => setIsMobile(mediaQuery.matches)
+
+    updateViewport()
+    mediaQuery.addEventListener('change', updateViewport)
+
+    return () => mediaQuery.removeEventListener('change', updateViewport)
+  }, [mobileSrc])
 
   useEffect(() => {
     const video = videoRef.current
@@ -30,13 +45,16 @@ export function CinematicVideo({ className, poster, src }: CinematicVideoProps) 
   }, [])
 
   useEffect(() => {
-    if (!isNearViewport || !videoRef.current) return
+    if (!isNearViewport || isMobile === null || !videoRef.current) return
 
     videoRef.current.load()
     void videoRef.current.play().catch(() => {
       // The poster remains visible when a browser declines autoplay.
     })
-  }, [isNearViewport])
+  }, [isMobile, isNearViewport])
+
+  const activeSrc = isMobile && mobileSrc ? mobileSrc : src
+  const activePoster = isMobile && mobilePoster ? mobilePoster : poster
 
   return (
     <video
@@ -47,10 +65,10 @@ export function CinematicVideo({ className, poster, src }: CinematicVideoProps) 
       loop
       playsInline
       preload={isNearViewport ? 'metadata' : 'none'}
-      poster={poster}
+      poster={activePoster}
       aria-hidden="true"
     >
-      {isNearViewport ? <source src={src} type="video/mp4" /> : null}
+      {isNearViewport && isMobile !== null ? <source src={activeSrc} type="video/mp4" /> : null}
     </video>
   )
 }
