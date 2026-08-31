@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 
 type CinematicVideoProps = {
@@ -12,6 +13,7 @@ type CinematicVideoProps = {
 
 export function CinematicVideo({ className, mobilePoster, mobileSrc, poster, src }: CinematicVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
+  const [autoplayBlocked, setAutoplayBlocked] = useState(false)
   const [isNearViewport, setIsNearViewport] = useState(false)
   const [isMobile, setIsMobile] = useState<boolean | null>(mobileSrc ? null : false)
 
@@ -29,7 +31,9 @@ export function CinematicVideo({ className, mobilePoster, mobileSrc, poster, src
 
   useEffect(() => {
     const video = videoRef.current
-    if (!video || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    if (!video) return
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -47,28 +51,50 @@ export function CinematicVideo({ className, mobilePoster, mobileSrc, poster, src
   useEffect(() => {
     if (!isNearViewport || isMobile === null || !videoRef.current) return
 
-    videoRef.current.load()
-    void videoRef.current.play().catch(() => {
-      // The poster remains visible when a browser declines autoplay.
-    })
+    const video = videoRef.current
+    video.load()
+    void video.play().then(
+      () => setAutoplayBlocked(false),
+      () => setAutoplayBlocked(isMobile === true),
+    )
   }, [isMobile, isNearViewport])
 
   const activeSrc = isMobile && mobileSrc ? mobileSrc : src
   const activePoster = isMobile && mobilePoster ? mobilePoster : poster
 
   return (
-    <video
-      ref={videoRef}
-      className={className}
-      autoPlay
-      muted
-      loop
-      playsInline
-      preload={isNearViewport ? 'metadata' : 'none'}
-      poster={activePoster}
-      aria-hidden="true"
-    >
-      {isNearViewport && isMobile !== null ? <source src={activeSrc} type="video/mp4" /> : null}
-    </video>
+    <>
+      <video
+        ref={videoRef}
+        className={className}
+        autoPlay
+        controls={false}
+        disablePictureInPicture
+        disableRemotePlayback
+        muted
+        loop
+        playsInline
+        preload={isNearViewport ? 'metadata' : 'none'}
+        poster={activePoster}
+        aria-hidden="true"
+        onPause={() => {
+          if (isMobile === true && document.visibilityState === 'visible') setAutoplayBlocked(true)
+        }}
+        onPlay={() => setAutoplayBlocked(false)}
+      >
+        {isNearViewport && isMobile !== null ? <source src={activeSrc} type="video/mp4" /> : null}
+      </video>
+      {autoplayBlocked && isMobile === true && mobilePoster ? (
+        <Image
+          src={mobilePoster}
+          alt=""
+          fill
+          sizes="100vw"
+          quality={90}
+          className={`${className} z-[1] md:hidden`}
+          aria-hidden="true"
+        />
+      ) : null}
+    </>
   )
 }
