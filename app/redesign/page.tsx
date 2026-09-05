@@ -73,6 +73,7 @@ const websites = [
   {
     src: '/assets/websites/managing-what-matters.webp',
     desktopSrc: '/assets/uploads/new-work/midlothian-wildflowers-mockup.jpg',
+    desktopName: 'Midlothian Wildflowers',
     alt: 'Managing What Matters website designed by Bear Media',
     name: 'Managing What Matters',
   },
@@ -302,7 +303,9 @@ export default function RedesignPage() {
                   </picture>
                 </div>
                 <span>
-                  {website.name} <ArrowUpRight aria-hidden="true" />
+                  <span className={styles.mobileWebsiteName}>{website.name}</span>
+                  <span className={styles.desktopWebsiteName}>{'desktopName' in website ? website.desktopName : website.name}</span>
+                  <ArrowUpRight aria-hidden="true" />
                 </span>
               </Link>
             ))}

@@ -2690,6 +2690,10 @@
   color: rgba(255, 255, 255, 0.72);
 }
 
+.desktopWebsiteName {
+  display: none;
+}
+
 .websiteGalleryChapter .galleryStatus,
 .websiteGalleryChapter .galleryControls button {
   color: white;
@@ -3619,6 +3623,11 @@
 .desktopSectionIntro,
 .desktopServiceNav {
   display: none;
+}
+
+@media (min-width: 1024px) {
+  .mobileWebsiteName { display: none; }
+  .desktopWebsiteName { display: inline; }
 }
 
 @media (min-width: 1024px) {
