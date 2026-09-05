@@ -62,26 +62,31 @@ const websites = [
 const socialContent = [
   {
     title: 'Meet Callum',
+    desktopTitle: 'From Outhouses to Highland Living',
     image: '/services/social media/Meet Callum.webp',
     desktopImage: '/assets/uploads/new-work/cg-outhouses-cover.png',
   },
   {
     title: 'Built the Right Way',
+    desktopTitle: 'Creating More Space for Family Life',
     image: '/services/social media/Built the Right Way.webp',
     desktopImage: '/assets/uploads/new-work/cg-creating-more-space.jpg',
   },
   {
     title: 'Quality Builds',
+    desktopTitle: 'Kitchen Extension · Progress Update',
     image: '/services/social media/Quality Builds.webp',
     desktopImage: '/assets/uploads/new-work/cg-kitchen-extension.jpg',
   },
   {
     title: 'House Transformation',
+    desktopTitle: 'Eden · All Services',
     image: '/services/social media/House transformation.webp',
     desktopImage: '/assets/uploads/new-work/eden-all-services.jpg',
   },
   {
     title: 'Before & After Roof',
+    desktopTitle: 'Simply Sheds · Before & After',
     image: '/services/social media/Before & After Roof.webp',
     desktopImage: '/assets/uploads/new-work/simply-sheds-before-after.jpg',
   },
@@ -302,7 +307,10 @@ export default function RedesignServicesPage() {
                     />
                   </picture>
                 </div>
-                <figcaption>{item.title}</figcaption>
+                <figcaption>
+                  <span className={styles.mobileSocialTitle}>{item.title}</span>
+                  <span className={styles.desktopSocialTitle}>{item.desktopTitle}</span>
+                </figcaption>
               </figure>
             ))}
           </RedesignGallery>

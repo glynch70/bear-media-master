@@ -3625,7 +3625,11 @@
   display: none;
 }
 
+.desktopSocialTitle { display: none; }
+
 @media (min-width: 1024px) {
+  .mobileSocialTitle { display: none; }
+  .desktopSocialTitle { display: inline; }
   .mobileWebsiteName { display: none; }
   .desktopWebsiteName { display: inline; }
 }
