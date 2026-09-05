@@ -61,33 +61,33 @@ const websites = [
 
 const socialContent = [
   {
-    title: 'Meet Callum',
+    title: 'From Outhouses to Highland Living',
     desktopTitle: 'From Outhouses to Highland Living',
-    image: '/services/social media/Meet Callum.webp',
+    image: '/assets/uploads/new-work/cg-outhouses-cover.png',
     desktopImage: '/assets/uploads/new-work/cg-outhouses-cover.png',
   },
   {
-    title: 'Built the Right Way',
+    title: 'Creating More Space for Family Life',
     desktopTitle: 'Creating More Space for Family Life',
-    image: '/services/social media/Built the Right Way.webp',
+    image: '/assets/uploads/new-work/cg-creating-more-space.jpg',
     desktopImage: '/assets/uploads/new-work/cg-creating-more-space.jpg',
   },
   {
-    title: 'Quality Builds',
+    title: 'Kitchen Extension · Progress Update',
     desktopTitle: 'Kitchen Extension · Progress Update',
-    image: '/services/social media/Quality Builds.webp',
+    image: '/assets/uploads/new-work/cg-kitchen-extension.jpg',
     desktopImage: '/assets/uploads/new-work/cg-kitchen-extension.jpg',
   },
   {
-    title: 'House Transformation',
+    title: 'Eden · All Services',
     desktopTitle: 'Eden · All Services',
-    image: '/services/social media/House transformation.webp',
+    image: '/assets/uploads/new-work/eden-all-services.jpg',
     desktopImage: '/assets/uploads/new-work/eden-all-services.jpg',
   },
   {
-    title: 'Before & After Roof',
+    title: 'Simply Sheds · Before & After',
     desktopTitle: 'Simply Sheds · Before & After',
-    image: '/services/social media/Before & After Roof.webp',
+    image: '/assets/uploads/new-work/simply-sheds-before-after.jpg',
     desktopImage: '/assets/uploads/new-work/simply-sheds-before-after.jpg',
   },
 ] as const
@@ -171,7 +171,7 @@ export default function RedesignServicesPage() {
                 <picture>
                   <source media="(min-width: 1024px)" srcSet="/assets/uploads/new-work/cg-perthshire-landscape.jpg" />
                   <Image
-                    src="/assets/client-work/bear-media/highland-single-track-road.jpg"
+                    src="/assets/uploads/new-work/cg-perthshire-landscape.jpg"
                     alt="Single-track road leading through a Highland glen photographed by Bear Media"
                     fill
                     sizes="(max-width: 760px) 100vw, 55vw"
@@ -187,7 +187,7 @@ export default function RedesignServicesPage() {
                 <picture>
                   <source media="(min-width: 1024px)" srcSet="/assets/uploads/new-work/pitcher-way-living-room.jpg" />
                   <Image
-                    src="/assets/project-gallery/colin-canines-colin-and-dogs.webp"
+                    src="/assets/uploads/new-work/pitcher-way-living-room.jpg"
                     alt="Colin with dogs photographed for Colin's Canines"
                     fill
                     sizes="(max-width: 760px) 76vw, 29vw"

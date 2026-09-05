@@ -28,29 +28,29 @@ export const metadata: Metadata = {
 
 const socialContent = [
   {
-    src: '/services/social media/Meet Callum.webp',
+    src: '/assets/uploads/new-work/cg-outhouses-cover.png',
     desktopSrc: '/assets/uploads/new-work/cg-outhouses-cover.png',
-    alt: 'Meet Callum social content created by Bear Media',
+    alt: 'From Outhouses to Highland Living social content created by Bear Media',
   },
   {
-    src: '/services/social media/Built the Right Way.webp',
+    src: '/assets/uploads/new-work/cg-creating-more-space.jpg',
     desktopSrc: '/assets/uploads/new-work/cg-creating-more-space.jpg',
-    alt: 'Built the Right Way social content created by Bear Media',
+    alt: 'Creating More Space for Family Life social content created by Bear Media',
   },
   {
-    src: '/services/social media/Quality Builds.webp',
+    src: '/assets/uploads/new-work/cg-kitchen-extension.jpg',
     desktopSrc: '/assets/uploads/new-work/cg-kitchen-extension.jpg',
-    alt: 'Quality Builds social content created by Bear Media',
+    alt: 'Kitchen Extension progress update social content created by Bear Media',
   },
   {
-    src: '/services/social media/House transformation.webp',
+    src: '/assets/uploads/new-work/eden-all-services.jpg',
     desktopSrc: '/assets/uploads/new-work/eden-all-services.jpg',
-    alt: 'House transformation social content created by Bear Media',
+    alt: 'Eden all services social content created by Bear Media',
   },
   {
-    src: '/services/social media/Before & After Roof.webp',
+    src: '/assets/uploads/new-work/simply-sheds-before-after.jpg',
     desktopSrc: '/assets/uploads/new-work/simply-sheds-before-after.jpg',
-    alt: 'Before and after roof social content created by Bear Media',
+    alt: 'Simply Sheds before and after social content created by Bear Media',
   },
 ] as const
 
@@ -71,11 +71,11 @@ const websites = [
     name: 'Robertsons Transport',
   },
   {
-    src: '/assets/websites/managing-what-matters.webp',
+    src: '/assets/uploads/new-work/midlothian-wildflowers-mockup.jpg',
     desktopSrc: '/assets/uploads/new-work/midlothian-wildflowers-mockup.jpg',
     desktopName: 'Midlothian Wildflowers',
-    alt: 'Managing What Matters website designed by Bear Media',
-    name: 'Managing What Matters',
+    alt: 'Midlothian Wildflowers website designed by Bear Media',
+    name: 'Midlothian Wildflowers',
   },
 ] as const
 
@@ -174,8 +174,8 @@ export default function RedesignPage() {
           <picture>
             <source media="(min-width: 1024px)" srcSet="/assets/uploads/new-work/pitcher-way-wide-cover.jpg" />
             <Image
-              src="/assets/client-work/cg-developments/open-plan-kitchen-living.jpg"
-              alt="Open-plan new-build interior photographed for C&G Developments"
+              src="/assets/uploads/new-work/pitcher-way-wide-cover.jpg"
+              alt="8 Pitcher Way Haddington property photographed by Bear Media"
               fill
               sizes="(max-width: 767px) 129vh, 100vw"
               quality={90}
@@ -204,8 +204,8 @@ export default function RedesignPage() {
           aria-labelledby="drone-title"
         >
           <Image
-            src="/assets/client-work/cg-developments/new-build-rural-aerial.jpg"
-            alt=""
+            src="/assets/uploads/new-work/cg-perthshire-aerial.jpg"
+            alt="C&G Developments Perthshire aerial landscape photographed by Bear Media"
             fill
             sizes="(max-width: 767px) 140vh, 100vw"
             quality={90}

@@ -7,33 +7,33 @@ import { LightboxGallery } from '@/components/lightbox'
 const photography = [
   {
     id: 1,
-    image: '/assets/client-work/edinburgh-windows-doors/crafting-curved-timber-frame.webp',
-    alt: 'Edinburgh Windows & Doors craftsperson shaping a curved timber frame',
+    image: '/assets/uploads/new-work/pitcher-way-wide-cover.jpg',
+    alt: '8 Pitcher Way Haddington property photography cover',
   },
   {
     id: 2,
-    image: '/assets/client-work/almond-vet-care/vet-caring-for-bulldog.webp',
-    alt: 'Almond Vet Care vet caring for a bulldog patient',
+    image: '/assets/uploads/new-work/pitcher-way-bathroom.jpg',
+    alt: '8 Pitcher Way Haddington interior photography',
   },
   {
     id: 3,
-    image: '/assets/client-work/cg-developments/open-plan-kitchen-living.jpg',
-    alt: 'Open-plan kitchen and living space photographed for C&G Developments',
+    image: '/assets/uploads/new-work/cg-perthshire-house.jpg',
+    alt: 'C&G Developments Perthshire property photography',
   },
   {
     id: 4,
-    image: '/assets/client-work/edinburgh-windows-doors/joiner-at-workbench.webp',
-    alt: 'Edinburgh Windows & Doors joiner working at a workshop bench',
+    image: '/assets/uploads/new-work/cg-perthshire-aerial.jpg',
+    alt: 'C&G Developments Perthshire aerial photography',
   },
   {
     id: 5,
-    image: '/assets/client-work/almond-vet-care/vet-team-with-puppy.webp',
-    alt: 'Almond Vet Care team photographed with a puppy',
+    image: '/assets/uploads/new-work/pitcher-way-garden-12.jpg',
+    alt: '8 Pitcher Way Haddington kitchen and dining photography',
   },
   {
     id: 6,
-    image: '/assets/client-work/edinburgh-windows-doors/branded-van-workshop.webp',
-    alt: 'Edinburgh Windows & Doors branded van outside the workshop',
+    image: '/assets/uploads/new-work/sinton-park.jpg',
+    alt: 'Sinton Park property photography',
   },
 ]
 
