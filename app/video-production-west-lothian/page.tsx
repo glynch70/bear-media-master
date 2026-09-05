@@ -125,7 +125,7 @@ export default function VideoProductionWestLothianPage() {
                 '@type': 'VideoObject',
                 name: film.title,
                 description: film.description,
-                thumbnailUrl: `https://image.mux.com/${film.playbackId}/thumbnail.webp?time=3`,
+                thumbnailUrl: `https://image.mux.com/${film.playbackId}/thumbnail.webp?time=3&width=1200&fit_mode=smart`,
                 uploadDate: film.uploadDate,
                 duration: film.duration,
                 contentUrl: `https://stream.mux.com/${film.playbackId}.m3u8`,
@@ -258,7 +258,7 @@ export default function VideoProductionWestLothianPage() {
                     <div className="overflow-hidden rounded-[2rem] bg-black shadow-[0_28px_80px_rgba(0,0,0,0.14)]">
                       <MuxVideoPlayer
                         playbackId={film.playbackId}
-                        poster={`https://image.mux.com/${film.playbackId}/thumbnail.webp?time=3`}
+                        poster={`https://image.mux.com/${film.playbackId}/thumbnail.webp?time=3&width=1200&fit_mode=smart`}
                         title={film.title}
                         descriptionId={descriptionId}
                         aspectRatio="9 / 16"
