@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import styles from '@/app/redesign/redesign.module.css'
 import Link from 'next/link'
 import { RedesignFooter, RedesignHeader } from '@/app/redesign/redesign-chrome'
 
@@ -10,7 +11,7 @@ export default function AboutPage() {
   return (
     <>
       <RedesignHeader surface />
-      <main className="w-full min-h-screen">
+      <main className={`w-full min-h-screen ${styles.aboutDesktopPage}`}>
 
         {/* ─── Hero ─────────────────────────────────────────────────────── */}
         <section className="w-full bg-background py-16 md:py-20 lg:py-24">

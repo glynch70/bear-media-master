@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import styles from '@/app/redesign/redesign.module.css'
 import Link from 'next/link'
 import { RedesignFooter, RedesignHeader } from '@/app/redesign/redesign-chrome'
 import { useState, useRef } from 'react'
@@ -157,7 +158,7 @@ export default function ContactPage() {
   return (
     <>
       <RedesignHeader surface />
-      <main className="w-full min-h-screen">
+      <main className={`w-full min-h-screen ${styles.contactDesktopPage}`}>
         {/* Hero Section */}
         <section className="w-full bg-background py-16 md:py-20 lg:py-24">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">

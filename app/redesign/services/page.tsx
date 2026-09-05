@@ -135,6 +135,16 @@ export default function RedesignServicesPage() {
         </div>
       </section>
 
+      <nav className={styles.desktopServiceNav} aria-label="Find a service">
+        <span>Find your service</span>
+        <a href="#photography-service">Photography</a>
+        <a href="#video-service">Video</a>
+        <a href="#drone-service">Drone</a>
+        <a href="#website-service">Websites</a>
+        <a href="#social-service">Social content</a>
+        <Link href="/contact">Discuss a project <ArrowUpRight aria-hidden="true" /></Link>
+      </nav>
+
       <div id="service-list">
         <section className={styles.photoService} aria-labelledby="photography-service">
           <ServiceHeading

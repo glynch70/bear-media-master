@@ -137,12 +137,24 @@ export default function RedesignPage() {
           <div className={styles.journeyHeroCopy}>
             <p>01 / 09 · Bear Media · Scotland</p>
             <h1 id="redesign-title">Content &amp; Social Media for Local Businesses</h1>
+            <div className={styles.desktopIntro}>
+              <p>Photography, films, websites and social content. Made in West Lothian, for businesses across Scotland.</p>
+              <div>
+                <Link href="/projects">Explore the work <ArrowUpRight aria-hidden="true" /></Link>
+                <Link href="/contact">Let&apos;s talk <ArrowUpRight aria-hidden="true" /></Link>
+              </div>
+            </div>
           </div>
           <a href="#photography" className={styles.journeyScrollCue}>
             Explore the work
             <ArrowDown aria-hidden="true" />
           </a>
         </section>
+
+        <div className={styles.desktopSectionIntro}>
+          <div><p>What I do</p><h2>Good work deserves to be seen.</h2></div>
+          <Link href="/services">All services <ArrowUpRight aria-hidden="true" /></Link>
+        </div>
 
         <section
           id="photography"

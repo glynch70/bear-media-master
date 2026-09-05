@@ -32,6 +32,8 @@ function getPlaybackMode(): PlaybackMode {
     typeof navigatorHints.deviceMemory === 'number' && navigatorHints.deviceMemory <= 4
 
   if (motionPreference.matches) return 'still'
+  // Desktop uses a compact video card instead of a full-screen scroll sequence.
+  if (window.matchMedia('(min-width: 1024px)').matches) return 'video'
   if (compactViewport.matches || saveData || lowMemory) return 'video'
   return 'sequence'
 }
@@ -40,10 +42,13 @@ function subscribeToPlaybackMode(onStoreChange: () => void) {
   const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)')
   const compactViewport = window.matchMedia('(max-width: 767px), (pointer: coarse)')
 
+  const desktopViewport = window.matchMedia('(min-width: 1024px)')
+  desktopViewport.addEventListener('change', onStoreChange)
   motionPreference.addEventListener('change', onStoreChange)
   compactViewport.addEventListener('change', onStoreChange)
 
   return () => {
+    desktopViewport.removeEventListener('change', onStoreChange)
     motionPreference.removeEventListener('change', onStoreChange)
     compactViewport.removeEventListener('change', onStoreChange)
   }
