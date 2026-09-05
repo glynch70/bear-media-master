@@ -39,6 +39,7 @@ const websites = [
     name: 'Almond Vet Care',
     category: 'Veterinary care',
     image: '/assets/websites/almond-vet.webp',
+    desktopImage: '/assets/uploads/new-work/almond-vet-mockup.jpg',
   },
   {
     name: 'K. Lewis Joinery',
@@ -49,6 +50,7 @@ const websites = [
     name: 'Managing What Matters',
     category: 'Training',
     image: '/assets/websites/managing-what-matters.webp',
+    desktopImage: '/assets/uploads/new-work/midlothian-wildflowers-mockup.jpg',
   },
   {
     name: 'Robertsons Transport',
@@ -61,22 +63,27 @@ const socialContent = [
   {
     title: 'Meet Callum',
     image: '/services/social media/Meet Callum.webp',
+    desktopImage: '/assets/uploads/new-work/cg-outhouses-cover.png',
   },
   {
     title: 'Built the Right Way',
     image: '/services/social media/Built the Right Way.webp',
+    desktopImage: '/assets/uploads/new-work/cg-creating-more-space.jpg',
   },
   {
     title: 'Quality Builds',
     image: '/services/social media/Quality Builds.webp',
+    desktopImage: '/assets/uploads/new-work/cg-kitchen-extension.jpg',
   },
   {
     title: 'House Transformation',
     image: '/services/social media/House transformation.webp',
+    desktopImage: '/assets/uploads/new-work/eden-all-services.jpg',
   },
   {
     title: 'Before & After Roof',
     image: '/services/social media/Before & After Roof.webp',
+    desktopImage: '/assets/uploads/new-work/simply-sheds-before-after.jpg',
   },
 ] as const
 
@@ -156,27 +163,33 @@ export default function RedesignServicesPage() {
           <div className={styles.photoPair}>
             <figure>
               <div className={styles.serviceImageTall}>
-                <Image
-                  src="/assets/client-work/bear-media/highland-single-track-road.jpg"
-                  alt="Single-track road leading through a Highland glen photographed by Bear Media"
-                  fill
-                  sizes="(max-width: 760px) 100vw, 55vw"
-                  quality={85}
-                  className={styles.coverImage}
-                />
+                <picture>
+                  <source media="(min-width: 1024px)" srcSet="/assets/uploads/new-work/cg-perthshire-landscape.jpg" />
+                  <Image
+                    src="/assets/client-work/bear-media/highland-single-track-road.jpg"
+                    alt="Single-track road leading through a Highland glen photographed by Bear Media"
+                    fill
+                    sizes="(max-width: 760px) 100vw, 55vw"
+                    quality={85}
+                    className={styles.coverImage}
+                  />
+                </picture>
               </div>
               <figcaption>Landscape photography · Scotland</figcaption>
             </figure>
             <figure>
               <div className={styles.serviceImagePortrait}>
-                <Image
-                  src="/assets/project-gallery/colin-canines-colin-and-dogs.webp"
-                  alt="Colin with dogs photographed for Colin's Canines"
-                  fill
-                  sizes="(max-width: 760px) 76vw, 29vw"
-                  quality={85}
-                  className={styles.coverImage}
-                />
+                <picture>
+                  <source media="(min-width: 1024px)" srcSet="/assets/uploads/new-work/pitcher-way-living-room.jpg" />
+                  <Image
+                    src="/assets/project-gallery/colin-canines-colin-and-dogs.webp"
+                    alt="Colin with dogs photographed for Colin's Canines"
+                    fill
+                    sizes="(max-width: 760px) 76vw, 29vw"
+                    quality={85}
+                    className={styles.coverImage}
+                  />
+                </picture>
               </div>
               <figcaption>Brand photography · Real people</figcaption>
             </figure>
@@ -235,14 +248,17 @@ export default function RedesignServicesPage() {
                   <span />
                 </div>
                 <div className={styles.serviceWebsiteImage} data-gallery-media>
-                  <Image
-                    src={website.image}
-                    alt={`${website.name} website designed by Bear Media`}
-                    fill
-                    sizes="(max-width: 760px) 86vw, 42vw"
-                    quality={85}
-                    className={styles.containImage}
-                  />
+                  <picture>
+                    {'desktopImage' in website ? <source media="(min-width: 1024px)" srcSet={website.desktopImage} /> : null}
+                    <Image
+                      src={website.image}
+                      alt={`${website.name} website designed by Bear Media`}
+                      fill
+                      sizes="(max-width: 760px) 86vw, 42vw"
+                      quality={85}
+                      className={styles.containImage}
+                    />
+                  </picture>
                 </div>
                 <figcaption>
                   <strong>{website.name}</strong>
@@ -272,6 +288,7 @@ export default function RedesignServicesPage() {
               <figure className={styles.socialServiceCard} key={item.title}>
                 <div className={styles.socialServiceImage} data-gallery-media>
                   <picture>
+                    {'desktopImage' in item ? <source media="(min-width: 1024px)" srcSet={item.desktopImage} /> : null}
                     {item.image.includes('&') ? (
                       <source media="(min-width: 1024px)" srcSet={item.image.split('/').map(encodeURIComponent).join('/')} />
                     ) : null}

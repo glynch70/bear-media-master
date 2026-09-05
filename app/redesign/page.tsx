@@ -29,22 +29,27 @@ export const metadata: Metadata = {
 const socialContent = [
   {
     src: '/services/social media/Meet Callum.webp',
+    desktopSrc: '/assets/uploads/new-work/cg-outhouses-cover.png',
     alt: 'Meet Callum social content created by Bear Media',
   },
   {
     src: '/services/social media/Built the Right Way.webp',
+    desktopSrc: '/assets/uploads/new-work/cg-creating-more-space.jpg',
     alt: 'Built the Right Way social content created by Bear Media',
   },
   {
     src: '/services/social media/Quality Builds.webp',
+    desktopSrc: '/assets/uploads/new-work/cg-kitchen-extension.jpg',
     alt: 'Quality Builds social content created by Bear Media',
   },
   {
     src: '/services/social media/House transformation.webp',
+    desktopSrc: '/assets/uploads/new-work/eden-all-services.jpg',
     alt: 'House transformation social content created by Bear Media',
   },
   {
     src: '/services/social media/Before & After Roof.webp',
+    desktopSrc: '/assets/uploads/new-work/simply-sheds-before-after.jpg',
     alt: 'Before and after roof social content created by Bear Media',
   },
 ] as const
@@ -67,6 +72,7 @@ const websites = [
   },
   {
     src: '/assets/websites/managing-what-matters.webp',
+    desktopSrc: '/assets/uploads/new-work/midlothian-wildflowers-mockup.jpg',
     alt: 'Managing What Matters website designed by Bear Media',
     name: 'Managing What Matters',
   },
@@ -78,6 +84,7 @@ const selectedProjects = [
     discipline: 'Photography · Drone · Social',
     href: '/projects/cg-developments',
     src: '/assets/client-work/cg-developments/finished-kitchen-cabinetry.jpg',
+    desktopSrc: '/assets/uploads/new-work/cg-transforming-homes.jpg',
     alt: 'Finished fitted kitchen in a C&G Developments new-build home',
     position: 'centre',
   },
@@ -86,6 +93,7 @@ const selectedProjects = [
     discipline: 'Photography · Video · Social',
     href: '/projects/simply-sheds',
     src: '/assets/project-gallery/simply-sheds-feature.webp',
+    desktopSrc: '/assets/uploads/new-work/simply-sheds-customised.jpg',
     alt: 'Simply Sheds Scotland project captured by Bear Media',
     position: 'centre',
   },
@@ -162,14 +170,17 @@ export default function RedesignPage() {
           data-chapter="02"
           aria-labelledby="photography-title"
         >
-          <Image
-            src="/assets/client-work/cg-developments/open-plan-kitchen-living.jpg"
-            alt="Open-plan new-build interior photographed for C&G Developments"
-            fill
-            sizes="(max-width: 767px) 129vh, 100vw"
-            quality={90}
-            className={styles.journeyCover}
-          />
+          <picture>
+            <source media="(min-width: 1024px)" srcSet="/assets/uploads/new-work/pitcher-way-wide-cover.jpg" />
+            <Image
+              src="/assets/client-work/cg-developments/open-plan-kitchen-living.jpg"
+              alt="Open-plan new-build interior photographed for C&G Developments"
+              fill
+              sizes="(max-width: 767px) 129vh, 100vw"
+              quality={90}
+              className={styles.journeyCover}
+            />
+          </picture>
           <div className={styles.journeyShade} />
           <Link
             href="/services#photography-service"
@@ -238,6 +249,7 @@ export default function RedesignPage() {
               >
                 <div className={styles.journeySocialImage} data-gallery-media>
                   <picture>
+                    {'desktopSrc' in item ? <source media="(min-width: 1024px)" srcSet={item.desktopSrc} /> : null}
                     {item.src.includes('&') ? (
                       <source media="(min-width: 1024px)" srcSet={item.src.split('/').map(encodeURIComponent).join('/')} />
                     ) : null}
@@ -277,14 +289,17 @@ export default function RedesignPage() {
                 key={website.name}
               >
                 <div className={styles.journeyWebsiteImage} data-gallery-media>
-                  <Image
-                    src={website.src}
-                    alt={website.alt}
-                    fill
-                    sizes="(max-width: 767px) 86vw, 42vw"
-                    quality={85}
-                    className={styles.containImage}
-                  />
+                  <picture>
+                    {'desktopSrc' in website ? <source media="(min-width: 1024px)" srcSet={website.desktopSrc} /> : null}
+                    <Image
+                      src={website.src}
+                      alt={website.alt}
+                      fill
+                      sizes="(max-width: 767px) 86vw, 42vw"
+                      quality={85}
+                      className={styles.containImage}
+                    />
+                  </picture>
                 </div>
                 <span>
                   {website.name} <ArrowUpRight aria-hidden="true" />
@@ -313,15 +328,18 @@ export default function RedesignPage() {
                 key={project.client}
               >
                 <div className={styles.journeyWorkImage} data-gallery-media>
-                  <Image
-                    src={project.src}
-                    alt={project.alt}
-                    fill
-                    sizes="(max-width: 767px) 84vw, 42vw"
-                    quality={85}
-                    data-position={project.position}
-                    className={styles.journeyCover}
-                  />
+                  <picture>
+                    {'desktopSrc' in project ? <source media="(min-width: 1024px)" srcSet={project.desktopSrc} /> : null}
+                    <Image
+                      src={project.src}
+                      alt={project.alt}
+                      fill
+                      sizes="(max-width: 767px) 84vw, 42vw"
+                      quality={85}
+                      data-position={project.position}
+                      className={styles.journeyCover}
+                    />
+                  </picture>
                 </div>
                 <div className={styles.journeyWorkMeta}>
                   <p>{project.discipline}</p>
