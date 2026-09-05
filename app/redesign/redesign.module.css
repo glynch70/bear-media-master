@@ -2337,6 +2337,43 @@
     padding-top: 1rem;
   }
 
+  /* Keep the new image set legible on narrow screens. The source artwork is
+     mostly landscape or portrait, so avoid forcing every image into the same
+     tall crop on mobile. */
+  .servicesHero {
+    min-height: 0;
+  }
+
+  .servicesHeroMedia {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+
+  .photoPair {
+    gap: 2rem;
+  }
+
+  .serviceImageTall {
+    aspect-ratio: 4 / 3;
+  }
+
+  .serviceImagePortrait {
+    aspect-ratio: 4 / 5;
+  }
+
+  .serviceWebsiteImage {
+    aspect-ratio: 16 / 10;
+  }
+
+  .serviceWebsiteImage img {
+    padding: 0.6rem;
+  }
+
+  .workVisual,
+  .photoVisual {
+    aspect-ratio: 4 / 3;
+  }
+
 }
 
 @media (prefers-reduced-motion: reduce) {

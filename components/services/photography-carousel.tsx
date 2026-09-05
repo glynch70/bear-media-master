@@ -50,7 +50,7 @@ export function PhotographyCarousel() {
               <button
                 type="button"
                 onClick={() => openLightbox(index)}
-                className="group relative block w-full aspect-[4/5] rounded-2xl md:rounded-3xl overflow-hidden bg-muted"
+                className="group relative block w-full aspect-[4/3] sm:aspect-[4/5] rounded-2xl md:rounded-3xl overflow-hidden bg-muted"
                 aria-label={`Open ${item.alt} fullscreen`}
               >
                 <Image
