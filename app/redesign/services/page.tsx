@@ -7,6 +7,7 @@ import { CinematicVideo } from '../cinematic-video'
 import { RedesignFooter, RedesignHeader } from '../redesign-chrome'
 import { RedesignGallery } from '../redesign-gallery'
 import { PriorityServiceLinks } from '@/components/priority-service-links'
+import { FAQPageSchema } from '@/components/structured-data'
 import styles from '../redesign.module.css'
 
 export const metadata: Metadata = {
@@ -92,6 +93,13 @@ const socialContent = [
   },
 ] as const
 
+const serviceFaqs = [
+  { question: 'Do you work with businesses outside West Lothian?', answer: 'Yes. Bear Media is based in West Lothian and works with businesses across Edinburgh, Fife and Scotland.' },
+  { question: 'Can you create the photography and social content together?', answer: 'Yes. A single content session can produce photography, short video, drone footage and social media assets for your website and campaigns.' },
+  { question: 'How quickly can we start?', answer: 'Start with a relaxed conversation. I will recommend the right service or combination of services and agree a practical timeline around your business.' },
+  { question: 'Do you build websites as well as create content?', answer: 'Yes. Bear Media designs and builds mobile-first websites, then supplies the photography, video and copy needed to make them work.' },
+] as const
+
 function ServiceHeading({
   id,
   number,
@@ -115,6 +123,7 @@ function ServiceHeading({
 export default function RedesignServicesPage() {
   return (
     <main className={`${styles.page} ${styles.servicesPage}`}>
+      <FAQPageSchema questions={serviceFaqs} />
       <div className={styles.pageProgress} aria-hidden="true" />
       <a href="#service-list" className={styles.skipLink}>
         Skip to services
@@ -318,6 +327,21 @@ export default function RedesignServicesPage() {
       </div>
 
       <PriorityServiceLinks headingId="services-priority-pages" />
+
+      <section className={styles.serviceFaq} aria-labelledby="service-faq-title">
+        <div>
+          <p className={styles.eyebrow}>Working with Bear Media</p>
+          <h2 id="service-faq-title">A straightforward way to get more visible.</h2>
+          <div className={styles.serviceFaqGrid}>
+            {serviceFaqs.map((faq) => (
+              <details key={faq.question}>
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className={styles.projectsCta}>
         <p className={styles.eyebrow}>Start a conversation</p>

@@ -3621,7 +3621,8 @@
 /* Desktop refresh. Keep all existing phone and tablet layouts below 1024px. */
 .desktopIntro,
 .desktopSectionIntro,
-.desktopServiceNav {
+.desktopServiceNav,
+.serviceFaq {
   display: none;
 }
 
@@ -3632,6 +3633,16 @@
   .desktopSocialTitle { display: inline; }
   .mobileWebsiteName { display: none; }
   .desktopWebsiteName { display: inline; }
+  .serviceFaq { display: block; padding: 76px max(40px, calc((100vw - 1200px) / 2)); background: #f1f0e9; }
+  .serviceFaq > div { max-width: 1200px; margin-inline: auto; }
+  .serviceFaq h2 { max-width: 18ch; margin: 16px 0 36px; font-size: clamp(2.5rem, 4vw, 4.5rem); line-height: 1; letter-spacing: -.05em; }
+  .serviceFaqGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; border-top: 1px solid #d6d5cd; }
+  .serviceFaq details { border-bottom: 1px solid #d6d5cd; padding: 22px 0; }
+  .serviceFaq summary { cursor: pointer; font-size: 18px; font-weight: 550; list-style: none; }
+  .serviceFaq summary::-webkit-details-marker { display: none; }
+  .serviceFaq summary::after { content: '+'; float: right; font-size: 24px; font-weight: 400; }
+  .serviceFaq details[open] summary::after { content: '−'; }
+  .serviceFaq details p { max-width: 52ch; margin: 14px 0 0; color: #606459; font-size: 16px; line-height: 1.6; }
 }
 
 @media (min-width: 1024px) {
