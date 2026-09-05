@@ -1,3 +1,4 @@
+import desktop from '@/components/desktop-refresh.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 import Navigation from '@/components/navigation'
@@ -40,7 +41,7 @@ export default function SocialMediaPricingPage() {
   return (
     <>
       <Navigation />
-      <main className="min-h-screen bg-background pt-28 md:pt-36">
+      <main className={`min-h-screen bg-background pt-28 md:pt-36 ${desktop.standardPage} ${desktop.pricingPage} ${desktop.servicePage}`}>
         <BreadcrumbSchema items={[{ name: 'Home', url: siteUrl }, { name: 'Services', url: `${siteUrl}/services` }, { name: 'Social Media Pricing', url: `${siteUrl}/social-media-pricing` }]} />
 
         <section className="mx-auto max-w-7xl px-6 pb-16 lg:px-8 md:pb-24">

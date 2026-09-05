@@ -1,3 +1,4 @@
+import desktop from '@/components/desktop-refresh.module.css'
 import { RedesignFooter, RedesignHeader } from '@/app/redesign/redesign-chrome'
 import { JournalIndex } from '@/components/insights/journal-index'
 import { BreadcrumbSchema } from '@/components/structured-data'
@@ -18,7 +19,7 @@ export default function InsightsPage() {
   const articles = getJournalArticles()
 
   return (
-    <main className="w-full min-h-screen bg-background">
+    <main className={`w-full min-h-screen bg-background ${desktop.standardPage} ${desktop.journalIndex}`}>
       <BreadcrumbSchema items={[
         { name: 'Home', url: siteUrl },
         { name: 'The Bear Media Journal', url: `${siteUrl}/insights` },

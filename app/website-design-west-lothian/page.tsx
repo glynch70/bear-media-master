@@ -1,3 +1,4 @@
+import desktop from '@/components/desktop-refresh.module.css'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -147,7 +148,7 @@ export default function WebsiteDesignWestLothian() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Navigation />
-      <main className="flex-1">
+      <main className={`flex-1 ${desktop.standardPage} ${desktop.websitePage} ${desktop.servicePage}`}>
         <ServiceSchema
           name="Website Design in West Lothian"
           description="Custom, responsive website design for businesses across West Lothian"

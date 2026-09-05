@@ -1,3 +1,4 @@
+import desktop from '@/components/desktop-refresh.module.css'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { RedesignFooter, RedesignHeader } from '@/app/redesign/redesign-chrome'
@@ -26,7 +27,7 @@ export default function TrainingPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <RedesignHeader surface />
-      <main className="flex-1 pt-16 md:pt-20">
+      <main className={`flex-1 pt-16 md:pt-20 ${desktop.standardPage} ${desktop.trainingPage} ${desktop.servicePage}`}>
         <BreadcrumbSchema
           items={[
             { name: 'Home', url: siteUrl },

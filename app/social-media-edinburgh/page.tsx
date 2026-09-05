@@ -1,3 +1,5 @@
+import desktop from '@/components/desktop-refresh.module.css'
+import { DesktopServiceImage } from '@/components/desktop-service-image'
 import type { Metadata } from 'next'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
@@ -31,7 +33,7 @@ export default function SocialMediaEdinburgh() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navigation />
-      <main className="flex-1">
+      <main className={`flex-1 ${desktop.standardPage} ${desktop.simpleService} ${desktop.servicePage}`}>
         <ServiceSchema name="Social Media Management in Edinburgh" description="Professional social media management services for Edinburgh businesses" areaServed="Edinburgh" provider="Bear Media" />
 
         <section className="bg-gradient-to-b from-background to-muted py-16 md:py-24">
@@ -44,6 +46,7 @@ export default function SocialMediaEdinburgh() {
               Get Started Today
             </a>
           </div>
+          <DesktopServiceImage src="/services/social media/Built the Right Way.webp" alt="Built the Right Way social content created by Bear Media" />
         </section>
 
         <section className="py-16 md:py-24 px-4 md:px-6">

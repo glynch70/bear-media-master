@@ -1,3 +1,4 @@
+import desktop from '@/components/desktop-refresh.module.css'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 import Footer from '@/components/footer'
@@ -41,7 +42,7 @@ export function JournalPostPage({
   const secondContent = content.slice(splitIndex)
 
   return (
-    <main className="min-h-screen w-full overflow-x-hidden bg-background">
+    <main className={`min-h-screen w-full overflow-x-hidden bg-background ${desktop.standardPage} ${desktop.legacyArticle}`}>
       <BreadcrumbSchema items={[
         { name: 'Home', url: siteUrl },
         { name: 'The Bear Media Journal', url: `${siteUrl}/insights` },

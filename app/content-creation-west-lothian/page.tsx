@@ -1,3 +1,5 @@
+import desktop from '@/components/desktop-refresh.module.css'
+import { DesktopServiceImage } from '@/components/desktop-service-image'
 import type { Metadata } from 'next'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
@@ -31,7 +33,7 @@ export default function ContentCreationWestLothian() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navigation />
-      <main className="flex-1">
+      <main className={`flex-1 ${desktop.standardPage} ${desktop.simpleService} ${desktop.servicePage}`}>
         <ServiceSchema name="Content Creation West Lothian" description="Photography, video and visual content creation for businesses across West Lothian" areaServed="West Lothian" provider="Bear Media" />
 
         <section className="bg-gradient-to-b from-background to-muted py-16 md:py-24">
@@ -44,6 +46,7 @@ export default function ContentCreationWestLothian() {
               Start Creating Content
             </a>
           </div>
+          <DesktopServiceImage src="/assets/services/photography-garry-setup.webp" alt="Garry setting up a Bear Media photography session" />
         </section>
 
         <section className="py-16 md:py-24 px-4 md:px-6">

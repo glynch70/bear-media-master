@@ -1,3 +1,4 @@
+import desktop from '@/components/desktop-refresh.module.css'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -99,7 +100,7 @@ export default function VideoProductionWestLothianPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
-      <main>
+      <main className={`${desktop.standardPage} ${desktop.videoPage} ${desktop.servicePage}`}>
         <BreadcrumbSchema
           items={[
             { name: 'Home', url: siteUrl },

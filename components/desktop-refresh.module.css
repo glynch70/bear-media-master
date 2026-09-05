@@ -1,0 +1,156 @@
+/* This file extends the approved desktop design. No layout rules run below 1024px. */
+.desktopChrome,
+.serviceImage {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .legacyChrome { display: none; }
+  .desktopChrome { display: contents; }
+
+  .standardPage {
+    --background: #f8f7f2;
+    --foreground: #171915;
+    --secondary: #edede5;
+    --muted: #edede5;
+    --muted-foreground: #606459;
+    --primary: #20271e;
+    --primary-foreground: #fff;
+    --accent: #936019;
+    --border: #ddded4;
+    padding-top: 0;
+    background: var(--background);
+    color: var(--foreground);
+  }
+  .standardPage [id] { scroll-margin-top: 104px; }
+  .standardPage > section { padding: 48px max(40px, calc((100% - 1200px) / 2)); }
+  .standardPage > section > div { max-width: 1200px; margin-inline: auto; }
+  .standardPage h1 { max-width: 22ch; font-size: 50px; font-weight: 550; line-height: 1.08; letter-spacing: -2px; }
+  .standardPage h2 { font-size: 32px; font-weight: 500; line-height: 1.2; letter-spacing: -1px; }
+  .standardPage h3 { font-size: 22px; font-weight: 550; line-height: 1.25; letter-spacing: -.4px; }
+  .standardPage p { line-height: 1.65; }
+  .standardPage :where(p[class*='text-xl'], p[class*='text-2xl']) { font-size: 17px; }
+  .standardPage :where([class*='rounded-3xl'], [class*='rounded-2xl']) { border-radius: 10px; }
+  .standardPage a[href='/contact']:where([class*='bg-primary'], [class*='bg-foreground'], [class*='bg-accent']) { border-radius: 6px; background: #20271e; color: white; padding: 13px 20px; font-size: 14px; font-weight: 550; }
+  .standardPage a:focus-visible, .standardPage button:focus-visible { outline: 2px solid #936019; outline-offset: 5px; }
+  .standardPage > section:where([class*='bg-primary'], [class*='bg-black']) { background: #20271e; }
+
+  .simpleService > section:first-of-type {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 56px;
+    min-height: 440px;
+    background: #f8f7f2;
+    background-image: none;
+  }
+  .simpleService > section:first-of-type > div:first-child { padding: 0; }
+  .simpleService > section:first-of-type h1 { margin-bottom: 22px; }
+  .simpleService > section:first-of-type p { font-size: 17px; max-width: 52ch; }
+  .simpleService > section:first-of-type p:where([class*='uppercase']) { font-size: 11px; }
+  .serviceImage { display: block; position: relative; width: 100%; height: 360px; overflow: hidden; border-radius: 12px; background: #edede5; }
+  .cover { object-fit: cover; }
+  .serviceImage:has(img[src*='websites']), .serviceImage:has(img[src*='social']) { background: white; }
+  .serviceImage img[src*='websites'], .serviceImage img[src*='social'] { object-fit: contain; padding: 16px; }
+  .simpleService > section:not(:first-of-type) > div > p { max-width: 76ch; }
+  .simpleService > section > div > ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 40px; }
+  .simpleService > section > div > ul > li { margin: 0; padding: 16px 0; border-top: 1px solid #ddded4; }
+  .simpleService :global(.grid) > div { padding: 22px; border: 1px solid #ddded4; border-radius: 10px; background: #fdfdfb; }
+  .simpleService :global(.grid) { gap: 20px; }
+  .simpleService h2 { margin-bottom: 24px; }
+
+  .dronePage > section:first-of-type { background-image: none; }
+  .dronePage > section:first-of-type > div { display: grid; grid-template-columns: 1fr 1fr; column-gap: 56px; grid-template-rows: min-content min-content 1fr; align-items: start; padding: 0; }
+  .dronePage > section:first-of-type h1, .dronePage > section:first-of-type p, .dronePage > section:first-of-type a { grid-column: 1; }
+  .dronePage > section:first-of-type a { justify-self: start; }
+  .dronePage > section:first-of-type figure { grid-column: 2; grid-row: 1 / 4; margin: 0; border-radius: 12px; box-shadow: none; }
+  .dronePage > section:first-of-type figure img { width: 100%; height: 320px; object-fit: cover; }
+  .dronePage > section:first-of-type figcaption { font-size: 12px; }
+  .dronePage > section:not(:first-of-type) > div { max-width: 1120px; }
+
+  .websitePage > section:first-of-type { background: #f8f7f2; }
+  .websitePage > section:first-of-type > div { padding: 0; gap: 48px; }
+  .websitePage > section:first-of-type h1 { font-size: 48px; }
+  .websitePage > section:first-of-type :global(.blur-2xl) { display: none; }
+  .websitePage > section:first-of-type :global(.shadow-xl) { box-shadow: none; }
+  .websitePage > section:first-of-type [class*='aspect-'] { aspect-ratio: 6 / 5; max-height: 420px; }
+  .websitePage > section:first-of-type a[href='/contact'] { padding-inline: 14px; }
+  .websitePage > section:first-of-type a[href='#recent-websites'] { border-radius: 6px; font-size: 14px; padding-inline: 14px; }
+  .websitePage [class*='shadow-'] { box-shadow: none; }
+
+  .videoPage > section:first-of-type { position: relative; min-height: 500px; max-width: 1280px; margin: 0 auto; padding: 40px; background: #f8f7f2; overflow: visible; }
+  .videoPage > section:first-of-type > img { left: 53% !important; top: 40px !important; width: calc(47% - 40px) !important; height: calc(100% - 80px) !important; border-radius: 12px; }
+  .videoPage > section:first-of-type > div:global(.absolute) { display: none; }
+  .videoPage > section:first-of-type > div:global(.relative) { width: 48%; max-width: none; margin: 0; padding: 20px 20px 20px 0; color: #171915; }
+  .videoPage > section:first-of-type h1 { font-size: 48px; }
+  .videoPage > section:first-of-type p { color: #606459; }
+  .videoPage > section:first-of-type > div > div { flex-direction: column; align-items: start; }
+  .videoPage > section:first-of-type a { border-radius: 6px; }
+  .videoPage > section:first-of-type a[href='/contact'] { background: #20271e; color: white; }
+  .videoPage > section:first-of-type a[href='#recent-projects'] { border-color: #c5c7bc; color: #171915; background: transparent; }
+  .videoPage :global(#recent-projects) h3 { font-size: 28px; }
+  .videoPage :global(#recent-projects) a { min-height: 340px; max-height: 380px; }
+  .videoPage section[aria-labelledby='featured-films-title'] article { max-width: 300px; }
+  .videoPage section[aria-labelledby='featured-films-title'] > div > div:last-child { max-width: 800px; margin-inline: auto; }
+
+  .pricingPage > section:first-of-type { max-width: 1280px; padding: 48px 40px; }
+  .pricingPage > section:first-of-type > div { gap: 56px; }
+  .pricingPage > section:first-of-type > div > div:last-child { max-width: 330px; border-radius: 12px; box-shadow: none; }
+  .pricingPage article { position: relative; border-radius: 12px; padding: 28px; }
+  .pricingPage article > p:has(> span) { font-size: 38px; line-height: 1.2; }
+  .pricingPage article > span { position: absolute; top: -14px; margin: 0; background: #e4bf72; color: #171915; }
+  .pricingPage > section:last-of-type { max-width: none; }
+
+  .trainingPage > section:first-of-type { padding-bottom: 32px; }
+  .trainingPage > section:first-of-type h1 { max-width: 22ch; }
+  .trainingPage > :global(#training) { padding-top: 40px; }
+  .trainingPage > :global(#training) > div { padding: 0; }
+  .trainingPage > :global(#training) [class*='aspect-'] { max-height: 480px; }
+  .trainingPage > :global(#training) img { object-fit: contain; }
+  .trainingPage > :global(#training) :global(.shadow-xl) { max-width: 320px; box-shadow: none; }
+  .trainingPage > :global(#training) [class*='lg:grid-cols-1'] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .trainingPage > :global(#training) h3 { font-size: 18px; }
+
+  .journalIndex > section:first-of-type { padding-bottom: 28px; }
+  .journalIndex h1 { margin-top: 16px; }
+  .journalIndex section[aria-label='Journal categories'] { padding-block: 12px 24px; }
+  .journalIndex section:has(> a[aria-label^='Read featured']) { padding-block: 0 24px; }
+  .journalIndex a[aria-label^='Read featured'] { max-width: 1200px; border-radius: 12px; grid-template-columns: 1fr 1fr; }
+  .journalIndex a[aria-label^='Read featured'] > div:first-child { aspect-ratio: auto; min-height: 360px; }
+  .journalIndex a[aria-label^='Read featured'] > div:last-child { padding: 28px 32px; }
+  .journalIndex a[aria-label^='Read featured'] h2 { font-size: 32px; }
+  .journalIndex a[aria-label^='Read featured'] p { font-size: 16px; }
+  .journalIndex a[aria-label^='Read featured'] p:where([class*='uppercase']) { font-size: 10px; margin-top: 14px; }
+  .journalIndex a[aria-label^='Read featured'] h2, .journalIndex a[aria-label^='Read featured'] p, .journalIndex a[aria-label^='Read featured'] span { margin-top: 14px; }
+  .journalIndex > section:last-of-type { padding-top: 32px; }
+
+  .articlePage > section:first-of-type > div { max-width: 1000px; }
+  .articlePage > section:first-of-type > div > a:first-child { display: flex; width: fit-content; margin-bottom: 24px; }
+  .articlePage > section:first-of-type h1 { max-width: 24ch; font-size: 48px; }
+  .articlePage > section:nth-of-type(2) { padding-block: 0; }
+  .articlePage > section:nth-of-type(2) > div { max-width: 1000px; aspect-ratio: 5 / 2; border-radius: 12px; }
+  .articlePage > section:nth-of-type(3) > div { max-width: 1000px; grid-template-columns: minmax(0, 720px) 160px; gap: 56px; }
+  .articlePage article p { font-size: 18px; line-height: 1.8; }
+  .articlePage article h2 { font-size: 30px; margin-top: 20px; }
+  .articlePage aside p { font-size: 14px; }
+  .articlePage > section:has(a[href='/contact']) > div > p:first-child { font-size: 30px; line-height: 1.3; }
+
+  .legacyArticle { overflow: clip; }
+  .legacyArticle > article { padding-top: 40px; padding-bottom: 48px; }
+  .legacyArticle > article > div:first-child { max-width: 800px; }
+  .legacyArticle h1 { font-size: 48px; max-width: 24ch; }
+  .legacyArticle > article > figure { max-width: 1000px; }
+  .legacyArticle > article > figure:first-of-type > div { aspect-ratio: 5 / 2; border-radius: 12px; }
+  .legacyArticle > article > div > p { font-size: 18px; line-height: 1.8; }
+  .legacyArticle > article > div:has(> p) { max-width: 760px; }
+  .legacyArticle > article > figure:not(:first-of-type) { max-width: 760px; }
+
+  .legalPage > section > div, .legalPage > div { max-width: 880px; }
+  .legalPage > section { padding-block: 48px 36px; }
+  .legalPage > div { padding-block: 40px 56px; }
+  .legalPage h1 { font-size: 48px; }
+  .legalPage h2 { font-size: 25px; }
+  .legalPage > div section { padding-bottom: 28px; border-bottom: 1px solid #ddded4; margin-top: 28px; }
+
+  :global(body):has(.servicePage) :global(header nav a[href='/services']) { text-decoration: underline; text-underline-offset: 7px; text-decoration-color: #936019; text-decoration-thickness: 2px; }
+}

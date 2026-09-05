@@ -1,6 +1,8 @@
 'use client'
 
 import Link from 'next/link'
+import { RedesignHeader } from '@/app/redesign/redesign-chrome'
+import desktop from './desktop-refresh.module.css'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { ChevronDown, X } from 'lucide-react'
@@ -104,8 +106,9 @@ export default function Navigation() {
 
   return (
     <>
+    <div className={desktop.desktopChrome}><RedesignHeader surface /></div>
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+      className={`${desktop.legacyChrome} fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
         transparent ? 'bg-transparent' : 'bg-background/80 backdrop-blur-md border-b border-border'
       } ${isOpen ? 'bg-transparent border-transparent' : ''}`}
     >
@@ -221,7 +224,7 @@ export default function Navigation() {
       {/* Full-screen mobile overlay */}
       <div
         id="mobile-navigation"
-        className={`md:hidden fixed inset-0 z-[60] transition-opacity duration-500 ${
+        className={`${desktop.legacyChrome} md:hidden fixed inset-0 z-[60] transition-opacity duration-500 ${
           isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         aria-hidden={!isOpen}

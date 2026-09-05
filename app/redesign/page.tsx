@@ -237,14 +237,19 @@ export default function RedesignPage() {
                 key={item.src}
               >
                 <div className={styles.journeySocialImage} data-gallery-media>
-                  <Image
-                    src={item.src}
-                    alt={item.alt}
-                    fill
-                    sizes="(max-width: 767px) 78vw, 32vw"
-                    quality={85}
-                    className={styles.journeyCover}
-                  />
+                  <picture>
+                    {item.src.includes('&') ? (
+                      <source media="(min-width: 1024px)" srcSet={item.src.split('/').map(encodeURIComponent).join('/')} />
+                    ) : null}
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      fill
+                      sizes="(max-width: 767px) 78vw, 32vw"
+                      quality={85}
+                      className={styles.journeyCover}
+                    />
+                  </picture>
                 </div>
                 <span>View social content services <ArrowUpRight aria-hidden="true" /></span>
               </Link>

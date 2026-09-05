@@ -1,3 +1,4 @@
+import desktop from '@/components/desktop-refresh.module.css'
 import type { Metadata } from 'next'
 import { RedesignFooter, RedesignHeader } from '@/app/redesign/redesign-chrome'
 
@@ -20,7 +21,7 @@ export default function TermsAndConditionsPage() {
   return (
     <>
       <RedesignHeader surface />
-      <main className="w-full bg-background">
+      <main className={`w-full bg-background ${desktop.standardPage} ${desktop.legalPage}`}>
         <section className="border-b border-foreground/10 px-6 pb-16 pt-16 md:pb-24 md:pt-24 lg:px-8">
           <div className="mx-auto max-w-4xl">
             <p className="mb-5 text-sm font-medium uppercase tracking-[0.18em] text-accent">Bear Media</p>

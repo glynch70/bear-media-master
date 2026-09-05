@@ -1,3 +1,5 @@
+import desktop from '@/components/desktop-refresh.module.css'
+import { DesktopServiceImage } from '@/components/desktop-service-image'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Navigation from '@/components/navigation'
@@ -47,7 +49,7 @@ export default function PropertyPhotographyWestLothian() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Navigation />
-      <main className="flex-1">
+      <main className={`flex-1 ${desktop.standardPage} ${desktop.simpleService} ${desktop.servicePage}`}>
         <ServiceSchema
           name="Property Photography West Lothian"
           description="Property photography for websites, listings and marketing across West Lothian"
@@ -72,6 +74,7 @@ export default function PropertyPhotographyWestLothian() {
               Discuss your property
             </Link>
           </div>
+          <DesktopServiceImage src="/assets/client-work/cg-developments/finished-kitchen-wide.jpg" alt="Finished kitchen photographed for C&G Developments" />
         </section>
 
         <section className="px-6 py-20 md:py-28">

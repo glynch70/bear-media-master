@@ -3873,3 +3873,20 @@
   :global(body):has(.projectsPage) .nav > a[href='/projects'],
   :global(body):has(.aboutDesktopPage) .nav > a[href='/about'] { text-decoration: underline; text-underline-offset: 7px; text-decoration-color: #936019; text-decoration-thickness: 2px; }
 }
+
+
+.desktopFooterLinks { display: none; }
+@media (min-width: 1024px) {
+  .footer { display: grid; grid-template-columns: 1fr 1fr 1.4fr auto; }
+  .desktopFooterLinks { display: grid; grid-column: 1 / -1; grid-template-columns: repeat(3, 1fr); gap: 40px; padding-top: 28px; margin-top: 8px; border-top: 1px solid #ddded4; }
+  .desktopFooterLinks nav { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; font-size: 14px; }
+  .desktopFooterLinks strong { margin-bottom: 6px; color: #171915; font-weight: 550; }
+  .desktopFooterLinks a:hover { color: #936019; text-decoration: underline; text-underline-offset: 4px; }
+  .desktopFooterLinks a:focus-visible { outline: 2px solid #936019; outline-offset: 5px; }
+}
+
+/* Support the existing pricing-page link on desktop without moving the mobile layout. */
+.desktopAnchor { display: none; }
+@media (min-width: 1024px) {
+  .desktopAnchor { display: block; height: 0; scroll-margin-top: 104px; }
+}

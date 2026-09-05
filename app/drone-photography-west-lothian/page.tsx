@@ -1,3 +1,4 @@
+import desktop from '@/components/desktop-refresh.module.css'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Navigation from '@/components/navigation'
@@ -32,7 +33,7 @@ export default function DronePhotographyWestLothian() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navigation />
-      <main className="flex-1">
+      <main className={`flex-1 ${desktop.standardPage} ${desktop.dronePage} ${desktop.servicePage}`}>
         <ServiceSchema name="Drone Photography West Lothian" description="Drone photography and video for properties, events and businesses across West Lothian" areaServed="West Lothian" provider="Bear Media" />
 
         <section className="bg-gradient-to-b from-background to-muted py-16 md:py-24">

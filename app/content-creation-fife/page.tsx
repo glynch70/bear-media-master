@@ -1,3 +1,5 @@
+import desktop from '@/components/desktop-refresh.module.css'
+import { DesktopServiceImage } from '@/components/desktop-service-image'
 import type { Metadata } from 'next'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
@@ -39,7 +41,7 @@ export default function ContentCreationFife() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navigation />
-      <main className="flex-1">
+      <main className={`flex-1 ${desktop.standardPage} ${desktop.simpleService} ${desktop.servicePage}`}>
         <ServiceSchema name="Content Creation in Fife" description="Professional photography, videography, and content creation services" areaServed="Fife" provider="Bear Media" />
         <section className="bg-gradient-to-b from-background to-muted py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
@@ -47,6 +49,7 @@ export default function ContentCreationFife() {
             <p className="text-lg md:text-xl text-muted-foreground mb-8">High-quality visual content is essential for engaging Fife audiences. Professional photography, videography, and graphic design that tells your story and drives engagement.</p>
             <a href="/contact" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">Start Creating Content</a>
           </div>
+          <DesktopServiceImage src="/assets/services/photography-garry-setup.webp" alt="Garry setting up a Bear Media photography session" />
         </section>
         <section className="py-16 md:py-24 px-4 md:px-6">
           <div className="max-w-4xl mx-auto">

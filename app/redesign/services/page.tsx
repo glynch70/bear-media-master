@@ -260,6 +260,7 @@ export default function RedesignServicesPage() {
         </section>
 
         <section className={styles.socialService} aria-labelledby="social-service">
+          <span id="social-media" className={styles.desktopAnchor} aria-hidden="true" />
           <ServiceHeading
             id="social-service"
             number="05"
@@ -270,14 +271,19 @@ export default function RedesignServicesPage() {
             {socialContent.map((item) => (
               <figure className={styles.socialServiceCard} key={item.title}>
                 <div className={styles.socialServiceImage} data-gallery-media>
-                  <Image
-                    src={item.image}
-                    alt={`${item.title} social media content created by Bear Media`}
-                    fill
-                    sizes="(max-width: 760px) 78vw, 32vw"
-                    quality={85}
-                    className={styles.coverImage}
-                  />
+                  <picture>
+                    {item.image.includes('&') ? (
+                      <source media="(min-width: 1024px)" srcSet={item.image.split('/').map(encodeURIComponent).join('/')} />
+                    ) : null}
+                    <Image
+                      src={item.image}
+                      alt={`${item.title} social media content created by Bear Media`}
+                      fill
+                      sizes="(max-width: 760px) 78vw, 32vw"
+                      quality={85}
+                      className={styles.coverImage}
+                    />
+                  </picture>
                 </div>
                 <figcaption>{item.title}</figcaption>
               </figure>

@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import { RedesignFooter } from '@/app/redesign/redesign-chrome'
+import desktop from './desktop-refresh.module.css'
 import Image from 'next/image'
 import { Phone, Mail, MapPin, AtSign } from 'lucide-react'
 import { getTrustedClientAriaLabel, trustedClientLinks } from '@/lib/trusted-client-links'
@@ -57,7 +59,9 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="bg-secondary">
+    <>
+    <div className={desktop.desktopChrome}><RedesignFooter /></div>
+    <footer className={`bg-secondary ${desktop.legacyChrome}`}>
       {/* Services Line */}
       <div className="border-b border-border bg-background/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
@@ -192,5 +196,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    </>
   )
 }
