@@ -2852,6 +2852,22 @@
   background: #11110f;
 }
 
+.mobileHeroCollage {
+  display: none;
+}
+
+.mobileHeroFrame {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: #1a1a18;
+}
+
+.mobileHeroImage {
+  object-fit: cover;
+}
+
 .journeyCover,
 .journeyCoverVideo,
 .cinematicPoster,
@@ -3504,13 +3520,76 @@
     padding-left: 1rem;
   }
 
+  .mobileHeroCollage {
+    position: absolute;
+    inset: 5.35rem 0 0;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: minmax(0, 11fr) minmax(0, 4fr) minmax(0, 5fr);
+    gap: 8px;
+    background: #11110f;
+  }
+
+  .mobileHeroPrimary,
+  .mobileHeroBrand {
+    grid-column: 1 / -1;
+  }
+
+  .mobileHeroPrimary {
+    grid-row: 1;
+  }
+
+  .mobileHeroProperty,
+  .mobileHeroEdinburgh {
+    grid-row: 2;
+  }
+
+  .mobileHeroBrand {
+    grid-row: 3;
+  }
+
+  .mobileHeroPrimary .mobileHeroImage {
+    object-position: 50% 61%;
+  }
+
+  .mobileHeroProperty .mobileHeroImage {
+    object-position: 50% 58%;
+  }
+
+  .mobileHeroEdinburgh .mobileHeroImage {
+    object-position: 66% 50%;
+  }
+
+  .mobileHeroBrand .mobileHeroImage {
+    object-position: 50% 56%;
+  }
+
+  .desktopHeroMedia {
+    display: none !important;
+  }
+
+  .journeyHero .journeyShade {
+    inset: 5.35rem 0 0;
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.16), transparent 18%),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.4) 28%, rgba(0, 0, 0, 0.08) 53%, transparent 68%);
+  }
+
   .journeyHeroCopy {
-    bottom: max(6rem, calc(env(safe-area-inset-bottom) + 5rem));
+    bottom: max(4.75rem, calc(env(safe-area-inset-bottom) + 4.25rem));
+  }
+
+  .journeyHeroCopy > p {
+    margin-bottom: 0.9rem;
+    text-shadow: 0 1px 16px rgba(0, 0, 0, 0.5);
   }
 
   .journeyHeroCopy h1 {
-    max-width: 11ch;
-    font-size: clamp(3.45rem, 15.5vw, 4.8rem);
+    max-width: 12ch;
+    font-size: clamp(48px, 13vw, 58px);
+    line-height: 0.94;
+    letter-spacing: -0.065em;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.42);
   }
 
   .chapterCopy {

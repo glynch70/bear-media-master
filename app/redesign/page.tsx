@@ -126,19 +126,60 @@ export default function RedesignPage() {
           data-chapter="01"
           aria-labelledby="redesign-title"
         >
+          <div className={styles.mobileHeroCollage}>
+            <div className={`${styles.mobileHeroFrame} ${styles.mobileHeroPrimary}`}>
+              <Image
+                src="/assets/hero/mobile-collage/01-bts-photography.jpg"
+                alt="Bear Media camera set up for an outdoor property photography shoot"
+                fill
+                preload
+                sizes="(max-width: 767px) 100vw, 1px"
+                quality={85}
+                className={styles.mobileHeroImage}
+              />
+            </div>
+            <div className={`${styles.mobileHeroFrame} ${styles.mobileHeroProperty}`}>
+              <Image
+                src="/assets/hero/mobile-collage/02-kelpies-aerial.jpg"
+                alt="Exterior photography of a local residential property"
+                fill
+                sizes="(max-width: 767px) 60vw, 1px"
+                quality={85}
+                className={styles.mobileHeroImage}
+              />
+            </div>
+            <div className={`${styles.mobileHeroFrame} ${styles.mobileHeroEdinburgh}`}>
+              <Image
+                src="/assets/hero/mobile-collage/03-edinburgh-light-trails.jpg"
+                alt="Long-exposure light trails photographed on an Edinburgh street"
+                fill
+                sizes="(max-width: 767px) 40vw, 1px"
+                quality={85}
+                className={styles.mobileHeroImage}
+              />
+            </div>
+            <div className={`${styles.mobileHeroFrame} ${styles.mobileHeroBrand}`}>
+              <Image
+                src="/assets/hero/mobile-collage/04-dalkeith-country-park.jpg"
+                alt="Bear Media branded clothing prepared for client content work"
+                fill
+                sizes="(max-width: 767px) 100vw, 1px"
+                quality={85}
+                className={styles.mobileHeroImage}
+              />
+            </div>
+          </div>
           <Image
             src="/assets/hero/hero-poster.webp"
             alt=""
             fill
-            preload
-            sizes="(max-width: 767px) 178vh, 100vw"
+            sizes="(max-width: 767px) 1px, (max-width: 1023px) 100vw, 48vw"
             quality={90}
-            className={styles.journeyCover}
+            className={`${styles.journeyCover} ${styles.desktopHeroMedia}`}
           />
           <CinematicVideo
-            className={styles.journeyCoverVideo}
-            mobilePoster="/assets/hero/hero-mobile-poster.jpg"
-            mobileSrc="/assets/hero/hero-mobile-new.mp4"
+            className={`${styles.journeyCoverVideo} ${styles.desktopHeroMedia}`}
+            desktopOnly
             poster="/assets/hero/hero-poster.webp"
             src="/assets/hero/hero-desktop.mp4"
           />
