@@ -4098,3 +4098,15 @@
   /* Keep the chapter counter clear of gallery buttons and the phone safe area. */
   .journeyProgress { z-index: 61; top: 1.65rem; bottom: auto; left: 50%; right: auto; transform: translateX(-50%); color: var(--ink); background: transparent; mix-blend-mode: normal; backdrop-filter: none; pointer-events: none; }
 }
+
+@media (max-width: 1023px) {
+  /* The clean portrait photograph needs its own frame, not a viewport crop. */
+  .photoChapter { min-height: 0; aspect-ratio: 3 / 4; }
+  .photoChapter .journeyCover { object-position: center; animation: none; transform: none; }
+  .photoChapter .chapterCopy { right: 1.25rem; bottom: 1.5rem; animation: none; transform: none; opacity: 1; }
+  .photoChapter .chapterCopy > p { margin-bottom: .75rem; }
+  .photoChapter .chapterCopy h2 { font-size: clamp(2.5rem, 10vw, 4rem); line-height: 1.05; }
+  .photoChapter .chapterCopy > span { max-width: 30ch; margin-top: .75rem; font-size: .95rem; line-height: 1.5; }
+  .photoChapter .chapterServiceLink::after { top: 1rem; right: 1rem; }
+  .photoChapter .journeyShade { background: linear-gradient(0deg, rgba(0, 0, 0, .78), transparent 45%); }
+}

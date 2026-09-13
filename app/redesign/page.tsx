@@ -191,10 +191,10 @@ export default function RedesignPage() {
           <picture>
             <source media="(min-width: 1024px)" srcSet="/assets/uploads/new-work/pitcher-way-wide-cover.jpg" />
             <Image
-              src="/assets/uploads/new-work/pitcher-way-wide-cover.jpg"
+              src="/assets/hero/mobile-collage/02-kelpies-aerial.jpg"
               alt="8 Pitcher Way Haddington property photographed by Bear Media"
               fill
-              sizes="(max-width: 767px) 129vh, 100vw"
+              sizes="(max-width: 1023px) 100vw, 33vw"
               quality={90}
               className={styles.journeyCover}
             />
