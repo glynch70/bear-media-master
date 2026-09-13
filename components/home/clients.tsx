@@ -1,5 +1,7 @@
 'use client'
 
+import styles from '@/app/redesign/redesign.module.css'
+
 import Image from 'next/image'
 import { Carousel, CarouselItem } from '@/components/carousel'
 import { getTrustedClientAriaLabel, trustedClientLinks } from '@/lib/trusted-client-links'
@@ -40,7 +42,7 @@ function ClientCard({ client }: { client: Client }) {
       <div className="flex flex-1 items-center justify-center py-5">
         <div className="relative h-32 w-52 transition-transform duration-500 group-hover:scale-[1.03] md:h-40 md:w-64">
           <Image
-            src={client.logo}
+            src={client.logo.split('/').map(encodeURIComponent).join('/')}
             alt={`${client.name} logo`}
             fill
             sizes="(max-width: 768px) 208px, 256px"
@@ -59,7 +61,27 @@ function ClientCard({ client }: { client: Client }) {
   )
 }
 
-export default function Clients() {
+export default function Clients({ redesign = false }: { redesign?: boolean }) {
+  if (redesign) return (
+    <section id="clients" className={styles.restoredSection} aria-labelledby="clients-title">
+      <header className={styles.restoredHeading}>
+        <p>Local businesses. Lasting relationships.</p>
+        <h2 id="clients-title">Businesses I’ve worked with.</h2>
+        <span>From trades and property to healthcare, retail and independent brands across Scotland.</span>
+      </header>
+      <ul className={styles.clientGrid}>
+        {clientsData.map((client) => (
+          <li key={client.name}>
+            <a href={client.href} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${client.name}`}>
+              <div><Image src={client.logo.split('/').map(encodeURIComponent).join('/')} alt={`${client.name} logo`} fill sizes="(max-width: 767px) 36vw, 180px" className={styles.containImage} /></div>
+              <span>{client.name}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+
   return (
     <section className="w-full overflow-hidden bg-background py-16 md:py-24 lg:py-28">
       <Carousel

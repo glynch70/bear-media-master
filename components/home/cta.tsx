@@ -1,7 +1,20 @@
 import Link from 'next/link'
+import styles from '@/app/redesign/redesign.module.css'
 import { DesktopVideo, MobileImage } from '@/components/responsive-media'
 
-export default function CTA() {
+export default function CTA({ redesign = false }: { redesign?: boolean }) {
+  if (redesign) return (
+    <section id="contact" className={`${styles.contactJourneyChapter} ${styles.restoredCta}`} data-chapter="09" aria-labelledby="contact-title">
+      <p>09 / 09 · Start a conversation</p>
+      <h2 id="contact-title">Let’s talk.</h2>
+      <span className={styles.ctaCopy}>Looking for help with photography, video, social content or your website? Tell me about your business and what you’d like to achieve.</span>
+      <div className={styles.ctaActions}>
+        <Link href="/contact">Start a project →</Link>
+        <Link href="/projects">View recent work →</Link>
+      </div>
+    </section>
+  )
+
   return (
     <section className="relative w-full min-h-[100svh] flex items-center justify-center overflow-hidden">
       <MobileImage

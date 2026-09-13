@@ -1,5 +1,8 @@
 'use client'
 
+import { RedesignGallery } from '@/app/redesign/redesign-gallery'
+import styles from '@/app/redesign/redesign.module.css'
+
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -91,7 +94,31 @@ function TestimonialPortrait({ image, author, initials }: { image: string; autho
   )
 }
 
-export default function Testimonials() {
+export default function Testimonials({ redesign = false }: { redesign?: boolean }) {
+  if (redesign) return (
+    <section id="testimonials" className={`${styles.journeyGalleryChapter} ${styles.proofSection}`} aria-labelledby="testimonials-title">
+      <header className={styles.journeyGalleryHeading}>
+        <p>What clients say</p>
+        <h2 id="testimonials-title">Good work. Happy clients.</h2>
+        <span>Feedback from the people and businesses I’ve worked with.</span>
+      </header>
+      <RedesignGallery label="client testimonials" variant="testimonial">
+        {testimonials.map((t) => (
+          <figure key={t.author} className={styles.reviewCard}>
+            <TestimonialPortrait image={t.image} author={t.author} initials={t.initials} />
+            <blockquote>“{t.quote}”</blockquote>
+            <figcaption>
+              <strong>{t.author}</strong><span>{t.title}</span>
+              {t.projectUrl && (t.projectUrl.startsWith('http') ? (
+                <a href={t.projectUrl} target="_blank" rel="noopener noreferrer">Visit client website →</a>
+              ) : <Link href={t.projectUrl}>Explore the project →</Link>)}
+            </figcaption>
+          </figure>
+        ))}
+      </RedesignGallery>
+    </section>
+  )
+
   return (
     <section className="w-full bg-secondary py-16 md:py-24 lg:py-28">
       <Carousel

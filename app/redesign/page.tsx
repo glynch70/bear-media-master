@@ -10,6 +10,11 @@ import { RedesignGallery } from './redesign-gallery'
 import { ScrollCinematic } from './scroll-cinematic'
 import { PriorityServiceLinks } from '@/components/priority-service-links'
 import styles from './redesign.module.css'
+import FeaturedProjects from '@/components/home/featured-projects'
+import Testimonials from '@/components/home/testimonials'
+import Clients from '@/components/home/clients'
+import WhyBearMedia from '@/components/home/why-bear-media'
+import CTA from '@/components/home/cta'
 
 export const metadata: Metadata = {
   ...createMetadata({
@@ -76,35 +81,6 @@ const websites = [
     desktopName: 'Midlothian Wildflowers',
     alt: 'Midlothian Wildflowers website designed by Bear Media',
     name: 'Midlothian Wildflowers',
-  },
-] as const
-
-const selectedProjects = [
-  {
-    client: 'C&G Developments',
-    discipline: 'Photography · Drone · Social',
-    href: '/projects/cg-developments',
-    src: '/assets/client-work/cg-developments/finished-kitchen-cabinetry.jpg',
-    desktopSrc: '/assets/uploads/new-work/cg-transforming-homes.jpg',
-    alt: 'Finished fitted kitchen in a C&G Developments new-build home',
-    position: 'centre',
-  },
-  {
-    client: 'Simply Sheds Scotland',
-    discipline: 'Photography · Video · Social',
-    href: '/projects/simply-sheds',
-    src: '/assets/project-gallery/simply-sheds-feature.webp',
-    desktopSrc: '/assets/uploads/new-work/simply-sheds-customised.jpg',
-    alt: 'Simply Sheds Scotland project captured by Bear Media',
-    position: 'centre',
-  },
-  {
-    client: 'Seamus Corry',
-    discipline: 'Personal brand · Photography · Website',
-    href: '/projects/seamus-corry',
-    src: '/assets/project-gallery/seamus-corry-seamus-portrait.webp',
-    alt: 'Personal brand portrait of Seamus Corry',
-    position: 'high',
   },
 ] as const
 
@@ -232,7 +208,7 @@ export default function RedesignPage() {
           <div className={styles.chapterCopy}>
             <p>02 / 09</p>
             <h2 id="photography-title">Photography</h2>
-            <span>Real people. Real work. Real stories.</span>
+            <span>People, places and properties — photographed properly.</span>
           </div>
         </section>
 
@@ -344,8 +320,7 @@ export default function RedesignPage() {
                   </picture>
                 </div>
                 <span>
-                  <span className={styles.mobileWebsiteName}>{website.name}</span>
-                  <span className={styles.desktopWebsiteName}>{'desktopName' in website ? website.desktopName : website.name}</span>
+                  <span>{website.name}</span>
                   <ArrowUpRight aria-hidden="true" />
                 </span>
               </Link>
@@ -353,47 +328,10 @@ export default function RedesignPage() {
           </RedesignGallery>
         </section>
 
-        <section
-          id="selected-work"
-          className={`${styles.journeyGalleryChapter} ${styles.workGalleryChapter}`}
-          data-chapter="07"
-          aria-labelledby="selected-work-title"
-        >
-          <header className={styles.journeyGalleryHeading}>
-            <p>07 / 09 · Selected work</p>
-            <h2 id="selected-work-title">Real businesses. Real work.</h2>
-          </header>
-          <RedesignGallery label="selected work">
-            {selectedProjects.map((project) => (
-              <Link
-                href={project.href}
-                className={styles.journeyWorkCard}
-                aria-label={`View ${project.client} project`}
-                key={project.client}
-              >
-                <div className={styles.journeyWorkImage} data-gallery-media>
-                  <picture>
-                    {'desktopSrc' in project ? <source media="(min-width: 1024px)" srcSet={project.desktopSrc} /> : null}
-                    <Image
-                      src={project.src}
-                      alt={project.alt}
-                      fill
-                      sizes="(max-width: 767px) 84vw, 42vw"
-                      quality={85}
-                      data-position={project.position}
-                      className={styles.journeyCover}
-                    />
-                  </picture>
-                </div>
-                <div className={styles.journeyWorkMeta}>
-                  <p>{project.discipline}</p>
-                  <h3>{project.client}</h3>
-                  <ArrowUpRight aria-hidden="true" />
-                </div>
-              </Link>
-            ))}
-          </RedesignGallery>
-        </section>
+        <FeaturedProjects redesign />
+        <Testimonials redesign />
+        <Clients redesign />
+        <WhyBearMedia redesign />
 
         <PriorityServiceLinks headingId="homepage-priority-services" />
 
@@ -426,18 +364,7 @@ export default function RedesignPage() {
           </div>
         </section>
 
-        <section
-          id="contact"
-          className={styles.contactJourneyChapter}
-          data-chapter="09"
-          aria-labelledby="contact-title"
-        >
-          <p>09 / 09 · Start a conversation</p>
-          <h2 id="contact-title">Let&apos;s talk.</h2>
-          <Link href="/contact">
-            Start a project <ArrowUpRight aria-hidden="true" />
-          </Link>
-        </section>
+        <CTA redesign />
       </div>
 
       <RedesignFooter />

@@ -1,6 +1,10 @@
 'use client'
 
+import { RedesignGallery } from '@/app/redesign/redesign-gallery'
+import styles from '@/app/redesign/redesign.module.css'
+
 import Link from 'next/link'
+import Image from 'next/image'
 import { Carousel, CarouselItem } from '@/components/carousel'
 import { ProjectImageCarousel } from '@/components/project-image-carousel'
 import { getTrustedClientAriaLabel } from '@/lib/trusted-client-links'
@@ -226,7 +230,40 @@ const featuredProjects = [
   },
 ]
 
-export default function FeaturedProjects() {
+export default function FeaturedProjects({ redesign = false }: { redesign?: boolean }) {
+  if (redesign) return (
+    <section id="selected-work" className={`${styles.journeyGalleryChapter} ${styles.workGalleryChapter}`} data-chapter="07" aria-labelledby="selected-work-title">
+      <header className={styles.journeyGalleryHeading}>
+        <p>07 / 09 · Selected work</p>
+        <h2 id="selected-work-title">Real businesses. Real work.</h2>
+        <span>Explore photography, films, social campaigns and websites created for businesses across Scotland.</span>
+      </header>
+      <RedesignGallery label="selected work">
+        {[...featuredProjects].sort((a, b) => {
+          const order = ['cg-developments', 'simply-sheds', 'seamus-corry']
+          const rank = (id: string) => order.includes(id) ? order.indexOf(id) : order.length
+          return rank(a.id) - rank(b.id)
+        }).map((project) => (
+          <Link href={project.href} className={styles.journeyWorkCard} key={project.id} aria-label={`View ${project.title} case study`}>
+            <div className={styles.journeyWorkImage} data-gallery-media>
+              <picture>
+                {project.id === 'cg-developments' && <source media="(min-width: 1024px)" srcSet="/assets/uploads/new-work/cg-transforming-homes.jpg" />}
+                {project.id === 'simply-sheds' && <source media="(min-width: 1024px)" srcSet="/assets/uploads/new-work/simply-sheds-customised.jpg" />}
+                <Image src={project.id === 'simply-sheds' ? '/assets/project-gallery/simply-sheds-feature.webp' : project.images[0].src} alt={project.images[0].alt} fill sizes="(max-width: 767px) 84vw, 42vw" className={project.id === 'midlothian-wildflowers' || project.id === 'herb-soul' ? styles.containImage : styles.journeyCover} />
+              </picture>
+            </div>
+            <div className={styles.journeyWorkMeta}>
+              <p>{project.tags.join(' · ')}</p>
+              <h3>{project.title}</h3>
+              <span className={styles.projectSummary}>{project.category} — explore the project →</span>
+            </div>
+          </Link>
+        ))}
+      </RedesignGallery>
+      <Link href="/projects" className={styles.sectionMore}>View all projects →</Link>
+    </section>
+  )
+
   return (
     <section className="w-full overflow-hidden bg-background py-16 md:py-24 lg:py-28">
       <Carousel

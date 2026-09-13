@@ -4030,3 +4030,71 @@
 @media (min-width: 1024px) {
   .desktopAnchor { display: block; height: 0; scroll-margin-top: 104px; }
 }
+
+/* Restored homepage content shares the redesign's paper, ink and spacing. */
+.restoredSection {
+  padding: clamp(3.5rem, 7vw, 6rem) clamp(1.25rem, 5vw, 5rem);
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 1rem;
+}
+.restoredHeading { max-width: 48rem; margin-bottom: 2rem; }
+.restoredHeading > p { color: var(--gold); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 1rem; }
+.restoredHeading h2 { font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: -.045em; line-height: 1.08; font-weight: 510; }
+.restoredHeading > span { display: block; margin-top: 1rem; color: #65675f; line-height: 1.65; }
+.proofSection { background: var(--soft); }
+.reviewCard { height: 100%; display: flex; flex-direction: column; gap: 1.5rem; padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid var(--line); border-radius: 1rem; background: var(--paper); }
+.reviewCard blockquote { flex: 1; font-size: clamp(1.1rem, 2vw, 1.4rem); line-height: 1.5; }
+.reviewCard figcaption { display: grid; gap: .4rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.reviewCard figcaption span, .projectSummary { font-size: .9rem; line-height: 1.6; color: #65675f; }
+.reviewCard figcaption a { margin-top: .5rem; text-decoration: underline; text-underline-offset: .25em; }
+.projectSummary { display: block; margin-top: .75rem; }
+.sectionMore { display: inline-block; margin-top: 2rem; text-decoration: underline; text-underline-offset: .3em; }
+.journeyGalleryChapter > .sectionMore { margin-left: clamp(1.25rem, 5vw, 5rem); }
+.clientGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; list-style: none; padding: 0; }
+.clientGrid a { display: flex; flex-direction: column; height: 100%; align-items: center; gap: 1rem; padding: 1.25rem .75rem; background: white; border: 1px solid var(--line); border-radius: .75rem; text-align: center; }
+.clientGrid a > div { position: relative; width: 100%; height: 5.5rem; }
+.clientGrid a > span { color: #33362e; font-size: .8rem; line-height: 1.4; }
+.reasonGrid { display: grid; gap: 1.5rem; list-style: none; padding: 0; }
+.reasonGrid li { display: flex; align-items: center; gap: 1rem; }
+.reasonGrid svg { width: 1.25rem; flex-shrink: 0; color: var(--gold); }
+.reasonGrid h3 { font-size: 1rem; font-weight: 550; }
+.restoredCta { min-height: 0; padding-block: clamp(4rem, 8vw, 7rem); gap: 1.5rem; }
+.ctaCopy { max-width: 40rem; line-height: 1.65; color: #e0e2d9; }
+.ctaActions { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; }
+.ctaActions a { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: .9rem 1.4rem; border-radius: 999px; background: white; color: var(--ink); }
+.ctaActions a + a { border: 1px solid #bfc5b5; background: transparent; color: white; }
+.restoredSection a:focus-visible, .reviewCard a:focus-visible, .ctaActions a:focus-visible, .journeyWorkCard:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+.journey > section[id] { scroll-margin-top: 1rem; }
+@media (min-width: 768px) {
+  .clientGrid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .reasonGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .restoredSection { padding: 44px 0 20px; }
+  .proofSection { background: transparent; }
+  .restoredHeading h2 { font-size: 36px; }
+  .clientGrid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .journeyGalleryChapter > .sectionMore { margin-left: 0; }
+  .restoredCta { grid-template-columns: 1fr; }
+  .restoredCta > * { grid-column: 1; }
+  .ctaActions { justify-content: flex-start; }
+}
+@media (max-width: 1023px) {
+  /* Galleries grow with their cards and copy, including short landscape screens. */
+  .journeyGalleryChapter { min-height: 0; height: auto; padding: 4rem 0 3rem; }
+  .journeyGalleryHeading h2 { font-size: clamp(2.7rem, 12vw, 4.5rem); line-height: 1; }
+  .journeyGalleryChapter .galleryShell { margin-top: 2rem; }
+  .journeyGalleryChapter .galleryTrack { padding-bottom: 1.5rem; }
+  .journeyGalleryChapter .galleryFooter { position: static; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1.25rem; margin-top: .5rem; }
+  .journeyGalleryChapter .galleryStatus { width: 100%; min-width: 0; gap: .5rem; }
+  .journeyGalleryChapter .galleryControls { flex-shrink: 0; }
+  .journeySocialCard > span { gap: .75rem; letter-spacing: .03em; line-height: 1.5; }
+  .journeySocialCard > span svg { flex-shrink: 0; }
+  .journeyGalleryChapter .gallerySlide { opacity: 1; transform: none; }
+  .journeyGalleryChapter .gallerySlide [data-gallery-media] img { transform: none; }
+  .journeySocialImage { height: auto; aspect-ratio: 4 / 5; }
+}
+@media (max-width: 767px) {
+  /* Keep the chapter counter clear of gallery buttons and the phone safe area. */
+  .journeyProgress { z-index: 61; top: 1.65rem; bottom: auto; left: 50%; right: auto; transform: translateX(-50%); color: var(--ink); background: transparent; mix-blend-mode: normal; backdrop-filter: none; pointer-events: none; }
+}

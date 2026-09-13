@@ -1,5 +1,7 @@
 import { Clock, User, MapPin } from 'lucide-react'
 import { memo } from 'react'
+import Link from 'next/link'
+import styles from '@/app/redesign/redesign.module.css'
 
 const features = [
   {
@@ -16,7 +18,21 @@ const features = [
   },
 ]
 
-function WhyBearMedia() {
+function WhyBearMedia({ redesign = false }: { redesign?: boolean }) {
+  if (redesign) return (
+    <section id="why-bear-media" className={styles.restoredSection} aria-labelledby="why-title">
+      <header className={styles.restoredHeading}>
+        <p>Why Bear Media</p>
+        <h2 id="why-title">Everything is created in-house.</h2>
+        <span>Photography, video, websites and social media designed to help Scottish businesses stand out online. Based in West Lothian, I work with businesses in Edinburgh and across Scotland.</span>
+      </header>
+      <ul className={styles.reasonGrid}>
+        {features.map((feature) => <li key={feature.title}><feature.icon aria-hidden="true" /><h3>{feature.title}</h3></li>)}
+      </ul>
+      <Link href="/services" className={styles.sectionMore}>Explore all creative services →</Link>
+    </section>
+  )
+
   return (
     <section className="w-full bg-background py-20 md:py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
