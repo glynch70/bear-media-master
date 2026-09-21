@@ -71,6 +71,93 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: 10,
+    slug: 'david-todd',
+    title: 'Property marketing for David Todd Sales & Lettings',
+    clientName: 'David Todd Sales & Lettings',
+    category: 'Property Photography · Video · Drone',
+    description:
+      'Property photography, aerial imagery and marketing content that shows each home in context.',
+    intro:
+      'A selection of property photography, aerial imagery and marketing content from our work with David Todd Sales & Lettings.',
+    challenge:
+      'Property listings need to communicate the space, detail and surroundings clearly across portals, websites and social media while maintaining a consistent, professional visual standard.',
+    heroImage:
+      '/assets/projects/david-todd/drone/david-todd-118-craigentinny-road-drone-01.webp',
+    heroAlt: 'Aerial view of 118 Craigentinny Road, Edinburgh, and its surroundings',
+    images: [
+      {
+        src: '/assets/projects/david-todd/images/david-todd-living-room-01.webp',
+        alt: 'Living room property photography for David Todd',
+      },
+      {
+        src: '/assets/projects/david-todd/images/david-todd-kitchen-01.webp',
+        alt: 'Kitchen property photography for David Todd',
+      },
+      {
+        src: '/assets/projects/david-todd/images/david-todd-bedroom-01.webp',
+        alt: 'Bedroom property photography for David Todd',
+      },
+      {
+        src: '/assets/projects/david-todd/images/david-todd-haddington-exterior-01.webp',
+        alt: 'Haddington property exterior photographed for David Todd',
+      },
+      {
+        src: '/assets/projects/david-todd/reel-covers/david-todd-118-craigentinny-road-reel-cover.jpg',
+        alt: 'Craigentinny Road, Edinburgh property reel cover',
+      },
+      {
+        src: '/assets/projects/david-todd/reel-covers/david-todd-45-west-windygoul-gardens-reel-cover.jpg',
+        alt: 'West Windygoul Gardens, Tranent property reel cover',
+      },
+      {
+        src: '/assets/projects/david-todd/bts/david-todd-camera-tripod-bts-01.webp',
+        alt: 'Camera and tripod set up for property photography',
+      },
+    ],
+    services: ['Photography', 'Video', 'Drone Imagery', '360° Tours', 'Floor Plans'],
+    deliverables: [
+      {
+        title: 'Property Photography',
+        description:
+          'Natural, carefully composed interiors and exteriors show the scale, finish and character of each property.',
+      },
+      {
+        title: 'Aerial Imagery',
+        description:
+          'Drone photography adds useful context around streets, gardens and the wider setting.',
+      },
+      {
+        title: 'Marketing Content',
+        description:
+          'Listing imagery and portrait reel covers create a consistent visual story across web and social channels.',
+      },
+    ],
+    stats: [
+      { label: 'Service Scope', value: '5', context: 'Photography to floor plans' },
+      { label: 'Primary Focus', value: 'Property', context: 'Sales and lettings' },
+      { label: 'Content Use', value: 'Web + Social', context: 'Listing-ready formats' },
+    ],
+    results: [
+      'Clearer visual context across interiors, exteriors and surrounding areas.',
+      'A consistent collection of listing and social media imagery.',
+      'Flexible assets for property portals, websites and short-form content.',
+    ],
+    relatedService: {
+      href: '/property-photography-west-lothian',
+      label: 'Explore property photography in West Lothian',
+    },
+    seoTitle: 'David Todd Property Marketing Case Study | Bear Media',
+    seoDescription:
+      'Explore Bear Media property photography, aerial imagery and marketing content for David Todd Sales & Lettings.',
+    testimonial: {
+      quote:
+        'This selection of Garry’s work from 8 Pitcher Way in Haddington and 118 Craigentinny Road in Edinburgh illustrates the difference that specialist expertise can make.',
+      author: 'David Todd',
+      role: 'David Todd Sales & Lettings',
+    },
+  },
+  {
     id: 9,
     slug: 'midlothian-wildflowers',
     title: 'Midlothian Wildflowers Website Launch',
