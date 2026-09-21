@@ -201,3 +201,15 @@
     transform: translateY(0);
   }
 }
+
+/* Gold fills retain their warmth; small gold text needs a darker ink. */
+@layer utilities {
+  .text-accent { color: #895516; }
+}
+@layer base {
+  a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+  }
+  nav a:not([aria-label^="Go to chapter"]) { min-height: 44px; min-width: 44px; align-content: center; }
+}

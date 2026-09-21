@@ -323,7 +323,7 @@ export default function WebsiteDesignWestLothian() {
               />
             </div>
             <figure>
-              <div className="mb-7 flex gap-1 text-accent" aria-label="Five-star client feedback">
+              <div className="mb-7 flex gap-1 text-accent" role="img" aria-label="Five-star client feedback">
                 {Array.from({ length: 5 }).map((_, index) => (
                   <span key={index} className="text-2xl" aria-hidden="true">★</span>
                 ))}
@@ -422,13 +422,13 @@ export default function WebsiteDesignWestLothian() {
           </div>
         </section>
 
-        <section className="bg-accent py-20 md:py-24">
+        <section className="bg-secondary py-20 md:py-24">
           <div className="mx-auto max-w-4xl px-6 text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-foreground/60">Ready when you are</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-foreground/75">Ready when you are</p>
             <h2 className="mt-4 font-heading text-4xl font-medium leading-tight tracking-tight text-balance md:text-6xl">
               Let’s make your next website worth visiting.
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-foreground/70">
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-foreground/75">
               Tell me what is working, what is not and what you want the new site to achieve. I’ll help you work out the right next step.
             </p>
             <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">

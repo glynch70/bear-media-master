@@ -118,7 +118,7 @@ export default function Footer() {
             >
               Get Started
             </Link>
-            <div className="flex items-center gap-2 mt-6">
+            <div className="flex flex-wrap items-center gap-2 mt-6">
               {socials.map(({ icon: Icon, label, href }) => (
                 <a
                   key={label}
@@ -126,7 +126,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex items-center justify-center w-9 h-9 rounded-full border border-border text-muted-foreground hover:text-accent hover:border-accent transition-colors"
+                  className="flex items-center justify-center w-11 h-11 rounded-full border border-border text-muted-foreground hover:text-accent hover:border-accent transition-colors"
                 >
                   <Icon className="w-4 h-4" />
                 </a>
@@ -137,26 +137,26 @@ export default function Footer() {
           {/* Column 2: Services */}
           <div>
             <h3 className="font-medium text-sm uppercase tracking-wider text-foreground mb-5">Services</h3>
-            <ul className="space-y-3">
-              <li><Link href="/services#photography-service" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Photography</Link></li>
-              <li><Link href="/video-production-west-lothian" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Video Production</Link></li>
-              <li><Link href="/services#website-service" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Websites</Link></li>
-              <li><Link href="/services#social-service" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Social Media</Link></li>
-              <li><Link href="/content-creation-west-lothian" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Content Creation</Link></li>
-              <li><Link href="/services#drone-service" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Drone Services</Link></li>
-              <li><Link href="/training" className="text-sm text-muted-foreground hover:text-foreground transition-colors">AI &amp; Canva Training</Link></li>
+            <ul className="space-y-1">
+              <li><Link href="/services#photography-service" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Photography</Link></li>
+              <li><Link href="/video-production-west-lothian" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Video Production</Link></li>
+              <li><Link href="/services#website-service" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Websites</Link></li>
+              <li><Link href="/services#social-service" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Social Media</Link></li>
+              <li><Link href="/content-creation-west-lothian" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Content Creation</Link></li>
+              <li><Link href="/services#drone-service" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Drone Services</Link></li>
+              <li><Link href="/training" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">AI &amp; Canva Training</Link></li>
             </ul>
           </div>
 
           {/* Column 3: Explore */}
           <div>
             <h3 className="font-medium text-sm uppercase tracking-wider text-foreground mb-5">Explore</h3>
-            <ul className="space-y-3">
-              <li><Link href="/projects" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Projects</Link></li>
-              <li><Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">About</Link></li>
-              <li><Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contact</Link></li>
-              <li><Link href="/services" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Services</Link></li>
-              <li><Link href="/insights" className="text-sm text-muted-foreground hover:text-foreground transition-colors">The Bear Media Journal</Link></li>
+            <ul className="space-y-1">
+              <li><Link href="/projects" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Projects</Link></li>
+              <li><Link href="/about" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">About</Link></li>
+              <li><Link href="/contact" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Contact</Link></li>
+              <li><Link href="/services" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Services</Link></li>
+              <li><Link href="/insights" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">The Bear Media Journal</Link></li>
             </ul>
           </div>
 
@@ -164,11 +164,11 @@ export default function Footer() {
           <div>
             <h3 className="font-medium text-sm uppercase tracking-wider text-foreground mb-5">Get In Touch</h3>
             <div className="space-y-4">
-              <a href="tel:+447879011860" className="flex items-start gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <a href="tel:+447879011860" className="flex min-h-11 items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors">
                 <Phone className="w-4 h-4 mt-0.5 shrink-0 text-accent" />
                 <span>07879 011860</span>
               </a>
-              <a href="mailto:info@bear-media.com" className="flex items-start gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <a href="mailto:info@bear-media.com" className="flex min-h-11 items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors">
                 <Mail className="w-4 h-4 mt-0.5 shrink-0 text-accent" />
                 <span>info@bear-media.com</span>
               </a>
@@ -182,8 +182,8 @@ export default function Footer() {
           {/* Column 5: Policies */}
           <div>
             <h3 className="font-medium text-sm uppercase tracking-wider text-foreground mb-5">Policies</h3>
-            <ul className="space-y-3">
-              <li><Link href="/terms-and-conditions" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms &amp; Conditions</Link></li>
+            <ul className="space-y-1">
+              <li><Link href="/terms-and-conditions" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Terms &amp; Conditions</Link></li>
             </ul>
           </div>
         </div>

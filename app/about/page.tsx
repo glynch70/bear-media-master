@@ -324,7 +324,7 @@ export default function AboutPage() {
                     smarter and grow faster.
                   </p>
                   <a
-                    href="https://summonelabs.com"
+                    href="https://summone.co.uk/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 mt-8 text-sm font-medium text-foreground/70 hover:text-accent transition-colors group"

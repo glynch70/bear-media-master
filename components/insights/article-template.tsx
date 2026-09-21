@@ -37,7 +37,7 @@ export function ArticleTemplate({
         <div className="max-w-3xl mx-auto">
           <Link
             href="/insights"
-            className="mb-10 inline-flex items-center gap-2 text-sm font-medium text-foreground/60 transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
+            className="mb-10 inline-flex items-center gap-2 text-sm font-medium text-foreground/65 transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
           >
             <ArrowLeft className="h-4 w-4" aria-hidden="true" />
             Back to The Bear Media Journal
@@ -46,10 +46,10 @@ export function ArticleTemplate({
           <h1 className="mt-6 font-heading text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.03] tracking-tight text-balance">
             {article.title}
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-foreground/58 md:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-foreground/65 md:text-lg">
             Written from my own experience building websites, creating content and using AI with real clients across Scotland.
           </p>
-          <div className="mt-8 grid gap-3 border-y border-border/70 py-5 text-sm text-foreground/58 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-8 grid gap-3 border-y border-border/70 py-5 text-sm text-foreground/65 sm:grid-cols-2 lg:grid-cols-5">
             <MetadataItem label="Published" value={published} dateTime={article.publishedDate} />
             <MetadataItem label="Updated" value={updated} dateTime={article.modifiedDate} />
             <MetadataItem label="Read time" value={article.readTime} />
@@ -185,7 +185,7 @@ function MetadataItem({
 }) {
   return (
     <div>
-      <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-foreground/38">{label}</p>
+      <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-foreground/65">{label}</p>
       {href ? (
         <Link href={href} className="mt-1 block font-medium text-foreground/68 transition hover:text-foreground">
           {value}
@@ -272,7 +272,7 @@ function AdjacentArticleLink({
         isNext ? 'md:text-right' : ''
       }`}
     >
-      <span className={`flex items-center gap-2 text-xs font-medium uppercase tracking-[0.12em] text-foreground/45 ${isNext ? 'md:justify-end' : ''}`}>
+      <span className={`flex items-center gap-2 text-xs font-medium uppercase tracking-[0.12em] text-foreground/65 ${isNext ? 'md:justify-end' : ''}`}>
         {!isNext && <ArrowLeft className="h-4 w-4" aria-hidden="true" />}
         {label}
         {isNext && <ArrowRight className="h-4 w-4" aria-hidden="true" />}

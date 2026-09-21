@@ -197,7 +197,7 @@ export default function RedesignServicesPage() {
                   <source media="(min-width: 1024px)" srcSet="/assets/uploads/new-work/pitcher-way-living-room.jpg" />
                   <Image
                     src="/assets/uploads/new-work/pitcher-way-living-room.jpg"
-                    alt="Colin with dogs photographed for Colin's Canines"
+                    alt="Bright living room at Pitcher Way photographed by Bear Media"
                     fill
                     sizes="(max-width: 760px) 76vw, 29vw"
                     quality={85}
@@ -205,7 +205,7 @@ export default function RedesignServicesPage() {
                   />
                 </picture>
               </div>
-              <figcaption>Brand photography · Real people</figcaption>
+              <figcaption>Property photography · Real spaces</figcaption>
             </figure>
           </div>
         </section>

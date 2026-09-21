@@ -10,7 +10,7 @@ type Client = {
   name: string
   logo: string
   sector: string
-  href: string
+  href?: string
 }
 
 const clientsData: Client[] = [
@@ -25,19 +25,21 @@ const clientsData: Client[] = [
   { name: 'Master Chefs', sector: 'Hospitality', logo: '/07- CLIENT LOGOS/master chefs.webp', href: trustedClientLinks.masterChefs },
   { name: 'Muirhouse Medical Group', sector: 'Healthcare', logo: '/07- CLIENT LOGOS/muirhouse.webp', href: 'https://www.muirhousemedicalgroup.co.uk/' },
   { name: 'K Lewis Joinery', sector: 'Construction', logo: '/07- CLIENT LOGOS/klewis.webp', href: 'https://www.facebook.com/klewisjoinery/' },
-  { name: 'Johnstone & Robertson', sector: 'Property', logo: '/07- CLIENT LOGOS/johnstone&robertson.webp', href: 'https://johnstoneandrobertson.co.uk/' },
+  { name: 'Johnstone & Robertson', sector: 'Property', logo: '/07- CLIENT LOGOS/johnstone&robertson.webp' },
   { name: 'We Buy Any Home', sector: 'Property', logo: '/07- CLIENT LOGOS/webuyanyhome.webp', href: 'https://www.webuyanyhome.com/' },
   { name: 'The PYP', sector: 'Coaching & Wellbeing', logo: '/07- CLIENT LOGOS/the pyp.webp', href: 'https://www.seamuscorry.co.uk/' },
 ]
 
 function ClientCard({ client }: { client: Client }) {
+  const Card = client.href ? 'a' : 'div'
   return (
-    <a
+    <Card
+      role={client.href ? undefined : 'group'}
       href={client.href}
-      target="_blank"
-      rel="noopener noreferrer"
+      target={client.href ? '_blank' : undefined}
+      rel={client.href ? 'noopener noreferrer' : undefined}
       className="group flex h-full min-h-[19rem] flex-col items-center justify-between rounded-2xl bg-background p-7 text-center shadow-sm ring-1 ring-border/15 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:ring-foreground/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent md:min-h-[21rem] md:rounded-3xl md:p-9"
-      aria-label={getTrustedClientAriaLabel(client.name)}
+      aria-label={client.href ? getTrustedClientAriaLabel(client.name) : client.name}
     >
       <div className="flex flex-1 items-center justify-center py-5">
         <div className="relative h-32 w-52 transition-transform duration-500 group-hover:scale-[1.03] md:h-40 md:w-64">
@@ -57,7 +59,7 @@ function ClientCard({ client }: { client: Client }) {
         </h3>
         <p className="mt-2 text-sm text-muted-foreground">{client.sector}</p>
       </div>
-    </a>
+    </Card>
   )
 }
 
@@ -70,14 +72,17 @@ export default function Clients({ redesign = false }: { redesign?: boolean }) {
         <span>From trades and property to healthcare, retail and independent brands across Scotland.</span>
       </header>
       <ul className={styles.clientGrid}>
-        {clientsData.map((client) => (
-          <li key={client.name}>
-            <a href={client.href} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${client.name}`}>
-              <div><Image src={client.logo.split('/').map(encodeURIComponent).join('/')} alt={`${client.name} logo`} fill sizes="(max-width: 767px) 36vw, 180px" className={styles.containImage} /></div>
-              <span>{client.name}</span>
-            </a>
-          </li>
-        ))}
+        {clientsData.map((client) => {
+          const Card = client.href ? 'a' : 'div'
+          return (
+            <li key={client.name}>
+              <Card href={client.href} role={client.href ? undefined : 'group'} target={client.href ? '_blank' : undefined} rel={client.href ? 'noopener noreferrer' : undefined} aria-label={client.href ? `Visit ${client.name}` : client.name}>
+                <div><Image src={client.logo.split('/').map(encodeURIComponent).join('/')} alt={`${client.name} logo`} fill sizes="(max-width: 767px) 36vw, 180px" className={styles.containImage} /></div>
+                <span>{client.name}</span>
+              </Card>
+            </li>
+          )
+        })}
       </ul>
     </section>
   )

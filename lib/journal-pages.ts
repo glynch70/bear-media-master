@@ -151,17 +151,5 @@ export const journalPages = {
       caption: 'The work is simple: capture, create and post.',
     },
     inlineImageAfter: 7,
-    gridImages: [
-      {
-        src: `${imageBase}/bear-media-content-creation-typing-keyboard-02.jpg`,
-        alt: 'Content creation desk view with editing tools and notes',
-        caption: 'Create.',
-      },
-      {
-        src: `${imageBase}/bear-media-workspace-desk-setup-night-02.jpg`,
-        alt: 'Bear Media workspace at night with editing monitors',
-        caption: 'Post.',
-      },
-    ],
   },
 } satisfies Record<string, JournalPageData>

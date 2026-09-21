@@ -64,10 +64,10 @@ function CategoryFilters({
               key={category}
               type="button"
               onClick={() => onChange(category)}
-              className={`shrink-0 rounded-full border px-4 py-2 text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 ${
+              className={`min-h-11 shrink-0 rounded-full border px-4 py-2 text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 ${
                 active
                   ? 'border-foreground bg-foreground text-background'
-                  : 'border-foreground/10 bg-background text-foreground/60 hover:border-foreground/20 hover:text-foreground'
+                  : 'border-foreground/10 bg-background text-foreground/65 hover:border-foreground/20 hover:text-foreground'
               }`}
               aria-pressed={active}
             >
@@ -114,7 +114,7 @@ function FeaturedArticle({ article }: { article: InsightArticle }) {
           <p className="mt-6 text-lg leading-relaxed text-foreground/70 md:text-xl">
             {article.excerpt}
           </p>
-          <div className="mt-9 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium uppercase tracking-[0.12em] text-foreground/45">
+          <div className="mt-9 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium uppercase tracking-[0.12em] text-foreground/65">
             <time dateTime={article.publishedDate}>{published}</time>
             <span aria-hidden="true">/</span>
             <span>{article.readTime}</span>

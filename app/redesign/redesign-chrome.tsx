@@ -15,7 +15,7 @@ export function RedesignHeader({ fixed = false, surface = false }: RedesignHeade
       <Link href="/" className={styles.wordmark} aria-label="Bear Media home">
         Bear Media
       </Link>
-      <nav className={styles.nav} aria-label="Redesign concept navigation">
+      <nav className={styles.nav} aria-label="Main navigation">
         <Link href="/projects">Work</Link>
         <Link href="/services">Services</Link>
         <Link href="/about">About</Link>

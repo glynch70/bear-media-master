@@ -223,7 +223,7 @@ export function ScrollCinematic() {
       <div className={styles.cinematicSticky}>
         <div className={styles.cinematicMedia}>
           <Image
-            src="/assets/hero/hero-poster.webp"
+            src="/assets/hero-carousel/interview-setup.webp"
             alt=""
             fill
             sizes="(max-width: 767px) 178vh, 100vw"
@@ -244,7 +244,7 @@ export function ScrollCinematic() {
             loop
             playsInline
             preload="metadata"
-            poster="/assets/hero/hero-poster.webp"
+            poster="/assets/hero-carousel/interview-setup.webp"
             aria-hidden="true"
           >
             <source src="/assets/hero/hero-desktop.mp4" type="video/mp4" />

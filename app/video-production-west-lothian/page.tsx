@@ -125,7 +125,7 @@ export default function VideoProductionWestLothianPage() {
                 '@type': 'VideoObject',
                 name: film.title,
                 description: film.description,
-                thumbnailUrl: `https://image.mux.com/${film.playbackId}/thumbnail.webp?time=3&width=1200&fit_mode=smart`,
+                thumbnailUrl: `https://image.mux.com/${film.playbackId}/thumbnail.webp?time=3&width=1200`,
                 uploadDate: film.uploadDate,
                 duration: film.duration,
                 contentUrl: `https://stream.mux.com/${film.playbackId}.m3u8`,
@@ -258,7 +258,7 @@ export default function VideoProductionWestLothianPage() {
                     <div className="overflow-hidden rounded-[2rem] bg-black shadow-[0_28px_80px_rgba(0,0,0,0.14)]">
                       <MuxVideoPlayer
                         playbackId={film.playbackId}
-                        poster={`https://image.mux.com/${film.playbackId}/thumbnail.webp?time=3&width=1200&fit_mode=smart`}
+                        poster={`https://image.mux.com/${film.playbackId}/thumbnail.webp?time=3&width=1200`}
                         title={film.title}
                         descriptionId={descriptionId}
                         aspectRatio="9 / 16"
@@ -277,7 +277,7 @@ export default function VideoProductionWestLothianPage() {
 
         <section className="bg-black px-6 py-24 text-white md:py-36 lg:px-8 lg:py-44">
           <div className="mx-auto max-w-6xl text-center">
-            <p className="text-xs font-medium uppercase tracking-[0.22em] text-accent md:text-sm">Your story, next</p>
+            <p className="text-xs font-medium uppercase tracking-[0.22em] text-[#e4bf72] md:text-sm">Your story, next</p>
             <h2 className="mt-6 font-heading text-5xl font-medium leading-[0.98] tracking-[-0.04em] text-balance sm:text-6xl md:text-7xl lg:text-8xl">
               Make your business worth watching.
             </h2>

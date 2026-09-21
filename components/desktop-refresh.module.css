@@ -38,6 +38,7 @@
   .standardPage a[href='/contact']:where([class*='bg-primary'], [class*='bg-foreground'], [class*='bg-accent']) { border-radius: 6px; background: #20271e; color: white; padding: 13px 20px; font-size: 14px; font-weight: 550; }
   .standardPage a:focus-visible, .standardPage button:focus-visible { outline: 2px solid #936019; outline-offset: 5px; }
   .standardPage > section:where([class*='bg-primary'], [class*='bg-black']) { background: #20271e; }
+  .standardPage > section:where([class*='bg-primary'], [class*='bg-black']) :global(.text-accent) { color: #e4bf72; }
 
   .simpleService > section:first-of-type {
     display: grid;
@@ -59,7 +60,7 @@
   .simpleService > section:not(:first-of-type) > div > p { max-width: 76ch; }
   .simpleService > section > div > ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 40px; }
   .simpleService > section > div > ul > li { margin: 0; padding: 16px 0; border-top: 1px solid #ddded4; }
-  .simpleService :global(.grid) > div { padding: 22px; border: 1px solid #ddded4; border-radius: 10px; background: #fdfdfb; }
+  .simpleService > section:not([class*='bg-primary']) :global(.grid) > div { padding: 22px; border: 1px solid #ddded4; border-radius: 10px; background: #fdfdfb; }
   .simpleService :global(.grid) { gap: 20px; }
   .simpleService h2 { margin-bottom: 24px; }
 

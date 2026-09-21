@@ -44,6 +44,8 @@ export type Project = {
   intro: string
   challenge: string
   heroImage: string
+  heroAlt?: string
+  heroPosition?: string
   images: ProjectImage[]
   services: string[]
   deliverables: ProjectDeliverable[]
@@ -79,7 +81,9 @@ export const projects: Project[] = [
       'Midlothian Wildflowers needed a clear online home for its community planting, outdoor learning and conservation work across Midlothian.',
     challenge:
       'The website had to bring together a lot of grassroots activity without feeling busy. It needed to explain the project, celebrate the BBC Make a Difference Awards recognition, and make it easy for local people to get involved.',
-    heroImage: '/assets/websites/midlothian-wildflowers/desktop-home.webp',
+    heroImage: '/assets/client-work/midlothian-wildflowers/native-wildflower.webp',
+    heroAlt: 'Native purple wildflowers growing among meadow grasses in Midlothian',
+    heroPosition: '50% 38%',
     images: [
       {
         src: '/assets/websites/midlothian-wildflowers/desktop-home.webp',
@@ -189,7 +193,7 @@ export const projects: Project[] = [
         src: 'https://stream.mux.com/e00eLg008bPFCwp7TdomlRgM4yEjtcYCvLWaQpII00P02Rk.m3u8',
         playbackId: 'e00eLg008bPFCwp7TdomlRgM4yEjtcYCvLWaQpII00P02Rk',
         poster:
-          'https://image.mux.com/e00eLg008bPFCwp7TdomlRgM4yEjtcYCvLWaQpII00P02Rk/thumbnail.webp?time=0',
+          'https://image.mux.com/e00eLg008bPFCwp7TdomlRgM4yEjtcYCvLWaQpII00P02Rk/thumbnail.webp?time=6',
         title: 'Creating More Space for Family Life',
         description:
           'A short before-and-progress story showing how an extension creates more practical space for family life.',
@@ -619,8 +623,11 @@ export const projects: Project[] = [
       'Almond Vet Care needed a website that felt professional, accessible and reassuring for pet owners looking for local veterinary support.',
     challenge:
       'Healthcare websites need to balance trust, clarity and warmth. The experience had to feel easy to use on mobile while giving visitors confidence quickly.',
-    heroImage: '/assets/websites/almond-vet.webp',
+    heroImage: '/assets/client-work/almond-vet-care/vet-team-with-puppy.webp',
+    heroAlt: 'Two Almond Vet Care team members holding a puppy at the practice',
+    heroPosition: '50% 60%',
     images: [
+      { src: '/assets/websites/almond-vet.webp', alt: 'Almond Vet Care website design by Bear Media' },
       { src: '/assets/client-work/almond-vet-care/clinic-entrance-golden-retriever.webp', alt: 'Golden retriever outside the Almond Vet Care clinic' },
       { src: '/assets/client-work/almond-vet-care/vet-caring-for-bulldog.webp', alt: 'Almond Vet Care vet caring for a bulldog patient' },
       { src: '/assets/client-work/almond-vet-care/vet-team-with-puppy.webp', alt: 'Almond Vet Care team with a puppy at the practice' },

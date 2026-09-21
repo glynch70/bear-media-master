@@ -184,7 +184,7 @@ export const insights: InsightArticle[] = [
       url: '/about',
     },
     featuredImage: {
-      src: '/02-ABOUT/garry & rory.webp',
+      src: '/assets/about/garry-and-rory.webp',
       alt: 'Garry and Rory from Bear Media together',
     },
     body: articleBody([

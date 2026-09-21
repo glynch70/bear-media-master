@@ -4,7 +4,8 @@ import Link from 'next/link'
 import { RedesignHeader } from '@/app/redesign/redesign-chrome'
 import desktop from './desktop-refresh.module.css'
 import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useMenuFocus } from '@/lib/use-menu-focus'
 import { ChevronDown, X } from 'lucide-react'
 
 const links = [
@@ -57,6 +58,8 @@ function TikTokIcon({ className }: { className?: string }) {
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const openButtonRef = useRef<HTMLButtonElement>(null)
+  const menuRef = useMenuFocus(isOpen, openButtonRef)
   const [servicesOpen, setServicesOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
@@ -207,6 +210,7 @@ export default function Navigation() {
           {/* Mobile toggle */}
           {!isOpen && (
             <button
+              ref={openButtonRef}
               onClick={() => setIsOpen(true)}
               className={`flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-full transition-colors active:bg-white/10 md:hidden ${textColor}`}
               aria-label="Open menu"
@@ -223,6 +227,11 @@ export default function Navigation() {
 
       {/* Full-screen mobile overlay */}
       <div
+        ref={menuRef}
+        role="dialog"
+        aria-modal={isOpen || undefined}
+        aria-label="Site navigation"
+        inert={!isOpen}
         id="mobile-navigation"
         className={`${desktop.legacyChrome} md:hidden fixed inset-0 z-[60] transition-opacity duration-500 ${
           isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
@@ -316,6 +325,7 @@ export default function Navigation() {
                 </button>
                 <div
                   id="mobile-services-menu"
+                  inert={!servicesOpen}
                   className={`grid transition-all duration-300 ${
                     servicesOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
                   }`}
@@ -386,19 +396,19 @@ export default function Navigation() {
             }`}
             style={{ transitionDelay: isOpen ? '480ms' : '0ms' }}
           >
-            <p className="text-xs uppercase tracking-[0.2em] text-foreground/40 mb-3">
+            <p className="text-xs uppercase tracking-[0.2em] text-foreground/65 mb-3">
               West Lothian, Scotland
             </p>
-            <p className="text-sm text-foreground/55 leading-relaxed max-w-xs mb-6">
+            <p className="text-sm text-foreground/65 leading-relaxed max-w-xs mb-6">
               {services.join('  ·  ')}
             </p>
-            <div className="flex items-center gap-5">
+            <div className="flex flex-wrap items-center gap-2">
               <a
                 href="https://www.facebook.com/profile.php?id=61553562716650"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="text-foreground/50 hover:text-accent transition-colors"
+                className="inline-flex min-h-11 min-w-11 items-center justify-center text-foreground/65 hover:text-accent transition-colors"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true">
                   <path d="M18 2h-3a6 6 0 0 0-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a2 2 0 0 1 2-2h1z" />
@@ -409,7 +419,7 @@ export default function Navigation() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="text-foreground/50 hover:text-accent transition-colors"
+                className="inline-flex min-h-11 min-w-11 items-center justify-center text-foreground/65 hover:text-accent transition-colors"
               >
                 <InstagramIcon className="w-5 h-5" />
               </a>
@@ -418,7 +428,7 @@ export default function Navigation() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TikTok"
-                className="text-foreground/50 hover:text-accent transition-colors"
+                className="inline-flex min-h-11 min-w-11 items-center justify-center text-foreground/65 hover:text-accent transition-colors"
               >
                 <TikTokIcon className="w-5 h-5" />
               </a>
@@ -427,7 +437,7 @@ export default function Navigation() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="text-foreground/50 hover:text-accent transition-colors"
+                className="inline-flex min-h-11 min-w-11 items-center justify-center text-foreground/65 hover:text-accent transition-colors"
               >
                 <LinkedInIcon className="w-5 h-5" />
               </a>
@@ -436,7 +446,7 @@ export default function Navigation() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
-                className="text-foreground/50 hover:text-accent transition-colors"
+                className="inline-flex min-h-11 min-w-11 items-center justify-center text-foreground/65 hover:text-accent transition-colors"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true">
                   <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />

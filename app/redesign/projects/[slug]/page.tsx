@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowLeft, ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
+import { ProjectHero } from '@/components/projects/project-hero'
 import { MuxVideoPlayer } from '@/components/mux-video-player'
 import { getProject, projects } from '@/lib/projects'
 import { createMetadata } from '@/lib/seo'
@@ -47,7 +48,6 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
 
   const currentIndex = projects.findIndex((item) => item.slug === slug)
   const nextProject = projects[(currentIndex + 1) % projects.length]
-  const isWebsite = project.heroImage.includes('/websites/')
 
   return (
     <main className={`${styles.page} ${styles.casePage}`}>
@@ -58,37 +58,13 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
       <RedesignHeader surface />
 
       <article id="case-content">
-        <header className={styles.caseHero}>
-          <Link href="/projects" className={styles.caseBack}>
-            <ArrowLeft aria-hidden="true" />
-            All projects
-          </Link>
-          <p className={styles.eyebrow}>Case study · {project.category}</p>
-          <h1>{project.clientName}</h1>
-          <p className={styles.caseIntro}>{project.intro}</p>
-          <div className={styles.caseServices} aria-label="Project services">
-            {project.services.map((service) => (
-              <span key={service}>{service}</span>
-            ))}
-          </div>
-        </header>
-
-        <div className={styles.caseHeroMedia} data-website={isWebsite}>
-          <Image
-            src={project.heroImage}
-            alt={`${project.clientName} project hero`}
-            fill
-            preload
-            sizes="100vw"
-            quality={90}
-            className={isWebsite ? styles.containImage : styles.coverImage}
-          />
-        </div>
+        <ProjectHero project={project} />
 
         <section className={styles.caseOverview} aria-labelledby="case-overview-title">
           <p className={styles.eyebrow}>The project</p>
           <h2 id="case-overview-title">{project.description}</h2>
           <div>
+            <p>{project.intro}</p>
             <p>{project.challenge}</p>
             {project.websiteUrl ? (
               <a href={project.websiteUrl} target="_blank" rel="noopener noreferrer">

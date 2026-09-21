@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
+import { useMenuFocus } from '@/lib/use-menu-focus'
 import { X } from 'lucide-react'
 import styles from './redesign.module.css'
 
@@ -16,18 +17,10 @@ const menuLinks = [
 export function RedesignMobileMenu() {
   const [isOpen, setIsOpen] = useState(false)
   const openButtonRef = useRef<HTMLButtonElement>(null)
-  const closeButtonRef = useRef<HTMLButtonElement>(null)
-  const wasOpenRef = useRef(false)
+  const menuRef = useMenuFocus(isOpen, openButtonRef)
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : ''
-    if (isOpen) {
-      closeButtonRef.current?.focus()
-    } else if (wasOpenRef.current) {
-      openButtonRef.current?.focus()
-    }
-    wasOpenRef.current = isOpen
-
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') setIsOpen(false)
     }
@@ -56,6 +49,10 @@ export function RedesignMobileMenu() {
       </button>
 
       <div
+        ref={menuRef}
+        role="dialog"
+        aria-modal={isOpen || undefined}
+        aria-label="Site navigation"
         id="redesign-mobile-navigation"
         className={styles.redesignMenuOverlay}
         data-open={isOpen}
@@ -65,7 +62,6 @@ export function RedesignMobileMenu() {
         <div className={styles.redesignMenuTop}>
           <span>Bear Media</span>
           <button
-            ref={closeButtonRef}
             type="button"
             onClick={() => setIsOpen(false)}
             aria-label="Close menu"

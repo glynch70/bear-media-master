@@ -158,7 +158,7 @@ export default function ContactPage() {
   return (
     <>
       <RedesignHeader surface />
-      <main className={`w-full min-h-screen ${styles.contactDesktopPage}`}>
+      <main id="top" className={`w-full min-h-screen ${styles.contactDesktopPage}`}>
         {/* Hero Section */}
         <section className="w-full bg-background py-16 md:py-20 lg:py-24">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">

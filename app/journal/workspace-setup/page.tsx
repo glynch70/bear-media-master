@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 import Footer from '@/components/footer'
-import { JournalImage, JournalImageGrid } from '@/components/JournalImage'
+import { JournalImage } from '@/components/JournalImage'
 import Navigation from '@/components/navigation'
 import { BreadcrumbSchema } from '@/components/structured-data'
 import { createMetadata, siteUrl } from '@/lib/seo'
@@ -84,35 +84,18 @@ export default function WorkspaceSetupJournalPage() {
           </p>
         </div>
 
-        <JournalImage
-          src={`${imageBase}/bear-media-content-creation-typing-keyboard-02.jpg`}
-          alt="Close desk view of content creation in progress with keyboard, monitor, notebook and studio microphone"
-          caption="A close working view for drafting, reviewing and refining content before it goes live."
-          objectPosition="center"
-        />
-
         <div className="mx-auto w-full max-w-[800px] space-y-7 text-lg leading-[1.8] text-foreground/76 md:text-xl md:leading-[1.8]">
           <p>
             Small details matter: a reliable keyboard, good audio input, visible notes and enough screen space to compare the draft with the final page. It is not about having the most complicated setup. It is about having a setup that supports repeatable creative work.
           </p>
         </div>
 
-        <JournalImageGrid>
-          <JournalImage
-            src={`${imageBase}/bear-media-workspace-keyboard-closeup-01.jpg`}
-            alt="Close-up of the Bear Media keyboard used for writing, editing and content planning"
-            className="m-0 h-full max-w-none"
-            caption="The keyboard close-up."
-            objectPosition="center"
-          />
-          <JournalImage
-            src={`${imageBase}/bear-media-workspace-desk-setup-night-02.jpg`}
-            alt="Alternative night view of the Bear Media workspace with monitors, microphone and desk tools"
-            className="m-0 h-full max-w-none"
-            caption="A second view of the desk setup."
-            objectPosition="center"
-          />
-        </JournalImageGrid>
+        <JournalImage
+          src={`${imageBase}/bear-media-workspace-keyboard-closeup-01.jpg`}
+          alt="Close-up of the Bear Media keyboard used for writing, editing and content planning"
+          caption="The keyboard used for writing, editing and content planning."
+          objectPosition="center"
+        />
 
         <div className="mx-auto w-full max-w-[800px] space-y-7 text-lg leading-[1.8] text-foreground/76 md:text-xl md:leading-[1.8]">
           <p>

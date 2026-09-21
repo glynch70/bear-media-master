@@ -200,7 +200,7 @@ export default function SocialMediaWestLothian() {
               <div>
                 <h3 className="text-xl font-bold mb-3">Proven Track Record</h3>
                 <p className="text-muted-foreground">
-                  I’ll agree the aims and measures with you before the work begins. You can also view <a href="/projects" className="text-primary hover:underline">selected Bear Media projects</a>.
+                  I’ll agree the aims and measures with you before the work begins. You can also view <a href="/projects" className="text-primary underline underline-offset-4">selected Bear Media projects</a>.
                 </p>
               </div>
               <div>

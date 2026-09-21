@@ -41,14 +41,14 @@ export function BlogCard({ article, priority = false }: { article: InsightArticl
         <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">{article.excerpt}</p>
 
         <div className="mt-auto pt-7">
-          <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs font-medium uppercase tracking-[0.1em] text-foreground/40">
+          <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs font-medium uppercase tracking-[0.1em] text-foreground/65">
             <time dateTime={article.publishedDate}>{published}</time>
             <span aria-hidden="true">/</span>
             <span>{article.readTime}</span>
           </div>
           <Link
             href={articleHref}
-            className="mt-5 inline-flex text-sm font-medium text-foreground transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
+            className="mt-5 inline-flex min-h-11 items-center text-sm font-medium text-foreground transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
             aria-label={`Read article: ${article.title}`}
           >
             Read Article →
