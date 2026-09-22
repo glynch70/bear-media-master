@@ -57,8 +57,9 @@ export default function RedesignProjectsPage() {
             >
               <div className={styles.projectIndexMedia}>
                 <Image
-                  src={project.heroImage}
-                  alt={project.title}
+                  src={project.cardImage?.src ?? project.heroImage}
+                  alt={project.cardImage?.alt ?? project.title}
+                  style={project.cardImage?.position ? { objectPosition: project.cardImage.position } : undefined}
                   fill
                   preload={index === 0}
                   loading={index === 0 ? undefined : 'lazy'}

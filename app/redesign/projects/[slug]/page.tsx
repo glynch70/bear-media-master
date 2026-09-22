@@ -175,6 +175,7 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
                     <Image
                       src={image.src}
                       alt={image.alt}
+                      style={image.position ? { objectPosition: image.position } : undefined}
                       fill
                       sizes="(max-width: 760px) 84vw, 42vw"
                       quality={85}

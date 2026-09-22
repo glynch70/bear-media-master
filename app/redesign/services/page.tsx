@@ -194,10 +194,11 @@ export default function RedesignServicesPage() {
             <figure>
               <div className={styles.serviceImagePortrait}>
                 <picture>
-                  <source media="(min-width: 1024px)" srcSet="/assets/uploads/new-work/pitcher-way-living-room.jpg" />
+                  <source media="(min-width: 1024px)" srcSet="/images/2026-refresh/property/45-west-windygoul-gardens-tranent-kitchen.webp" />
                   <Image
-                    src="/assets/uploads/new-work/pitcher-way-living-room.jpg"
-                    alt="Bright living room at Pitcher Way photographed by Bear Media"
+                    src="/images/2026-refresh/property/45-west-windygoul-gardens-tranent-kitchen.webp"
+                    alt="Cream kitchen with timber worktops at 45 West Windygoul Gardens, Tranent."
+                    style={{ objectPosition: '62% 50%' }}
                     fill
                     sizes="(max-width: 760px) 76vw, 29vw"
                     quality={85}

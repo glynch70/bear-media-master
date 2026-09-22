@@ -116,8 +116,8 @@ export default function RedesignPage() {
             </div>
             <div className={`${styles.mobileHeroFrame} ${styles.mobileHeroProperty}`}>
               <Image
-                src="/assets/hero/mobile-collage/02-kelpies-aerial.jpg"
-                alt="Exterior photography of a local residential property"
+                src="/images/2026-refresh/property/45-west-windygoul-gardens-tranent-front-exterior.webp"
+                alt="Front exterior of 45 West Windygoul Gardens, Tranent, with its entrance and garden."
                 fill
                 sizes="(max-width: 767px) 60vw, 1px"
                 quality={85}
@@ -189,10 +189,10 @@ export default function RedesignPage() {
           aria-labelledby="photography-title"
         >
           <picture>
-            <source media="(min-width: 1024px)" srcSet="/assets/uploads/new-work/pitcher-way-wide-cover.jpg" />
+            <source media="(min-width: 1024px)" srcSet="/images/2026-refresh/property/118-craigentinny-road-edinburgh-conservatory-garden.webp" />
             <Image
-              src="/assets/hero/mobile-collage/02-kelpies-aerial.jpg"
-              alt="8 Pitcher Way Haddington property photographed by Bear Media"
+              src="/images/2026-refresh/property/118-craigentinny-road-edinburgh-conservatory-garden.webp"
+              alt="Open doors leading through the conservatory to the garden at 118 Craigentinny Road, Edinburgh."
               fill
               sizes="(max-width: 1023px) 100vw, 33vw"
               quality={90}

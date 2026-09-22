@@ -74,7 +74,7 @@ export default function PropertyPhotographyWestLothian() {
               Discuss your property
             </Link>
           </div>
-          <DesktopServiceImage src="/assets/client-work/cg-developments/finished-kitchen-wide.jpg" alt="Finished kitchen photographed for C&G Developments" />
+          <DesktopServiceImage src="/images/2026-refresh/property/118-craigentinny-road-edinburgh-kitchen-conservatory.webp" alt="Kitchen opening into the conservatory and garden at 118 Craigentinny Road, Edinburgh." />
         </section>
 
         <section className="px-6 py-20 md:py-28">
