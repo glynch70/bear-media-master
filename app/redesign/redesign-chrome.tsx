@@ -32,8 +32,8 @@ export function RedesignFooter() {
   return (
     <footer className={styles.footer}>
       <span>Bear Media</span>
-      <span>West Lothian · Scotland</span>
-      <span>Photography · Video · Drone · Websites</span>
+      <span>Broxburn · Edinburgh &amp; the Lothians</span>
+      <span>Content days · Websites · Photography · Video</span>
       <Link href="/terms-and-conditions">Terms &amp; Conditions</Link>
       <div className={styles.desktopFooterLinks}>
         <nav aria-label="Explore Bear Media">
@@ -44,10 +44,11 @@ export function RedesignFooter() {
         </nav>
         <nav aria-label="Creative services">
           <strong>Creative services</strong>
+          <Link href="/content-creation-west-lothian">Content days</Link>
+          <Link href="/website-design-west-lothian">Website builds</Link>
           <Link href="/business-photography-west-lothian">Photography</Link>
           <Link href="/video-production-west-lothian">Video production</Link>
           <Link href="/drone-photography-west-lothian">Drone photography</Link>
-          <Link href="/website-design-west-lothian">Website design</Link>
           <Link href="/social-media-west-lothian">Social media</Link>
         </nav>
         <nav aria-label="Support and enquiries">

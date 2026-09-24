@@ -4,10 +4,11 @@ import type { Metadata } from 'next'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import { ServiceSchema } from '@/components/structured-data'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Website Design in Edinburgh | Bear Media',
-  description: 'Custom website design in Edinburgh for businesses that need a responsive, SEO-focused site to attract visitors and generate enquiries.',
+  description: 'Mobile-first website builds for Edinburgh businesses, designed around clear services, real proof and a straightforward route to enquire.',
   openGraph: {
     title: 'Website Design in Edinburgh | Bear Media',
     description: 'Responsive, SEO-focused website design for Edinburgh businesses.',
@@ -45,11 +46,20 @@ export default function WebsiteDesignEdinburgh() {
         <ServiceSchema name="Website Design in Edinburgh" description="Professional website design services for Edinburgh businesses" areaServed="Edinburgh" provider="Bear Media" />
         <section className="bg-gradient-to-b from-background to-muted py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">Professional Website Design for Edinburgh Businesses</h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8">Your website is your digital storefront. We create stunning, SEO-optimized websites for Edinburgh companies that drive results and represent your brand professionally.</p>
-            <a href="/contact" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">Start Your Project</a>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">Website builds for Edinburgh businesses</h1>
+            <p className="text-lg md:text-xl text-muted-foreground mb-8">I build mobile-first websites that explain what you do, show credible work and make it easy for customers to enquire. Based in Broxburn, I work with businesses across Edinburgh and the Lothians.</p>
+            <a href="/contact" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">Discuss your website</a>
           </div>
           <DesktopServiceImage src="/assets/websites/seamus-corry.webp" alt="Seamus Corry website designed by Bear Media" />
+        </section>
+        <section className="px-4 py-16 md:px-6 md:py-20" aria-labelledby="edinburgh-website-work-title">
+          <div className="mx-auto max-w-4xl">
+            <h2 id="edinburgh-website-work-title" className="mb-4 text-3xl font-bold">See websites I have built</h2>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <Link href="/projects/midlothian-wildflowers" className="rounded-xl border p-6 transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"><h3 className="mb-2 text-xl font-bold">Midlothian Wildflowers</h3><p className="text-muted-foreground">A local website with clear services, project imagery and a mobile-friendly layout.</p></Link>
+              <Link href="/projects/seamus-corry" className="rounded-xl border p-6 transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"><h3 className="mb-2 text-xl font-bold">Seamus Corry</h3><p className="text-muted-foreground">A personal-brand website designed to introduce the work and guide visitors to get in touch.</p></Link>
+            </div>
+          </div>
         </section>
         <section className="py-16 md:py-24 px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
@@ -90,7 +100,7 @@ export default function WebsiteDesignEdinburgh() {
             <div className="space-y-8">
               <div><h3 className="text-xl font-bold mb-3">Central Scotland Expertise</h3><p className="text-muted-foreground">We understand the Edinburgh market and competitive landscape for web design.</p></div>
               <div><h3 className="text-xl font-bold mb-3">Modern Technology Stack</h3><p className="text-muted-foreground">We build with the latest technologies, ensuring your site is fast, secure, and future-proof.</p></div>
-              <div><h3 className="text-xl font-bold mb-3">SEO Expertise</h3><p className="text-muted-foreground">Every website is optimized for search engines so your Edinburgh business ranks higher.</p></div>
+              <div><h3 className="text-xl font-bold mb-3">Search-ready foundations</h3><p className="text-muted-foreground">Clear structure, useful content and technical essentials give search engines a better understanding of your business. Rankings depend on many factors.</p></div>
               <div><h3 className="text-xl font-bold mb-3">Conversion Focused</h3><p className="text-muted-foreground">We build websites that convert visitors into customers, not just pretty portfolios.</p></div>
               <div><h3 className="text-xl font-bold mb-3">Ongoing Support</h3><p className="text-muted-foreground">We provide maintenance, updates, and support to keep your Edinburgh website secure and performing.</p></div>
             </div>

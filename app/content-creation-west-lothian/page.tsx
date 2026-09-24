@@ -4,10 +4,11 @@ import type { Metadata } from 'next'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import { ServiceSchema } from '@/components/structured-data'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Content Creation West Lothian | Bear Media',
-  description: 'Content creation in West Lothian covering photography, video and visual content for local businesses.',
+  title: 'Content Days & Content Creation West Lothian | Bear Media',
+  description: 'Planned content days in West Lothian: photography, short video and social assets captured around your real work. Based in Broxburn; serving Edinburgh and the Lothians.',
   openGraph: {
     title: 'Content Creation West Lothian | Bear Media',
     description: 'Photography, videography and content creation for West Lothian businesses.',
@@ -38,15 +39,32 @@ export default function ContentCreationWestLothian() {
 
         <section className="bg-gradient-to-b from-background to-muted py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">Content Creation West Lothian</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">Content days in West Lothian</h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8">
-              I create useful visual content for West Lothian businesses, including photography, video and drone content where it fits the brief.
+              One planned shoot can give your business useful photography, short video and social assets. I work from Broxburn across West Lothian, Edinburgh and the Lothians, shaping each content day around what you actually need to show.
             </p>
             <a href="/contact" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
-              Start Creating Content
+              Plan a content day
             </a>
           </div>
           <DesktopServiceImage src="/assets/services/photography-garry-setup.webp" alt="Garry setting up a Bear Media photography session" />
+        </section>
+
+        <section className="px-4 py-16 md:px-6 md:py-20" aria-labelledby="content-work-title">
+          <div className="mx-auto max-w-4xl">
+            <h2 id="content-work-title" className="mb-4 text-3xl font-bold">See content made for real businesses</h2>
+            <p className="mb-8 text-lg text-muted-foreground">A content day starts with the work your customers need to understand, then plans the images and clips to explain it.</p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <Link href="/projects/david-todd" className="rounded-xl border p-6 transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+                <h3 className="mb-2 text-xl font-bold">David Todd Sales &amp; Lettings</h3>
+                <p className="text-muted-foreground">Property photography, drone views and short-form content for listings and social media.</p>
+              </Link>
+              <Link href="/projects/cg-developments" className="rounded-xl border p-6 transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+                <h3 className="mb-2 text-xl font-bold">C&amp;G Developments</h3>
+                <p className="text-muted-foreground">Progress and finished-project photography, video and aerial content captured across multiple visits.</p>
+              </Link>
+            </div>
+          </div>
         </section>
 
         <section className="py-16 md:py-24 px-4 md:px-6">
@@ -119,7 +137,7 @@ export default function ContentCreationWestLothian() {
                 <span className="text-primary font-bold text-xl">✓</span>
                 <div>
                   <h3 className="font-bold mb-2">SEO Benefits</h3>
-                  <p className="text-muted-foreground">Optimized images and videos improve your search engine rankings.</p>
+                  <p className="text-muted-foreground">Descriptive images and useful video can make service pages more helpful and give search engines clearer context.</p>
                 </div>
               </li>
               <li className="flex gap-4">

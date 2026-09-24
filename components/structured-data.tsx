@@ -12,7 +12,7 @@ export function LocalBusinessSchema() {
     '@id': businessId,
     name: 'Bear Media',
     image: defaultOgImageUrl,
-    description: 'Professional photography, video, drone content, social media management and website design for businesses across West Lothian, Edinburgh and Scotland.',
+    description: 'Content days, mobile-first websites, photography and video for businesses across Edinburgh and the Lothians. Based in Broxburn, West Lothian.',
     url: siteUrl,
     telephone: '+447879011860',
     email: 'info@bear-media.com',
@@ -20,21 +20,16 @@ export function LocalBusinessSchema() {
       '@type': 'PostalAddress',
       addressLocality: 'Broxburn',
       addressRegion: 'West Lothian',
-      postalCode: 'EH52',
       addressCountry: 'GB',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 55.9464,
-      longitude: -3.5909,
     },
     priceRange: '£££',
     sameAs: socialProfiles,
     areaServed: [
       { '@type': 'Place', name: 'West Lothian' },
-      { '@type': 'Place', name: 'Livingston' },
       { '@type': 'Place', name: 'Edinburgh' },
-      { '@type': 'Place', name: 'Scotland' },
+      { '@type': 'Place', name: 'Midlothian' },
+      { '@type': 'Place', name: 'East Lothian' },
+      { '@type': 'Place', name: 'Fife' },
     ],
   }
 
@@ -77,7 +72,7 @@ export function OrganizationSchema() {
     url: siteUrl,
     logo: `${siteUrl}/assets/brand/logo.png`,
     description: 'Photography, video, drone content, social media management and web design for Scottish businesses.',
-    foundingDate: '2020',
+    foundingDate: '2024',
     founder: {
       '@type': 'Person',
       '@id': personId,
@@ -87,7 +82,6 @@ export function OrganizationSchema() {
       '@type': 'PostalAddress',
       addressLocality: 'Broxburn',
       addressRegion: 'West Lothian',
-      postalCode: 'EH52',
       addressCountry: 'GB',
     },
     contactPoint: {
@@ -120,14 +114,14 @@ export function ProfessionalServiceSchema() {
     image: defaultOgImageUrl,
     telephone: '+447879011860',
     email: 'info@bear-media.com',
-    description: 'Creative media, website design, photography, video, drone content, social media management and AI training for businesses in West Lothian, Edinburgh and Scotland.',
+    description: 'Content days, website builds, photography, video and social media for businesses in Edinburgh and the Lothians.',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Broxburn',
       addressRegion: 'West Lothian',
       addressCountry: 'GB',
     },
-    areaServed: ['West Lothian', 'Livingston', 'Edinburgh', 'Fife', 'Scotland'],
+    areaServed: ['West Lothian', 'Edinburgh', 'Midlothian', 'East Lothian', 'Fife'],
     founder: {
       '@type': 'Person',
       '@id': personId,

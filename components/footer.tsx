@@ -174,7 +174,7 @@ export default function Footer() {
               </a>
               <div className="flex items-start gap-3 text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-accent" />
-                <span>West Lothian, Scotland</span>
+                <span>Broxburn, West Lothian · Edinburgh &amp; the Lothians</span>
               </div>
             </div>
           </div>

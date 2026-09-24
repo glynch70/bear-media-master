@@ -1,4 +1,4 @@
-import { Clock, User, MapPin } from 'lucide-react'
+import { Clock, User, CalendarDays } from 'lucide-react'
 import { memo } from 'react'
 import Link from 'next/link'
 import styles from '@/app/redesign/redesign.module.css'
@@ -6,15 +6,15 @@ import styles from '@/app/redesign/redesign.module.css'
 const features = [
   {
     icon: Clock,
-    title: '20+ Years Experience',
+    title: '20+ Years Working With People',
   },
   {
     icon: User,
     title: 'One Point of Contact',
   },
   {
-    icon: MapPin,
-    title: 'Built in Scotland',
+    icon: CalendarDays,
+    title: 'Bear Media Founded 2024',
   },
 ]
 
@@ -24,7 +24,7 @@ function WhyBearMedia({ redesign = false }: { redesign?: boolean }) {
       <header className={styles.restoredHeading}>
         <p>Why Bear Media</p>
         <h2 id="why-title">Everything is created in-house.</h2>
-        <span>Photography, video, websites and social media designed to help Scottish businesses stand out online. Based in West Lothian, I work with businesses in Edinburgh and across Scotland.</span>
+        <span>Content days, websites, photography and video for local businesses. Based in Broxburn, I work across Edinburgh and the Lothians.</span>
       </header>
       <ul className={styles.reasonGrid}>
         {features.map((feature) => <li key={feature.title}><feature.icon aria-hidden="true" /><h3>{feature.title}</h3></li>)}

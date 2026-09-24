@@ -4,9 +4,9 @@ import RedesignServicesPage from '../redesign/services/page'
 
 export const metadata = {
   ...createMetadata({
-    title: 'Creative Services Scotland | Websites, Photography & Social Media',
+    title: 'Content Days, Website Builds & Creative Services | Bear Media',
     description:
-      'Explore Bear Media website design, photography, video, drone content, social media management and AI training services for Scottish businesses.',
+      'Content days and mobile-first website builds for Edinburgh and the Lothians, plus photography, video, drone and social media services.',
     path: '/services',
     imageAlt: 'Bear Media services for Scottish businesses',
   }),

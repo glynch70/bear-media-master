@@ -4,8 +4,8 @@ import RedesignPage from './redesign/page'
 
 export const metadata: Metadata = {
   ...createMetadata({
-    title: 'Bear Media | Photography, Video & Website Design in West Lothian',
-    description: 'Bear Media helps businesses in West Lothian, Edinburgh and across Scotland get noticed with professional photography, video, websites and social media content that brings in enquiries.',
+    title: 'Content Days & Website Design | Edinburgh & the Lothians | Bear Media',
+    description: 'Bear Media plans content days and builds mobile-first websites for businesses across Edinburgh and the Lothians. Based in Broxburn, West Lothian.',
     path: '/',
     imageAlt: 'Bear Media creative services for businesses in Scotland',
   }),
