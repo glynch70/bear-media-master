@@ -13,7 +13,7 @@ The August Business Profile email reported 138 profile views (down 32% versus Ju
 - Owner direction: lead with content days and website builds; use David Todd Sales & Lettings and C&G Developments as content proof; describe Broxburn as the base and Edinburgh and the Lothians as the primary service area. Fife remains secondary.
 - Website change: homepage and services positioning, prominent links to priority pages, local landing-page copy and project links, corrected 2024 founding year in structured data, and no residential street address or pinpoint coordinates in schema.
 - Google Business Profile: description and service-area edits were submitted for review, **not confirmed approved**. The editor had the street address hidden but a public search result still displayed the obsolete Edinburgh street address. Check public visibility again after approval; escalate to Google support if it persists. The profile opening date says January 2020; correct it only when the owner confirms the actual 2024 month.
-- Production deployment: **pending**. Record the date only after verifying the live release. A first attempt from an outdated checkout was rolled back immediately; it is not this intervention.
+- Production deployment: **24 September 2026**, via PR #8 on the current redesigned main branch. The new release was verified on `bear-media.com` after promotion. A first attempt from an outdated checkout was rolled back immediately and is not this intervention.
 
 The earlier homepage snippet test due for review on 27 September is interrupted if this release goes live. Do not attribute later homepage CTR changes to that snippet alone.
 
@@ -25,4 +25,4 @@ Working threshold: from the current zero service-page clicks, seek at least five
 
 | Deployment date | 28-day review | Evidence | Next decision |
 | --- | --- | --- | --- |
-| Pending | Pending | Pending | Pending |
+| 24 Sep 2026 | 22 Oct 2026 | Pending complete post-change data | Compare priority page/query clicks, impressions, CTR and enquiries; decide whether to hold, strengthen links or revise a specific page. |
