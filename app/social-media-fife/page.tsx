@@ -85,7 +85,7 @@ export default function SocialMediaFife() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-12">Why Choose Bear Media for Fife Social Media?</h2>
             <div className="space-y-8">
-              <div><h3 className="text-xl font-bold mb-3">Central Scotland Expertise</h3><p className="text-muted-foreground">Based in West Lothian, we understand the Fife market and Central Scotland landscape.</p></div>
+              <div><h3 className="text-xl font-bold mb-3">Central Scotland Coverage</h3><p className="text-muted-foreground">Based in Broxburn, we work with businesses across Fife and the Lothians.</p></div>
               <div><h3 className="text-xl font-bold mb-3">Proven Track Record</h3><p className="text-muted-foreground">Successfully managed social media for Fife businesses with measurable results.</p></div>
               <div><h3 className="text-xl font-bold mb-3">Creative Excellence</h3><p className="text-muted-foreground">Professional content created specifically for your Fife brand and audience.</p></div>
               <div><h3 className="text-xl font-bold mb-3">Results-Focused Approach</h3><p className="text-muted-foreground">Every campaign designed with measurable goals and transparent monthly reporting.</p></div>

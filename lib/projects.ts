@@ -1,3 +1,4 @@
+import { davidTodd, compareProjectPriority } from './david-todd'
 import { trustedClientLinks } from './trusted-client-links'
 
 export type ProjectStat = {
@@ -23,6 +24,15 @@ export type PerformanceReport = {
   description: string
 }
 
+export type ProjectVideo = {
+  src: string
+  poster: string
+  title: string
+  description: string
+  duration: string
+  uploadDate: string
+}
+
 export type Project = {
   id: number
   slug: string
@@ -31,15 +41,22 @@ export type Project = {
   category: string
   description: string
   intro: string
-  challenge: string
+  challenge?: string
   heroImage: string
   images: ProjectImage[]
   services: string[]
-  deliverables: ProjectDeliverable[]
-  stats: ProjectStat[]
+  deliverables?: ProjectDeliverable[]
+  stats?: ProjectStat[]
   results?: string[]
   websiteUrl?: string
   performanceReport?: PerformanceReport
+  featuredVideo?: ProjectVideo
+  relatedService?: {
+    href: string
+    label: string
+  }
+  seoTitle?: string
+  seoDescription?: string
   testimonial?: {
     quote: string
     author: string
@@ -48,7 +65,21 @@ export type Project = {
   }
 }
 
-export const projects: Project[] = [
+const projectData: Project[] = [
+  {
+    id: 10,
+    slug: davidTodd.slug,
+    title: davidTodd.title,
+    clientName: davidTodd.clientName,
+    category: 'Property photography · Video · Drone',
+    description: davidTodd.introduction,
+    intro: davidTodd.supporting,
+    heroImage: davidTodd.aerial.src,
+    images: davidTodd.properties,
+    services: davidTodd.services,
+    seoTitle: 'David Todd Property Marketing Case Study | Bear Media',
+    seoDescription: 'Explore Bear Media’s property photography, aerial imagery and marketing content for David Todd Sales & Lettings, with feedback from David Todd.',
+  },
   {
     id: 9,
     slug: 'midlothian-wildflowers',
@@ -117,15 +148,31 @@ export const projects: Project[] = [
   {
     id: 1,
     slug: 'cg-developments',
-    title: 'C&G Developments Case Study',
+    title: 'C&G Developments Video Case Study',
     clientName: 'C&G Developments',
     category: 'Photography · Video · Drone · Social · YouTube',
-    description: 'Turning construction progress into a high-performing organic content engine.',
+    description: 'Turning a six-month new-build story into a high-performing organic content engine.',
     intro:
-      'C&G Developments needed their online presence to match the quality, scale and craft of their property work across Scotland.',
+      'From February to August, Bear Media followed a C&G new build from active construction to finished family home—combining site footage, drone progress and completed interiors in one concise project film.',
     challenge:
       'The work was impressive in person, but their digital channels needed a stronger rhythm of professional content that could build trust, show progress and turn real projects into visibility.',
     heroImage: '/assets/project-gallery/cg-developments-drone-roof.webp',
+    featuredVideo: {
+      src: '/assets/project-gallery/cg-developments-new-build-timeline.mp4',
+      poster: '/assets/project-gallery/cg-developments-new-build-timeline-poster.jpg',
+      title: 'New Build Captured: February to August',
+      description:
+        'A 104-second construction timeline showing monthly progress, on-site work, aerial context and the finished home.',
+      duration: 'PT1M44S',
+      uploadDate: '2026-08-20',
+    },
+    relatedService: {
+      href: '/video-production-west-lothian',
+      label: 'Explore video production in West Lothian',
+    },
+    seoTitle: 'C&G Construction Video Case Study | Bear Media',
+    seoDescription:
+      'See how Bear Media turned six months of C&G construction progress into organic video content generating 143,595 views without paid advertising.',
     images: [
       { src: '/assets/project-gallery/cg-developments-drone-roof.webp', alt: 'Drone roof footage for C&G Developments' },
       { src: '/assets/project-gallery/cg-developments-drone-new-build.webp', alt: 'Aerial view of a C&G Developments new build project' },
@@ -536,6 +583,8 @@ export const projects: Project[] = [
     websiteUrl: 'https://www.almondvetcare.co.uk/',
   },
 ]
+
+export const projects = [...projectData].sort((a, b) => compareProjectPriority(a.slug, b.slug))
 
 export function getProject(slug: string) {
   return projects.find((p) => p.slug === slug)

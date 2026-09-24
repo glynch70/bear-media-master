@@ -146,7 +146,7 @@ export default function SocialMediaEdinburgh() {
             <div className="space-y-8">
               <div>
                 <h3 className="text-xl font-bold mb-3">Central Scotland Expertise</h3>
-                <p className="text-muted-foreground">Based in West Lothian, we understand the Edinburgh market and Central Scotland landscape. We know your competition and what works for Edinburgh businesses.</p>
+                <p className="text-muted-foreground">Based in nearby Broxburn, we plan content around your business, customers and the work you want people to see.</p>
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-3">Proven Track Record</h3>

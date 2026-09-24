@@ -42,7 +42,7 @@ export default function ProjectsPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="space-y-16 md:space-y-28">
             {projects.map((project, index) => (
-              <Link key={project.id} href={`/projects/${project.slug}`} className="block group">
+              <Link key={project.id} href={`/projects/${project.slug}`} className="block group rounded-3xl focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-accent">
                 <div
                   className={`flex flex-col gap-6 md:gap-12 items-center ${
                     index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
@@ -59,8 +59,9 @@ export default function ProjectsPage() {
                   </div>
 
                   <div className="w-full lg:w-2/5 space-y-6">
+                    {project.slug === 'david-todd' && <p className="inline-block rounded-full bg-accent/15 px-4 py-2 text-sm font-medium">Featured case study</p>}
                     <div>
-                      <p className="text-sm font-medium text-accent uppercase tracking-[0.15em]">{project.category}</p>
+                      <p className="text-sm font-medium text-foreground uppercase tracking-[0.15em]">{project.category}</p>
                       <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium leading-tight tracking-tight">
                         {project.clientName}
                       </h2>

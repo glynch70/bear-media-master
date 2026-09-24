@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { Carousel, CarouselItem } from '@/components/carousel'
-import { getTrustedClientAriaLabel, trustedClientLinks } from '@/lib/trusted-client-links'
+import { trustedClientLinks } from '@/lib/trusted-client-links'
 
 type Client = {
   name: string
@@ -14,7 +14,7 @@ type Client = {
 const clientsData: Client[] = [
   { name: 'Procoat Exterior Coatings', sector: 'Home Improvement', logo: '/07- CLIENT LOGOS/procoat.webp', href: 'https://procoatexteriorcoatings.com/' },
   { name: 'Plean Pharmacy', sector: 'Pharmacy', logo: '/07- CLIENT LOGOS/plean pharmacy.webp', href: 'https://www.pleanpharmacy.co.uk/' },
-  { name: 'C&G Developments', sector: 'Construction & Property', logo: '/07- CLIENT LOGOS/c&g.webp', href: trustedClientLinks.cgDevelopments },
+  { name: 'C&G Developments', sector: 'Construction & Property', logo: '/assets/logos/cg.webp', href: trustedClientLinks.cgDevelopments },
   { name: 'Sage House Therapy', sector: 'Therapy & Wellness', logo: '/07- CLIENT LOGOS/sage house.webp', href: 'https://sagehousetherapy.com/' },
   { name: 'Almond Vet Care', sector: 'Veterinary Healthcare', logo: '/07- CLIENT LOGOS/almond vet.webp', href: 'https://www.almondvetcare.co.uk/' },
   { name: 'M&M Compliance', sector: 'Training & Compliance', logo: '/07- CLIENT LOGOS/m&mcompliance.webp', href: 'https://mmcts.co.uk/' },
@@ -36,7 +36,6 @@ function ClientCard({ client }: { client: Client }) {
       target="_blank"
       rel="noopener noreferrer"
       className="group flex h-full min-h-[19rem] flex-col items-center justify-between rounded-2xl bg-background p-7 text-center shadow-sm ring-1 ring-border/15 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:ring-foreground/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent md:min-h-[21rem] md:rounded-3xl md:p-9"
-      aria-label={getTrustedClientAriaLabel(client.name)}
     >
       <div className="flex flex-1 items-center justify-center py-5">
         <div className="relative h-32 w-52 transition-transform duration-500 group-hover:scale-[1.03] md:h-40 md:w-64">

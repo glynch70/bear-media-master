@@ -1,219 +1,98 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
+import { ArrowRight, Check, MapPin } from 'lucide-react'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import { ServiceSchema } from '@/components/structured-data'
 
+const pageUrl = 'https://bear-media.com/content-creation-west-lothian'
+
 export const metadata: Metadata = {
-  title: 'Professional Content Creation in West Lothian | Bear Media',
-  description: 'Professional photography, video and content creation for West Lothian businesses, with high-quality visuals that tell your story and engage customers.',
+  title: 'Content Creation & Content Days West Lothian | Bear Media',
+  description: 'Plan a focused content day for your West Lothian business. Bear Media creates photography, video and drone assets from real projects for websites and social media.',
+  alternates: { canonical: pageUrl },
   openGraph: {
-    title: 'Professional Content Creation in West Lothian | Bear Media',
-    description: 'Professional photography, videography, and content creation services for West Lothian businesses.',
-    url: 'https://bear-media.com/content-creation-west-lothian',
+    title: 'Content Days in West Lothian | Bear Media',
+    description: 'One planned shoot for useful business photography, video and social content. See work for C&G Developments and David Todd.',
+    url: pageUrl,
     siteName: 'Bear Media',
-    images: [{ url: 'https://bear-media.com/assets/brand/og-image.jpg', width: 1200, height: 630, alt: 'Content Creation Services in West Lothian', type: 'image/jpeg' }],
+    images: [{ url: 'https://bear-media.com/assets/project-gallery/cg-developments-drone-roof.webp', width: 1200, height: 800, alt: 'C&G Developments project content by Bear Media' }],
     type: 'website',
     locale: 'en_GB',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Professional Content Creation in West Lothian | Bear Media',
-    description: 'Professional photography, videography, and content creation services',
-    images: ['https://bear-media.com/assets/brand/og-image.jpg'],
-    creator: '@bearmediascot',
-  },
-  alternates: {
-    canonical: 'https://bear-media.com/content-creation-west-lothian',
-  },
 }
+
+const steps = [
+  { title: 'Plan the day', detail: 'We agree the audience, the story, the locations and the shots your business actually needs.' },
+  { title: 'Capture real work', detail: 'Photography and short video are built around your team, projects and customers. Drone footage is included when it fits the brief and location.' },
+  { title: 'Put it to work', detail: 'You receive edited assets ready to use on your website, social channels and future campaigns, with deliverables agreed in advance.' },
+]
 
 export default function ContentCreationWestLothian() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex min-h-screen flex-col bg-background">
       <Navigation />
       <main className="flex-1">
-        <ServiceSchema name="Content Creation in West Lothian" description="Professional photography, videography, and content creation services" areaServed="West Lothian" provider="Bear Media" />
+        <ServiceSchema name="Content Days and Content Creation in West Lothian" description="Planned photography and video content days for businesses serving West Lothian" areaServed="West Lothian" provider="Bear Media" url={pageUrl} />
 
-        <section className="bg-gradient-to-b from-background to-muted py-16 md:py-24">
-          <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">Professional Content Creation in West Lothian</h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8">
-              High-quality visual content is essential for engaging your West Lothian audience. From professional photography and videography to drone services and graphic design, we create compelling content that tells your story.
-            </p>
-            <a href="/contact" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
-              Start Creating Content
-            </a>
-          </div>
-        </section>
-
-        <section className="py-16 md:py-24 px-4 md:px-6">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6">Why Professional Content Matters</h2>
-            <p className="text-lg text-muted-foreground mb-6">
-              Across West Lothian, businesses compete for attention. Professional content sets you apart. Whether you need stunning product photography, engaging videos for social media, or drone footage to showcase your property, quality content drives engagement and builds trust with your audience.
-            </p>
-          </div>
-        </section>
-
-        <section className="py-16 md:py-24 px-4 md:px-6 bg-muted">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-12">Our Content Creation Services</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-xl font-bold mb-3">Product Photography</h3>
-                <p className="text-muted-foreground">Professional photography that showcases your products in the best light. Perfect for e-commerce, catalogues, and social media.</p>
+        <section className="bg-secondary px-5 pb-16 pt-28 sm:px-6 md:pb-24 md:pt-36 lg:px-8">
+          <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <p className="inline-flex items-center gap-2 text-sm font-semibold text-accent"><MapPin className="size-4" aria-hidden="true" />Based in Broxburn · Serving West Lothian</p>
+              <h1 className="mt-5 max-w-3xl font-heading text-4xl font-medium leading-[1.05] tracking-tight text-balance sm:text-5xl lg:text-6xl">Content days for West Lothian businesses.</h1>
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">A focused day of photography and video gives you a useful bank of content for your website, social channels and sales materials. We plan the shots around what customers need to see, then capture the work that makes your business distinct.</p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link href="/contact" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-primary px-7 py-3 font-semibold text-primary-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">Plan a content day <ArrowRight className="size-4" aria-hidden="true" /></Link>
+                <Link href="#real-work" className="inline-flex min-h-12 items-center justify-center rounded-full border border-border bg-background px-7 py-3 font-semibold text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">See real work</Link>
               </div>
-              <div>
-                <h3 className="text-xl font-bold mb-3">Business Photography</h3>
-                <p className="text-muted-foreground">Corporate headshots, team photos, and workplace imagery that builds your professional brand.</p>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-3">Videography</h3>
-                <p className="text-muted-foreground">Professional video content from concept to final edit. Website videos, testimonials, social media content, and promotional videos.</p>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-3">Drone Photography & Video</h3>
-                <p className="text-muted-foreground">Aerial perspectives for properties, events, and landscapes. Unique visual content that captures attention.</p>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-3">Graphic Design</h3>
-                <p className="text-muted-foreground">Custom graphics, social media designs, infographics, and visual assets for all your marketing needs.</p>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-3">Social Media Content</h3>
-                <p className="text-muted-foreground">Professionally created content optimized for Instagram, Facebook, TikTok, and LinkedIn to keep your West Lothian audience engaged.</p>
-              </div>
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-muted">
+              <Image src="/assets/project-gallery/cg-developments-drone-roof.webp" alt="C&G Developments construction project captured by Bear Media" fill priority sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
             </div>
           </div>
         </section>
 
-        <section className="py-16 md:py-24 px-4 md:px-6">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-12">Benefits of Professional Content</h2>
-            <ul className="space-y-6">
-              <li className="flex gap-4">
-                <span className="text-primary font-bold text-xl">✓</span>
-                <div>
-                  <h3 className="font-bold mb-2">Higher Engagement</h3>
-                  <p className="text-muted-foreground">Visual content gets more likes, shares, and comments than text alone.</p>
-                </div>
-              </li>
-              <li className="flex gap-4">
-                <span className="text-primary font-bold text-xl">✓</span>
-                <div>
-                  <h3 className="font-bold mb-2">Better Conversions</h3>
-                  <p className="text-muted-foreground">Quality images and videos help turn interested viewers into paying customers.</p>
-                </div>
-              </li>
-              <li className="flex gap-4">
-                <span className="text-primary font-bold text-xl">✓</span>
-                <div>
-                  <h3 className="font-bold mb-2">Brand Building</h3>
-                  <p className="text-muted-foreground">Consistent, professional imagery strengthens your brand identity in West Lothian.</p>
-                </div>
-              </li>
-              <li className="flex gap-4">
-                <span className="text-primary font-bold text-xl">✓</span>
-                <div>
-                  <h3 className="font-bold mb-2">SEO Benefits</h3>
-                  <p className="text-muted-foreground">Optimized images and videos improve your search engine rankings.</p>
-                </div>
-              </li>
-              <li className="flex gap-4">
-                <span className="text-primary font-bold text-xl">✓</span>
-                <div>
-                  <h3 className="font-bold mb-2">Time Savings</h3>
-                  <p className="text-muted-foreground">Let us handle the creative work while you focus on running your business.</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <section className="py-16 md:py-24 px-4 md:px-6 bg-muted">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-12">Why Choose Bear Media for Content Creation?</h2>
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-xl font-bold mb-3">Professional Equipment</h3>
-                <p className="text-muted-foreground">State-of-the-art cameras, drones, lighting, and editing equipment ensure professional-quality results.</p>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-3">Creative Expertise</h3>
-                <p className="text-muted-foreground">Our creative team brings years of experience creating content that works. Every photo and video is crafted with your goals in mind.</p>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-3">Local Knowledge</h3>
-                <p className="text-muted-foreground">We know West Lothian and what resonates with local audiences. We'll capture your business in the best possible light.</p>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-3">Fast Turnaround</h3>
-                <p className="text-muted-foreground">We understand you need content quickly. Quick turnarounds without sacrificing quality.</p>
-              </div>
+        <section id="real-work" className="scroll-mt-24 px-5 py-16 sm:px-6 md:py-24 lg:px-8">
+          <div className="mx-auto max-w-7xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">Proof in the work</p>
+            <h2 className="mt-3 font-heading text-3xl font-medium text-balance sm:text-4xl">Two clients. Two practical content needs.</h2>
+            <div className="mt-10 grid gap-8 md:grid-cols-2">
+              <article className="overflow-hidden rounded-3xl border border-border bg-background">
+                <div className="relative aspect-[4/3] overflow-hidden bg-muted"><Image src="/assets/projects/david-todd/drone/david-todd-118-craigentinny-road-drone-01.webp" alt="Aerial property image for David Todd Sales & Lettings in Edinburgh" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" /></div>
+                <div className="p-6 sm:p-8"><p className="text-sm font-semibold text-accent">Property marketing · Edinburgh & East Lothian</p><h3 className="mt-2 font-heading text-2xl font-medium">David Todd Sales & Lettings</h3><p className="mt-3 leading-relaxed text-muted-foreground">Property photography, video and aerial imagery show rooms, details and the wider setting. The work gives an estate agency assets for listings and marketing.</p><Link href="/projects/david-todd" className="mt-6 inline-flex min-h-11 items-center gap-2 font-semibold underline decoration-accent underline-offset-4 focus-visible:outline-2">View the David Todd project <ArrowRight className="size-4" aria-hidden="true" /></Link></div>
+              </article>
+              <article className="overflow-hidden rounded-3xl border border-border bg-background">
+                <div className="relative aspect-[4/3] overflow-hidden bg-muted"><Image src="/assets/project-gallery/cg-developments-new-build.webp" alt="C&G Developments new-build project photographed by Bear Media" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" /></div>
+                <div className="p-6 sm:p-8"><p className="text-sm font-semibold text-accent">Construction content · Scotland</p><h3 className="mt-2 font-heading text-2xl font-medium">C&G Developments</h3><p className="mt-3 leading-relaxed text-muted-foreground">Visits across six months turned construction progress, drone views and the finished home into a project film and ongoing social content. This was a longer engagement, not a single shoot.</p><Link href="/projects/cg-developments" className="mt-6 inline-flex min-h-11 items-center gap-2 font-semibold underline decoration-accent underline-offset-4 focus-visible:outline-2">View the C&G project <ArrowRight className="size-4" aria-hidden="true" /></Link></div>
+              </article>
             </div>
           </div>
         </section>
 
-        <section className="py-16 md:py-24 px-4 md:px-6">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-12">Content Creation FAQs</h2>
-            <div className="space-y-8">
-              <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">What types of content do you create?</summary>
-                <p className="text-muted-foreground">We create photography, videography, drone content, graphic design, social media content, and more. We're a full-service creative agency.</p>
-              </details>
-              <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">How much does professional photography cost?</summary>
-                <p className="text-muted-foreground">Pricing depends on the scope of work. A few hours of photography might be one price, while a full day or video production would be different. We offer flexible packages to fit various budgets.</p>
-              </details>
-              <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">Can you do drone photography in West Lothian?</summary>
-                <p className="text-muted-foreground">Yes! We're fully licensed and insured for drone operations. We can capture aerial footage for properties, events, landscapes, and more.</p>
-              </details>
-              <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">Do you include editing and retouching?</summary>
-                <p className="text-muted-foreground">Absolutely. Professional editing is included with all our photography and video services. We ensure every image and video looks its absolute best.</p>
-              </details>
-              <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">How quickly can you turn around content?</summary>
-                <p className="text-muted-foreground">Depends on the project scope. Simple photography might be ready in a few days, while more complex video projects take longer. We'll discuss timeline expectations upfront.</p>
-              </details>
-              <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">Can I use the content on all platforms?</summary>
-                <p className="text-muted-foreground">Yes! All content we create is yours to use across your website, social media, marketing materials, and beyond.</p>
-              </details>
+        <section className="bg-secondary px-5 py-16 sm:px-6 md:py-24 lg:px-8">
+          <div className="mx-auto max-w-7xl">
+            <h2 className="font-heading text-3xl font-medium text-balance sm:text-4xl">What a content day can include</h2>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {['Business and team photography', 'Project or property imagery', 'Short video and interviews', 'Social and website assets'].map((item) => (
+                <div key={item} className="flex items-start gap-3 rounded-2xl bg-background p-5"><Check className="mt-0.5 size-5 shrink-0 text-accent" aria-hidden="true" /><span className="font-medium">{item}</span></div>
+              ))}
+            </div>
+            <p className="mt-6 max-w-3xl text-muted-foreground">Every brief is scoped individually. The shot list, locations, final formats and delivery schedule are agreed before filming or photography begins.</p>
+          </div>
+        </section>
+
+        <section className="px-5 py-16 sm:px-6 md:py-24 lg:px-8">
+          <div className="mx-auto max-w-7xl">
+            <h2 className="font-heading text-3xl font-medium sm:text-4xl">A straightforward process</h2>
+            <div className="mt-9 grid gap-6 md:grid-cols-3">
+              {steps.map((step, index) => <div key={step.title} className="rounded-3xl border border-border p-6"><p className="text-sm font-semibold text-accent">0{index + 1}</p><h3 className="mt-3 font-heading text-2xl font-medium">{step.title}</h3><p className="mt-3 leading-relaxed text-muted-foreground">{step.detail}</p></div>)}
             </div>
           </div>
         </section>
 
-        <section className="py-16 md:py-24 px-4 md:px-6 bg-primary text-primary-foreground">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready for Professional Content?</h2>
-            <p className="text-lg mb-8 opacity-90">Let's create compelling visual content that showcases your West Lothian business.</p>
-            <a href="/contact" className="inline-block bg-background text-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
-              Schedule a Shoot
-            </a>
-          </div>
-        </section>
-
-        <section className="py-16 md:py-24 px-4 md:px-6">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold mb-8">Related Services in West Lothian</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <a href="/social-media-west-lothian" className="p-6 border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-bold mb-2">Social Media Management</h3>
-                <p className="text-sm text-muted-foreground">We create and share your content across all platforms</p>
-              </a>
-              <a href="/website-design-west-lothian" className="p-6 border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-bold mb-2">Website Design</h3>
-                <p className="text-sm text-muted-foreground">Professional websites to showcase your content</p>
-              </a>
-              <a href="/services" className="p-6 border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-bold mb-2">All Services</h3>
-                <p className="text-sm text-muted-foreground">View complete service menu</p>
-              </a>
-            </div>
-          </div>
+        <section className="bg-primary px-5 py-16 text-primary-foreground sm:px-6 md:py-24">
+          <div className="mx-auto max-w-3xl text-center"><h2 className="font-heading text-3xl font-medium text-balance sm:text-4xl">Tell me what your business needs to show.</h2><p className="mt-5 text-lg opacity-85">We can plan a content day around a launch, a project, a property or an overdue refresh of your website imagery.</p><Link href="/contact" className="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-background px-8 py-3 font-semibold text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">Discuss a content day</Link></div>
         </section>
       </main>
       <Footer />

@@ -32,7 +32,7 @@ const reasons: { icon: LucideIcon; title: string; description: string }[] = [
   {
     icon: Lightbulb,
     title: 'Practical Advice',
-    description: 'Straightforward guidance grounded in 20+ years of real-world experience.',
+    description: 'Straightforward guidance grounded in 20+ years working with people and businesses.',
   },
   {
     icon: HeartHandshake,

@@ -4,10 +4,10 @@ import Footer from '@/components/footer'
 import { ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Drone Photography & Videography in West Lothian | Bear Media',
+  title: 'Drone Photography West Lothian | Bear Media',
   description: 'Licensed and insured drone photography and video for West Lothian properties, events and marketing across Livingston, Broxburn and Linlithgow.',
   openGraph: {
-    title: 'Drone Photography & Videography in West Lothian | Bear Media',
+    title: 'Drone Photography West Lothian | Bear Media',
     description: 'Professional drone services for West Lothian. Aerial photography and videography for properties, events, and marketing.',
     url: 'https://bear-media.com/drone-photography-west-lothian',
     siteName: 'Bear Media',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Drone Photography & Videography in West Lothian | Bear Media',
+    title: 'Drone Photography West Lothian | Bear Media',
     description: 'Professional drone services for West Lothian properties, events, and marketing',
     images: ['https://bear-media.com/assets/brand/og-image.jpg'],
     creator: '@bearmediascot',
@@ -207,17 +207,17 @@ export default function DronePhotographyWestLothian() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold mb-8">Related Services in West Lothian</h2>
             <div className="grid md:grid-cols-3 gap-6">
-              <a href="/content-creation-west-lothian" className="p-6 border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-bold mb-2">Content Creation</h3>
-                <p className="text-sm text-muted-foreground">Professional photography and videography services</p>
+              <a href="/property-photography-west-lothian" className="p-6 border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-bold mb-2">Property Photography</h3>
+                <p className="text-sm text-muted-foreground">Ground-level and aerial imagery for property marketing</p>
               </a>
               <a href="/social-media-west-lothian" className="p-6 border rounded-lg hover:border-primary transition-colors">
                 <h3 className="font-bold mb-2">Social Media Management</h3>
                 <p className="text-sm text-muted-foreground">Share your drone footage across social platforms</p>
               </a>
-              <a href="/services" className="p-6 border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-bold mb-2">All Services</h3>
-                <p className="text-sm text-muted-foreground">View complete service menu</p>
+              <a href="/projects/cg-developments" className="p-6 border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-bold mb-2">Construction Case Study</h3>
+                <p className="text-sm text-muted-foreground">See drone and video work for C&amp;G Developments</p>
               </a>
             </div>
           </div>

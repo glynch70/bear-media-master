@@ -144,8 +144,8 @@ export default function ContactPage() {
     {
       icon: MapPin,
       label: 'Location',
-      value: 'West Lothian, Scotland',
-      href: '#',
+      value: 'Broxburn, West Lothian · serving Edinburgh and the Lothians',
+      href: '#contact-form',
     },
   ]
 
@@ -187,7 +187,7 @@ export default function ContactPage() {
         </section>
 
         {/* Contact Options */}
-        <section className="w-full bg-background pt-8 md:pt-10 pb-12 md:pb-16">
+        <section id="contact-form" className="w-full bg-background pt-8 md:pt-10 pb-12 md:pb-16">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <h2 className="font-heading text-3xl md:text-4xl font-medium text-foreground mb-8">
               Get In Touch

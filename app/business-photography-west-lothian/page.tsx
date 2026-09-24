@@ -215,9 +215,9 @@ export default function BusinessPhotographyWestLothian() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold mb-8">Related Services in West Lothian</h2>
             <div className="grid md:grid-cols-3 gap-6">
-              <a href="/content-creation-west-lothian" className="p-6 border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-bold mb-2">Content Creation</h3>
-                <p className="text-sm text-muted-foreground">Professional photography and videography services</p>
+              <a href="/property-photography-west-lothian" className="p-6 border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-bold mb-2">Property Photography</h3>
+                <p className="text-sm text-muted-foreground">Photography, video and aerial content for listings</p>
               </a>
               <a href="/website-design-west-lothian" className="p-6 border rounded-lg hover:border-primary transition-colors">
                 <h3 className="font-bold mb-2">Website Design</h3>

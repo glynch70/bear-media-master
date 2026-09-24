@@ -161,10 +161,10 @@ export default function WebsiteDesignWestLothian() {
             <div>
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium text-foreground shadow-sm">
                 <MapPin className="size-4 text-accent" aria-hidden="true" />
-                Based in West Lothian
+                Serving West Lothian
               </div>
               <h1 className="max-w-3xl font-heading text-5xl font-medium leading-[0.98] tracking-tight text-balance sm:text-6xl lg:text-7xl">
-                Websites that make your business easier to trust.
+                Website design for West Lothian businesses that builds trust.
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
                 Custom website design for businesses in Livingston, Broxburn, Linlithgow and across West Lothian—built to explain your value clearly and turn interest into action.

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import { ServiceSchema } from '@/components/structured-data'
@@ -44,8 +45,26 @@ export default function WebsiteDesignEdinburgh() {
         <section className="bg-gradient-to-b from-background to-muted py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">Professional Website Design for Edinburgh Businesses</h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8">Your website is your digital storefront. We create stunning, SEO-optimized websites for Edinburgh companies that drive results and represent your brand professionally.</p>
+            <p className="text-lg md:text-xl text-muted-foreground mb-8">Bear Media builds mobile-first websites that explain your offer clearly, show your real work and make it easy for customers to enquire. Photography and video can be created alongside the build.</p>
             <a href="/contact" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">Start Your Project</a>
+          </div>
+        </section>
+        <section className="px-4 py-16 md:px-6 md:py-24">
+          <div className="mx-auto max-w-4xl">
+            <h2 className="text-3xl font-bold text-balance">Website builds you can explore</h2>
+            <p className="mt-4 max-w-2xl text-lg text-muted-foreground">See the structure, imagery and mobile experience in completed Bear Media projects.</p>
+            <div className="mt-8 grid gap-5 sm:grid-cols-2">
+              <Link href="/projects/midlothian-wildflowers" className="flex min-h-40 flex-col justify-between rounded-2xl border border-border p-6 hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-2">
+                <span className="text-sm font-semibold text-accent">Community website</span>
+                <span className="text-xl font-semibold">Midlothian Wildflowers <span aria-hidden="true">↗</span></span>
+                <span className="text-muted-foreground">A clear online home for local conservation and volunteering.</span>
+              </Link>
+              <Link href="/projects/seamus-corry" className="flex min-h-40 flex-col justify-between rounded-2xl border border-border p-6 hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-2">
+                <span className="text-sm font-semibold text-accent">Personal brand website</span>
+                <span className="text-xl font-semibold">Seamus Corry <span aria-hidden="true">↗</span></span>
+                <span className="text-muted-foreground">A sharper presentation of training services and expertise.</span>
+              </Link>
+            </div>
           </div>
         </section>
         <section className="py-16 md:py-24 px-4 md:px-6">

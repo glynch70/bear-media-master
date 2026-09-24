@@ -14,8 +14,8 @@ const WhyBearMedia = dynamic(() => import('@/components/home/why-bear-media'))
 
 export const metadata: Metadata = {
   ...createMetadata({
-    title: 'Bear Media | Website Design, Photography & Social Media in Scotland',
-    description: 'Creative media studio in West Lothian helping businesses across Scotland with websites, photography, video, drone content, social media and AI training.',
+    title: 'Content Days & Website Design | Edinburgh & the Lothians | Bear Media',
+    description: 'Content days and mobile-first website builds for businesses across Edinburgh and the Lothians. Explore real work for David Todd and C&G Developments.',
     path: '/',
     imageAlt: 'Bear Media creative services for businesses in Scotland',
   }),

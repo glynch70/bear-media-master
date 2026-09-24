@@ -1,18 +1,18 @@
-import { Clock, User, MapPin } from 'lucide-react'
+import { Clock, User, CalendarDays } from 'lucide-react'
 import { memo } from 'react'
 
 const features = [
   {
     icon: Clock,
-    title: '20+ Years Experience',
+    title: '20+ Years Working With People',
+  },
+  {
+    icon: CalendarDays,
+    title: 'Bear Media Founded 2024',
   },
   {
     icon: User,
     title: 'One Point of Contact',
-  },
-  {
-    icon: MapPin,
-    title: 'Built in Scotland',
   },
 ]
 

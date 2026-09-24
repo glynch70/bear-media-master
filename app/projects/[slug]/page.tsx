@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import DavidToddCaseStudy from '@/components/projects/david-todd-case-study'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowUpRight, Check } from 'lucide-react'
@@ -19,10 +20,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const project = getProject(slug)
   if (!project) return {}
   return createMetadata({
-    title: `${project.clientName} Case Study | Bear Media Scotland`,
-    description: `${project.description} See the creative work and results for ${project.clientName}.`,
+    title: project.seoTitle ?? `${project.clientName} Case Study | Bear Media Scotland`,
+    description: project.seoDescription ?? `${project.description} See the creative work and results for ${project.clientName}.`,
     path: `/projects/${project.slug}`,
-    image: project.heroImage,
+    image: project.featuredVideo?.poster ?? project.heroImage,
     imageAlt: `${project.clientName} case study by Bear Media`,
   })
 }
@@ -41,8 +42,28 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         { name: 'Projects', url: `${siteUrl}/projects` },
         { name: project.clientName, url: `${siteUrl}/projects/${project.slug}` },
       ]} />
+      {project.featuredVideo && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'VideoObject',
+              name: project.featuredVideo.title,
+              description: project.featuredVideo.description,
+              thumbnailUrl: `${siteUrl}${project.featuredVideo.poster}`,
+              uploadDate: project.featuredVideo.uploadDate,
+              duration: project.featuredVideo.duration,
+              contentUrl: `${siteUrl}${project.featuredVideo.src}`,
+              inLanguage: 'en-GB',
+            }),
+          }}
+          suppressHydrationWarning
+        />
+      )}
       <Navigation />
 
+      {slug === 'david-todd' ? <DavidToddCaseStudy /> : <>
       <section className="relative flex min-h-[82svh] w-full items-end overflow-hidden bg-black">
         <Image
           src={project.heroImage}
@@ -112,11 +133,61 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
+      {project.featuredVideo && (
+        <section className="w-full bg-background py-10 md:py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-4xl">
+              <p className="text-sm font-medium uppercase tracking-[0.16em] text-accent">Featured project film</p>
+              <h2 className="mt-3 font-heading text-3xl font-medium leading-tight tracking-tight text-balance sm:text-4xl md:text-5xl">
+                {project.featuredVideo.title}
+              </h2>
+              <p
+                id={`featured-video-description-${project.slug}`}
+                className="mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg"
+              >
+                {project.featuredVideo.description}
+              </p>
+            </div>
+
+            <div className="mx-auto mt-7 max-w-5xl overflow-hidden rounded-2xl border border-border/60 bg-black shadow-2xl shadow-black/10 sm:rounded-3xl">
+              <video
+                controls
+                playsInline
+                preload="metadata"
+                poster={project.featuredVideo.poster}
+                aria-label={project.featuredVideo.title}
+                aria-describedby={`featured-video-description-${project.slug}`}
+                className="aspect-[1638/1080] w-full bg-black object-contain"
+              >
+                <source src={project.featuredVideo.src} type="video/mp4" />
+                Your browser does not support embedded video.{' '}
+                <a href={project.featuredVideo.src}>Open the project film</a>.
+              </video>
+            </div>
+
+            <div className="mx-auto mt-6 flex max-w-5xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                Filmed across the build and edited for web, YouTube and social media.
+              </p>
+              {project.relatedService && (
+                <Link
+                  href={project.relatedService.href}
+                  className="inline-flex w-fit items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-accent"
+                >
+                  {project.relatedService.label}
+                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="w-full bg-background py-8 md:py-14">
         <ProjectImageGallery title={project.clientName} heroImage={project.heroImage} images={project.images} />
       </section>
 
-      <section className="w-full bg-background py-16 md:py-24">
+      {project.challenge && <section className="w-full bg-background py-16 md:py-24">
         <div className="max-w-7xl mx-auto grid grid-cols-1 gap-12 px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 lg:px-8">
           <div>
             <p className="text-sm font-medium uppercase tracking-[0.16em] text-accent">The Challenge</p>
@@ -130,7 +201,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      <section className="w-full bg-secondary py-16 md:py-24">
+      }
+
+      {!!project.deliverables?.length && <section className="w-full bg-secondary py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-medium uppercase tracking-[0.16em] text-accent">What Bear Media Delivered</p>
@@ -140,7 +213,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </div>
 
           <div className="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-3xl bg-border/70 md:grid-cols-2 lg:grid-cols-3">
-            {project.deliverables.map((deliverable) => (
+            {project.deliverables?.map((deliverable) => (
               <article key={deliverable.title} className="bg-secondary p-7 md:p-8">
                 <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-accent text-accent-foreground">
                   <Check className="h-5 w-5" aria-hidden="true" />
@@ -155,7 +228,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      <section className="w-full bg-background py-16 md:py-24">
+      }
+
+      {!!(project.stats?.length || project.results?.length) && <section className="w-full bg-background py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
@@ -167,7 +242,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </div>
 
           <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {project.stats.map((stat) => (
+            {project.stats?.map((stat) => (
               <div key={`${stat.label}-${stat.value}`} className="rounded-3xl border border-border/60 bg-background p-6 md:p-7">
                 <p className="text-sm text-muted-foreground">{stat.label}</p>
                 <p className="mt-3 font-heading text-4xl font-medium tracking-tight md:text-5xl">{stat.value}</p>
@@ -187,6 +262,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           )}
         </div>
       </section>
+
+      }
 
       {project.performanceReport && (
         <section className="w-full bg-background py-8 md:py-14">
@@ -224,12 +301,14 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </section>
       )}
 
+      </>}
+
       {relatedProjects.length > 0 && (
         <section className="w-full bg-secondary py-16 md:py-24">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="mb-10 flex items-end justify-between gap-6">
               <div>
-                <p className="text-sm font-medium uppercase tracking-[0.16em] text-accent">Related Projects</p>
+                <p className="text-sm font-medium uppercase tracking-[0.16em] text-foreground">Related Projects</p>
                 <h2 className="mt-3 font-heading text-3xl font-medium tracking-tight md:text-5xl">
                   More proof-led creative
                 </h2>
@@ -268,7 +347,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </section>
       )}
 
-      <section className="w-full bg-background py-20 md:py-28">
+      {slug !== 'david-todd' && <section className="w-full bg-background py-20 md:py-28">
         <div className="max-w-3xl mx-auto px-6 text-center lg:px-8">
           <h2 className="font-heading text-4xl font-medium leading-tight tracking-tight text-balance md:text-6xl">
             Like what you see? Let&apos;s create something similar.
@@ -287,6 +366,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
+      }
       <Footer />
     </main>
   )

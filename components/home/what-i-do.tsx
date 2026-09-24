@@ -14,34 +14,34 @@ interface Service {
 export default function WhatIDo() {
   const services: Service[] = [
     {
-      title: 'Social Media Management',
-      description: 'Content planning, posting, strategy and ongoing management for growth.',
-      href: '/services#social-media',
-      icon: <Smartphone className="w-5 h-5" />,
+      title: 'Content Days',
+      description: 'A planned shoot that gives your business useful photography, video and social content from real work.',
+      href: '/content-creation-west-lothian',
+      icon: <Camera className="w-5 h-5" />,
     },
     {
-      title: 'Content Creation',
-      description: 'Photography, video and drone content that helps businesses stand out online.',
-      href: '/services#content-creation',
-      icon: <Camera className="w-5 h-5" />,
+      title: 'Website Builds',
+      description: 'Mobile-first websites with clear content, real project imagery and a route to enquiry.',
+      href: '/website-design-west-lothian',
+      icon: <Globe className="w-5 h-5" />,
+    },
+    {
+      title: 'Social Media Management',
+      description: 'Content planning, posting, strategy and ongoing management for growth.',
+      href: '/social-media-west-lothian',
+      icon: <Smartphone className="w-5 h-5" />,
     },
     {
       title: 'Photography',
       description: 'Professional photography for businesses, brands and teams.',
-      href: '/services#photography',
+      href: '/business-photography-west-lothian',
       icon: <Camera className="w-5 h-5" />,
     },
     {
       title: 'Drone Photography',
       description: 'Aerial photography and video to showcase your property, site or event.',
-      href: '/services#drone',
+      href: '/drone-photography-west-lothian',
       icon: <Film className="w-5 h-5" />,
-    },
-    {
-      title: 'Website Design',
-      description: 'Modern websites that showcase your business and generate enquiries.',
-      href: '/services#website-design',
-      icon: <Globe className="w-5 h-5" />,
     },
   ]
 
@@ -49,7 +49,7 @@ export default function WhatIDo() {
     <section className="w-full bg-background py-20 md:py-24 lg:py-32">
       <Carousel
         title="What I do."
-        subtitle="Helping businesses improve their online presence and grow."
+        subtitle="Starting with content days and website builds for businesses across Edinburgh and the Lothians."
         mobileHint="Swipe to view all services"
       >
         {services.map((service) => (

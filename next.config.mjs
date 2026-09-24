@@ -75,12 +75,6 @@ const nextConfig = {
         destination: '/projects',
         permanent: true,
       },
-      {
-        source: '/content-creation-edinburgh',
-        destination: '/projects',
-        permanent: true,
-      },
-
       // Location-based service URLs -> /contact
       {
         source: '/broxburn-video-production-services',

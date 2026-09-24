@@ -4,10 +4,10 @@ import Footer from '@/components/footer'
 import { ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Social Media Management Services in West Lothian | Bear Media',
+  title: 'Social Media Management West Lothian | Bear Media',
   description: 'Social media management for West Lothian businesses, with strategy, content creation and engagement to grow an audience and strengthen your brand.',
   openGraph: {
-    title: 'Social Media Management Services in West Lothian | Bear Media',
+    title: 'Social Media Management West Lothian | Bear Media',
     description: 'Professional social media management for West Lothian businesses. Grow your audience, increase engagement, and build your brand with Bear Media\'s proven social media strategies.',
     url: 'https://bear-media.com/social-media-west-lothian',
     siteName: 'Bear Media',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Social Media Management Services in West Lothian | Bear Media',
+    title: 'Social Media Management West Lothian | Bear Media',
     description: 'Professional social media management for West Lothian businesses. Grow your audience and increase engagement.',
     images: ['https://bear-media.com/assets/brand/og-image.jpg'],
     creator: '@bearmediascot',
@@ -191,7 +191,7 @@ export default function SocialMediaWestLothian() {
               <div>
                 <h3 className="text-xl font-bold mb-3">Local Expertise</h3>
                 <p className="text-muted-foreground">
-                  Based in West Lothian, we understand the local market. We know your community, from Livingston's thriving business hub to the close-knit communities of Linlithgow and beyond. This local knowledge translates into better strategy and more authentic engagement.
+                  Based in Broxburn, we work with businesses in Livingston, Linlithgow and the surrounding communities. We plan content around your actual customers, projects and goals.
                 </p>
               </div>
               <div>

@@ -1,9 +1,10 @@
 'use client'
 
 import Link from 'next/link'
+import DavidToddFeature from './david-todd-feature'
+import { compareProjectPriority } from '@/lib/david-todd'
 import { Carousel, CarouselItem } from '@/components/carousel'
 import { ProjectImageCarousel } from '@/components/project-image-carousel'
-import { getTrustedClientAriaLabel } from '@/lib/trusted-client-links'
 
 const featuredProjects = [
   {
@@ -231,22 +232,26 @@ const featuredProjects = [
   },
 ]
 
+const remainingProjects = featuredProjects
+  .filter(project => project.id !== 'david-todd')
+  .sort((a, b) => compareProjectPriority(a.id, b.id))
+
 export default function FeaturedProjects() {
   return (
     <section className="w-full overflow-hidden bg-background py-16 md:py-24 lg:py-28">
+      <DavidToddFeature />
       <Carousel
-        title="Recent Work"
+        title="More recent work"
         subtitle="A showcase of real client work."
         showControls
       >
-        {featuredProjects.map((project, index) => (
+        {remainingProjects.map((project, index) => (
           <CarouselItem
             key={project.id}
             widthClassName="w-[calc(100vw-3rem)] sm:w-80 md:w-[24rem] lg:w-[26rem] flex-shrink-0 pt-2 pb-8"
           >
             <Link
               href={project.href}
-              aria-label={getTrustedClientAriaLabel(project.title)}
               className="group flex h-full flex-col transition-all duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-background"
             >
               <ProjectImageCarousel images={project.images} title={project.title} eager={index < 2} />

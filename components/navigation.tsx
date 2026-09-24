@@ -16,7 +16,9 @@ const links = [
 const services = ['Photography', 'Video', 'Drone', 'Websites', 'Social Media']
 
 const serviceMenuItems = [
-  { href: '/services#website-design', label: 'Website Design' },
+  { href: '/content-creation-west-lothian', label: 'Content Days' },
+  { href: '/website-design-west-lothian', label: 'Website Builds' },
+  { href: '/property-photography-west-lothian', label: 'Property Photography' },
   { href: '/services#social-media', label: 'Social Media' },
   { href: '/services#photography', label: 'Photography' },
   { href: '/video-production-west-lothian', label: 'Video Production' },
@@ -98,7 +100,8 @@ export default function Navigation() {
   const servicesActive =
     pathname === '/services' ||
     pathname === '/insights' ||
-    pathname === '/video-production-west-lothian'
+    pathname === '/video-production-west-lothian' ||
+    pathname === '/property-photography-west-lothian'
 
   return (
     <>
@@ -223,6 +226,7 @@ export default function Navigation() {
           isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         aria-hidden={!isOpen}
+        inert={!isOpen}
       >
         {/* Blurred soft backdrop */}
         <div className="absolute inset-0 backdrop-blur-xl" style={{ backgroundColor: '#FAF8F5' }} />
@@ -311,6 +315,7 @@ export default function Navigation() {
                 </button>
                 <div
                   id="mobile-services-menu"
+                  inert={!servicesOpen}
                   className={`grid transition-all duration-300 ${
                     servicesOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
                   }`}
@@ -382,7 +387,7 @@ export default function Navigation() {
             style={{ transitionDelay: isOpen ? '480ms' : '0ms' }}
           >
             <p className="text-xs uppercase tracking-[0.2em] text-foreground/40 mb-3">
-              West Lothian, Scotland
+              Based in Broxburn · serving the Lothians
             </p>
             <p className="text-sm text-foreground/55 leading-relaxed max-w-xs mb-6">
               {services.join('  ·  ')}

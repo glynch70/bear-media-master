@@ -4,10 +4,10 @@ import { createMetadata, siteUrl } from '@/lib/seo'
 
 export const metadata: Metadata = {
   ...createMetadata({
-    title: 'Contact Bear Media | Website & Content Support in Scotland',
-    description: 'Contact Bear Media in West Lothian to discuss website design, photography, video, drone content, social media or AI training for your Scottish business.',
+    title: 'Contact Bear Media | Edinburgh & the Lothians',
+    description: 'Contact Bear Media to discuss content days, website builds, photography or video for your business in Edinburgh or the Lothians.',
     path: '/contact',
-    imageAlt: 'Contact Bear Media in West Lothian, Scotland',
+    imageAlt: 'Contact Bear Media in Edinburgh and the Lothians',
   }),
 }
 

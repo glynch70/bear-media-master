@@ -14,8 +14,8 @@ import { createMetadata, siteUrl } from '@/lib/seo'
 
 export const metadata = {
   ...createMetadata({
-    title: 'Creative Services Scotland | Websites, Photography & Social Media',
-    description: 'Explore Bear Media website design, photography, video, drone content, social media management and AI training services for Scottish businesses.',
+    title: 'Content Days & Website Builds | Edinburgh & the Lothians',
+    description: 'Explore content days and website builds from Bear Media, with photography, video and drone support for businesses across Edinburgh and the Lothians.',
     path: '/services',
     imageAlt: 'Bear Media services for Scottish businesses',
   }),
@@ -35,10 +35,10 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-4xl">
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-medium text-foreground mb-6 text-pretty">
-              Services built for growth.
+              Content days and websites built around your business.
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed mb-8 text-pretty">
-              Content creation, web design, photography, video, and AI training. We handle the professional services so you can focus on your business.
+              Planned content shoots and mobile-first website builds for businesses across Edinburgh and the Lothians. Photography, video, drone and social media support are available when your brief needs them.
             </p>
             <Link
               href="/contact"
@@ -48,6 +48,34 @@ export default function ServicesPage() {
               <span aria-hidden="true">→</span>
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="w-full bg-background px-6 pb-16 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2">
+          <article className="rounded-3xl border border-border bg-secondary p-6 sm:p-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">01 · Content days</p>
+            <h2 className="mt-3 font-heading text-3xl font-medium">Make a useful content library from real work.</h2>
+            <p className="mt-4 text-muted-foreground">See how photography, video and aerial imagery helped David Todd present properties and C&G Developments show a build from start to finish.</p>
+            <Link href="/content-creation-west-lothian" className="mt-6 inline-flex min-h-12 items-center font-semibold underline decoration-accent underline-offset-4">Explore content days →</Link>
+          </article>
+          <article className="rounded-3xl border border-border bg-secondary p-6 sm:p-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">02 · Website builds</p>
+            <h2 className="mt-3 font-heading text-3xl font-medium">A clear website with a reason to enquire.</h2>
+            <p className="mt-4 text-muted-foreground">Explore mobile-first work for Midlothian Wildflowers, Seamus Corry and Almond Vet Care, with content shaped around each organisation.</p>
+            <Link href="/website-design-west-lothian" className="mt-6 inline-flex min-h-12 items-center font-semibold underline decoration-accent underline-offset-4">Explore website builds →</Link>
+          </article>
+        </div>
+      </section>
+
+      <section className="w-full bg-secondary py-14 md:py-20">
+        <div className="mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-[1fr_auto] md:items-center lg:px-8">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">Property marketing</p>
+            <h2 className="mt-3 font-heading text-3xl font-medium tracking-tight md:text-5xl">Photography, video and aerial content for property.</h2>
+            <p className="mt-4 max-w-3xl text-lg leading-relaxed text-muted-foreground">For estate agents, developers and property businesses that need listings and campaigns to show the rooms, details and wider setting clearly.</p>
+          </div>
+          <Link href="/property-photography-west-lothian" className="inline-flex min-h-12 w-fit items-center rounded-full bg-foreground px-7 py-3.5 font-medium text-background">Explore property photography</Link>
         </div>
       </section>
 

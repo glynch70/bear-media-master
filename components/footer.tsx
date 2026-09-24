@@ -136,9 +136,9 @@ export default function Footer() {
             <ul className="space-y-3">
               <li><Link href="/services#photography" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Photography</Link></li>
               <li><Link href="/video-production-west-lothian" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Video Production</Link></li>
-              <li><Link href="/services#website-design" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Websites</Link></li>
+              <li><Link href="/website-design-west-lothian" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Website Builds</Link></li>
               <li><Link href="/services#social-media" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Social Media</Link></li>
-              <li><Link href="/services#content-creation" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Content Creation</Link></li>
+              <li><Link href="/content-creation-west-lothian" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Content Days</Link></li>
               <li><Link href="/services#drone" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Drone Services</Link></li>
             </ul>
           </div>
@@ -169,7 +169,7 @@ export default function Footer() {
               </a>
               <div className="flex items-start gap-3 text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-accent" />
-                <span>West Lothian, Scotland</span>
+                <span>Broxburn, West Lothian · serving Edinburgh and the Lothians</span>
               </div>
             </div>
           </div>

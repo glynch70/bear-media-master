@@ -15,13 +15,13 @@ const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
 
 export const metadata: Metadata = {
   ...createMetadata({
-    title: 'Bear Media | Creative Media Studio in Scotland',
-    description: 'Bear Media is a creative media studio in West Lothian helping Scottish businesses with website design, photography, video, drone content, social media and AI training.',
+    title: 'Bear Media | Content Days & Website Design in the Lothians',
+    description: 'Bear Media creates content and websites for businesses across Edinburgh and the Lothians, with photography, video and drone services when a project needs them.',
     path: '/',
     imageAlt: 'Bear Media creative services in Scotland',
   }),
   title: {
-    default: 'Bear Media | Creative Media Studio in Scotland',
+    default: 'Bear Media | Content Days & Website Design in the Lothians',
     template: '%s',
   },
   generator: 'v0.app',

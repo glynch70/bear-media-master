@@ -56,9 +56,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/video-production-west-lothian`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/drone-photography-west-lothian`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/business-photography-west-lothian`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/property-photography-west-lothian`, lastModified: today, changeFrequency: 'weekly', priority: 0.9 },
     // Edinburgh
     { url: `${baseUrl}/social-media-edinburgh`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/website-design-edinburgh`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/content-creation-edinburgh`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
     // Fife
     { url: `${baseUrl}/social-media-fife`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/website-design-fife`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
@@ -80,5 +82,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...staticPages, ...locationPages, ...projectPages, ...insightPages]
+  const standaloneJournalPages: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/journal/workspace-setup`,
+      lastModified: today,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+  ]
+
+  return [...staticPages, ...locationPages, ...projectPages, ...insightPages, ...standaloneJournalPages]
 }

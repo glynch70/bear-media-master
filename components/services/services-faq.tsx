@@ -7,7 +7,7 @@ const faqs = [
   {
     question: 'Which areas do you cover?',
     answer:
-      'I am based in Broxburn and regularly work across Edinburgh, West Lothian, Fife and surrounding areas. For larger projects I can travel further across Scotland.',
+      'I am based in Broxburn, West Lothian, and regularly work across Edinburgh, the Lothians and Fife. For larger projects I can travel further across Scotland.',
   },
   {
     question: 'Do I need to appear on camera?',
