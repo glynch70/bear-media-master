@@ -4,10 +4,11 @@ import type { Metadata } from 'next'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import { ServiceSchema } from '@/components/structured-data'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Professional Content Creation in Edinburgh | Photography & Video | Bear Media',
-  description: 'Professional photography, videography, and content creation services for Edinburgh businesses. High-quality visual content that engages your audience and drives results.',
+  title: 'Content Days in Edinburgh | Photography & Video | Bear Media',
+  description: 'Planned content days for Edinburgh businesses: photography, short video and social assets from your real work, captured by Bear Media.',
   openGraph: {
     title: 'Professional Content Creation in Edinburgh | Bear Media',
     description: 'Professional photography, videography, and content creation services for Edinburgh businesses.',
@@ -45,11 +46,20 @@ export default function ContentCreationEdinburgh() {
         <ServiceSchema name="Content Creation in Edinburgh" description="Professional photography, videography, and content creation services" areaServed="Edinburgh" provider="Bear Media" />
         <section className="bg-gradient-to-b from-background to-muted py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">Professional Content Creation in Edinburgh</h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8">High-quality visual content is essential for engaging Edinburgh audiences. Professional photography, videography, and graphic design that tells your story and drives engagement.</p>
-            <a href="/contact" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">Start Creating Content</a>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">Content days for Edinburgh businesses</h1>
+            <p className="text-lg md:text-xl text-muted-foreground mb-8">Plan a shoot around the people, places and projects you want customers to see. I capture useful photography, short video and social assets on location in Edinburgh and the Lothians.</p>
+            <a href="/contact" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">Plan a content day</a>
           </div>
           <DesktopServiceImage src="/assets/services/photography-garry-setup.webp" alt="Garry setting up a Bear Media photography session" />
+        </section>
+        <section className="px-4 py-16 md:px-6 md:py-20" aria-labelledby="edinburgh-content-work-title">
+          <div className="mx-auto max-w-4xl">
+            <h2 id="edinburgh-content-work-title" className="mb-4 text-3xl font-bold">Recent content work</h2>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <Link href="/projects/david-todd" className="rounded-xl border p-6 transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"><h3 className="mb-2 text-xl font-bold">David Todd Sales &amp; Lettings</h3><p className="text-muted-foreground">Property photography, drone imagery and short-form content around Edinburgh-area listings.</p></Link>
+              <Link href="/projects/cg-developments" className="rounded-xl border p-6 transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"><h3 className="mb-2 text-xl font-bold">C&amp;G Developments</h3><p className="text-muted-foreground">Construction progress and finished-project content captured over multiple visits.</p></Link>
+            </div>
+          </div>
         </section>
         <section className="py-16 md:py-24 px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
@@ -77,7 +87,7 @@ export default function ContentCreationEdinburgh() {
               <li className="flex gap-4"><span className="text-primary font-bold text-xl">✓</span><div><h3 className="font-bold mb-2">Higher Engagement</h3><p className="text-muted-foreground">Visual content gets more interaction than text alone.</p></div></li>
               <li className="flex gap-4"><span className="text-primary font-bold text-xl">✓</span><div><h3 className="font-bold mb-2">Better Conversions</h3><p className="text-muted-foreground">Quality imagery and videos help turn viewers into customers.</p></div></li>
               <li className="flex gap-4"><span className="text-primary font-bold text-xl">✓</span><div><h3 className="font-bold mb-2">Brand Building</h3><p className="text-muted-foreground">Consistent, professional imagery strengthens your Edinburgh brand identity.</p></div></li>
-              <li className="flex gap-4"><span className="text-primary font-bold text-xl">✓</span><div><h3 className="font-bold mb-2">SEO Benefits</h3><p className="text-muted-foreground">Optimized images and videos improve your search rankings.</p></div></li>
+              <li className="flex gap-4"><span className="text-primary font-bold text-xl">✓</span><div><h3 className="font-bold mb-2">Clearer service pages</h3><p className="text-muted-foreground">Relevant imagery and video help visitors understand your work and add useful context to your website.</p></div></li>
               <li className="flex gap-4"><span className="text-primary font-bold text-xl">✓</span><div><h3 className="font-bold mb-2">Time Savings</h3><p className="text-muted-foreground">Let us handle the creative work while you focus on your business.</p></div></li>
             </ul>
           </div>
@@ -99,7 +109,7 @@ export default function ContentCreationEdinburgh() {
             <div className="space-y-6">
               <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">What types of content do you create?</summary><p className="text-muted-foreground">Photography, videography, drone content, graphic design, social media content, and more.</p></details>
               <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">How much does professional photography cost?</summary><p className="text-muted-foreground">Pricing depends on scope. We offer flexible packages to fit various budgets.</p></details>
-              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">Can you do drone photography in Edinburgh?</summary><p className="text-muted-foreground">Yes, we're fully licensed and insured for drone operations across Edinburgh.</p></details>
+              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">Can you do drone photography in Edinburgh?</summary><p className="text-muted-foreground">Drone photography can be discussed for suitable Edinburgh locations and projects, subject to the required site checks and permissions.</p></details>
               <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">Do you include editing and retouching?</summary><p className="text-muted-foreground">Yes, professional editing is included with all photography and video services.</p></details>
               <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">How quickly can you turn around content?</summary><p className="text-muted-foreground">Simple photography in days, more complex video projects take longer. We'll discuss timeline upfront.</p></details>
               <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">Can I use the content on all platforms?</summary><p className="text-muted-foreground">Yes, all content you commission is yours to use across all your marketing channels.</p></details>

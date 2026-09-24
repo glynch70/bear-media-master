@@ -132,10 +132,10 @@ export default function RedesignServicesPage() {
 
       <section className={styles.servicesHero} aria-labelledby="services-title">
         <div className={styles.servicesHeroCopy}>
-          <p className={styles.eyebrow}>Creative services · Scotland</p>
-          <h1 id="services-title">Services built for growth.</h1>
+          <p className={styles.eyebrow}>Creative services · Edinburgh &amp; the Lothians</p>
+          <h1 id="services-title">Content days and websites built for your business.</h1>
           <p>
-            Photography, video, drone, websites and social media for local businesses.
+            Planned photography and video shoots, mobile-first website builds and social content from Broxburn across Edinburgh and the Lothians.
           </p>
         </div>
         <div className={styles.servicesHeroMedia}>

@@ -83,8 +83,8 @@ export default function AboutPage() {
                 {[
                   { label: 'Experience', value: '20+ years working with people' },
                   { label: 'Founded', value: 'Bear Media, 2024' },
-                  { label: 'Based', value: 'West Lothian' },
-                  { label: 'Working across', value: 'Edinburgh, Fife and West Lothian' },
+                  { label: 'Based', value: 'Broxburn, West Lothian' },
+                  { label: 'Working across', value: 'Edinburgh and the Lothians; Fife too' },
                   { label: 'Services', value: 'Content, websites, photography, video and AI tools' },
                 ].map((item) => (
                   <div

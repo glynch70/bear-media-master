@@ -143,7 +143,7 @@ export default function ContactPage() {
     {
       icon: MapPin,
       label: 'Location',
-      value: 'West Lothian, Scotland',
+      value: 'Broxburn, West Lothian',
       href: '#',
     },
   ]

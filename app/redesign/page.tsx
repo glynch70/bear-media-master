@@ -161,13 +161,13 @@ export default function RedesignPage() {
           />
           <div className={styles.journeyShade} />
           <div className={styles.journeyHeroCopy}>
-            <p>01 / 09 · Bear Media · Scotland</p>
-            <h1 id="redesign-title">Content &amp; Social Media for Local Businesses</h1>
+            <p>01 / 09 · Bear Media · Edinburgh &amp; the Lothians</p>
+            <h1 id="redesign-title">Content days &amp; websites.</h1>
             <div className={styles.desktopIntro}>
-              <p>Photography, films, websites and social content. Made in West Lothian, for businesses across Scotland.</p>
+              <p>Planned content shoots and mobile-first website builds for local businesses. Based in Broxburn, working across Edinburgh and the Lothians.</p>
               <div>
-                <Link href="/projects">Explore the work <ArrowUpRight aria-hidden="true" /></Link>
-                <Link href="/contact">Let&apos;s talk <ArrowUpRight aria-hidden="true" /></Link>
+                <Link href="/content-creation-west-lothian">Plan a content day <ArrowUpRight aria-hidden="true" /></Link>
+                <Link href="/website-design-west-lothian">Build a website <ArrowUpRight aria-hidden="true" /></Link>
               </div>
             </div>
           </div>
