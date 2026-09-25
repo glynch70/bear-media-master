@@ -32,8 +32,8 @@ Next/Image supplies responsive srcsets. Hero is preloaded; supporting photograph
 
 ## Commercial and SEO decisions
 
-- Photography from £195; Complete Property Media from £325; larger/premium properties quoted individually.
-- Complete media price explicitly means an agreed combination, not all services. No existing-client rates, hourly rate, automatic discounts or invented deliverable counts.
+- Updated after deployment at Garry’s request: no public prices. The former pricing section invites viewers to contact Garry for a tailored quote. Metadata and incoming links no longer advertise starting prices.
+- No public package prices, existing-client rates, hourly rate, automatic discounts or invented deliverable counts. The existing property-pricing anchor remains compatible, labelled “Get in touch” in the navigation.
 - First-person copy. No fabricated results, clients, endorsements or statistics.
 - David Todd case study stays separate; updated hero, living-room image, descriptive alt text and related-service link. Removed the unsupported five-service count and unverified floor-plan/tour deliverable claims. Existing sourced testimonial retained.
 - Canonical /property, title/description, OG/Twitter 1200 × 630 image, breadcrumbs, service schema and sitemap entry. Existing robots policy allows the route. No location doorway pages or invented offices.
