@@ -36,12 +36,6 @@
 .deliverableSections { display:grid; gap:42px; border-top:1px solid var(--line); padding-top:42px; }
 .deliverableSections h3 { font-size:28px; letter-spacing:-.03em; }
 .deliverableSections p { color:#555750; line-height:1.65; margin-top:16px; max-width:52ch; }
-.prices { display:grid; gap:0; border-top:1px solid var(--line); }
-.price { border-bottom:1px solid var(--line); padding:28px 0; }
-.price h3 { font-size:20px; font-weight:550; }
-.amount { font-size:36px; letter-spacing:-.045em; margin:12px 0; }
-.amount span { font-size:16px; letter-spacing:0; }
-.price p:last-child { line-height:1.65; color:#555750; max-width:42ch; }
 .note { color:#555750; font-size:15px; line-height:1.7; margin-top:24px; max-width:76ch; }
 .case { border-top:1px solid var(--line); }
 .case img { width:100%; height:auto; }
@@ -66,7 +60,6 @@
  .drone { grid-template-columns:1.7fr 1fr; gap:44px; }
  .drone figure:nth-child(2) { padding-top:80px; }
  .deliverableSections { grid-template-columns:1fr 1fr; gap:64px; }
- .prices { grid-template-columns:1fr 1fr 1fr; gap:32px; }
  .closing { padding:90px 0; }
  .feature { grid-template-columns:1.15fr 1fr; gap:clamp(30px,6vw,100px); padding-top:64px; padding-bottom:64px; }
 }

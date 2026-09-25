@@ -146,7 +146,7 @@ export const projects: Project[] = [
     ],
     relatedService: {
       href: '/property',
-      label: 'Explore complete Property Media and starting prices',
+      label: 'Explore complete Property Media',
     },
     seoTitle: 'David Todd Property Marketing Case Study | Bear Media',
     seoDescription:

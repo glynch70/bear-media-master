@@ -11,7 +11,7 @@ import styles from './property.module.css'
 export const metadata = {
   ...createMetadata({
     title: 'Property Media | Photography, Video & Drone | Edinburgh & West Lothian | Bear Media',
-    description: 'Property photography, video, drone, floor plans and 360° tours with Garry Lynch. Edinburgh, the Lothians, Fife and Central Scotland. Photography from £195.',
+    description: 'Property photography, video, drone, floor plans and 360° tours with Garry Lynch. Edinburgh, the Lothians, Fife and Central Scotland. Get in touch to discuss your property.',
     path: '/property',
     image: '/images/property/property-media-social.jpg',
     imageAlt: 'Conservatory and garden photographed by Bear Media',
@@ -52,7 +52,7 @@ export default function PropertyPage() {
             </figure>
           </section>
           <nav aria-label="Property media services"><ul className={styles.services}>
-            {[['Photography', '#property-work'], ['Video', '#property-video'], ['Drone', '#property-drone'], ['Floor plans', '#floor-plans'], ['360° tours', '#virtual-tours'], ['Pricing', '#property-pricing']].map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
+            {[['Photography', '#property-work'], ['Video', '#property-video'], ['Drone', '#property-drone'], ['Floor plans', '#floor-plans'], ['360° tours', '#virtual-tours'], ['Get in touch', '#property-pricing']].map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
           </ul></nav>
           <section id="property-work" className={styles.section} aria-labelledby="work-title">
             <div className={styles.heading}><p className={styles.eyebrow}>Selected work</p><h2 id="work-title">A sense of the place</h2><p>From the wider setting to the smallest finish. A considered selection of homes and spaces photographed for estate-agent and development work.</p></div>
@@ -88,16 +88,10 @@ export default function PropertyPage() {
             </div>
           </section>
         </div>
-        <section id="property-pricing" className={`${styles.soft} ${styles.section}`} aria-labelledby="pricing-title"><div className={styles.wrap}>
-          <div className={styles.heading}><p className={styles.eyebrow}>A guide to pricing</p><h2 id="pricing-title">Built around the property</h2></div>
-          <div className={styles.prices}>
-            <article className={styles.price}><h3>Photography</h3><p className={styles.amount}><span>From</span> £195</p><p>Professional interior and exterior photography, professionally edited and supplied ready for property marketing.</p></article>
-            <article className={styles.price}><h3>Complete Property Media</h3><p className={styles.amount}><span>From</span> £325</p><p>A tailored combination of photography and selected additional services such as floor plans, drone, video or 360° tours.</p></article>
-            <article className={styles.price}><h3>Larger &amp; premium properties</h3><p className={styles.amount} style={{ fontSize: '28px' }}>Quoted individually</p><p>Based on property size, location, shoot requirements and the deliverables you need.</p></article>
-          </div>
-          <p className={styles.note}>The complete media starting price covers an agreed combination, rather than every service. I’ll confirm the deliverables and final price with you before booking.</p>
+        <section id="property-pricing" className={`${styles.soft} ${styles.section}`} aria-labelledby="property-brief-title"><div className={styles.wrap}>
+          <div className={styles.heading}><p className={styles.eyebrow}>Let’s discuss your property</p><h2 id="property-brief-title">Built around the property</h2><p>Tell me about the property, its location and the media you need. I’ll recommend a suitable combination of photography, video, drone, floor plans and 360° tours, with a quote tailored to your requirements.</p></div>
+          <Link href="/contact" className={styles.button}>Contact me about a property</Link>
           <p className={styles.note}><strong>Regular property requirements?</strong> Get in touch to discuss ongoing property media support.</p>
-          <Link href="/contact" className={styles.link}>Discuss your requirements <span aria-hidden="true">↗</span></Link>
         </div></section>
         <div className={styles.wrap}>
           <section className={`${styles.section} ${styles.split}`} aria-labelledby="client-title">
