@@ -361,6 +361,7 @@ export default function AboutPage() {
                     tools: [
                       { name: 'Canon',  logo: '/toolsiuse/canon.webp' },
                       { name: 'DJI',    logo: '/toolsiuse/dji.webp' },
+                      { name: 'Adobe', logo: '/toolsiuse/adobe-logo.png' },
                       { name: 'CapCut', logo: '/toolsiuse/capcut.webp' },
                       { name: 'Canva',  logo: '/toolsiuse/canva.webp' },
                     ],
@@ -368,11 +369,11 @@ export default function AboutPage() {
                   {
                     category: 'Websites & AI',
                     tools: [
-                      { name: 'Antigravity', logo: '/toolsiuse/google antigravity.webp' },
-                      { name: 'ChatGPT',     logo: null },
+                      { name: 'ChatGPT',     logo: '/toolsiuse/openai-logo.png' },
                       { name: 'Claude',      logo: '/toolsiuse/claude.webp' },
-                      { name: 'Vercel',      logo: '/toolsiuse/vercel.webp' },
+                      { name: 'Next.js',     logo: '/toolsiuse/nextjs-logo.png' },
                       { name: 'GitHub',      logo: '/toolsiuse/github.webp' },
+                      { name: 'Vercel',      logo: '/toolsiuse/vercel.webp' },
                     ],
                   },
                   {
