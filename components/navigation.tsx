@@ -11,6 +11,7 @@ import { ChevronDown, X } from 'lucide-react'
 const links = [
   { href: '/', label: 'Home' },
   { href: '/projects', label: 'Projects' },
+  { href: '/property', label: 'Property' },
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
   { href: '/contact', label: 'Contact' },
@@ -99,7 +100,7 @@ export default function Navigation() {
   const textColor = transparent ? 'text-white' : 'text-foreground'
 
   const desktopLinks = links.filter((l) => l.href !== '/' && l.href !== '/contact')
-  const mobileTopLinks = links.filter((l) => l.href === '/' || l.href === '/projects')
+  const mobileTopLinks = links.filter((l) => l.href === '/' || l.href === '/projects' || l.href === '/property')
   const mobileBottomLinks = links.filter((l) => l.href === '/about' || l.href === '/contact')
   const servicesActive =
     pathname === '/services' ||

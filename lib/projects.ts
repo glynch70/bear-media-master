@@ -81,30 +81,30 @@ export const projects: Project[] = [
     description:
       'Property photography, aerial imagery and marketing content that shows each home in context.',
     intro:
-      'A selection of property photography, aerial imagery and marketing content from our work with David Todd Sales & Lettings.',
+      'A selection of property photography, aerial imagery and marketing content produced for David Todd Sales & Lettings.',
     challenge:
       'Property listings need to communicate the space, detail and surroundings clearly across portals, websites and social media while maintaining a consistent, professional visual standard.',
     heroImage:
-      '/assets/projects/david-todd/drone/david-todd-118-craigentinny-road-drone-01.webp',
-    heroAlt: 'Aerial view of 118 Craigentinny Road, Edinburgh, and its surroundings',
+      '/images/2026-refresh/property/118-craigentinny-road-edinburgh-aerial.webp',
+    heroAlt: 'Edinburgh home and surrounding streets with hills beyond',
     cardImage: {
       src: '/images/2026-refresh/property/118-craigentinny-road-edinburgh-aerial.webp',
-      alt: 'Aerial view of 118 Craigentinny Road, Edinburgh, with surrounding homes and hills beyond.',
+      alt: 'Edinburgh home with surrounding streets and hills beyond',
       position: '38% 50%',
     },
     images: [
       {
         src: '/images/2026-refresh/property/118-craigentinny-road-edinburgh-conservatory-garden.webp',
-        alt: 'Open doors leading through the conservatory to the garden at 118 Craigentinny Road, Edinburgh.',
+        alt: 'Open doors framing a conservatory and garden in Edinburgh',
       },
       {
-        src: '/images/2026-refresh/property/45-west-windygoul-gardens-tranent-kitchen.webp',
-        alt: 'Cream kitchen with timber worktops at 45 West Windygoul Gardens, Tranent.',
+        src: '/images/property/tranent-living-room.webp',
+        alt: 'Light-filled Tranent living room with a view into the dining space',
         position: '62% 50%',
       },
       {
         src: '/images/2026-refresh/property/118-craigentinny-road-edinburgh-bedroom.webp',
-        alt: 'Bedroom with a mirrored wardrobe and garden-facing window at 118 Craigentinny Road, Edinburgh.',
+        alt: 'Bedroom with a mirrored wardrobe and garden-facing window',
         position: '62% 50%',
       },
       {
@@ -112,20 +112,12 @@ export const projects: Project[] = [
         alt: 'Haddington property exterior photographed for David Todd',
       },
       {
-        src: '/assets/projects/david-todd/reel-covers/david-todd-118-craigentinny-road-reel-cover.jpg',
-        alt: 'Craigentinny Road, Edinburgh property reel cover',
-      },
-      {
         src: '/images/2026-refresh/property/45-west-windygoul-gardens-tranent-front-exterior.webp',
-        alt: 'Front exterior of 45 West Windygoul Gardens, Tranent, with its entrance and garden.',
+        alt: 'Tranent family home with its entrance and garden',
         position: '78% 50%',
       },
-      {
-        src: '/assets/projects/david-todd/bts/david-todd-camera-tripod-bts-01.webp',
-        alt: 'Camera and tripod set up for property photography',
-      },
     ],
-    services: ['Photography', 'Video', 'Drone Imagery', '360° Tours', 'Floor Plans'],
+    services: ['Photography', 'Drone Imagery', 'Marketing Content'],
     deliverables: [
       {
         title: 'Property Photography',
@@ -144,7 +136,6 @@ export const projects: Project[] = [
       },
     ],
     stats: [
-      { label: 'Service Scope', value: '5', context: 'Photography to floor plans' },
       { label: 'Primary Focus', value: 'Property', context: 'Sales and lettings' },
       { label: 'Content Use', value: 'Web + Social', context: 'Listing-ready formats' },
     ],
@@ -154,8 +145,8 @@ export const projects: Project[] = [
       'Flexible assets for property portals, websites and short-form content.',
     ],
     relatedService: {
-      href: '/property-photography-west-lothian',
-      label: 'Explore property photography in West Lothian',
+      href: '/property',
+      label: 'Explore complete Property Media and starting prices',
     },
     seoTitle: 'David Todd Property Marketing Case Study | Bear Media',
     seoDescription:

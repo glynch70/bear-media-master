@@ -73,6 +73,7 @@ export default function PropertyPhotographyWestLothian() {
             <Link href="/contact" className="mt-9 inline-flex min-h-12 items-center rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground transition hover:opacity-85">
               Discuss your property
             </Link>
+            <p className="mt-6"><Link href="/property" className="inline-flex min-h-11 items-center underline underline-offset-4">Explore complete Property Media, selected work and starting prices</Link></p>
           </div>
           <DesktopServiceImage src="/images/2026-refresh/property/118-craigentinny-road-edinburgh-kitchen-conservatory.webp" alt="Kitchen opening into the conservatory and garden at 118 Craigentinny Road, Edinburgh." />
         </section>
