@@ -14,6 +14,7 @@ type Client = {
 }
 
 const clientsData: Client[] = [
+  { name: 'David Todd Sales & Lettings', sector: 'Property', logo: '/07- CLIENT LOGOS/david-todd.png', href: '/projects/david-todd' },
   { name: 'Plean Pharmacy', sector: 'Pharmacy', logo: '/07- CLIENT LOGOS/plean pharmacy.webp', href: 'https://www.pleanpharmacy.co.uk/' },
   { name: 'C&G Developments', sector: 'Construction & Property', logo: '/07- CLIENT LOGOS/c&g.webp', href: trustedClientLinks.cgDevelopments },
   { name: 'Sage House Therapy', sector: 'Therapy & Wellness', logo: '/07- CLIENT LOGOS/sage house.webp', href: 'https://sagehousetherapy.com/' },
@@ -36,8 +37,8 @@ function ClientCard({ client }: { client: Client }) {
     <Card
       role={client.href ? undefined : 'group'}
       href={client.href}
-      target={client.href ? '_blank' : undefined}
-      rel={client.href ? 'noopener noreferrer' : undefined}
+      target={client.href?.startsWith('http') ? '_blank' : undefined}
+      rel={client.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
       className="group flex h-full min-h-[19rem] flex-col items-center justify-between rounded-2xl bg-background p-7 text-center shadow-sm ring-1 ring-border/15 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:ring-foreground/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent md:min-h-[21rem] md:rounded-3xl md:p-9"
       aria-label={client.href ? getTrustedClientAriaLabel(client.name) : client.name}
     >
@@ -76,7 +77,7 @@ export default function Clients({ redesign = false }: { redesign?: boolean }) {
           const Card = client.href ? 'a' : 'div'
           return (
             <li key={client.name}>
-              <Card href={client.href} role={client.href ? undefined : 'group'} target={client.href ? '_blank' : undefined} rel={client.href ? 'noopener noreferrer' : undefined} aria-label={client.href ? `Visit ${client.name}` : client.name}>
+              <Card href={client.href} role={client.href ? undefined : 'group'} target={client.href?.startsWith('http') ? '_blank' : undefined} rel={client.href?.startsWith('http') ? 'noopener noreferrer' : undefined} aria-label={client.href?.startsWith('/') ? getTrustedClientAriaLabel(client.name) : client.href ? `Visit ${client.name}` : client.name}>
                 <div><Image src={client.logo.split('/').map(encodeURIComponent).join('/')} alt={`${client.name} logo`} fill sizes="(max-width: 767px) 36vw, 180px" className={styles.containImage} /></div>
                 <span>{client.name}</span>
               </Card>
