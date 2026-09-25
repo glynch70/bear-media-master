@@ -33,9 +33,9 @@ const priorityServices = [
     description: 'Professional images for teams, workplaces, products and local businesses.',
   },
   {
-    href: '/property-photography-west-lothian',
-    title: 'Property photography in West Lothian',
-    description: 'Clear images for homes, venues, businesses, listings and websites.',
+    href: '/property',
+    title: 'Property Media',
+    description: 'Photography, video, drone, floor plans and 360° tours for estate agents and property businesses.',
   },
 ] as const
 

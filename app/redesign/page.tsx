@@ -15,6 +15,7 @@ import Testimonials from '@/components/home/testimonials'
 import Clients from '@/components/home/clients'
 import WhyBearMedia from '@/components/home/why-bear-media'
 import CTA from '@/components/home/cta'
+import { PropertyFeature } from '@/components/property/property-feature'
 
 export const metadata: Metadata = {
   ...createMetadata({
@@ -245,6 +246,8 @@ export default function RedesignPage() {
             <span>A different point of view.</span>
           </div>
         </section>
+
+        <PropertyFeature />
 
         <section
           id="social-content"
