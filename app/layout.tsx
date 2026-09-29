@@ -6,7 +6,7 @@ import './globals.css'
 import '@/components/motion/motion.css'
 import { MotionSystem } from '@/components/motion/motion-system'
 import { ConversionTracker } from '@/components/analytics/conversion-tracker'
-import { LocalBusinessSchema, OrganizationSchema, PersonSchema, ProfessionalServiceSchema, WebSiteSchema } from '@/components/structured-data'
+import { BusinessSchema, PersonSchema, WebSiteSchema } from '@/components/structured-data'
 import { createMetadata, defaultOgImageUrl, siteUrl } from '@/lib/seo'
 
 const inter = Inter({
@@ -67,9 +67,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`bg-background ${inter.variable}`}>
       <head>
-        <LocalBusinessSchema />
-        <OrganizationSchema />
-        <ProfessionalServiceSchema />
+        <BusinessSchema />
         <PersonSchema />
         <WebSiteSchema />
       </head>

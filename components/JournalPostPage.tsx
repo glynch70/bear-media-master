@@ -4,8 +4,10 @@ import { ArrowLeft } from 'lucide-react'
 import Footer from '@/components/footer'
 import { JournalImage, JournalImageGrid } from '@/components/JournalImage'
 import Navigation from '@/components/navigation'
-import { BreadcrumbSchema } from '@/components/structured-data'
-import { siteUrl } from '@/lib/seo'
+import { ArticleSchema, BreadcrumbSchema } from '@/components/structured-data'
+import { insights } from '@/lib/insights'
+import { absoluteUrl, siteUrl } from '@/lib/seo'
+import { linkedTextParts } from '@/lib/service-links'
 
 type JournalPostImage = {
   src: string
@@ -18,6 +20,7 @@ type JournalPostPageProps = {
   title: string
   category: string
   path: string
+  description: string
   heroImage: JournalPostImage
   content: string[]
   inlineImage?: JournalPostImage
@@ -31,6 +34,7 @@ export function JournalPostPage({
   title,
   category,
   path,
+  description,
   heroImage,
   content,
   inlineImage,
@@ -40,6 +44,16 @@ export function JournalPostPage({
   const splitIndex = inlineImage ? inlineImageAfter ?? Math.ceil(content.length / 2) : content.length
   const firstContent = content.slice(0, splitIndex)
   const secondContent = content.slice(splitIndex)
+  const article = insights.find((insight) => insight.href === path)
+  const renderParagraph = (paragraph: string) => (
+    <p key={paragraph}>
+      {linkedTextParts(paragraph, article?.contentLinks).map((part, index) => part.href ? (
+        <Link key={index} href={part.href} className="underline decoration-current/40 underline-offset-4 hover:decoration-current">
+          {part.text}
+        </Link>
+      ) : part.text)}
+    </p>
+  )
 
   return (
     <main className={`min-h-screen w-full overflow-x-hidden bg-background ${desktop.standardPage} ${desktop.legacyArticle}`}>
@@ -48,6 +62,17 @@ export function JournalPostPage({
         { name: 'The Bear Media Journal', url: `${siteUrl}/insights` },
         { name: title, url: `${siteUrl}${path}` },
       ]} />
+      <ArticleSchema
+        title={title}
+        description={description}
+        url={absoluteUrl(path)}
+        image={absoluteUrl(heroImage.src)}
+        datePublished={article?.publishedDate}
+        dateModified={article?.modifiedDate}
+        authorName={article?.author.name ?? 'Garry Lynch'}
+        authorUrl={absoluteUrl(article?.author.url ?? '/about')}
+        serviceUrls={article?.servicePaths?.map(absoluteUrl)}
+      />
       <Navigation />
 
       <article className="px-6 pt-32 pb-16 md:pt-44 md:pb-24 lg:px-8">
@@ -78,9 +103,7 @@ export function JournalPostPage({
         />
 
         <div className={proseClassName}>
-          {firstContent.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
+          {firstContent.map(renderParagraph)}
         </div>
 
         {inlineImage && (
@@ -94,9 +117,7 @@ export function JournalPostPage({
 
         {secondContent.length > 0 && (
           <div className={proseClassName}>
-            {secondContent.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
+            {secondContent.map(renderParagraph)}
           </div>
         )}
 

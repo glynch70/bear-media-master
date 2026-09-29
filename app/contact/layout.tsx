@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
-import { BreadcrumbSchema } from '@/components/structured-data'
+import { BreadcrumbSchema, WebPageSchema } from '@/components/structured-data'
 import { createMetadata, siteUrl } from '@/lib/seo'
+import { schemaIds } from '@/lib/schema'
 
 export const metadata: Metadata = {
   ...createMetadata({
@@ -18,6 +19,13 @@ export default function ContactLayout({
 }) {
   return (
     <>
+      <WebPageSchema
+        type="ContactPage"
+        name="Contact Bear Media"
+        description="Contact Garry Lynch at Bear Media in Broxburn, West Lothian about a project."
+        url={`${siteUrl}/contact`}
+        mainEntityId={schemaIds.business}
+      />
       <BreadcrumbSchema items={[
         { name: 'Home', url: siteUrl },
         { name: 'Contact', url: `${siteUrl}/contact` },

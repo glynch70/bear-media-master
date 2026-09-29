@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowDown, ArrowLeft } from 'lucide-react'
-import type { Project } from '@/lib/projects'
+import { getProjectServiceLinks, type Project } from '@/lib/projects'
 import styles from './project-hero.module.css'
 
 export function ProjectHero({ project }: { project: Project }) {
@@ -32,7 +32,11 @@ export function ProjectHero({ project }: { project: Project }) {
         <h1 data-motion-title>{project.clientName}</h1>
         <p className={styles.description}>{project.description}</p>
         <ul className={styles.services} aria-label="Project services">
-          {project.services.map((service) => <li key={service}>{service}</li>)}
+          {getProjectServiceLinks(project).map((service) => (
+            <li key={service.label}>
+              {service.href ? <Link href={service.href}>{service.label}</Link> : service.label}
+            </li>
+          ))}
         </ul>
         <a href="#case-overview-title" className={styles.cta} data-magnetic>
           Explore the project <ArrowDown aria-hidden="true" />

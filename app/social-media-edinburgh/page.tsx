@@ -3,7 +3,7 @@ import { DesktopServiceImage } from '@/components/desktop-service-image'
 import type { Metadata } from 'next'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
-import { ServiceSchema } from '@/components/structured-data'
+import { FAQPageSchema, ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
   title: 'Social Media Management Services in Edinburgh | Bear Media',
@@ -22,19 +22,56 @@ export const metadata: Metadata = {
     title: 'Social Media Management Services in Edinburgh | Bear Media',
     description: 'Professional social media management for Edinburgh businesses',
     images: ['https://bear-media.com/assets/brand/og-image.jpg'],
-    creator: '@bearmediascot',
   },
   alternates: {
     canonical: 'https://bear-media.com/social-media-edinburgh',
   },
 }
 
+const faqs = [
+  {
+    question: "How long does it take to see results from social media management?",
+    answer: "There is no fixed timetable for enquiries or sales. I agree useful measures with you at the start, then review the content, audience response, website clicks and enquiries over time.",
+  },
+  {
+    question: "Which platforms should my Edinburgh business be on?",
+    answer: "That depends on your customers, the content you can produce and what you want to achieve. I’ll review your existing accounts and recommend the channels worth maintaining before agreeing a posting plan.",
+  },
+  {
+    question: "Can you manage multiple social media accounts?",
+    answer: "Yes. I can manage an agreed set of accounts using one content plan. The channels, posting frequency, approvals and level of account support are set out before work starts.",
+  },
+  {
+    question: "Do you handle paid social advertising?",
+    answer: "Paid campaigns can be discussed separately if they fit the plan. Campaign work and advertising spend are scoped separately from regular content and account management.",
+  },
+  {
+    question: "How do you measure social media success?",
+    answer: "I agree measures such as reach, engagement, website clicks and enquiries with you. Reporting focuses on those goals and what to adjust, with results interpreted alongside the wider activity in your business.",
+  },
+  {
+    question: "Can you create original content for my Edinburgh business?",
+    answer: "Yes. I create original photography, video and captions, and can also work with useful content you already have. Shoot visits, editing and the number of posts are agreed as part of the scope.",
+  },
+] as const
+
 export default function SocialMediaEdinburgh() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navigation />
       <main className={`flex-1 ${desktop.standardPage} ${desktop.simpleService} ${desktop.servicePage}`}>
-        <ServiceSchema name="Social Media Management in Edinburgh" description="Professional social media management services for Edinburgh businesses" areaServed="Edinburgh" provider="Bear Media" />
+        <ServiceSchema
+          name="Social Media Management in Edinburgh"
+          description="Social media planning, original content creation, scheduling and ongoing account support for Edinburgh businesses."
+          serviceType="Social media management"
+          areaServed="Edinburgh"
+          provider="Bear Media"
+          url="https://bear-media.com/social-media-edinburgh"
+          subjectOf={[
+            { name: "C&G Developments Video Case Study", url: 'https://bear-media.com/projects/cg-developments' },
+          ]}
+        />
+        <FAQPageSchema questions={faqs} url="https://bear-media.com/social-media-edinburgh" />
 
         <section className="bg-gradient-to-b from-background to-muted py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
@@ -172,28 +209,28 @@ export default function SocialMediaEdinburgh() {
             <h2 className="text-3xl font-bold mb-12">FAQs About Edinburgh Social Media</h2>
             <div className="space-y-6">
               <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">How long does it take to see results from social media management?</summary>
-                <p className="text-muted-foreground">Engagement metrics improve within weeks. Building a loyal following and achieving significant business impact typically takes 3-6 months of consistent strategy.</p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[0].question}</summary>
+                <p className="text-muted-foreground">{faqs[0].answer}</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">Which platforms should my Edinburgh business be on?</summary>
-                <p className="text-muted-foreground">This depends on your target audience. Most benefit from Facebook and Instagram. LinkedIn works for B2B, TikTok for younger audiences. We'll recommend the best platforms for your business.</p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[1].question}</summary>
+                <p className="text-muted-foreground">{faqs[1].answer}</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">Can you manage multiple social media accounts?</summary>
-                <p className="text-muted-foreground">Yes, we manage all your accounts from a single strategy. Consistent messaging across platforms while optimizing for each platform's unique audience.</p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[2].question}</summary>
+                <p className="text-muted-foreground">{faqs[2].answer}</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">Do you handle paid social advertising?</summary>
-                <p className="text-muted-foreground">Absolutely. We manage paid campaigns on Facebook, Instagram, and LinkedIn with strategic targeting to reach Edinburgh residents.</p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[3].question}</summary>
+                <p className="text-muted-foreground">{faqs[3].answer}</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">How do you measure social media success?</summary>
-                <p className="text-muted-foreground">We track follower growth, engagement rates, reach, conversions, and tie these to your actual business goals. Monthly reports show exactly how social media contributes to your bottom line.</p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[4].question}</summary>
+                <p className="text-muted-foreground">{faqs[4].answer}</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">Can you create original content for my Edinburgh business?</summary>
-                <p className="text-muted-foreground">Yes! We create original, professional content including photography, videography, and copywriting specifically for your social channels.</p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[5].question}</summary>
+                <p className="text-muted-foreground">{faqs[5].answer} <a href="/projects/cg-developments" className="text-primary underline underline-offset-4">See the C&amp;G Developments project.</a></p>
               </details>
             </div>
           </div>
@@ -238,3 +275,4 @@ export default function SocialMediaEdinburgh() {
     </div>
   )
 }
+

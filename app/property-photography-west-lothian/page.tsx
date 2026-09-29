@@ -52,10 +52,14 @@ export default function PropertyPhotographyWestLothian() {
       <main className={`flex-1 ${desktop.standardPage} ${desktop.simpleService} ${desktop.servicePage}`}>
         <ServiceSchema
           name="Property Photography West Lothian"
-          description="Property photography for websites, listings and marketing across West Lothian"
+          description="Property photography for homes, venues, business premises, listings and marketing across West Lothian."
+          serviceType="Property photography"
           areaServed="West Lothian"
           provider="Bear Media"
           url={pageUrl}
+          subjectOf={[
+            { name: "Property marketing for David Todd Sales & Lettings", url: 'https://bear-media.com/projects/david-todd' },
+          ]}
         />
 
         <section className="bg-secondary px-6 pb-20 pt-32 md:pb-28 md:pt-40">
@@ -113,3 +117,4 @@ export default function PropertyPhotographyWestLothian() {
     </div>
   )
 }
+

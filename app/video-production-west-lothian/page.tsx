@@ -111,9 +111,14 @@ export default function VideoProductionWestLothianPage() {
         <ServiceSchema
           name="Video Production West Lothian"
           description="Promotional films, interviews, social media video and project filming for businesses across West Lothian."
+          serviceType="Video production"
           areaServed="West Lothian"
           provider="Bear Media"
           url={pageUrl}
+          subjectOf={[
+            { name: "C&G Developments Video Case Study", url: 'https://bear-media.com/projects/cg-developments' },
+            { name: "Simply Sheds Scotland Case Study", url: 'https://bear-media.com/projects/simply-sheds' },
+          ]}
         />
         {featuredFilms.map((film) => (
           <script
@@ -297,3 +302,4 @@ export default function VideoProductionWestLothianPage() {
     </div>
   )
 }
+

@@ -26,3 +26,13 @@ Working threshold: from the current zero service-page clicks, seek at least five
 | Deployment date | 28-day review | Evidence | Next decision |
 | --- | --- | --- | --- |
 | 24 Sep 2026 | 22 Oct 2026 | Pending complete post-change data | Compare priority page/query clicks, impressions, CTR and enquiries; decide whether to hold, strengthen links or revise a specific page. |
+
+## AI Search optimisation, 29 September 2026
+
+Owner-supplied baseline: Generative AI is enabled in Search Console, with **15 Generative AI impressions over the previous three months**. The homepage accounts for most visibility; service pages have not yet generated meaningful AI visibility. This session did not have authenticated Search Console or Business Profile access, so the baseline was recorded rather than independently re-exported.
+
+The implementation consolidates Bear Media/Garry identities; corrects all 17 important Service pages; connects real projects and original journal articles to services; improves existing practical answers; fixes obsolete internal menu fragments; and corrects sitemap coverage and unsupported modification dates. The existing portfolio redirect is already correct and remains unchanged. See [the implementation record](ai-search-optimisation-2026-09-29.md) and its associated PR for validation and release evidence.
+
+The current visual design, homepage hero, service headings, published prices and 24 September positioning are preserved. Continue the original hold through **22 October**. Record this additional intervention when interpreting later results; effects cannot be attributed solely to the 24 September change. A complete 28-day review for the 29 September intervention falls on **27 October**, subject to reporting lag.
+
+Add service-page Generative AI impressions and the number of service pages receiving them to the existing organic clicks/enquiries measures. Use the dedicated Generative AI report's page/date dimensions and keep its impressions distinct from normal Search clicks and Business Profile activity. Do not treat 15 baseline impressions, one week of movement or a single AI answer as proof of a trend.

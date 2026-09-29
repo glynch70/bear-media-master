@@ -20,12 +20,12 @@ const links = [
 const services = ['Photography', 'Video', 'Drone', 'Websites', 'Social Media']
 
 const serviceMenuItems = [
-  { href: '/services#website-design', label: 'Website Design' },
+  { href: '/website-design-west-lothian', label: 'Website Design' },
   { href: '/services#social-media', label: 'Social Media' },
   { href: '/social-media-pricing', label: 'Social Media Pricing' },
-  { href: '/services#photography', label: 'Photography' },
+  { href: '/business-photography-west-lothian', label: 'Photography' },
   { href: '/video-production-west-lothian', label: 'Video Production' },
-  { href: '/services#drone', label: 'Drone Photography' },
+  { href: '/drone-photography-west-lothian', label: 'Drone Photography' },
   { href: '/insights', label: 'The Bear Media Journal' },
 ] as const
 

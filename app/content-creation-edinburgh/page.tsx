@@ -3,7 +3,7 @@ import { DesktopServiceImage } from '@/components/desktop-service-image'
 import type { Metadata } from 'next'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
-import { ServiceSchema } from '@/components/structured-data'
+import { FAQPageSchema, ServiceSchema } from '@/components/structured-data'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -31,19 +31,57 @@ export const metadata: Metadata = {
     title: 'Professional Content Creation in Edinburgh | Bear Media',
     description: 'Professional photography, videography, and content creation services',
     images: ['https://bear-media.com/assets/brand/og-image.jpg'],
-    creator: '@bearmediascot',
   },
   alternates: {
     canonical: 'https://bear-media.com/content-creation-edinburgh',
   },
 }
 
+const faqs = [
+  {
+    question: "What types of content do you create?",
+    answer: "I create photography, video, drone content, graphics and social media assets. A content session is planned around the people, places and work you need to show, with the final deliverables agreed before booking.",
+  },
+  {
+    question: "How much does professional photography cost?",
+    answer: "The quote reflects the shoot, travel, editing and final photographs or videos required. Tell me what you want to show, where the content will be used and any deadline so I can set out the scope clearly.",
+  },
+  {
+    question: "Can you do drone photography in Edinburgh?",
+    answer: "Yes, where the location is suitable. I check the site, access, weather and permission requirements before confirming drone content as part of an Edinburgh shoot.",
+  },
+  {
+    question: "Do you include editing and retouching?",
+    answer: "I edit the agreed photography and video for its intended use. The proposal sets out the final deliverables, editing and revisions so additional versions or retouching can be discussed in advance.",
+  },
+  {
+    question: "How quickly can you turn around content?",
+    answer: "Delivery depends on the amount of content and the editing required. Tell me about a launch, listing or campaign deadline when you enquire, and I’ll confirm a practical schedule before booking.",
+  },
+  {
+    question: "Can I use the content on all platforms?",
+    answer: "Tell me which channels you need, such as your website, property listings or social media. I’ll confirm the agreed usage and formats, including any portrait and landscape versions, in the proposal.",
+  },
+] as const
+
 export default function ContentCreationEdinburgh() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navigation />
       <main className={`flex-1 ${desktop.standardPage} ${desktop.simpleService} ${desktop.servicePage}`}>
-        <ServiceSchema name="Content Creation in Edinburgh" description="Professional photography, videography, and content creation services" areaServed="Edinburgh" provider="Bear Media" />
+        <ServiceSchema
+          name="Content Creation in Edinburgh"
+          description="Planned photography, video and social content sessions for businesses in Edinburgh and the Lothians."
+          serviceType="Content days and content creation"
+          areaServed="Edinburgh"
+          provider="Bear Media"
+          url="https://bear-media.com/content-creation-edinburgh"
+          subjectOf={[
+            { name: "Property marketing for David Todd Sales & Lettings", url: 'https://bear-media.com/projects/david-todd' },
+            { name: "C&G Developments Video Case Study", url: 'https://bear-media.com/projects/cg-developments' },
+          ]}
+        />
+        <FAQPageSchema questions={faqs} url="https://bear-media.com/content-creation-edinburgh" />
         <section className="bg-gradient-to-b from-background to-muted py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">Content days for Edinburgh businesses</h1>
@@ -107,12 +145,12 @@ export default function ContentCreationEdinburgh() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-12">Content Creation FAQs</h2>
             <div className="space-y-6">
-              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">What types of content do you create?</summary><p className="text-muted-foreground">Photography, videography, drone content, graphic design, social media content, and more.</p></details>
-              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">How much does professional photography cost?</summary><p className="text-muted-foreground">Pricing depends on scope. We offer flexible packages to fit various budgets.</p></details>
-              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">Can you do drone photography in Edinburgh?</summary><p className="text-muted-foreground">Drone photography can be discussed for suitable Edinburgh locations and projects, subject to the required site checks and permissions.</p></details>
-              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">Do you include editing and retouching?</summary><p className="text-muted-foreground">Yes, professional editing is included with all photography and video services.</p></details>
-              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">How quickly can you turn around content?</summary><p className="text-muted-foreground">Simple photography in days, more complex video projects take longer. We'll discuss timeline upfront.</p></details>
-              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">Can I use the content on all platforms?</summary><p className="text-muted-foreground">Yes, all content you commission is yours to use across all your marketing channels.</p></details>
+              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">{faqs[0].question}</summary><p className="text-muted-foreground">{faqs[0].answer}</p></details>
+              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">{faqs[1].question}</summary><p className="text-muted-foreground">{faqs[1].answer}</p></details>
+              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">{faqs[2].question}</summary><p className="text-muted-foreground">{faqs[2].answer}</p></details>
+              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">{faqs[3].question}</summary><p className="text-muted-foreground">{faqs[3].answer}</p></details>
+              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">{faqs[4].question}</summary><p className="text-muted-foreground">{faqs[4].answer} <a href="/journal/my-process" className="text-primary underline underline-offset-4">See how I plan, shoot and edit a project.</a></p></details>
+              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">{faqs[5].question}</summary><p className="text-muted-foreground">{faqs[5].answer}</p></details>
             </div>
           </div>
         </section>
@@ -138,3 +176,4 @@ export default function ContentCreationEdinburgh() {
     </div>
   )
 }
+

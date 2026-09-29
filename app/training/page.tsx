@@ -37,6 +37,7 @@ export default function TrainingPage() {
         <ServiceSchema
           name="AI and Canva Training"
           description="Practical AI and Canva training for small business owners, marketing teams and staff."
+          serviceType="AI and Canva training"
           areaServed="Scotland"
           provider="Bear Media"
           url={pageUrl}
@@ -91,7 +92,7 @@ export default function TrainingPage() {
           <div className="mx-auto max-w-3xl">
             <h2 className="font-heading text-3xl font-medium md:text-4xl">Talk through what your team needs.</h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Tell us what you want to improve and we&apos;ll discuss the most useful training focus.
+              Tell me what you want to improve and I&apos;ll discuss the most useful training focus.
             </p>
             <Link
               href="/contact"
@@ -107,3 +108,4 @@ export default function TrainingPage() {
     </div>
   )
 }
+
