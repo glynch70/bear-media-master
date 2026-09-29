@@ -4110,3 +4110,244 @@
   --meta-opacity: 1;
   --meta-lift: 0rem;
 }
+
+/* Mobile bento hero: real Bear Media and client photography. */
+.heroBento {
+  display: contents;
+}
+
+.heroBentoMobileEyebrow,
+.heroBentoActions,
+.heroBentoDescription {
+  display: none;
+}
+
+.heroBentoTile { display: none; }
+
+@media (max-width: 767px) {
+  .journeyHero {
+    display: block;
+    min-height: 100svh;
+    height: auto;
+    padding: 5.35rem 0 max(1.5rem, env(safe-area-inset-bottom));
+    background: #11110f;
+  }
+
+  .heroBento {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+    padding: 0 16px;
+  }
+
+  .heroBentoCopy {
+    position: relative;
+    inset: auto;
+    z-index: 1;
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    width: auto;
+    min-width: 0;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+  }
+
+  .heroBentoEyebrow.heroBentoEyebrow {
+    margin: 0 0 12px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    line-height: 1.35;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.68);
+  }
+
+  .heroBentoDesktopEyebrow {
+    display: none;
+  }
+
+  .heroBentoMobileEyebrow {
+    display: inline;
+  }
+
+  .heroBentoCopy h1 {
+    max-width: 10ch;
+    font-size: clamp(25px, 7.3vw, 34px);
+    font-weight: 540;
+    line-height: 0.99;
+    letter-spacing: -0.065em;
+    text-shadow: none;
+  }
+
+  .heroBentoDescription {
+    display: block;
+    max-width: 25ch;
+    margin: 12px 0 0;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 14px;
+    line-height: 1.42;
+    text-wrap: pretty;
+  }
+
+  .heroBentoActions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+    margin-top: 13px;
+  }
+
+  .heroBentoPrimaryAction,
+  .heroBentoSecondaryAction {
+    display: inline-flex;
+    min-height: 40px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .heroBentoPrimaryAction {
+    padding: 0 15px;
+    background: #fdfdfb;
+    color: #11110f;
+    transition: transform 240ms var(--motion-spring), background-color 180ms ease;
+  }
+
+  .heroBentoPrimaryAction:active {
+    transform: scale(0.98);
+  }
+
+  .heroBentoSecondaryAction {
+    min-height: 32px;
+    color: rgba(255, 255, 255, 0.82);
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.42);
+    text-underline-offset: 4px;
+  }
+
+  .desktopIntro {
+    display: none;
+  }
+
+  .heroBentoTile {
+    position: relative;
+    display: block;
+    min-width: 0;
+    overflow: hidden;
+    isolation: isolate;
+    aspect-ratio: 1.42;
+    border-radius: 9px;
+    background: #22221f;
+    color: #fff;
+    -webkit-tap-highlight-color: transparent;
+    animation: heroTileReveal 540ms var(--motion-ease) both;
+  }
+
+  .heroBentoLead {
+    grid-column: 2;
+    grid-row: 1;
+    min-height: 260px;
+    aspect-ratio: auto;
+    border-radius: 12px;
+    animation-delay: 80ms;
+  }
+
+  .heroBentoProperty { animation-delay: 140ms; }
+  .heroBentoDrone { animation-delay: 200ms; }
+  .heroBentoEditing { animation-delay: 260ms; }
+  .heroBentoVideo { animation-delay: 320ms; }
+  .heroBentoBrand { animation-delay: 380ms; }
+  .heroBentoClient { animation-delay: 440ms; }
+
+  .heroBentoImage {
+    z-index: -2;
+    object-fit: cover;
+    transition: transform 520ms var(--motion-ease);
+  }
+
+  .heroBentoLead .heroBentoImage { object-position: 52% 50%; }
+  .heroBentoProperty .heroBentoImage { object-position: 50% 52%; }
+  .heroBentoDrone .heroBentoImage { object-position: 50% 52%; }
+  .heroBentoEditing .heroBentoImage { object-position: 50% 48%; }
+  .heroBentoVideo .heroBentoImage { object-position: 50% 53%; }
+  .heroBentoBrand .heroBentoImage { object-position: 50% 52%; }
+  .heroBentoClient .heroBentoImage { object-position: 50% 54%; }
+
+  .heroBentoLabel {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    left: 8px;
+    z-index: 1;
+    display: block;
+    width: fit-content;
+    max-width: calc(100% - 16px);
+    overflow: hidden;
+    padding: 6px 8px;
+    border-radius: 4px;
+    background: rgba(17, 17, 15, 0.78);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 570;
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .heroBentoLead .heroBentoLabel {
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    max-width: calc(100% - 20px);
+    padding: 7px 9px;
+    font-size: 12px;
+  }
+
+  .heroBentoTile:focus-visible,
+  .heroBentoActions a:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+  }
+
+  .journeyHero .journeyShade,
+  .journeyScrollCue {
+    display: none;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .heroBentoTile:hover .heroBentoImage { transform: scale(1.025); }
+  }
+}
+
+@media (max-width: 359px) {
+  .heroBento { gap: 7px; padding-right: 14px; padding-left: 14px; }
+  .heroBentoLead { min-height: 242px; }
+  .heroBentoCopy h1 { font-size: 25px; }
+  .heroBentoDescription { font-size: 13px; }
+  .heroBentoLabel { font-size: 10px; }
+}
+
+@media (min-width: 768px) {
+  .heroBento { display: contents; }
+}
+
+@keyframes heroTileReveal {
+  from { opacity: 0; transform: translateY(12px); clip-path: inset(9% 0 0); }
+  to { opacity: 1; transform: translateY(0); clip-path: inset(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroBentoTile,
+  .heroBentoImage,
+  .heroBentoPrimaryAction {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+}
