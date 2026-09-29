@@ -178,7 +178,7 @@ export default function RedesignPage() {
           </a>
         </section>
 
-        <div className={styles.desktopSectionIntro}>
+        <div data-reveal="text" className={styles.desktopSectionIntro}>
           <div><p>What I do</p><h2>Good work deserves to be seen.</h2></div>
           <Link href="/services">All services <ArrowUpRight aria-hidden="true" /></Link>
         </div>
@@ -197,6 +197,7 @@ export default function RedesignPage() {
               fill
               sizes="(max-width: 1023px) 100vw, 33vw"
               quality={90}
+              data-parallax
               className={styles.journeyCover}
             />
           </picture>
@@ -206,7 +207,7 @@ export default function RedesignPage() {
             className={styles.chapterServiceLink}
             aria-label="Explore Bear Media photography services"
           />
-          <div className={styles.chapterCopy}>
+          <div data-reveal="text" className={styles.chapterCopy}>
             <p>02 / 09</p>
             <h2 id="photography-title">Photography</h2>
             <span>People, places and properties — photographed properly.</span>
@@ -240,7 +241,7 @@ export default function RedesignPage() {
             className={styles.chapterServiceLink}
             aria-label="Explore Bear Media drone services"
           />
-          <div className={styles.chapterCopy}>
+          <div data-reveal="text" className={styles.chapterCopy}>
             <p>04 / 09</p>
             <h2 id="drone-title">Drone</h2>
             <span>A different point of view.</span>
@@ -255,7 +256,7 @@ export default function RedesignPage() {
           data-chapter="05"
           aria-labelledby="social-title"
         >
-          <div className={styles.journeyGalleryHeading}>
+          <div data-reveal="text" className={styles.journeyGalleryHeading}>
             <p>05 / 09</p>
             <h2 id="social-title">Social content</h2>
             <span>Swipe through genuine campaign work.</span>
@@ -296,7 +297,7 @@ export default function RedesignPage() {
           data-chapter="06"
           aria-labelledby="websites-title"
         >
-          <div className={styles.journeyGalleryHeading}>
+          <div data-reveal="text" className={styles.journeyGalleryHeading}>
             <p>06 / 09</p>
             <h2 id="websites-title">Websites</h2>
             <span>Swipe through completed Bear Media websites.</span>
@@ -344,7 +345,7 @@ export default function RedesignPage() {
           data-chapter="08"
           aria-labelledby="about-title"
         >
-          <div className={styles.aboutJourneyMedia}>
+          <div data-reveal="image" className={styles.aboutJourneyMedia}>
             <Image
               src="/assets/about/garry-portrait-4.webp"
               alt="Garry Lynch, independent creator behind Bear Media"
@@ -354,7 +355,7 @@ export default function RedesignPage() {
               className={styles.journeyCover}
             />
           </div>
-          <div className={styles.aboutJourneyCopy}>
+          <div data-reveal="text" className={styles.aboutJourneyCopy}>
             <p>08 / 09 · Independent by design</p>
             <h2 id="about-title">Meet Garry.</h2>
             <span>

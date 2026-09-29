@@ -234,7 +234,7 @@ export default function Navigation() {
         aria-label="Site navigation"
         inert={!isOpen}
         id="mobile-navigation"
-        className={`${desktop.legacyChrome} md:hidden fixed inset-0 z-[60] transition-opacity duration-500 ${
+        className={`${desktop.legacyChrome} md:hidden fixed inset-0 z-[60] transition-opacity duration-300 ${
           isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         aria-hidden={!isOpen}
@@ -243,7 +243,7 @@ export default function Navigation() {
         <div className="absolute inset-0 backdrop-blur-xl" style={{ backgroundColor: '#FAF8F5' }} />
 
         <div
-          className={`relative flex h-full min-h-0 flex-col overflow-y-auto px-6 pb-[max(2.5rem,env(safe-area-inset-bottom))] pt-[max(1.25rem,env(safe-area-inset-top))] transition-all duration-500 ease-out ${
+          className={`relative flex h-full min-h-0 flex-col overflow-y-auto px-6 pb-[max(2.5rem,env(safe-area-inset-bottom))] pt-[max(1.25rem,env(safe-area-inset-top))] transition-[opacity,transform] duration-300 ease-out ${
             isOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
           }`}
         >
@@ -269,10 +269,10 @@ export default function Navigation() {
                 return (
                   <li
                     key={link.href}
-                    className={`transition-all duration-500 ease-out ${
+                    className={`transition-[opacity,transform] duration-300 ease-out ${
                       isOpen ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
                     }`}
-                    style={{ transitionDelay: isOpen ? `${120 + i * 60}ms` : '0ms' }}
+                    style={{ transitionDelay: isOpen ? `${40 + i * 30}ms` : '0ms' }}
                   >
                     <Link
                       href={link.href}
@@ -288,7 +288,7 @@ export default function Navigation() {
                         {link.label}
                       </span>
                       {active && (
-                        <span className="h-2.5 w-2.5 rounded-full bg-accent motion-safe:animate-pulse" aria-hidden="true" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-accent" aria-hidden="true" />
                       )}
                       {active && (
                         <span className="absolute -bottom-2 left-0 w-16 h-0.5 bg-accent" aria-hidden="true" />
@@ -298,10 +298,10 @@ export default function Navigation() {
                 )
               })}
               <li
-                className={`transition-all duration-500 ease-out ${
+                className={`transition-[opacity,transform] duration-300 ease-out ${
                   isOpen ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
                 }`}
-                style={{ transitionDelay: isOpen ? `${120 + mobileTopLinks.length * 60}ms` : '0ms' }}
+                style={{ transitionDelay: isOpen ? `${40 + mobileTopLinks.length * 30}ms` : '0ms' }}
               >
                 <button
                   type="button"
@@ -359,10 +359,10 @@ export default function Navigation() {
                 return (
                   <li
                     key={link.href}
-                    className={`transition-all duration-500 ease-out ${
+                    className={`transition-[opacity,transform] duration-300 ease-out ${
                       isOpen ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
                     }`}
-                    style={{ transitionDelay: isOpen ? `${120 + delayIndex * 60}ms` : '0ms' }}
+                    style={{ transitionDelay: isOpen ? `${40 + delayIndex * 30}ms` : '0ms' }}
                   >
                     <Link
                       href={link.href}
@@ -378,7 +378,7 @@ export default function Navigation() {
                         {link.label}
                       </span>
                       {active && (
-                        <span className="h-2.5 w-2.5 rounded-full bg-accent motion-safe:animate-pulse" aria-hidden="true" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-accent" aria-hidden="true" />
                       )}
                       {active && (
                         <span className="absolute -bottom-2 left-0 w-16 h-0.5 bg-accent" aria-hidden="true" />
@@ -392,10 +392,10 @@ export default function Navigation() {
 
           {/* Bottom supporting text */}
           <div
-            className={`transition-all duration-500 ease-out ${
+            className={`transition-[opacity,transform] duration-300 ease-out ${
               isOpen ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
             }`}
-            style={{ transitionDelay: isOpen ? '480ms' : '0ms' }}
+            style={{ transitionDelay: isOpen ? '200ms' : '0ms' }}
           >
             <p className="text-xs uppercase tracking-[0.2em] text-foreground/65 mb-3">
               West Lothian, Scotland

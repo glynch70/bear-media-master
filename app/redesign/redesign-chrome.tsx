@@ -20,7 +20,7 @@ export function RedesignHeader({ fixed = false, surface = false }: RedesignHeade
         <Link href="/services">Services</Link>
         <Link href="/property">Property</Link>
         <Link href="/about">About</Link>
-        <Link href="/contact" className={styles.navCta}>
+        <Link href="/contact" data-magnetic className={styles.navCta}>
           Let&apos;s talk
         </Link>
       </nav>

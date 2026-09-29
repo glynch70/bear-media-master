@@ -1780,7 +1780,7 @@
 }
 
 .caseStats p,
-.caseStats span {
+.caseStats > div > span {
   color: rgba(255, 255, 255, 0.52);
   font-size: 0.7rem;
   font-weight: 620;
@@ -4038,4 +4038,65 @@
 @media (max-width: 1023px) {
   /* The compact chapter readout is informational on touch screens. */
   .journeyProgressDots, .journeyProgressLabel { display: none; }
+}
+
+/* One editorial motion system, using the existing surfaces and photography. */
+.projectIndexCard { animation: none; }
+.journeyScrollCue svg,
+.galleryShell,
+.photoChapter .chapterCopy,
+.droneJourneyChapter .chapterCopy,
+.aboutJourneyCopy,
+.photoChapter .journeyCover,
+.droneJourneyChapter .journeyCoverVideo,
+.aboutJourneyMedia img {
+  animation: none;
+}
+
+.gallerySlide [data-gallery-media] img,
+.gallerySlide[data-active='true'] a:hover [data-gallery-media] img {
+  transform: translate3d(var(--image-shift, 0%), 0, 0) scale(1.015);
+  transition: transform var(--motion-image) var(--motion-ease);
+}
+
+/* Contained website screenshots must keep their full original framing. */
+.gallerySlide [data-gallery-media] .containImage,
+.gallerySlide[data-active='true'] a:hover [data-gallery-media] .containImage {
+  transform: none;
+}
+
+.redesignMenuOverlay {
+  overflow-y: auto;
+  transform: translateY(-8px);
+  transition: opacity 280ms var(--motion-ease), transform 360ms var(--motion-ease), visibility 0s linear 280ms;
+}
+.redesignMenuOverlay[data-open='true'] {
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+.redesignMenuOverlay nav a {
+  transform: translateY(10px);
+  transition: opacity 320ms var(--motion-ease), transform 360ms var(--motion-ease);
+}
+.redesignMenuOverlay[data-open='true'] nav a {
+  transition-delay: calc(40ms + var(--menu-index) * 30ms);
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .redesignMenuOverlay, .redesignMenuOverlay nav a,
+  .gallerySlide [data-gallery-media] img,
+  .gallerySlide[data-active='true'] a:hover [data-gallery-media] img {
+    transform: none;
+    transition: none;
+  }
+  .redesignMenuOverlay[data-open='true'] nav a { transition-delay: 0s; }
+}
+
+.gallerySlide {
+  --slide-opacity: 1;
+  --slide-scale: 1;
+  --slide-lift: 0rem;
+  --meta-opacity: 1;
+  --meta-lift: 0rem;
 }

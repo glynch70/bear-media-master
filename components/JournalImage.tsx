@@ -42,6 +42,8 @@ export function JournalImage({
       )}
     >
       <div
+        data-motion-hero={isHero ? '' : undefined}
+        data-reveal={isHero ? undefined : 'image'}
         className="group relative aspect-[16/9] w-full overflow-hidden rounded-lg bg-muted"
       >
         <Image

@@ -9,8 +9,8 @@ export default function CTA({ redesign = false }: { redesign?: boolean }) {
       <h2 id="contact-title">Let’s talk.</h2>
       <span className={styles.ctaCopy}>Looking for help with photography, video, social content or your website? Tell me about your business and what you’d like to achieve.</span>
       <div className={styles.ctaActions}>
-        <Link href="/contact">Start a project →</Link>
-        <Link href="/projects">View recent work →</Link>
+        <Link href="/contact" data-magnetic>Start a project →</Link>
+        <Link href="/projects" data-magnetic>View recent work →</Link>
       </div>
     </section>
   )

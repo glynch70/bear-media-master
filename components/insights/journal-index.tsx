@@ -1,7 +1,8 @@
 'use client'
 
+import { MotionLink } from '@/components/motion/motion-link'
+
 import Image from 'next/image'
-import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import { BlogCard } from '@/components/insights/blog-card'
 import { CategoryBadge } from '@/components/insights/category-badge'
@@ -90,12 +91,13 @@ function FeaturedArticle({ article }: { article: InsightArticle }) {
 
   return (
     <section className="px-6 pb-8 lg:px-8">
-      <Link
+      <MotionLink
         href={articleHref}
+        data-motion-link data-motion-card
         className="group mx-auto grid max-w-7xl grid-cols-1 overflow-hidden rounded-3xl border border-border/70 bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 lg:grid-cols-[1.12fr_0.88fr]"
         aria-label={`Read featured article: ${article.title}`}
       >
-        <div className="relative aspect-[16/9] overflow-hidden bg-muted">
+        <div data-shared-image data-reveal="image" className="relative aspect-[16/9] overflow-hidden bg-muted">
           <Image
             src={article.featuredImage.src}
             alt={article.featuredImage.alt}
@@ -108,7 +110,7 @@ function FeaturedArticle({ article }: { article: InsightArticle }) {
         <div className="flex flex-col justify-center p-7 md:p-10 lg:p-12">
           <CategoryBadge category={article.category} />
           <p className="mt-5 text-xs font-medium uppercase tracking-[0.16em] text-accent">Featured</p>
-          <h2 className="mt-6 font-heading text-4xl font-medium leading-[1.04] tracking-tight text-balance md:text-5xl lg:text-6xl">
+          <h2 data-shared-title className="mt-6 font-heading text-4xl font-medium leading-[1.04] tracking-tight text-balance md:text-5xl lg:text-6xl">
             {article.title}
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-foreground/70 md:text-xl">
@@ -123,7 +125,7 @@ function FeaturedArticle({ article }: { article: InsightArticle }) {
             Read Article →
           </span>
         </div>
-      </Link>
+      </MotionLink>
     </section>
   )
 }

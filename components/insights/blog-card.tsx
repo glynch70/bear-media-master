@@ -1,5 +1,5 @@
+import { MotionLink } from '@/components/motion/motion-link'
 import Image from 'next/image'
-import Link from 'next/link'
 import { CategoryBadge } from '@/components/insights/category-badge'
 import type { InsightArticle } from '@/lib/insights'
 
@@ -12,9 +12,11 @@ export function BlogCard({ article, priority = false }: { article: InsightArticl
   }).format(new Date(article.publishedDate))
 
   return (
-    <article className="group flex h-full min-h-[520px] flex-col overflow-hidden rounded-3xl border border-border/70 bg-background transition duration-300 hover:-translate-y-1 hover:border-foreground/15">
-      <Link
+    <article data-motion-card className="group flex h-full min-h-[520px] flex-col overflow-hidden rounded-3xl border border-border/70 bg-background transition duration-300 hover:border-foreground/15">
+      <MotionLink
         href={articleHref}
+        data-motion-link
+        data-shared-image data-reveal="image"
         className="relative block aspect-[16/9] overflow-hidden bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
         aria-label={`Read ${article.title}`}
       >
@@ -26,17 +28,18 @@ export function BlogCard({ article, priority = false }: { article: InsightArticl
           sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
           className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
         />
-      </Link>
+      </MotionLink>
 
       <div className="flex flex-1 flex-col p-6">
         <CategoryBadge category={article.category} />
-        <h2 className="mt-5 font-heading text-[1.65rem] font-medium leading-tight tracking-tight text-balance">
-          <Link
+        <h2 data-shared-title className="mt-5 font-heading text-[1.65rem] font-medium leading-tight tracking-tight text-balance">
+          <MotionLink
             href={articleHref}
+            data-motion-link
             className="transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
           >
             {article.title}
-          </Link>
+          </MotionLink>
         </h2>
         <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">{article.excerpt}</p>
 
@@ -46,13 +49,14 @@ export function BlogCard({ article, priority = false }: { article: InsightArticl
             <span aria-hidden="true">/</span>
             <span>{article.readTime}</span>
           </div>
-          <Link
+          <MotionLink
             href={articleHref}
+            data-motion-link
             className="mt-5 inline-flex min-h-11 items-center text-sm font-medium text-foreground transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
             aria-label={`Read article: ${article.title}`}
           >
             Read Article →
-          </Link>
+          </MotionLink>
         </div>
       </div>
     </article>

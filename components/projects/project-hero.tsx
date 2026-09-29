@@ -11,7 +11,7 @@ export function ProjectHero({ project }: { project: Project }) {
   return (
     <header className={styles.hero} data-photograph={hasPhotograph}>
       {hasPhotograph && (
-        <div className={styles.media}>
+        <div className={styles.media} data-motion-hero>
           <Image
             src={project.heroImage}
             alt={project.heroAlt ?? `${project.clientName} project photography`}
@@ -29,12 +29,12 @@ export function ProjectHero({ project }: { project: Project }) {
           <ArrowLeft aria-hidden="true" /> All projects
         </Link>
         <p className={styles.eyebrow}>Case study</p>
-        <h1>{project.clientName}</h1>
+        <h1 data-motion-title>{project.clientName}</h1>
         <p className={styles.description}>{project.description}</p>
         <ul className={styles.services} aria-label="Project services">
           {project.services.map((service) => <li key={service}>{service}</li>)}
         </ul>
-        <a href="#case-overview-title" className={styles.cta}>
+        <a href="#case-overview-title" className={styles.cta} data-magnetic>
           Explore the project <ArrowDown aria-hidden="true" />
         </a>
       </div>

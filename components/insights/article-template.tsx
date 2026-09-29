@@ -43,7 +43,7 @@ export function ArticleTemplate({
             Back to The Bear Media Journal
           </Link>
           <CategoryBadge category={article.category} />
-          <h1 className="mt-6 font-heading text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.03] tracking-tight text-balance">
+          <h1 data-motion-title className="mt-6 font-heading text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.03] tracking-tight text-balance">
             {article.title}
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-foreground/65 md:text-lg">
@@ -60,7 +60,7 @@ export function ArticleTemplate({
       </section>
 
       <section className="px-6 lg:px-8">
-        <div className="relative mx-auto aspect-[16/9] max-w-6xl overflow-hidden rounded-3xl bg-muted">
+        <div data-motion-hero className="relative mx-auto aspect-[16/9] max-w-6xl overflow-hidden rounded-3xl bg-muted">
           <Image
             src={article.featuredImage.src}
             alt={article.featuredImage.alt}
