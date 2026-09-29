@@ -231,23 +231,6 @@ export default function RedesignPage() {
               />
               <span className={styles.heroBentoLabel}>Bear Media</span>
             </MotionLink>
-            <MotionLink
-              href="/projects"
-              data-motion-card
-              className={`${styles.heroBentoTile} ${styles.heroBentoClient}`}
-              aria-label="Client work: Edinburgh Windows & Doors"
-            >
-              <Image
-                src="/assets/client-work/edinburgh-windows-doors/branded-van-workshop.webp"
-                alt="Edinburgh Windows & Doors branded van outside its workshop"
-                fill
-                sizes="(max-width: 767px) 48vw, 1px"
-                quality={80}
-                data-shared-image
-                className={styles.heroBentoImage}
-              />
-              <span className={styles.heroBentoLabel}>Client work</span>
-            </MotionLink>
             <Link
               href="/projects"
               className={styles.heroBentoStatement}
