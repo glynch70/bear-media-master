@@ -4122,14 +4122,15 @@
   display: none;
 }
 
-.heroBentoTile { display: none; }
+.heroBentoTile,
+.heroBentoStatement { display: none; }
 
 @media (max-width: 767px) {
   .journeyHero {
     display: block;
     min-height: 100svh;
     height: auto;
-    padding: 5.35rem 0 max(1.5rem, env(safe-area-inset-bottom));
+    padding: 5.35rem 0 max(1.25rem, env(safe-area-inset-bottom));
     background: #11110f;
   }
 
@@ -4137,7 +4138,8 @@
     position: relative;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 9px;
+    grid-template-rows: 166px 136px repeat(2, minmax(116px, auto)) 68px;
+    gap: 10px;
     padding: 0 16px;
   }
 
@@ -4146,17 +4148,19 @@
     inset: auto;
     z-index: 1;
     grid-column: 1;
-    grid-row: 1;
+    grid-row: 1 / 3;
     display: flex;
     width: auto;
     min-width: 0;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    padding: 26px 4px 4px 0;
     color: #fff;
   }
 
   .heroBentoEyebrow.heroBentoEyebrow {
-    margin: 0 0 12px;
+    display: none;
+    margin: 0;
     font-size: 10px;
     letter-spacing: 0.1em;
     line-height: 1.35;
@@ -4173,21 +4177,21 @@
   }
 
   .heroBentoCopy h1 {
-    max-width: 10ch;
-    font-size: clamp(25px, 7.3vw, 34px);
-    font-weight: 540;
-    line-height: 0.99;
-    letter-spacing: -0.065em;
+    max-width: 8ch;
+    font-size: clamp(40px, 12.7vw, 54px);
+    font-weight: 520;
+    line-height: 0.91;
+    letter-spacing: -0.072em;
     text-shadow: none;
   }
 
   .heroBentoDescription {
     display: block;
-    max-width: 25ch;
-    margin: 12px 0 0;
-    color: rgba(255, 255, 255, 0.78);
+    max-width: 19ch;
+    margin: 15px 0 0;
+    color: rgba(255, 255, 255, 0.7);
     font-size: 14px;
-    line-height: 1.42;
+    line-height: 1.35;
     text-wrap: pretty;
   }
 
@@ -4195,14 +4199,14 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 7px;
-    margin-top: 13px;
+    gap: 4px;
+    margin-top: 15px;
   }
 
   .heroBentoPrimaryAction,
   .heroBentoSecondaryAction {
     display: inline-flex;
-    min-height: 40px;
+    min-height: 38px;
     align-items: center;
     justify-content: center;
     border-radius: 999px;
@@ -4212,9 +4216,11 @@
   }
 
   .heroBentoPrimaryAction {
-    padding: 0 15px;
-    background: #fdfdfb;
-    color: #11110f;
+    gap: 12px;
+    padding: 0 16px;
+    border: 1px solid #d9b36d;
+    background: transparent;
+    color: #fff;
     transition: transform 240ms var(--motion-spring), background-color 180ms ease;
   }
 
@@ -4223,8 +4229,9 @@
   }
 
   .heroBentoSecondaryAction {
-    min-height: 32px;
-    color: rgba(255, 255, 255, 0.82);
+    min-height: 28px;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 12px;
     text-decoration: underline;
     text-decoration-color: rgba(255, 255, 255, 0.42);
     text-underline-offset: 4px;
@@ -4240,8 +4247,8 @@
     min-width: 0;
     overflow: hidden;
     isolation: isolate;
-    aspect-ratio: 1.42;
-    border-radius: 9px;
+    aspect-ratio: auto;
+    border-radius: 10px;
     background: #22221f;
     color: #fff;
     -webkit-tap-highlight-color: transparent;
@@ -4251,18 +4258,24 @@
   .heroBentoLead {
     grid-column: 2;
     grid-row: 1;
-    min-height: 260px;
-    aspect-ratio: auto;
-    border-radius: 12px;
     animation-delay: 80ms;
   }
 
-  .heroBentoProperty { animation-delay: 140ms; }
-  .heroBentoDrone { animation-delay: 200ms; }
-  .heroBentoEditing { animation-delay: 260ms; }
-  .heroBentoVideo { animation-delay: 320ms; }
-  .heroBentoBrand { animation-delay: 380ms; }
-  .heroBentoClient { animation-delay: 440ms; }
+  .heroBentoProperty { grid-column: 1; grid-row: 3; animation-delay: 200ms; }
+  .heroBentoDrone { grid-column: 2; grid-row: 2; animation-delay: 140ms; }
+  .heroBentoEditing { grid-column: 1; grid-row: 4; animation-delay: 320ms; }
+  .heroBentoVideo { grid-column: 2; grid-row: 3; animation-delay: 260ms; }
+  .heroBentoBrand { grid-column: 2; grid-row: 4; animation-delay: 380ms; }
+  .heroBentoClient { display: none; }
+
+  .heroBentoTile::after {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.58), transparent 48%);
+    content: '';
+    pointer-events: none;
+  }
 
   .heroBentoImage {
     z-index: -2;
@@ -4280,36 +4293,80 @@
 
   .heroBentoLabel {
     position: absolute;
-    right: 8px;
-    bottom: 8px;
-    left: 8px;
+    right: 14px;
+    bottom: 13px;
+    left: 14px;
     z-index: 1;
     display: block;
     width: fit-content;
-    max-width: calc(100% - 16px);
+    max-width: calc(100% - 28px);
     overflow: hidden;
-    padding: 6px 8px;
-    border-radius: 4px;
-    background: rgba(17, 17, 15, 0.78);
+    padding: 0;
+    background: transparent;
     color: #fff;
     font-size: 11px;
-    font-weight: 570;
+    font-weight: 620;
     line-height: 1.2;
+    letter-spacing: 0.18em;
     text-overflow: ellipsis;
+    text-transform: uppercase;
     white-space: nowrap;
   }
 
   .heroBentoLead .heroBentoLabel {
-    right: 10px;
-    bottom: 10px;
-    left: 10px;
-    max-width: calc(100% - 20px);
-    padding: 7px 9px;
-    font-size: 12px;
+    right: 14px;
+    bottom: 13px;
+    left: 14px;
+    max-width: calc(100% - 28px);
+    padding: 0;
+    font-size: 11px;
+  }
+
+  .heroBentoStatement {
+    grid-column: 1 / -1;
+    grid-row: 5;
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr) 42px;
+    align-items: center;
+    gap: 13px;
+    padding: 10px 11px 10px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 10px;
+    font-weight: 560;
+    letter-spacing: 0.17em;
+    line-height: 1.35;
+    text-transform: uppercase;
+    animation: heroTileReveal 540ms 440ms var(--motion-ease) both;
+  }
+
+  .heroBentoStatementLine {
+    width: 100%;
+    height: 1px;
+    background: #d9b36d;
+  }
+
+  .heroBentoStatementArrow {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border-radius: 50%;
+    background: #d9b36d;
+    color: #11110f;
+    font-size: 19px;
+    letter-spacing: 0;
+    transition: transform 240ms var(--motion-spring);
+  }
+
+  .heroBentoStatement:active .heroBentoStatementArrow {
+    transform: translateX(2px);
   }
 
   .heroBentoTile:focus-visible,
-  .heroBentoActions a:focus-visible {
+  .heroBentoActions a:focus-visible,
+  .heroBentoStatement:focus-visible {
     outline: 2px solid #fff;
     outline-offset: 3px;
   }
@@ -4325,11 +4382,18 @@
 }
 
 @media (max-width: 359px) {
-  .heroBento { gap: 7px; padding-right: 14px; padding-left: 14px; }
-  .heroBentoLead { min-height: 242px; }
-  .heroBentoCopy h1 { font-size: 25px; }
+  .heroBento {
+    grid-template-rows: 158px 134px repeat(2, minmax(108px, auto)) 64px;
+    gap: 7px;
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+  .heroBentoCopy { padding-top: 20px; }
+  .heroBentoCopy h1 { font-size: 40px; }
   .heroBentoDescription { font-size: 13px; }
   .heroBentoLabel { font-size: 10px; }
+  .heroBentoStatement { grid-template-columns: 34px minmax(0, 1fr) 38px; gap: 9px; padding-left: 12px; font-size: 9px; }
+  .heroBentoStatementArrow { width: 38px; height: 38px; }
 }
 
 @media (min-width: 768px) {
@@ -4344,7 +4408,9 @@
 @media (prefers-reduced-motion: reduce) {
   .heroBentoTile,
   .heroBentoImage,
-  .heroBentoPrimaryAction {
+  .heroBentoPrimaryAction,
+  .heroBentoStatement,
+  .heroBentoStatementArrow {
     animation: none !important;
     transition: none !important;
     transform: none !important;
