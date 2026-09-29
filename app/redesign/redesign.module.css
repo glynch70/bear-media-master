@@ -4266,7 +4266,6 @@
   .heroBentoEditing { grid-column: 1; grid-row: 4; animation-delay: 320ms; }
   .heroBentoVideo { grid-column: 2; grid-row: 3; animation-delay: 260ms; }
   .heroBentoBrand { grid-column: 2; grid-row: 4; animation-delay: 380ms; }
-  .heroBentoClient { display: none; }
 
   .heroBentoTile::after {
     position: absolute;
@@ -4289,7 +4288,6 @@
   .heroBentoEditing .heroBentoImage { object-position: 50% 48%; }
   .heroBentoVideo .heroBentoImage { object-position: 50% 53%; }
   .heroBentoBrand .heroBentoImage { object-position: 50% 52%; }
-  .heroBentoClient .heroBentoImage { object-position: 50% 54%; }
 
   .heroBentoLabel {
     position: absolute;
