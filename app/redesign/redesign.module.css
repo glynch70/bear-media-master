@@ -3960,6 +3960,14 @@
 .clientGrid :is(a, [role="group"]) { display: flex; flex-direction: column; height: 100%; align-items: center; gap: 1rem; padding: 1.25rem .75rem; background: white; border: 1px solid var(--line); border-radius: .75rem; text-align: center; }
 .clientGrid :is(a, [role="group"]) > div { position: relative; width: 100%; height: 5.5rem; }
 .clientGrid :is(a, [role="group"]) > span { color: #33362e; font-size: .8rem; line-height: 1.4; }
+.clientDesktopGrid { display: none; }
+.clientMobileGallery .galleryShell { --slide-size: 78%; margin-top: 0; }
+.clientMobileGallery .galleryTrack { padding: 0 0 1.25rem; }
+.clientMobileGallery .galleryFooter { padding: 0; }
+.clientGalleryCard { height: 100%; }
+.clientGalleryCard :is(a, [role="group"]) { display: flex; flex-direction: column; height: 100%; min-height: 10rem; align-items: center; justify-content: center; gap: .75rem; padding: 1.25rem; background: white; border: 1px solid var(--line); border-radius: .75rem; text-align: center; }
+.clientGalleryCard :is(a, [role="group"]) > div { position: relative; width: 100%; height: 5.5rem; }
+.clientGalleryCard :is(a, [role="group"]) > span { color: #33362e; font-size: .8rem; line-height: 1.4; }
 .reasonGrid { display: grid; gap: 1.5rem; list-style: none; padding: 0; }
 .reasonGrid li { display: flex; align-items: center; gap: 1rem; }
 .reasonGrid svg { width: 1.25rem; flex-shrink: 0; color: var(--gold); }
@@ -3972,6 +3980,8 @@
 .restoredSection a:focus-visible, .reviewCard a:focus-visible, .ctaActions a:focus-visible, .journeyWorkCard:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
 .journey > section[id] { scroll-margin-top: 1rem; }
 @media (min-width: 768px) {
+  .clientMobileGallery { display: none; }
+  .clientDesktopGrid { display: grid; }
   .clientGrid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .reasonGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }

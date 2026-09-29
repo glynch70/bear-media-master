@@ -4,6 +4,7 @@ import styles from '@/app/redesign/redesign.module.css'
 
 import Image from 'next/image'
 import { Carousel, CarouselItem } from '@/components/carousel'
+import { RedesignGallery } from '@/app/redesign/redesign-gallery'
 import { getTrustedClientAriaLabel, trustedClientLinks } from '@/lib/trusted-client-links'
 
 type Client = {
@@ -64,6 +65,16 @@ function ClientCard({ client }: { client: Client }) {
   )
 }
 
+function RedesignClientCard({ client }: { client: Client }) {
+  const Card = client.href ? 'a' : 'div'
+  return (
+    <Card href={client.href} role={client.href ? undefined : 'group'} target={client.href?.startsWith('http') ? '_blank' : undefined} rel={client.href?.startsWith('http') ? 'noopener noreferrer' : undefined} aria-label={client.href?.startsWith('/') ? getTrustedClientAriaLabel(client.name) : client.href ? `Visit ${client.name}` : client.name}>
+      <div><Image src={client.logo.split('/').map(encodeURIComponent).join('/')} alt={`${client.name} logo`} fill sizes="(max-width: 767px) 60vw, 180px" className={styles.containImage} loading="lazy" /></div>
+      <span>{client.name}</span>
+    </Card>
+  )
+}
+
 export default function Clients({ redesign = false }: { redesign?: boolean }) {
   if (redesign) return (
     <section id="clients" className={styles.restoredSection} aria-labelledby="clients-title">
@@ -72,18 +83,19 @@ export default function Clients({ redesign = false }: { redesign?: boolean }) {
         <h2 id="clients-title">Businesses I’ve worked with.</h2>
         <span>From trades and property to healthcare, retail and independent brands across Scotland.</span>
       </header>
-      <ul className={styles.clientGrid}>
-        {clientsData.map((client) => {
-          const Card = client.href ? 'a' : 'div'
-          return (
-            <li key={client.name}>
-              <Card href={client.href} role={client.href ? undefined : 'group'} target={client.href?.startsWith('http') ? '_blank' : undefined} rel={client.href?.startsWith('http') ? 'noopener noreferrer' : undefined} aria-label={client.href?.startsWith('/') ? getTrustedClientAriaLabel(client.name) : client.href ? `Visit ${client.name}` : client.name}>
-                <div><Image src={client.logo.split('/').map(encodeURIComponent).join('/')} alt={`${client.name} logo`} fill sizes="(max-width: 767px) 36vw, 180px" className={styles.containImage} /></div>
-                <span>{client.name}</span>
-              </Card>
-            </li>
-          )
-        })}
+      <div className={styles.clientMobileGallery}>
+        <RedesignGallery label="businesses I’ve worked with">
+          {clientsData.map((client) => (
+            <div className={styles.clientGalleryCard} key={client.name}>
+              <RedesignClientCard client={client} />
+            </div>
+          ))}
+        </RedesignGallery>
+      </div>
+      <ul className={`${styles.clientGrid} ${styles.clientDesktopGrid}`}>
+        {clientsData.map((client) => (
+          <li key={client.name}><RedesignClientCard client={client} /></li>
+        ))}
       </ul>
     </section>
   )
