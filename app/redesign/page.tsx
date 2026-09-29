@@ -248,6 +248,15 @@ export default function RedesignPage() {
               />
               <span className={styles.heroBentoLabel}>Client work</span>
             </MotionLink>
+            <Link
+              href="/projects"
+              className={styles.heroBentoStatement}
+              aria-label="View recent Bear Media work"
+            >
+              <span aria-hidden="true" className={styles.heroBentoStatementLine} />
+              <span>Creative media for ambitious businesses</span>
+              <span aria-hidden="true" className={styles.heroBentoStatementArrow}>→</span>
+            </Link>
           </div>
           <Image
             src="/assets/hero/hero-poster.webp"
