@@ -147,23 +147,6 @@ export default function RedesignPage() {
               <span className={styles.heroBentoLabel}>Photography</span>
             </MotionLink>
             <MotionLink
-              href="/property"
-              data-motion-card
-              className={`${styles.heroBentoTile} ${styles.heroBentoProperty}`}
-              aria-label="Property photography: C&G new-build exterior"
-            >
-              <Image
-                src="/assets/client-work/cg-developments/new-build-exterior-progress.webp"
-                alt="Dark-roofed C&G Developments new-build exterior during construction"
-                fill
-                sizes="(max-width: 767px) 48vw, 1px"
-                quality={80}
-                data-shared-image
-                className={styles.heroBentoImage}
-              />
-              <span className={styles.heroBentoLabel}>Property</span>
-            </MotionLink>
-            <MotionLink
               href="/drone-photography-west-lothian"
               data-motion-card
               className={`${styles.heroBentoTile} ${styles.heroBentoDrone}`}
@@ -179,23 +162,6 @@ export default function RedesignPage() {
                 className={styles.heroBentoImage}
               />
               <span className={styles.heroBentoLabel}>Drone</span>
-            </MotionLink>
-            <MotionLink
-              href="/journal/workspace-setup"
-              data-motion-card
-              className={`${styles.heroBentoTile} ${styles.heroBentoEditing}`}
-              aria-label="Editing: Bear Media workspace and editing desk"
-            >
-              <Image
-                src="/images/journal/workspace-setup/bear-media-workspace-desk-setup-night-01.jpg"
-                alt="Bear Media editing desk and computer screens"
-                fill
-                sizes="(max-width: 767px) 48vw, 1px"
-                quality={80}
-                data-shared-image
-                className={styles.heroBentoImage}
-              />
-              <span className={styles.heroBentoLabel}>Editing</span>
             </MotionLink>
             <MotionLink
               href="/projects/cg-developments"
@@ -214,32 +180,6 @@ export default function RedesignPage() {
               />
               <span className={styles.heroBentoLabel}>Video</span>
             </MotionLink>
-            <MotionLink
-              href="/about"
-              data-motion-card
-              className={`${styles.heroBentoTile} ${styles.heroBentoBrand}`}
-              aria-label="Bear Media branded clothing"
-            >
-              <Image
-                src="/assets/hero/mobile-collage/04-dalkeith-country-park.jpg"
-                alt="Bear Media branded clothing ready for a shoot"
-                fill
-                sizes="(max-width: 767px) 48vw, 1px"
-                quality={80}
-                data-shared-image
-                className={styles.heroBentoImage}
-              />
-              <span className={styles.heroBentoLabel}>Bear Media</span>
-            </MotionLink>
-            <Link
-              href="/projects"
-              className={styles.heroBentoStatement}
-              aria-label="View recent Bear Media work"
-            >
-              <span aria-hidden="true" className={styles.heroBentoStatementLine} />
-              <span>Creative media for ambitious businesses</span>
-              <span aria-hidden="true" className={styles.heroBentoStatementArrow}>→</span>
-            </Link>
           </div>
           <Image
             src="/assets/hero/hero-poster.webp"
