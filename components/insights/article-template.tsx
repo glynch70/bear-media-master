@@ -5,6 +5,7 @@ import { BlogCard } from '@/components/insights/blog-card'
 import { CategoryBadge } from '@/components/insights/category-badge'
 import type { InsightArticle } from '@/lib/insights'
 import { absoluteUrl } from '@/lib/seo'
+import { linkedTextParts } from '@/lib/service-links'
 
 export function ArticleTemplate({
   article,
@@ -85,7 +86,15 @@ export function ArticleTemplate({
                   )
                 }
 
-                return <p key={`${block.text}-${index}`}>{block.text}</p>
+                return (
+                  <p key={`${block.text}-${index}`}>
+                    {linkedTextParts(block.text, article.contentLinks).map((part, partIndex) => part.href ? (
+                      <Link key={partIndex} href={part.href} className="underline decoration-current/40 underline-offset-4 hover:decoration-current">
+                        {part.text}
+                      </Link>
+                    ) : part.text)}
+                  </p>
+                )
               })}
             </div>
           </article>

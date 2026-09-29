@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
-import { BreadcrumbSchema } from '@/components/structured-data'
-import { getProject, projects } from '@/lib/projects'
-import { createMetadata, siteUrl } from '@/lib/seo'
+import { BreadcrumbSchema, ProjectSchema } from '@/components/structured-data'
+import { getProject, getProjectServicePaths, projects } from '@/lib/projects'
+import { absoluteUrl, createMetadata, siteUrl } from '@/lib/seo'
 import RedesignProjectPage from '../../redesign/projects/[slug]/page'
 
 export function generateStaticParams() {
@@ -36,6 +36,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
+      <ProjectSchema
+        name={project.title}
+        description={project.seoDescription ?? project.description}
+        url={`${siteUrl}/projects/${project.slug}`}
+        image={absoluteUrl(project.heroImage)}
+        serviceUrls={getProjectServicePaths(project).map(absoluteUrl)}
+      />
       <BreadcrumbSchema
         items={[
           { name: 'Home', url: siteUrl },

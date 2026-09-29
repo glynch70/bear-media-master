@@ -33,7 +33,25 @@ export default function PropertyPage() {
       <a href="#property-content" className={chrome.skipLink}>Skip to property media</a>
       <RedesignHeader surface />
       <main id="property-content">
-        <ServiceSchema name="Property Media" description="Property photography, video, drone, floor plans and 360° virtual tours" areaServed="Edinburgh, West Lothian, East Lothian, Fife and Central Scotland" provider="Bear Media" url={`${siteUrl}/property`} />
+        <ServiceSchema
+          name="Property Media"
+          description="Property photography, video, drone, floor plans and 360° virtual tours with Garry Lynch at Bear Media."
+          serviceType="Property photography, video, drone, floor plans and virtual tours"
+          areaServed={['Edinburgh', 'West Lothian', 'East Lothian', 'Fife', 'Central Scotland']}
+          provider="Bear Media"
+          url={`${siteUrl}/property`}
+          catalogue={[
+            { name: 'Property photography', url: `${siteUrl}/property#property-work` },
+            { name: 'Property video', url: `${siteUrl}/property#property-video` },
+            { name: 'Property drone photography and video', url: `${siteUrl}/property#property-drone` },
+            { name: 'Floor plans', url: `${siteUrl}/property#floor-plans` },
+            { name: '360° virtual tours', url: `${siteUrl}/property#virtual-tours` },
+          ]}
+          subjectOf={[
+            { name: 'David Todd Sales & Lettings property photography and aerial imagery', url: `${siteUrl}/projects/david-todd` },
+            { name: 'C&G Developments photography, video and drone work', url: `${siteUrl}/projects/cg-developments` },
+          ]}
+        />
         <BreadcrumbSchema items={[{ name: 'Home', url: siteUrl }, { name: 'Property Media', url: `${siteUrl}/property` }]} />
         <div className={styles.wrap}>
           <section className={styles.hero} aria-labelledby="property-title">
@@ -55,7 +73,7 @@ export default function PropertyPage() {
             {[['Photography', '#property-work'], ['Video', '#property-video'], ['Drone', '#property-drone'], ['Floor plans', '#floor-plans'], ['360° tours', '#virtual-tours'], ['Get in touch', '#property-pricing']].map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
           </ul></nav>
           <section id="property-work" className={styles.section} aria-labelledby="work-title">
-            <div className={styles.heading}><p className={styles.eyebrow}>Selected work</p><h2 id="work-title">A sense of the place</h2><p>From the wider setting to the smallest finish. A considered selection of homes and spaces photographed for estate-agent and development work.</p></div>
+            <div className={styles.heading}><p className={styles.eyebrow}>Selected work</p><h2 id="work-title">A sense of the place</h2><p>Interiors, exteriors and details photographed for estate-agent and development work. Before the shoot, clear surfaces, open curtains and have each room ready to photograph.</p></div>
             <div className={styles.gallery}>{gallery.map((photo) => <figure key={photo.src} className={photo.className}>
               <Image src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} sizes={photo.className === styles.wide ? '(max-width: 1440px) 90vw, 1296px' : '(max-width: 759px) calc(100vw - 40px), 30vw'} quality={85} />
               <figcaption className={styles.caption}>{photo.label}</figcaption>
@@ -63,18 +81,18 @@ export default function PropertyPage() {
           </section>
         </div>
         <section className={styles.soft} aria-labelledby="complete-title"><div className={styles.wrap}><div className={styles.complete}>
-          <div><p className={styles.eyebrow}>Complete property media</p><h2 id="complete-title">One property<br />One point of contact</h2><p>I’m Garry Lynch. I plan the shoot, capture the property and prepare the agreed media for your listing, website and social channels.</p></div>
-          <div className={styles.deliverables}><p>Choose the right combination for the property</p><ul>{['Photography', 'Drone', 'Video', 'Floor plan', '360° tour', 'Social content'].map(service => <li key={service}>{service}</li>)}</ul><p>The deliverables are agreed before the shoot, so you know what to expect.</p></div>
+          <div><p className={styles.eyebrow}>Complete property media</p><h2 id="complete-title">One property<br />One point of contact</h2><p>I’m Garry Lynch, the person behind Bear Media. I plan the shoot, capture the property and prepare your agreed media for listings, websites and social channels.</p></div>
+          <div className={styles.deliverables}><p>Choose the right combination for the property</p><ul>{['Photography', 'Drone', 'Video', 'Floor plan', '360° tour', 'Social content'].map(service => <li key={service}>{service}</li>)}</ul><p>I confirm the deliverables, image sizes and video formats before the shoot.</p></div>
         </div></div></section>
         <div className={styles.wrap}>
           <section id="property-video" className={styles.section} aria-labelledby="video-title">
-            <div className={styles.heading}><p className={styles.eyebrow}>Property video</p><h2 id="video-title">Show how a place comes together</h2><p>Walkthroughs show how rooms connect. Short vertical edits give you property content for social media. This C&amp;G Developments film shows another side of the work: a new home taking shape, from construction to finished interiors.</p></div>
+            <div className={styles.heading}><p className={styles.eyebrow}>Property video</p><h2 id="video-title">Show how a place comes together</h2><p>Walkthroughs show how rooms connect; vertical edits suit social media. I agree landscape or portrait formats around where you will use the video. This C&amp;G Developments film follows a new home from construction to finished interiors.</p></div>
             <div className={styles.film}><MuxVideoPlayer playbackId={film.playbackId!} poster={film.poster} title={film.title} descriptionId="property-film-description" aspectRatio={film.aspectRatio} sizes="(max-width: 1200px) 90vw, 1100px" /></div>
             <p id="property-film-description" className={styles.note}>C&amp;G Developments · A 104-second construction timeline, filmed and edited by Bear Media</p>
             <Link href="/projects/cg-developments" className={styles.link}>View the development project <span aria-hidden="true">↗</span></Link>
           </section>
           <section id="property-drone" className={styles.section} aria-labelledby="drone-title">
-            <div className={styles.heading}><p className={styles.eyebrow}>Drone photography &amp; video</p><h2 id="drone-title">The property in context</h2><p>Show the garden, the surrounding streets or the landscape beyond. Aerial imagery helps buyers understand the setting in a way ground-level photography cannot.</p></div>
+            <div className={styles.heading}><p className={styles.eyebrow}>Drone photography &amp; video</p><h2 id="drone-title">The property in context</h2><p>Show the garden, surrounding streets and wider setting. Drone work depends on weather, airspace and safe access; I check the location before confirming aerial work.</p></div>
             <div className={styles.drone}>
               <figure><Image src="/images/2026-refresh/property/118-craigentinny-road-edinburgh-aerial.webp" alt="Edinburgh residential property and surrounding streets with Arthur’s Seat in the distance" width={1403} height={1121} sizes="(max-width: 759px) calc(100vw - 40px), 56vw" quality={85} /><figcaption className={styles.caption}>Edinburgh · Home, neighbourhood and wider setting</figcaption></figure>
               <figure><Image src="/images/property/rural-property-aerial.webp" alt="New-build home seen from above with open fields and hills beyond" width={1080} height={1440} sizes="(max-width: 759px) calc(100vw - 40px), 30vw" quality={85} /><figcaption className={styles.caption}>Rural development · Scale and surrounding landscape</figcaption></figure>
@@ -83,13 +101,13 @@ export default function PropertyPage() {
           <section className={styles.section} aria-labelledby="layout-title">
             <div className={styles.heading}><p className={styles.eyebrow}>Beyond the photographs</p><h2 id="layout-title">Help buyers understand the layout</h2></div>
             <div className={styles.deliverableSections}>
-              <div id="floor-plans"><h3>Floor plans</h3><p>A clear room layout alongside the photography helps buyers make sense of the space. I can include a floor plan as part of the agreed property media brief.</p><Link href="/contact" className={styles.link}>Discuss a floor plan <span aria-hidden="true">↗</span></Link></div>
-              <div id="virtual-tours"><h3>360° virtual tours</h3><p>Give people a way to look around at their own pace before arranging a viewing. Ask me about including a 360° tour with your property media.</p><Link href="/contact" className={styles.link}>Discuss a virtual tour <span aria-hidden="true">↗</span></Link></div>
+              <div id="floor-plans"><h3>Floor plans</h3><p>A floor plan helps buyers understand how rooms connect. I can include one in the agreed brief; tell me which listing platform or printed particulars you need it for.</p><Link href="/contact" className={styles.link}>Discuss a floor plan <span aria-hidden="true">↗</span></Link></div>
+              <div id="virtual-tours"><h3>360° virtual tours</h3><p>A 360° tour lets viewers look around before arranging a viewing. Ask about availability, hosting and how to add the tour to your property listing.</p><Link href="/contact" className={styles.link}>Discuss a virtual tour <span aria-hidden="true">↗</span></Link></div>
             </div>
           </section>
         </div>
         <section id="property-pricing" className={`${styles.soft} ${styles.section}`} aria-labelledby="property-brief-title"><div className={styles.wrap}>
-          <div className={styles.heading}><p className={styles.eyebrow}>Let’s discuss your property</p><h2 id="property-brief-title">Built around the property</h2><p>Tell me about the property, its location and the media you need. I’ll recommend a suitable combination of photography, video, drone, floor plans and 360° tours, with a quote tailored to your requirements.</p></div>
+          <div className={styles.heading}><p className={styles.eyebrow}>Let’s discuss your property</p><h2 id="property-brief-title">Built around the property</h2><p>Send the property address, type, approximate size, target listing date and the media you need. I’ll confirm access, discuss a suitable combination of services and quote for the agreed work.</p></div>
           <Link href="/contact" className={styles.button}>Contact me about a property</Link>
           <p className={styles.note}><strong>Regular property requirements?</strong> Get in touch to discuss ongoing property media support.</p>
         </div></section>
@@ -100,7 +118,7 @@ export default function PropertyPage() {
           </section>
           <section className={`${styles.section} ${styles.case} ${styles.split}`} aria-labelledby="audience-title">
             <div><p className={styles.eyebrow}>Who I work with</p><h2 id="audience-title">For people who care about presentation</h2></div>
-            <div><p>I work with estate agents, developers and property businesses who want consistent imagery, straightforward communication and content that works across portals, websites and social media.</p><p>Based in West Lothian, I cover Edinburgh, East Lothian, Fife and Central Scotland.</p></div>
+            <div><p>I work with estate agents, developers and property businesses who want consistent imagery, straightforward communication and content that works across portals, websites and social media.</p><p>Based in Broxburn, West Lothian, I cover Edinburgh, East Lothian, Fife and Central Scotland.</p></div>
           </section>
         </div>
         <section className={styles.soft} aria-labelledby="enquiry-title"><div className={`${styles.wrap} ${styles.closing}`}>

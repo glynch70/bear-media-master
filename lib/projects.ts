@@ -1,4 +1,5 @@
 import { trustedClientLinks } from './trusted-client-links'
+import { getServiceHref } from './service-links'
 
 export type ProjectStat = {
   label: string
@@ -50,6 +51,7 @@ export type Project = {
   cardImage?: ProjectImage
   images: ProjectImage[]
   services: string[]
+  serviceLinks?: Record<string, string>
   deliverables: ProjectDeliverable[]
   stats: ProjectStat[]
   results?: string[]
@@ -118,6 +120,11 @@ export const projects: Project[] = [
       },
     ],
     services: ['Photography', 'Drone Imagery', 'Marketing Content'],
+    serviceLinks: {
+      Photography: '/property#property-work',
+      'Drone Imagery': '/property#property-drone',
+      'Marketing Content': '/property',
+    },
     deliverables: [
       {
         title: 'Property Photography',
@@ -751,6 +758,22 @@ export const projects: Project[] = [
 
 export function getProject(slug: string) {
   return projects.find((p) => p.slug === slug)
+}
+
+export function getProjectServiceLinks(project: Project) {
+  return project.services.map((label) => ({
+    label,
+    href: project.serviceLinks?.[label] ?? getServiceHref(label),
+  }))
+}
+
+export function getProjectServicePaths(project: Project) {
+  const paths = getProjectServiceLinks(project)
+    .map((service) => service.href)
+    .filter((href): href is string => Boolean(href))
+
+  if (project.relatedService) paths.push(project.relatedService.href)
+  return [...new Set(paths)]
 }
 
 export function getRelatedProjects(slug: string, limit = 4) {

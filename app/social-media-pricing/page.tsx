@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
-import { BreadcrumbSchema } from '@/components/structured-data'
+import { BreadcrumbSchema, ServiceSchema } from '@/components/structured-data'
 import { createMetadata, siteUrl } from '@/lib/seo'
 
 export const metadata = {
@@ -43,6 +43,18 @@ export default function SocialMediaPricingPage() {
       <Navigation />
       <main className={`min-h-screen bg-background pt-28 md:pt-36 ${desktop.standardPage} ${desktop.pricingPage} ${desktop.servicePage}`}>
         <BreadcrumbSchema items={[{ name: 'Home', url: siteUrl }, { name: 'Services', url: `${siteUrl}/services` }, { name: 'Social Media Pricing', url: `${siteUrl}/social-media-pricing` }]} />
+        <ServiceSchema
+          name="Social media management packages"
+          description="Monthly social media packages combining content planning, original posts, scheduling, site visits and reviews, with the scope set out for each package."
+          serviceType="Social media management"
+          areaServed={['West Lothian', 'Edinburgh', 'Midlothian', 'East Lothian', 'Fife']}
+          provider="Bear Media"
+          url={`${siteUrl}/social-media-pricing`}
+          catalogue={packages.map((item) => ({
+            name: `${item.name} social media package`,
+            description: `${item.price} per month. ${item.features.join('; ')}. Minimum three-month commitment. Ad spend, extra filming, travel outside the agreed area and additional work are quoted separately.`,
+          }))}
+        />
 
         <section className="mx-auto max-w-7xl px-6 pb-16 lg:px-8 md:pb-24">
           <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">

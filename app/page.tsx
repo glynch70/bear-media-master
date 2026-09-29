@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { createMetadata } from '@/lib/seo'
+import { schemaIds } from '@/lib/schema'
+import { WebPageSchema } from '@/components/structured-data'
 import RedesignPage from './redesign/page'
 
 export const metadata: Metadata = {
@@ -12,5 +14,14 @@ export const metadata: Metadata = {
 }
 
 export default function Home() {
-  return <RedesignPage />
+  return (
+    <>
+      <WebPageSchema
+        name="Bear Media"
+        url="/"
+        mainEntityId={schemaIds.business}
+      />
+      <RedesignPage />
+    </>
+  )
 }

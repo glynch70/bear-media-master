@@ -1,3 +1,5 @@
+import type { ContentLink } from './service-links'
+
 export const insightCategories = [
   'AI',
   'Website Design',
@@ -24,6 +26,9 @@ export type InsightBodyBlock =
 export type InsightArticle = {
   slug: string
   href?: string
+  indexable?: boolean
+  servicePaths?: readonly string[]
+  contentLinks?: readonly ContentLink[]
   title: string
   metaTitle: string
   metaDescription: string
@@ -56,6 +61,8 @@ export const insights: InsightArticle[] = [
   {
     slug: 'my-process',
     href: '/journal/my-process',
+    servicePaths: ['/content-creation-west-lothian', '/video-production-west-lothian'],
+    contentLinks: [{ text: 'filming and editing', href: '/video-production-west-lothian' }],
     title: 'My Process: From Idea to Content',
     metaTitle: 'My Process: From Idea to Content',
     metaDescription:
@@ -96,6 +103,8 @@ export const insights: InsightArticle[] = [
   {
     slug: 'client-work',
     href: '/journal/client-work',
+    servicePaths: ['/social-media-west-lothian', '/video-production-west-lothian'],
+    contentLinks: [{ text: 'Regular output', href: '/social-media-west-lothian' }],
     title: 'Client Work: What It Actually Looks Like',
     metaTitle: 'Client Work: What It Actually Looks Like',
     metaDescription:
@@ -131,6 +140,8 @@ export const insights: InsightArticle[] = [
   {
     slug: 'gear-setup',
     href: '/journal/gear-setup',
+    servicePaths: ['/business-photography-west-lothian', '/video-production-west-lothian'],
+    contentLinks: [{ text: 'simple setup I use every day', href: '/journal/workspace-setup' }],
     title: 'Gear Setup: Keep It Simple',
     metaTitle: 'Gear Setup: Keep It Simple',
     metaDescription:
@@ -168,6 +179,8 @@ export const insights: InsightArticle[] = [
   {
     slug: 'why-i-do-this',
     href: '/journal/why-i-do-this',
+    servicePaths: ['/social-media-west-lothian'],
+    contentLinks: [{ text: 'struggle with content', href: '/social-media-west-lothian' }],
     title: 'Why I Do This',
     metaTitle: 'Why Bear Media Exists | Supporting Businesses with Content',
     metaDescription:
@@ -203,6 +216,8 @@ export const insights: InsightArticle[] = [
   },
   {
     slug: 'how-im-building-websites-with-codex',
+    servicePaths: ['/website-design-west-lothian'],
+    contentLinks: [{ text: 'website design', href: '/website-design-west-lothian' }],
     title: "How I'm Building Websites with Codex",
     metaTitle: "How I'm Building Websites with Codex | The Bear Media Journal",
     metaDescription:
@@ -242,6 +257,8 @@ export const insights: InsightArticle[] = [
   },
   {
     slug: 'codex-vs-claude-code',
+    servicePaths: ['/website-design-west-lothian'],
+    contentLinks: [{ text: 'client websites', href: '/website-design-west-lothian' }],
     title: "Codex vs Claude Code: What I'm Using Right Now",
     metaTitle: 'Codex vs Claude Code: My Current Workflow | Bear Media',
     metaDescription:
@@ -285,6 +302,12 @@ export const insights: InsightArticle[] = [
   },
   {
     slug: 'building-better-websites-with-ai',
+    servicePaths: ['/website-design-west-lothian', '/business-photography-west-lothian'],
+    contentLinks: [
+      { text: 'real photography', href: '/business-photography-west-lothian' },
+      { text: 'Real client work', href: '/projects' },
+      { text: 'AI-assisted website', href: '/website-design-west-lothian' },
+    ],
     title: 'Building Better Websites with AI Without Making Them Look Generic',
     metaTitle: 'Building Better Websites with AI | Bear Media Journal',
     metaDescription:
@@ -335,6 +358,12 @@ export const insights: InsightArticle[] = [
   },
   {
     slug: 'why-every-small-business-still-needs-a-website',
+    servicePaths: ['/website-design-west-lothian', '/social-media-west-lothian'],
+    contentLinks: [
+      { text: 'A strong website', href: '/website-design-west-lothian' },
+      { text: 'Your social media', href: '/social-media-west-lothian' },
+      { text: 'contact details', href: '/contact' },
+    ],
     title: 'Why Every Small Business Still Needs a Website',
     metaTitle: 'Why Small Businesses Still Need a Website | Bear Media',
     metaDescription:
@@ -385,6 +414,8 @@ export const insights: InsightArticle[] = [
   },
   {
     slug: 'photography-that-builds-trust',
+    servicePaths: ['/business-photography-west-lothian'],
+    contentLinks: [{ text: 'Good photography', href: '/business-photography-west-lothian' }],
     title: 'Photography That Builds Trust',
     metaTitle: 'Photography That Builds Trust | The Bear Media Journal',
     metaDescription:
@@ -437,6 +468,7 @@ export const insights: InsightArticle[] = [
   },
   {
     slug: 'video-content-that-generates-enquiries',
+    indexable: false,
     title: 'Video Content That Generates Enquiries',
     metaTitle: 'Video Content That Generates Enquiries | The Bear Media Journal',
     metaDescription:

@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return {
     ...metadata,
+    ...(article.indexable === false ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       ...metadata.openGraph,
       type: 'article',
@@ -57,17 +58,22 @@ export default async function InsightArticlePage({ params }: { params: Promise<{
         { name: 'The Bear Media Journal', url: `${siteUrl}/insights` },
         { name: article.title, url: articleUrl },
       ]} />
-      <ArticleSchema
-        title={article.title}
-        description={article.metaDescription}
-        url={articleUrl}
-        image={absoluteUrl(article.featuredImage.src)}
-        datePublished={article.publishedDate}
-        dateModified={article.modifiedDate}
-        authorName={article.author.name}
-        authorUrl={authorUrl}
-      />
-      <AuthorSchema name={article.author.name} role={article.author.role} url={authorUrl} />
+      {article.indexable !== false ? (
+        <>
+          <ArticleSchema
+            title={article.title}
+            description={article.metaDescription}
+            url={articleUrl}
+            image={absoluteUrl(article.featuredImage.src)}
+            datePublished={article.publishedDate}
+            dateModified={article.modifiedDate}
+            authorName={article.author.name}
+            authorUrl={authorUrl}
+            serviceUrls={article.servicePaths?.map(absoluteUrl)}
+          />
+          <AuthorSchema name={article.author.name} role={article.author.role} url={authorUrl} />
+        </>
+      ) : null}
       <Navigation />
       <ArticleTemplate
         article={article}

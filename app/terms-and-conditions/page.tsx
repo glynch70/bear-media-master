@@ -1,12 +1,13 @@
 import desktop from '@/components/desktop-refresh.module.css'
 import type { Metadata } from 'next'
 import { RedesignFooter, RedesignHeader } from '@/app/redesign/redesign-chrome'
+import { createMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
   title: 'Terms & Conditions | Bear Media',
   description: 'Terms and conditions for Bear Media creative and digital services.',
-  alternates: { canonical: '/terms-and-conditions' },
-}
+  path: '/terms-and-conditions',
+})
 
 const services = [
   'Website design and development',

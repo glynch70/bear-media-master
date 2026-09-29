@@ -3,7 +3,7 @@ import { DesktopServiceImage } from '@/components/desktop-service-image'
 import type { Metadata } from 'next'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
-import { ServiceSchema } from '@/components/structured-data'
+import { FAQPageSchema, ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
   title: 'Professional Website Design in Fife | Bear Media',
@@ -30,19 +30,56 @@ export const metadata: Metadata = {
     title: 'Professional Website Design in Fife | Bear Media',
     description: 'Custom website design for Fife businesses',
     images: ['https://bear-media.com/assets/brand/og-image.jpg'],
-    creator: '@bearmediascot',
   },
   alternates: {
     canonical: 'https://bear-media.com/website-design-fife',
   },
 }
 
+const faqs = [
+  {
+    question: "How much does a website cost?",
+    answer: "The price depends on the pages, functionality and content required. I’ll discuss what you already have and provide a written proposal covering the build, content, support and total cost before you decide.",
+  },
+  {
+    question: "How long does it take to build?",
+    answer: "A typical small-business build takes around four to eight weeks. The schedule depends on the site’s size, features and how quickly content and feedback are supplied; your proposal confirms the expected timeline.",
+  },
+  {
+    question: "Can you redesign my existing website?",
+    answer: "Yes. I review the existing content, useful pages and customer journey before recommending changes. Existing URLs and important search content are considered as part of the move.",
+  },
+  {
+    question: "Is your design mobile-friendly?",
+    answer: "Yes. I design for phones, tablets and desktops, with clear text, navigation and enquiry routes. The finished site is checked across screen sizes before launch.",
+  },
+  {
+    question: "Do you handle SEO?",
+    answer: "I build in clear page structure, titles, descriptions and useful service content so search engines can understand the site. Any ongoing search work is scoped separately, and rankings cannot be guaranteed.",
+  },
+  {
+    question: "Can I update content myself?",
+    answer: "If you want to edit your own content, I’ll agree the editing setup and handover with you before the build. Ongoing updates can also be handled as a separate support arrangement.",
+  },
+] as const
+
 export default function WebsiteDesignFife() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navigation />
       <main className={`flex-1 ${desktop.standardPage} ${desktop.simpleService} ${desktop.servicePage}`}>
-        <ServiceSchema name="Website Design in Fife" description="Professional website design services for Fife businesses" areaServed="Fife" provider="Bear Media" />
+        <ServiceSchema
+          name="Website Design in Fife"
+          description="Mobile-first website design and development for Fife businesses, with content and support scoped around each project."
+          serviceType="Website design and development"
+          areaServed="Fife"
+          provider="Bear Media"
+          url="https://bear-media.com/website-design-fife"
+          subjectOf={[
+            { name: "Herb & Soul Case Study", url: 'https://bear-media.com/projects/herb-soul' },
+          ]}
+        />
+        <FAQPageSchema questions={faqs} url="https://bear-media.com/website-design-fife" />
         <section className="bg-gradient-to-b from-background to-muted py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">Professional Website Design for Fife Businesses</h1>
@@ -100,12 +137,12 @@ export default function WebsiteDesignFife() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-12">Website Design FAQs</h2>
             <div className="space-y-6">
-              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">How much does a website cost?</summary><p className="text-muted-foreground">Website costs vary based on complexity. We offer flexible options for different budgets and needs.</p></details>
-              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">How long does it take to build?</summary><p className="text-muted-foreground">Typically 4-8 weeks for a complete website project. Simpler sites may be faster.</p></details>
-              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">Can you redesign my existing website?</summary><p className="text-muted-foreground">Yes, we can audit and redesign your current site with modern technology and better UX.</p></details>
-              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">Is your design mobile-friendly?</summary><p className="text-muted-foreground">Yes, 100%. Every website is fully responsive and optimized for mobile devices.</p></details>
-              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">Do you handle SEO?</summary><p className="text-muted-foreground">Our websites are built with SEO best practices. We offer ongoing SEO services too.</p></details>
-              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">Can I update content myself?</summary><p className="text-muted-foreground">Yes, we use easy-to-use CMS platforms so you can update content without technical skills.</p></details>
+              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">{faqs[0].question}</summary><p className="text-muted-foreground">{faqs[0].answer}</p></details>
+              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">{faqs[1].question}</summary><p className="text-muted-foreground">{faqs[1].answer}</p></details>
+              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">{faqs[2].question}</summary><p className="text-muted-foreground">{faqs[2].answer} <a href="/projects/herb-soul" className="text-primary underline underline-offset-4">See the Herb &amp; Soul website project.</a></p></details>
+              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">{faqs[3].question}</summary><p className="text-muted-foreground">{faqs[3].answer}</p></details>
+              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">{faqs[4].question}</summary><p className="text-muted-foreground">{faqs[4].answer}</p></details>
+              <details className="border-b pb-6"><summary className="font-bold text-lg mb-3 hover:text-primary">{faqs[5].question}</summary><p className="text-muted-foreground">{faqs[5].answer}</p></details>
             </div>
           </div>
         </section>
@@ -134,3 +171,4 @@ export default function WebsiteDesignFife() {
     </div>
   )
 }
+

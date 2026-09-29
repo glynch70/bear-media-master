@@ -5,13 +5,20 @@ export const siteName = 'Bear Media'
 export const defaultOgImage = '/assets/brand/og-image.jpg'
 export const defaultOgImageUrl = `${siteUrl}${defaultOgImage}`
 
-export const socialProfiles = [
+export const businessSocialProfiles = [
   'https://www.facebook.com/profile.php?id=61553562716650',
   'https://www.instagram.com/bearmedia70/',
   'https://www.tiktok.com/@bearmediascotland',
   'https://www.youtube.com/@bearmedia70',
+  'https://uk.linkedin.com/company/bear-media-content-creation-video-marketing-drone-services',
+]
+
+export const personSocialProfiles = [
   'https://www.linkedin.com/in/garrylynch70',
 ]
+
+// Retain the existing export for callers that refer to the business profiles.
+export const socialProfiles = businessSocialProfiles
 
 export function absoluteUrl(path = '/') {
   if (path.startsWith('http')) return path
@@ -69,7 +76,6 @@ export function createMetadata({
       title,
       description,
       images: [imageUrl],
-      creator: '@bearmediascot',
     },
   }
 }

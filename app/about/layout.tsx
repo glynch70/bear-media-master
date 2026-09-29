@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
-import { BreadcrumbSchema } from '@/components/structured-data'
+import { BreadcrumbSchema, WebPageSchema } from '@/components/structured-data'
 import { createMetadata, siteUrl } from '@/lib/seo'
+import { schemaIds } from '@/lib/schema'
 
 export const metadata: Metadata = {
   ...createMetadata({
@@ -15,6 +16,14 @@ export const metadata: Metadata = {
 export default function AboutLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
+      <WebPageSchema
+        type="ProfilePage"
+        name="About Bear Media | Garry Lynch"
+        description="Meet Garry Lynch, founder of Bear Media in Broxburn, West Lothian."
+        url={`${siteUrl}/about`}
+        mainEntityId={schemaIds.person}
+        aboutIds={[schemaIds.business]}
+      />
       <BreadcrumbSchema items={[
         { name: 'Home', url: siteUrl },
         { name: 'About', url: `${siteUrl}/about` },

@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
-import { ServiceSchema } from '@/components/structured-data'
+import { FAQPageSchema, ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
   title: 'Drone Photography West Lothian | Bear Media',
@@ -22,19 +22,56 @@ export const metadata: Metadata = {
     title: 'Drone Photography West Lothian | Bear Media',
     description: 'Drone photography and aerial video for West Lothian businesses.',
     images: ['https://bear-media.com/assets/brand/og-image.jpg'],
-    creator: '@bearmediascot',
   },
   alternates: {
     canonical: 'https://bear-media.com/drone-photography-west-lothian',
   },
 }
 
+const faqs = [
+  {
+    question: "Are you licensed to fly drones in West Lothian?",
+    answer: "Yes, fully licensed and insured. All operations comply with CAA (Civil Aviation Authority) regulations.",
+  },
+  {
+    question: "What weather conditions can you fly in?",
+    answer: "Wind, rain and visibility can affect whether the planned shots are practical. I assess conditions for the location and discuss a change of date if the shoot cannot go ahead as planned.",
+  },
+  {
+    question: "How high can drones fly?",
+    answer: "The CAA Drone Code normally limits flights to below 120 metres (400 feet), measured from the closest point of the ground. Local airspace restrictions and conditions at the property can further limit what is possible.",
+  },
+  {
+    question: "How long does a typical drone shoot take?",
+    answer: "The time depends on site access, location checks and the number of photographs or clips required. I’ll scope the capture and editing before booking, including any ground-level photography or video you also need.",
+  },
+  {
+    question: "Can you do 4K video?",
+    answer: "Yes. I can capture 4K drone video. The final resolution, edit length and any portrait or landscape versions are agreed around where you plan to use the finished content.",
+  },
+  {
+    question: "How quickly can you turn around drone footage?",
+    answer: "The delivery time depends on the capture and editing required. I’ll discuss the timescale when you book.",
+  },
+] as const
+
 export default function DronePhotographyWestLothian() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navigation />
       <main className={`flex-1 ${desktop.standardPage} ${desktop.dronePage} ${desktop.servicePage}`}>
-        <ServiceSchema name="Drone Photography West Lothian" description="Drone photography and video for properties, events and businesses across West Lothian" areaServed="West Lothian" provider="Bear Media" />
+        <ServiceSchema
+          name="Drone Photography West Lothian"
+          description="Aerial photography and drone video for properties, construction projects, events and businesses across West Lothian."
+          serviceType="Drone photography and video"
+          areaServed="West Lothian"
+          provider="Bear Media"
+          url="https://bear-media.com/drone-photography-west-lothian"
+          subjectOf={[
+            { name: "C&G Developments Video Case Study", url: 'https://bear-media.com/projects/cg-developments' },
+          ]}
+        />
+        <FAQPageSchema questions={faqs} url="https://bear-media.com/drone-photography-west-lothian" />
 
         <section className="bg-gradient-to-b from-background to-muted py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
@@ -183,28 +220,28 @@ export default function DronePhotographyWestLothian() {
             <h2 className="text-3xl font-bold mb-12">Drone Photography FAQs</h2>
             <div className="space-y-8">
               <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">Are you licensed to fly drones in West Lothian?</summary>
-                <p className="text-muted-foreground">Yes, fully licensed and insured. All operations comply with CAA (Civil Aviation Authority) regulations.</p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[0].question}</summary>
+                <p className="text-muted-foreground">{faqs[0].answer}</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">What weather conditions can you fly in?</summary>
-                <p className="text-muted-foreground">Weather affects every aerial shoot. I’ll advise on the practical conditions and the best day for your project.</p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[1].question}</summary>
+                <p className="text-muted-foreground">{faqs[1].answer}</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">How high can drones fly?</summary>
-                <p className="text-muted-foreground">I’ll plan the capture around the location and the practical requirements of your project.</p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[2].question}</summary>
+                <p className="text-muted-foreground">{faqs[2].answer} <a href="https://www.caa.co.uk/drones/open-category/drone-code/where-you-can-fly-points-3-to-9/" className="text-primary underline underline-offset-4">Read the CAA Drone Code.</a></p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">How long does a typical drone shoot take?</summary>
-                <p className="text-muted-foreground">Depends on the project. Simple property photography might be 30-60 minutes, while event coverage or more complex projects take longer.</p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[3].question}</summary>
+                <p className="text-muted-foreground">{faqs[3].answer}</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">Can you do 4K video?</summary>
-                <p className="text-muted-foreground">The available formats and editing will be agreed around where you plan to use the finished content.</p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[4].question}</summary>
+                <p className="text-muted-foreground">{faqs[4].answer} <a href="/projects/cg-developments" className="text-primary underline underline-offset-4">See drone work for C&amp;G Developments.</a></p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">How quickly can you turn around drone footage?</summary>
-                <p className="text-muted-foreground">The delivery time depends on the capture and editing required. I’ll discuss the timescale when you book.</p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[5].question}</summary>
+                <p className="text-muted-foreground">{faqs[5].answer}</p>
               </details>
             </div>
           </div>
@@ -244,3 +281,4 @@ export default function DronePhotographyWestLothian() {
     </div>
   )
 }
+

@@ -3,7 +3,7 @@ import { DesktopServiceImage } from '@/components/desktop-service-image'
 import type { Metadata } from 'next'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
-import { ServiceSchema } from '@/components/structured-data'
+import { FAQPageSchema, ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
   title: 'Business Photography West Lothian | Bear Media',
@@ -22,19 +22,60 @@ export const metadata: Metadata = {
     title: 'Business Photography West Lothian | Bear Media',
     description: 'Professional business photography for West Lothian companies.',
     images: ['https://bear-media.com/assets/brand/og-image.jpg'],
-    creator: '@bearmediascot',
   },
   alternates: {
     canonical: 'https://bear-media.com/business-photography-west-lothian',
   },
 }
 
+const faqs = [
+  {
+    question: "How much do professional headshots cost?",
+    answer: "The quote depends on how many people need photographs, the location and the edited images required. Tell me whether you need individual headshots, team photos or a wider set of workplace images so I can scope the session.",
+  },
+  {
+    question: "How long does a headshot session take?",
+    answer: "The time depends on the number of people, the photographs needed and the space available. I’ll plan the session with you beforehand, including setup and any group photographs, so staff can work around it.",
+  },
+  {
+    question: "Can we do group photos?",
+    answer: "Yes. I can discuss the group size and the most suitable location for your team photographs.",
+  },
+  {
+    question: "Do you provide retouching?",
+    answer: "The agreed editing and retouching will be set out in your proposal so you know what is included.",
+  },
+  {
+    question: "How quickly will I get my photos?",
+    answer: "Delivery depends on the size of the session and the agreed editing. I’ll give you a clear timescale before we start.",
+  },
+  {
+    question: "What should we wear for business photos?",
+    answer: "Wear something that feels appropriate for your work and the impression you want to create. I’ll talk through any practical preparation beforehand.",
+  },
+  {
+    question: "Can we do photos at our workplace?",
+    answer: "Yes. Your workplace can be a useful setting when you want the photographs to show the real environment behind your business.",
+  },
+] as const
+
 export default function BusinessPhotographyWestLothian() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navigation />
       <main className={`flex-1 ${desktop.standardPage} ${desktop.simpleService} ${desktop.servicePage}`}>
-        <ServiceSchema name="Business Photography West Lothian" description="Business photography, headshots, team photography and workplace imagery across West Lothian" areaServed="West Lothian" provider="Bear Media" />
+        <ServiceSchema
+          name="Business Photography West Lothian"
+          description="Business photography, headshots, team portraits and workplace imagery for businesses across West Lothian."
+          serviceType="Business photography"
+          areaServed="West Lothian"
+          provider="Bear Media"
+          url="https://bear-media.com/business-photography-west-lothian"
+          subjectOf={[
+            { name: "M&M Compliance Case Study", url: 'https://bear-media.com/projects/mm-compliance' },
+          ]}
+        />
+        <FAQPageSchema questions={faqs} url="https://bear-media.com/business-photography-west-lothian" />
 
         <section className="bg-gradient-to-b from-background to-muted py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
@@ -173,32 +214,32 @@ export default function BusinessPhotographyWestLothian() {
             <h2 className="text-3xl font-bold mb-12">Business Photography FAQs</h2>
             <div className="space-y-8">
               <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">How much do professional headshots cost?</summary>
-                <p className="text-muted-foreground">Headshot pricing varies based on how many people you need photographed. I can give you a clear quote based on your needs.</p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[0].question}</summary>
+                <p className="text-muted-foreground">{faqs[0].answer}</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">How long does a headshot session take?</summary>
-                <p className="text-muted-foreground">A typical headshot session takes 30-60 minutes per person, depending on how many outfit changes and variations you want.</p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[1].question}</summary>
+                <p className="text-muted-foreground">{faqs[1].answer}</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">Can we do group photos?</summary>
-                <p className="text-muted-foreground">Yes. I can discuss the group size and the most suitable location for your team photographs.</p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[2].question}</summary>
+                <p className="text-muted-foreground">{faqs[2].answer}</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">Do you provide retouching?</summary>
-                <p className="text-muted-foreground">The agreed editing and retouching will be set out in your proposal so you know what is included.</p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[3].question}</summary>
+                <p className="text-muted-foreground">{faqs[3].answer}</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">How quickly will I get my photos?</summary>
-                <p className="text-muted-foreground">Delivery depends on the size of the session and the agreed editing. I’ll give you a clear timescale before we start.</p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[4].question}</summary>
+                <p className="text-muted-foreground">{faqs[4].answer}</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">What should we wear for business photos?</summary>
-                <p className="text-muted-foreground">Wear something that feels appropriate for your work and the impression you want to create. I’ll talk through any practical preparation beforehand.</p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[5].question}</summary>
+                <p className="text-muted-foreground">{faqs[5].answer}</p>
               </details>
               <details className="border-b pb-6 cursor-pointer">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">Can we do photos at our workplace?</summary>
-                <p className="text-muted-foreground">Yes. Your workplace can be a useful setting when you want the photographs to show the real environment behind your business.</p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[6].question}</summary>
+                <p className="text-muted-foreground">{faqs[6].answer} <a href="/projects/mm-compliance" className="text-primary underline underline-offset-4">See photography for M&amp;M Compliance.</a></p>
               </details>
             </div>
           </div>
@@ -242,3 +283,4 @@ export default function BusinessPhotographyWestLothian() {
     </div>
   )
 }
+

@@ -3,7 +3,7 @@ import { ArrowLeft } from 'lucide-react'
 import Footer from '@/components/footer'
 import { JournalImage } from '@/components/JournalImage'
 import Navigation from '@/components/navigation'
-import { BreadcrumbSchema } from '@/components/structured-data'
+import { ArticleSchema, BreadcrumbSchema } from '@/components/structured-data'
 import { createMetadata, siteUrl } from '@/lib/seo'
 
 const imageBase = '/images/journal/workspace-setup'
@@ -27,6 +27,15 @@ export default function WorkspaceSetupJournalPage() {
         { name: 'The Bear Media Journal', url: `${siteUrl}/insights` },
         { name: 'Workspace Setup', url: `${siteUrl}/journal/workspace-setup` },
       ]} />
+      <ArticleSchema
+        title="The desk where Bear Media content gets made"
+        description="A look inside the Bear Media workspace setup for content creation, editing, planning and practical AI-assisted production."
+        url={`${siteUrl}/journal/workspace-setup`}
+        image={`${siteUrl}${imageBase}/bear-media-workspace-desk-setup-night-01.jpg`}
+        authorName="Garry Lynch"
+        authorUrl={`${siteUrl}/about`}
+        serviceUrls={[`${siteUrl}/content-creation-west-lothian`]}
+      />
       <Navigation />
 
       <article className="px-6 pt-32 pb-16 md:pt-44 md:pb-24 lg:px-8">
@@ -77,7 +86,7 @@ export default function WorkspaceSetupJournalPage() {
 
         <div className="mx-auto w-full max-w-[800px] space-y-7 text-lg leading-[1.8] text-foreground/76 md:text-xl md:leading-[1.8]">
           <p>
-            Most Bear Media projects involve a mix of practical production and careful judgement: what to say, what to leave out, what visual actually supports the message, and where the story should slow down.
+            Most Bear Media projects involve a mix of <Link href="/content-creation-west-lothian" className="underline decoration-current/40 underline-offset-4 hover:decoration-current">practical production</Link> and careful judgement: what to say, what to leave out, what visual actually supports the message, and where the story should slow down.
           </p>
           <p>
             The best workspace is the one that removes friction. When the camera files, AI tools, project notes and website preview are all within reach, the work becomes calmer and more deliberate.

@@ -3,7 +3,7 @@ import { DesktopServiceImage } from '@/components/desktop-service-image'
 import type { Metadata } from 'next'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
-import { ServiceSchema } from '@/components/structured-data'
+import { FAQPageSchema, ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
   title: 'Social Media West Lothian | Bear Media',
@@ -30,12 +30,46 @@ export const metadata: Metadata = {
     title: 'Social Media West Lothian | Bear Media',
     description: 'Social media management for West Lothian businesses.',
     images: ['https://bear-media.com/assets/brand/og-image.jpg'],
-    creator: '@bearmediascot',
   },
   alternates: {
     canonical: 'https://bear-media.com/social-media-west-lothian',
   },
 }
+
+const faqs = [
+  {
+    question: "How much does social media management cost for a West Lothian business?",
+    answer: "Pricing depends on the platforms, content and level of support involved. Contact me with your goals and I’ll scope the right level of work.",
+  },
+  {
+    question: "How long does it take to see results from social media management?",
+    answer: "Some measures can move quickly, while a useful audience takes time to build. I’ll agree realistic measures and reporting with you rather than promise a fixed result.",
+  },
+  {
+    question: "Which social media platforms should my West Lothian business be on?",
+    answer: "This depends on your audience and business type. I’ll review what you are trying to achieve and recommend the platforms that fit, rather than spreading the work everywhere.",
+  },
+  {
+    question: "Can you help with paid social media advertising for West Lothian?",
+    answer: "Paid social can be discussed separately when it is a suitable part of the plan. Any campaign scope, budget and reporting would be agreed before launch.",
+  },
+  {
+    question: "How do you measure social media success?",
+    answer: "I can track agreed measures such as reach, engagement, clicks and enquiries, then connect them to the goals that matter to your business.",
+  },
+  {
+    question: "Do you create original content or reuse existing content?",
+    answer: "I can create original photography, video and copy for your social channels, with the deliverables agreed around your needs.",
+  },
+  {
+    question: "Can you manage social media if we already have existing accounts?",
+    answer: "Yes. I can review your existing accounts and work with what is already useful, then agree the next practical steps with you.",
+  },
+  {
+    question: "How often should we post on social media?",
+    answer: "The right frequency depends on your platform, audience and available content. I’d rather set a sustainable rhythm than promise a volume that does not suit your business.",
+  },
+] as const
 
 export default function SocialMediaWestLothian() {
   return (
@@ -44,10 +78,17 @@ export default function SocialMediaWestLothian() {
       <main className={`flex-1 ${desktop.standardPage} ${desktop.simpleService} ${desktop.servicePage}`}>
         <ServiceSchema
           name="Social Media West Lothian"
-          description="Social media planning, content creation and ongoing support for businesses across West Lothian"
+          description="Social media planning, original content creation, scheduling and ongoing account support for businesses across West Lothian."
+          serviceType="Social media management"
           areaServed="West Lothian"
           provider="Bear Media"
+          url="https://bear-media.com/social-media-west-lothian"
+          subjectOf={[
+            { name: "C&G Developments Video Case Study", url: 'https://bear-media.com/projects/cg-developments' },
+            { name: "Simply Sheds Scotland Case Study", url: 'https://bear-media.com/projects/simply-sheds' },
+          ]}
         />
+        <FAQPageSchema questions={faqs} url="https://bear-media.com/social-media-west-lothian" />
 
         {/* Hero Section */}
         <section className="bg-gradient-to-b from-background to-muted py-16 md:py-24">
@@ -231,75 +272,43 @@ export default function SocialMediaWestLothian() {
             <h2 className="text-3xl font-bold mb-12">Frequently Asked Questions</h2>
             <div className="space-y-8">
               <details className="border-b pb-6 cursor-pointer group">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">
-                  How much does social media management cost for a West Lothian business?
-                </summary>
-                <p className="text-muted-foreground">
-                  Pricing depends on the platforms, content and level of support involved. Contact me with your goals and I’ll scope the right level of work.
-                </p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[0].question}</summary>
+                <p className="text-muted-foreground">{faqs[0].answer} <a href="/social-media-pricing" className="text-primary underline underline-offset-4">View the current packages and inclusions.</a></p>
               </details>
 
               <details className="border-b pb-6 cursor-pointer group">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">
-                  How long does it take to see results from social media management?
-                </summary>
-                <p className="text-muted-foreground">
-                  Some measures can move quickly, while a useful audience takes time to build. I’ll agree realistic measures and reporting with you rather than promise a fixed result.
-                </p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[1].question}</summary>
+                <p className="text-muted-foreground">{faqs[1].answer}</p>
               </details>
 
               <details className="border-b pb-6 cursor-pointer group">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">
-                  Which social media platforms should my West Lothian business be on?
-                </summary>
-                <p className="text-muted-foreground">
-                  This depends on your audience and business type. I’ll review what you are trying to achieve and recommend the platforms that fit, rather than spreading the work everywhere.
-                </p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[2].question}</summary>
+                <p className="text-muted-foreground">{faqs[2].answer}</p>
               </details>
 
               <details className="border-b pb-6 cursor-pointer group">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">
-                  Can you help with paid social media advertising for West Lothian?
-                </summary>
-                <p className="text-muted-foreground">
-                  Paid social can be discussed separately when it is a suitable part of the plan. Any campaign scope, budget and reporting would be agreed before launch.
-                </p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[3].question}</summary>
+                <p className="text-muted-foreground">{faqs[3].answer}</p>
               </details>
 
               <details className="border-b pb-6 cursor-pointer group">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">
-                  How do you measure social media success?
-                </summary>
-                <p className="text-muted-foreground">
-                  I can track agreed measures such as reach, engagement, clicks and enquiries, then connect them to the goals that matter to your business.
-                </p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[4].question}</summary>
+                <p className="text-muted-foreground">{faqs[4].answer}</p>
               </details>
 
               <details className="border-b pb-6 cursor-pointer group">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">
-                  Do you create original content or reuse existing content?
-                </summary>
-                <p className="text-muted-foreground">
-                  I can create original photography, video and copy for your social channels, with the deliverables agreed around your needs.
-                </p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[5].question}</summary>
+                <p className="text-muted-foreground">{faqs[5].answer} <a href="/projects/cg-developments" className="text-primary underline underline-offset-4">See C&amp;G Developments</a> and <a href="/projects/simply-sheds" className="text-primary underline underline-offset-4">Simply Sheds Scotland</a> projects.</p>
               </details>
 
               <details className="border-b pb-6 cursor-pointer group">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">
-                  Can you manage social media if we already have existing accounts?
-                </summary>
-                <p className="text-muted-foreground">
-                  Yes. I can review your existing accounts and work with what is already useful, then agree the next practical steps with you.
-                </p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[6].question}</summary>
+                <p className="text-muted-foreground">{faqs[6].answer}</p>
               </details>
 
               <details className="border-b pb-6 cursor-pointer group">
-                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">
-                  How often should we post on social media?
-                </summary>
-                <p className="text-muted-foreground">
-                  The right frequency depends on your platform, audience and available content. I’d rather set a sustainable rhythm than promise a volume that does not suit your business.
-                </p>
+                <summary className="font-bold text-lg mb-3 hover:text-primary transition-colors">{faqs[7].question}</summary>
+                <p className="text-muted-foreground">{faqs[7].answer} <a href="/journal/client-work" className="text-primary underline underline-offset-4">Read how I approach ongoing client content.</a></p>
               </details>
             </div>
           </div>
@@ -348,3 +357,4 @@ export default function SocialMediaWestLothian() {
     </div>
   )
 }
+
