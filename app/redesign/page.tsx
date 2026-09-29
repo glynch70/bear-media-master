@@ -132,11 +132,11 @@ export default function RedesignPage() {
               href="/business-photography-west-lothian"
               data-motion-card
               className={`${styles.heroBentoTile} ${styles.heroBentoLead}`}
-              aria-label="Photography: Edinburgh Windows & Doors craftspeople at work"
+              aria-label="Photography: property interior at Craigentinny Road, Edinburgh"
             >
               <Image
-                src="/assets/client-work/edinburgh-windows-doors/crafting-curved-timber-frame.webp"
-                alt="Edinburgh Windows & Doors craftsperson shaping a curved timber frame"
+                src="/images/2026-refresh/property/118-craigentinny-road-edinburgh-kitchen-conservatory.webp"
+                alt="Kitchen opening into the conservatory at 118 Craigentinny Road, Edinburgh"
                 fill
                 preload
                 sizes="(max-width: 767px) 46vw, 1px"
@@ -150,11 +150,11 @@ export default function RedesignPage() {
               href="/drone-photography-west-lothian"
               data-motion-card
               className={`${styles.heroBentoTile} ${styles.heroBentoDrone}`}
-              aria-label="Drone photography: St Andrews aerial by C&G Developments"
+              aria-label="Drone: Bear Media drone in flight"
             >
               <Image
-                src="/assets/client-work/cg-developments/st-andrews-aerial.webp"
-                alt="Aerial photograph of the C&G Developments St Andrews project"
+                src="/assets/bts/drone-2.webp"
+                alt="Bear Media drone hovering above a garden with countryside beyond"
                 fill
                 sizes="(max-width: 767px) 48vw, 1px"
                 quality={80}
@@ -164,14 +164,14 @@ export default function RedesignPage() {
               <span className={styles.heroBentoLabel}>Drone</span>
             </MotionLink>
             <MotionLink
-              href="/projects/cg-developments"
+              href="/video-production-west-lothian"
               data-motion-card
               className={`${styles.heroBentoTile} ${styles.heroBentoVideo}`}
-              aria-label="Video: C&G Developments St Andrews restaurant project"
+              aria-label="Video: Bear Media production workspace"
             >
               <Image
-                src="/assets/client-work/cg-developments/st-andrews-seafood-restaurant-interior.webp"
-                alt="St Andrews seafood restaurant interior photographed for C&G Developments"
+                src="/images/journal/workspace-setup/bear-media-workspace-desk-setup-night-01.jpg"
+                alt="Bear Media desk with computer screens and production equipment"
                 fill
                 sizes="(max-width: 767px) 48vw, 1px"
                 quality={80}
