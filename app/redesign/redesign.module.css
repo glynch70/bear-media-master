@@ -4129,7 +4129,7 @@
     display: block;
     min-height: 0;
     height: auto;
-    padding: 5.35rem 0 max(1.25rem, env(safe-area-inset-bottom));
+    padding: 6.5rem 0 max(3.5rem, calc(env(safe-area-inset-bottom) + 2.5rem));
     background: #11110f;
   }
 
@@ -4138,7 +4138,7 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: minmax(340px, auto) clamp(145px, 42vw, 210px);
-    gap: 10px;
+    gap: 18px 14px;
     padding: 0 16px;
   }
 
@@ -4184,13 +4184,17 @@
     text-shadow: none;
   }
 
-  .heroBentoDescription {
+  .heroBentoCopy .heroBentoDescription {
     display: block;
     max-width: 19ch;
     margin: 15px 0 0;
     color: rgba(255, 255, 255, 0.7);
     font-size: 14px;
     line-height: 1.35;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    text-shadow: none;
     text-wrap: pretty;
   }
 
@@ -4279,8 +4283,8 @@
   }
 
   .heroBentoLead .heroBentoImage { object-position: 52% 50%; }
-  .heroBentoDrone .heroBentoImage { object-position: 50% 52%; }
-  .heroBentoVideo .heroBentoImage { object-position: 50% 53%; }
+  .heroBentoDrone .heroBentoImage { object-position: 45% 32%; }
+  .heroBentoVideo .heroBentoImage { object-position: 55% 42%; }
 
   .heroBentoLabel {
     position: absolute;
@@ -4332,13 +4336,13 @@
 @media (max-width: 359px) {
   .heroBento {
     grid-template-rows: minmax(320px, auto) 135px;
-    gap: 7px;
+    gap: 16px 12px;
     padding-right: 14px;
     padding-left: 14px;
   }
   .heroBentoCopy { padding-top: 20px; }
   .heroBentoCopy h1 { font-size: 40px; }
-  .heroBentoDescription { font-size: 13px; }
+  .heroBentoCopy .heroBentoDescription { font-size: 13px; }
   .heroBentoLabel { font-size: 10px; }
 }
 
