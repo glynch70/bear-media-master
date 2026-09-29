@@ -16,6 +16,7 @@ import Clients from '@/components/home/clients'
 import WhyBearMedia from '@/components/home/why-bear-media'
 import CTA from '@/components/home/cta'
 import { PropertyFeature } from '@/components/property/property-feature'
+import { MotionLink } from '@/components/motion/motion-link'
 
 export const metadata: Metadata = {
   ...createMetadata({
@@ -103,48 +104,150 @@ export default function RedesignPage() {
           data-chapter="01"
           aria-labelledby="redesign-title"
         >
-          <div className={styles.mobileHeroCollage}>
-            <div className={`${styles.mobileHeroFrame} ${styles.mobileHeroPrimary}`}>
+          <div className={styles.heroBento} aria-label="Bear Media services and selected client work">
+            <div className={`${styles.heroBentoCopy} ${styles.journeyHeroCopy}`}>
+              <p className={styles.heroBentoEyebrow}>
+                <span className={styles.heroBentoDesktopEyebrow}>01 / 09 · Bear Media · Edinburgh &amp; the Lothians</span>
+                <span className={styles.heroBentoMobileEyebrow}>Bear Media · Scotland</span>
+              </p>
+              <h1 id="redesign-title">Content days &amp; websites.</h1>
+              <p className={styles.heroBentoDescription}>
+                Photography, video, drone, social media and websites for Scottish businesses.
+              </p>
+              <div className={styles.heroBentoActions}>
+                <Link href="/contact" className={styles.heroBentoPrimaryAction}>
+                  Start a project <span aria-hidden="true">→</span>
+                </Link>
+                <Link href="/projects" className={styles.heroBentoSecondaryAction}>View recent work</Link>
+              </div>
+              <div className={styles.desktopIntro}>
+                <p>Planned content shoots and mobile-first website builds for local businesses. Based in Broxburn, working across Edinburgh and the Lothians.</p>
+                <div>
+                  <Link href="/content-creation-west-lothian">Plan a content day <ArrowUpRight aria-hidden="true" /></Link>
+                  <Link href="/website-design-west-lothian">Build a website <ArrowUpRight aria-hidden="true" /></Link>
+                </div>
+              </div>
+            </div>
+            <MotionLink
+              href="/business-photography-west-lothian"
+              data-motion-card
+              className={`${styles.heroBentoTile} ${styles.heroBentoLead}`}
+              aria-label="Photography: Edinburgh Windows & Doors craftspeople at work"
+            >
               <Image
-                src="/assets/hero/mobile-collage/01-bts-photography.jpg"
-                alt="Bear Media camera set up for an outdoor property photography shoot"
+                src="/assets/client-work/edinburgh-windows-doors/crafting-curved-timber-frame.webp"
+                alt="Edinburgh Windows & Doors craftsperson shaping a curved timber frame"
                 fill
                 preload
-                sizes="(max-width: 767px) 100vw, 1px"
+                sizes="(max-width: 767px) 46vw, 1px"
                 quality={85}
-                className={styles.mobileHeroImage}
+                data-shared-image
+                className={styles.heroBentoImage}
               />
-            </div>
-            <div className={`${styles.mobileHeroFrame} ${styles.mobileHeroProperty}`}>
+              <span className={styles.heroBentoLabel}>Photography</span>
+            </MotionLink>
+            <MotionLink
+              href="/property"
+              data-motion-card
+              className={`${styles.heroBentoTile} ${styles.heroBentoProperty}`}
+              aria-label="Property photography: C&G new-build exterior"
+            >
               <Image
-                src="/images/2026-refresh/property/45-west-windygoul-gardens-tranent-front-exterior.webp"
-                alt="Front exterior of 45 West Windygoul Gardens, Tranent, with its entrance and garden."
+                src="/assets/client-work/cg-developments/new-build-exterior-progress.webp"
+                alt="Dark-roofed C&G Developments new-build exterior during construction"
                 fill
-                sizes="(max-width: 767px) 60vw, 1px"
-                quality={85}
-                className={styles.mobileHeroImage}
+                sizes="(max-width: 767px) 48vw, 1px"
+                quality={80}
+                data-shared-image
+                className={styles.heroBentoImage}
               />
-            </div>
-            <div className={`${styles.mobileHeroFrame} ${styles.mobileHeroEdinburgh}`}>
+              <span className={styles.heroBentoLabel}>Property</span>
+            </MotionLink>
+            <MotionLink
+              href="/drone-photography-west-lothian"
+              data-motion-card
+              className={`${styles.heroBentoTile} ${styles.heroBentoDrone}`}
+              aria-label="Drone photography: St Andrews aerial by C&G Developments"
+            >
               <Image
-                src="/assets/hero/mobile-collage/03-edinburgh-light-trails.jpg"
-                alt="Long-exposure light trails photographed on an Edinburgh street"
+                src="/assets/client-work/cg-developments/st-andrews-aerial.webp"
+                alt="Aerial photograph of the C&G Developments St Andrews project"
                 fill
-                sizes="(max-width: 767px) 40vw, 1px"
-                quality={85}
-                className={styles.mobileHeroImage}
+                sizes="(max-width: 767px) 48vw, 1px"
+                quality={80}
+                data-shared-image
+                className={styles.heroBentoImage}
               />
-            </div>
-            <div className={`${styles.mobileHeroFrame} ${styles.mobileHeroBrand}`}>
+              <span className={styles.heroBentoLabel}>Drone</span>
+            </MotionLink>
+            <MotionLink
+              href="/journal/workspace-setup"
+              data-motion-card
+              className={`${styles.heroBentoTile} ${styles.heroBentoEditing}`}
+              aria-label="Editing: Bear Media workspace and editing desk"
+            >
+              <Image
+                src="/images/journal/workspace-setup/bear-media-workspace-desk-setup-night-01.jpg"
+                alt="Bear Media editing desk and computer screens"
+                fill
+                sizes="(max-width: 767px) 48vw, 1px"
+                quality={80}
+                data-shared-image
+                className={styles.heroBentoImage}
+              />
+              <span className={styles.heroBentoLabel}>Editing</span>
+            </MotionLink>
+            <MotionLink
+              href="/projects/cg-developments"
+              data-motion-card
+              className={`${styles.heroBentoTile} ${styles.heroBentoVideo}`}
+              aria-label="Video: C&G Developments St Andrews restaurant project"
+            >
+              <Image
+                src="/assets/client-work/cg-developments/st-andrews-seafood-restaurant-interior.webp"
+                alt="St Andrews seafood restaurant interior photographed for C&G Developments"
+                fill
+                sizes="(max-width: 767px) 48vw, 1px"
+                quality={80}
+                data-shared-image
+                className={styles.heroBentoImage}
+              />
+              <span className={styles.heroBentoLabel}>Video</span>
+            </MotionLink>
+            <MotionLink
+              href="/about"
+              data-motion-card
+              className={`${styles.heroBentoTile} ${styles.heroBentoBrand}`}
+              aria-label="Bear Media branded clothing"
+            >
               <Image
                 src="/assets/hero/mobile-collage/04-dalkeith-country-park.jpg"
-                alt="Bear Media branded clothing prepared for client content work"
+                alt="Bear Media branded clothing ready for a shoot"
                 fill
-                sizes="(max-width: 767px) 100vw, 1px"
-                quality={85}
-                className={styles.mobileHeroImage}
+                sizes="(max-width: 767px) 48vw, 1px"
+                quality={80}
+                data-shared-image
+                className={styles.heroBentoImage}
               />
-            </div>
+              <span className={styles.heroBentoLabel}>Bear Media</span>
+            </MotionLink>
+            <MotionLink
+              href="/projects"
+              data-motion-card
+              className={`${styles.heroBentoTile} ${styles.heroBentoClient}`}
+              aria-label="Client work: Edinburgh Windows & Doors"
+            >
+              <Image
+                src="/assets/client-work/edinburgh-windows-doors/branded-van-workshop.webp"
+                alt="Edinburgh Windows & Doors branded van outside its workshop"
+                fill
+                sizes="(max-width: 767px) 48vw, 1px"
+                quality={80}
+                data-shared-image
+                className={styles.heroBentoImage}
+              />
+              <span className={styles.heroBentoLabel}>Client work</span>
+            </MotionLink>
           </div>
           <Image
             src="/assets/hero/hero-poster.webp"
@@ -161,17 +264,6 @@ export default function RedesignPage() {
             src="/assets/hero/hero-desktop.mp4"
           />
           <div className={styles.journeyShade} />
-          <div className={styles.journeyHeroCopy}>
-            <p>01 / 09 · Bear Media · Edinburgh &amp; the Lothians</p>
-            <h1 id="redesign-title">Content days &amp; websites.</h1>
-            <div className={styles.desktopIntro}>
-              <p>Planned content shoots and mobile-first website builds for local businesses. Based in Broxburn, working across Edinburgh and the Lothians.</p>
-              <div>
-                <Link href="/content-creation-west-lothian">Plan a content day <ArrowUpRight aria-hidden="true" /></Link>
-                <Link href="/website-design-west-lothian">Build a website <ArrowUpRight aria-hidden="true" /></Link>
-              </div>
-            </div>
-          </div>
           <a href="#photography" className={styles.journeyScrollCue}>
             Explore the work
             <ArrowDown aria-hidden="true" />
