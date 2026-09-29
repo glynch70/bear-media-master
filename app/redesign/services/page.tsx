@@ -112,7 +112,7 @@ function ServiceHeading({
   copy: string
 }) {
   return (
-    <div className={styles.serviceHeading}>
+    <div data-reveal="text" className={styles.serviceHeading}>
       <p className={styles.eyebrow}>{number} · Bear Media service</p>
       <h2 id={id}>{title}</h2>
       <p>{copy}</p>
@@ -174,7 +174,7 @@ export default function RedesignServicesPage() {
             title="Photography"
             copy="Professional visual content that tells your story and builds trust with your audience."
           />
-          <div className={styles.photoPair}>
+          <div data-reveal="image" className={styles.photoPair}>
             <figure>
               <div className={styles.serviceImageTall}>
                 <picture>
@@ -234,7 +234,7 @@ export default function RedesignServicesPage() {
             title="Drone"
             copy="A different point of view for businesses, places and projects."
           />
-          <div className={styles.droneServiceMedia}>
+          <div data-reveal="image" className={styles.droneServiceMedia}>
             <Image
               src="/assets/client-work/cg-developments/new-build-rural-aerial.jpg"
               alt="Aerial view of a finished rural home captured for C&G Developments"
@@ -344,7 +344,7 @@ export default function RedesignServicesPage() {
         </div>
       </section>
 
-      <section className={styles.projectsCta}>
+      <section data-reveal="text" className={styles.projectsCta}>
         <p className={styles.eyebrow}>Start a conversation</p>
         <h2>What could we make together?</h2>
         <p>Every project starts with a conversation.</p>

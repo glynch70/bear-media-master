@@ -3,6 +3,8 @@ import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
+import '@/components/motion/motion.css'
+import { MotionSystem } from '@/components/motion/motion-system'
 import { ConversionTracker } from '@/components/analytics/conversion-tracker'
 import { LocalBusinessSchema, OrganizationSchema, PersonSchema, ProfessionalServiceSchema, WebSiteSchema } from '@/components/structured-data'
 import { createMetadata, defaultOgImageUrl, siteUrl } from '@/lib/seo'
@@ -73,6 +75,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased text-foreground">
         {children}
+        <MotionSystem />
         <ConversionTracker />
         {gaId && (
           <>

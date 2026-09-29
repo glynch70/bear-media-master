@@ -18,6 +18,7 @@ export function Carousel({ children, title, subtitle, showControls = false, mobi
     containScroll: 'trimSnaps',
     dragFree: true,
     skipSnaps: false,
+    duration: 24,
   })
   const [canScrollLeft, setCanScrollLeft] = useState(false)
   const [canScrollRight, setCanScrollRight] = useState(false)
@@ -43,8 +44,8 @@ export function Carousel({ children, title, subtitle, showControls = false, mobi
     }
   }, [emblaApi, updateScrollState])
 
-  const scrollPrevious = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
-  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
+  const scrollPrevious = useCallback(() => emblaApi?.scrollPrev(window.matchMedia('(prefers-reduced-motion: reduce)').matches), [emblaApi])
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(window.matchMedia('(prefers-reduced-motion: reduce)').matches), [emblaApi])
 
   return (
     <div className="w-full bg-transparent">

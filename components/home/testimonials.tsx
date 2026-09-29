@@ -97,7 +97,7 @@ function TestimonialPortrait({ image, author, initials }: { image: string; autho
 export default function Testimonials({ redesign = false }: { redesign?: boolean }) {
   if (redesign) return (
     <section id="testimonials" className={`${styles.journeyGalleryChapter} ${styles.proofSection}`} aria-labelledby="testimonials-title">
-      <header className={styles.journeyGalleryHeading}>
+      <header data-reveal="text" className={styles.journeyGalleryHeading}>
         <p>What clients say</p>
         <h2 id="testimonials-title">Good work. Happy clients.</h2>
         <span>Feedback from the people and businesses I’ve worked with.</span>

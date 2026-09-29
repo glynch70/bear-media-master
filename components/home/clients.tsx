@@ -67,7 +67,7 @@ function ClientCard({ client }: { client: Client }) {
 export default function Clients({ redesign = false }: { redesign?: boolean }) {
   if (redesign) return (
     <section id="clients" className={styles.restoredSection} aria-labelledby="clients-title">
-      <header className={styles.restoredHeading}>
+      <header data-reveal="text" className={styles.restoredHeading}>
         <p>Local businesses. Lasting relationships.</p>
         <h2 id="clients-title">Businesses I’ve worked with.</h2>
         <span>From trades and property to healthcare, retail and independent brands across Scotland.</span>

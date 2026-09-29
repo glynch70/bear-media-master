@@ -1,5 +1,7 @@
 'use client'
 
+import { MotionLink } from '@/components/motion/motion-link'
+
 import { RedesignGallery } from '@/app/redesign/redesign-gallery'
 import styles from '@/app/redesign/redesign.module.css'
 
@@ -233,7 +235,7 @@ const featuredProjects = [
 export default function FeaturedProjects({ redesign = false }: { redesign?: boolean }) {
   if (redesign) return (
     <section id="selected-work" className={`${styles.journeyGalleryChapter} ${styles.workGalleryChapter}`} data-chapter="07" aria-labelledby="selected-work-title">
-      <header className={styles.journeyGalleryHeading}>
+      <header data-reveal="text" className={styles.journeyGalleryHeading}>
         <p>07 / 09 · Selected work</p>
         <h2 id="selected-work-title">Real businesses. Real work.</h2>
         <span>Explore photography, films, social campaigns and websites created for businesses across Scotland.</span>
@@ -244,8 +246,8 @@ export default function FeaturedProjects({ redesign = false }: { redesign?: bool
           const rank = (id: string) => order.includes(id) ? order.indexOf(id) : order.length
           return rank(a.id) - rank(b.id)
         }).map((project) => (
-          <Link href={project.href} className={styles.journeyWorkCard} key={project.id} aria-label={`View ${project.title} case study`}>
-            <div className={styles.journeyWorkImage} data-gallery-media>
+          <MotionLink href={project.href} data-motion-link data-motion-card className={styles.journeyWorkCard} key={project.id} aria-label={`View ${project.title} case study`}>
+            <div className={styles.journeyWorkImage} data-gallery-media data-shared-image data-reveal="image">
               <picture>
                 {project.id === 'cg-developments' && <source media="(min-width: 1024px)" srcSet="/assets/uploads/new-work/cg-transforming-homes.jpg" />}
                 {project.id === 'simply-sheds' && <source media="(min-width: 1024px)" srcSet="/assets/uploads/new-work/simply-sheds-customised.jpg" />}
@@ -254,10 +256,10 @@ export default function FeaturedProjects({ redesign = false }: { redesign?: bool
             </div>
             <div className={styles.journeyWorkMeta}>
               <p>{project.tags.join(' · ')}</p>
-              <h3>{project.title}</h3>
+              <h3 data-shared-title>{project.title}</h3>
               <span className={styles.projectSummary}>{project.category} — explore the project →</span>
             </div>
-          </Link>
+          </MotionLink>
         ))}
       </RedesignGallery>
       <Link href="/projects" className={styles.sectionMore}>View all projects →</Link>

@@ -1,3 +1,4 @@
+import { MotionLink } from '@/components/motion/motion-link'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -48,14 +49,15 @@ export default function RedesignProjectsPage() {
           const isWebsite = project.heroImage.includes('/websites/')
 
           return (
-            <Link
+            <MotionLink
               href={`/projects/${project.slug}`}
+              data-motion-link data-motion-card
               className={styles.projectIndexCard}
               data-website={isWebsite}
               key={project.id}
               aria-label={`View ${project.clientName} case study`}
             >
-              <div className={styles.projectIndexMedia}>
+              <div className={styles.projectIndexMedia} data-shared-image data-reveal="image">
                 <Image
                   src={project.cardImage?.src ?? project.heroImage}
                   alt={project.cardImage?.alt ?? project.title}
@@ -76,21 +78,21 @@ export default function RedesignProjectsPage() {
                 <span>{String(index + 1).padStart(2, '0')}</span>
                 <div>
                   <p>{project.category}</p>
-                  <h2>{project.clientName}</h2>
+                  <h2 data-shared-title>{project.clientName}</h2>
                   <p>{project.description}</p>
                 </div>
                 <ArrowUpRight aria-hidden="true" />
               </div>
-            </Link>
+            </MotionLink>
           )
         })}
       </section>
 
-      <section className={styles.projectsCta}>
+      <section data-reveal="text" className={styles.projectsCta}>
         <p className={styles.eyebrow}>Start a conversation</p>
         <h2>Could your business be next?</h2>
         <p>Every project starts with a conversation.</p>
-        <Link href="/contact">
+        <Link href="/contact" data-magnetic>
           Let&apos;s talk <ArrowUpRight aria-hidden="true" />
         </Link>
       </section>

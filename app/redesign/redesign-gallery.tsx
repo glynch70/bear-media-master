@@ -34,7 +34,7 @@ export function RedesignGallery({
   const [viewportRef, emblaApi] = useEmblaCarousel({
     align: 'start',
     containScroll: 'trimSnaps',
-    duration: 28,
+    duration: 24,
     skipSnaps: false,
   })
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -67,16 +67,9 @@ export function RedesignGallery({
 
     emblaApi.slideNodes().forEach((slide, index) => {
       const offset = reducedMotion ? 0 : (snapList[index] ?? 0) - progress
-      const distance = reducedMotion ? 0 : Math.min(1, Math.abs(offset) * 3.35)
       const shift = Math.max(-1, Math.min(1, offset * 2.4))
 
-      slide.style.setProperty('--slide-distance', distance.toFixed(3))
-      slide.style.setProperty('--slide-opacity', (1 - distance * 0.36).toFixed(3))
-      slide.style.setProperty('--slide-scale', (1 - distance * 0.035).toFixed(3))
-      slide.style.setProperty('--slide-lift', `${(distance * 0.5).toFixed(3)}rem`)
-      slide.style.setProperty('--image-shift', `${(shift * -2.2).toFixed(3)}%`)
-      slide.style.setProperty('--meta-opacity', (1 - distance * 0.46).toFixed(3))
-      slide.style.setProperty('--meta-lift', `${(distance * 0.6).toFixed(3)}rem`)
+      slide.style.setProperty('--image-shift', `${(shift * -0.6).toFixed(3)}%`)
     })
   }, [emblaApi, slideCount])
 
@@ -84,6 +77,7 @@ export function RedesignGallery({
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
     const updatePreference = () => {
       reducedMotionRef.current = mediaQuery.matches
+      emblaApi?.reInit({ duration: mediaQuery.matches ? 0 : 24 })
       updateMotion()
     }
 
@@ -91,11 +85,12 @@ export function RedesignGallery({
     mediaQuery.addEventListener('change', updatePreference)
 
     return () => mediaQuery.removeEventListener('change', updatePreference)
-  }, [updateMotion])
+  }, [emblaApi, updateMotion])
 
   useEffect(() => {
     if (!emblaApi) return
 
+    const initialFrame = requestAnimationFrame(updateGallery)
     updateMotion()
     emblaApi.on('select', updateGallery)
     emblaApi.on('reInit', updateGallery)
@@ -103,6 +98,7 @@ export function RedesignGallery({
     emblaApi.on('reInit', updateMotion)
 
     return () => {
+      cancelAnimationFrame(initialFrame)
       emblaApi.off('select', updateGallery)
       emblaApi.off('reInit', updateGallery)
       emblaApi.off('scroll', updateMotion)
@@ -115,7 +111,8 @@ export function RedesignGallery({
       className={`${styles.galleryShell} ${variantClass}`}
       data-gallery-label={label}
     >
-      <div className={styles.galleryViewport} ref={viewportRef}>
+      <div className={styles.galleryViewport} ref={viewportRef}
+        role="region" aria-roledescription="carousel" aria-label={label}>
         <div className={styles.galleryTrack}>
           {slides.map((slide, index) => (
             <div
@@ -141,7 +138,7 @@ export function RedesignGallery({
         <div className={styles.galleryControls}>
           <button
             type="button"
-            onClick={() => emblaApi?.scrollPrev()}
+            onClick={() => emblaApi?.scrollPrev(reducedMotionRef.current)}
             disabled={!canScrollPrev}
             aria-label={`Previous ${label}`}
           >
@@ -149,7 +146,7 @@ export function RedesignGallery({
           </button>
           <button
             type="button"
-            onClick={() => emblaApi?.scrollNext()}
+            onClick={() => emblaApi?.scrollNext(reducedMotionRef.current)}
             disabled={!canScrollNext}
             aria-label={`Next ${label}`}
           >

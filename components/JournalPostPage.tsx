@@ -63,7 +63,7 @@ export function JournalPostPage({
           <p className="mt-10 text-sm font-medium uppercase tracking-[0.16em] text-accent">
             {category}
           </p>
-          <h1 className="mt-5 font-heading text-5xl font-medium leading-[1.02] tracking-tight text-balance md:text-7xl">
+          <h1 data-motion-title className="mt-5 font-heading text-5xl font-medium leading-[1.02] tracking-tight text-balance md:text-7xl">
             {title}
           </h1>
         </div>

@@ -21,7 +21,7 @@ const features = [
 function WhyBearMedia({ redesign = false }: { redesign?: boolean }) {
   if (redesign) return (
     <section id="why-bear-media" className={styles.restoredSection} aria-labelledby="why-title">
-      <header className={styles.restoredHeading}>
+      <header data-reveal="text" className={styles.restoredHeading}>
         <p>Why Bear Media</p>
         <h2 id="why-title">Everything is created in-house.</h2>
         <span>Content days, websites, photography and video for local businesses. Based in Broxburn, I work across Edinburgh and the Lothians.</span>

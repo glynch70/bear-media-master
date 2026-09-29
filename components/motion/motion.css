@@ -1,0 +1,72 @@
+/* Bear Media: editorial motion. No assets, layers, colour or layout changes. */
+:root {
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-spring: cubic-bezier(0.22, 1.08, 0.36, 1);
+  --motion-fast: 180ms;
+  --motion-hover: 280ms;
+  --motion-enter: 480ms;
+  --motion-image: 620ms;
+}
+
+[data-reveal] { animation: none !important; }
+[data-motion-card] { transform: none; }
+[data-motion-count] { font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-motion-hero] { view-transition-name: bear-media-image; }
+  [data-motion-title] { view-transition-name: bear-media-title; }
+  [data-motion-card] {
+    transition: transform var(--motion-hover) var(--motion-ease);
+  }
+  [data-magnetic] {
+    transition: translate var(--motion-hover) var(--motion-spring), scale var(--motion-fast) var(--motion-ease), background-color var(--motion-fast), color var(--motion-fast);
+  }
+  [data-magnetic]:active { scale: 0.985; }
+  @media (hover: hover) and (pointer: fine) {
+    [data-motion-card]:hover {
+      transform: perspective(1100px) rotateX(var(--motion-rx, 0deg)) rotateY(var(--motion-ry, 0deg)) translateY(-2px);
+    }
+    [data-magnetic]:hover {
+      translate: var(--motion-x, 0px) var(--motion-y, 0px);
+    }
+    [data-motion-card] [data-shared-image] img {
+      transition: transform var(--motion-image) var(--motion-ease);
+    }
+  }
+  @supports (animation-timeline: view()) {
+    @media (min-width: 768px) and (pointer: fine) {
+      [data-parallax] {
+        animation: bear-image-drift linear both !important;
+        animation-timeline: view() !important;
+        animation-range: entry 0% exit 100% !important;
+      }
+    }
+  }
+  ::view-transition-group(bear-media-image),
+  ::view-transition-group(bear-media-title) {
+    animation-duration: 360ms;
+    animation-timing-function: var(--motion-ease);
+  }
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+  ::view-transition-old(bear-media-image), ::view-transition-new(bear-media-image) { height: 100%; object-fit: cover; }
+}
+
+@keyframes bear-image-drift {
+  from { transform: translateY(-0.6%) scale(1.015); }
+  to { transform: translateY(0.6%) scale(1.015); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal], [data-motion-card], [data-magnetic], [data-parallax] {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    translate: none !important;
+    scale: none !important;
+    opacity: 1 !important;
+    clip-path: none !important;
+  }
+  [data-motion-hero], [data-motion-title] { view-transition-name: none; }
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+  *, *::before, *::after { transition-delay: 0s !important; animation-delay: 0s !important; }
+}

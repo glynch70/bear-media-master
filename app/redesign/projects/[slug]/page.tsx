@@ -60,7 +60,7 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
       <article id="case-content">
         <ProjectHero project={project} />
 
-        <section className={styles.caseOverview} aria-labelledby="case-overview-title">
+        <section data-reveal="text" className={styles.caseOverview} aria-labelledby="case-overview-title">
           <p className={styles.eyebrow}>The project</p>
           <h2 id="case-overview-title">{project.description}</h2>
           <div>
@@ -189,7 +189,7 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
         </section>
 
         <section className={styles.caseDeliverables} aria-labelledby="case-deliverables-title">
-          <div className={styles.caseSectionHeading}>
+          <div data-reveal="text" className={styles.caseSectionHeading}>
             <p className={styles.eyebrow}>What Bear Media delivered</p>
             <h2 id="case-deliverables-title">Built around the work.</h2>
           </div>
@@ -205,7 +205,7 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
         </section>
 
         <section className={styles.caseResults} aria-labelledby="case-results-title">
-          <div className={styles.caseSectionHeading}>
+          <div data-reveal="text" className={styles.caseSectionHeading}>
             <p className={styles.eyebrow}>Results</p>
             <h2 id="case-results-title">Proof that belongs in the story.</h2>
           </div>
@@ -213,7 +213,10 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
             {project.stats.map((stat) => (
               <div key={`${stat.label}-${stat.value}`}>
                 <p>{stat.label}</p>
-                <strong>{stat.value}</strong>
+                <strong>
+                  <span className="sr-only">{stat.value}</span>
+                  <span aria-hidden="true" data-motion-count={stat.label === 'Launch' ? undefined : ''}>{stat.value}</span>
+                </strong>
                 {stat.context ? <span>{stat.context}</span> : null}
               </div>
             ))}
