@@ -79,8 +79,8 @@ const featuredProjects = [
     tags: ['Drone', 'Photography', 'Social'],
     images: [
       {
-        src: '/assets/client-work/cg-developments/finished-kitchen-cabinetry.jpg',
-        alt: 'Finished fitted kitchen in a C&G Developments new-build home',
+        src: '/assets/client-work/cg-developments/new-build-exterior-progress.webp',
+        alt: 'C&G Developments new-build house exterior with construction work in progress',
       },
       {
         src: '/assets/client-work/cg-developments/extension-project-review.jpg',
@@ -137,8 +137,8 @@ const featuredProjects = [
     tags: ['Social', 'Photo', 'Retail'],
     images: [
       {
-        src: '/assets/project-gallery/simply-sheds-at-work-2.webp',
-        alt: 'Simply Sheds Scotland team at work',
+        src: '/assets/project-gallery/simply-sheds-recent-pent-window.jpg',
+        alt: 'Completed timber garden shed with double doors and side windows by Simply Sheds Scotland',
       },
       {
         src: '/assets/project-gallery/simply-sheds-feature.webp',
@@ -270,9 +270,7 @@ export default function FeaturedProjects({ redesign = false }: { redesign?: bool
           <MotionLink href={project.href} data-motion-link data-motion-card className={styles.journeyWorkCard} key={project.id} aria-label={`View ${project.title} case study`}>
             <div className={styles.journeyWorkImage} data-gallery-media data-shared-image data-reveal="image">
               <picture>
-                {project.id === 'cg-developments' && <source media="(min-width: 1024px)" srcSet="/assets/uploads/new-work/cg-transforming-homes.jpg" />}
-                {project.id === 'simply-sheds' && <source media="(min-width: 1024px)" srcSet="/assets/uploads/new-work/simply-sheds-customised.jpg" />}
-                <Image src={project.id === 'simply-sheds' ? '/assets/project-gallery/simply-sheds-feature.webp' : project.images[0].src} alt={project.images[0].alt} fill sizes="(max-width: 767px) 84vw, 42vw" className={project.id === 'midlothian-wildflowers' || project.id === 'herb-soul' ? styles.containImage : styles.journeyCover} />
+                <Image src={project.images[0].src} alt={project.images[0].alt} fill sizes="(max-width: 767px) 84vw, 42vw" className={project.id === 'midlothian-wildflowers' || project.id === 'herb-soul' ? styles.containImage : styles.journeyCover} />
               </picture>
             </div>
             <div className={styles.journeyWorkMeta}>

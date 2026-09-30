@@ -1,3 +1,4 @@
+import { websiteProjects as completedWebsites } from '@/lib/website-projects'
 import desktop from '@/components/desktop-refresh.module.css'
 import type { Metadata } from 'next'
 import Image from 'next/image'
@@ -50,29 +51,10 @@ export const metadata: Metadata = {
   },
 }
 
-const websiteProjects = [
-  {
-    title: 'Midlothian Wildflowers',
-    category: 'Community & conservation',
-    description: 'A warm, accessible online home built to make local participation simple.',
-    image: '/assets/websites/midlothian-wildflowers/desktop-home.webp',
-    href: '/projects/midlothian-wildflowers',
-  },
-  {
-    title: 'Seamus Corry',
-    category: 'Personal brand & training',
-    description: 'A confident personal-brand website that turns expertise into a clear offer.',
-    image: '/assets/websites/seamus-corry.webp',
-    href: '/projects/seamus-corry',
-  },
-  {
-    title: 'Almond Vet Care',
-    category: 'Veterinary healthcare',
-    description: 'A friendly, professional website designed to help pet owners find what they need.',
-    image: '/assets/websites/almond-vet.webp',
-    href: '/projects/almond-vet-care',
-  },
-]
+const websiteProjects = completedWebsites.map((site) => ({
+  title: site.name, category: 'Website design', description: site.description, image: site.src,
+  href: 'caseStudy' in site ? site.caseStudy : site.url,
+}))
 
 const services = [
   {
@@ -216,7 +198,7 @@ export default function WebsiteDesignWestLothian() {
                     loading="eager"
                     sizes="(max-width: 1024px) 100vw, 54vw"
                     quality={90}
-                    className="object-cover"
+                    className="object-contain"
                   />
                 </div>
               </div>
@@ -298,7 +280,7 @@ export default function WebsiteDesignWestLothian() {
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
                       quality={85}
-                      className="object-cover transition duration-500 group-hover:scale-[1.02]"
+                      className="object-contain"
                     />
                   </div>
                   <div className="p-6">

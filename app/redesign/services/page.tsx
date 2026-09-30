@@ -1,3 +1,4 @@
+import { websiteProjects as websites } from '@/lib/website-projects'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -25,43 +26,6 @@ export const metadata: Metadata = {
   },
 }
 
-const websites = [
-  {
-    name: 'Seamus Corry',
-    href: '/projects/seamus-corry',
-    category: 'Personal brand',
-    image: '/assets/websites/seamus-corry.webp',
-  },
-  {
-    name: 'Herb & Soul',
-    href: '/projects/herb-soul',
-    category: 'Wellness',
-    image: '/assets/websites/herb-soul.webp',
-  },
-  {
-    name: 'Almond Vet Care',
-    href: '/projects/almond-vet-care',
-    category: 'Veterinary care',
-    image: '/assets/websites/almond-vet.webp',
-    desktopImage: '/assets/uploads/new-work/almond-vet-mockup.jpg',
-  },
-  {
-    name: 'K. Lewis Joinery',
-    category: 'Trades',
-    image: '/assets/websites/k-lewis-joinery.webp',
-  },
-  {
-    name: 'Managing What Matters',
-    category: 'Training',
-    image: '/assets/websites/managing-what-matters.webp',
-    desktopImage: '/assets/uploads/new-work/midlothian-wildflowers-mockup.jpg',
-  },
-  {
-    name: 'Robertsons Transport',
-    category: 'Logistics',
-    image: '/assets/websites/robertsons-transport.webp',
-  },
-] as const
 
 const socialContent = [
   {
@@ -271,9 +235,8 @@ export default function RedesignServicesPage() {
                 </div>
                 <div className={styles.serviceWebsiteImage} data-gallery-media>
                   <picture>
-                    {'desktopImage' in website ? <source media="(min-width: 1024px)" srcSet={website.desktopImage} /> : null}
                     <Image
-                      src={website.image}
+                      src={website.src}
                       alt={`${website.name} website designed by Bear Media`}
                       fill
                       sizes="(max-width: 760px) 86vw, 42vw"
@@ -283,8 +246,8 @@ export default function RedesignServicesPage() {
                   </picture>
                 </div>
                 <figcaption>
-                  <strong>{'href' in website ? <Link href={website.href}>{website.name}</Link> : website.name}</strong>
-                  <span>{website.category}</span>
+                  <strong>{'caseStudy' in website ? <Link href={website.caseStudy}>{website.name}</Link> : website.name}</strong>
+                  <span>{website.description}</span>
                 </figcaption>
               </figure>
             ))}
@@ -320,7 +283,7 @@ export default function RedesignServicesPage() {
                       fill
                       sizes="(max-width: 760px) 78vw, 32vw"
                       quality={85}
-                      className={styles.coverImage}
+                      className={styles.containImage}
                     />
                   </picture>
                 </div>
