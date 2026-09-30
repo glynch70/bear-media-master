@@ -14,7 +14,7 @@ import {
 } from 'lucide-react'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
-import { ServiceSchema } from '@/components/structured-data'
+import { FAQPageSchema, ServiceSchema } from '@/components/structured-data'
 
 const pageUrl = 'https://bear-media.com/website-design-west-lothian'
 
@@ -45,7 +45,6 @@ export const metadata: Metadata = {
     title: 'Website Design West Lothian | Bear Media',
     description: 'Mobile-first website design for West Lothian businesses in Livingston, Broxburn and Linlithgow.',
     images: ['https://bear-media.com/assets/websites/midlothian-wildflowers/desktop-home.webp'],
-    creator: '@bearmediascot',
   },
   alternates: {
     canonical: pageUrl,
@@ -133,11 +132,18 @@ export default function WebsiteDesignWestLothian() {
       <main className={`flex-1 ${desktop.standardPage} ${desktop.websitePage} ${desktop.servicePage}`}>
         <ServiceSchema
           name="Website Design in West Lothian"
-          description="Custom, responsive website design for businesses across West Lothian"
+          description="Mobile-first website design and development for businesses across West Lothian, with content and support scoped around each project."
+          serviceType="Website design and development"
           areaServed="West Lothian"
           provider="Bear Media"
           url={pageUrl}
+          subjectOf={[
+            { name: "Midlothian Wildflowers Website Launch", url: 'https://bear-media.com/projects/midlothian-wildflowers' },
+            { name: "Seamus Corry Case Study", url: 'https://bear-media.com/projects/seamus-corry' },
+            { name: "Almond Vet Care Case Study", url: 'https://bear-media.com/projects/almond-vet-care' },
+          ]}
         />
+        <FAQPageSchema questions={faqs} url={pageUrl} />
 
         <section className="overflow-hidden bg-secondary pt-28 pb-16 md:pt-36 md:pb-24 lg:pt-40">
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16 lg:px-8">
