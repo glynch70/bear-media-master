@@ -1,5 +1,4 @@
 import { trustedClientLinks } from './trusted-client-links'
-import { getServiceHref } from './service-links'
 
 export type ProjectStat = {
   label: string
@@ -51,7 +50,6 @@ export type Project = {
   cardImage?: ProjectImage
   images: ProjectImage[]
   services: string[]
-  serviceLinks?: Record<string, string>
   deliverables: ProjectDeliverable[]
   stats: ProjectStat[]
   results?: string[]
@@ -120,11 +118,6 @@ export const projects: Project[] = [
       },
     ],
     services: ['Photography', 'Drone Imagery', 'Marketing Content'],
-    serviceLinks: {
-      Photography: '/property#property-work',
-      'Drone Imagery': '/property#property-drone',
-      'Marketing Content': '/property',
-    },
     deliverables: [
       {
         title: 'Property Photography',
@@ -247,7 +240,8 @@ export const projects: Project[] = [
       'From February to August, Bear Media followed a C&G new build from active construction to finished family home—combining site footage, drone progress and completed interiors in one concise project film.',
     challenge:
       'The work was impressive in person, but their digital channels needed a stronger rhythm of professional content that could build trust, show progress and turn real projects into visibility.',
-    heroImage: '/assets/client-work/cg-developments/finished-kitchen-cabinetry.jpg',
+    heroImage: '/assets/client-work/cg-developments/new-build-exterior-progress.webp',
+    heroAlt: 'C&G Developments new-build house exterior with construction work in progress',
     featuredVideo: {
       src: 'https://stream.mux.com/mi7qP7CO6azUI9CnHbyVi7yXq01X01JvaiTeakoYt01uMU.m3u8',
       playbackId: 'mi7qP7CO6azUI9CnHbyVi7yXq01X01JvaiTeakoYt01uMU',
@@ -381,7 +375,8 @@ export const projects: Project[] = [
       'Simply Sheds Scotland needed consistent content that showed the quality of their installations and made their social channels feel alive again.',
     challenge:
       'Two channels had gone quiet, while YouTube and TikTok had to be launched from scratch. The goal was simple: make high-quality shed installations visible, useful and easy to trust.',
-    heroImage: '/assets/project-gallery/simply-sheds-pent-hero.png',
+    heroImage: '/assets/project-gallery/simply-sheds-recent-pent-window.jpg',
+    heroAlt: 'Completed timber garden shed with double doors and side windows by Simply Sheds Scotland',
     featuredVideo: {
       src: 'https://stream.mux.com/KaiydYBFRGcQgE2GUnXMnLiJIFNFRIm9LcZoGNlNyMk.m3u8',
       playbackId: 'KaiydYBFRGcQgE2GUnXMnLiJIFNFRIm9LcZoGNlNyMk',
@@ -758,22 +753,6 @@ export const projects: Project[] = [
 
 export function getProject(slug: string) {
   return projects.find((p) => p.slug === slug)
-}
-
-export function getProjectServiceLinks(project: Project) {
-  return project.services.map((label) => ({
-    label,
-    href: project.serviceLinks?.[label] ?? getServiceHref(label),
-  }))
-}
-
-export function getProjectServicePaths(project: Project) {
-  const paths = getProjectServiceLinks(project)
-    .map((service) => service.href)
-    .filter((href): href is string => Boolean(href))
-
-  if (project.relatedService) paths.push(project.relatedService.href)
-  return [...new Set(paths)]
 }
 
 export function getRelatedProjects(slug: string, limit = 4) {
