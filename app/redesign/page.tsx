@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { websiteProjects as websites } from '@/lib/website-projects'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
@@ -62,41 +63,6 @@ const socialContent = [
   },
 ] as const
 
-const websites = [
-  {
-    src: '/assets/websites/herb-soul.webp',
-    alt: 'Herb & Soul website designed by Bear Media',
-    name: 'Herb & Soul',
-  },
-  {
-    src: '/assets/websites/almond-vet.webp',
-    alt: 'Almond Vet Care website designed by Bear Media',
-    name: 'Almond Vet Care',
-    preserveFraming: true,
-  },
-  {
-    src: '/assets/websites/seamus-corry.webp',
-    alt: 'Seamus Corry website designed by Bear Media',
-    name: 'Seamus Corry',
-  },
-  {
-    src: '/assets/websites/k-lewis-joinery.webp',
-    alt: 'K. Lewis Joinery website designed by Bear Media',
-    name: 'K. Lewis Joinery',
-  },
-  {
-    src: '/assets/websites/robertsons-transport.webp',
-    alt: 'Robertsons Transport website designed by Bear Media',
-    name: 'Robertsons Transport',
-  },
-  {
-    src: '/assets/uploads/new-work/midlothian-wildflowers-mockup.jpg',
-    desktopSrc: '/assets/uploads/new-work/midlothian-wildflowers-mockup.jpg',
-    desktopName: 'Midlothian Wildflowers',
-    alt: 'Midlothian Wildflowers website designed by Bear Media',
-    name: 'Midlothian Wildflowers',
-  },
-] as const
 
 export default function RedesignPage() {
   return (
@@ -310,7 +276,7 @@ export default function RedesignPage() {
                       fill
                       sizes="(max-width: 767px) 78vw, 32vw"
                       quality={85}
-                      className={styles.journeyCover}
+                      className={styles.containImage}
                     />
                   </picture>
                 </div>
@@ -339,12 +305,11 @@ export default function RedesignPage() {
                 aria-label={`Explore website services, featuring ${website.name}`}
                 key={website.name}
               >
-                <div className={styles.journeyWebsiteImage} data-gallery-media data-framed-screenshot={!('preserveFraming' in website) && website.src.startsWith('/assets/websites/') ? 'true' : undefined}>
+                <div className={styles.journeyWebsiteImage} data-gallery-media>
                   <picture>
-                    {'desktopSrc' in website ? <source media="(min-width: 1024px)" srcSet={website.desktopSrc} /> : null}
                     <Image
                       src={website.src}
-                      alt={website.alt}
+                      alt={`${website.name} website designed by Bear Media`}
                       fill
                       sizes="(max-width: 767px) 86vw, 42vw"
                       quality={85}
@@ -356,6 +321,7 @@ export default function RedesignPage() {
                   <span>{website.name}</span>
                   <ArrowUpRight aria-hidden="true" />
                 </span>
+                <p className={styles.websiteDescription}>{website.description}</p>
               </Link>
             ))}
           </RedesignGallery>
