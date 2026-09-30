@@ -247,11 +247,6 @@ export default function RedesignPage() {
             quality={90}
             className={styles.journeyCover}
           />
-          <CinematicVideo
-            className={styles.journeyCoverVideo}
-            poster="/assets/client-work/cg-developments/new-build-rural-aerial.jpg"
-            src="/assets/hero/hero.mp4"
-          />
           <div className={styles.droneJourneyShade} />
           <Link
             href="/services#drone-service"
