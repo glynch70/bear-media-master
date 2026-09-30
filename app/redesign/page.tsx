@@ -64,6 +64,17 @@ const socialContent = [
 
 const websites = [
   {
+    src: '/assets/websites/herb-soul.webp',
+    alt: 'Herb & Soul website designed by Bear Media',
+    name: 'Herb & Soul',
+  },
+  {
+    src: '/assets/websites/almond-vet.webp',
+    alt: 'Almond Vet Care website designed by Bear Media',
+    name: 'Almond Vet Care',
+    preserveFraming: true,
+  },
+  {
     src: '/assets/websites/seamus-corry.webp',
     alt: 'Seamus Corry website designed by Bear Media',
     name: 'Seamus Corry',
@@ -328,7 +339,7 @@ export default function RedesignPage() {
                 aria-label={`Explore website services, featuring ${website.name}`}
                 key={website.name}
               >
-                <div className={styles.journeyWebsiteImage} data-gallery-media data-framed-screenshot={website.src.startsWith('/assets/websites/') ? 'true' : undefined}>
+                <div className={styles.journeyWebsiteImage} data-gallery-media data-framed-screenshot={!('preserveFraming' in website) && website.src.startsWith('/assets/websites/') ? 'true' : undefined}>
                   <picture>
                     {'desktopSrc' in website ? <source media="(min-width: 1024px)" srcSet={website.desktopSrc} /> : null}
                     <Image
