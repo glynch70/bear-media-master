@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
 import { createMetadata } from '@/lib/seo'
 import { CinematicVideo } from './cinematic-video'
+import { HeroTileVideo } from './hero-tile-video'
 import { JourneyProgress } from './journey-progress'
 import { RedesignFooter, RedesignHeader } from './redesign-chrome'
 import { RedesignGallery } from './redesign-gallery'
@@ -16,6 +17,7 @@ import Clients from '@/components/home/clients'
 import WhyBearMedia from '@/components/home/why-bear-media'
 import CTA from '@/components/home/cta'
 import { PropertyFeature } from '@/components/property/property-feature'
+import { MotionLink } from '@/components/motion/motion-link'
 
 export const metadata: Metadata = {
   ...createMetadata({
@@ -103,48 +105,74 @@ export default function RedesignPage() {
           data-chapter="01"
           aria-labelledby="redesign-title"
         >
-          <div className={styles.mobileHeroCollage}>
-            <div className={`${styles.mobileHeroFrame} ${styles.mobileHeroPrimary}`}>
+          <div className={styles.heroBento} aria-label="Bear Media services and selected client work">
+            <div className={`${styles.heroBentoCopy} ${styles.journeyHeroCopy}`}>
+              <p className={styles.heroBentoEyebrow}>
+                <span className={styles.heroBentoDesktopEyebrow}>01 / 09 · Bear Media · Edinburgh &amp; the Lothians</span>
+                <span className={styles.heroBentoMobileEyebrow}>Bear Media · Scotland</span>
+              </p>
+              <h1 id="redesign-title">Content days &amp; websites.</h1>
+              <p className={styles.heroBentoDescription}>
+                Photography, video, drone, social media and websites for Scottish businesses.
+              </p>
+              <div className={styles.heroBentoActions}>
+                <Link href="/contact" className={styles.heroBentoPrimaryAction}>
+                  Start a project <span aria-hidden="true">→</span>
+                </Link>
+                <Link href="/projects" className={styles.heroBentoSecondaryAction}>View recent work</Link>
+              </div>
+              <div className={styles.desktopIntro}>
+                <p>Planned content shoots and mobile-first website builds for local businesses. Based in Broxburn, working across Edinburgh and the Lothians.</p>
+                <div>
+                  <Link href="/content-creation-west-lothian">Plan a content day <ArrowUpRight aria-hidden="true" /></Link>
+                  <Link href="/website-design-west-lothian">Build a website <ArrowUpRight aria-hidden="true" /></Link>
+                </div>
+              </div>
+            </div>
+            <MotionLink
+              href="/business-photography-west-lothian"
+              data-motion-card
+              className={`${styles.heroBentoTile} ${styles.heroBentoLead}`}
+              aria-label="Photography: Bear Media camera on a client shoot"
+            >
               <Image
-                src="/assets/hero/mobile-collage/01-bts-photography.jpg"
-                alt="Bear Media camera set up for an outdoor property photography shoot"
+                src="/assets/hero/mobile/photography-camera.webp"
+                alt="Bear Media camera on a tripod outside Prestonpans pharmacy"
                 fill
                 preload
-                sizes="(max-width: 767px) 100vw, 1px"
+                sizes="(max-width: 767px) 46vw, 1px"
                 quality={85}
-                className={styles.mobileHeroImage}
+                data-shared-image
+                className={styles.heroBentoImage}
               />
-            </div>
-            <div className={`${styles.mobileHeroFrame} ${styles.mobileHeroProperty}`}>
+              <span className={styles.heroBentoLabel}>Photography</span>
+            </MotionLink>
+            <MotionLink
+              href="/drone-photography-west-lothian"
+              data-motion-card
+              className={`${styles.heroBentoTile} ${styles.heroBentoDrone}`}
+              aria-label="Drone: Bear Media drone in flight"
+            >
               <Image
-                src="/images/2026-refresh/property/45-west-windygoul-gardens-tranent-front-exterior.webp"
-                alt="Front exterior of 45 West Windygoul Gardens, Tranent, with its entrance and garden."
+                src="/assets/hero/mobile/drone-flight.webp"
+                alt="Bear Media Mavic 3 drone hovering above a green field"
                 fill
-                sizes="(max-width: 767px) 60vw, 1px"
-                quality={85}
-                className={styles.mobileHeroImage}
+                sizes="(max-width: 767px) 48vw, 1px"
+                quality={80}
+                data-shared-image
+                className={styles.heroBentoImage}
               />
-            </div>
-            <div className={`${styles.mobileHeroFrame} ${styles.mobileHeroEdinburgh}`}>
-              <Image
-                src="/assets/hero/mobile-collage/03-edinburgh-light-trails.jpg"
-                alt="Long-exposure light trails photographed on an Edinburgh street"
-                fill
-                sizes="(max-width: 767px) 40vw, 1px"
-                quality={85}
-                className={styles.mobileHeroImage}
-              />
-            </div>
-            <div className={`${styles.mobileHeroFrame} ${styles.mobileHeroBrand}`}>
-              <Image
-                src="/assets/hero/mobile-collage/04-dalkeith-country-park.jpg"
-                alt="Bear Media branded clothing prepared for client content work"
-                fill
-                sizes="(max-width: 767px) 100vw, 1px"
-                quality={85}
-                className={styles.mobileHeroImage}
-              />
-            </div>
+              <span className={styles.heroBentoLabel}>Drone</span>
+            </MotionLink>
+            <MotionLink
+              href="/video-production-west-lothian"
+              data-motion-card
+              className={`${styles.heroBentoTile} ${styles.heroBentoVideo}`}
+              aria-label="Video: a property content day by Bear Media"
+            >
+              <HeroTileVideo className={styles.heroBentoImage} />
+              <span className={styles.heroBentoLabel}>Video</span>
+            </MotionLink>
           </div>
           <Image
             src="/assets/hero/hero-poster.webp"
@@ -161,17 +189,6 @@ export default function RedesignPage() {
             src="/assets/hero/hero-desktop.mp4"
           />
           <div className={styles.journeyShade} />
-          <div className={styles.journeyHeroCopy}>
-            <p>01 / 09 · Bear Media · Edinburgh &amp; the Lothians</p>
-            <h1 id="redesign-title">Content days &amp; websites.</h1>
-            <div className={styles.desktopIntro}>
-              <p>Planned content shoots and mobile-first website builds for local businesses. Based in Broxburn, working across Edinburgh and the Lothians.</p>
-              <div>
-                <Link href="/content-creation-west-lothian">Plan a content day <ArrowUpRight aria-hidden="true" /></Link>
-                <Link href="/website-design-west-lothian">Build a website <ArrowUpRight aria-hidden="true" /></Link>
-              </div>
-            </div>
-          </div>
           <a href="#photography" className={styles.journeyScrollCue}>
             Explore the work
             <ArrowDown aria-hidden="true" />
