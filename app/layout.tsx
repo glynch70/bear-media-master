@@ -36,11 +36,12 @@ export const metadata: Metadata = {
   verification: googleVerification ? { google: googleVerification } : undefined,
   icons: {
     icon: [
-      { url: '/assets/brand/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/assets/brand/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon.ico' },
+      { url: '/assets/brand/bear-logo-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/assets/brand/bear-logo-16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/assets/brand/bear-logo-64.png', sizes: '64x64', type: 'image/png' },
+      { url: '/favicon.ico?v=bear-logo-20260930', type: 'image/x-icon' },
     ],
-    apple: '/assets/brand/apple-touch-icon.png',
+    apple: [{ url: '/assets/brand/bear-logo-180.png', sizes: '180x180', type: 'image/png' }],
   },
   other: {
     'og:image:secure_url': defaultOgImageUrl,
