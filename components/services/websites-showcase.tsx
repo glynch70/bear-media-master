@@ -1,52 +1,8 @@
+import { websiteProjects as websites } from '@/lib/website-projects'
 import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
-import { getTrustedClientAriaLabel, trustedClientLinks } from '@/lib/trusted-client-links'
+import { getTrustedClientAriaLabel } from '@/lib/trusted-client-links'
 
-type Website = {
-  name: string
-  category: string
-  image: string
-  url: string
-}
-
-const websites: Website[] = [
-  {
-    name: 'Seamus Corry',
-    category: 'Personal brand',
-    image: '/assets/websites/seamus-corry.webp',
-    url: trustedClientLinks.seamusCorry,
-  },
-  {
-    name: 'Herb & Soul',
-    category: 'Wellness',
-    image: '/assets/websites/herb-soul.webp',
-    url: 'https://herbandsoul.uk/',
-  },
-  {
-    name: 'Almond Vet Care',
-    category: 'Veterinary care',
-    image: '/assets/websites/almond-vet.webp',
-    url: 'https://www.almondvetcare.co.uk/',
-  },
-  {
-    name: 'K. Lewis Joinery',
-    category: 'Trades',
-    image: '/assets/websites/k-lewis-joinery.webp',
-    url: 'https://klewisjoineryltd.co.uk/',
-  },
-  {
-    name: 'Managing What Matters',
-    category: 'Training',
-    image: '/assets/websites/managing-what-matters.webp',
-    url: 'https://managingwhatmatters.co.uk/',
-  },
-  {
-    name: 'Robertsons Transport',
-    category: 'Logistics',
-    image: '/assets/websites/robertsons-transport.webp',
-    url: 'https://rt-ltd.uk/',
-  },
-]
 
 export default function WebsitesShowcase() {
   return (
@@ -71,13 +27,13 @@ export default function WebsitesShowcase() {
               aria-label={getTrustedClientAriaLabel(site.name)}
               className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-background"
             >
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-muted shadow-sm transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-xl md:rounded-3xl">
+              <div className="relative aspect-square overflow-hidden rounded-2xl bg-muted shadow-sm transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-xl md:rounded-3xl">
                 <Image
-                  src={site.image}
+                  src={site.src}
                   alt={`${site.name} website design`}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                  className="object-contain"
                   loading="lazy"
                 />
                 <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-background/90 opacity-0 shadow-sm backdrop-blur transition-all duration-300 group-hover:opacity-100">
@@ -89,7 +45,7 @@ export default function WebsitesShowcase() {
                   <h3 className="font-heading text-xl font-medium tracking-tight text-foreground transition-colors group-hover:text-accent md:text-2xl">
                     {site.name}
                   </h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{site.category}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{site.description}</p>
                 </div>
                 <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-muted-foreground transition-colors group-hover:text-accent" aria-hidden="true" />
               </div>
