@@ -13,6 +13,27 @@ import { getTrustedClientAriaLabel } from '@/lib/trusted-client-links'
 
 const featuredProjects = [
   {
+    id: 'david-todd',
+    title: 'David Todd Sales & Lettings',
+    category: 'Property Marketing',
+    tags: ['Photography', 'Video', 'Drone'],
+    images: [
+      {
+        src: '/assets/projects/david-todd/images/david-todd-haddington-exterior-01.webp',
+        alt: 'Haddington property exterior photographed for David Todd Sales & Lettings',
+      },
+      {
+        src: '/assets/projects/david-todd/images/david-todd-living-room-01.webp',
+        alt: 'Property living room photographed for David Todd Sales & Lettings',
+      },
+      {
+        src: '/assets/projects/david-todd/drone/david-todd-118-craigentinny-road-drone-01.webp',
+        alt: 'Aerial property photography for David Todd Sales & Lettings in Edinburgh',
+      },
+    ],
+    href: '/projects/david-todd',
+  },
+  {
     id: 'midlothian-wildflowers',
     title: 'Midlothian Wildflowers',
     category: 'Community & Conservation',
@@ -242,7 +263,7 @@ export default function FeaturedProjects({ redesign = false }: { redesign?: bool
       </header>
       <RedesignGallery label="selected work">
         {[...featuredProjects].sort((a, b) => {
-          const order = ['cg-developments', 'simply-sheds', 'seamus-corry']
+          const order = ['david-todd', 'cg-developments', 'simply-sheds', 'seamus-corry']
           const rank = (id: string) => order.includes(id) ? order.indexOf(id) : order.length
           return rank(a.id) - rank(b.id)
         }).map((project) => (
