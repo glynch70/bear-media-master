@@ -266,7 +266,7 @@ export function ScrollCinematic() {
           className={styles.chapterServiceLink}
           aria-label="Explore Bear Media video services"
         />
-        <div className={styles.chapterCopy}>
+        <div data-reveal="text" data-mobile-reveal className={styles.chapterCopy}>
           <p>03 / 09</p>
           <h2 id="cinematic-title">Video</h2>
           <span>Stories made to move.</span>
