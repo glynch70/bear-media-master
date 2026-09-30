@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
-import { createMetadata } from '@/lib/seo'
+import { createMetadata, siteUrl } from '@/lib/seo'
 import { CinematicVideo } from '../cinematic-video'
 import { RedesignFooter, RedesignHeader } from '../redesign-chrome'
 import { RedesignGallery } from '../redesign-gallery'
@@ -30,18 +30,21 @@ export const metadata: Metadata = {
 const socialContent = [
   {
     title: 'From Outhouses to Highland Living',
+    href: '/projects/cg-developments',
     desktopTitle: 'From Outhouses to Highland Living',
     image: '/assets/uploads/new-work/cg-outhouses-cover.png',
     desktopImage: '/assets/uploads/new-work/cg-outhouses-cover.png',
   },
   {
     title: 'Creating More Space for Family Life',
+    href: '/projects/cg-developments',
     desktopTitle: 'Creating More Space for Family Life',
     image: '/assets/uploads/new-work/cg-creating-more-space.jpg',
     desktopImage: '/assets/uploads/new-work/cg-creating-more-space.jpg',
   },
   {
     title: 'Kitchen Extension · Progress Update',
+    href: '/projects/cg-developments',
     desktopTitle: 'Kitchen Extension · Progress Update',
     image: '/assets/uploads/new-work/cg-kitchen-extension.jpg',
     desktopImage: '/assets/uploads/new-work/cg-kitchen-extension.jpg',
@@ -54,6 +57,7 @@ const socialContent = [
   },
   {
     title: 'Simply Sheds · Before & After',
+    href: '/projects/simply-sheds',
     desktopTitle: 'Simply Sheds · Before & After',
     image: '/assets/uploads/new-work/simply-sheds-before-after.jpg',
     desktopImage: '/assets/uploads/new-work/simply-sheds-before-after.jpg',
@@ -61,10 +65,10 @@ const socialContent = [
 ] as const
 
 const serviceFaqs = [
-  { question: 'Do you work with businesses outside West Lothian?', answer: 'Yes. Bear Media is based in West Lothian and works with businesses across Edinburgh, Fife and Scotland.' },
-  { question: 'Can you create the photography and social content together?', answer: 'Yes. A single content session can produce photography, short video, drone footage and social media assets for your website and campaigns.' },
-  { question: 'How quickly can we start?', answer: 'Start with a relaxed conversation. I will recommend the right service or combination of services and agree a practical timeline around your business.' },
-  { question: 'Do you build websites as well as create content?', answer: 'Yes. Bear Media designs and builds mobile-first websites, then supplies the photography, video and copy needed to make them work.' },
+  { question: 'Do you work with businesses outside West Lothian?', answer: 'Yes. I am based in Broxburn and work across Edinburgh and the Lothians, with Fife and other Scottish locations discussed for suitable projects. The location and any travel are agreed in the quote.' },
+  { question: 'Can you create the photography and social content together?', answer: 'Yes. Photography and short video can be planned in one content session. Drone content depends on the location and conditions; the final images, videos and social formats are agreed before booking.' },
+  { question: 'How quickly can we start?', answer: 'Tell me what you need, where the work will happen and any deadline. I will confirm availability and agree a practical schedule for the shoot or build, editing and review.' },
+  { question: 'Do you build websites as well as create content?', answer: 'Yes. I design and build mobile-first websites. Photography, video and copy can be included in the agreed scope so the site and its content are planned together.' },
 ] as const
 
 function ServiceHeading({
@@ -90,7 +94,7 @@ function ServiceHeading({
 export default function RedesignServicesPage() {
   return (
     <main className={`${styles.page} ${styles.servicesPage}`}>
-      <FAQPageSchema questions={serviceFaqs} />
+      <FAQPageSchema questions={serviceFaqs} url={`${siteUrl}/services`} />
       <div className={styles.pageProgress} aria-hidden="true" />
       <a href="#service-list" className={styles.skipLink}>
         Skip to services
@@ -173,7 +177,7 @@ export default function RedesignServicesPage() {
                   />
                 </picture>
               </div>
-              <figcaption>Property photography · Real spaces</figcaption>
+              <figcaption><Link href="/property">Property photography · Real spaces</Link></figcaption>
             </figure>
           </div>
         </section>
@@ -242,7 +246,7 @@ export default function RedesignServicesPage() {
                   </picture>
                 </div>
                 <figcaption>
-                  <strong>{website.name}</strong>
+                  <strong>{'caseStudy' in website ? <Link href={website.caseStudy}>{website.name}</Link> : website.name}</strong>
                   <span>{website.description}</span>
                 </figcaption>
               </figure>
@@ -284,8 +288,8 @@ export default function RedesignServicesPage() {
                   </picture>
                 </div>
                 <figcaption>
-                  <span className={styles.mobileSocialTitle}>{item.title}</span>
-                  <span className={styles.desktopSocialTitle}>{item.desktopTitle}</span>
+                  <span className={styles.mobileSocialTitle}>{'href' in item ? <Link href={item.href}>{item.title}</Link> : item.title}</span>
+                  <span className={styles.desktopSocialTitle}>{'href' in item ? <Link href={item.href}>{item.desktopTitle}</Link> : item.desktopTitle}</span>
                 </figcaption>
               </figure>
             ))}
