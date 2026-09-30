@@ -27,6 +27,7 @@ export function MotionSystem() {
   useEffect(() => {
     const reduced = matchMedia(REDUCED)
     const fine = matchMedia('(hover: hover) and (pointer: fine)')
+    const mobile = matchMedia('(max-width: 767px)')
     let teardown = () => {}
     const setup = () => {
       teardown()
@@ -35,6 +36,7 @@ export function MotionSystem() {
         return
       }
       const animations = new Set<Animation>()
+      const entrances = new WeakMap<HTMLElement, Animation[]>()
       const observed = new WeakSet<Element>()
       const frames = new Set<number>()
       const counters = new Map<HTMLElement, string>()
@@ -48,6 +50,27 @@ export function MotionSystem() {
         ], { duration: image ? 620 : 480, easing: EASE })
         animations.add(effect)
         effect.finished.then(() => animations.delete(effect)).catch(() => {})
+      }
+      const prepareMobileEntrance = (el: HTMLElement) => {
+        const image = el.dataset.reveal === 'image'
+        const children = Array.from(el.children).filter((child): child is HTMLElement =>
+          child instanceof HTMLElement && child.getBoundingClientRect().height > 0 &&
+          !child.hasAttribute('data-reveal'))
+        const targets = !image && children.length > 1 && children.length <= 6 ? children : [el]
+        const effects = targets.map((target, index) => {
+          const effect = target.animate(image ? [
+            { clipPath: 'inset(0 0 18% 0)', opacity: 0.35 },
+            { clipPath: 'inset(0)', opacity: 1 },
+          ] : [
+            { opacity: 0, translate: '0 18px' },
+            { opacity: 1, translate: '0 0' },
+          ], { duration: image ? 800 : 600, delay: index * 65, easing: EASE, fill: 'both' })
+          effect.pause()
+          animations.add(effect)
+          effect.finished.then(() => { effect.cancel(); animations.delete(effect) }).catch(() => {})
+          return effect
+        })
+        entrances.set(el, effects)
       }
       const count = (el: HTMLElement) => {
         const original = el.textContent ?? ''
@@ -76,16 +99,26 @@ export function MotionSystem() {
           const el = entry.target as HTMLElement
           observer.unobserve(el)
           if (el.hasAttribute('data-motion-count')) count(el)
-          else if (!document.documentElement.hasAttribute('data-view-transition')) animate(el, el.dataset.reveal === 'image')
+          else if (mobile.matches) {
+            entrances.get(el)?.forEach((effect) => {
+              if (document.documentElement.hasAttribute('data-view-transition')) effect.cancel()
+              else effect.play()
+            })
+          } else if (!document.documentElement.hasAttribute('data-view-transition') && !el.hasAttribute('data-mobile-reveal')) {
+            animate(el, el.dataset.reveal === 'image')
+          }
         }
-      }, { threshold: 0.12 })
+      }, mobile.matches ? { threshold: 0, rootMargin: '0px 0px -6% 0px' } : { threshold: 0.12 })
       const scan = (root: ParentNode) => {
         root.querySelectorAll<HTMLElement>('[data-reveal], [data-motion-count]').forEach((el) => {
           if (observed.has(el)) return
+          if (el.hasAttribute('data-mobile-reveal') && !mobile.matches) return
           observed.add(el)
           // Avoid delaying LCP, restored scroll positions, or content already being read.
           const rect = el.getBoundingClientRect()
+          if (rect.width === 0 || rect.height === 0) return
           if (rect.top < innerHeight && rect.bottom > 0) return
+          if (mobile.matches && !el.hasAttribute('data-motion-count')) prepareMobileEntrance(el)
           observer.observe(el)
         })
       }
@@ -151,6 +184,7 @@ export function MotionSystem() {
       const focus = (event: FocusEvent) => {
         const el = (event.target as Element).closest('[data-reveal]')
         el?.getAnimations().forEach((animation) => animation.cancel())
+        if (el instanceof HTMLElement) entrances.get(el)?.forEach((animation) => animation.cancel())
       }
       document.addEventListener('focusin', focus)
       teardown = () => {
@@ -170,7 +204,8 @@ export function MotionSystem() {
     }
     setup()
     reduced.addEventListener('change', setup)
-    return () => { teardown(); reduced.removeEventListener('change', setup) }
+    mobile.addEventListener('change', setup)
+    return () => { teardown(); reduced.removeEventListener('change', setup); mobile.removeEventListener('change', setup) }
   }, [pathname])
 
   useEffect(() => {
