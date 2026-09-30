@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
 import { createMetadata } from '@/lib/seo'
 import { CinematicVideo } from './cinematic-video'
+import { HeroTileVideo } from './hero-tile-video'
 import { JourneyProgress } from './journey-progress'
 import { RedesignFooter, RedesignHeader } from './redesign-chrome'
 import { RedesignGallery } from './redesign-gallery'
@@ -132,11 +133,11 @@ export default function RedesignPage() {
               href="/business-photography-west-lothian"
               data-motion-card
               className={`${styles.heroBentoTile} ${styles.heroBentoLead}`}
-              aria-label="Photography: property interior at Craigentinny Road, Edinburgh"
+              aria-label="Photography: Bear Media camera on a client shoot"
             >
               <Image
-                src="/images/2026-refresh/property/118-craigentinny-road-edinburgh-kitchen-conservatory.webp"
-                alt="Kitchen opening into the conservatory at 118 Craigentinny Road, Edinburgh"
+                src="/assets/hero/mobile/photography-camera.webp"
+                alt="Bear Media camera on a tripod outside Prestonpans pharmacy"
                 fill
                 preload
                 sizes="(max-width: 767px) 46vw, 1px"
@@ -153,8 +154,8 @@ export default function RedesignPage() {
               aria-label="Drone: Bear Media drone in flight"
             >
               <Image
-                src="/assets/bts/drone-2.webp"
-                alt="Bear Media drone hovering above a garden with countryside beyond"
+                src="/assets/hero/mobile/drone-flight.webp"
+                alt="Bear Media Mavic 3 drone hovering above a green field"
                 fill
                 sizes="(max-width: 767px) 48vw, 1px"
                 quality={80}
@@ -167,17 +168,9 @@ export default function RedesignPage() {
               href="/video-production-west-lothian"
               data-motion-card
               className={`${styles.heroBentoTile} ${styles.heroBentoVideo}`}
-              aria-label="Video: Bear Media production workspace"
+              aria-label="Video: a property content day by Bear Media"
             >
-              <Image
-                src="/images/journal/workspace-setup/bear-media-workspace-desk-setup-night-01.jpg"
-                alt="Bear Media desk with computer screens and production equipment"
-                fill
-                sizes="(max-width: 767px) 48vw, 1px"
-                quality={80}
-                data-shared-image
-                className={styles.heroBentoImage}
-              />
+              <HeroTileVideo className={styles.heroBentoImage} />
               <span className={styles.heroBentoLabel}>Video</span>
             </MotionLink>
           </div>

@@ -4277,14 +4277,18 @@
   }
 
   .heroBentoImage {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     z-index: -2;
     object-fit: cover;
     transition: transform 520ms var(--motion-ease);
   }
 
   .heroBentoLead .heroBentoImage { object-position: 52% 50%; }
-  .heroBentoDrone .heroBentoImage { object-position: 45% 32%; }
-  .heroBentoVideo .heroBentoImage { object-position: 55% 42%; }
+  .heroBentoDrone .heroBentoImage { object-position: 50% 50%; }
+  .heroBentoVideo .heroBentoImage { object-position: 50% 50%; }
 
   .heroBentoLabel {
     position: absolute;
