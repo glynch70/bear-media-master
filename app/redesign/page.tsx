@@ -328,7 +328,7 @@ export default function RedesignPage() {
                 aria-label={`Explore website services, featuring ${website.name}`}
                 key={website.name}
               >
-                <div className={styles.journeyWebsiteImage} data-gallery-media>
+                <div className={styles.journeyWebsiteImage} data-gallery-media data-framed-screenshot={website.src.startsWith('/assets/websites/') ? 'true' : undefined}>
                   <picture>
                     {'desktopSrc' in website ? <source media="(min-width: 1024px)" srcSet={website.desktopSrc} /> : null}
                     <Image
