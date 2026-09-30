@@ -38,6 +38,10 @@ function getPlaybackMode(): PlaybackMode {
   return 'sequence'
 }
 
+function getIsMobileViewport() {
+  return window.matchMedia('(max-width: 767px)').matches
+}
+
 function subscribeToPlaybackMode(onStoreChange: () => void) {
   const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)')
   const compactViewport = window.matchMedia('(max-width: 767px), (pointer: coarse)')
@@ -63,6 +67,7 @@ export function ScrollCinematic() {
   const lastFrameRef = useRef(-1)
   const animationFrameRef = useRef<number | null>(null)
   const mode = useSyncExternalStore(subscribeToPlaybackMode, getPlaybackMode, () => 'pending')
+  const isMobileViewport = useSyncExternalStore(subscribeToPlaybackMode, getIsMobileViewport, () => false)
   const [shouldLoad, setShouldLoad] = useState(false)
   const [loadedPercent, setLoadedPercent] = useState(0)
 
@@ -238,6 +243,7 @@ export function ScrollCinematic() {
 
         {mode === 'video' ? (
           <video
+            key={isMobileViewport ? 'mobile-video' : 'desktop-video'}
             className={styles.cinematicFallbackVideo}
             autoPlay
             muted
@@ -247,7 +253,10 @@ export function ScrollCinematic() {
             poster="/assets/hero-carousel/interview-setup.webp"
             aria-hidden="true"
           >
-            <source src="/assets/hero/hero-desktop.mp4" type="video/mp4" />
+            <source
+              src={isMobileViewport ? '/assets/hero/hero-mobile-new.mp4' : '/assets/hero/hero-desktop.mp4'}
+              type="video/mp4"
+            />
           </video>
         ) : null}
 
