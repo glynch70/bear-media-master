@@ -240,10 +240,10 @@ export default function RedesignPage() {
           aria-labelledby="drone-title"
         >
           <Image
-            src="/assets/uploads/new-work/cg-perthshire-aerial.jpg"
-            alt="C&G Developments Perthshire aerial landscape photographed by Bear Media"
+            src="/assets/hero/mobile/drone-flight.webp"
+            alt="Bear Media Mavic 3 drone hovering above a green field"
             fill
-            sizes="(max-width: 767px) 140vh, 100vw"
+            sizes="(max-width: 1023px) 100vw, 50vw"
             quality={90}
             className={styles.journeyCover}
           />
