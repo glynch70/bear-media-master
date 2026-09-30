@@ -1,3 +1,4 @@
+import { websiteProjects } from '@/lib/website-projects'
 import Link from 'next/link'
 import Image from 'next/image'
 import { getTrustedClientAriaLabel, trustedClientLinks } from '@/lib/trusted-client-links'
@@ -27,29 +28,7 @@ const recentWork: Record<string, WorkItem[]> = {
       external: true,
     },
   ],
-  'website-design': [
-    {
-      title: 'Herb & Soul',
-      description: 'A calm website for herbalism and nature connection.',
-      image: '/assets/websites/herb-soul.webp',
-      href: 'https://herbandsoul.uk/',
-      external: true,
-    },
-    {
-      title: 'Almond Vet Care',
-      description: 'A warm launch site for an independent vet practice.',
-      image: '/assets/websites/almond-vet.webp',
-      href: 'https://www.almondvetcare.co.uk/',
-      external: true,
-    },
-    {
-      title: 'Managing What Matters',
-      description: 'A clear website for practical manager training.',
-      image: '/assets/websites/managing-what-matters.webp',
-      href: 'https://managingwhatmatters.co.uk/',
-      external: true,
-    },
-  ],
+  'website-design': websiteProjects.map((site) => ({ title: site.name, description: site.description, image: site.src, href: site.url, external: true })),
   photography: [
     {
       title: 'C&G Developments',
@@ -122,7 +101,7 @@ export function RecentWork({
                   alt={project.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  className={serviceType === 'website-design' || serviceType === 'social-media' ? 'object-contain' : 'object-cover transition-transform duration-500 group-hover:scale-[1.03]'}
                   loading="lazy"
                 />
               </div>
