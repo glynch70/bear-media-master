@@ -61,6 +61,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   const gaId = process.env.NEXT_PUBLIC_GA_ID
+  const clarityProjectId = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID ?? 'wt02mqo6ya'
 
   return (
     <html lang="en" className={`bg-background ${inter.variable}`}>
@@ -79,16 +80,31 @@ export default function RootLayout({
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
             <Script id="google-analytics" strategy="afterInteractive">
               {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                window.gtag = gtag;
-                gtag('js', new Date());
-                gtag('config', '${gaId}', {
-                  page_path: window.location.pathname,
-                });
+                if (['bear-media.com', 'www.bear-media.com'].includes(window.location.hostname)) {
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  window.gtag = gtag;
+                  gtag('js', new Date());
+                  gtag('config', '${gaId}', {
+                    page_path: window.location.pathname,
+                  });
+                }
               `}
             </Script>
           </>
+        )}
+        {process.env.NODE_ENV === 'production' && clarityProjectId && (
+          <Script id="microsoft-clarity" strategy="afterInteractive">
+            {`
+              if (['bear-media.com', 'www.bear-media.com'].includes(window.location.hostname)) {
+                (function(c,l,a,r,i,t,y){
+                  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                })(window, document, "clarity", "script", "${clarityProjectId}");
+              }
+            `}
+          </Script>
         )}
         {process.env.NODE_ENV === 'production' && process.env.VERCEL === '1' && <Analytics />}
       </body>
