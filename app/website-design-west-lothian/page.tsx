@@ -1,3 +1,4 @@
+import { websiteProjects as completedWebsites } from '@/lib/website-projects'
 import desktop from '@/components/desktop-refresh.module.css'
 import type { Metadata } from 'next'
 import Image from 'next/image'
@@ -13,7 +14,7 @@ import {
 } from 'lucide-react'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
-import { FAQPageSchema, ServiceSchema } from '@/components/structured-data'
+import { ServiceSchema } from '@/components/structured-data'
 
 const pageUrl = 'https://bear-media.com/website-design-west-lothian'
 
@@ -44,35 +45,17 @@ export const metadata: Metadata = {
     title: 'Website Design West Lothian | Bear Media',
     description: 'Mobile-first website design for West Lothian businesses in Livingston, Broxburn and Linlithgow.',
     images: ['https://bear-media.com/assets/websites/midlothian-wildflowers/desktop-home.webp'],
+    creator: '@bearmediascot',
   },
   alternates: {
     canonical: pageUrl,
   },
 }
 
-const websiteProjects = [
-  {
-    title: 'Midlothian Wildflowers',
-    category: 'Community & conservation',
-    description: 'A warm, accessible online home built to make local participation simple.',
-    image: '/assets/websites/midlothian-wildflowers/desktop-home.webp',
-    href: '/projects/midlothian-wildflowers',
-  },
-  {
-    title: 'Seamus Corry',
-    category: 'Personal brand & training',
-    description: 'A confident personal-brand website that turns expertise into a clear offer.',
-    image: '/assets/websites/seamus-corry.webp',
-    href: '/projects/seamus-corry',
-  },
-  {
-    title: 'Almond Vet Care',
-    category: 'Veterinary healthcare',
-    description: 'A friendly, professional website designed to help pet owners find what they need.',
-    image: '/assets/websites/almond-vet.webp',
-    href: '/projects/almond-vet-care',
-  },
-]
+const websiteProjects = completedWebsites.map((site) => ({
+  title: site.name, category: 'Website design', description: site.description, image: site.src,
+  href: 'caseStudy' in site ? site.caseStudy : site.url,
+}))
 
 const services = [
   {
@@ -150,18 +133,11 @@ export default function WebsiteDesignWestLothian() {
       <main className={`flex-1 ${desktop.standardPage} ${desktop.websitePage} ${desktop.servicePage}`}>
         <ServiceSchema
           name="Website Design in West Lothian"
-          description="Mobile-first website design and development for businesses across West Lothian, with content and support scoped around each project."
-          serviceType="Website design and development"
+          description="Custom, responsive website design for businesses across West Lothian"
           areaServed="West Lothian"
           provider="Bear Media"
           url={pageUrl}
-          subjectOf={[
-            { name: "Midlothian Wildflowers Website Launch", url: 'https://bear-media.com/projects/midlothian-wildflowers' },
-            { name: "Seamus Corry Case Study", url: 'https://bear-media.com/projects/seamus-corry' },
-            { name: "Almond Vet Care Case Study", url: 'https://bear-media.com/projects/almond-vet-care' },
-          ]}
         />
-        <FAQPageSchema questions={faqs} url={pageUrl} />
 
         <section className="overflow-hidden bg-secondary pt-28 pb-16 md:pt-36 md:pb-24 lg:pt-40">
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16 lg:px-8">
@@ -216,7 +192,7 @@ export default function WebsiteDesignWestLothian() {
                     loading="eager"
                     sizes="(max-width: 1024px) 100vw, 54vw"
                     quality={90}
-                    className="object-cover"
+                    className="object-contain"
                   />
                 </div>
               </div>
@@ -298,7 +274,7 @@ export default function WebsiteDesignWestLothian() {
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
                       quality={85}
-                      className="object-cover transition duration-500 group-hover:scale-[1.02]"
+                      className="object-contain"
                     />
                   </div>
                   <div className="p-6">
