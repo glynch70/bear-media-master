@@ -4,7 +4,7 @@ import { DesktopVideo, MobileImage } from '@/components/responsive-media'
 
 export default function CTA({ redesign = false }: { redesign?: boolean }) {
   if (redesign) return (
-    <section id="contact" className={`${styles.contactJourneyChapter} ${styles.restoredCta}`} data-chapter="09" aria-labelledby="contact-title">
+    <section data-reveal="text" data-mobile-reveal id="contact" className={`${styles.contactJourneyChapter} ${styles.restoredCta}`} data-chapter="09" aria-labelledby="contact-title">
       <p>09 / 09 · Start a conversation</p>
       <h2 id="contact-title">Let’s talk.</h2>
       <span className={styles.ctaCopy}>Looking for help with photography, video, social content or your website? Tell me about your business and what you’d like to achieve.</span>

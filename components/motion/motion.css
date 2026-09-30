@@ -56,6 +56,14 @@
   to { transform: translateY(0.6%) scale(1.015); }
 }
 
+@media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
+  [data-motion-card] {
+    transition: transform var(--motion-hover) var(--motion-ease), scale var(--motion-fast) var(--motion-spring);
+  }
+  [data-motion-card]:active { scale: 0.988; }
+  [data-magnetic]:active { scale: 0.975; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   [data-reveal], [data-motion-card], [data-magnetic], [data-parallax] {
     animation: none !important;
