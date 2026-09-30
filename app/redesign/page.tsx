@@ -116,7 +116,7 @@ export default function RedesignPage() {
                 Photography, video, drone, social media and websites for Scottish businesses.
               </p>
               <div className={styles.heroBentoActions}>
-                <Link href="/contact" className={styles.heroBentoPrimaryAction}>
+                <Link href="/contact" data-magnetic className={styles.heroBentoPrimaryAction}>
                   Start a project <span aria-hidden="true">→</span>
                 </Link>
                 <Link href="/projects" className={styles.heroBentoSecondaryAction}>View recent work</Link>
@@ -156,6 +156,8 @@ export default function RedesignPage() {
               <Image
                 src="/assets/hero/mobile/drone-flight.webp"
                 alt="Bear Media Mavic 3 drone hovering above a green field"
+            data-reveal="image"
+            data-mobile-reveal
                 fill
                 sizes="(max-width: 767px) 48vw, 1px"
                 quality={80}
@@ -215,6 +217,8 @@ export default function RedesignPage() {
               sizes="(max-width: 1023px) 100vw, 33vw"
               quality={90}
               data-parallax
+              data-reveal="image"
+              data-mobile-reveal
               className={styles.journeyCover}
             />
           </picture>
@@ -242,6 +246,8 @@ export default function RedesignPage() {
           <Image
             src="/assets/hero/mobile/drone-flight.webp"
             alt="Bear Media Mavic 3 drone hovering above a green field"
+            data-reveal="image"
+            data-mobile-reveal
             fill
             sizes="(max-width: 1023px) 100vw, 50vw"
             quality={90}
