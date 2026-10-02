@@ -219,7 +219,7 @@ export const insights: InsightArticle[] = [
     servicePaths: ['/website-design-west-lothian'],
     contentLinks: [{ text: 'website design', href: '/website-design-west-lothian' }],
     title: "How I'm Building Websites with Codex",
-    metaTitle: "How I'm Building Websites with Codex | The Bear Media Journal",
+    metaTitle: "Building Websites with Codex | Bear Media Journal",
     metaDescription:
       "How Garry Lynch is using Codex, AI tools and 20 years of website experience to build better websites through Bear Media.",
     excerpt:
@@ -470,7 +470,7 @@ export const insights: InsightArticle[] = [
     slug: 'video-content-that-generates-enquiries',
     indexable: false,
     title: 'Video Content That Generates Enquiries',
-    metaTitle: 'Video Content That Generates Enquiries | The Bear Media Journal',
+    metaTitle: 'Video Content That Generates Enquiries | Bear Media',
     metaDescription:
       'A Bear Media article placeholder about using video content to build trust and generate business enquiries.',
     excerpt:

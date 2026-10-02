@@ -168,7 +168,7 @@ export default function ContactPage() {
                   Let&apos;s Talk.
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed mb-8 text-pretty">
-                  I help businesses across Scotland with websites, photography, video, content creation and AI support. Whether you need one service or a combination of everything, let&apos;s explore what might work for your business.
+                  I help businesses with website design, content days, photography, video, drone media, social media and practical AI support. Based in Broxburn, I work across West Lothian, Edinburgh and the Lothians, with projects in Fife and elsewhere in Scotland. Whether you need property media, a new website or regular content for your business, tell me what you want to achieve. Include your location, the service you need and any dates you have in mind so we can discuss a useful next step.
                 </p>
               </div>
               <div className="relative aspect-square rounded-3xl overflow-hidden bg-muted">

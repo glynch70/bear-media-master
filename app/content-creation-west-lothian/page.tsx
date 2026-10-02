@@ -8,7 +8,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Content Days & Content Creation West Lothian | Bear Media',
-  description: 'Planned content days in West Lothian: photography, short video and social assets captured around your real work. Based in Broxburn; serving Edinburgh and the Lothians.',
+  description: 'Content days for West Lothian businesses: photography, short video and social assets from your real work. Based in Broxburn, serving Edinburgh and the Lothians.',
   openGraph: {
     title: 'Content Creation West Lothian | Bear Media',
     description: 'Photography, videography and content creation for West Lothian businesses.',

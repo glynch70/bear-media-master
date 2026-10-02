@@ -5,7 +5,7 @@ import { createMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = createMetadata({
   title: 'Terms & Conditions | Bear Media',
-  description: 'Terms and conditions for Bear Media creative and digital services.',
+  description: 'Read the terms for Bear Media website, photography, video, drone and social media services, including bookings, payment, deliverables and usage rights.',
   path: '/terms-and-conditions',
 })
 

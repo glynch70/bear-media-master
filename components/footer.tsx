@@ -108,7 +108,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-10 mb-12">
           {/* Column 1: Bear Media */}
           <div>
-            <h3 className="font-heading text-lg font-semibold text-foreground mb-4">Bear Media</h3>
+            <h2 data-footer-heading className="font-heading text-lg font-semibold text-foreground mb-4">Bear Media</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">
               Premium creative services for businesses across Scotland. Photography, video, websites, and social media management.
             </p>
@@ -136,7 +136,7 @@ export default function Footer() {
 
           {/* Column 2: Services */}
           <div>
-            <h3 className="font-medium text-sm uppercase tracking-wider text-foreground mb-5">Services</h3>
+            <h2 data-footer-heading className="font-medium text-sm uppercase tracking-wider text-foreground mb-5">Services</h2>
             <ul className="space-y-1">
               <li><Link href="/services#photography-service" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Photography</Link></li>
               <li><Link href="/video-production-west-lothian" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Video Production</Link></li>
@@ -150,7 +150,7 @@ export default function Footer() {
 
           {/* Column 3: Explore */}
           <div>
-            <h3 className="font-medium text-sm uppercase tracking-wider text-foreground mb-5">Explore</h3>
+            <h2 data-footer-heading className="font-medium text-sm uppercase tracking-wider text-foreground mb-5">Explore</h2>
             <ul className="space-y-1">
               <li><Link href="/projects" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Projects</Link></li>
               <li><Link href="/about" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">About</Link></li>
@@ -162,7 +162,7 @@ export default function Footer() {
 
           {/* Column 4: Contact */}
           <div>
-            <h3 className="font-medium text-sm uppercase tracking-wider text-foreground mb-5">Get In Touch</h3>
+            <h2 data-footer-heading className="font-medium text-sm uppercase tracking-wider text-foreground mb-5">Get In Touch</h2>
             <div className="space-y-4">
               <a href="tel:+447879011860" className="flex min-h-11 items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors">
                 <Phone className="w-4 h-4 mt-0.5 shrink-0 text-accent" />
@@ -181,7 +181,7 @@ export default function Footer() {
 
           {/* Column 5: Policies */}
           <div>
-            <h3 className="font-medium text-sm uppercase tracking-wider text-foreground mb-5">Policies</h3>
+            <h2 data-footer-heading className="font-medium text-sm uppercase tracking-wider text-foreground mb-5">Policies</h2>
             <ul className="space-y-1">
               <li><Link href="/terms-and-conditions" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Terms &amp; Conditions</Link></li>
             </ul>

@@ -5,7 +5,7 @@ import { schemaIds } from '@/lib/schema'
 
 export const metadata: Metadata = {
   ...createMetadata({
-    title: 'About Bear Media | Garry Lynch, Creative Media in West Lothian',
+    title: 'About Bear Media | Garry Lynch, West Lothian',
     description: 'Meet Garry Lynch, founder of Bear Media. Learn how Bear Media helps businesses in West Lothian, Edinburgh and Scotland look professional online.',
     path: '/about',
     image: '/assets/about/garry-with-camera.webp',

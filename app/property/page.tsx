@@ -10,8 +10,8 @@ import styles from './property.module.css'
 
 export const metadata = {
   ...createMetadata({
-    title: 'Property Media | Photography, Video & Drone | Edinburgh & West Lothian | Bear Media',
-    description: 'Property photography, video, drone, floor plans and 360° tours with Garry Lynch. Edinburgh, the Lothians, Fife and Central Scotland. Get in touch to discuss your property.',
+    title: 'Property Media Edinburgh & West Lothian | Bear Media',
+    description: 'Property photography, video, drone, floor plans and 360° tours across Edinburgh, the Lothians, Fife and Central Scotland. Discuss your shoot with Bear Media.',
     path: '/property',
     image: '/images/property/property-media-social.jpg',
     imageAlt: 'Conservatory and garden photographed by Bear Media',

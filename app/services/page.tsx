@@ -4,7 +4,7 @@ import RedesignServicesPage from '../redesign/services/page'
 
 export const metadata = {
   ...createMetadata({
-    title: 'Content Days, Website Builds & Creative Services | Bear Media',
+    title: 'Content Days, Websites & Creative Services | Bear Media',
     description:
       'Content days and mobile-first website builds for Edinburgh and the Lothians, plus photography, video, drone and social media services.',
     path: '/services',

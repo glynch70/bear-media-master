@@ -30,8 +30,8 @@
   .standardPage > section { padding: 48px max(40px, calc((100% - 1200px) / 2)); }
   .standardPage > section > div { max-width: 1200px; margin-inline: auto; }
   .standardPage h1 { max-width: 22ch; font-size: 50px; font-weight: 550; line-height: 1.08; letter-spacing: -2px; }
-  .standardPage h2 { font-size: 32px; font-weight: 500; line-height: 1.2; letter-spacing: -1px; }
-  .standardPage h3 { font-size: 22px; font-weight: 550; line-height: 1.25; letter-spacing: -.4px; }
+  .standardPage h2:where(:not([data-footer-heading])) { font-size: 32px; font-weight: 500; line-height: 1.2; letter-spacing: -1px; }
+  .standardPage h3, .standardPage h2:where([data-footer-heading]) { font-size: 22px; font-weight: 550; line-height: 1.25; letter-spacing: -.4px; }
   .standardPage p { line-height: 1.65; }
   .standardPage :where(p[class*='text-xl'], p[class*='text-2xl']) { font-size: 17px; }
   .standardPage :where([class*='rounded-3xl'], [class*='rounded-2xl']) { border-radius: 10px; }
@@ -62,7 +62,7 @@
   .simpleService > section > div > ul > li { margin: 0; padding: 16px 0; border-top: 1px solid #ddded4; }
   .simpleService > section:not([class*='bg-primary']) :global(.grid) > div { padding: 22px; border: 1px solid #ddded4; border-radius: 10px; background: #fdfdfb; }
   .simpleService :global(.grid) { gap: 20px; }
-  .simpleService h2 { margin-bottom: 24px; }
+  .simpleService h2:where(:not([data-footer-heading])) { margin-bottom: 24px; }
 
   .dronePage > section:first-of-type { background-image: none; }
   .dronePage > section:first-of-type > div { display: grid; grid-template-columns: 1fr 1fr; column-gap: 56px; grid-template-rows: min-content min-content 1fr; align-items: start; padding: 0; }

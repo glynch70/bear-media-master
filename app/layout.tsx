@@ -19,13 +19,13 @@ const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
 
 export const metadata: Metadata = {
   ...createMetadata({
-    title: 'Bear Media | Content Days & Websites in Edinburgh and the Lothians',
+    title: 'Content Days & Website Design in Lothians | Bear Media',
     description: 'Based in Broxburn, Bear Media plans content days and builds mobile-first websites for businesses across Edinburgh and the Lothians.',
     path: '/',
     imageAlt: 'Bear Media creative services in Scotland',
   }),
   title: {
-    default: 'Bear Media | Content Days & Websites in Edinburgh and the Lothians',
+    default: 'Content Days & Website Design in Lothians | Bear Media',
     template: '%s',
   },
   generator: 'v0.app',
