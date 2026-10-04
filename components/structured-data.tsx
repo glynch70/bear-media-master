@@ -107,6 +107,7 @@ type WebPageDetails = {
   url: string
   type?: 'WebPage' | 'ProfilePage' | 'ContactPage' | 'CollectionPage'
   mainEntityId?: string
+  mainEntityType?: 'Person' | 'Organization'
   aboutIds?: readonly string[]
 }
 
@@ -116,6 +117,7 @@ function webPageData({
   url,
   type = 'WebPage',
   mainEntityId,
+  mainEntityType,
   aboutIds,
 }: WebPageDetails) {
   return {
@@ -127,7 +129,12 @@ function webPageData({
     isPartOf: { '@id': schemaIds.website },
     publisher: { '@id': schemaIds.business },
     inLanguage: 'en-GB',
-    ...(mainEntityId ? { mainEntity: { '@id': mainEntityId } } : {}),
+    ...(mainEntityId ? {
+      mainEntity: {
+        ...(mainEntityType ? { '@type': mainEntityType } : {}),
+        '@id': mainEntityId,
+      },
+    } : {}),
     ...(aboutIds?.length ? { about: aboutIds.map((id) => ({ '@id': id })) } : {}),
   }
 }

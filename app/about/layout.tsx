@@ -22,6 +22,7 @@ export default function AboutLayout({ children }: { children: React.ReactNode })
         description="Meet Garry Lynch, founder of Bear Media in Broxburn, West Lothian."
         url={`${siteUrl}/about`}
         mainEntityId={schemaIds.person}
+        mainEntityType="Person"
         aboutIds={[schemaIds.business]}
       />
       <BreadcrumbSchema items={[
