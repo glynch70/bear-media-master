@@ -17,7 +17,6 @@ import {
 const businessAreas = ['West Lothian', 'Edinburgh', 'Midlothian', 'East Lothian', 'Fife']
 const businessAddress = {
   '@type': 'PostalAddress',
-  addressLocality: 'Broxburn',
   addressRegion: 'West Lothian',
   addressCountry: 'GB',
 }
@@ -62,7 +61,7 @@ export function BusinessSchema() {
       url: siteUrl,
       logo: `${siteUrl}/assets/brand/logo.png`,
       image: defaultOgImageUrl,
-      description: 'Content days, mobile-first websites, photography and video for businesses across Edinburgh and the Lothians. Based in Broxburn, West Lothian.',
+      description: 'Content days, mobile-first websites, photography and video for businesses across Edinburgh and the Lothians. Based in West Lothian.',
       telephone: '+447879011860',
       email: 'info@bear-media.com',
       foundingDate: '2024',

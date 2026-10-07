@@ -37,7 +37,7 @@ export default function TermsAndConditionsPage() {
             <section>
               <h2 className="mb-5 font-heading text-3xl font-medium text-foreground">1. About Bear Media</h2>
               <p>Bear Media is a sole-trader business operated by Garry Lynch.</p>
-              <p>Business address: 11 Albyn Cottages, Broxburn, West Lothian, EH52 6PH.</p>
+              <p>Location: West Lothian.</p>
               <p>Email: <a className="text-foreground underline decoration-accent underline-offset-4" href="mailto:info@bear-media.com">info@bear-media.com</a></p>
               <p>These Terms apply to clients acting wholly or mainly in the course of a business, trade or profession. Bear Media does not accept consumer bookings under these Terms.</p>
             </section>

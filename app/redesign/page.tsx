@@ -99,7 +99,7 @@ export default function RedesignPage() {
                 <Link href="/projects" className={styles.heroBentoSecondaryAction}>View recent work</Link>
               </div>
               <div className={styles.desktopIntro}>
-                <p>Planned content shoots and mobile-first website builds for local businesses. Based in Broxburn, working across Edinburgh and the Lothians.</p>
+                <p>Planned content shoots and mobile-first website builds for local businesses. Based in West Lothian, working across Edinburgh and the Lothians.</p>
                 <div>
                   <Link href="/content-creation-west-lothian">Plan a content day <ArrowUpRight aria-hidden="true" /></Link>
                   <Link href="/website-design-west-lothian">Build a website <ArrowUpRight aria-hidden="true" /></Link>

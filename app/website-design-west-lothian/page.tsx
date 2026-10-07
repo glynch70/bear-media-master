@@ -223,7 +223,7 @@ export default function WebsiteDesignWestLothian() {
           <div className="mx-auto grid max-w-7xl gap-6 px-6 py-8 text-center sm:grid-cols-3 sm:text-left lg:px-8">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Local base</p>
-              <p className="mt-2 font-heading text-xl font-semibold">Broxburn, West Lothian</p>
+              <p className="mt-2 font-heading text-xl font-semibold">West Lothian</p>
             </div>
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Typical timeline</p>

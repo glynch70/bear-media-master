@@ -22,7 +22,7 @@ export default function ContactLayout({
       <WebPageSchema
         type="ContactPage"
         name="Contact Bear Media"
-        description="Contact Garry Lynch at Bear Media in Broxburn, West Lothian about a project."
+        description="Contact Garry Lynch at Bear Media in West Lothian about a project."
         url={`${siteUrl}/contact`}
         mainEntityId={schemaIds.business}
       />

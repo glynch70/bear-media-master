@@ -85,7 +85,7 @@ export default function WebsiteDesignEdinburgh() {
         <section className="bg-gradient-to-b from-background to-muted py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">Website builds for Edinburgh businesses</h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8">I build mobile-first websites that explain what you do, show credible work and make it easy for customers to enquire. Based in Broxburn, I work with businesses across Edinburgh and the Lothians.</p>
+            <p className="text-lg md:text-xl text-muted-foreground mb-8">I build mobile-first websites that explain what you do, show credible work and make it easy for customers to enquire. Based in West Lothian, I work with businesses across Edinburgh and the Lothians.</p>
             <a href="/contact" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">Discuss your website</a>
           </div>
           <DesktopServiceImage src="/assets/websites/seamus-corry.webp" alt="Seamus Corry website designed by Bear Media" />

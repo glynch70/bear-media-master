@@ -19,7 +19,7 @@ export default function AboutLayout({ children }: { children: React.ReactNode })
       <WebPageSchema
         type="ProfilePage"
         name="About Bear Media | Garry Lynch"
-        description="Meet Garry Lynch, founder of Bear Media in Broxburn, West Lothian."
+        description="Meet Garry Lynch, founder of Bear Media in West Lothian."
         url={`${siteUrl}/about`}
         mainEntityId={schemaIds.person}
         mainEntityType="Person"

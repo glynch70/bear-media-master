@@ -118,7 +118,7 @@ export default function PropertyPage() {
           </section>
           <section className={`${styles.section} ${styles.case} ${styles.split}`} aria-labelledby="audience-title">
             <div><p className={styles.eyebrow}>Who I work with</p><h2 id="audience-title">For people who care about presentation</h2></div>
-            <div><p>I work with estate agents, developers and property businesses who want consistent imagery, straightforward communication and content that works across portals, websites and social media.</p><p>Based in Broxburn, West Lothian, I cover Edinburgh, East Lothian, Fife and Central Scotland.</p></div>
+            <div><p>I work with estate agents, developers and property businesses who want consistent imagery, straightforward communication and content that works across portals, websites and social media.</p><p>Based in West Lothian, I cover Edinburgh, East Lothian, Fife and Central Scotland.</p></div>
           </section>
         </div>
         <section className={styles.soft} aria-labelledby="enquiry-title"><div className={`${styles.wrap} ${styles.closing}`}>

@@ -65,7 +65,7 @@ const socialContent = [
 ] as const
 
 const serviceFaqs = [
-  { question: 'Do you work with businesses outside West Lothian?', answer: 'Yes. I am based in Broxburn and work across Edinburgh and the Lothians, with Fife and other Scottish locations discussed for suitable projects. The location and any travel are agreed in the quote.' },
+  { question: 'Do you work with businesses outside West Lothian?', answer: 'Yes. I am based in West Lothian and work across Edinburgh and the Lothians, with Fife and other Scottish locations discussed for suitable projects. The location and any travel are agreed in the quote.' },
   { question: 'Can you create the photography and social content together?', answer: 'Yes. Photography and short video can be planned in one content session. Drone content depends on the location and conditions; the final images, videos and social formats are agreed before booking.' },
   { question: 'How quickly can we start?', answer: 'Tell me what you need, where the work will happen and any deadline. I will confirm availability and agree a practical schedule for the shoot or build, editing and review.' },
   { question: 'Do you build websites as well as create content?', answer: 'Yes. I design and build mobile-first websites. Photography, video and copy can be included in the agreed scope so the site and its content are planned together.' },
@@ -106,7 +106,7 @@ export default function RedesignServicesPage() {
           <p className={styles.eyebrow}>Creative services · Edinburgh &amp; the Lothians</p>
           <h1 id="services-title">Content days and websites built for your business.</h1>
           <p>
-            Planned photography and video shoots, mobile-first website builds and social content from Broxburn across Edinburgh and the Lothians.
+            Planned photography and video shoots, mobile-first website builds and social content from West Lothian across Edinburgh and the Lothians.
           </p>
         </div>
         <div className={styles.servicesHeroMedia}>

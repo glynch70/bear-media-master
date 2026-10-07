@@ -64,7 +64,7 @@ export function PriorityServiceLinks({ headingId }: { headingId: string }) {
             <span className="hidden md:inline">Content days, website builds and creative services.</span>
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Based in Broxburn, working with businesses across West Lothian, Edinburgh and the Lothians.
+            Based in West Lothian, working with businesses across West Lothian, Edinburgh and the Lothians.
           </p>
         </div>
 

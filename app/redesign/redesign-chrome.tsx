@@ -33,7 +33,7 @@ export function RedesignFooter() {
   return (
     <footer className={styles.footer}>
       <span>Bear Media</span>
-      <span>Broxburn · Edinburgh &amp; the Lothians</span>
+      <span>West Lothian · Edinburgh &amp; the Lothians</span>
       <span>Content days · Websites · Photography · Video</span>
       <Link href="/terms-and-conditions">Terms &amp; Conditions</Link>
       <div className={styles.desktopFooterLinks}>

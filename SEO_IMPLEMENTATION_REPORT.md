@@ -154,7 +154,7 @@ LocalBusiness and Organization schemas have been implemented using JSON-LD forma
 - Business Name: Bear Media
 - Phone: +447879011860
 - Email: info@bear-media.com
-- Address: Broxburn, West Lothian, EH52, Scotland
+- Location: West Lothian, Scotland
 - Geographic Coordinates: 55.9464, -3.5909
 - Service Areas: Scotland
 - Price Range: £££

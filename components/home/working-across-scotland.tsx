@@ -29,7 +29,7 @@ export default function WorkingAcrossScotland() {
               Working Across Scotland
             </h2>
             <p className="text-lg md:text-xl text-foreground/60 font-light leading-relaxed text-pretty mb-10 max-w-md">
-              Based in Broxburn and working with businesses across Scotland.
+              Based in West Lothian and working with businesses across Scotland.
             </p>
 
             <ul className="grid grid-cols-2 gap-x-6 gap-y-1 max-w-md">
@@ -105,7 +105,7 @@ export default function WorkingAcrossScotland() {
                 )}
               </g>
 
-              {/* Home marker: Broxburn */}
+              {/* Regional marker: West Lothian */}
               <g>
                 <circle
                   cx={HOME_POINT.cx}
@@ -140,7 +140,7 @@ export default function WorkingAcrossScotland() {
                   className="fill-foreground font-sans"
                   style={{ fontSize: '22px', fontWeight: 600 }}
                 >
-                  Broxburn
+                  West Lothian
                 </text>
               </g>
             </svg>
