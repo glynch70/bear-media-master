@@ -246,7 +246,7 @@ export default function RedesignServicesPage() {
                   </picture>
                 </div>
                 <figcaption>
-                  <strong>{'caseStudy' in website ? <Link href={website.caseStudy}>{website.name}</Link> : website.name}</strong>
+                  <strong>{'caseStudy' in website ? <Link href={website.caseStudy}>{website.name}</Link> : <a href={website.url} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${website.name} website (opens in a new tab)`}>{website.name} ↗</a>}</strong>
                   <span>{website.description}</span>
                 </figcaption>
               </figure>

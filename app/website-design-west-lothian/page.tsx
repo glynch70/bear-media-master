@@ -163,7 +163,7 @@ export default function WebsiteDesignWestLothian() {
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <Link
-                  href="/contact"
+                  href="/contact#enquiry"
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground transition hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 >
                   Arrange a free discovery call
@@ -338,7 +338,7 @@ export default function WebsiteDesignWestLothian() {
                 <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
                   A good website needs more than an attractive homepage. I bring the structure, content and technical details together as one joined-up project.
                 </p>
-                <Link href="/contact" className="mt-8 inline-flex items-center gap-2 font-semibold text-foreground hover:text-accent">
+                <Link href="/contact#enquiry" className="mt-8 inline-flex items-center gap-2 font-semibold text-foreground hover:text-accent">
                   Discuss your website
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
@@ -421,7 +421,7 @@ export default function WebsiteDesignWestLothian() {
             </p>
             <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
               <Link
-                href="/contact"
+                href="/contact#enquiry"
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground transition hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-accent"
               >
                 Arrange a free discovery call

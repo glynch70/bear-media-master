@@ -62,7 +62,7 @@ export function AITrainingCards() {
 
             <div className="mt-8">
               <Link
-                href="/contact"
+                href="/contact#enquiry"
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-8 py-4 text-base font-medium text-foreground transition-all duration-300 hover:scale-[1.02] hover:opacity-90 sm:w-auto"
               >
                 Enquire About Training

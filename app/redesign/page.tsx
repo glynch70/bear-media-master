@@ -303,9 +303,11 @@ export default function RedesignPage() {
           <RedesignGallery label="website projects" variant="website">
             {websites.map((website) => (
               <Link
-                href="/services#website-service"
+                href={'caseStudy' in website ? website.caseStudy : website.url}
+                target={'caseStudy' in website ? undefined : '_blank'}
+                rel={'caseStudy' in website ? undefined : 'noopener noreferrer'}
                 className={styles.journeyWebsiteCard}
-                aria-label={`Explore website services, featuring ${website.name}`}
+                aria-label={'caseStudy' in website ? `View ${website.name} case study` : `Visit ${website.name} website (opens in a new tab)`}
                 key={website.name}
               >
                 <div className={styles.journeyWebsiteImage} data-gallery-media>

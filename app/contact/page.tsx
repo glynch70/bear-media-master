@@ -5,6 +5,7 @@ import styles from '@/app/redesign/redesign.module.css'
 import Link from 'next/link'
 import { RedesignFooter, RedesignHeader } from '@/app/redesign/redesign-chrome'
 import { useState, useRef } from 'react'
+import { enquiryServices } from '@/lib/enquiry-services'
 import { Phone, Mail, MapPin } from 'lucide-react'
 import Turnstile from 'react-turnstile'
 import type { BoundTurnstileObject } from 'react-turnstile'
@@ -18,6 +19,7 @@ export default function ContactPage() {
   const [formState, setFormState] = useState({
     name: '',
     business: '',
+    service: '',
     email: '',
     message: '',
     honeypot: '',
@@ -29,7 +31,7 @@ export default function ContactPage() {
   })
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
   ) => {
     const { name, value } = e.target
     setFormState((prev) => ({
@@ -80,6 +82,7 @@ export default function ContactPage() {
           name: formState.name,
           email: formState.email,
           business: formState.business,
+          service: formState.service,
           message: formState.message,
           honeypot: formState.honeypot,
           turnstileToken: formState.turnstileToken,
@@ -109,6 +112,7 @@ export default function ContactPage() {
         name: '',
         email: '',
         business: '',
+        service: '',
         message: '',
         honeypot: '',
         turnstileToken: '',
@@ -168,7 +172,7 @@ export default function ContactPage() {
                   Let&apos;s Talk.
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed mb-8 text-pretty">
-                  I help businesses with website design, content days, photography, video, drone media, social media and practical AI support. Based in West Lothian, I work across West Lothian, Edinburgh and the Lothians, with projects in Fife and elsewhere in Scotland. Whether you need property media, a new website or regular content for your business, tell me what you want to achieve. Include your location, the service you need and any dates you have in mind so we can discuss a useful next step.
+                  Tell me what you need help with: property marketing, business content, a website or practical AI training. I’m based in West Lothian and work across Edinburgh and Central Scotland. Share a short brief, your location and any dates you have in mind, and I’ll discuss the scope and quote with you.
                 </p>
               </div>
               <div className="relative aspect-square rounded-3xl overflow-hidden bg-muted">
@@ -217,7 +221,7 @@ export default function ContactPage() {
         </section>
 
         {/* Contact Form */}
-        <section className="w-full bg-background pt-8 md:pt-10 pb-12 md:pb-16">
+        <section id="enquiry" className="w-full bg-background pt-8 md:pt-10 pb-12 md:pb-16">
           <div className="max-w-3xl mx-auto px-6 lg:px-8">
             {formState.submitted ? (
               <div className="text-center py-12">
@@ -289,6 +293,22 @@ export default function ContactPage() {
                     />
                   </div>
                   <div className="space-y-2">
+                    <label htmlFor="service" className="block text-sm font-medium text-foreground">
+                      What can I help with? <span className="font-normal text-muted-foreground">(optional)</span>
+                    </label>
+                    <select
+                      id="service"
+                      name="service"
+                      value={formState.service}
+                      onChange={handleChange}
+                      disabled={formState.loading}
+                      className="w-full px-5 py-3.5 bg-background border border-foreground/10 rounded-2xl text-foreground focus:outline-none focus:border-accent disabled:opacity-50"
+                    >
+                      <option value="">Choose a service</option>
+                      {enquiryServices.map((service) => <option key={service.value} value={service.value}>{service.label}</option>)}
+                    </select>
+                  </div>
+                  <div className="space-y-2">
                     <label htmlFor="message" className="block text-sm font-medium text-foreground">
                       Message
                     </label>
@@ -300,9 +320,13 @@ export default function ContactPage() {
                       required
                       disabled={formState.loading}
                       rows={6}
+                      minLength={10}
+                      maxLength={500}
+                      aria-describedby="message-help"
                       className="w-full px-5 py-3.5 bg-background border border-foreground/10 rounded-2xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors resize-none disabled:opacity-50 disabled:cursor-not-allowed"
-                      placeholder="Tell me about your project and what you're looking for."
+                      placeholder="What do you need, where is the work and when would you like it? For training, tell me which tasks take up your time."
                     />
+                    <p id="message-help" className="text-sm text-muted-foreground">A short outline is enough — 10–500 characters. I’ll confirm the deliverables, timings and fee before work starts.</p>
                   </div>
                   <input
                     type="text"

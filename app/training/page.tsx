@@ -55,7 +55,7 @@ export default function TrainingPage() {
               Practical, in-person AI training built around your business — from enquiries and email replies to content planning and everyday admin. I’m Garry from Bear Media, and I’ll work through real examples with you, in plain English.
             </p>
             <Link
-              href="/contact"
+              href="/contact#enquiry"
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 font-medium text-foreground transition-opacity hover:opacity-90"
             >
               Discuss your training
@@ -115,7 +115,7 @@ export default function TrainingPage() {
               Tell me about your business and two or three tasks you want help with. I’ll suggest a training focus and quote for the agreed session time, preparation and any follow-up support.
             </p>
             <Link
-              href="/contact"
+              href="/contact#enquiry"
               className="mt-7 inline-flex items-center gap-2 rounded-full bg-foreground px-8 py-4 font-medium text-background transition-opacity hover:opacity-90"
             >
               Talk to Garry

@@ -1,4 +1,5 @@
 import { Resend } from 'resend'
+import { enquiryServiceLabel } from '@/lib/enquiry-services'
 import { NextRequest, NextResponse } from 'next/server'
 
 const getResendClient = () => {
@@ -273,7 +274,7 @@ export async function POST(request: NextRequest) {
 
     // Parse request
     const body = await request.json()
-    const { name, email, business, message, honeypot, turnstileToken } = body
+    const { name, email, business, message, service, honeypot, turnstileToken } = body
 
     if (
       typeof name !== 'string'
@@ -379,8 +380,14 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Send emails
-    const result = await sendEmails(sanitizedName, sanitizedEmail, sanitizedBusiness, sanitizedMessage)
+    const serviceLabel = enquiryServiceLabel(service)
+    if (service && !serviceLabel) {
+      return NextResponse.json({ success: false, error: 'Please choose a listed service.' }, { status: 400 })
+    }
+
+    // Add the selected service only after validating the original message.
+    const enquiryMessage = serviceLabel ? `Service: ${serviceLabel}\n\n${sanitizedMessage}` : sanitizedMessage
+    const result = await sendEmails(sanitizedName, sanitizedEmail, sanitizedBusiness, enquiryMessage)
 
     if (!result.success) {
       return NextResponse.json(

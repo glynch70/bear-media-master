@@ -81,7 +81,7 @@ export default function ContentCreationWestLothian() {
             <p className="text-lg md:text-xl text-muted-foreground mb-8">
               One planned shoot can give your business useful photography, short video and social assets. I work from West Lothian across West Lothian, Edinburgh and the Lothians, shaping each content day around what you actually need to show.
             </p>
-            <a href="/contact" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+            <a href="/contact#enquiry" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
               Plan a content day
             </a>
           </div>
@@ -249,7 +249,7 @@ export default function ContentCreationWestLothian() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready for Professional Content?</h2>
             <p className="text-lg mb-8 opacity-90">Let's create compelling visual content that showcases your West Lothian business.</p>
-            <a href="/contact" className="inline-block bg-background text-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+            <a href="/contact#enquiry" className="inline-block bg-background text-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
               Schedule a Shoot
             </a>
           </div>
