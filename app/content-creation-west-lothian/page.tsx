@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: 'Photography, videography and content creation for West Lothian businesses.',
     url: 'https://bear-media.com/content-creation-west-lothian',
     siteName: 'Bear Media',
-    images: [{ url: 'https://bear-media.com/assets/brand/og-image.jpg', width: 1200, height: 630, alt: 'Content Creation Services in West Lothian', type: 'image/jpeg' }],
+    images: [{ url: 'https://bear-media.com/brand/bear-media-social-share.jpg', width: 1200, height: 630, alt: 'Content Creation Services in West Lothian', type: 'image/jpeg' }],
     type: 'website',
     locale: 'en_GB',
   },
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Content Creation West Lothian | Bear Media',
     description: 'Professional content creation for West Lothian businesses.',
-    images: ['https://bear-media.com/assets/brand/og-image.jpg'],
+    images: ['https://bear-media.com/brand/bear-media-social-share.jpg'],
   },
   alternates: {
     canonical: 'https://bear-media.com/content-creation-west-lothian',

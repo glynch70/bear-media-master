@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description: 'Drone photography and aerial video for West Lothian properties, events and businesses.',
     url: 'https://bear-media.com/drone-photography-west-lothian',
     siteName: 'Bear Media',
-    images: [{ url: 'https://bear-media.com/assets/brand/og-image.jpg', width: 1200, height: 630, alt: 'Drone Photography in West Lothian', type: 'image/jpeg' }],
+    images: [{ url: 'https://bear-media.com/brand/bear-media-social-share.jpg', width: 1200, height: 630, alt: 'Drone Photography in West Lothian', type: 'image/jpeg' }],
     type: 'website',
     locale: 'en_GB',
   },
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Drone Photography West Lothian | Bear Media',
     description: 'Drone photography and aerial video for West Lothian businesses.',
-    images: ['https://bear-media.com/assets/brand/og-image.jpg'],
+    images: ['https://bear-media.com/brand/bear-media-social-share.jpg'],
   },
   alternates: {
     canonical: 'https://bear-media.com/drone-photography-west-lothian',

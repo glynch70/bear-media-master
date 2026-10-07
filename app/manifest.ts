@@ -12,17 +12,12 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: '#ffffff',
     icons: [
       {
-        src: '/assets/brand/bear-logo-192.png',
-        sizes: '192x192',
-        type: 'image/png',
-      },
-      {
-        src: '/assets/brand/bear-logo-512.png',
+        src: '/brand/bear-media-icon.png',
         sizes: '512x512',
         type: 'image/png',
       },
       {
-        src: '/assets/brand/bear-logo-180.png',
+        src: '/brand/bear-media-apple-icon.png',
         sizes: '180x180',
         type: 'image/png',
       },

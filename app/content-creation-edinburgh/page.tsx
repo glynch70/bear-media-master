@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     siteName: 'Bear Media',
     images: [
       {
-        url: 'https://bear-media.com/assets/brand/og-image.jpg',
+        url: 'https://bear-media.com/brand/bear-media-social-share.jpg',
         width: 1200,
         height: 630,
         alt: 'Content Creation Services in Edinburgh',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Professional Content Creation in Edinburgh | Bear Media',
     description: 'Professional photography, videography, and content creation services',
-    images: ['https://bear-media.com/assets/brand/og-image.jpg'],
+    images: ['https://bear-media.com/brand/bear-media-social-share.jpg'],
   },
   alternates: {
     canonical: 'https://bear-media.com/content-creation-edinburgh',

@@ -6,8 +6,8 @@ import RedesignPage from './redesign/page'
 
 export const metadata: Metadata = {
   ...createMetadata({
-    title: 'Content Days & Website Design in Lothians | Bear Media',
-    description: 'Bear Media plans content days and builds mobile-first websites for businesses across Edinburgh and the Lothians. Based in Broxburn, West Lothian.',
+    title: 'Bear Media | Content Days & Website Design in Scotland',
+    description: 'Photography, video, drone, social media and websites for Scottish businesses.',
     path: '/',
     imageAlt: 'Bear Media creative services for businesses in Scotland',
   }),

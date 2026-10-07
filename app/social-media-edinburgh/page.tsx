@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description: 'Professional social media management for Edinburgh businesses. Grow your audience and increase engagement with proven strategies.',
     url: 'https://bear-media.com/social-media-edinburgh',
     siteName: 'Bear Media',
-    images: [{ url: 'https://bear-media.com/assets/brand/og-image.jpg', width: 1200, height: 630, alt: 'Social Media Management in Edinburgh', type: 'image/jpeg' }],
+    images: [{ url: 'https://bear-media.com/brand/bear-media-social-share.jpg', width: 1200, height: 630, alt: 'Social Media Management in Edinburgh', type: 'image/jpeg' }],
     type: 'website',
     locale: 'en_GB',
   },
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Social Media Management Services in Edinburgh | Bear Media',
     description: 'Professional social media management for Edinburgh businesses',
-    images: ['https://bear-media.com/assets/brand/og-image.jpg'],
+    images: ['https://bear-media.com/brand/bear-media-social-share.jpg'],
   },
   alternates: {
     canonical: 'https://bear-media.com/social-media-edinburgh',

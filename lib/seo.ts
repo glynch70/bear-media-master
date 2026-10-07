@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const siteUrl = 'https://bear-media.com'
 export const siteName = 'Bear Media'
-export const defaultOgImage = '/assets/brand/og-image.jpg'
+export const defaultOgImage = '/brand/bear-media-social-share.jpg'
 export const defaultOgImageUrl = `${siteUrl}${defaultOgImage}`
 
 export const businessSocialProfiles = [

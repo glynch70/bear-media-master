@@ -7,7 +7,7 @@ import Footer from '@/components/footer'
 import { ServiceSchema } from '@/components/structured-data'
 
 const pageUrl = 'https://bear-media.com/property-photography-west-lothian'
-const socialImage = 'https://bear-media.com/assets/brand/og-image.jpg'
+const socialImage = 'https://bear-media.com/brand/bear-media-social-share.jpg'
 
 export const metadata: Metadata = {
   title: 'Property Photography West Lothian | Bear Media',

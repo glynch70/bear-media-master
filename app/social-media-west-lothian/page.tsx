@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     siteName: 'Bear Media',
     images: [
       {
-        url: 'https://bear-media.com/assets/brand/og-image.jpg',
+        url: 'https://bear-media.com/brand/bear-media-social-share.jpg',
         width: 1200,
         height: 630,
         alt: 'Social Media Management in West Lothian',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Social Media West Lothian | Bear Media',
     description: 'Social media management for West Lothian businesses.',
-    images: ['https://bear-media.com/assets/brand/og-image.jpg'],
+    images: ['https://bear-media.com/brand/bear-media-social-share.jpg'],
   },
   alternates: {
     canonical: 'https://bear-media.com/social-media-west-lothian',

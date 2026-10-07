@@ -19,13 +19,13 @@ const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
 
 export const metadata: Metadata = {
   ...createMetadata({
-    title: 'Content Days & Website Design in Lothians | Bear Media',
-    description: 'Based in Broxburn, Bear Media plans content days and builds mobile-first websites for businesses across Edinburgh and the Lothians.',
+    title: 'Bear Media | Content Days & Website Design in Scotland',
+    description: 'Photography, video, drone, social media and websites for Scottish businesses.',
     path: '/',
     imageAlt: 'Bear Media creative services in Scotland',
   }),
   title: {
-    default: 'Content Days & Website Design in Lothians | Bear Media',
+    default: 'Bear Media | Content Days & Website Design in Scotland',
     template: '%s',
   },
   generator: 'v0.app',
@@ -36,12 +36,10 @@ export const metadata: Metadata = {
   verification: googleVerification ? { google: googleVerification } : undefined,
   icons: {
     icon: [
-      { url: '/assets/brand/bear-logo-32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/assets/brand/bear-logo-16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/assets/brand/bear-logo-64.png', sizes: '64x64', type: 'image/png' },
-      { url: '/favicon.ico?v=bear-logo-20260930', type: 'image/x-icon' },
+      { url: `${siteUrl}/favicon.ico`, sizes: '16x16 32x32 48x48', type: 'image/x-icon' },
+      { url: `${siteUrl}/brand/bear-media-icon.png`, sizes: '512x512', type: 'image/png' },
     ],
-    apple: [{ url: '/assets/brand/bear-logo-180.png', sizes: '180x180', type: 'image/png' }],
+    apple: [{ url: `${siteUrl}/brand/bear-media-apple-icon.png`, sizes: '180x180', type: 'image/png' }],
   },
   other: {
     'og:image:secure_url': defaultOgImageUrl,
