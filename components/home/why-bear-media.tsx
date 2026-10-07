@@ -24,7 +24,7 @@ function WhyBearMedia({ redesign = false }: { redesign?: boolean }) {
       <header data-reveal="text" className={styles.restoredHeading}>
         <p>Why Bear Media</p>
         <h2 id="why-title">Everything is created in-house.</h2>
-        <span>Content days, websites, photography and video for local businesses. Based in West Lothian, I work across Edinburgh and the Lothians.</span>
+        <span>Property marketing, business content, websites and practical AI training. Work directly with me from the first conversation to delivery.</span>
       </header>
       <ul className={styles.reasonGrid}>
         {features.map((feature) => <li key={feature.title}><feature.icon aria-hidden="true" /><h3>{feature.title}</h3></li>)}

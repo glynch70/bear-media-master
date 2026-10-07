@@ -2463,7 +2463,7 @@
   align-items: baseline;
   border-bottom: 1px solid var(--line);
   padding: 0.65rem 0;
-  font-size: clamp(2.7rem, 13vw, 4.2rem);
+  font-size: clamp(2rem, 9.5vw, 3.2rem);
   font-weight: 510;
   letter-spacing: -0.06em;
   line-height: 1;
@@ -4177,7 +4177,7 @@
 
   .heroBentoCopy h1 {
     max-width: 8ch;
-    font-size: clamp(40px, 12.7vw, 54px);
+    font-size: clamp(30px, 9.2vw, 46px);
     font-weight: 520;
     line-height: 0.91;
     letter-spacing: -0.072em;
@@ -4345,7 +4345,7 @@
     padding-left: 14px;
   }
   .heroBentoCopy { padding-top: 20px; }
-  .heroBentoCopy h1 { font-size: 40px; }
+  .heroBentoCopy h1 { font-size: 30px; }
   .heroBentoCopy .heroBentoDescription { font-size: 13px; }
   .heroBentoLabel { font-size: 10px; }
 }

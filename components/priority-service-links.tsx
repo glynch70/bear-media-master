@@ -3,53 +3,32 @@ import { ArrowUpRight } from 'lucide-react'
 
 const priorityServices = [
   {
+    href: '/property',
+    title: 'Property marketing',
+    label: 'Property marketing',
+    summary: 'Photography, video, drone, floor plans and tours.',
+    description: 'Present properties clearly with photography, video, drone imagery, floor plans and 360° tours.',
+  },
+  {
     href: '/content-creation-west-lothian',
-    title: 'Content days in West Lothian',
-    label: 'Content days',
-    summary: 'Photography, video and social content.',
-    description: 'A planned shoot for useful photography, short video and social assets from your real work.',
+    title: 'Business content',
+    label: 'Business content',
+    summary: 'Content days, project progress and social media.',
+    description: 'Planned content days, construction progress coverage and social content built around your real work.',
   },
   {
     href: '/website-design-west-lothian',
-    title: 'Website builds in West Lothian',
+    title: 'Websites',
     label: 'Websites',
-    summary: 'Built around your business and enquiries.',
-    description: 'Mobile-first websites shaped around your business and the enquiries you want.',
+    summary: 'Clear, mobile-first sites for your business.',
+    description: 'Mobile-first websites with clear services, real photography and straightforward enquiry routes.',
   },
   {
-    href: '/video-production-west-lothian',
-    title: 'Video production in West Lothian',
-    label: 'Video production',
-    summary: 'Films, interviews and social video.',
-    description: 'Promotional films, interviews, social video and project content.',
-  },
-  {
-    href: '/social-media-west-lothian',
-    title: 'Social media management in West Lothian',
-    label: 'Social media',
-    summary: 'Content creation and ongoing management.',
-    description: 'Content strategy, creation and ongoing management for local brands.',
-  },
-  {
-    href: '/drone-photography-west-lothian',
-    title: 'Drone photography in West Lothian',
-    label: 'Drone photography',
-    summary: 'Aerial photography and video.',
-    description: 'Licensed aerial photography and video for properties, places and projects.',
-  },
-  {
-    href: '/business-photography-west-lothian',
-    title: 'Business photography in West Lothian',
-    label: 'Business photography',
-    summary: 'Teams, workplaces and products.',
-    description: 'Professional images for teams, workplaces, products and local businesses.',
-  },
-  {
-    href: '/property',
-    title: 'Property Media',
-    label: 'Property media',
-    summary: 'Photos, video, drone, floor plans and tours.',
-    description: 'Photography, video, drone, floor plans and 360° tours for estate agents and property businesses.',
+    href: '/training',
+    title: 'Practical AI training',
+    label: 'Practical AI training',
+    summary: 'In-person help with enquiries, content and admin.',
+    description: 'Bespoke, in-person sessions with me, using everyday business tasks and time to practise.',
   },
 ] as const
 
@@ -61,14 +40,14 @@ export function PriorityServiceLinks({ headingId }: { headingId: string }) {
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">Bear Media services</p>
           <h2 id={headingId} className="font-heading text-3xl font-medium leading-tight text-balance md:text-4xl">
             <span className="md:hidden">Find your service.</span>
-            <span className="hidden md:inline">Content days, website builds and creative services.</span>
+            <span className="hidden md:inline">Property, content, websites and training.</span>
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Based in West Lothian, working with businesses across West Lothian, Edinburgh and the Lothians.
+            Work directly with me across West Lothian, Edinburgh and Central Scotland.
           </p>
         </div>
 
-        <nav aria-label="West Lothian service pages" className="grid overflow-hidden rounded-2xl border border-border/80 md:overflow-visible md:rounded-none md:border-0 md:gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <nav aria-label="West Lothian service pages" className="grid overflow-hidden rounded-2xl border border-border/80 md:overflow-visible md:rounded-none md:border-0 md:gap-4 md:grid-cols-2 lg:grid-cols-4">
           {priorityServices.map((service) => (
             <Link
               key={service.href}

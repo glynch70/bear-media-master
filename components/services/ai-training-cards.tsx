@@ -6,7 +6,7 @@ const trainingPoints = [
   {
     icon: Cpu,
     title: 'Practical AI',
-    description: 'Clear tools and workflows your team can use straight away.',
+    description: 'Practise drafting replies, organising enquiries and planning content using your own business examples.',
   },
   {
     icon: WandSparkles,
@@ -15,8 +15,8 @@ const trainingPoints = [
   },
   {
     icon: Users,
-    title: 'Team Sessions',
-    description: 'Friendly training for real businesses, not tech jargon.',
+    title: 'Learn with me',
+    description: 'In-person sessions with Garry, with time to try things yourself and ask questions.',
   },
 ]
 
@@ -30,10 +30,10 @@ export function AITrainingCards() {
               Training & Support
             </p>
             <h2 className="font-heading text-3xl font-medium leading-tight text-foreground text-balance md:text-4xl lg:text-5xl">
-              Canva and AI training for busy teams.
+              Built around the way you work.
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              Learn how to make better content, work faster and keep your brand looking consistent.
+              I start with the tasks that take up your time. Together, we explore useful tools and build a routine you can keep using. Canva support can be included where it helps.
             </p>
 
             <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-1">
@@ -55,7 +55,7 @@ export function AITrainingCards() {
               <div className="flex items-start gap-3">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
                 <p className="text-sm leading-relaxed text-muted-foreground">
-                  Ideal for small business owners, marketing teams and staff who need confident content skills.
+                  For business owners and small teams. Bring a laptop and a few non-sensitive examples of tasks you repeat; I’ll agree the focus and any software needed with you before the session.
                 </p>
               </div>
             </div>
@@ -75,8 +75,8 @@ export function AITrainingCards() {
             <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-3xl bg-background shadow-xl ring-1 ring-border/60 sm:max-w-md lg:max-w-lg">
               <div className="relative aspect-[2/3]">
                 <Image
-                  src="/services/Training/canva training advert may 26.webp"
-                  alt="Canva training advert for Bear Media"
+                  src="/assets/about/garry-portrait-4.webp"
+                  alt="Garry Lynch, your trainer and the creator behind Bear Media"
                   fill
                   sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 520px"
                   className="object-cover"

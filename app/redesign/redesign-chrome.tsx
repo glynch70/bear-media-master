@@ -19,6 +19,7 @@ export function RedesignHeader({ fixed = false, surface = false }: RedesignHeade
         <Link href="/projects">Work</Link>
         <Link href="/services">Services</Link>
         <Link href="/property">Property</Link>
+        <Link href="/training">Training</Link>
         <Link href="/about">About</Link>
         <Link href="/contact" data-magnetic className={styles.navCta}>
           Let&apos;s talk
@@ -34,7 +35,7 @@ export function RedesignFooter() {
     <footer className={styles.footer}>
       <span>Bear Media</span>
       <span>West Lothian · Edinburgh &amp; the Lothians</span>
-      <span>Content days · Websites · Photography · Video</span>
+      <span>Property marketing · Content · Websites · AI training</span>
       <Link href="/terms-and-conditions">Terms &amp; Conditions</Link>
       <div className={styles.desktopFooterLinks}>
         <nav aria-label="Explore Bear Media">
@@ -55,7 +56,7 @@ export function RedesignFooter() {
         </nav>
         <nav aria-label="Support and enquiries">
           <strong>Let&apos;s work together</strong>
-          <Link href="/training">AI &amp; Canva training</Link>
+          <Link href="/training">Practical AI training</Link>
           <Link href="/social-media-pricing">Social media packages</Link>
           <Link href="/contact">Get in touch</Link>
           <a href="mailto:info@bear-media.com">info@bear-media.com</a>

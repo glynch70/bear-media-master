@@ -11,6 +11,7 @@ const menuLinks = [
   { href: '/projects', label: 'Work' },
   { href: '/services', label: 'Services' },
   { href: '/property', label: 'Property' },
+  { href: '/training', label: 'AI training' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ] as const
