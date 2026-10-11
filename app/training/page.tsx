@@ -11,7 +11,7 @@ const pageUrl = `${siteUrl}/training`
 export const metadata = createMetadata({
   title: 'Practical AI Training in West Lothian & Edinburgh | Bear Media',
   description:
-    'Bespoke, in-person AI training with Garry from Bear Media. Practical help with enquiries, replies, content and admin across West Lothian, Edinburgh and Central Scotland.',
+    'Practical, in-person AI training with Garry for small businesses and teams across West Lothian, Edinburgh and Central Scotland.',
   path: '/training',
   imageAlt: 'Bear Media practical AI training for Scottish businesses',
 })
