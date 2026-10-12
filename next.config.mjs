@@ -91,6 +91,11 @@ const nextConfig = {
       },
       // Preserve search equity for the former generic website design URL.
       {
+        source: '/contact-2',
+        destination: '/contact',
+        permanent: true,
+      },
+      {
         source: '/web-design',
         destination: '/website-design-west-lothian',
         permanent: true,

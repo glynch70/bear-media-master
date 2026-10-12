@@ -107,7 +107,7 @@ export function ScrollCinematic() {
 
   useEffect(() => {
     const section = sectionRef.current
-    if (!section || mode !== 'sequence') return
+    if (!section || (mode !== 'sequence' && mode !== 'video')) return
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -241,7 +241,7 @@ export function ScrollCinematic() {
           <canvas ref={canvasRef} className={styles.cinematicCanvas} aria-hidden="true" />
         ) : null}
 
-        {mode === 'video' ? (
+        {mode === 'video' && shouldLoad ? (
           <video
             key={isMobileViewport ? 'mobile-video' : 'desktop-video'}
             className={styles.cinematicFallbackVideo}
