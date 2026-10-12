@@ -5,7 +5,7 @@ import styles from '@/app/property/property.module.css'
 export function PropertyFeature() {
   return (
     <section className={styles.feature} aria-labelledby="home-property-title">
-      <Image data-reveal="image" data-mobile-reveal src="/images/2026-refresh/property/118-craigentinny-road-edinburgh-aerial.webp" alt="Edinburgh property seen from above with rooftops and hills beyond" width={1403} height={1121} sizes="(max-width: 759px) calc(100vw - 40px), 50vw" quality={85} preload />
+      <Image src="/images/2026-refresh/property/118-craigentinny-road-edinburgh-aerial.webp" alt="Edinburgh property seen from above with rooftops and hills beyond" width={1403} height={1121} sizes="(max-width: 759px) calc(100vw - 40px), 50vw" quality={75} preload />
       <div data-reveal="text" data-mobile-reveal>
         <p className={styles.eyebrow}>For estate agents &amp; property businesses</p>
         <h2 id="home-property-title">Property marketing</h2>
