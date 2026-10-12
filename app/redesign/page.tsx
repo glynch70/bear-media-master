@@ -37,8 +37,8 @@ export const metadata: Metadata = {
 
 const socialContent = [
   {
-    src: '/assets/uploads/new-work/cg-outhouses-cover.png',
-    desktopSrc: '/assets/uploads/new-work/cg-outhouses-cover.png',
+    src: '/assets/uploads/new-work/cg-outhouses-cover.webp',
+    desktopSrc: '/assets/uploads/new-work/cg-outhouses-cover.webp',
     alt: 'From Outhouses to Highland Living social content created by Bear Media',
   },
   {

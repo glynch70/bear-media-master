@@ -32,8 +32,8 @@ const socialContent = [
     title: 'From Outhouses to Highland Living',
     href: '/projects/cg-developments',
     desktopTitle: 'From Outhouses to Highland Living',
-    image: '/assets/uploads/new-work/cg-outhouses-cover.png',
-    desktopImage: '/assets/uploads/new-work/cg-outhouses-cover.png',
+    image: '/assets/uploads/new-work/cg-outhouses-cover.webp',
+    desktopImage: '/assets/uploads/new-work/cg-outhouses-cover.webp',
   },
   {
     title: 'Creating More Space for Family Life',
@@ -149,9 +149,9 @@ export default function RedesignServicesPage() {
             <figure>
               <div className={styles.serviceImageTall}>
                 <picture>
-                  <source media="(min-width: 1024px)" srcSet="/assets/uploads/new-work/cg-perthshire-landscape.jpg" />
+                  <source media="(min-width: 1024px)" srcSet="/assets/uploads/new-work/cg-perthshire-landscape.webp" />
                   <Image
-                    src="/assets/uploads/new-work/cg-perthshire-landscape.jpg"
+                    src="/assets/uploads/new-work/cg-perthshire-landscape.webp"
                     alt="Single-track road leading through a Highland glen photographed by Bear Media"
                     fill
                     sizes="(max-width: 760px) 100vw, 55vw"

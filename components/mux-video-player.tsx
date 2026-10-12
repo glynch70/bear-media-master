@@ -23,6 +23,10 @@ export function MuxVideoPlayer({
 }: MuxVideoPlayerProps) {
   const [hasStarted, setHasStarted] = useState(false)
   const playerUrl = `https://player.mux.com/${playbackId}?autoplay=true&metadata-video-title=${encodeURIComponent(title)}&video-title=${encodeURIComponent(title)}`
+  const optimizedPoster =
+    poster.startsWith('https://image.mux.com/') && !/[?&]width=/.test(poster)
+      ? `${poster}${poster.includes('?') ? '&' : '?'}width=1200`
+      : poster
 
   return (
     <div className="relative w-full bg-black" style={{ aspectRatio }}>
@@ -46,7 +50,7 @@ export function MuxVideoPlayer({
           className="group absolute inset-0 block h-full w-full cursor-pointer bg-black"
         >
           <Image
-            src={poster}
+            src={optimizedPoster}
             alt=""
             fill
             sizes={sizes}

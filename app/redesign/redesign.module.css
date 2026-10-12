@@ -3792,6 +3792,7 @@
   .journeySocialImage, .journeyWebsiteImage, .journeyWorkImage, .serviceWebsiteCard { border-radius: 10px; box-shadow: none; border: 1px solid #dedfd5; }
   .journeyWebsiteImage, .journeyWorkImage { aspect-ratio: 4 / 3; }
   .journeyWebsiteCard > span { color: #4f534a; }
+  .websiteGalleryChapter .websiteDescription { color: #5d6057; }
   .journeyWorkMeta h3 { font-size: 22px; line-height: 1.2; letter-spacing: -.7px; }
   .journeyWorkMeta > p { font-size: 10px; line-height: 1.6; }
 
@@ -4382,6 +4383,14 @@
 
 /* Mobile website cards: remove the tall matte and reduce baked-in margins. */
 @media (max-width: 767px) {
+  .sectionMore,
+  .aboutJourneyCopy > a,
+  .reviewCard figcaption a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+  }
+
   .journeyWebsiteImage {
     aspect-ratio: 1 / 1;
   }

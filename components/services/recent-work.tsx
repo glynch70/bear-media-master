@@ -16,7 +16,7 @@ const recentWork: Record<string, WorkItem[]> = {
     {
       title: 'C&G Developments',
       description: 'Drone-led build content for social channels.',
-      image: '/assets/uploads/new-work/cg-outhouses-cover.png',
+      image: '/assets/uploads/new-work/cg-outhouses-cover.webp',
       href: trustedClientLinks.cgDevelopments,
       external: true,
     },

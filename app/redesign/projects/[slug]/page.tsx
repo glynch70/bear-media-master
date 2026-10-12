@@ -97,6 +97,11 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
                   title={project.featuredVideo.title}
                   descriptionId={`case-video-description-${project.slug}`}
                   aspectRatio={project.featuredVideo.aspectRatio}
+                  sizes={
+                    project.featuredVideo.aspectRatio === '9 / 16'
+                      ? '(max-width: 759px) calc(100vw - 2rem), 28rem'
+                      : '(max-width: 1200px) 90vw, 1100px'
+                  }
                 />
               ) : (
                 <video
@@ -148,7 +153,7 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
                           title={video.title}
                           descriptionId={descriptionId}
                           aspectRatio={video.aspectRatio}
-                          sizes="(max-width: 759px) calc(100vw - 2rem), 28vw"
+                          sizes="(max-width: 759px) calc(100vw - 2rem), 28rem"
                         />
                       ) : null}
                     </div>
