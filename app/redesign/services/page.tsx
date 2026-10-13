@@ -257,6 +257,10 @@ export default function RedesignServicesPage() {
               See mobile-first website design for West Lothian businesses
               <ArrowUpRight aria-hidden="true" />
             </Link>
+            <Link href="/website-design-edinburgh">
+              Website design for Edinburgh businesses
+              <ArrowUpRight aria-hidden="true" />
+            </Link>
           </div>
         </section>
 
