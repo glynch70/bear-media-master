@@ -3,25 +3,25 @@ import { ArrowUpRight } from 'lucide-react'
 
 const priorityServices = [
   {
+    href: '/content-creation-west-lothian',
+    title: 'Content days in West Lothian',
+    label: 'Content days',
+    summary: 'Photography, video and social content.',
+    description: 'A planned shoot for useful photography, short video and social assets from your real work.',
+  },
+  {
+    href: '/website-design-west-lothian',
+    title: 'Website builds in West Lothian',
+    label: 'Websites',
+    summary: 'Built around your business and enquiries.',
+    description: 'Mobile-first websites shaped around your business and the enquiries you want.',
+  },
+  {
     href: '/property',
     title: 'Property marketing',
     label: 'Property marketing',
     summary: 'Photography, video, drone, floor plans and tours.',
     description: 'Present properties clearly with photography, video, drone imagery, floor plans and 360° tours.',
-  },
-  {
-    href: '/content-creation-west-lothian',
-    title: 'Business content',
-    label: 'Business content',
-    summary: 'Content days, project progress and social media.',
-    description: 'Planned content days, construction progress coverage and social content built around your real work.',
-  },
-  {
-    href: '/website-design-west-lothian',
-    title: 'Websites',
-    label: 'Websites',
-    summary: 'Clear, mobile-first sites for your business.',
-    description: 'Mobile-first websites with clear services, real photography and straightforward enquiry routes.',
   },
   {
     href: '/training',
@@ -40,7 +40,7 @@ export function PriorityServiceLinks({ headingId }: { headingId: string }) {
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">Bear Media services</p>
           <h2 id={headingId} className="font-heading text-3xl font-medium leading-tight text-balance md:text-4xl">
             <span className="md:hidden">Find your service.</span>
-            <span className="hidden md:inline">Property, content, websites and training.</span>
+            <span className="hidden md:inline">Content days, website builds and supporting services.</span>
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
             Work directly with me across West Lothian, Edinburgh and Central Scotland.

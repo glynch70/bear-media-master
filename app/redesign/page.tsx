@@ -88,9 +88,9 @@ export default function RedesignPage() {
                 <span className={styles.heroBentoDesktopEyebrow}>01 / 09 · Bear Media · Edinburgh &amp; the Lothians</span>
                 <span className={styles.heroBentoMobileEyebrow}>Bear Media · Scotland</span>
               </p>
-              <h1 id="redesign-title">Property marketing. Business content.</h1>
+              <h1 id="redesign-title">Content days &amp; websites.</h1>
               <p className={styles.heroBentoDescription}>
-                Property photography, video and drone. Content days, websites and practical AI training.
+                Photography, video, drone, social media and websites for Scottish businesses.
               </p>
               <div className={styles.heroBentoActions}>
                 <Link href="/contact" data-magnetic className={styles.heroBentoPrimaryAction}>
@@ -99,10 +99,10 @@ export default function RedesignPage() {
                 <Link href="/projects" className={styles.heroBentoSecondaryAction}>View recent work</Link>
               </div>
               <div className={styles.desktopIntro}>
-                <p>I’m Garry, the creator behind Bear Media. I help property businesses, trades and local companies show their work and make everyday tasks easier. Based in West Lothian, working across Edinburgh and Central Scotland.</p>
+                <p>Planned content shoots and mobile-first website builds for local businesses. Based in West Lothian, working across Edinburgh and the Lothians.</p>
                 <div>
-                  <Link href="/property">Explore property marketing <ArrowUpRight aria-hidden="true" /></Link>
-                  <Link href="/training">Explore AI training <ArrowUpRight aria-hidden="true" /></Link>
+                  <Link href="/content-creation-west-lothian">Plan a content day <ArrowUpRight aria-hidden="true" /></Link>
+                  <Link href="/website-design-west-lothian">Build a website <ArrowUpRight aria-hidden="true" /></Link>
                 </div>
               </div>
             </div>
@@ -174,8 +174,6 @@ export default function RedesignPage() {
           </a>
         </section>
 
-        <PropertyFeature />
-
         <PriorityServiceLinks headingId="homepage-priority-services" />
 
         <div data-reveal="text" className={styles.desktopSectionIntro}>
@@ -246,6 +244,8 @@ export default function RedesignPage() {
             <span>A different point of view.</span>
           </div>
         </section>
+
+        <PropertyFeature />
 
 
         <section

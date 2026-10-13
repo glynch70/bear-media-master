@@ -61,7 +61,7 @@ export function BusinessSchema() {
       url: siteUrl,
       logo: `${siteUrl}/assets/brand/logo.png`,
       image: defaultOgImageUrl,
-      description: 'Property marketing, business content days, websites and practical AI training across West Lothian, Edinburgh and Central Scotland.',
+      description: 'Content days, mobile-first websites, photography and video for businesses across Edinburgh and the Lothians. Based in West Lothian.',
       telephone: '+447879011860',
       email: 'info@bear-media.com',
       foundingDate: '2024',
