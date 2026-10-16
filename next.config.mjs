@@ -126,6 +126,21 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/portfolio',
+        destination: '/projects',
+        permanent: true,
+      },
+      {
+        source: '/terms-conditions',
+        destination: '/terms-and-conditions',
+        permanent: true,
+      },
+      {
+        source: '/services/comms-coaching',
+        destination: '/services',
+        permanent: true,
+      },
+      {
         source: '/services/content-planning',
         destination: '/social-media-west-lothian',
         permanent: true,
