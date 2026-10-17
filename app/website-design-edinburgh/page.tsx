@@ -5,6 +5,7 @@ import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import { FAQPageSchema, ServiceSchema } from '@/components/structured-data'
 import Link from 'next/link'
+import RecentWebsiteProjects from '@/components/services/recent-website-projects'
 
 export const metadata: Metadata = {
   title: 'Website Design in Edinburgh | Bear Media',
@@ -77,6 +78,8 @@ export default function WebsiteDesignEdinburgh() {
           provider="Bear Media"
           url="https://bear-media.com/website-design-edinburgh"
           subjectOf={[
+            { name: 'Esk Valley Talking Therapies website', url: 'https://eskvalleytalkingtherapies.co.uk/' },
+            { name: 'AM Medical Aesthetics website', url: 'https://ammedicalaesthetics.co.uk/' },
             { name: "Midlothian Wildflowers Website Launch", url: 'https://bear-media.com/projects/midlothian-wildflowers' },
             { name: "Seamus Corry Case Study", url: 'https://bear-media.com/projects/seamus-corry' },
           ]}
@@ -90,9 +93,10 @@ export default function WebsiteDesignEdinburgh() {
           </div>
           <DesktopServiceImage src="/assets/websites/seamus-corry.webp" alt="Seamus Corry website designed by Bear Media" />
         </section>
+        <RecentWebsiteProjects />
         <section className="px-4 py-16 md:px-6 md:py-20" aria-labelledby="edinburgh-website-work-title">
           <div className="mx-auto max-w-4xl">
-            <h2 id="edinburgh-website-work-title" className="mb-4 text-3xl font-bold">See websites I have built</h2>
+            <h2 id="edinburgh-website-work-title" className="mb-4 text-3xl font-bold">More websites I have built</h2>
             <div className="grid gap-4 sm:grid-cols-2">
               <Link href="/projects/midlothian-wildflowers" className="rounded-xl border p-6 transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"><h3 className="mb-2 text-xl font-bold">Midlothian Wildflowers</h3><p className="text-muted-foreground">A local website with clear services, project imagery and a mobile-friendly layout.</p></Link>
               <Link href="/projects/seamus-corry" className="rounded-xl border p-6 transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"><h3 className="mb-2 text-xl font-bold">Seamus Corry</h3><p className="text-muted-foreground">A personal-brand website designed to introduce the work and guide visitors to get in touch.</p></Link>
