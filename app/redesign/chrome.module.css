@@ -1,0 +1,28 @@
+.header { position: absolute; inset: 0 0 auto; z-index: 60; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 12px clamp(20px,4vw,64px); color: white; }
+.headerSurface { position: sticky; top: 0; background: white; color: #171717; border-bottom: 1px solid #ddd; }
+.headerFixed { position: fixed; }
+.wordmark { display: inline-flex; align-items: center; min-height: 48px; gap: 10px; font-size: 17px; font-weight: 650; letter-spacing: -.03em; white-space: nowrap; }
+.wordmark img { width: 40px; height: 40px; }
+.nav { display: flex; align-items: center; gap: clamp(20px,2.5vw,36px); font-size: 15px; }
+.nav a { display: inline-flex; align-items: center; min-height: 48px; }
+.navCta { background: #171717; color: white; border: 1px solid #171717; padding: 10px 20px; border-radius: 3px; }
+.redesignMobileMenu { display: none; }
+.redesignMenuButton { display: flex; width: 48px; height: 48px; flex-direction: column; align-items: center; justify-content: center; gap: 6px; background: #171717; color: white; border-radius: 3px; }
+.redesignMenuButton span { width: 20px; height: 1px; background: currentColor; }
+.redesignMenuOverlay { position: fixed; z-index: 80; inset: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; width: 100%; height: 100dvh; padding: max(20px,env(safe-area-inset-top)) 20px max(24px,env(safe-area-inset-bottom)); background: white; color: #171717; overflow-y: auto; overscroll-behavior: contain; visibility: hidden; opacity: 0; pointer-events: none; }
+.redesignMenuOverlay[data-open='true'] { visibility: visible; opacity: 1; pointer-events: auto; }
+.redesignMenuTop { display: flex; align-items: center; justify-content: space-between; font-weight: 650; }
+.redesignMenuTop button { display: grid; place-items: center; width: 48px; height: 48px; background: #171717; color: #fff; border-radius: 3px; }
+.redesignMenuTop svg { width: 22px; }
+.redesignMenuOverlay nav { display: flex; flex-direction: column; }
+.redesignMenuOverlay nav a { display: flex; align-items: center; min-height: 48px; padding: 12px 0; border-bottom: 1px solid #ddd; font-size: clamp(26px,7vw,40px); letter-spacing: -.035em; line-height: 1.1; }
+.redesignMenuOverlay > p { color: #555; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+.header :is(a,button):focus-visible, .footer a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+.footer { padding: 32px clamp(20px,4vw,64px); background: #fff; color: #171717; border-top: 1px solid #ddd; display: flex; flex-wrap: wrap; gap: 16px 32px; font-size: 14px; line-height: 1.6; }
+.footer > span:first-child { font-weight: 650; }
+.footer > a { min-height: 44px; display: inline-flex; align-items: center; }
+.desktopFooterLinks { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; width: 100%; padding-top: 20px; border-top: 1px solid #ddd; }
+.desktopFooterLinks nav { display: flex; flex-direction: column; }
+.desktopFooterLinks strong { margin-bottom: 12px; }
+.desktopFooterLinks a { min-height: 44px; display: inline-flex; align-items: center; }
+@media(max-width: 767px) { .header { padding: 12px 20px; gap: 12px; } .nav { display: none; } .redesignMobileMenu { display: block; } .desktopFooterLinks { grid-template-columns: 1fr; } .desktopFooterLinks a { font-size: 16px; } }

@@ -1,12 +1,9 @@
 'use client'
 
-import Image from 'next/image'
-import styles from '@/app/redesign/redesign.module.css'
-import Link from 'next/link'
+import styles from './contact.module.css'
 import { RedesignFooter, RedesignHeader } from '@/app/redesign/redesign-chrome'
 import { useState, useRef } from 'react'
 import { enquiryServices } from '@/lib/enquiry-services'
-import { Phone, Mail, MapPin } from 'lucide-react'
 import Turnstile from 'react-turnstile'
 import type { BoundTurnstileObject } from 'react-turnstile'
 import { trackConversion } from '@/components/analytics/conversion-tracker'
@@ -131,301 +128,55 @@ export default function ContactPage() {
     }
   }
 
-  const contactOptions = [
-    {
-      icon: Phone,
-      label: 'Phone',
-      value: '07879 011860',
-      href: 'tel:+447879011860',
-    },
-    {
-      icon: Mail,
-      label: 'Email',
-      value: 'info@bear-media.com',
-      href: 'mailto:info@bear-media.com',
-    },
-    {
-      icon: MapPin,
-      label: 'Location',
-      value: 'West Lothian',
-      href: '#',
-    },
-  ]
-
-  const steps = [
-    { number: '1', title: 'Get In Touch', description: 'Send a message or give me a call to start a conversation.' },
-    { number: '2', title: 'Discovery Call', description: 'A relaxed chat about your business and where I can help.' },
-    { number: '3', title: 'Proposal', description: "I'll outline a plan tailored to your specific needs." },
-    { number: '4', title: 'Project Starts', description: "Let's create something great together." },
-  ]
-
   return (
-    <>
+    <div className={styles.page}>
+      <a className={styles.skip} href="#enquiry">Skip to enquiry form</a>
       <RedesignHeader surface />
-      <main id="top" className={`w-full min-h-screen ${styles.contactDesktopPage}`}>
-        {/* Hero Section */}
-        <section className="w-full bg-background py-16 md:py-20 lg:py-24">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h1 className="font-heading text-5xl md:text-6xl lg:text-6xl font-medium text-foreground mb-6 text-pretty">
-                  Let&apos;s Talk.
-                </h1>
-                <p className="text-xl text-muted-foreground leading-relaxed mb-8 text-pretty">
-                  Tell me what you need help with: property marketing, business content, a website or practical AI training. I’m based in West Lothian and work across Edinburgh and Central Scotland. Share a short brief, your location and any dates you have in mind, and I’ll discuss the scope and quote with you.
-                </p>
-              </div>
-              <div className="relative aspect-square rounded-3xl overflow-hidden bg-muted">
-                <Image
-                  src="/05-BTS/garry branding bts.webp"
-                  alt="Garry Lynch working on Bear Media branding"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover object-top"
-                />
-              </div>
+      <main className={styles.main}>
+        <div className={styles.introduction}>
+          <p className={styles.eyebrow}>Contact Bear Media</p>
+          <h1>Let’s talk about your project.</h1>
+          <p>Tell me what you need, where you’re based and any dates you have in mind. You’ll speak directly with me, Garry.</p>
+          <a href="mailto:info@bear-media.com">info@bear-media.com</a>
+          <a href="tel:+447879011860">07879 011860</a>
+          <p className={styles.location}>Based in Broxburn, West Lothian.<br />Working across Edinburgh, the Lothians and Central Scotland.</p>
+          <p>I’ll discuss the scope, deliverables and fee with you before work starts.</p>
+        </div>
+        <section id="enquiry" className={styles.enquiry} aria-labelledby="enquiry-title">
+          {formState.submitted ? (
+            <div role="status" className={styles.success}>
+              <h2>Thanks for getting in touch.</h2>
+              <p>Your message has been sent. I’ll get back to you personally.</p>
             </div>
-          </div>
-        </section>
-
-        {/* Contact Options */}
-        <section className="w-full bg-background pt-8 md:pt-10 pb-12 md:pb-16">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <h2 className="font-heading text-3xl md:text-4xl font-medium text-foreground mb-8">
-              Get In Touch
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {contactOptions.map((option) => {
-                const Icon = option.icon
-                return (
-                  <a
-                    key={option.label}
-                    href={option.href}
-                    className="group flex flex-col items-start p-6 rounded-2xl border border-foreground/10 bg-background hover:border-accent transition-colors"
-                  >
-                    <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
-                      <Icon className="w-6 h-6 text-accent" aria-hidden="true" />
-                    </div>
-                    <h3 className="text-sm font-medium text-muted-foreground mb-1">
-                      {option.label}
-                    </h3>
-                    <p className="text-lg font-medium text-foreground">
-                      {option.value}
-                    </p>
-                  </a>
-                )
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* Contact Form */}
-        <section id="enquiry" className="w-full bg-background pt-8 md:pt-10 pb-12 md:pb-16">
-          <div className="max-w-3xl mx-auto px-6 lg:px-8">
-            {formState.submitted ? (
-              <div className="text-center py-12">
-                <h2 className="font-heading text-4xl md:text-5xl font-medium text-foreground mb-4">
-                  Thanks for reaching out.
-                </h2>
-                <p className="text-lg text-muted-foreground">
-                  I&apos;ll get back to you personally, usually within a day.
-                </p>
-              </div>
-            ) : (
-              <>
-                <h2 className="font-heading text-4xl md:text-5xl font-medium text-foreground mb-10">
-                  Send a Message
-                </h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {formState.error && (
-                    <div className="p-4 rounded-2xl bg-red-50 border border-red-200">
-                      <p className="text-red-800 text-sm font-medium">{formState.error}</p>
-                    </div>
-                  )}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="block text-sm font-medium text-foreground">
-                        Name
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formState.name}
-                        onChange={handleChange}
-                        required
-                        disabled={formState.loading}
-                        className="w-full px-5 py-3.5 bg-background border border-foreground/10 rounded-2xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="business" className="block text-sm font-medium text-foreground">
-                        Business Name
-                      </label>
-                      <input
-                        type="text"
-                        id="business"
-                        name="business"
-                        value={formState.business}
-                        onChange={handleChange}
-                        disabled={formState.loading}
-                        className="w-full px-5 py-3.5 bg-background border border-foreground/10 rounded-2xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                        placeholder="Your business"
-                      />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formState.email}
-                      onChange={handleChange}
-                      required
-                      disabled={formState.loading}
-                      className="w-full px-5 py-3.5 bg-background border border-foreground/10 rounded-2xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="service" className="block text-sm font-medium text-foreground">
-                      What can I help with? <span className="font-normal text-muted-foreground">(optional)</span>
-                    </label>
-                    <select
-                      id="service"
-                      name="service"
-                      value={formState.service}
-                      onChange={handleChange}
-                      disabled={formState.loading}
-                      className="w-full px-5 py-3.5 bg-background border border-foreground/10 rounded-2xl text-foreground focus:outline-none focus:border-accent disabled:opacity-50"
-                    >
-                      <option value="">Choose a service</option>
-                      {enquiryServices.map((service) => <option key={service.value} value={service.value}>{service.label}</option>)}
-                    </select>
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="block text-sm font-medium text-foreground">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formState.message}
-                      onChange={handleChange}
-                      required
-                      disabled={formState.loading}
-                      rows={6}
-                      minLength={10}
-                      maxLength={500}
-                      aria-describedby="message-help"
-                      className="w-full px-5 py-3.5 bg-background border border-foreground/10 rounded-2xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors resize-none disabled:opacity-50 disabled:cursor-not-allowed"
-                      placeholder="What do you need, where is the work and when would you like it? For training, tell me which tasks take up your time."
-                    />
-                    <p id="message-help" className="text-sm text-muted-foreground">A short outline is enough — 10–500 characters. I’ll confirm the deliverables, timings and fee before work starts.</p>
-                  </div>
-                  <input
-                    type="text"
-                    name="honeypot"
-                    value={formState.honeypot}
-                    onChange={handleChange}
-                    style={{ display: 'none' }}
-                    tabIndex={-1}
-                    autoComplete="off"
-                    aria-hidden="true"
-                  />
-                  {turnstileSiteKey && (
-                    <div className="flex justify-center mb-6">
-                      <Turnstile
-                        sitekey={turnstileSiteKey}
-                        onVerify={handleTurnstileChange}
-                        theme="light"
-                        size="normal"
-                      />
-                    </div>
-                  )}
-                  <button
-                    type="submit"
-                    disabled={
-                      formState.loading ||
-                      Boolean(turnstileSiteKey && !formState.turnstileToken)
-                    }
-                    className="w-full bg-accent text-foreground px-8 py-4 rounded-full font-medium hover:opacity-90 transition-opacity text-lg disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {formState.loading ? 'Sending...' : 'Send Message'}
-                  </button>
-                </form>
-              </>
-            )}
-          </div>
-        </section>
-
-        {/* What Happens Next */}
-        <section className="w-full bg-background pt-8 md:pt-10 pb-12 md:pb-16">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <h2 className="font-heading text-4xl md:text-5xl font-medium text-foreground mb-12">
-              What Happens Next
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {steps.map((step) => (
-                <div key={step.number} className="flex flex-col">
-                  <div className="w-12 h-12 rounded-full bg-accent text-foreground flex items-center justify-center font-heading text-xl font-medium mb-4">
-                    {step.number}
-                  </div>
-                  <h3 className="font-heading text-xl font-medium text-foreground mb-3">
-                    {step.title}
-                  </h3>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    {step.description}
-                  </p>
+          ) : (
+            <>
+              <h2 id="enquiry-title">Send me a message</h2>
+              <p className={styles.required}>Name, email and message are required.</p>
+              <form onSubmit={handleSubmit}>
+                {formState.error && <div role="alert" className={styles.error}>{formState.error}</div>}
+                <div className={styles.row}>
+                  <div><label htmlFor="name">Name</label><input type="text" id="name" name="name" autoComplete="name" value={formState.name} onChange={handleChange} required maxLength={200} disabled={formState.loading} /></div>
+                  <div><label htmlFor="business">Business name <span>(optional)</span></label><input type="text" id="business" name="business" autoComplete="organization" value={formState.business} onChange={handleChange} maxLength={200} disabled={formState.loading} /></div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Final CTA Section */}
-        <section className="relative w-full h-96 md:h-screen flex items-center justify-center overflow-hidden">
-          {/* Image background */}
-          <Image
-            src="/assets/bts/event-photography.webp"
-            alt="Garry on location at an event shoot"
-            fill
-            sizes="100vw"
-            className="object-cover"
-          />
-
-          {/* Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.3)_100%)] opacity-20" />
-
-          {/* Content */}
-          <div className="relative z-10 text-center px-6 max-w-2xl mx-auto">
-            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-medium text-white mb-6 text-pretty">
-              No Agency Jargon. No Complicated Process.
-            </h2>
-            <p className="text-lg md:text-xl text-white/80 mb-8 text-pretty">
-              Just practical support, professional content and straightforward advice.
-            </p>
-            <Link
-              href="#top"
-              onClick={(e) => {
-                e.preventDefault()
-                window.scrollTo({ top: 0, behavior: 'smooth' })
-              }}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-foreground font-medium rounded-full hover:opacity-90 transition-opacity text-lg"
-            >
-              Get Started
-              <span aria-hidden="true">→</span>
-            </Link>
-          </div>
+                <label htmlFor="email">Email</label>
+                <input type="email" id="email" name="email" autoComplete="email" value={formState.email} onChange={handleChange} required maxLength={254} disabled={formState.loading} />
+                <label htmlFor="service">What can I help with? <span>(optional)</span></label>
+                <select id="service" name="service" value={formState.service} onChange={handleChange} disabled={formState.loading}>
+                  <option value="">Choose a service</option>
+                  {enquiryServices.map((service) => <option key={service.value} value={service.value}>{service.label}</option>)}
+                </select>
+                <label htmlFor="message">Message</label>
+                <textarea id="message" name="message" value={formState.message} onChange={handleChange} required disabled={formState.loading} rows={7} minLength={10} maxLength={3000} aria-describedby="message-help" placeholder="What do you need, where is the work and when would you like it?" />
+                <p id="message-help" className={styles.help}>10–3,000 characters. For training, tell me which tasks you’d like help with.</p>
+                <input type="text" name="honeypot" value={formState.honeypot} onChange={handleChange} hidden tabIndex={-1} autoComplete="off" aria-hidden="true" />
+                {turnstileSiteKey && <div className={styles.verification}><Turnstile sitekey={turnstileSiteKey} onVerify={handleTurnstileChange} onExpire={() => setFormState((prev) => ({ ...prev, turnstileToken: '' }))} theme="light" size="normal" /></div>}
+                <button type="submit" disabled={formState.loading || Boolean(turnstileSiteKey && !formState.turnstileToken)}>{formState.loading ? 'Sending…' : 'Send message →'}</button>
+              </form>
+            </>
+          )}
         </section>
       </main>
       <RedesignFooter />
-    </>
+    </div>
   )
 }

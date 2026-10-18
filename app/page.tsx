@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { createMetadata } from '@/lib/seo'
 import { schemaIds } from '@/lib/schema'
 import { WebPageSchema } from '@/components/structured-data'
-import RedesignPage from './redesign/page'
+import PortfolioHome from '@/components/home/portfolio-home'
 
 export const metadata: Metadata = {
   ...createMetadata({
@@ -21,7 +21,7 @@ export default function Home() {
         url="/"
         mainEntityId={schemaIds.business}
       />
-      <RedesignPage />
+      <PortfolioHome />
     </>
   )
 }

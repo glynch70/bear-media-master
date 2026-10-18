@@ -49,7 +49,7 @@ function checkRateLimit(ip: string | null): boolean {
 }
 
 function sanitizeInput(input: string): string {
-  return input.trim().substring(0, 500)
+  return input.trim()
 }
 
 function escapeHtml(input: string): string {
@@ -291,6 +291,11 @@ export async function POST(request: NextRequest) {
         },
         { status: 400 },
       )
+    }
+
+    // Reject oversized fields explicitly; never silently truncate a project brief.
+    if (message.length > 3000 || name.length > 200 || email.length > 254 || (business && business.length > 200)) {
+      return NextResponse.json({ success: false, error: 'Please keep your message within 3,000 characters, your name and business within 200 characters, and your email within 254 characters.' }, { status: 400 })
     }
 
     // Honeypot check - silently reject spam bots

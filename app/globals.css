@@ -49,6 +49,7 @@
 }
 
 :root {
+  --font-inter: Arial;
   color-scheme: light;
   /* Main background - pure white */
   --background: oklch(1 0 0);

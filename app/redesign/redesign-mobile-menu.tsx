@@ -1,10 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useRef, useState, type CSSProperties } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useMenuFocus } from '@/lib/use-menu-focus'
 import { X } from 'lucide-react'
-import styles from './redesign.module.css'
+import styles from './chrome.module.css'
 
 const menuLinks = [
   { href: '/', label: 'Home' },
@@ -72,15 +72,13 @@ export function RedesignMobileMenu() {
           </button>
         </div>
 
-        <nav aria-label="Mobile redesign navigation">
-          {menuLinks.map((link, index) => (
+        <nav aria-label="Mobile navigation">
+          {menuLinks.map((link) => (
             <Link
               href={link.href}
               onClick={() => setIsOpen(false)}
-              style={{ '--menu-index': index } as CSSProperties}
               key={link.href}
             >
-              <span>{String(index + 1).padStart(2, '0')}</span>
               {link.label}
             </Link>
           ))}
