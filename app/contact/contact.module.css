@@ -1,0 +1,27 @@
+.page { color: #171717; background: white; }
+.main { max-width: 1240px; margin: auto; padding: 48px clamp(20px,4vw,56px) 64px; display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(32px,7vw,100px); }
+.eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: #555; margin-bottom: 18px; }
+.introduction h1 { font-size: clamp(36px,4vw,54px); letter-spacing: -.045em; font-weight: 550; line-height: 1.08; margin-bottom: 24px; }
+.introduction p:not(.eyebrow) { font-size: 17px; line-height: 1.65; color: #555; margin-bottom: 20px; }
+.introduction a { display: flex; width: fit-content; align-items: center; min-height: 44px; text-decoration: underline; text-underline-offset: 4px; font-size: 18px; }
+.introduction .location { margin-top: 24px; }
+.enquiry { scroll-margin-top: 110px; }
+.enquiry h2 { font-size: 28px; letter-spacing: -.035em; font-weight: 550; line-height: 1.2; margin-bottom: 12px; }
+.required, .help { color: #555; font-size: 14px; line-height: 1.6; }
+.required { margin-bottom: 24px; }
+.enquiry label { display: block; font-size: 16px; margin: 20px 0 8px; font-weight: 550; }
+.enquiry label span { font-weight: 400; color: #555; }
+.enquiry input, .enquiry select, .enquiry textarea { width: 100%; min-height: 48px; border: 1px solid #aaa; border-radius: 3px; padding: 12px; background: #fff; color: #171717; font-size: 16px; }
+.enquiry textarea { resize: vertical; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.row label { margin-top: 0; }
+.help { margin-top: 8px; }
+.enquiry button { display: flex; min-height: 50px; align-items: center; justify-content: center; background: #171717; color: #fff; padding: 13px 24px; border-radius: 3px; font-size: 16px; margin-top: 24px; }
+.enquiry button:disabled { opacity: .55; cursor: not-allowed; }
+.page :is(a,button,input,textarea,select):focus-visible { outline: 2px solid #171717; outline-offset: 3px; }
+.error { color: #8b1616; background: #fff2f2; padding: 16px; margin-bottom: 24px; border: 1px solid #e1adad; font-size: 16px; }
+.success p { font-size: 17px; line-height: 1.6; }
+.verification { margin-top: 20px; }
+.skip { position: fixed; top: 10px; left: 20px; z-index: 100; background: #171717; color: #fff; padding: 12px; transform: translateY(-150%); }
+.skip:focus { transform: none; }
+@media(max-width:767px) { .main { grid-template-columns: 1fr; gap: 32px; padding-top: 28px; padding-bottom: 40px; } .row { grid-template-columns: 1fr; gap: 20px; } .introduction h1 { max-width: 13ch; } }

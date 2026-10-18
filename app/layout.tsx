@@ -1,6 +1,5 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
 import '@/components/motion/motion.css'
@@ -8,12 +7,6 @@ import { MotionSystem } from '@/components/motion/motion-system'
 import { ConversionTracker } from '@/components/analytics/conversion-tracker'
 import { BusinessSchema, PersonSchema, WebSiteSchema } from '@/components/structured-data'
 import { createMetadata, defaultOgImageUrl, siteUrl } from '@/lib/seo'
-
-const inter = Inter({
-  variable: '--font-inter',
-  subsets: ['latin'],
-  display: 'swap',
-})
 
 const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
 
@@ -65,7 +58,7 @@ export default function RootLayout({
   const clarityProjectId = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID ?? 'wt02mqo6ya'
 
   return (
-    <html lang="en" className={`bg-background ${inter.variable}`}>
+    <html lang="en" className="bg-background">
       <head>
         <BusinessSchema />
         <PersonSchema />

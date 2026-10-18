@@ -24,7 +24,6 @@ const testimonials = [
     title: 'K Lewis Joinery',
     image: '/assets/testimonials/kris.webp',
     initials: 'KL',
-    projectUrl: '/projects/cg-developments',
   },
   {
     quote: 'Gave my personal brand real consistency. Genuine, professional and a pleasure to work with.',

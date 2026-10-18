@@ -1,6 +1,7 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { RedesignMobileMenu } from './redesign-mobile-menu'
-import styles from './redesign.module.css'
+import styles from './chrome.module.css'
 
 type RedesignHeaderProps = {
   fixed?: boolean
@@ -13,6 +14,7 @@ export function RedesignHeader({ fixed = false, surface = false }: RedesignHeade
       className={`${styles.header} ${surface ? styles.headerSurface : ''} ${fixed ? styles.headerFixed : ''}`}
     >
       <Link href="/" className={styles.wordmark} aria-label="Bear Media home">
+        <Image src="/brand/bear-media-icon.png" alt="" width={40} height={40} />
         Bear Media
       </Link>
       <nav className={styles.nav} aria-label="Main navigation">
