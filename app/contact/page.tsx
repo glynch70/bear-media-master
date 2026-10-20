@@ -4,8 +4,9 @@ import Image from 'next/image'
 import styles from '@/app/redesign/redesign.module.css'
 import Link from 'next/link'
 import { RedesignFooter, RedesignHeader } from '@/app/redesign/redesign-chrome'
-import { useState, useRef } from 'react'
+import { useState, useRef, useSyncExternalStore } from 'react'
 import { enquiryServices } from '@/lib/enquiry-services'
+import { trainingCampaign } from '@/lib/training-attribution'
 import { Phone, Mail, MapPin } from 'lucide-react'
 import Turnstile from 'react-turnstile'
 import type { BoundTurnstileObject } from 'react-turnstile'
@@ -13,13 +14,19 @@ import { trackConversion } from '@/components/analytics/conversion-tracker'
 // Note: Metadata for client components must be set via metadata export in layout or through Head component
 // This page uses 'use client' so metadata is handled by route groups or must be moved to a layout
 
+const subscribeToSearch = () => () => {}
+const getSearch = () => window.location.search
+const getServerSearch = () => ''
+
 export default function ContactPage() {
+  const search = useSyncExternalStore(subscribeToSearch, getSearch, getServerSearch)
+  const query = new URLSearchParams(search)
   const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
   const turnstileRef = useRef<BoundTurnstileObject | null>(null)
   const [formState, setFormState] = useState({
     name: '',
     business: '',
-    service: '',
+    service: null as string | null,
     email: '',
     message: '',
     honeypot: '',
@@ -29,6 +36,8 @@ export default function ContactPage() {
     error: '',
     submissionTime: 0,
   })
+
+  const selectedService = formState.service ?? (query.get('service') === 'training' ? 'training' : '')
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
@@ -82,7 +91,7 @@ export default function ContactPage() {
           name: formState.name,
           email: formState.email,
           business: formState.business,
-          service: formState.service,
+          service: selectedService,
           message: formState.message,
           honeypot: formState.honeypot,
           turnstileToken: formState.turnstileToken,
@@ -103,7 +112,14 @@ export default function ContactPage() {
       trackConversion('generate_lead', {
         form_name: 'contact',
         method: 'website_form',
+        service: selectedService || 'unspecified',
+        ...(selectedService === 'training' ? trainingCampaign(search) : {}),
+        ...(query.get('from') === 'training' ? { source_page: 'training' } : {}),
       })
+
+      if (selectedService === 'training') {
+        trackConversion('training_enquiry_submitted', { method: 'website_form', ...trainingCampaign(search) })
+      }
 
       setFormState((prev) => ({
         ...prev,
@@ -299,7 +315,7 @@ export default function ContactPage() {
                     <select
                       id="service"
                       name="service"
-                      value={formState.service}
+                      value={selectedService}
                       onChange={handleChange}
                       disabled={formState.loading}
                       className="w-full px-5 py-3.5 bg-background border border-foreground/10 rounded-2xl text-foreground focus:outline-none focus:border-accent disabled:opacity-50"

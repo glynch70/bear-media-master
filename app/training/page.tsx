@@ -1,131 +1,240 @@
-import desktop from '@/components/desktop-refresh.module.css'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import Image from 'next/image'
 import { RedesignFooter, RedesignHeader } from '@/app/redesign/redesign-chrome'
-import { AITrainingCards } from '@/components/services/ai-training-cards'
 import { BreadcrumbSchema, ServiceSchema } from '@/components/structured-data'
+import { TrainingExamples } from '@/components/training/training-examples'
+import { TrainingEnquiryLink } from '@/components/training/training-enquiry-link'
 import { createMetadata, siteUrl } from '@/lib/seo'
-
-const pageUrl = `${siteUrl}/training`
+import styles from './training.module.css'
 
 export const metadata = createMetadata({
-  title: 'Practical AI Training in West Lothian & Edinburgh | Bear Media',
+  title: 'Practical AI Training for Small Businesses | Bear Media',
   description:
-    'Practical, in-person AI training with Garry for small businesses and teams across West Lothian, Edinburgh and Central Scotland.',
+    'Tailored AI training with Garry for business owners and small teams. Online across the UK, or in person across Edinburgh and the Lothians. Enquire today.',
   path: '/training',
-  imageAlt: 'Bear Media practical AI training for Scottish businesses',
+  imageAlt: 'Practical AI training with Garry from Bear Media',
 })
 
-const outcomes = [
-  'Draft replies and follow-ups, then check the details and tone before sending.',
-  'Turn notes and enquiries into clear summaries, actions and next steps.',
-  'Create clearer, more consistent branded content in Canva.',
-  'Build reusable prompts for recurring tasks, and recognise when an AI answer needs checking.',
+const topics = [
+  [
+    'Customer enquiries',
+    'Turn a new enquiry into a helpful reply and a clear next step.',
+  ],
+  [
+    'Emails & follow-ups',
+    'Draft, shorten and adjust the tone of everyday messages.',
+  ],
+  [
+    'Business writing',
+    'Turn rough notes into clear updates, descriptions and documents.',
+  ],
+  [
+    'Planning & admin',
+    'Organise a busy week, summarise notes and pull out actions.',
+  ],
 ]
 
 export default function TrainingPage() {
   return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground">
+    <div className={styles.page}>
+      <a className={styles.skip} href="#training-main">
+        Skip to training
+      </a>
       <RedesignHeader surface />
-      <main className={`flex-1 pt-16 md:pt-20 ${desktop.standardPage} ${desktop.trainingPage} ${desktop.servicePage}`}>
+      <main id="training-main">
         <BreadcrumbSchema
           items={[
             { name: 'Home', url: siteUrl },
-            { name: 'Training', url: pageUrl },
+            { name: 'AI training', url: `${siteUrl}/training` },
           ]}
         />
         <ServiceSchema
           name="Practical AI Training"
-          description="Bespoke, in-person AI training with Garry, covering enquiries, replies, content planning and everyday admin."
-          serviceType="Practical AI and digital training"
-          areaServed={['West Lothian', 'Edinburgh', 'Central Scotland']}
+          description="Tailored AI training for business owners and small teams, online across the UK and in person across Edinburgh and the Lothians."
+          serviceType="Practical AI training"
+          areaServed={[
+            'United Kingdom',
+            'Edinburgh',
+            'West Lothian',
+            'East Lothian',
+            'Midlothian',
+          ]}
           provider="Bear Media"
-          url={pageUrl}
+          url={`${siteUrl}/training`}
         />
-
-        <section className="bg-background px-6 py-20 md:py-28 lg:px-8">
-          <div className="mx-auto max-w-5xl">
-            <p className="mb-4 text-xs font-medium uppercase tracking-[0.22em] text-accent">
-              Bespoke AI training · In person · With Garry
-            </p>
-            <h1 className="max-w-4xl font-heading text-4xl font-medium leading-tight text-balance md:text-6xl">
-              Use AI to make your working day easier.
+        <section className={styles.hero} aria-labelledby="training-title">
+          <div>
+            <p className={styles.eyebrow}>Practical AI training · With Garry</p>
+            <h1 id="training-title">
+              Less staring at a blank page.
+              <br />
+              <span>More getting things done.</span>
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-              Practical, in-person AI training built around your business — from enquiries and email replies to content planning and everyday admin. I’m Garry from Bear Media, and I’ll work through real examples with you, in plain English.
+            <p className={styles.intro}>
+              I help business owners and small teams use AI for the work that
+              fills their day — enquiries, emails, writing, planning and admin.
             </p>
-            <Link
-              href="/contact#enquiry"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 font-medium text-foreground transition-opacity hover:opacity-90"
-            >
-              Discuss your training
-              <ArrowRight className="h-5 w-5" aria-hidden="true" />
-            </Link>
-          </div>
-        </section>
-
-        <AITrainingCards />
-
-        <section className="px-6 py-16 md:py-24 lg:px-8" aria-labelledby="training-process">
-          <div className="mx-auto max-w-5xl">
-            <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">How it works</p>
-            <h2 id="training-process" className="font-heading text-3xl font-medium md:text-4xl">Your work. A practical session. Time to practise.</h2>
-            <ol className="mt-8 grid gap-6 md:grid-cols-3">
-              {[
-                { title: 'Find the useful starting point', text: 'We discuss the tasks that slow you down and the tools you already use. I agree the session focus, length and preparation with you.' },
-                { title: 'Work through it together', text: 'I show you relevant examples in person, then you practise on your own device. We check the results and adapt the approach to your business.' },
-                { title: 'Make it repeatable', text: 'Leave with the prompts and steps we have worked through. Any extra setup, team sessions or follow-up support is agreed separately.' },
-              ].map((step, index) => (
-                <li key={step.title} className="rounded-2xl border border-border p-6">
-                  <p className="mb-4 text-sm text-muted-foreground">0{index + 1}</p>
-                  <h3 className="font-heading text-xl font-medium">{step.title}</h3>
-                  <p className="mt-3 leading-relaxed text-muted-foreground">{step.text}</p>
-                </li>
-              ))}
-            </ol>
-            <p className="mt-6 text-sm leading-relaxed text-muted-foreground">Based in West Lothian, covering Edinburgh and Central Scotland. We’ll agree a suitable location and any travel before booking.</p>
-          </div>
-        </section>
-
-        <section className="px-6 py-16 md:py-24 lg:px-8" aria-labelledby="training-outcomes">
-          <div className="mx-auto grid max-w-5xl gap-10 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
-            <div>
-              <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">
-                Practical outcomes
-              </p>
-              <h2 id="training-outcomes" className="font-heading text-3xl font-medium md:text-4xl">
-                Skills you can use after the session.
-              </h2>
+            <p className={styles.delivery}>
+              Online across the UK.
+              <br />
+              In person across Edinburgh and the Lothians.
+            </p>
+            <div className={styles.actions}>
+              <TrainingEnquiryLink className={styles.primary} placement="hero">
+                Discuss your AI training <span aria-hidden="true">↗</span>
+              </TrainingEnquiryLink>
+              <a className={styles.textLink} href="#examples">
+                Try an everyday example <span aria-hidden="true">↓</span>
+              </a>
             </div>
-            <ul className="space-y-5">
-              {outcomes.map((outcome) => (
-                <li key={outcome} className="flex gap-3 text-lg leading-relaxed text-muted-foreground">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
-                  <span>{outcome}</span>
-                </li>
-              ))}
-            </ul>
+            <p className={styles.small}>
+              Tailored to your business. Explained in plain English.
+            </p>
+          </div>
+          <figure className={styles.portrait}>
+            <Image
+              src="/assets/about/garry-portrait-4.webp"
+              alt="Garry Lynch from Bear Media"
+              width={1200}
+              height={1200}
+              sizes="(max-width: 760px) 90vw, 440px"
+              priority
+            />
+            <figcaption>
+              <strong>Your work. Your pace.</strong>
+              <span>Work directly with me, Garry.</span>
+            </figcaption>
+          </figure>
+        </section>
+
+        <section className={styles.topics} aria-labelledby="topics-title">
+          <div className={styles.sectionHead}>
+            <p className={styles.eyebrow}>Start with something useful</p>
+            <h2 id="topics-title">Bring the jobs you keep putting off.</h2>
+            <p>
+              I’ll help you find where tools such as ChatGPT fit into your
+              working day. We’ll use relevant examples and practise checking the
+              results together.
+            </p>
+          </div>
+          <div className={styles.topicGrid}>
+            {topics.map(([title, text], i) => (
+              <article key={title}>
+                <span className={styles.number}>0{i + 1}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
           </div>
         </section>
 
-        <section className="bg-secondary px-6 py-16 text-center md:py-20 lg:px-8">
-          <div className="mx-auto max-w-3xl">
-            <h2 className="font-heading text-3xl font-medium md:text-4xl">What takes up too much of your time?</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Tell me about your business and two or three tasks you want help with. I’ll suggest a training focus and quote for the agreed session time, preparation and any follow-up support.
+        <section
+          id="examples"
+          className={styles.examples}
+          aria-labelledby="examples-title"
+        >
+          <div className={styles.sectionHead}>
+            <p className={styles.eyebrow}>Have a go</p>
+            <h2 id="examples-title">A little context makes a difference.</h2>
+            <p>
+              Choose a task. See how rough notes become a useful prompt and a
+              draft you can check and adapt.
             </p>
-            <Link
-              href="/contact#enquiry"
-              className="mt-7 inline-flex items-center gap-2 rounded-full bg-foreground px-8 py-4 font-medium text-background transition-opacity hover:opacity-90"
-            >
-              Talk to Garry
-              <ArrowRight className="h-5 w-5" aria-hidden="true" />
-            </Link>
           </div>
+          <TrainingExamples />
+        </section>
+
+        <section className={styles.process} aria-labelledby="process-title">
+          <div className={styles.sectionHead}>
+            <p className={styles.eyebrow}>How we’ll work together</p>
+            <h2 id="process-title">Training built around your business.</h2>
+            <p>
+              New to AI, or already trying it? I’ll start with what you know and
+              the tasks you want help with.
+            </p>
+          </div>
+          <ol className={styles.steps}>
+            {[
+              [
+                'Talk through your day',
+                'Tell me what takes too long, what tools you use and whether you want to learn on your own or with your team.',
+              ],
+              [
+                'Practise together',
+                'We work through relevant examples online or in person. You try the prompts on your own device, ask questions and learn how to check the output.',
+              ],
+              [
+                'Make it repeatable',
+                'Keep the prompts and steps we work through, so you can use them again. I’ll agree the session focus, time, preparation and any follow-up with you before booking.',
+              ],
+            ].map(([title, text], i) => (
+              <li key={title}>
+                <span className={styles.number}>0{i + 1}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section className={styles.faq} aria-labelledby="questions-title">
+          <div>
+            <p className={styles.eyebrow}>A few useful details</p>
+            <h2 id="questions-title">Before we get started.</h2>
+          </div>
+          <div>
+            {[
+              [
+                'Do I need to be good with technology?',
+                'No. I’ll explain things in plain English and leave room for you to practise. Tell me what you already use and where you’d like help.',
+              ],
+              [
+                'Can we do the training online?',
+                'Yes. I work online with businesses across the UK, and in person across Edinburgh and the Lothians. We’ll agree the format, location and any travel before booking.',
+              ],
+              [
+                'What should I bring?',
+                'A laptop and a few non-sensitive examples of tasks you repeat are a useful starting point. I’ll agree any software or accounts you need in advance, including any separate software costs.',
+              ],
+              [
+                'How much does it cost?',
+                'I’ll quote for the agreed training focus, session time and preparation after we talk. Any follow-up, extra setup or integrations will be agreed separately.',
+              ],
+              [
+                'Will AI do the work for me?',
+                'It can help you draft and organise, but you stay in charge. We’ll cover checking facts, tone and commitments, and what information to keep out of AI tools.',
+              ],
+            ].map(([question, answer]) => (
+              <details key={question}>
+                <summary>
+                  {question}
+                  <span aria-hidden="true">+</span>
+                </summary>
+                <p>{answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <section className={styles.enquire} aria-labelledby="enquire-title">
+          <p className={styles.eyebrow}>Let’s find your starting point</p>
+          <h2 id="enquire-title">
+            What would you like
+            <br />a hand with?
+          </h2>
+          <p>
+            Tell me about your business and two or three jobs you’d like to make
+            easier. I’ll suggest a practical training focus and we can take it
+            from there.
+          </p>
+          <TrainingEnquiryLink className={styles.primary} placement="closing">
+            Talk to Garry about training <span aria-hidden="true">↗</span>
+          </TrainingEnquiryLink>
+          <p className={styles.small}>
+            Prefer to call? <a href="tel:+447879011860">07879 011860</a>
+          </p>
         </section>
       </main>
       <RedesignFooter />
     </div>
   )
 }
-
