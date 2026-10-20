@@ -403,3 +403,22 @@
     margin-top: 25px;
   }
 }
+
+/* A short, replayable sequence. Content remains available without animation. */
+.demoToolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin: 24px 0; }
+.demoToolbar p { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 11px; color: #66665c; }
+.demoToolbar p span { color: var(--gold); }
+.replay { min-height: 44px; border: 1px solid #bdbcb0; border-radius: 99px; padding: 8px 16px; font-size: 12px; cursor: pointer; background: #fdfdfb; }
+@keyframes demoEnter { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes draftAccent { from { box-shadow: inset 3px 0 #b18b49; } to { box-shadow: inset 3px 0 #68774f; } }
+@media (prefers-reduced-motion: no-preference) {
+  .demoSequence .demoPanels article { animation: demoEnter .55s cubic-bezier(.22,1,.36,1) both; }
+  .demoSequence .demoPanels article:nth-child(2) { animation-delay: .18s; }
+  .demoSequence .draft { animation: demoEnter .65s .4s cubic-bezier(.22,1,.36,1) both, draftAccent 1s .4s both; }
+  .primary, .copy, .replay, .demoControls button { transition: background .2s, color .2s, transform .2s, box-shadow .2s; }
+  .primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px #1111; }
+  .topicGrid article, .formatGrid article { transition: transform .25s; }
+  .topicGrid article:hover, .formatGrid article:hover { transform: translateY(-4px); }
+  .faq summary span { transition: transform .2s; }
+}
+.demoSequence:focus-within article { animation: none; }

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { TrainingMotion, WorkingDay } from '@/components/training/training-motion'
 import { RedesignFooter, RedesignHeader } from '@/app/redesign/redesign-chrome'
 import { BreadcrumbSchema, ServiceSchema } from '@/components/structured-data'
 import { TrainingExamples } from '@/components/training/training-examples'
@@ -40,6 +41,7 @@ export default function TrainingPage() {
         Skip to training
       </a>
       <RedesignHeader surface />
+      <TrainingMotion>
       <main id="training-main">
         <BreadcrumbSchema
           items={[
@@ -102,6 +104,8 @@ export default function TrainingPage() {
             </figcaption>
           </figure>
         </section>
+
+        <WorkingDay />
 
         <section className={styles.topics} aria-labelledby="topics-title">
           <div className={styles.sectionHead}>
@@ -252,6 +256,7 @@ export default function TrainingPage() {
           </p>
         </section>
       </main>
+      </TrainingMotion>
       <RedesignFooter />
     </div>
   )
