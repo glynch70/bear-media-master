@@ -53,6 +53,8 @@ const examples = [
 export function TrainingExamples() {
   const [selected, setSelected] = useState(0)
   const [status, setStatus] = useState('')
+  const [replay, setReplay] = useState(0)
+  const [showDraft, setShowDraft] = useState(false)
   const example = examples[selected]
   async function copyPrompt() {
     try {
@@ -77,6 +79,8 @@ export function TrainingExamples() {
             aria-controls="example-content"
             onClick={() => {
               setSelected(i)
+              setShowDraft(false)
+              setReplay(r => r + 1)
               setStatus('')
             }}
           >
@@ -84,7 +88,11 @@ export function TrainingExamples() {
           </button>
         ))}
       </div>
-      <div id="example-content" aria-live="polite" aria-atomic="true">
+      <div className={styles.demoToolbar}>
+        <p>Rough notes <span aria-hidden="true">→</span> Useful prompt <span aria-hidden="true">→</span> Draft to review</p>
+        <button type="button" className={styles.replay} onClick={() => { setReplay(r => r + 1); setShowDraft(false) }} aria-controls="example-content">↻ Replay example</button>
+      </div>
+      <div id="example-content" key={`${selected}-${replay}`} className={styles.demoSequence} aria-live="polite" aria-atomic="true">
         <div className={styles.demoPanels}>
           <article>
             <p className={styles.demoLabel}>01 · Your starting point</p>
@@ -100,6 +108,8 @@ export function TrainingExamples() {
             </button>
           </article>
         </div>
+        <button type="button" className={`${styles.primary} ${styles.revealDraft}`} aria-expanded={showDraft} aria-controls="example-draft" onClick={() => setShowDraft(value => !value)}>{showDraft ? 'Hide the draft ↑' : 'Show the example draft →'}</button>
+        <div id="example-draft" hidden={!showDraft}>
         <article className={styles.draft}>
           <p className={styles.demoLabel}>03 · Review and adapt</p>
           <h3>An example draft</h3>
@@ -108,6 +118,7 @@ export function TrainingExamples() {
             <strong>Your check:</strong> {example.check}
           </p>
         </article>
+        </div>
       </div>
       <p className={styles.status} role="status">
         {status}
