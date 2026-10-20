@@ -65,18 +65,15 @@ export default function TrainingPage() {
           <div>
             <p className={styles.eyebrow}>Practical AI training · With Garry</p>
             <h1 id="training-title">
-              Less staring at a blank page.
-              <br />
-              <span>More getting things done.</span>
+              AI training for your business
             </h1>
             <p className={styles.intro}>
-              I help business owners and small teams use AI for the work that
-              fills their day — enquiries, emails, writing, planning and admin.
+              Learn to use ChatGPT for the work that fills your day. I’ll help
+              you tackle customer enquiries, write clearer emails and organise
+              everyday admin, with hands-on practice using your own examples.
             </p>
             <p className={styles.delivery}>
-              Online across the UK.
-              <br />
-              In person across Edinburgh and the Lothians.
+              Online across the UK · In person across Edinburgh and the Lothians
             </p>
             <div className={styles.actions}>
               <TrainingEnquiryLink className={styles.primary} placement="hero">
@@ -87,7 +84,7 @@ export default function TrainingPage() {
               </a>
             </div>
             <p className={styles.small}>
-              Tailored to your business. Explained in plain English.
+              For business owners and small teams. Beginners welcome.
             </p>
           </div>
           <figure className={styles.portrait}>
@@ -100,8 +97,8 @@ export default function TrainingPage() {
               priority
             />
             <figcaption>
-              <strong>Your work. Your pace.</strong>
-              <span>Work directly with me, Garry.</span>
+              <strong>Hi, I’m Garry</strong>
+              <span>Your trainer and the person behind Bear Media</span>
             </figcaption>
           </figure>
         </section>
@@ -109,7 +106,7 @@ export default function TrainingPage() {
         <section className={styles.topics} aria-labelledby="topics-title">
           <div className={styles.sectionHead}>
             <p className={styles.eyebrow}>Start with something useful</p>
-            <h2 id="topics-title">Bring the jobs you keep putting off.</h2>
+            <h2 id="topics-title">Start with the work on your desk</h2>
             <p>
               I’ll help you find where tools such as ChatGPT fit into your
               working day. We’ll use relevant examples and practise checking the
@@ -134,7 +131,7 @@ export default function TrainingPage() {
         >
           <div className={styles.sectionHead}>
             <p className={styles.eyebrow}>Have a go</p>
-            <h2 id="examples-title">A little context makes a difference.</h2>
+            <h2 id="examples-title">See what a useful prompt can do</h2>
             <p>
               Choose a task. See how rough notes become a useful prompt and a
               draft you can check and adapt.
@@ -143,10 +140,32 @@ export default function TrainingPage() {
           <TrainingExamples />
         </section>
 
+        <section className={styles.formats} aria-labelledby="formats-title">
+          <div className={styles.sectionHead}>
+            <p className={styles.eyebrow}>Choose how you learn</p>
+            <h2 id="formats-title">Same practical approach, wherever you work</h2>
+          </div>
+          <div className={styles.formatGrid}>
+            <article>
+              <p className={styles.eyebrow}>Across the UK</p>
+              <h3>Live online training</h3>
+              <p>Work with me on a video call. We’ll share screens, try relevant
+                tasks together and leave time for your questions.</p>
+            </article>
+            <article>
+              <p className={styles.eyebrow}>Edinburgh and the Lothians</p>
+              <h3>In person, locally</h3>
+              <p>Work through the tasks together on your own laptop. I’m based
+                in West Lothian; we’ll agree a suitable location and any travel
+                before booking.</p>
+            </article>
+          </div>
+        </section>
+
         <section className={styles.process} aria-labelledby="process-title">
           <div className={styles.sectionHead}>
             <p className={styles.eyebrow}>How we’ll work together</p>
-            <h2 id="process-title">Training built around your business.</h2>
+            <h2 id="process-title">Your tasks, your pace</h2>
             <p>
               New to AI, or already trying it? I’ll start with what you know and
               the tasks you want help with.
@@ -179,7 +198,7 @@ export default function TrainingPage() {
         <section className={styles.faq} aria-labelledby="questions-title">
           <div>
             <p className={styles.eyebrow}>A few useful details</p>
-            <h2 id="questions-title">Before we get started.</h2>
+            <h2 id="questions-title">Before we get started</h2>
           </div>
           <div>
             {[
@@ -218,13 +237,12 @@ export default function TrainingPage() {
         <section className={styles.enquire} aria-labelledby="enquire-title">
           <p className={styles.eyebrow}>Let’s find your starting point</p>
           <h2 id="enquire-title">
-            What would you like
-            <br />a hand with?
+            What would you like a hand with?
           </h2>
           <p>
             Tell me about your business and two or three jobs you’d like to make
-            easier. I’ll suggest a practical training focus and we can take it
-            from there.
+            easier, plus whether you prefer online or in-person training.
+            I’ll suggest a focus and confirm the scope and fee before you book.
           </p>
           <TrainingEnquiryLink className={styles.primary} placement="closing">
             Talk to Garry about training <span aria-hidden="true">↗</span>
