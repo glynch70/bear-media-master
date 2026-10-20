@@ -17,20 +17,20 @@ export const metadata = createMetadata({
 
 const topics = [
   [
-    'Customer enquiries',
-    'Turn a new enquiry into a helpful reply and a clear next step.',
+    'Prompts worth keeping',
+    'Keep and adapt the prompts we create around your everyday tasks.',
   ],
   [
-    'Emails & follow-ups',
-    'Draft, shorten and adjust the tone of everyday messages.',
+    'A voice that sounds like you',
+    'Practise turning rough notes into messages you’d actually send.',
   ],
   [
-    'Business writing',
-    'Turn rough notes into clear updates, descriptions and documents.',
+    'Confidence to check it',
+    'Know what to question, what to verify and what information to leave out.',
   ],
   [
-    'Planning & admin',
-    'Organise a busy week, summarise notes and pull out actions.',
+    'A repeatable starting point',
+    'Use the steps again when the next enquiry, email or update comes in.',
   ],
 ]
 
@@ -65,24 +65,25 @@ export default function TrainingPage() {
         />
         <section className={styles.hero} aria-labelledby="training-title">
           <div>
-            <p className={styles.eyebrow}>Practical AI training · With Garry</p>
+            <p className={styles.eyebrow}>Practical ChatGPT training · With Garry</p>
             <h1 id="training-title">
-              AI training for your business
+              Less admin.
+              <span>More time for your business.</span>
             </h1>
             <p className={styles.intro}>
-              Learn to use ChatGPT for the work that fills your day. I’ll help
-              you tackle customer enquiries, write clearer emails and organise
-              everyday admin, with hands-on practice using your own examples.
+              You didn’t start a business to spend your evenings writing emails.
+              Learn to use ChatGPT for the enquiries, updates and admin
+              that keep landing on your desk. I’ll show you how, using your own examples.
             </p>
             <p className={styles.delivery}>
               Online across the UK · In person across Edinburgh and the Lothians
             </p>
             <div className={styles.actions}>
               <TrainingEnquiryLink className={styles.primary} placement="hero">
-                Discuss your AI training <span aria-hidden="true">↗</span>
+                Find your starting point <span aria-hidden="true">↗</span>
               </TrainingEnquiryLink>
               <a className={styles.textLink} href="#examples">
-                Try an everyday example <span aria-hidden="true">↓</span>
+                See it in action <span aria-hidden="true">↓</span>
               </a>
             </div>
             <p className={styles.small}>
@@ -98,6 +99,7 @@ export default function TrainingPage() {
               sizes="(max-width: 760px) 90vw, 440px"
               priority
             />
+            <div className={styles.heroBadge} aria-hidden="true"><span>↳</span><div><small>Your everyday work</small><strong>A useful place to start with AI</strong></div></div>
             <figcaption>
               <strong>Hi, I’m Garry</strong>
               <span>Your trainer and the person behind Bear Media</span>
@@ -107,14 +109,29 @@ export default function TrainingPage() {
 
         <WorkingDay />
 
+        <section
+          id="examples"
+          className={styles.examples}
+          aria-labelledby="examples-title"
+        >
+          <div className={styles.sectionHead}>
+            <p className={styles.eyebrow}>Have a go</p>
+            <h2 id="examples-title">From “I need to deal with this” to a useful first draft</h2>
+            <p>
+              Pick something from your working day. See the starting notes,
+              then reveal an example of the draft you could work from.
+            </p>
+          </div>
+          <TrainingExamples />
+        </section>
+
         <section className={styles.topics} aria-labelledby="topics-title">
           <div className={styles.sectionHead}>
-            <p className={styles.eyebrow}>Start with something useful</p>
-            <h2 id="topics-title">Start with the work on your desk</h2>
+            <p className={styles.eyebrow}>What you take back to work</p>
+            <h2 id="topics-title">Useful skills, ready for your next working day</h2>
             <p>
-              I’ll help you find where tools such as ChatGPT fit into your
-              working day. We’ll use relevant examples and practise checking the
-              results together.
+              The aim is to leave you confident using AI for the tasks we practise,
+              with prompts you can reuse and a clear way to check the results.
             </p>
           </div>
           <div className={styles.topicGrid}>
@@ -126,22 +143,6 @@ export default function TrainingPage() {
               </article>
             ))}
           </div>
-        </section>
-
-        <section
-          id="examples"
-          className={styles.examples}
-          aria-labelledby="examples-title"
-        >
-          <div className={styles.sectionHead}>
-            <p className={styles.eyebrow}>Have a go</p>
-            <h2 id="examples-title">See what a useful prompt can do</h2>
-            <p>
-              Choose a task. See how rough notes become a useful prompt and a
-              draft you can check and adapt.
-            </p>
-          </div>
-          <TrainingExamples />
         </section>
 
         <section className={styles.formats} aria-labelledby="formats-title">
@@ -241,7 +242,7 @@ export default function TrainingPage() {
         <section className={styles.enquire} aria-labelledby="enquire-title">
           <p className={styles.eyebrow}>Let’s find your starting point</p>
           <h2 id="enquire-title">
-            What would you like a hand with?
+            Which job would you like to make easier?
           </h2>
           <p>
             Tell me about your business and two or three jobs you’d like to make
@@ -249,7 +250,7 @@ export default function TrainingPage() {
             I’ll suggest a focus and confirm the scope and fee before you book.
           </p>
           <TrainingEnquiryLink className={styles.primary} placement="closing">
-            Talk to Garry about training <span aria-hidden="true">↗</span>
+            Enquire about your training <span aria-hidden="true">↗</span>
           </TrainingEnquiryLink>
           <p className={styles.small}>
             Prefer to call? <a href="tel:+447879011860">07879 011860</a>
@@ -258,6 +259,7 @@ export default function TrainingPage() {
       </main>
       </TrainingMotion>
       <RedesignFooter />
+      <aside className={styles.mobileEnquiry} aria-label="Training enquiry"><span>Practical AI training<small>Online or in person</small></span><TrainingEnquiryLink className={styles.primary} placement="closing">Talk to Garry ↗</TrainingEnquiryLink></aside>
     </div>
   )
 }
