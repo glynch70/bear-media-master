@@ -26,6 +26,7 @@
 .hero,
 .topics,
 .examples,
+.formats,
 .process,
 .faq,
 .enquire {
@@ -46,7 +47,7 @@
   font-weight: 550;
   line-height: 1.06;
   letter-spacing: -0.055em;
-  max-width: 15ch;
+  max-width: 14ch;
   margin-bottom: 24px;
   text-wrap: balance;
 }
@@ -264,6 +265,21 @@
   list-style: none;
   padding: 0;
 }
+.formatGrid {
+  display: grid;
+  gap: 20px;
+}
+.formatGrid article {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 28px;
+}
+.formatGrid article > p:last-child {
+  color: #595951;
+}
+.formatGrid .eyebrow {
+  margin-bottom: 12px;
+}
 .steps li {
   border-top: 1px solid var(--line);
   padding-top: 22px;
@@ -322,6 +338,7 @@
   .hero,
   .topics,
   .examples,
+  .formats,
   .process,
   .faq,
   .enquire {
@@ -335,6 +352,9 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .demoPanels {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .formatGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -355,6 +375,7 @@
   }
   .topics,
   .examples,
+  .formats,
   .process,
   .faq,
   .enquire {
