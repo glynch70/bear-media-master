@@ -10,6 +10,9 @@ const nextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return { beforeFiles: [{ source: '/training', destination: '/training-landing/index.html' }] }
+  },
   async headers() {
     return [
       {
