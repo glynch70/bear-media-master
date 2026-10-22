@@ -402,6 +402,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         success: true,
+        measurementEventId: crypto.randomUUID(),
         message: 'Message sent successfully',
       },
       { status: 200 },

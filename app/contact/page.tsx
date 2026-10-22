@@ -10,6 +10,7 @@ import { trainingCampaign } from '@/lib/training-attribution'
 import { Phone, Mail, MapPin } from 'lucide-react'
 import Turnstile from 'react-turnstile'
 import type { BoundTurnstileObject } from 'react-turnstile'
+import { measureTrainingLead } from '@/lib/openai-measurement'
 import { trackConversion } from '@/components/analytics/conversion-tracker'
 // Note: Metadata for client components must be set via metadata export in layout or through Head component
 // This page uses 'use client' so metadata is handled by route groups or must be moved to a layout
@@ -65,8 +66,12 @@ export default function ContactPage() {
     }))
   }
 
+  const submitting = useRef(false)
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    if (submitting.current || formState.submitted) return
+    submitting.current = true
     setFormState((prev) => ({ ...prev, loading: true, error: '' }))
 
     try {
@@ -100,7 +105,7 @@ export default function ContactPage() {
 
       const data = await response.json()
 
-      if (!response.ok) {
+      if (!response.ok || data.success !== true) {
         setFormState((prev) => ({
           ...prev,
           loading: false,
@@ -108,6 +113,8 @@ export default function ContactPage() {
         }))
         return
       }
+
+      measureTrainingLead(selectedService, data.measurementEventId)
 
       trackConversion('generate_lead', {
         form_name: 'contact',
@@ -144,6 +151,8 @@ export default function ContactPage() {
         loading: false,
         error: 'Network error. Please check your connection and try again.',
       }))
+    } finally {
+      submitting.current = false
     }
   }
 
@@ -431,6 +440,8 @@ export default function ContactPage() {
               href="#top"
               onClick={(e) => {
                 e.preventDefault()
+    if (submitting.current || formState.submitted) return
+    submitting.current = true
                 window.scrollTo({ top: 0, behavior: 'smooth' })
               }}
               className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-foreground font-medium rounded-full hover:opacity-90 transition-opacity text-lg"
