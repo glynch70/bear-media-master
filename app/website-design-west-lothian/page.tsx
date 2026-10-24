@@ -14,18 +14,18 @@ import {
 } from 'lucide-react'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
-import { FAQPageSchema, ServiceSchema } from '@/components/structured-data'
+import { BreadcrumbSchema, FAQPageSchema, ServiceSchema } from '@/components/structured-data'
 
 const pageUrl = 'https://bear-media.com/website-design-west-lothian'
 
 export const metadata: Metadata = {
-  title: 'Website Design West Lothian | Bear Media',
+  title: 'Website Design West Lothian & Edinburgh | Bear Media',
   description:
-    'Custom website design in West Lothian for small businesses in Livingston, Broxburn and Linlithgow. Mobile-first websites built to earn trust and enquiries.',
+    'I design mobile-first websites for small businesses in Livingston, Broxburn, West Lothian and Edinburgh, with personal support, copy, photography and video.',
   openGraph: {
-    title: 'Website Design West Lothian | Bear Media',
+    title: 'Website Design West Lothian & Edinburgh | Bear Media',
     description:
-      'Mobile-first website design for West Lothian businesses in Livingston, Broxburn and Linlithgow.',
+      'Mobile-first websites for small businesses in West Lothian and Edinburgh, with personal support, copy, photography and video.',
     url: pageUrl,
     siteName: 'Bear Media',
     images: [
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Website Design West Lothian | Bear Media',
-    description: 'Mobile-first website design for West Lothian businesses in Livingston, Broxburn and Linlithgow.',
+    title: 'Website Design West Lothian & Edinburgh | Bear Media',
+    description: 'Mobile-first websites for small businesses in West Lothian and Edinburgh, with personal support, copy, photography and video.',
     images: ['https://bear-media.com/assets/websites/midlothian-wildflowers/desktop-home.webp'],
   },
   alternates: {
@@ -51,8 +51,17 @@ export const metadata: Metadata = {
   },
 }
 
-const websiteProjects = completedWebsites.map((site) => ({
-  title: site.name, category: 'Website design', description: site.description, image: site.src,
+const priorityProjects = ['Esk Valley Talking Therapies', 'AM Medical Aesthetics', 'Almond Vet Care']
+const websiteProjects = [...completedWebsites].sort((a, b) => {
+  const rank = (name: string) => {
+    const index = priorityProjects.indexOf(name)
+    return index < 0 ? priorityProjects.length : index
+  }
+  return rank(a.name) - rank(b.name)
+}).map((site) => ({
+  title: site.name, category: 'category' in site ? site.category : 'Website design', description: site.description, image: site.src,
+  alt: 'alt' in site ? site.alt : `${site.name} website designed by Bear Media`,
+  linkLabel: 'caseStudy' in site ? 'View case study' : 'Visit live website',
   href: 'caseStudy' in site ? site.caseStudy : site.url,
 }))
 
@@ -93,7 +102,7 @@ const process = [
   {
     number: '04',
     title: 'Launch & support',
-    description: 'After final checks, I launch the site with a clear handover and support options if you need them.',
+    description: 'After final checks, I launch the site with a clear handover. I can help with page updates and content changes, with support agreed around what you need.',
   },
 ]
 
@@ -106,7 +115,7 @@ const faqs = [
   {
     question: 'How long does a website take?',
     answer:
-      'Most small-business websites take around four to eight weeks. The exact schedule depends on the size of the site, how quickly content is supplied and the features required. Your proposal will include a realistic project timeline.',
+      'The schedule depends on the pages, content and features required, and when the content is ready. I’ll agree a realistic timeline in your written proposal before the project begins.',
   },
   {
     question: 'Can you redesign my existing website?',
@@ -116,12 +125,12 @@ const faqs = [
   {
     question: 'Will I be able to update the website?',
     answer:
-      'That depends on how much control you want. I can provide an editing setup and handover guidance, or manage ongoing updates for you. We’ll agree the right approach before development starts.',
+      'That depends on how much control you want. I can provide an editing setup and handover guidance, or manage ongoing updates for you. I’ll agree the right approach with you before development starts.',
   },
   {
     question: 'Do you provide content and photography too?',
     answer:
-      'Yes. Bear Media can create website copy, business photography, video and drone content as part of the same project, giving the finished site a more consistent look and message.',
+      'Yes. I can create website copy, business photography, video and drone content as part of the same project, giving the finished site a more consistent look and message.',
   },
 ]
 
@@ -130,11 +139,16 @@ export default function WebsiteDesignWestLothian() {
     <div className="flex min-h-screen flex-col bg-background">
       <Navigation />
       <main className={`flex-1 ${desktop.standardPage} ${desktop.websitePage} ${desktop.servicePage}`}>
+        <BreadcrumbSchema items={[
+          { name: 'Home', url: 'https://bear-media.com' },
+          { name: 'Services', url: 'https://bear-media.com/services' },
+          { name: 'Website Design West Lothian', url: pageUrl },
+        ]} />
         <ServiceSchema
           name="Website Design in West Lothian"
-          description="Mobile-first website design and development for businesses across West Lothian, with content and support scoped around each project."
+          description="Mobile-first website design for small businesses across West Lothian, Edinburgh and Central Scotland, with personal support and content scoped around each project."
           serviceType="Website design and development"
-          areaServed="West Lothian"
+          areaServed={['West Lothian', 'Edinburgh', 'Central Scotland']}
           provider="Bear Media"
           url={pageUrl}
           subjectOf={[
@@ -156,11 +170,12 @@ export default function WebsiteDesignWestLothian() {
                 Website Design West Lothian
               </h1>
               <p className="mt-5 max-w-2xl font-heading text-2xl font-medium leading-tight text-balance sm:text-3xl">
-                Modern websites that make your business easier to trust
+                Mobile-first websites that make it easier to enquire
               </p>
               <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-                I design and build clear, modern websites for businesses in Broxburn, Livingston, Linlithgow and across West Lothian. Your site should explain what you do quickly, look good on every screen and make it easier for the right people to enquire.
+                I design and build mobile-first websites for small businesses in Broxburn, Livingston, West Lothian, Edinburgh and Central Scotland. I make your services clear and give visitors a straightforward way to enquire.
               </p>
+              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">You work directly with me for local, personal support, from planning to launch. I can provide copy, photography and video as part of your website project.</p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/contact#enquiry"
@@ -226,8 +241,8 @@ export default function WebsiteDesignWestLothian() {
               <p className="mt-2 font-heading text-xl font-semibold">West Lothian</p>
             </div>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Typical timeline</p>
-              <p className="mt-2 font-heading text-xl font-semibold">4–8 weeks</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Project schedule</p>
+              <p className="mt-2 font-heading text-xl font-semibold">Agreed in your proposal</p>
             </div>
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Creative support</p>
@@ -240,10 +255,10 @@ export default function WebsiteDesignWestLothian() {
           <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 lg:px-8">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">The bigger picture</p>
-              <h2 className="mt-4 font-heading text-4xl font-medium tracking-tight text-balance md:text-5xl">More than just a website</h2>
+              <h2 className="mt-4 font-heading text-4xl font-medium tracking-tight text-balance md:text-5xl">Small business website design with personal support</h2>
             </div>
             <div className="max-w-3xl space-y-5 text-lg leading-relaxed text-muted-foreground">
-              <p>A strong website needs more than a good-looking layout. I can help with the website, copy, photography, video, drone content and ongoing content that bring it to life.</p>
+              <p>A strong website needs more than a good-looking layout. I can help with the website, copy, photography, <Link href="/video-production-west-lothian" className="underline underline-offset-4">video</Link>, drone content and ongoing content that bring it to life.</p>
               <p>That means you can deal directly with one person from the first idea through to launch and future updates, with the words and visuals working together instead of being pieced together from different suppliers.</p>
               <div className="flex flex-wrap gap-3 pt-2 text-sm font-semibold text-foreground">
                 {['Website', 'Copy', 'Photography', 'Video', 'Drone', 'Ongoing content'].map((item) => (
@@ -259,10 +274,10 @@ export default function WebsiteDesignWestLothian() {
             <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Selected work</p>
               <h2 className="mt-4 font-heading text-4xl font-medium tracking-tight text-balance md:text-6xl">
-                Real websites for real organisations.
+                Completed websites for real organisations.
               </h2>
               <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-                Every project starts with a different audience and a different job to do. The result should feel like your business—not Bear Media’s template.
+                These are completed client websites, with links to the live site or an existing case study. The examples include Esk Valley Talking Therapies, AM Medical Aesthetics and Almond Vet Care; no demonstration sites are included in this selection.
               </p>
             </div>
 
@@ -276,7 +291,7 @@ export default function WebsiteDesignWestLothian() {
                   <div className="relative aspect-square overflow-hidden bg-muted">
                     <Image
                       src={project.image}
-                      alt={`${project.title} website design by Bear Media`}
+                      alt={project.alt}
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
                       quality={85}
@@ -288,7 +303,7 @@ export default function WebsiteDesignWestLothian() {
                     <h3 className="mt-3 font-heading text-2xl font-semibold">{project.title}</h3>
                     <p className="mt-3 leading-relaxed text-muted-foreground">{project.description}</p>
                     <span className="mt-6 inline-flex items-center gap-2 font-semibold text-foreground">
-                      View project
+                      {project.linkLabel}
                       <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                     </span>
                   </div>
@@ -336,7 +351,7 @@ export default function WebsiteDesignWestLothian() {
                   The essentials, handled properly.
                 </h2>
                 <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-                  A good website needs more than an attractive homepage. I bring the structure, content and technical details together as one joined-up project.
+                  I agree the pages, enquiry routes, content and functionality with you before the build. Your proposal sets out what is included, the cost and the schedule. Photography, video and copy can be scoped alongside the design.
                 </p>
                 <Link href="/contact#enquiry" className="mt-8 inline-flex items-center gap-2 font-semibold text-foreground hover:text-accent">
                   Discuss your website
@@ -372,7 +387,7 @@ export default function WebsiteDesignWestLothian() {
               </div>
               <div className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground">
                 <Clock3 className="size-4 text-accent" aria-hidden="true" />
-                Typical project: 4–8 weeks
+                A schedule agreed with you
               </div>
             </div>
             <div className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-4">
@@ -391,7 +406,7 @@ export default function WebsiteDesignWestLothian() {
           <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20 lg:px-8">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Common questions</p>
-              <h2 className="mt-4 font-heading text-4xl font-medium tracking-tight md:text-5xl">Useful answers before we talk.</h2>
+              <h2 className="mt-4 font-heading text-4xl font-medium tracking-tight md:text-5xl">Useful answers before you get in touch.</h2>
               <p className="mt-5 leading-relaxed text-muted-foreground">
                 Still unsure? Send a quick message and you’ll get a straightforward answer—no obligation and no hard sell.
               </p>
