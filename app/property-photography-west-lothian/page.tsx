@@ -4,19 +4,20 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
-import { ServiceSchema } from '@/components/structured-data'
+import { siteUrl } from '@/lib/seo'
+import { BreadcrumbSchema, ServiceSchema } from '@/components/structured-data'
 
-const pageUrl = 'https://bear-media.com/property-photography-west-lothian'
+const pageUrl = `${siteUrl}/property-photography-west-lothian`
 const socialImage = 'https://bear-media.com/brand/bear-media-social-share.jpg'
 
 export const metadata: Metadata = {
   title: 'Property Photography West Lothian | Bear Media',
   description:
-    'Property photography in West Lothian for homes, venues and businesses that need clear, professional images for websites, listings and marketing.',
+    'I photograph interiors, exteriors and details for homes, venues and business premises across West Lothian, with images for property listings and websites.',
   alternates: { canonical: pageUrl },
   openGraph: {
     title: 'Property Photography West Lothian | Bear Media',
-    description: 'Clear property photography for websites, listings and marketing across West Lothian.',
+    description: 'I photograph interiors, exteriors and details for homes, venues and business premises across West Lothian, with images for property listings and websites.',
     url: pageUrl,
     siteName: 'Bear Media',
     type: 'website',
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Property Photography West Lothian | Bear Media',
-    description: 'Clear property photography for websites, listings and marketing across West Lothian.',
+    description: 'I photograph interiors, exteriors and details for homes, venues and business premises across West Lothian, with images for property listings and websites.',
     images: [socialImage],
   },
 }
@@ -50,6 +51,11 @@ export default function PropertyPhotographyWestLothian() {
     <div className="flex min-h-screen flex-col bg-background">
       <Navigation />
       <main className={`flex-1 ${desktop.standardPage} ${desktop.simpleService} ${desktop.servicePage}`}>
+        <BreadcrumbSchema items={[
+          { name: 'Home', url: siteUrl },
+          { name: 'Property Marketing', url: `${siteUrl}/property` },
+          { name: 'Property Photography West Lothian', url: pageUrl },
+        ]} />
         <ServiceSchema
           name="Property Photography West Lothian"
           description="Property photography for homes, venues, business premises, listings and marketing across West Lothian."
@@ -72,12 +78,12 @@ export default function PropertyPhotographyWestLothian() {
               Clear, professional images for homes, venues and businesses in Broxburn, Livingston, Linlithgow and across West Lothian.
             </p>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              I’ll plan the session around the property and where you need to use the photographs—your website, a listing, marketing materials or ongoing content.
+              I’ll plan the session around the property and where you need to use the photographs—your website, a listing, marketing materials or ongoing content. I photograph interiors, exteriors and the details that help people understand the space.
             </p>
             <Link href="/contact" className="mt-9 inline-flex min-h-12 items-center rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground transition hover:opacity-85">
               Discuss your property
             </Link>
-            <p className="mt-6"><Link href="/property" className="inline-flex min-h-11 items-center underline underline-offset-4">Explore complete Property Media and selected work</Link></p>
+            <p className="mt-6"><Link href="/property" className="inline-flex min-h-11 items-center underline underline-offset-4">Explore complete property marketing and selected work</Link></p>
           </div>
           <DesktopServiceImage src="/images/2026-refresh/property/118-craigentinny-road-edinburgh-kitchen-conservatory.webp" alt="Kitchen opening into the conservatory and garden at 118 Craigentinny Road, Edinburgh." />
         </section>
@@ -91,6 +97,7 @@ export default function PropertyPhotographyWestLothian() {
                 The best property photographs give people a sense of the layout, details and atmosphere without making the space feel over-produced. I’ll create a considered set of images that is useful wherever your audience meets the property.
               </p>
             </div>
+            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">See existing <Link href="/projects/david-todd" className="underline underline-offset-4">property photography and aerial imagery for David Todd Sales &amp; Lettings</Link>, or <Link href="/projects/cg-developments" className="underline underline-offset-4">finished interiors and development work for C&amp;G Developments</Link>.</p>
             <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
               {uses.map(([title, description]) => (
                 <article key={title} className="rounded-3xl border border-border bg-secondary p-6">
@@ -106,7 +113,7 @@ export default function PropertyPhotographyWestLothian() {
           <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <h2 className="font-heading text-4xl font-medium tracking-tight md:text-5xl">One person for the wider content too.</h2>
             <div className="space-y-5 text-lg leading-relaxed text-primary-foreground/80">
-              <p>Property photography can sit alongside the other content your business needs. I also offer website design, copy, business photography, video, drone content and ongoing content planning.</p>
+              <p>For a complete property marketing brief, I can combine photography with horizontal and vertical video, drone photography and floor plans, with optional 360° virtual tours. I agree the combination around the property and your listing requirements.</p>
               <p>If the project needs more than still images, I’ll help you work out the right combination before anything is booked.</p>
               <Link href="/contact" className="inline-flex min-h-12 items-center rounded-full bg-background px-6 py-3 font-semibold text-foreground transition hover:opacity-85">Arrange a free discovery call</Link>
             </div>

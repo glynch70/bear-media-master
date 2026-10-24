@@ -10,8 +10,8 @@ import styles from './property.module.css'
 
 export const metadata = {
   ...createMetadata({
-    title: 'Property Media Edinburgh & West Lothian | Bear Media',
-    description: 'Property photography, video, drone, floor plans and 360° tours across Edinburgh, the Lothians, Fife and Central Scotland. Discuss your shoot with Bear Media.',
+    title: 'Property Marketing Edinburgh & West Lothian | Bear Media',
+    description: 'I create property photography, horizontal and vertical video, drone imagery and floor plans across Edinburgh and West Lothian, with optional 360° virtual tours.',
     path: '/property',
     image: '/images/property/property-media-social.jpg',
     imageAlt: 'Conservatory and garden photographed by Bear Media',
@@ -34,8 +34,8 @@ export default function PropertyPage() {
       <RedesignHeader surface />
       <main id="property-content">
         <ServiceSchema
-          name="Property Media"
-          description="Property photography, video, drone, floor plans and 360° virtual tours with Garry Lynch at Bear Media."
+          name="Property Marketing"
+          description="Property photography, horizontal and vertical video, drone photography and floor plans, with optional 360° virtual tours across Edinburgh, West Lothian and Central Scotland."
           serviceType="Property photography, video, drone, floor plans and virtual tours"
           areaServed={['Edinburgh', 'West Lothian', 'East Lothian', 'Fife', 'Central Scotland']}
           provider="Bear Media"
@@ -45,7 +45,7 @@ export default function PropertyPage() {
             { name: 'Property video', url: `${siteUrl}/property#property-video` },
             { name: 'Property drone photography and video', url: `${siteUrl}/property#property-drone` },
             { name: 'Floor plans', url: `${siteUrl}/property#floor-plans` },
-            { name: '360° virtual tours', url: `${siteUrl}/property#virtual-tours` },
+            { name: 'Optional 360° virtual tours', url: `${siteUrl}/property#virtual-tours` },
           ]}
           subjectOf={[
             { name: 'David Todd Sales & Lettings property photography and aerial imagery', url: `${siteUrl}/projects/david-todd` },
@@ -58,7 +58,7 @@ export default function PropertyPage() {
             <div>
               <p className={styles.eyebrow}>Bear Media · Scotland</p>
               <h1 id="property-title">PROPERTY MEDIA</h1>
-              <p className={styles.intro}>Photography, video, drone, floor plans and virtual tours for properties that deserve to be presented properly.</p>
+              <p className={styles.intro}>Property photography, horizontal and vertical video, drone photography and floor plans, with optional 360° virtual tours across Edinburgh, West Lothian and Central Scotland.</p>
               <div className={styles.actions}>
                 <Link href="/contact#enquiry" className={styles.button}>Discuss a property</Link>
                 <a href="#property-work" className={styles.secondary}>View property work</a>
@@ -73,7 +73,7 @@ export default function PropertyPage() {
             {[['Photography', '#property-work'], ['Video', '#property-video'], ['Drone', '#property-drone'], ['Floor plans', '#floor-plans'], ['360° tours', '#virtual-tours'], ['Get in touch', '#property-pricing']].map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
           </ul></nav>
           <section id="property-work" className={styles.section} aria-labelledby="work-title">
-            <div className={styles.heading}><p className={styles.eyebrow}>Selected work</p><h2 id="work-title">A sense of the place</h2><p>Interiors, exteriors and details photographed for estate-agent and development work. Before the shoot, clear surfaces, open curtains and have each room ready to photograph.</p></div>
+            <div className={styles.heading}><p className={styles.eyebrow}>Selected work</p><h2 id="work-title">A sense of the place</h2><p>Interiors, exteriors and details photographed for estate-agent and development work. Before the shoot, clear surfaces, open curtains and have each room ready to photograph.</p><Link href="/property-photography-west-lothian" className={styles.link}>Explore property photography in West Lothian <span aria-hidden="true">↗</span></Link></div>
             <div className={styles.gallery}>{gallery.map((photo) => <figure key={photo.src} className={photo.className}>
               <Image src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} sizes={photo.className === styles.wide ? '(max-width: 1440px) 90vw, 1296px' : '(max-width: 759px) calc(100vw - 40px), 30vw'} quality={85} />
               <figcaption className={styles.caption}>{photo.label}</figcaption>
@@ -86,7 +86,7 @@ export default function PropertyPage() {
         </div></div></section>
         <div className={styles.wrap}>
           <section id="property-video" className={styles.section} aria-labelledby="video-title">
-            <div className={styles.heading}><p className={styles.eyebrow}>Property video</p><h2 id="video-title">Show how a place comes together</h2><p>Walkthroughs show how rooms connect; vertical edits suit social media. I agree landscape or portrait formats around where you will use the video. This C&amp;G Developments film follows a new home from construction to finished interiors.</p></div>
+            <div className={styles.heading}><p className={styles.eyebrow}>Property video</p><h2 id="video-title">Show how a place comes together</h2><p>Horizontal walkthrough videos show how rooms connect on websites and listings; vertical edits suit social media. I agree landscape or portrait formats around where you will use the video. This C&amp;G Developments film follows a new home from construction to finished interiors.</p></div>
             <div className={styles.film}><MuxVideoPlayer playbackId={film.playbackId!} poster={film.poster} title={film.title} descriptionId="property-film-description" aspectRatio={film.aspectRatio} sizes="(max-width: 1200px) 90vw, 1100px" /></div>
             <p id="property-film-description" className={styles.note}>C&amp;G Developments · A 104-second construction timeline, filmed and edited by Bear Media</p>
             <Link href="/projects/cg-developments" className={styles.link}>View the development project <span aria-hidden="true">↗</span></Link>
@@ -102,7 +102,7 @@ export default function PropertyPage() {
             <div className={styles.heading}><p className={styles.eyebrow}>Beyond the photographs</p><h2 id="layout-title">Help buyers understand the layout</h2></div>
             <div className={styles.deliverableSections}>
               <div id="floor-plans"><h3>Floor plans</h3><p>A floor plan helps buyers understand how rooms connect. I can include one in the agreed brief; tell me which listing platform or printed particulars you need it for.</p><Link href="/contact#enquiry" className={styles.link}>Discuss a floor plan <span aria-hidden="true">↗</span></Link></div>
-              <div id="virtual-tours"><h3>360° virtual tours</h3><p>A 360° tour lets viewers look around before arranging a viewing. Ask about availability, hosting and how to add the tour to your property listing.</p><Link href="/contact#enquiry" className={styles.link}>Discuss a virtual tour <span aria-hidden="true">↗</span></Link></div>
+              <div id="virtual-tours"><h3>Optional 360° virtual tours</h3><p>An optional 360° tour lets viewers look around before arranging a viewing. Ask about availability, hosting and how to add the tour to your property listing.</p><Link href="/contact#enquiry" className={styles.link}>Discuss a virtual tour <span aria-hidden="true">↗</span></Link></div>
             </div>
           </section>
         </div>
