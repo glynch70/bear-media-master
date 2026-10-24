@@ -1,3 +1,4 @@
+import mobile from './video-mobile.module.css'
 import desktop from '@/components/desktop-refresh.module.css'
 import type { Metadata } from 'next'
 import Image from 'next/image'
@@ -13,12 +14,12 @@ import { siteUrl } from '@/lib/seo'
 const pageUrl = `${siteUrl}/video-production-west-lothian`
 
 export const metadata: Metadata = {
-  title: 'Video Production West Lothian | Bear Media',
+  title: 'Video Production West Lothian & Edinburgh | Bear Media',
   description:
-    'Professional video production for West Lothian businesses, including promotional films, interviews, social media video and project content.',
+    'I plan, film and edit promotional films, interviews, construction and property video, and social content across West Lothian, Edinburgh and Central Scotland.',
   alternates: { canonical: pageUrl },
   openGraph: {
-    title: 'Video Production West Lothian | Bear Media',
+    title: 'Video Production West Lothian & Edinburgh | Bear Media',
     description:
       'Video content marketing, promotional films and social media video for West Lothian businesses.',
     url: pageUrl,
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Video Production West Lothian | Bear Media',
+    title: 'Video Production West Lothian & Edinburgh | Bear Media',
     description: 'Video production and content marketing for West Lothian businesses.',
     images: [`${siteUrl}/assets/services/video-on-location.webp`],
   },
@@ -100,7 +101,7 @@ export default function VideoProductionWestLothianPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
-      <main className={`${desktop.standardPage} ${desktop.videoPage} ${desktop.servicePage}`}>
+      <main className={`${desktop.standardPage} ${desktop.videoPage} ${desktop.servicePage} ${mobile.page}`}>
         <BreadcrumbSchema
           items={[
             { name: 'Home', url: siteUrl },
@@ -110,9 +111,9 @@ export default function VideoProductionWestLothianPage() {
         />
         <ServiceSchema
           name="Video Production West Lothian"
-          description="Promotional films, interviews, social media video and project filming for businesses across West Lothian."
+          description="Promotional films, interviews, construction and property video, and social content across West Lothian, Edinburgh and Central Scotland."
           serviceType="Video production"
-          areaServed="West Lothian"
+          areaServed={['West Lothian', 'Edinburgh', 'Central Scotland']}
           provider="Bear Media"
           url={pageUrl}
           subjectOf={[
@@ -168,7 +169,7 @@ export default function VideoProductionWestLothianPage() {
             </p>
             <div className="mt-7 flex max-w-5xl flex-col gap-7 md:flex-row md:items-end md:justify-between">
               <p className="max-w-2xl text-base leading-relaxed text-white/78 sm:text-lg md:text-xl">
-                I plan, film and edit video for businesses in Broxburn, Livingston, Linlithgow and across West Lothian. From a project film to short social content, I’ll shape the work around what you want people to understand, feel or do.
+                I plan, film and edit video for businesses in Broxburn, Livingston and Linlithgow, as well as Edinburgh and Central Scotland. From a project film to short social content, I’ll shape the work around what you want people to understand, feel or do.
               </p>
               <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
                 <Link
@@ -250,7 +251,7 @@ export default function VideoProductionWestLothianPage() {
                 Short films. Proper production.
               </h2>
               <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-                These mobile-first edits stream at the best quality for each viewer and only load the full Mux player after play is pressed.
+                See a vertical promotional film focused on craftsmanship and a short property reel. Each shows how a concise edit can introduce a business or property on social media.
               </p>
             </div>
 
@@ -263,7 +264,7 @@ export default function VideoProductionWestLothianPage() {
                     <div className="overflow-hidden rounded-[2rem] bg-black shadow-[0_28px_80px_rgba(0,0,0,0.14)]">
                       <MuxVideoPlayer
                         playbackId={film.playbackId}
-                        poster={`https://image.mux.com/${film.playbackId}/thumbnail.webp?time=3&width=1200`}
+                        poster={index === 0 ? '/assets/video-posters/crafted-by-hand.jpg' : '/assets/video-posters/property-marketing.jpg'}
                         title={film.title}
                         descriptionId={descriptionId}
                         aspectRatio="9 / 16"
@@ -276,6 +277,31 @@ export default function VideoProductionWestLothianPage() {
                   </article>
                 )
               })}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-background px-6 py-20 md:py-28 lg:px-8" aria-labelledby="video-services-title">
+          <div className="mx-auto max-w-7xl">
+            <h2 id="video-services-title" className="font-heading text-4xl font-medium tracking-tight md:text-5xl">Video shaped around the job it needs to do.</h2>
+            <div className="mt-10 grid gap-8 md:grid-cols-2">
+              <div>
+                <h3 className="font-heading text-2xl font-medium">Promotional films and interviews</h3>
+                <p className="mt-4 text-lg leading-relaxed text-muted-foreground">I plan the message, filming and edit around your audience. Interviews bring the people behind a business into the story, while footage of the work helps explain what you do. See the interviews and project films for <Link href="/projects/cg-developments" className="underline underline-offset-4">C&amp;G Developments</Link>.</p>
+              </div>
+              <div>
+                <h3 className="font-heading text-2xl font-medium">Construction and property video</h3>
+                <p className="mt-4 text-lg leading-relaxed text-muted-foreground">From construction progress to finished interiors, I can document the detail and setting of a project. For listings, explore <Link href="/property" className="underline underline-offset-4">property photography, video and drone services</Link>, with horizontal and vertical formats agreed around where the content will appear.</p>
+              </div>
+              <div>
+                <h3 className="font-heading text-2xl font-medium">Short-form social content</h3>
+                <p className="mt-4 text-lg leading-relaxed text-muted-foreground">A shoot can provide focused edits for your social channels as well as a longer film. See the installation films and social content for <Link href="/projects/simply-sheds" className="underline underline-offset-4">Simply Sheds Scotland</Link>. I agree the formats and deliverables before filming.</p>
+              </div>
+              <div>
+                <h3 className="font-heading text-2xl font-medium">Planning your shoot</h3>
+                <p className="mt-4 text-lg leading-relaxed text-muted-foreground">Tell me the location, audience, intended channels and any deadline. I’ll discuss the filming, interviews and editing needed, then scope the work with you. Based in West Lothian, I work across Edinburgh and Central Scotland.</p>
+                <Link href="/contact#enquiry" className="mt-5 inline-flex min-h-11 items-center underline underline-offset-4">Send me your video brief</Link>
+              </div>
             </div>
           </div>
         </section>
@@ -298,7 +324,7 @@ export default function VideoProductionWestLothianPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer compactMobile />
     </div>
   )
 }

@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react'
+import compact from './footer-compact.module.css'
 import Link from 'next/link'
 import { RedesignFooter } from '@/app/redesign/redesign-chrome'
 import desktop from './desktop-refresh.module.css'
@@ -40,7 +42,16 @@ function TikTokIcon({ className }: { className?: string }) {
   )
 }
 
-export default function Footer() {
+function FooterGroup({ title, compactMobile, children }: { title: string; compactMobile: boolean; children: ReactNode }) {
+  return compactMobile ? (
+    <details className={compact.group}>
+      <summary className="font-medium text-sm uppercase tracking-wider">{title}</summary>
+      <div className={compact.groupContent}>{children}</div>
+    </details>
+  ) : <div><h2 data-footer-heading className="font-medium text-sm uppercase tracking-wider text-foreground mb-5">{title}</h2>{children}</div>
+}
+
+export default function Footer({ compactMobile = false }: { compactMobile?: boolean }) {
   const currentYear = new Date().getFullYear()
 
   const socials = [
@@ -61,7 +72,7 @@ export default function Footer() {
   return (
     <>
     <div className={desktop.desktopChrome}><RedesignFooter /></div>
-    <footer className={`bg-secondary ${desktop.legacyChrome}`}>
+    <footer className={`bg-secondary ${desktop.legacyChrome} ${compactMobile ? compact.footer : ''}`}>
       {/* Services Line */}
       <div className="border-b border-border bg-background/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
@@ -135,8 +146,7 @@ export default function Footer() {
           </div>
 
           {/* Column 2: Services */}
-          <div>
-            <h2 data-footer-heading className="font-medium text-sm uppercase tracking-wider text-foreground mb-5">Services</h2>
+          <FooterGroup title="Services" compactMobile={compactMobile}>
             <ul className="space-y-1">
               <li><Link href="/services#photography-service" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Photography</Link></li>
               <li><Link href="/video-production-west-lothian" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Video Production</Link></li>
@@ -146,11 +156,10 @@ export default function Footer() {
               <li><Link href="/services#drone-service" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Drone Services</Link></li>
               <li><Link href="/training" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">AI &amp; Canva Training</Link></li>
             </ul>
-          </div>
+          </FooterGroup>
 
           {/* Column 3: Explore */}
-          <div>
-            <h2 data-footer-heading className="font-medium text-sm uppercase tracking-wider text-foreground mb-5">Explore</h2>
+          <FooterGroup title="Explore" compactMobile={compactMobile}>
             <ul className="space-y-1">
               <li><Link href="/projects" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Projects</Link></li>
               <li><Link href="/about" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">About</Link></li>
@@ -158,11 +167,10 @@ export default function Footer() {
               <li><Link href="/services" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Services</Link></li>
               <li><Link href="/insights" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">The Bear Media Journal</Link></li>
             </ul>
-          </div>
+          </FooterGroup>
 
           {/* Column 4: Contact */}
-          <div>
-            <h2 data-footer-heading className="font-medium text-sm uppercase tracking-wider text-foreground mb-5">Get In Touch</h2>
+          <FooterGroup title="Get In Touch" compactMobile={compactMobile}>
             <div className="space-y-4">
               <a href="tel:+447879011860" className="flex min-h-11 items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors">
                 <Phone className="w-4 h-4 mt-0.5 shrink-0 text-accent" />
@@ -177,15 +185,14 @@ export default function Footer() {
                 <span>West Lothian · Edinburgh &amp; the Lothians</span>
               </div>
             </div>
-          </div>
+          </FooterGroup>
 
           {/* Column 5: Policies */}
-          <div>
-            <h2 data-footer-heading className="font-medium text-sm uppercase tracking-wider text-foreground mb-5">Policies</h2>
+          <FooterGroup title="Policies" compactMobile={compactMobile}>
             <ul className="space-y-1">
               <li><Link href="/terms-and-conditions" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Terms &amp; Conditions</Link></li>
             </ul>
-          </div>
+          </FooterGroup>
         </div>
 
         {/* Bottom Bar */}

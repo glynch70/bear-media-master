@@ -1,0 +1,14 @@
+.footer > div:first-child > div { padding-block: 1rem; }
+.footer > div:nth-child(2) > div { padding-block: 1.25rem; }
+.footer > div:nth-child(2) a { height: 4rem; }
+.footer > div:nth-child(2) img { max-height: 3rem; }
+.footer > div:nth-child(3) { padding-block: 2rem; }
+.footer > div:nth-child(3) > div:first-child { display: block; margin-bottom: 1.5rem; }
+.footer > div:nth-child(3) > div:first-child > div:first-child { margin-bottom: 1.5rem; }
+.group { border-top: 1px solid var(--border); }
+.group summary { cursor: pointer; padding-block: 1rem; min-height: 48px; }
+.group summary:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+.groupContent { padding-bottom: 1rem; }
+@media (min-width: 640px) {
+  .footer > div:nth-child(3) > div:first-child { display: grid; }
+}
