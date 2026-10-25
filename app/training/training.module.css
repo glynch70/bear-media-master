@@ -26,6 +26,7 @@
 .hero,
 .topics,
 .examples,
+.formats,
 .process,
 .faq,
 .enquire {
@@ -46,7 +47,7 @@
   font-weight: 550;
   line-height: 1.06;
   letter-spacing: -0.055em;
-  max-width: 15ch;
+  max-width: 14ch;
   margin-bottom: 24px;
   text-wrap: balance;
 }
@@ -264,6 +265,21 @@
   list-style: none;
   padding: 0;
 }
+.formatGrid {
+  display: grid;
+  gap: 20px;
+}
+.formatGrid article {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 28px;
+}
+.formatGrid article > p:last-child {
+  color: #595951;
+}
+.formatGrid .eyebrow {
+  margin-bottom: 12px;
+}
 .steps li {
   border-top: 1px solid var(--line);
   padding-top: 22px;
@@ -322,6 +338,7 @@
   .hero,
   .topics,
   .examples,
+  .formats,
   .process,
   .faq,
   .enquire {
@@ -335,6 +352,9 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .demoPanels {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .formatGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -355,6 +375,7 @@
   }
   .topics,
   .examples,
+  .formats,
   .process,
   .faq,
   .enquire {
@@ -382,3 +403,37 @@
     margin-top: 25px;
   }
 }
+
+/* A short, replayable sequence. Content remains available without animation. */
+.demoToolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin: 24px 0; }
+.demoToolbar p { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 11px; color: #66665c; }
+.demoToolbar p span { color: var(--gold); }
+.replay { min-height: 44px; border: 1px solid #bdbcb0; border-radius: 99px; padding: 8px 16px; font-size: 12px; cursor: pointer; background: #fdfdfb; }
+@keyframes demoEnter { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes draftAccent { from { box-shadow: inset 3px 0 #b18b49; } to { box-shadow: inset 3px 0 #68774f; } }
+@media (prefers-reduced-motion: no-preference) {
+  .demoSequence .demoPanels article { animation: demoEnter .55s cubic-bezier(.22,1,.36,1) both; }
+  .demoSequence .demoPanels article:nth-child(2) { animation-delay: .18s; }
+  .demoSequence .draft { animation: demoEnter .65s .4s cubic-bezier(.22,1,.36,1) both, draftAccent 1s .4s both; }
+  .primary, .copy, .replay, .demoControls button { transition: background .2s, color .2s, transform .2s, box-shadow .2s; }
+  .primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px #1111; }
+  .topicGrid article, .formatGrid article { transition: transform .25s; }
+  .topicGrid article:hover, .formatGrid article:hover { transform: translateY(-4px); }
+  .faq summary span { transition: transform .2s; }
+}
+.demoSequence:focus-within article { animation: none; }
+.hero h1 { max-width: 15ch; }
+.hero h1 span { display: block; color: #737b63; }
+.portrait { position: relative; }
+.heroBadge { position: absolute; left: 12px; right: 12px; bottom: 78px; display: flex; align-items: center; gap: 12px; padding: 16px; border: 1px solid #fff8; border-radius: 13px; background: #fdfdfbed; backdrop-filter: blur(12px); box-shadow: 0 14px 36px #0002; }
+.heroBadge > span { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: #e3e8da; font-size: 23px; color: #4f5e39; }
+.heroBadge small, .heroBadge strong { display: block; }
+.heroBadge small { font-size: 10px; color: #6b6b61; }
+.heroBadge strong { font-size: 13px; font-weight: 550; }
+.revealDraft { margin-top: 22px; cursor: pointer; }
+.mobileEnquiry { position: fixed; bottom: 0; left: 0; right: 0; z-index: 30; display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid #deded7; background: #fdfdfbf5; backdrop-filter: blur(16px); padding: 12px 18px calc(12px + env(safe-area-inset-bottom)); }
+.mobileEnquiry > span { font-size: 12px; font-weight: 600; }
+.mobileEnquiry small { display: block; font-size: 10px; color: #68685e; font-weight: 400; }
+.mobileEnquiry .primary { font-size: 12px; min-height: 44px; padding: 10px 16px; }
+.page { padding-bottom: 88px; }
+@media (min-width: 900px) { .hero h1 { font-size: clamp(64px, 6vw, 80px); } .heroBadge { left: -24px; right: 24px; bottom: 72px; padding: 20px; } .mobileEnquiry { display: none; } .page { padding-bottom: 0; } }
