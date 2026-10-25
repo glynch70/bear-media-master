@@ -186,3 +186,13 @@ img { max-width: 100%; }
  .portrait-stage .name-tag { font-size:22px; padding:14px 18px; left:12px; right:12px; max-width:calc(100% - 24px); }
  .portrait-stage .name-tag small { font-size:9px; }
 }
+
+.workflow-note { margin-top:24px; max-width:70ch; color:var(--muted); font-size:15px; }
+.secondary-title { font-size:clamp(32px,4vw,48px); margin-top:20px; }
+.workflow-grid .job h3 { margin-top:0; }
+@media(max-width:760px) {
+ .hero .pill.dark { width:100%; justify-content:center; gap:16px; }
+ .hero h1 { font-size:clamp(46px,11vw,76px); }
+ .workflow-grid { grid-template-columns:1fr; }
+ .workflow-grid .job p { max-width:100%; font-size:14px; }
+}
