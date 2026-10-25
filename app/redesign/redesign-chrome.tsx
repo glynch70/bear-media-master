@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from '@/components/site-link'
 import { RedesignMobileMenu } from './redesign-mobile-menu'
 import styles from './redesign.module.css'
 

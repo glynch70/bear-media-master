@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import compact from './footer-compact.module.css'
-import Link from 'next/link'
+import Link from '@/components/site-link'
 import { RedesignFooter } from '@/app/redesign/redesign-chrome'
 import desktop from './desktop-refresh.module.css'
 import Image from 'next/image'

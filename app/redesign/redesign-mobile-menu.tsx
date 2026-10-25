@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import Link from '@/components/site-link'
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
 import { useMenuFocus } from '@/lib/use-menu-focus'
 import { X } from 'lucide-react'

@@ -267,7 +267,7 @@ export default function FeaturedProjects({ redesign = false }: { redesign?: bool
           const rank = (id: string) => order.includes(id) ? order.indexOf(id) : order.length
           return rank(a.id) - rank(b.id)
         }).map((project) => (
-          <MotionLink href={project.href} data-motion-link data-motion-card className={styles.journeyWorkCard} key={project.id} aria-label={`View ${project.title} case study`}>
+          <MotionLink href={project.href} data-motion-link data-motion-card className={styles.journeyWorkCard} key={project.id}>
             <div className={styles.journeyWorkImage} data-gallery-media data-shared-image data-reveal="image">
               <picture>
                 <Image src={project.images[0].src} alt={project.images[0].alt} fill sizes="(max-width: 767px) 84vw, 42vw" className={project.id === 'midlothian-wildflowers' || project.id === 'herb-soul' ? styles.containImage : styles.journeyCover} />

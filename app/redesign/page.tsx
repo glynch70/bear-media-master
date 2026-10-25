@@ -264,7 +264,7 @@ export default function RedesignPage() {
               <Link
                 href="/services#social-service"
                 className={styles.journeySocialCard}
-                aria-label="Explore Bear Media social content services"
+                aria-label="View social content services"
                 key={item.src}
               >
                 <div className={styles.journeySocialImage} data-gallery-media>
@@ -307,7 +307,6 @@ export default function RedesignPage() {
                 target={'caseStudy' in website ? undefined : '_blank'}
                 rel={'caseStudy' in website ? undefined : 'noopener noreferrer'}
                 className={styles.journeyWebsiteCard}
-                aria-label={'caseStudy' in website ? `View ${website.name} case study` : `Visit ${website.name} website (opens in a new tab)`}
                 key={website.name}
               >
                 <div className={styles.journeyWebsiteImage} data-gallery-media>
@@ -327,6 +326,7 @@ export default function RedesignPage() {
                   <ArrowUpRight aria-hidden="true" />
                 </span>
                 <p className={styles.websiteDescription}>{website.description}</p>
+                {!('caseStudy' in website) ? <span className="sr-only">Opens in a new tab</span> : null}
               </Link>
             ))}
           </RedesignGallery>

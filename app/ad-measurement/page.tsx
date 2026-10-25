@@ -1,6 +1,11 @@
+import { createMetadata } from '@/lib/seo'
 import { RedesignFooter, RedesignHeader } from '@/app/redesign/redesign-chrome'
 
-export const metadata = { title: 'Advertising measurement | Bear Media' }
+export const metadata = createMetadata({
+  title: 'Advertising measurement | Bear Media',
+  description: 'How Bear Media uses optional OpenAI advertising measurement, what it records and how to change your choice.',
+  path: '/ad-measurement',
+})
 
 export default function AdvertisingMeasurementPage() {
   return <><RedesignHeader surface /><main style={{ maxWidth: 760, margin: '5rem auto', padding: '1.5rem', lineHeight: 1.7 }}>
