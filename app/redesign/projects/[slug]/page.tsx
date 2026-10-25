@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowUpRight } from 'lucide-react'
+import { BurnetCrescentGallery } from '@/components/property/burnet-crescent-gallery'
 import { ProjectHero } from '@/components/projects/project-hero'
 import { MuxVideoPlayer } from '@/components/mux-video-player'
 import { getProject, projects } from '@/lib/projects'
@@ -169,6 +170,8 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
           </section>
         ) : null}
 
+        {project.slug === 'david-todd' ? <BurnetCrescentGallery /> : null}
+
         <section className={styles.caseGallery} aria-label={`${project.clientName} image gallery`}>
           <RedesignGallery label={`${project.clientName} project images`}>
             {project.images.map((image) => {
@@ -236,7 +239,7 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
         </section>
 
         {project.testimonial ? (
-          <section className={styles.caseTestimonial} aria-label="Client testimonial">
+          <section id="client-recommendation" className={styles.caseTestimonial} aria-label="Client testimonial" style={{ scrollMarginTop: 110 }}>
             {project.testimonial.image ? (
               <div>
                 <Image

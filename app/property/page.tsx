@@ -7,6 +7,7 @@ import { BreadcrumbSchema, ServiceSchema } from '@/components/structured-data'
 import { createMetadata, siteUrl } from '@/lib/seo'
 import { getProject } from '@/lib/projects'
 import styles from './property.module.css'
+import { BurnetCrescentGallery } from '@/components/property/burnet-crescent-gallery'
 
 export const metadata = {
   ...createMetadata({
@@ -58,10 +59,10 @@ export default function PropertyPage() {
             <div>
               <p className={styles.eyebrow}>Bear Media · Scotland</p>
               <h1 id="property-title">PROPERTY MEDIA</h1>
-              <p className={styles.intro}>Property photography, horizontal and vertical video, drone photography and floor plans, with optional 360° virtual tours across Edinburgh, West Lothian and Central Scotland.</p>
+              <p className={styles.intro}>Property photography, horizontal and vertical video, drone photography and floor plans, with optional 360° virtual tours for estate agents, letting agents and developers across Edinburgh, West Lothian, East Lothian and Central Scotland.</p>
               <div className={styles.actions}>
                 <Link href="/contact#enquiry" className={styles.button}>Discuss a property</Link>
-                <a href="#property-work" className={styles.secondary}>View property work</a>
+                <a href="#burnet-crescent" className={styles.secondary}>View property work</a>
               </div>
             </div>
             <figure>
@@ -72,6 +73,9 @@ export default function PropertyPage() {
           <nav aria-label="Property media services"><ul className={styles.services}>
             {[['Photography', '#property-work'], ['Video', '#property-video'], ['Drone', '#property-drone'], ['Floor plans', '#floor-plans'], ['360° tours', '#virtual-tours'], ['Get in touch', '#property-pricing']].map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
           </ul></nav>
+        </div>
+        <BurnetCrescentGallery />
+        <div className={styles.wrap}>
           <section id="property-work" className={styles.section} aria-labelledby="work-title">
             <div className={styles.heading}><p className={styles.eyebrow}>Selected work</p><h2 id="work-title">A sense of the place</h2><p>Interiors, exteriors and details photographed for estate-agent and development work. Before the shoot, clear surfaces, open curtains and have each room ready to photograph.</p><Link href="/property-photography-west-lothian" className={styles.link}>Explore property photography in West Lothian <span aria-hidden="true">↗</span></Link></div>
             <div className={styles.gallery}>{gallery.map((photo) => <figure key={photo.src} className={photo.className}>
@@ -81,8 +85,8 @@ export default function PropertyPage() {
           </section>
         </div>
         <section className={styles.soft} aria-labelledby="complete-title"><div className={styles.wrap}><div className={styles.complete}>
-          <div><p className={styles.eyebrow}>Complete property media</p><h2 id="complete-title">One property<br />One point of contact</h2><p>I’m Garry Lynch, the person behind Bear Media. I plan the shoot, capture the property and prepare your agreed media for listings, websites and social channels.</p></div>
-          <div className={styles.deliverables}><p>Choose the right combination for the property</p><ul>{['Photography', 'Drone', 'Video', 'Floor plan', '360° tour', 'Social content'].map(service => <li key={service}>{service}</li>)}</ul><p>I confirm the deliverables, image sizes and video formats before the shoot.</p></div>
+          <div><p className={styles.eyebrow}>Complete property media</p><h2 id="complete-title">One property.<br />One creator.<br />Complete marketing.</h2><p>I’m Garry Lynch, the independent creator behind Bear Media. You work directly with me from the first conversation to delivery. I plan the shoot, capture the property and prepare your agreed media for listings, websites and social channels.</p></div>
+          <div className={styles.deliverables}><p>Choose the right combination for the property</p><ul>{['Interior & exterior photography', 'Drone photography & video', 'Property walkthrough videos', 'Floor plans', '360° tours on request', 'Social media reels & content'].map(service => <li key={service}>{service}</li>)}</ul><p>I confirm the deliverables, image sizes and video formats before the shoot.</p></div>
         </div></div></section>
         <div className={styles.wrap}>
           <section id="property-video" className={styles.section} aria-labelledby="video-title">
@@ -102,7 +106,7 @@ export default function PropertyPage() {
             <div className={styles.heading}><p className={styles.eyebrow}>Beyond the photographs</p><h2 id="layout-title">Help buyers understand the layout</h2></div>
             <div className={styles.deliverableSections}>
               <div id="floor-plans"><h3>Floor plans</h3><p>A floor plan helps buyers understand how rooms connect. I can include one in the agreed brief; tell me which listing platform or printed particulars you need it for.</p><Link href="/contact#enquiry" className={styles.link}>Discuss a floor plan <span aria-hidden="true">↗</span></Link></div>
-              <div id="virtual-tours"><h3>Optional 360° virtual tours</h3><p>An optional 360° tour lets viewers look around before arranging a viewing. Ask about availability, hosting and how to add the tour to your property listing.</p><Link href="/contact#enquiry" className={styles.link}>Discuss a virtual tour <span aria-hidden="true">↗</span></Link></div>
+              <div id="virtual-tours"><h3>360° virtual tours on request</h3><p>Available on request, a 360° tour lets viewers look around before arranging a viewing. Ask about availability, hosting and how to add the tour to your property listing.</p><Link href="/contact#enquiry" className={styles.link}>Discuss a virtual tour <span aria-hidden="true">↗</span></Link></div>
             </div>
           </section>
         </div>
@@ -114,16 +118,16 @@ export default function PropertyPage() {
         <div className={styles.wrap}>
           <section className={`${styles.section} ${styles.split}`} aria-labelledby="client-title">
             <div><p className={styles.eyebrow}>Genuine client work</p><h2 id="client-title">David Todd Sales &amp; Lettings</h2></div>
-            <div><p>Property media produced for David Todd Sales &amp; Lettings. See the photography, aerial views and marketing imagery together in the case study.</p><Link href="/projects/david-todd" className={styles.link}>View the case study <span aria-hidden="true">↗</span></Link></div>
+            <div><p>Property media produced for David Todd Sales &amp; Lettings. See the photography, aerial views and marketing imagery together in the case study.</p><Link href="/projects/david-todd" className={styles.link}>View the case study <span aria-hidden="true">↗</span></Link><br /><Link href="/projects/david-todd#client-recommendation" className={styles.link}>Read David’s recommendation <span aria-hidden="true">↗</span></Link></div>
           </section>
           <section className={`${styles.section} ${styles.case} ${styles.split}`} aria-labelledby="audience-title">
             <div><p className={styles.eyebrow}>Who I work with</p><h2 id="audience-title">For people who care about presentation</h2></div>
-            <div><p>I work with estate agents, developers and property businesses who want consistent imagery, straightforward communication and content that works across portals, websites and social media.</p><p>Based in West Lothian, I cover Edinburgh, East Lothian, Fife and Central Scotland.</p></div>
+            <div><p>I work with estate agents, letting agents, developers and property businesses who want consistent imagery, straightforward communication and content that works across portals, websites and social media.</p><p>Based in West Lothian, I cover Edinburgh, East Lothian, Fife and Central Scotland.</p></div>
           </section>
         </div>
         <section className={styles.soft} aria-labelledby="enquiry-title"><div className={`${styles.wrap} ${styles.closing}`}>
-          <p className={styles.eyebrow}>Let’s talk</p><h2 id="enquiry-title">Have a property coming to market?</h2><p>Photography, video, drone, floor plans and virtual tours from one point of contact.</p>
-          <div className={styles.actions}><Link href="/contact#enquiry" className={styles.button}>Discuss a property</Link></div>
+          <p className={styles.eyebrow}>Let’s talk</p><h2 id="enquiry-title">Need professional property marketing?</h2><p>Photography, video, drone footage, floor plans and 360° virtual tours on request for estate agents and property businesses across Edinburgh and the Lothians.</p>
+          <div className={styles.actions}><Link href="/contact#enquiry" className={styles.button}>Get in touch with Bear Media</Link></div>
           <div className={styles.contactDetails}><a href="mailto:info@bear-media.com?subject=Property%20media%20enquiry">info@bear-media.com</a><a href="tel:+447879011860">07879 011860</a></div>
         </div></section>
       </main>
