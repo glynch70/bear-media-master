@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
 import { createMetadata } from '@/lib/seo'
 import { CinematicVideo } from './cinematic-video'
-import { HeroTileVideo } from './hero-tile-video'
 import { JourneyProgress } from './journey-progress'
 import { RedesignFooter, RedesignHeader } from './redesign-chrome'
 import { RedesignGallery } from './redesign-gallery'
@@ -118,7 +117,7 @@ export default function RedesignPage() {
                 fill
                 preload
                 sizes="(max-width: 767px) 46vw, 1px"
-                quality={85}
+                quality={75}
                 data-shared-image
                 className={styles.heroBentoImage}
               />
@@ -149,7 +148,15 @@ export default function RedesignPage() {
               className={`${styles.heroBentoTile} ${styles.heroBentoVideo}`}
               aria-label="Video: a property content day by Bear Media"
             >
-              <HeroTileVideo className={styles.heroBentoImage} />
+              <Image
+                src="/assets/hero/mobile/content-day-poster.webp"
+                alt=""
+                fill
+                loading="eager"
+                sizes="(max-width: 767px) 48vw, 1px"
+                quality={75}
+                className={styles.heroBentoImage}
+              />
               <span className={styles.heroBentoLabel}>Video</span>
             </MotionLink>
           </div>
@@ -158,7 +165,7 @@ export default function RedesignPage() {
             alt=""
             fill
             sizes="(max-width: 767px) 1px, (max-width: 1023px) 100vw, 48vw"
-            quality={90}
+            quality={75}
             className={`${styles.journeyCover} ${styles.desktopHeroMedia}`}
           />
           <CinematicVideo
@@ -194,7 +201,7 @@ export default function RedesignPage() {
               alt="Open doors leading through the conservatory to the garden at 118 Craigentinny Road, Edinburgh."
               fill
               sizes="(max-width: 1023px) 100vw, 33vw"
-              quality={90}
+              quality={75}
               data-parallax
               data-reveal="image"
               data-mobile-reveal
@@ -229,7 +236,7 @@ export default function RedesignPage() {
             data-mobile-reveal
             fill
             sizes="(max-width: 1023px) 100vw, 50vw"
-            quality={90}
+            quality={75}
             className={styles.journeyCover}
           />
           <div className={styles.droneJourneyShade} />
@@ -278,7 +285,7 @@ export default function RedesignPage() {
                       alt={item.alt}
                       fill
                       sizes="(max-width: 767px) 78vw, 32vw"
-                      quality={85}
+                      quality={75}
                       className={styles.containImage}
                     />
                   </picture>

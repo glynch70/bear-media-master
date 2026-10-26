@@ -232,7 +232,7 @@ export function ScrollCinematic() {
             alt=""
             fill
             sizes="(max-width: 767px) 178vh, 100vw"
-            quality={90}
+            quality={75}
             className={styles.cinematicPoster}
           />
         </div>
