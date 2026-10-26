@@ -28,9 +28,8 @@ export function AdvertisingConsent() {
 
   return open ? (
     <section className={styles.panel} aria-label="Advertising measurement preferences">
-      <h2>Help us measure our advertising?</h2>
-      <p>With your permission, the OpenAI Pixel uses cookies to help us understand whether our ChatGPT ads lead to enquiries. You can use the site and contact us either way.</p>
-      <p>Change your choice at any time using “Ad measurement settings”. <a href="/ad-measurement">Read about advertising measurement</a>.</p>
+      <h2>Advertising measurement</h2>
+      <p>Allow the OpenAI Pixel to measure whether ChatGPT ads lead to enquiries? The site works either way. <a href="/ad-measurement">Read the details</a>.</p>
       <div className={styles.actions}>
         <button type="button" onClick={() => choose('declined')}>Decline</button>
         <button type="button" onClick={() => choose('accepted')}>Allow measurement</button>
