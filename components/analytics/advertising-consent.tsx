@@ -7,17 +7,24 @@ import styles from './advertising-consent.module.css'
 export function AdvertisingConsent() {
   const [open, setOpen] = useState(false)
   useEffect(() => {
+    const showAfterFirstScroll = () => {
+      if (readMeasurementConsent() === null) setOpen(true)
+    }
     const sync = () => {
       const consent = readMeasurementConsent()
       applyMeasurementConsent(consent)
-      setOpen(consent === null)
+      if (consent !== null) setOpen(false)
     }
     sync()
+    window.addEventListener('scroll', showAfterFirstScroll, { once: true, passive: true })
     const onStorage = (event: StorageEvent) => {
       if (event.key === AD_CONSENT_KEY || event.key === null) sync()
     }
     window.addEventListener('storage', onStorage)
-    return () => window.removeEventListener('storage', onStorage)
+    return () => {
+      window.removeEventListener('scroll', showAfterFirstScroll)
+      window.removeEventListener('storage', onStorage)
+    }
   }, [])
 
   function choose(consent: MeasurementConsent) {
