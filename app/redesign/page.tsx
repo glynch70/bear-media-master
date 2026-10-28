@@ -51,11 +51,6 @@ const socialContent = [
     alt: 'Kitchen Extension progress update social content created by Bear Media',
   },
   {
-    src: '/assets/uploads/new-work/eden-all-services.jpg',
-    desktopSrc: '/assets/uploads/new-work/eden-all-services.jpg',
-    alt: 'Eden all services social content created by Bear Media',
-  },
-  {
     src: '/assets/uploads/new-work/simply-sheds-before-after.jpg',
     desktopSrc: '/assets/uploads/new-work/simply-sheds-before-after.jpg',
     alt: 'Simply Sheds before and after social content created by Bear Media',

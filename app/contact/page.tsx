@@ -5,7 +5,8 @@ import styles from '@/app/redesign/redesign.module.css'
 import Link from 'next/link'
 import { RedesignFooter, RedesignHeader } from '@/app/redesign/redesign-chrome'
 import { useState, useRef, useSyncExternalStore } from 'react'
-import { enquiryServices } from '@/lib/enquiry-services'
+import { enquiryServices, enquiryServiceLabel } from '@/lib/enquiry-services'
+import { rememberCampaign } from '@/lib/campaign-attribution'
 import { trainingCampaign } from '@/lib/training-attribution'
 import { Phone, Mail, MapPin } from 'lucide-react'
 import Turnstile from 'react-turnstile'
@@ -38,7 +39,13 @@ export default function ContactPage() {
     submissionTime: 0,
   })
 
-  const selectedService = formState.service ?? (query.get('service') === 'training' ? 'training' : '')
+  const queryService = query.get('service')
+  const selectedService = formState.service ?? (enquiryServiceLabel(queryService) ? queryService! : '')
+  const messagePrompt = selectedService === 'property'
+    ? 'Send the property location, approximate size, target listing date and the media you need.'
+    : selectedService === 'social'
+      ? 'Tell me your business, location, current channels and the enquiries you want to encourage.'
+      : 'What do you need, where is the work and when would you like it? For training, tell me which tasks take up your time.'
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
@@ -100,6 +107,7 @@ export default function ContactPage() {
           message: formState.message,
           honeypot: formState.honeypot,
           turnstileToken: formState.turnstileToken,
+          attribution: rememberCampaign(search),
         }),
       })
 
@@ -114,18 +122,20 @@ export default function ContactPage() {
         return
       }
 
-      measureTrainingLead(selectedService, data.measurementEventId)
-
-      trackConversion('generate_lead', {
-        form_name: 'contact',
-        method: 'website_form',
-        service: selectedService || 'unspecified',
-        ...(selectedService === 'training' ? trainingCampaign(search) : {}),
-        ...(query.get('from') === 'training' ? { source_page: 'training' } : {}),
-      })
-
-      if (selectedService === 'training') {
-        trackConversion('training_enquiry_submitted', { method: 'website_form', ...trainingCampaign(search) })
+      const delivered = typeof data.measurementEventId === 'string' && data.measurementEventId.length > 0
+      if (delivered) {
+        measureTrainingLead(selectedService, data.measurementEventId)
+        trackConversion('generate_lead', {
+          form_name: 'contact',
+          method: 'website_form',
+          service: selectedService || 'unspecified',
+          ...rememberCampaign(search),
+          ...(selectedService === 'training' ? trainingCampaign(search) : {}),
+          ...(query.get('from') === 'training' ? { source_page: 'training' } : {}),
+        })
+        if (selectedService === 'training') {
+          trackConversion('training_enquiry_submitted', { method: 'website_form', ...trainingCampaign(search) })
+        }
       }
 
       setFormState((prev) => ({
@@ -254,7 +264,7 @@ export default function ContactPage() {
                   Thanks for reaching out.
                 </h2>
                 <p className="text-lg text-muted-foreground">
-                  I&apos;ll get back to you personally, usually within a day.
+                  I&apos;ll review your enquiry personally and usually reply within one working day.
                 </p>
               </div>
             ) : (
@@ -349,9 +359,9 @@ export default function ContactPage() {
                       maxLength={500}
                       aria-describedby="message-help"
                       className="w-full px-5 py-3.5 bg-background border border-foreground/10 rounded-2xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors resize-none disabled:opacity-50 disabled:cursor-not-allowed"
-                      placeholder="What do you need, where is the work and when would you like it? For training, tell me which tasks take up your time."
+                      placeholder={messagePrompt}
                     />
-                    <p id="message-help" className="text-sm text-muted-foreground">A short outline is enough — 10–500 characters. I’ll confirm the deliverables, timings and fee before work starts.</p>
+                    <p id="message-help" className="text-sm text-muted-foreground">{messagePrompt} A short outline is enough — 10–500 characters. I’ll confirm the deliverables, timings and fee before work starts.</p>
                   </div>
                   <input
                     type="text"
@@ -440,9 +450,7 @@ export default function ContactPage() {
               href="#top"
               onClick={(e) => {
                 e.preventDefault()
-    if (submitting.current || formState.submitted) return
-    submitting.current = true
-                window.scrollTo({ top: 0, behavior: 'smooth' })
+                document.getElementById('enquiry')?.scrollIntoView({ behavior: 'smooth' })
               }}
               className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-foreground font-medium rounded-full hover:opacity-90 transition-opacity text-lg"
             >

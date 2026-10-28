@@ -1,8 +1,6 @@
 import desktop from '@/components/desktop-refresh.module.css'
-import Image from 'next/image'
-import Link from 'next/link'
-import Navigation from '@/components/navigation'
-import Footer from '@/components/footer'
+import Link from '@/components/site-link'
+import { RedesignHeader, RedesignFooter } from '@/app/redesign/redesign-chrome'
 import { BreadcrumbSchema, ServiceSchema } from '@/components/structured-data'
 import { createMetadata, siteUrl } from '@/lib/seo'
 
@@ -20,7 +18,7 @@ const packages = [
     name: 'Consistent',
     price: '£700',
     description: 'A reliable presence without doing it all yourself.',
-    features: ['Facebook + Instagram', '1 post per week', '4 original posts/month', 'Captions + hashtags', 'Scheduling + publishing', '1 site visit/month', 'Monthly content planning', 'Monthly check-in'],
+    features: ['Facebook + Instagram', '1 original post each week, adapted for both channels', 'Five-week months included', 'Captions + hashtags', 'Scheduling approved posts', '1 visit/month, up to 1 hour', 'Local travel agreed before booking', 'Monthly planning + check-in', '1 consolidated revision round'],
   },
   {
     name: 'Growth',
@@ -40,7 +38,7 @@ const packages = [
 export default function SocialMediaPricingPage() {
   return (
     <>
-      <Navigation />
+      <RedesignHeader surface />
       <main className={`min-h-screen bg-background pt-28 md:pt-36 ${desktop.standardPage} ${desktop.pricingPage} ${desktop.servicePage}`}>
         <BreadcrumbSchema items={[{ name: 'Home', url: siteUrl }, { name: 'Services', url: `${siteUrl}/services` }, { name: 'Social Media Pricing', url: `${siteUrl}/social-media-pricing` }]} />
         <ServiceSchema
@@ -61,16 +59,19 @@ export default function SocialMediaPricingPage() {
             <div className="max-w-xl">
               <p className="mb-5 text-sm font-medium uppercase tracking-[0.18em] text-accent">Social media management</p>
               <h1 className="font-heading text-5xl font-medium tracking-tight text-foreground md:text-7xl">Social media made easier.</h1>
-              <p className="mt-6 text-xl leading-relaxed text-muted-foreground">Choose the level of support that fits your business. Every package combines consistent content with practical, human support.</p>
+              <p className="mt-6 text-xl leading-relaxed text-muted-foreground">Regular content built around your real work. You deal directly with me, from the monthly plan and agreed visit to the approved posts.</p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-base font-medium text-background transition hover:opacity-85">Talk about your business <span aria-hidden="true">→</span></Link>
-                <Link href="/services#social-media" className="inline-flex items-center rounded-full border border-border px-6 py-3.5 text-base font-medium text-foreground transition hover:border-accent hover:text-accent">See recent work</Link>
+                <Link href="/contact?service=social#enquiry" className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-base font-medium text-background transition hover:opacity-85">Talk about your business <span aria-hidden="true">→</span></Link>
+                <Link href="/projects/cg-developments" className="inline-flex items-center rounded-full border border-border px-6 py-3.5 text-base font-medium text-foreground transition hover:border-accent hover:text-accent">See previous project work</Link>
               </div>
             </div>
 
-            <div className="mx-auto w-full max-w-[540px] overflow-hidden rounded-[2rem] border border-border bg-white shadow-[0_24px_80px_rgba(0,0,0,0.10)]">
-              <Image src="/assets/services/social-media-management-pricing.png" alt="Bear Media social media management packages: Consistent £700 per month, Growth £950 per month, and Full content £1,200 per month" width={1080} height={1350} priority className="h-auto w-full" />
-            </div>
+            <aside className="rounded-3xl border border-border bg-secondary/50 p-8 md:p-10" aria-label="Consistent monthly support">
+              <p className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Consistent</p>
+              <p className="mt-4 font-heading text-5xl font-medium">£700<span className="ml-2 text-lg font-normal">/ month</span></p>
+              <p className="mt-5 text-lg leading-relaxed">One original post every week, adapted for Facebook and Instagram. One agreed monthly visit, planning, captions, scheduling and a check-in.</p>
+              <p className="mt-5 leading-relaxed text-muted-foreground">Five-week months included. Minimum three-month commitment. Bear Media is not VAT registered, so no VAT is added.</p>
+            </aside>
           </div>
         </section>
 
@@ -79,7 +80,8 @@ export default function SocialMediaPricingPage() {
             <div className="mb-10 max-w-2xl">
               <p className="mb-3 text-sm font-medium uppercase tracking-[0.18em] text-accent">What’s included</p>
               <h2 className="font-heading text-4xl font-medium tracking-tight text-foreground md:text-5xl">A clear starting point.</h2>
-              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">All packages include a minimum three-month commitment. Ad spend, extra filming, travel outside the agreed area and additional work are quoted separately.</p>
+              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">All packages include a minimum three-month commitment. No VAT is added. Ad spend, extra filming, travel outside the agreed area and additional work are quoted separately.</p>
+              <p className="mt-4 leading-relaxed text-muted-foreground">The £700 package covers one original post per week, adapted for two channels. The agreed visit lasts up to an hour. One consolidated revision round is included. Complex video edits, additional visits or channels, inbox and community management, paid advertising and website changes need a separate quote.</p>
             </div>
             <div className="grid gap-5 lg:grid-cols-3">
               {packages.map((item) => (
@@ -100,11 +102,11 @@ export default function SocialMediaPricingPage() {
 
         <section className="mx-auto max-w-3xl px-6 py-20 text-center md:py-28">
           <h2 className="font-heading text-4xl font-medium tracking-tight md:text-5xl">Not sure which package fits?</h2>
-          <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">Tell me what you’re trying to achieve and I’ll recommend the most sensible starting point.</p>
-          <Link href="/contact" className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-7 py-4 text-lg font-medium text-foreground transition hover:opacity-90">Start a conversation <span aria-hidden="true">→</span></Link>
+          <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">Tell me your business, location, current channels and the enquiries you want to encourage. I’ll recommend a realistic scope.</p>
+          <Link href="/contact?service=social#enquiry" className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-7 py-4 text-lg font-medium text-foreground transition hover:opacity-90">Start a conversation <span aria-hidden="true">→</span></Link>
         </section>
       </main>
-      <Footer />
+      <RedesignFooter />
     </>
   )
 }

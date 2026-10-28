@@ -1,8 +1,9 @@
 import desktop from '@/components/desktop-refresh.module.css'
 import { DesktopServiceImage } from '@/components/desktop-service-image'
 import type { Metadata } from 'next'
-import Navigation from '@/components/navigation'
-import Footer from '@/components/footer'
+import { RedesignHeader as Navigation, RedesignFooter as Footer } from '@/app/redesign/redesign-chrome'
+import Link from '@/components/site-link'
+import { SocialSupportOffer } from '@/components/services/social-support-offer'
 import { FAQPageSchema, ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
@@ -58,7 +59,7 @@ const faqs = [
 export default function SocialMediaEdinburgh() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Navigation />
+      <Navigation surface />
       <main className={`flex-1 ${desktop.standardPage} ${desktop.simpleService} ${desktop.servicePage}`}>
         <ServiceSchema
           name="Social Media Management in Edinburgh"
@@ -79,12 +80,14 @@ export default function SocialMediaEdinburgh() {
             <p className="text-lg md:text-xl text-muted-foreground mb-8">
               Transform your Edinburgh business's online presence with professional social media management. We help businesses across the Scottish capital engage their audience, build community, and drive real results on social platforms.
             </p>
-            <a href="/contact" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+            <Link href="/contact?service=social#enquiry" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
               Get Started Today
-            </a>
+            </Link>
           </div>
           <DesktopServiceImage src="/services/social media/Built the Right Way.webp" alt="Built the Right Way social content created by Bear Media" />
         </section>
+
+        <SocialSupportOffer />
 
         <section className="py-16 md:py-24 px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
@@ -144,36 +147,36 @@ export default function SocialMediaEdinburgh() {
               <li className="flex gap-4">
                 <span className="text-primary font-bold text-xl">✓</span>
                 <div>
-                  <h3 className="font-bold mb-2">Higher Engagement Rates</h3>
-                  <p className="text-muted-foreground">Professionally crafted content leads to meaningful interactions with your Edinburgh audience.</p>
+                  <h3 className="font-bold mb-2">Useful Project Stories</h3>
+                  <p className="text-muted-foreground">Show real projects and answer useful customer questions through agreed photography and content.</p>
                 </div>
               </li>
               <li className="flex gap-4">
                 <span className="text-primary font-bold text-xl">✓</span>
                 <div>
-                  <h3 className="font-bold mb-2">More Qualified Leads</h3>
-                  <p className="text-muted-foreground">Targeted strategies drive the right people to your business—Edinburgh residents genuinely interested in your services.</p>
+                  <h3 className="font-bold mb-2">A Clear Enquiry Route</h3>
+                  <p className="text-muted-foreground">Give interested people a clear way to enquire, and record those enquiries separately from views and clicks.</p>
                 </div>
               </li>
               <li className="flex gap-4">
                 <span className="text-primary font-bold text-xl">✓</span>
                 <div>
-                  <h3 className="font-bold mb-2">Improved Customer Loyalty</h3>
-                  <p className="text-muted-foreground">Active engagement and valuable content build lasting relationships with your Edinburgh customers.</p>
+                  <h3 className="font-bold mb-2">Updates for Existing Customers</h3>
+                  <p className="text-muted-foreground">Keep existing customers informed through relevant posts about your work and services.</p>
                 </div>
               </li>
               <li className="flex gap-4">
                 <span className="text-primary font-bold text-xl">✓</span>
                 <div>
-                  <h3 className="font-bold mb-2">Better Local Search Performance</h3>
-                  <p className="text-muted-foreground">Social signals boost your local SEO, helping Edinburgh residents find you online.</p>
+                  <h3 className="font-bold mb-2">More Ways to Discover Your Work</h3>
+                  <p className="text-muted-foreground">Useful content gives people more ways to discover your work and visit your website. We will track agreed actions and enquiries.</p>
                 </div>
               </li>
               <li className="flex gap-4">
                 <span className="text-primary font-bold text-xl">✓</span>
                 <div>
                   <h3 className="font-bold mb-2">Time and Resource Savings</h3>
-                  <p className="text-muted-foreground">Let us handle your social media so you can focus on your Edinburgh business.</p>
+                  <p className="text-muted-foreground">Let me handle your social media so you can focus on your Edinburgh business.</p>
                 </div>
               </li>
             </ul>
@@ -241,9 +244,9 @@ export default function SocialMediaEdinburgh() {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Grow Your Edinburgh Business on Social Media?</h2>
             <p className="text-lg mb-8 opacity-90">Let's discuss how professional social media management can help your Edinburgh business reach more customers.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/contact" className="bg-background text-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+              <Link href="/contact?service=social#enquiry" className="bg-background text-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
                 Schedule Consultation
-              </a>
+              </Link>
               <a href="/projects" className="border-2 border-current px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors">
                 View Our Work
               </a>

@@ -50,12 +50,6 @@ const socialContent = [
     desktopImage: '/assets/uploads/new-work/cg-kitchen-extension.jpg',
   },
   {
-    title: 'Eden · All Services',
-    desktopTitle: 'Eden · All Services',
-    image: '/assets/uploads/new-work/eden-all-services.jpg',
-    desktopImage: '/assets/uploads/new-work/eden-all-services.jpg',
-  },
-  {
     title: 'Simply Sheds · Before & After',
     href: '/projects/simply-sheds',
     desktopTitle: 'Simply Sheds · Before & After',
@@ -292,8 +286,8 @@ export default function RedesignServicesPage() {
                   </picture>
                 </div>
                 <figcaption>
-                  <span className={styles.mobileSocialTitle}>{'href' in item ? <Link href={item.href}>{item.title}</Link> : item.title}</span>
-                  <span className={styles.desktopSocialTitle}>{'href' in item ? <Link href={item.href}>{item.desktopTitle}</Link> : item.desktopTitle}</span>
+                  <span className={styles.mobileSocialTitle}>{<Link href={item.href}>{item.title}</Link>}</span>
+                  <span className={styles.desktopSocialTitle}>{<Link href={item.href}>{item.desktopTitle}</Link>}</span>
                 </figcaption>
               </figure>
             ))}
