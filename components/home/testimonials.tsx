@@ -19,14 +19,6 @@ const testimonials = [
     projectUrl: 'https://summone.co.uk/',
   },
   {
-    quote: 'Drone footage and photography completely changed how we show our developments. Made the process easy throughout.',
-    author: 'Kris Lewis',
-    title: 'K Lewis Joinery',
-    image: '/assets/testimonials/kris.webp',
-    initials: 'KL',
-    projectUrl: '/projects/cg-developments',
-  },
-  {
     quote: 'Gave my personal brand real consistency. Genuine, professional and a pleasure to work with.',
     author: 'Seamus Corry',
     title: 'Training Consultant',

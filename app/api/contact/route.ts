@@ -1,5 +1,6 @@
 import { Resend } from 'resend'
 import { enquiryServiceLabel } from '@/lib/enquiry-services'
+import { campaignAttribution } from '@/lib/campaign-attribution'
 import { NextRequest, NextResponse } from 'next/server'
 
 const getResendClient = () => {
@@ -12,7 +13,7 @@ const getResendClient = () => {
 
 const contactEmail = process.env.CONTACT_EMAIL || 'info@bear-media.com'
 const senderEmail = process.env.RESEND_SENDER_EMAIL || 'onboarding@resend.dev'
-const logoUrl = 'https://bear-media.com/assets/brand/logo.png'
+const logoUrl = 'https://bear-media.com/brand/bear-media-icon.png'
 
 // Simple in-memory rate limiting (store: IP -> count, timestamp)
 const rateLimitStore = new Map<string, { count: number; timestamp: number }>()
@@ -178,7 +179,7 @@ async function sendEmails(
             <p style="font-size: 16px; color: #000; margin-bottom: 16px;">Hi ${safeName},</p>
             
             <p style="font-size: 16px; color: #000; line-height: 1.6; margin-bottom: 16px;">
-              We've received your message and appreciate you taking the time to get in touch. Garry will review it personally and get back to you within 24 hours.
+              Thanks for getting in touch. Garry will review your enquiry personally and usually reply within one working day.
             </p>
 
             <p style="font-size: 16px; color: #000; line-height: 1.6; margin-bottom: 24px;">
@@ -274,13 +275,17 @@ export async function POST(request: NextRequest) {
 
     // Parse request
     const body = await request.json()
-    const { name, email, business, message, service, honeypot, turnstileToken } = body
+    if (!body || typeof body !== 'object' || Array.isArray(body)) {
+      return NextResponse.json({ success: false, error: 'Invalid form data' }, { status: 400 })
+    }
+    const { name, email, business, message, service, honeypot, turnstileToken, attribution } = body
 
     if (
       typeof name !== 'string'
       || typeof email !== 'string'
       || typeof message !== 'string'
       || (business !== undefined && typeof business !== 'string')
+      || (service !== undefined && typeof service !== 'string')
       || (honeypot !== undefined && typeof honeypot !== 'string')
       || (turnstileToken !== undefined && typeof turnstileToken !== 'string')
     ) {
@@ -331,7 +336,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Validate required fields
-    if (!name || !email || !message) {
+    if (!name.trim() || !email.trim() || !message.trim()) {
       return NextResponse.json(
         {
           success: false,
@@ -386,7 +391,12 @@ export async function POST(request: NextRequest) {
     }
 
     // Add the selected service only after validating the original message.
-    const enquiryMessage = serviceLabel ? `Service: ${serviceLabel}\n\n${sanitizedMessage}` : sanitizedMessage
+    const campaign = campaignAttribution(attribution)
+    const context = [
+      serviceLabel ? `Service: ${serviceLabel}` : '',
+      ...Object.entries(campaign).map(([key, value]) => `${key}: ${value}`),
+    ].filter(Boolean).join('\n')
+    const enquiryMessage = context ? `${context}\n\n${sanitizedMessage}` : sanitizedMessage
     const result = await sendEmails(sanitizedName, sanitizedEmail, sanitizedBusiness, enquiryMessage)
 
     if (!result.success) {

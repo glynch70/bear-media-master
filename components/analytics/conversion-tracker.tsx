@@ -1,6 +1,8 @@
 'use client'
 
 import { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
+import { rememberCampaign } from '@/lib/campaign-attribution'
 
 type ConversionParameters = Record<string, string | number | boolean>
 
@@ -11,10 +13,13 @@ declare global {
 }
 
 export function trackConversion(eventName: string, parameters: ConversionParameters = {}) {
-  window.gtag?.('event', eventName, parameters)
+  // Optional measurement must never interrupt a successful enquiry.
+  try { window.gtag?.('event', eventName, parameters) } catch { /* Keep the form usable. */ }
 }
 
 export function ConversionTracker() {
+  const pathname = usePathname()
+  useEffect(() => { rememberCampaign(window.location.search) }, [pathname])
   useEffect(() => {
     const handleClick = (event: MouseEvent) => {
       const target = event.target
@@ -24,20 +29,21 @@ export function ConversionTracker() {
       if (!link) return
 
       const href = link.getAttribute('href') ?? ''
+      const attribution = rememberCampaign(window.location.search)
       const label = link.textContent?.replace(/\s+/g, ' ').trim().slice(0, 100) || 'Unlabelled link'
 
       if (href.startsWith('tel:')) {
-        trackConversion('phone_click', { link_url: href, link_text: label })
+        trackConversion('phone_click', { link_url: href.split('?')[0], link_text: label, ...attribution })
         return
       }
 
       if (href.startsWith('mailto:')) {
-        trackConversion('email_click', { link_url: href, link_text: label })
+        trackConversion('email_click', { link_url: href.split('?')[0], link_text: label, ...attribution })
         return
       }
 
       if (href === '/contact' || href.startsWith('/contact?')) {
-        trackConversion('cta_click', { link_url: href, link_text: label })
+        trackConversion('cta_click', { link_url: '/contact', link_text: label, ...attribution })
       }
     }
 

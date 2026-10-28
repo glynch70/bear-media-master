@@ -1,8 +1,9 @@
 import desktop from '@/components/desktop-refresh.module.css'
 import { DesktopServiceImage } from '@/components/desktop-service-image'
 import type { Metadata } from 'next'
-import Navigation from '@/components/navigation'
-import Footer from '@/components/footer'
+import { RedesignHeader as Navigation, RedesignFooter as Footer } from '@/app/redesign/redesign-chrome'
+import Link from '@/components/site-link'
+import { SocialSupportOffer } from '@/components/services/social-support-offer'
 import { FAQPageSchema, ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
@@ -74,7 +75,7 @@ const faqs = [
 export default function SocialMediaWestLothian() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Navigation />
+      <Navigation surface />
       <main className={`flex-1 ${desktop.standardPage} ${desktop.simpleService} ${desktop.servicePage}`}>
         <ServiceSchema
           name="Social Media West Lothian"
@@ -99,12 +100,14 @@ export default function SocialMediaWestLothian() {
             <p className="text-lg md:text-xl text-muted-foreground mb-8">
               Practical social media management for West Lothian businesses, from Livingston and Broxburn to Linlithgow. I can help you plan, create and manage content that gives your audience a reason to pay attention.
             </p>
-            <a href="/contact" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+            <Link href="/contact?service=social#enquiry" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
               Get Started Today
-            </a>
+            </Link>
           </div>
           <DesktopServiceImage src="/services/social media/Built the Right Way.webp" alt="Built the Right Way social content created by Bear Media" />
         </section>
+
+        <SocialSupportOffer />
 
         {/* Introduction */}
         <section className="py-16 md:py-24 px-4 md:px-6">
@@ -151,7 +154,7 @@ export default function SocialMediaWestLothian() {
               <div>
                 <h3 className="text-xl font-bold mb-3">Paid Social Advertising</h3>
                 <p className="text-muted-foreground">
-                  Strategic paid campaigns on Facebook, Instagram, and LinkedIn targeting West Lothian residents. Maximize ROI with professionally managed ad spend.
+                  Strategic paid campaigns on Facebook, Instagram, and LinkedIn targeting West Lothian residents. Ad management and media spend are scoped and agreed separately.
                 </p>
               </div>
               <div>
@@ -174,43 +177,43 @@ export default function SocialMediaWestLothian() {
                 <div>
                   <h3 className="font-bold mb-2">Increased Brand Awareness</h3>
                   <p className="text-muted-foreground">
-                    Build recognition across West Lothian with consistent, professional presence on all major social platforms.
+                    Keep a consistent presence on the channels we agree are useful for your business.
                   </p>
                 </div>
               </li>
               <li className="flex gap-4">
                 <span className="text-primary font-bold text-xl">✓</span>
                 <div>
-                  <h3 className="font-bold mb-2">Higher Engagement Rates</h3>
+                  <h3 className="font-bold mb-2">Useful Project Stories</h3>
                   <p className="text-muted-foreground">
-                    Professionally crafted content and active community management lead to meaningful interactions with your audience.
+                    Photography, captions and simple content built around the projects and questions your audience cares about.
                   </p>
                 </div>
               </li>
               <li className="flex gap-4">
                 <span className="text-primary font-bold text-xl">✓</span>
                 <div>
-                  <h3 className="font-bold mb-2">More Qualified Leads</h3>
+                  <h3 className="font-bold mb-2">A Clear Enquiry Route</h3>
                   <p className="text-muted-foreground">
-                    Targeted social media strategies drive the right people to your business—locals in West Lothian who are genuinely interested in your services.
+                    Give interested people a clear way to ask about your services. We will record genuine enquiries separately from views and clicks.
                   </p>
                 </div>
               </li>
               <li className="flex gap-4">
                 <span className="text-primary font-bold text-xl">✓</span>
                 <div>
-                  <h3 className="font-bold mb-2">Improved Customer Loyalty</h3>
+                  <h3 className="font-bold mb-2">Updates for Existing Customers</h3>
                   <p className="text-muted-foreground">
-                    Active engagement and valuable content help build lasting relationships with your West Lothian customers.
+                    Keep existing customers informed about your work and services through agreed, relevant posts.
                   </p>
                 </div>
               </li>
               <li className="flex gap-4">
                 <span className="text-primary font-bold text-xl">✓</span>
                 <div>
-                  <h3 className="font-bold mb-2">Better Local Search Performance</h3>
+                  <h3 className="font-bold mb-2">More Ways to Discover Your Work</h3>
                   <p className="text-muted-foreground">
-                    Social signals boost your local SEO, helping West Lothian residents find your business when searching for services.
+                    Useful content gives people more ways to discover your work and visit your website. We will track agreed actions and enquiries.
                   </p>
                 </div>
               </li>
@@ -322,9 +325,9 @@ export default function SocialMediaWestLothian() {
               Let’s discuss how a practical social media plan could support your business in West Lothian and the surrounding area.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/contact" className="bg-background text-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+              <Link href="/contact?service=social#enquiry" className="bg-background text-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
                 Schedule Consultation
-              </a>
+              </Link>
               <a href="/projects" className="border-2 border-current px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors">
                 View My Work
               </a>

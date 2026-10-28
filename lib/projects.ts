@@ -363,13 +363,7 @@ export const projects: Project[] = [
       title: '3 month social media performance report',
       description: 'The campaign generated strong organic growth across Facebook and YouTube, with no paid advertising.',
     },
-    testimonial: {
-      quote:
-        'Garry made the whole process easy. The drone footage and photography completely changed how we show our developments.',
-      author: 'Rachel',
-      role: 'C&G Developments',
-      image: '/assets/client-work/cg-developments/extension-project-review.jpg',
-    },
+
   },
   {
     id: 2,

@@ -1,8 +1,9 @@
 import desktop from '@/components/desktop-refresh.module.css'
 import { DesktopServiceImage } from '@/components/desktop-service-image'
 import type { Metadata } from 'next'
-import Navigation from '@/components/navigation'
-import Footer from '@/components/footer'
+import { RedesignHeader as Navigation, RedesignFooter as Footer } from '@/app/redesign/redesign-chrome'
+import Link from '@/components/site-link'
+import { SocialSupportOffer } from '@/components/services/social-support-offer'
 import { FAQPageSchema, ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
@@ -66,7 +67,7 @@ const faqs = [
 export default function SocialMediaFife() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Navigation />
+      <Navigation surface />
       <main className={`flex-1 ${desktop.standardPage} ${desktop.simpleService} ${desktop.servicePage}`}>
         <ServiceSchema
           name="Social Media Management in Fife"
@@ -84,10 +85,12 @@ export default function SocialMediaFife() {
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">Social Media Management Services in Fife</h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8">Grow your Fife business's online presence with professional social media management. We help businesses across Fife engage their audience, build community, and drive results on social platforms.</p>
-            <a href="/contact" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">Get Started Today</a>
+            <Link href="/contact?service=social#enquiry" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">Get Started Today</Link>
           </div>
           <DesktopServiceImage src="/services/social media/Built the Right Way.webp" alt="Built the Right Way social content created by Bear Media" />
         </section>
+
+        <SocialSupportOffer />
         <section className="py-16 md:py-24 px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-6">Social Media for Fife Businesses</h2>
@@ -113,11 +116,11 @@ export default function SocialMediaFife() {
             <h2 className="text-3xl font-bold mb-12">Benefits of Professional Social Media Management</h2>
             <ul className="space-y-6">
               <li className="flex gap-4"><span className="text-primary font-bold text-xl">✓</span><div><h3 className="font-bold mb-2">Increased Brand Awareness</h3><p className="text-muted-foreground">Build recognition across Fife with consistent, professional social presence.</p></div></li>
-              <li className="flex gap-4"><span className="text-primary font-bold text-xl">✓</span><div><h3 className="font-bold mb-2">Higher Engagement Rates</h3><p className="text-muted-foreground">Professional content leads to meaningful interactions with your Fife audience.</p></div></li>
-              <li className="flex gap-4"><span className="text-primary font-bold text-xl">✓</span><div><h3 className="font-bold mb-2">More Qualified Leads</h3><p className="text-muted-foreground">Targeted strategies drive interested Fife residents to your business.</p></div></li>
-              <li className="flex gap-4"><span className="text-primary font-bold text-xl">✓</span><div><h3 className="font-bold mb-2">Improved Customer Loyalty</h3><p className="text-muted-foreground">Active engagement builds lasting relationships with your Fife customers.</p></div></li>
-              <li className="flex gap-4"><span className="text-primary font-bold text-xl">✓</span><div><h3 className="font-bold mb-2">Better Local Search Performance</h3><p className="text-muted-foreground">Social signals boost your local SEO for Fife searches.</p></div></li>
-              <li className="flex gap-4"><span className="text-primary font-bold text-xl">✓</span><div><h3 className="font-bold mb-2">Time Savings</h3><p className="text-muted-foreground">Let us handle social media while you focus on your Fife business.</p></div></li>
+              <li className="flex gap-4"><span className="text-primary font-bold text-xl">✓</span><div><h3 className="font-bold mb-2">Useful Project Stories</h3><p className="text-muted-foreground">Show real projects and answer useful questions with photography, captions and agreed content.</p></div></li>
+              <li className="flex gap-4"><span className="text-primary font-bold text-xl">✓</span><div><h3 className="font-bold mb-2">A Clear Enquiry Route</h3><p className="text-muted-foreground">Provide a clear contact route and record genuine enquiries separately from views and clicks.</p></div></li>
+              <li className="flex gap-4"><span className="text-primary font-bold text-xl">✓</span><div><h3 className="font-bold mb-2">Updates for Existing Customers</h3><p className="text-muted-foreground">Keep existing customers informed through agreed, relevant posts.</p></div></li>
+              <li className="flex gap-4"><span className="text-primary font-bold text-xl">✓</span><div><h3 className="font-bold mb-2">More Ways to Discover Your Work</h3><p className="text-muted-foreground">Useful content gives people more ways to discover your work and visit your website. We will track agreed actions and enquiries.</p></div></li>
+              <li className="flex gap-4"><span className="text-primary font-bold text-xl">✓</span><div><h3 className="font-bold mb-2">Time Savings</h3><p className="text-muted-foreground">Let me handle social media while you focus on your Fife business.</p></div></li>
             </ul>
           </div>
         </section>
@@ -150,7 +153,7 @@ export default function SocialMediaFife() {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Grow Your Fife Business on Social Media?</h2>
             <p className="text-lg mb-8 opacity-90">Let's discuss how professional social media management can help your Fife business reach more customers.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/contact" className="bg-background text-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">Schedule Consultation</a>
+              <Link href="/contact?service=social#enquiry" className="bg-background text-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">Schedule Consultation</Link>
               <a href="/projects" className="border-2 border-current px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors">View Our Work</a>
             </div>
           </div>

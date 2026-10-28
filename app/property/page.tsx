@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Link from 'next/link'
+import Link from '@/components/site-link'
 import { RedesignFooter, RedesignHeader } from '@/app/redesign/redesign-chrome'
 import chrome from '@/app/redesign/redesign.module.css'
 import { MuxVideoPlayer } from '@/components/mux-video-player'
@@ -61,7 +61,7 @@ export default function PropertyPage() {
               <h1 id="property-title">PROPERTY MEDIA</h1>
               <p className={styles.intro}>Property photography, horizontal and vertical video, drone photography and floor plans, with optional 360° virtual tours for estate agents, letting agents and developers across Edinburgh, West Lothian, East Lothian and Central Scotland.</p>
               <div className={styles.actions}>
-                <Link href="/contact#enquiry" className={styles.button}>Discuss a property</Link>
+                <Link href="/contact?service=property#enquiry" className={styles.button}>Discuss a property</Link>
                 <a href="#burnet-crescent" className={styles.secondary}>View property work</a>
               </div>
             </div>
@@ -105,14 +105,14 @@ export default function PropertyPage() {
           <section className={styles.section} aria-labelledby="layout-title">
             <div className={styles.heading}><p className={styles.eyebrow}>Beyond the photographs</p><h2 id="layout-title">Help buyers understand the layout</h2></div>
             <div className={styles.deliverableSections}>
-              <div id="floor-plans"><h3>Floor plans</h3><p>A floor plan helps buyers understand how rooms connect. I can include one in the agreed brief; tell me which listing platform or printed particulars you need it for.</p><Link href="/contact#enquiry" className={styles.link}>Discuss a floor plan <span aria-hidden="true">↗</span></Link></div>
-              <div id="virtual-tours"><h3>360° virtual tours on request</h3><p>Available on request, a 360° tour lets viewers look around before arranging a viewing. Ask about availability, hosting and how to add the tour to your property listing.</p><Link href="/contact#enquiry" className={styles.link}>Discuss a virtual tour <span aria-hidden="true">↗</span></Link></div>
+              <div id="floor-plans"><h3>Floor plans</h3><p>A floor plan helps buyers understand how rooms connect. I can include one in the agreed brief; tell me which listing platform or printed particulars you need it for.</p><Link href="/contact?service=property#enquiry" className={styles.link}>Discuss a floor plan <span aria-hidden="true">↗</span></Link></div>
+              <div id="virtual-tours"><h3>360° virtual tours on request</h3><p>Available on request, a 360° tour lets viewers look around before arranging a viewing. Ask about availability, hosting and how to add the tour to your property listing.</p><Link href="/contact?service=property#enquiry" className={styles.link}>Discuss a virtual tour <span aria-hidden="true">↗</span></Link></div>
             </div>
           </section>
         </div>
         <section id="property-pricing" className={`${styles.soft} ${styles.section}`} aria-labelledby="property-brief-title"><div className={styles.wrap}>
           <div className={styles.heading}><p className={styles.eyebrow}>Let’s discuss your property</p><h2 id="property-brief-title">Built around the property</h2><p>Send the property address, type, approximate size, target listing date and the media you need. I’ll confirm access, discuss a suitable combination of services and quote for the agreed work.</p></div>
-          <Link href="/contact#enquiry" className={styles.button}>Contact me about a property</Link>
+          <Link href="/contact?service=property#enquiry" className={styles.button}>Contact me about a property</Link>
           <p className={styles.note}><strong>Regular property requirements?</strong> Get in touch to discuss ongoing property media support.</p>
         </div></section>
         <div className={styles.wrap}>
@@ -127,7 +127,7 @@ export default function PropertyPage() {
         </div>
         <section className={styles.soft} aria-labelledby="enquiry-title"><div className={`${styles.wrap} ${styles.closing}`}>
           <p className={styles.eyebrow}>Let’s talk</p><h2 id="enquiry-title">Need professional property marketing?</h2><p>Photography, video, drone footage, floor plans and 360° virtual tours on request for estate agents and property businesses across Edinburgh and the Lothians.</p>
-          <div className={styles.actions}><Link href="/contact#enquiry" className={styles.button}>Get in touch with Bear Media</Link></div>
+          <div className={styles.actions}><Link href="/contact?service=property#enquiry" className={styles.button}>Get in touch with Bear Media</Link></div>
           <div className={styles.contactDetails}><a href="mailto:info@bear-media.com?subject=Property%20media%20enquiry">info@bear-media.com</a><a href="tel:+447879011860">07879 011860</a></div>
         </div></section>
       </main>
