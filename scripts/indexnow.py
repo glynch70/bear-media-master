@@ -137,8 +137,12 @@ def previous_state():
     token, repo = os.getenv('GH_TOKEN'), os.getenv('GITHUB_REPOSITORY')
     if token and repo:
         headers = {'Authorization': f'Bearer {token}', 'Accept': 'application/vnd.github+json'}
-        _, _, _, body = request(f'https://api.github.com/repos/{repo}/actions/artifacts?name=indexnow-state&per_page=20', headers=headers)
-        for artifact in json.loads(body)['artifacts']:
+        _, _, _, body = request(f'https://api.github.com/repos/{repo}/actions/artifacts?name=indexnow-state&per_page=100', headers=headers)
+        # API order is not guaranteed to match completion time (IDs can differ
+        # across storage regions). Always use the newest completed snapshot.
+        artifacts = sorted(json.loads(body)['artifacts'],
+                           key=lambda item: (item['created_at'], item['id']), reverse=True)
+        for artifact in artifacts:
             if artifact['expired']:
                 continue
             # GitHub serves artifacts via a short-lived redirect to its storage.

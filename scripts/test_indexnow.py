@@ -1,7 +1,9 @@
 import json
+import io
 from pathlib import Path
 import tempfile
 import unittest
+import zipfile
 from unittest.mock import patch
 from urllib.request import Request
 
@@ -60,6 +62,21 @@ class IndexNowTests(unittest.TestCase):
         req = Request('https://api.github.com/artifact', headers={'Authorization': 'Bearer test'})
         redirected = indexnow.SafeRedirect().redirect_request(req, None, 302, 'Found', {}, 'https://storage.example/file.zip')
         self.assertIsNone(redirected.get_header('Authorization'))
+
+    def test_restores_most_recent_state_regardless_of_api_order(self):
+        artifacts = {'artifacts': [
+            {'id': 300, 'created_at': '2026-10-31T12:00:00Z', 'expired': False, 'archive_download_url': 'https://api.github.com/old'},
+            {'id': 200, 'created_at': '2026-10-31T12:05:00Z', 'expired': False, 'archive_download_url': 'https://api.github.com/new'},
+        ]}
+        state = {'version': 1, 'origin': indexnow.ORIGIN, 'pages': {URL: 'latest'}}
+        archive = io.BytesIO()
+        with zipfile.ZipFile(archive, 'w') as files:
+            files.writestr('indexnow-state.json', json.dumps(state))
+        responses = [(200, '', {}, json.dumps(artifacts).encode()),
+                     (200, '', {}, archive.getvalue())]
+        with patch.dict('os.environ', {'GH_TOKEN': 'test', 'GITHUB_REPOSITORY': 'test/repo'}), patch.object(indexnow, 'request', side_effect=responses) as fetch:
+            self.assertEqual(indexnow.previous_state(), state)
+            self.assertEqual(fetch.call_args.args[0], 'https://api.github.com/new')
 
     def test_failed_submission_does_not_advance_state(self):
         state = {'version': 1, 'origin': indexnow.ORIGIN, 'pages': {URL: 'new'}}
