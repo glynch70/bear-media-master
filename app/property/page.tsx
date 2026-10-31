@@ -8,6 +8,7 @@ import { createMetadata, siteUrl } from '@/lib/seo'
 import { getProject } from '@/lib/projects'
 import styles from './property.module.css'
 import { BurnetCrescentGallery } from '@/components/property/burnet-crescent-gallery'
+import { PropertyWalkthrough } from '@/components/projects/property-walkthrough'
 
 export const metadata = {
   ...createMetadata({
@@ -95,6 +96,7 @@ export default function PropertyPage() {
             <p id="property-film-description" className={styles.note}>C&amp;G Developments · A 104-second construction timeline, filmed and edited by Bear Media</p>
             <Link href="/projects/cg-developments" className={styles.link}>View the development project <span aria-hidden="true">↗</span></Link>
           </section>
+          <PropertyWalkthrough />
           <section id="property-drone" className={styles.section} aria-labelledby="drone-title">
             <div className={styles.heading}><p className={styles.eyebrow}>Drone photography &amp; video</p><h2 id="drone-title">The property in context</h2><p>Show the garden, surrounding streets and wider setting. Drone work depends on weather, airspace and safe access; I check the location before confirming aerial work.</p></div>
             <div className={styles.drone}>

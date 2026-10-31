@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import { ArrowUpRight } from 'lucide-react'
 import { BurnetCrescentGallery } from '@/components/property/burnet-crescent-gallery'
 import { ProjectHero } from '@/components/projects/project-hero'
+import { PropertyWalkthrough } from '@/components/projects/property-walkthrough'
 import { MuxVideoPlayer } from '@/components/mux-video-player'
 import { getProject, projects } from '@/lib/projects'
 import { createMetadata } from '@/lib/seo'
@@ -169,6 +170,8 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
             </div>
           </section>
         ) : null}
+
+        {project.slug === 'cg-developments' ? <PropertyWalkthrough /> : null}
 
         {project.slug === 'david-todd' ? <BurnetCrescentGallery /> : null}
 

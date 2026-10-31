@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
+import { PropertyWalkthrough } from '@/components/projects/property-walkthrough'
 import { siteUrl } from '@/lib/seo'
 import { BreadcrumbSchema, ServiceSchema } from '@/components/structured-data'
 
@@ -108,6 +109,8 @@ export default function PropertyPhotographyWestLothian() {
             </div>
           </div>
         </section>
+
+        <PropertyWalkthrough />
 
         <section className="bg-primary px-6 py-20 text-primary-foreground md:py-28">
           <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
