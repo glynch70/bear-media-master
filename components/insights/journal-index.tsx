@@ -97,7 +97,7 @@ function FeaturedArticle({ article }: { article: InsightArticle }) {
         className="group mx-auto grid max-w-7xl grid-cols-1 overflow-hidden rounded-3xl border border-border/70 bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 lg:grid-cols-[1.12fr_0.88fr]"
         aria-label={`Read featured article: ${article.title}`}
       >
-        <div data-shared-image data-reveal="image" className="relative aspect-[16/9] overflow-hidden bg-muted">
+        <div data-shared-image data-reveal="image" className="relative aspect-[16/9] overflow-hidden bg-muted" style={article.featuredImage.aspectRatio ? { aspectRatio: article.featuredImage.aspectRatio } : undefined}>
           <Image
             src={article.featuredImage.src}
             alt={article.featuredImage.alt}

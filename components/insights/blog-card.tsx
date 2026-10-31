@@ -19,6 +19,7 @@ export function BlogCard({ article, priority = false }: { article: InsightArticl
         data-shared-image data-reveal="image"
         className="relative block aspect-[16/9] overflow-hidden bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
         aria-label={`Read ${article.title}`}
+        style={article.featuredImage.aspectRatio ? { aspectRatio: article.featuredImage.aspectRatio } : undefined}
       >
         <Image
           src={article.featuredImage.src}

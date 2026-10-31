@@ -22,11 +22,21 @@ export type InsightBodyBlock =
       type: 'heading'
       text: string
     }
+  | {
+      type: 'image'
+      src: string
+      alt: string
+      caption: string
+      width: number
+      height: number
+    }
 
 export type InsightArticle = {
   slug: string
   href?: string
   indexable?: boolean
+  draft?: boolean
+  standfirst?: string
   servicePaths?: readonly string[]
   contentLinks?: readonly ContentLink[]
   title: string
@@ -45,6 +55,8 @@ export type InsightArticle = {
   featuredImage: {
     src: string
     alt: string
+    caption?: string
+    aspectRatio?: string
   }
   body: InsightBodyBlock[]
   source: {
@@ -58,6 +70,77 @@ function articleBody(paragraphs: string[]): InsightBodyBlock[] {
 }
 
 export const insights: InsightArticle[] = [
+  {
+    slug: 'recent-property-photography-and-video',
+    title: 'Showing a home properly: recent property work at Bear Media',
+    metaTitle: 'Recent Property Photography & Video | Bear Media',
+    metaDescription: 'Explore recent Bear Media property work, including Burnet Crescent photography for David Todd and a C&G Developments walkthrough video.',
+    excerpt: 'A look at the photography, walkthrough videos and small details behind the property work I’ve been adding to the Bear Media portfolio.',
+    standfirst: 'A look at the photography, walkthrough videos and small details behind the property work I’ve been adding to the Bear Media portfolio.',
+    category: 'Photography',
+    publishedDate: '2026-10-31',
+    modifiedDate: '2026-10-31',
+    readTime: '3 min read',
+    author: { name: 'Garry Lynch', role: 'Founder of Bear Media', url: '/about' },
+    servicePaths: ['/property', '/property-photography-west-lothian', '/video-production-west-lothian'],
+    contentLinks: [
+      { text: 'property walkthrough for C&G Developments', href: 'https://www.youtube.com/shorts/eWbV3-Okd4M' },
+      { text: 'C&G Developments case study', href: '/projects/cg-developments' },
+      { text: 'take a look at Bear Media’s property work', href: '/property' },
+    ],
+    featuredImage: {
+      src: '/assets/projects/david-todd/burnet-crescent/10-burnet-crescent-front-exterior.webp',
+      alt: 'Front exterior of 10 Burnet Crescent, showing its pale facade, arched entrance and adjoining garage',
+      caption: '10 Burnet Crescent, photographed for David Todd Sales & Lettings.',
+      aspectRatio: '2048 / 1463',
+    },
+    body: [
+      { type: 'paragraph', text: 'A property has a lot to communicate before someone walks through the door.' },
+      { type: 'paragraph', text: 'There’s the layout, the light, the garden and the surroundings. Then there are the things that give it character: a room lined with books, a welcoming entrance or the finish of a kitchen.' },
+      {
+        type: 'image',
+        src: '/images/journal/recent-property-work/kitchen-island-garden-view.webp',
+        alt: 'Open-plan kitchen with a pale island worktop, blue cabinetry, orange bar stools and garden-facing doors',
+        caption: 'Light, layout and the connection to the garden in one view.',
+        width: 1086,
+        height: 1448,
+      },
+      { type: 'paragraph', text: 'Some of the recent additions to my portfolio bring those different parts together. They’re a useful example of how I approach property content at Bear Media.' },
+      { type: 'heading', text: 'Giving each home its own story' },
+      { type: 'paragraph', text: 'I recently added a selection of photographs from 10 Burnet Crescent in East Saltoun, created for David Todd Sales & Lettings.' },
+      { type: 'paragraph', text: 'The collection moves from the front exterior through the living spaces, library, kitchen and bedroom, before heading outside to the garden and patio.' },
+      { type: 'paragraph', text: 'That sequence matters. Each photograph should add something to the viewer’s understanding of the home. The exterior introduces the building. The living spaces show how it feels inside. The garden photographs complete the picture.' },
+      {
+        type: 'image',
+        src: '/assets/projects/david-todd/burnet-crescent/10-burnet-crescent-library.webp',
+        alt: 'Library at 10 Burnet Crescent, with full bookshelves, reading chairs and a large window',
+        caption: 'The library gives this home a distinctive part of its visual story.',
+        width: 2048,
+        height: 1463,
+      },
+      { type: 'paragraph', text: 'The library is a good example of why individual rooms deserve attention. The bookshelves, seating and window give the photograph a clear purpose: showing a space someone could imagine spending time in.' },
+      { type: 'heading', text: 'Adding movement with a walkthrough' },
+      { type: 'paragraph', text: 'I’ve also added a property walkthrough for C&G Developments, showcasing interior design, craftsmanship and finishing details.' },
+      { type: 'paragraph', text: 'Photography gives someone time to study a space. A walkthrough adds movement and a different sense of how the property comes together.' },
+      { type: 'paragraph', text: 'For a developer, that also creates an opportunity to show the work in context. Viewers can see the finished rooms and how individual details sit within the wider home.' },
+      {
+        type: 'image',
+        src: '/assets/client-work/cg-developments/finished-kitchen-wide.jpg',
+        alt: 'Finished C&G Developments kitchen, with dark blue cabinetry, pale worktops and a central island',
+        caption: 'A finished kitchen from the wider C&G Developments project portfolio.',
+        width: 2048,
+        height: 1365,
+      },
+      { type: 'paragraph', text: 'You can explore more of the photography and films in the C&G Developments case study.' },
+      { type: 'heading', text: 'Planning for where the content will be used' },
+      { type: 'paragraph', text: 'Property content needs to work in several places: a listing, an agent’s website, a developer’s portfolio or a social media feed.' },
+      { type: 'paragraph', text: 'That’s why agreeing the intended use before the shoot is useful. A landscape photograph and a vertical video need different framing. Thinking about both early helps keep important details visible in the final version.' },
+      { type: 'paragraph', text: 'For anyone preparing a property, a few straightforward steps help too: clear surfaces, open curtains and have the rooms ready before photography begins. That leaves more time to concentrate on composition and the details worth showing.' },
+      { type: 'paragraph', text: 'My aim is to give each property a clear, consistent visual story, with useful material for the places it needs to appear.' },
+      { type: 'paragraph', text: 'If you’re an agent, developer or business with a property to showcase, take a look at Bear Media’s property work and get in touch to discuss what you need.' },
+    ],
+    source: { type: 'structured', futureFormats: ['md', 'mdx'] },
+  },
   {
     slug: 'my-process',
     href: '/journal/my-process',

@@ -43,15 +43,16 @@ export function ArticleTemplate({
             <ArrowLeft className="h-4 w-4" aria-hidden="true" />
             Back to The Bear Media Journal
           </Link>
+          {article.draft && <p className="mb-4 text-sm font-medium text-accent">Draft preview · Awaiting review</p>}
           <CategoryBadge category={article.category} />
           <h1 data-motion-title className="mt-6 font-heading text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.03] tracking-tight text-balance">
             {article.title}
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-foreground/65 md:text-lg">
-            Written from my own experience building websites, creating content and using AI with real clients across Scotland.
+            {article.standfirst ?? 'Written from my own experience building websites, creating content and using AI with real clients across Scotland.'}
           </p>
           <div className="mt-8 grid gap-3 border-y border-border/70 py-5 text-sm text-foreground/65 sm:grid-cols-2 lg:grid-cols-5">
-            <MetadataItem label="Published" value={published} dateTime={article.publishedDate} />
+            <MetadataItem label={article.draft ? 'Draft date' : 'Published'} value={published} dateTime={article.publishedDate} />
             <MetadataItem label="Updated" value={updated} dateTime={article.modifiedDate} />
             <MetadataItem label="Read time" value={article.readTime} />
             <MetadataItem label="Category" value={article.category} />
@@ -61,7 +62,7 @@ export function ArticleTemplate({
       </section>
 
       <section className="px-6 lg:px-8">
-        <div data-motion-hero className="relative mx-auto aspect-[16/9] max-w-6xl overflow-hidden rounded-3xl bg-muted">
+        <div data-motion-hero className="relative mx-auto aspect-[16/9] max-w-6xl overflow-hidden rounded-3xl bg-muted" style={article.featuredImage.aspectRatio ? { aspectRatio: article.featuredImage.aspectRatio } : undefined}>
           <Image
             src={article.featuredImage.src}
             alt={article.featuredImage.alt}
@@ -71,6 +72,9 @@ export function ArticleTemplate({
             className="object-cover"
           />
         </div>
+        {article.featuredImage.caption && (
+          <p className="mx-auto mt-3 max-w-6xl text-sm leading-relaxed text-muted-foreground">{article.featuredImage.caption}</p>
+        )}
       </section>
 
       <section className="px-6 py-14 md:py-20 lg:px-8">
@@ -78,6 +82,14 @@ export function ArticleTemplate({
           <article className="max-w-[760px]">
             <div className="space-y-8 text-xl leading-[1.75] text-foreground/78 md:text-[1.55rem] md:leading-[1.7]">
               {article.body.map((block, index) => {
+                if (block.type === 'image') {
+                  return (
+                    <figure key={`${block.src}-${index}`}>
+                      <Image src={block.src} alt={block.alt} width={block.width} height={block.height} sizes="(max-width: 1024px) calc(100vw - 48px), 720px" className="h-auto w-full rounded-2xl" />
+                      <figcaption className="mt-3 text-sm leading-relaxed text-muted-foreground">{block.caption}</figcaption>
+                    </figure>
+                  )
+                }
                 if (block.type === 'heading') {
                   return (
                     <h2 key={`${block.text}-${index}`} className="pt-8 font-heading text-3xl font-medium leading-tight tracking-tight text-foreground md:text-4xl">
