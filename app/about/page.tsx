@@ -266,6 +266,21 @@ export default function AboutPage() {
           </div>
         </section>
 
+        <section className="w-full bg-background pb-12 md:pb-16">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <p className="max-w-2xl text-lg text-muted-foreground leading-relaxed">
+              The planning, writing and editing happen at my desk in West Lothian.
+              Take a look at the workspace that keeps client content moving.
+            </p>
+            <Link
+              href="/journal/workspace-setup"
+              className="mt-2 inline-flex min-h-11 items-center rounded-sm py-2 text-lg font-medium text-foreground underline decoration-accent underline-offset-4 transition hover:decoration-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
+            >
+              Inside the Bear Media workspace
+            </Link>
+          </div>
+        </section>
+
         {/* ─── Trusted Partners ─────────────────────────────────────────── */}
         <section className="w-full bg-background pt-4 pb-12 md:pb-16">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">

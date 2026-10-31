@@ -12,6 +12,11 @@ export type JournalPageData = {
     objectPosition?: string
   }
   content: string[]
+  furtherReading?: {
+    text: string
+    label: string
+    href: string
+  }
   inlineImageAfter?: number
   inlineImage?: {
     src: string
@@ -61,6 +66,11 @@ export const journalPages = {
       caption: 'The simple part of the process: write it down, shape it, then move.',
     },
     inlineImageAfter: 11,
+    furtherReading: {
+      text: 'See where I turn those ideas into finished content.',
+      label: 'Inside the Bear Media workspace',
+      href: '/journal/workspace-setup',
+    },
   },
   clientWork: {
     title: 'Client Work: What It Actually Looks Like',
@@ -90,6 +100,11 @@ export const journalPages = {
       caption: 'The practical work is in the review, edit and delivery rhythm.',
     },
     inlineImageAfter: 3,
+    furtherReading: {
+      text: 'Take a closer look at the desk behind the editing and client reviews.',
+      label: 'Explore my workspace for content creation',
+      href: '/journal/workspace-setup',
+    },
   },
   gearSetup: {
     title: 'Gear Setup: Keep It Simple',
@@ -121,6 +136,11 @@ export const journalPages = {
       caption: 'Simple gear, close to hand, ready to work.',
     },
     inlineImageAfter: 5,
+    furtherReading: {
+      text: 'See how I put that simple approach into practice at my desk.',
+      label: 'See the Bear Media workspace setup',
+      href: '/journal/workspace-setup',
+    },
   },
   whyIDoThis: {
     title: 'Why I Do This',

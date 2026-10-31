@@ -23,6 +23,11 @@ type JournalPostPageProps = {
   description: string
   heroImage: JournalPostImage
   content: string[]
+  furtherReading?: {
+    text: string
+    label: string
+    href: string
+  }
   inlineImage?: JournalPostImage
   inlineImageAfter?: number
   gridImages?: JournalPostImage[]
@@ -37,6 +42,7 @@ export function JournalPostPage({
   description,
   heroImage,
   content,
+  furtherReading,
   inlineImage,
   inlineImageAfter,
   gridImages = [],
@@ -134,6 +140,17 @@ export function JournalPostPage({
               />
             ))}
           </JournalImageGrid>
+        )}
+        {furtherReading && (
+          <aside className="mx-auto mt-10 w-full max-w-[800px] border-t border-foreground/10 pt-6">
+            <p className="text-lg leading-relaxed text-muted-foreground">{furtherReading.text}</p>
+            <Link
+              href={furtherReading.href}
+              className="mt-2 inline-flex min-h-11 items-center rounded-sm py-2 text-lg font-medium text-foreground underline decoration-accent underline-offset-4 transition hover:decoration-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
+            >
+              {furtherReading.label}
+            </Link>
+          </aside>
         )}
       </article>
 
