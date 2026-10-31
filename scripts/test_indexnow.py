@@ -13,6 +13,12 @@ HTML = '<html><head><title>About</title><meta name="description" content="Meet G
 
 
 class IndexNowTests(unittest.TestCase):
+    def setUp(self):
+        # Keep mocked acceptance messages out of the real submission log.
+        output = patch('builtins.print')
+        output.start()
+        self.addCleanup(output.stop)
+
     def test_tracks_content_metadata_images_and_links(self):
         original = indexnow.fingerprint(URL, HTML)
         for changed in [HTML.replace('Original content', 'Updated content'),
