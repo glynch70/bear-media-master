@@ -1,0 +1,48 @@
+name: Submit changed pages to IndexNow
+
+on:
+  deployment_status:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: 'Optional live sitemap URLs to resubmit (space or comma separated)'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: indexnow-production
+  cancel-in-progress: false
+
+jobs:
+  submit:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.deployment_status.state == 'success' &&
+       github.event.deployment.environment == 'Production' &&
+       github.event.deployment.creator.login == 'vercel[bot]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out trusted production workflow
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Verify change detection
+        run: python3 -m unittest discover -s scripts -p 'test_indexnow.py'
+      - name: Submit live new and updated pages
+        run: python3 scripts/indexnow.py
+        env:
+          GH_TOKEN: ${{ github.token }}
+          INDEXNOW_URLS: ${{ inputs.urls }}
+      - name: Save state only after successful processing
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: indexnow-state
+          path: indexnow-state.json
+          if-no-files-found: error
+          retention-days: 90

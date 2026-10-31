@@ -25,3 +25,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local IndexNow crawl state (the workflow stores it as an artifact)
+/indexnow-state.json
+__pycache__/
