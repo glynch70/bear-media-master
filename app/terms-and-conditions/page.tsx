@@ -27,7 +27,7 @@ export default function TermsAndConditionsPage() {
           <div className="mx-auto max-w-4xl">
             <p className="mb-5 text-sm font-medium uppercase tracking-[0.18em] text-accent">Bear Media</p>
             <h1 className="font-heading text-5xl font-medium leading-tight tracking-tight text-foreground md:text-7xl">Terms &amp; Conditions</h1>
-            <p className="mt-6 text-sm text-muted-foreground">Last updated: 9 August 2026</p>
+            <p className="mt-6 text-sm text-muted-foreground">Last updated: 31 October 2026</p>
             <p className="mt-8 max-w-3xl text-xl leading-relaxed text-muted-foreground">These Terms &amp; Conditions apply to services supplied by Bear Media and should be read alongside the relevant quotation, proposal, booking confirmation or statement of work (the “Project Agreement”).</p>
           </div>
         </section>
@@ -67,7 +67,7 @@ export default function TermsAndConditionsPage() {
             <section>
               <h2 className="mb-5 font-heading text-3xl font-medium text-foreground">5. Fees and payment</h2>
               <p>Fees are stated in the Project Agreement. Expenses such as travel, specialist software, hosting, domains, printing, advertising spend, music licences, subcontractors and other third-party charges are payable where agreed or reasonably incurred.</p>
-              <p>Unless the Project Agreement states otherwise, website and larger creative projects require a 50% deposit before work begins, with the balance due before launch, final delivery or handover.</p>
+              <p>Unless the Project Agreement states otherwise, website and larger creative projects require a 50% deposit before work begins, with the balance due before launch, final delivery or handover. The deposit is part-payment of the total project fee and reserves production time. If the Project is cancelled, postponed or terminated, the deposit will be accounted for under clause 10.</p>
               <p>Retainer and social-media management fees are payable monthly in advance. Invoices are due within 7 days unless a different period is agreed in writing.</p>
               <p>If an invoice is overdue, we may pause work, withhold delivery, suspend access or charge interest and recovery costs to the extent permitted by law. We are not required to launch a website, release files, grant usage rights or transfer accounts until relevant amounts have been paid in full.</p>
               <p>Bear Media is not VAT registered and does not currently charge VAT. If that changes, VAT will be added where legally applicable and we will notify you.</p>
@@ -104,10 +104,65 @@ export default function TermsAndConditionsPage() {
 
             <section>
               <h2 className="mb-5 font-heading text-3xl font-medium text-foreground">10. Cancellation, postponement and termination</h2>
-              <p>Deposits reserve time and cover preparatory work and committed costs. They are non-refundable to the extent permitted by law.</p>
-              <p>If you cancel or postpone a Project, you must pay for work completed, committed third-party costs, booked time that cannot reasonably be reallocated, and any cancellation charge stated in the Project Agreement.</p>
-              <p>Either party may terminate an ongoing retainer by giving the notice period stated in the Project Agreement. If no notice period is stated, one full calendar month’s written notice applies.</p>
-              <p>We may suspend or terminate the contract if you fail to pay, repeatedly delay the Project, misuse our work, provide unlawful instructions or commit a serious breach of these Terms.</p>
+              <div className="space-y-8">
+                <div className="space-y-4">
+                  <h3 className="mb-3 font-heading text-xl font-medium text-foreground">10.1 Written notice</h3>
+                  <p>Requests to cancel, postpone or terminate must be made in writing. Client notices must be emailed to <a className="text-foreground underline decoration-accent underline-offset-4" href="mailto:info@bear-media.com">info@bear-media.com</a>. Bear Media will send notices to the client’s most recently supplied email address.</p>
+                  <p>Notice takes effect when received. An acknowledgement is not required for notice to be valid. Social-media messages, telephone calls and verbal discussions do not constitute formal notice unless subsequently confirmed by email.</p>
+                </div>
+
+                <div className="space-y-4">
+                  <h3 className="mb-3 font-heading text-xl font-medium text-foreground">10.2 Cancellation of individual projects</h3>
+                  <p>If you cancel a Project before completion, you must pay for:</p>
+                  <ul className="my-4 list-disc space-y-2 pl-6">
+                    <li>Work completed up to the cancellation date, including preparation, planning and administration.</li>
+                    <li>Reasonable third-party costs already committed that cannot be cancelled or recovered.</li>
+                    <li>Time specifically reserved for your Project that cannot reasonably be reallocated, resulting in a demonstrable loss.</li>
+                    <li>Any cancellation charge expressly agreed in the Project Agreement, subject to applicable law.</li>
+                  </ul>
+                  <p>Bear Media will take reasonable steps to reduce cancellation losses. Any charge will account for costs saved, refunds received and replacement bookings. The same work, cost or loss will not be charged twice.</p>
+                  <p>We will provide an itemised final account and credit your deposit and other payments against the amount due. Any remaining balance must be paid within 7 days of the final invoice. Any surplus payment will be refunded within 14 days of the final account.</p>
+                </div>
+
+                <div className="space-y-4">
+                  <h3 className="mb-3 font-heading text-xl font-medium text-foreground">10.3 Postponement and rescheduling</h3>
+                  <p>Rescheduling is subject to availability and written agreement. Where a replacement date is agreed, the unused portion of your deposit will transfer to that booking.</p>
+                  <p>You remain responsible for completed work and reasonable, unavoidable costs or losses caused by the postponement, calculated under clause 10.2. Additional charges will be explained in writing.</p>
+                  <p>Unless otherwise agreed, a replacement date must be agreed within 30 days of your postponement request and take place within 90 days of the original date. Otherwise, the booking will be treated as cancelled and accounted for under clause 10.2.</p>
+                  <p>Postponements initiated by Bear Media because of weather, safety or circumstances outside reasonable control will be handled under clauses 7 and 13.</p>
+                </div>
+
+                <div className="space-y-4">
+                  <h3 className="mb-3 font-heading text-xl font-medium text-foreground">10.4 Ending an ongoing retainer</h3>
+                  <p>Either party may terminate an ongoing retainer by giving the written notice specified in the Project Agreement.</p>
+                  <p>If no notice period is specified, notice must cover one complete calendar month and termination takes effect on the last day of the calendar month following the month in which notice is received.</p>
+                  <p>For example, notice received on 15 October or 31 October ends the retainer on 30 November.</p>
+                  <p>Any minimum commitment or fixed term must be expressly stated in the Project Agreement, together with any early-termination arrangements.</p>
+                </div>
+
+                <div className="space-y-4">
+                  <h3 className="mb-3 font-heading text-xl font-medium text-foreground">10.5 Services and fees during notice</h3>
+                  <p>The agreed services and fees continue until the termination date. Choosing not to use the services during this period does not, by itself, reduce the fees payable.</p>
+                  <p>Any earlier finish, reduction in services or reduction in fees must be agreed in writing. Where an earlier finish and corresponding fee reduction are agreed, monthly fees will be calculated using the actual number of days in the relevant month unless otherwise agreed.</p>
+                  <p>If Bear Media elects to stop providing services early without client fault, fees for the unprovided period will be refunded.</p>
+                </div>
+
+                <div className="space-y-4">
+                  <h3 className="mb-3 font-heading text-xl font-medium text-foreground">10.6 Suspension or termination for breach</h3>
+                  <p>Bear Media may suspend services by written notice for overdue payment or a material breach of the Agreement.</p>
+                  <p>Where the breach can reasonably be corrected, we will explain the issue and allow 7 days from receipt of notice to correct it before terminating. Immediate suspension or termination may apply where instructions are unlawful, conduct is threatening or abusive, continued work presents a material safety or security risk, or the breach cannot reasonably be corrected.</p>
+                  <p>On termination, completed work and reasonable, unavoidable commitments and losses will be accounted for under clause 10.2. There is no automatic entitlement to all remaining project or retainer fees.</p>
+                  <p>If Bear Media materially breaches the Agreement, you may give written notice describing the breach and allow 7 days to correct it where correction is reasonably possible. If it remains uncorrected, or cannot reasonably be corrected, you may terminate by written notice.</p>
+                </div>
+
+                <div className="space-y-4">
+                  <h3 className="mb-3 font-heading text-xl font-medium text-foreground">10.7 Cancellation by Bear Media and handover</h3>
+                  <p>If Bear Media cancels a Project without client fault, we will refund payments attributable to services not supplied and refund any unused deposit within 14 days of the final account. You will not be charged a cancellation fee.</p>
+                  <p>On termination, we will provide a final account, return client-owned materials and arrange the handover of completed deliverables covered by payments received, subject to the agreed intellectual-property rights.</p>
+                  <p>Client-owned accounts remain the client’s property. Any additional migration, training or handover work outside the agreed scope will be quoted separately and requires your approval before it is undertaken.</p>
+                  <p>Nothing in this clause limits rights or remedies that cannot lawfully be excluded.</p>
+                </div>
+              </div>
             </section>
 
             <section>
