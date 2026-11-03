@@ -1,3 +1,5 @@
+import { visibilityConfig } from "@/lib/visibility-config";
+import { VisibilityChecker } from "@/components/visibility/visibility-checker";
 import Image from "next/image";
 import Link from "next/link";
 import { RedesignHeader, RedesignFooter } from "@/app/redesign/redesign-chrome";
@@ -69,7 +71,20 @@ export default function PricingPage() {
             </span>
           </figure>
         </section>
-        <PricingExperience packages={publicPackages()} />
+        <PricingExperience
+          packages={publicPackages()}
+          visibilityChecker={
+            visibilityConfig.approved ? (
+              <VisibilityChecker
+                partnershipAcknowledgement={
+                  visibilityConfig.partnershipAcknowledgementApproved
+                    ? visibilityConfig.partnershipAcknowledgement
+                    : undefined
+                }
+              />
+            ) : undefined
+          }
+        />
         <section className={styles.process}>
           <p className={styles.eyebrow}>A simple way forward</p>
           <h2>

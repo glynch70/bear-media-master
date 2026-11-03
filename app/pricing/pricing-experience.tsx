@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -127,7 +127,13 @@ export function enquiryHref(p: PublicPackage) {
   return `/contact?${new URLSearchParams({ service: p.service, package: p.id, from: "pricing" })}#enquiry`;
 }
 
-export function PricingExperience({ packages }: { packages: PublicPackage[] }) {
+export function PricingExperience({
+  packages,
+  visibilityChecker,
+}: {
+  packages: PublicPackage[];
+  visibilityChecker?: ReactNode;
+}) {
   const [open, setOpen] = useState<string | null>(null);
   const [selected, setSelected] = useState<PublicPackage | null>(null);
   const [sticky, setSticky] = useState(false);
@@ -159,7 +165,23 @@ export function PricingExperience({ packages }: { packages: PublicPackage[] }) {
           </p>
         </div>
         <div className={styles.routes}>
-          {routes.map((route) => {
+          {(visibilityChecker
+            ? [
+                ...routes,
+                {
+                  id: "visibility",
+                  number: "05",
+                  title: "Improve your online visibility",
+                  description:
+                    "Explore the upcoming AI Visibility Checker and practical support for your next steps.",
+                  categories: [],
+                  icon: Globe2,
+                  link: "/contact",
+                  image: "",
+                },
+              ]
+            : routes
+          ).map((route) => {
             const Icon = route.icon;
             const expanded = open === route.id;
             return (
@@ -186,7 +208,11 @@ export function PricingExperience({ packages }: { packages: PublicPackage[] }) {
                         {route.description}
                       </span>
                       <span className={styles.routeExplore}>
-                        {expanded ? "Close this service" : "Explore packages"}{" "}
+                        {expanded
+                          ? "Close this service"
+                          : route.id === "visibility"
+                            ? "Explore the checker"
+                            : "Explore packages"}{" "}
                         <ArrowUpRight size={16} aria-hidden />
                       </span>
                     </span>
@@ -208,193 +234,202 @@ export function PricingExperience({ packages }: { packages: PublicPackage[] }) {
                   hidden={!expanded}
                   className={styles.panel}
                 >
-                  {expanded && (
-                    <>
-                      <div className={styles.panelIntro}>
-                        <p>Make it work for your business.</p>
-                        <Link href={route.link} className={styles.textLink}>
-                          More about this service ↗
-                        </Link>
-                      </div>
-                      <p className={styles.scopeNote}>
-                        Choose a starting point. I’ll confirm your price,
-                        deliverables, revisions and any extras in a written
-                        scope before work begins.
-                      </p>
-                      {route.categories.map((category) => (
-                        <div key={category} className={styles.packageGroup}>
-                          <h4>{categoryLabels[category]}</h4>
-                          <div className={styles.packages}>
-                            {packages
-                              .filter((p) => p.category === category)
-                              .map((p) => (
-                                <article
-                                  key={p.id}
-                                  className={`${styles.package} ${selected?.id === p.id ? styles.selected : ""}`}
-                                >
-                                  <h5>{p.name}</h5>
-                                  <p className={styles.price}>{p.priceLabel}</p>
-                                  <p>{p.description}</p>
-                                  {p.includedDeliverables.length > 0 ? (
-                                    <ul>
-                                      {p.includedDeliverables.map((t) => (
-                                        <li key={t}>
-                                          <Check size={16} aria-hidden />
-                                          {t}
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  ) : (
-                                    <p className={styles.scopeNote}>
-                                      Deliverables and revisions agreed in your
-                                      proposal.
-                                    </p>
-                                  )}
-                                  {p.exclusions.length > 0 && (
-                                    <p>Exclusions: {p.exclusions.join("; ")}</p>
-                                  )}
-                                  {p.optionalExtras.length > 0 && (
-                                    <p>
-                                      Optional extras:{" "}
-                                      {p.optionalExtras.join("; ")}
-                                    </p>
-                                  )}
-                                  {p.revisionAllowance && (
-                                    <p>Revisions: {p.revisionAllowance}</p>
-                                  )}
-                                  <button
-                                    type="button"
-                                    className={styles.selectButton}
-                                    aria-pressed={selected?.id === p.id}
-                                    onClick={() => choose(p)}
-                                  >
-                                    {selected?.id === p.id
-                                      ? "Selected"
-                                      : "Choose this package"}{" "}
-                                    <span aria-hidden>↗</span>
-                                  </button>
-                                  {selected?.id === p.id && (
-                                    <Link
-                                      className={styles.textLink}
-                                      href={enquiryHref(p)}
-                                    >
-                                      {p.ctaLabel} →
-                                    </Link>
-                                  )}
-                                </article>
-                              ))}
-                          </div>
-                        </div>
-                      ))}
-                      {route.id === "websites" && (
-                        <details className={styles.comparison}>
-                          <summary>
-                            Compare website packages{" "}
-                            <Plus size={18} aria-hidden />
-                          </summary>
-                          <p>
-                            Package scope is awaiting confirmation. No page
-                            counts, features or extras are promised at this
-                            stage.
-                          </p>
-                          <div className={styles.compareGrid}>
-                            {packages
-                              .filter((p) => p.category === "websites")
-                              .map((p) => (
-                                <div key={p.id}>
-                                  <h4>{p.name}</h4>
-                                  <p className={styles.price}>{p.priceLabel}</p>
-                                  <dl>
-                                    {[
-                                      "Pages & content",
-                                      "Functionality & integrations",
-                                      "Photography & copy",
-                                      "Hosting & ongoing care",
-                                      "Revisions",
-                                    ].map((t) => (
-                                      <div key={t}>
-                                        <dt>{t}</dt>
-                                        <dd>To agree in writing</dd>
-                                      </div>
-                                    ))}
-                                  </dl>
-                                  <Link
-                                    href={enquiryHref(p)}
-                                    className={styles.textLink}
-                                  >
-                                    Discuss the scope ↗
-                                  </Link>
-                                </div>
-                              ))}
-                          </div>
-                        </details>
-                      )}
-                      <div className={styles.workHeading}>
-                        <p className={styles.eyebrow}>Made by Bear Media</p>
-                        <h4>
-                          {selected &&
-                          route.categories.includes(selected.category)
-                            ? `A little inspiration for your ${selected.name.toLowerCase()}.`
-                            : "Real work. A closer look."}
-                        </h4>
-                      </div>
-                      <div className={styles.gallery}>
-                        {(route.id === "growth"
-                          ? examples.content
-                          : examples[route.id as keyof typeof examples]
-                        ).map((item) => (
-                          <Link
-                            key={item.src}
-                            href={item.href}
-                            className={styles.work}
-                          >
-                            <div>
-                              <Image
-                                src={item.src}
-                                alt={item.alt}
-                                fill
-                                sizes="(max-width: 767px) 75vw, 33vw"
-                                className={styles.workImage}
-                              />
-                            </div>
-                            <span>
-                              {item.name}
-                              <ArrowUpRight size={18} aria-hidden />
-                            </span>
+                  {expanded &&
+                    (route.id === "visibility" ? (
+                      visibilityChecker
+                    ) : (
+                      <>
+                        <div className={styles.panelIntro}>
+                          <p>Make it work for your business.</p>
+                          <Link href={route.link} className={styles.textLink}>
+                            More about this service ↗
                           </Link>
-                        ))}
-                      </div>
-                      {route.id === "content" && (
-                        <div className={styles.videoPreview}>
-                          {video ? (
-                            <video
-                              controls
-                              muted
-                              playsInline
-                              preload="none"
-                              poster="/assets/hero/hero-poster.webp"
-                              src="/assets/hero/hero-desktop.mp4"
-                              aria-label="Bear Media creative work showreel"
-                            />
-                          ) : (
-                            <button
-                              className={styles.textLink}
-                              type="button"
-                              onClick={() => setVideo(true)}
-                            >
-                              Load the Bear Media showreel ▷
-                            </button>
-                          )}
                         </div>
-                      )}
-                      <Link
-                        className={styles.button}
-                        href={`/contact?service=${route.id === "growth" ? "other" : route.id}#enquiry`}
-                      >
-                        Let’s discuss your project ↗
-                      </Link>
-                    </>
-                  )}
+                        <p className={styles.scopeNote}>
+                          Choose a starting point. I’ll confirm your price,
+                          deliverables, revisions and any extras in a written
+                          scope before work begins.
+                        </p>
+                        {route.categories.map((category) => (
+                          <div key={category} className={styles.packageGroup}>
+                            <h4>{categoryLabels[category]}</h4>
+                            <div className={styles.packages}>
+                              {packages
+                                .filter((p) => p.category === category)
+                                .map((p) => (
+                                  <article
+                                    key={p.id}
+                                    className={`${styles.package} ${selected?.id === p.id ? styles.selected : ""}`}
+                                  >
+                                    <h5>{p.name}</h5>
+                                    <p className={styles.price}>
+                                      {p.priceLabel}
+                                    </p>
+                                    <p>{p.description}</p>
+                                    {p.includedDeliverables.length > 0 ? (
+                                      <ul>
+                                        {p.includedDeliverables.map((t) => (
+                                          <li key={t}>
+                                            <Check size={16} aria-hidden />
+                                            {t}
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    ) : (
+                                      <p className={styles.scopeNote}>
+                                        Deliverables and revisions agreed in
+                                        your proposal.
+                                      </p>
+                                    )}
+                                    {p.exclusions.length > 0 && (
+                                      <p>
+                                        Exclusions: {p.exclusions.join("; ")}
+                                      </p>
+                                    )}
+                                    {p.optionalExtras.length > 0 && (
+                                      <p>
+                                        Optional extras:{" "}
+                                        {p.optionalExtras.join("; ")}
+                                      </p>
+                                    )}
+                                    {p.revisionAllowance && (
+                                      <p>Revisions: {p.revisionAllowance}</p>
+                                    )}
+                                    <button
+                                      type="button"
+                                      className={styles.selectButton}
+                                      aria-pressed={selected?.id === p.id}
+                                      onClick={() => choose(p)}
+                                    >
+                                      {selected?.id === p.id
+                                        ? "Selected"
+                                        : "Choose this package"}{" "}
+                                      <span aria-hidden>↗</span>
+                                    </button>
+                                    {selected?.id === p.id && (
+                                      <Link
+                                        className={styles.textLink}
+                                        href={enquiryHref(p)}
+                                      >
+                                        {p.ctaLabel} →
+                                      </Link>
+                                    )}
+                                  </article>
+                                ))}
+                            </div>
+                          </div>
+                        ))}
+                        {route.id === "websites" && (
+                          <details className={styles.comparison}>
+                            <summary>
+                              Compare website packages{" "}
+                              <Plus size={18} aria-hidden />
+                            </summary>
+                            <p>
+                              Package scope is awaiting confirmation. No page
+                              counts, features or extras are promised at this
+                              stage.
+                            </p>
+                            <div className={styles.compareGrid}>
+                              {packages
+                                .filter((p) => p.category === "websites")
+                                .map((p) => (
+                                  <div key={p.id}>
+                                    <h4>{p.name}</h4>
+                                    <p className={styles.price}>
+                                      {p.priceLabel}
+                                    </p>
+                                    <dl>
+                                      {[
+                                        "Pages & content",
+                                        "Functionality & integrations",
+                                        "Photography & copy",
+                                        "Hosting & ongoing care",
+                                        "Revisions",
+                                      ].map((t) => (
+                                        <div key={t}>
+                                          <dt>{t}</dt>
+                                          <dd>To agree in writing</dd>
+                                        </div>
+                                      ))}
+                                    </dl>
+                                    <Link
+                                      href={enquiryHref(p)}
+                                      className={styles.textLink}
+                                    >
+                                      Discuss the scope ↗
+                                    </Link>
+                                  </div>
+                                ))}
+                            </div>
+                          </details>
+                        )}
+                        <div className={styles.workHeading}>
+                          <p className={styles.eyebrow}>Made by Bear Media</p>
+                          <h4>
+                            {selected &&
+                            route.categories.includes(selected.category)
+                              ? `A little inspiration for your ${selected.name.toLowerCase()}.`
+                              : "Real work. A closer look."}
+                          </h4>
+                        </div>
+                        <div className={styles.gallery}>
+                          {(route.id === "growth"
+                            ? examples.content
+                            : examples[route.id as keyof typeof examples]
+                          ).map((item) => (
+                            <Link
+                              key={item.src}
+                              href={item.href}
+                              className={styles.work}
+                            >
+                              <div>
+                                <Image
+                                  src={item.src}
+                                  alt={item.alt}
+                                  fill
+                                  sizes="(max-width: 767px) 75vw, 33vw"
+                                  className={styles.workImage}
+                                />
+                              </div>
+                              <span>
+                                {item.name}
+                                <ArrowUpRight size={18} aria-hidden />
+                              </span>
+                            </Link>
+                          ))}
+                        </div>
+                        {route.id === "content" && (
+                          <div className={styles.videoPreview}>
+                            {video ? (
+                              <video
+                                controls
+                                muted
+                                playsInline
+                                preload="none"
+                                poster="/assets/hero/hero-poster.webp"
+                                src="/assets/hero/hero-desktop.mp4"
+                                aria-label="Bear Media creative work showreel"
+                              />
+                            ) : (
+                              <button
+                                className={styles.textLink}
+                                type="button"
+                                onClick={() => setVideo(true)}
+                              >
+                                Load the Bear Media showreel ▷
+                              </button>
+                            )}
+                          </div>
+                        )}
+                        <Link
+                          className={styles.button}
+                          href={`/contact?service=${route.id === "growth" ? "other" : route.id}#enquiry`}
+                        >
+                          Let’s discuss your project ↗
+                        </Link>
+                      </>
+                    ))}
                 </div>
               </article>
             );
