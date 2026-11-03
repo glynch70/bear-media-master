@@ -1,7 +1,7 @@
 .page {
   --ink: #11110f;
-  --paper: #fdfdfb;
-  --soft: #f3f2ee;
+  --paper: #ffffff;
+  --soft: #f5f5f7;
   --line: rgba(17, 17, 15, 0.14);
   --gold: #895516;
   background: var(--paper);
@@ -329,7 +329,7 @@
   gap: 8px;
 }
 .selected {
-  background: #f7f4ec;
+  background: #fffaf2;
   border-color: var(--gold);
 }
 .selectButton {
@@ -682,7 +682,7 @@
     z-index: 30;
     padding: 13px 14px;
     border: 1px solid var(--line);
-    background: #fdfdfb;
+    background: #ffffff;
     box-shadow: 0 4px 30px #0002;
     border-radius: 14px;
   }
@@ -758,8 +758,8 @@
   padding-bottom: 80px;
 }
 .heroImage {
-  border-radius: 16px 16px 70px 16px;
-  box-shadow: 0 24px 55px -35px #11110f55;
+  border-radius: 18px;
+  box-shadow: none;
 }
 .heroCopy .eyebrow {
   display: flex;
@@ -859,14 +859,14 @@
 .plus {
   width: 46px;
   height: 46px;
-  background: #f7f6f2;
+  background: #f5f5f7;
 }
 .routeOpen {
   border-color: #a48a64;
   box-shadow: 0 12px 35px #11110f09;
 }
 .routeOpen .routeTrigger {
-  background: #f3f0e8;
+  background: white;
 }
 .routeOpen .plus {
   background: var(--ink);
@@ -874,39 +874,40 @@
   border-color: var(--ink);
 }
 .panel {
-  background: #fdfdfb;
+  background: #ffffff;
 }
 .package {
   background: white;
-  border-top: 3px solid #c7b38e;
-  box-shadow: 0 5px 20px #11110f04;
+  border-top: 1px solid var(--line);
+  box-shadow: none;
 }
 .package h5 {
   font-size: 23px;
 }
 .selected {
   border-color: var(--gold);
-  background: #f7f4ec;
+  background: #fffaf2;
 }
 .workHeading {
   padding-top: 25px;
   border-top: 1px solid var(--line);
 }
 .calculator {
-  border: 1px solid #ded8cc;
-  background: #ece8df;
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: #ffffff;
   border-radius: 20px;
 }
 .calculatorCard {
-  box-shadow: 0 18px 40px -25px #53452e44;
-  border-color: #d8d0c0;
+  box-shadow: 0 8px 32px -20px #11110f20;
+  border-color: var(--line);
 }
 .calculator .eyebrow::before {
   content: "02 / ";
   color: #62625d;
 }
 .results > div:nth-child(2) {
-  background: #f3f0e8;
+  background: #f5f5f7;
   margin-inline: -12px;
   padding-inline: 12px;
   border-radius: 6px;
@@ -916,24 +917,25 @@
   font-size: 30px;
 }
 .process {
-  background: var(--ink);
-  color: var(--paper);
-  margin-top: 72px;
-  border-radius: 20px 20px 0 0;
+  background: #ffffff;
+  color: var(--ink);
+  margin-top: 32px;
+  border-top: 1px solid var(--line);
+  border-radius: 0;
 }
 .process > .eyebrow,
 .steps .eyebrow {
-  color: #d4b784;
+  color: var(--gold);
 }
 .process > .eyebrow::before {
   content: "03 / ";
-  color: #c4c0b8;
+  color: #62625d;
 }
 .process > p:not(.eyebrow) {
-  color: #c4c0b8;
+  color: #62625d;
 }
 .steps > div {
-  border-color: #ffffff35;
+  border-color: var(--line);
 }
 .steps h3 {
   font-size: 23px;
@@ -943,12 +945,12 @@
   letter-spacing: -0.04em;
 }
 .process .button {
-  background: #f3f0e8;
-  color: var(--ink);
-  border-color: #f3f0e8;
+  background: var(--ink);
+  color: white;
+  border-color: var(--ink);
 }
 .process .button:hover {
-  background: white;
+  background: #33332d;
 }
 @media (min-width: 768px) and (max-width: 1399px) {
   .projectStrip {
@@ -965,7 +967,7 @@
     padding-bottom: 38px;
   }
   .heroImage {
-    border-radius: 10px 10px 38px 10px;
+    border-radius: 14px;
   }
   .projectStrip {
     margin: 0 22px;
@@ -1033,4 +1035,10 @@
   .results > div:nth-child(2) strong {
     font-size: 25px;
   }
+}
+
+/* Keep shared chrome white within this experience without changing other routes. */
+.page > header,
+.page > footer {
+  background: #ffffff;
 }

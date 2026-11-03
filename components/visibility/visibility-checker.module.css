@@ -29,7 +29,7 @@
 }
 .inputPanel {
   padding: 24px;
-  background: #f3f2ee;
+  background: #f5f5f7;
   border-radius: 12px;
   align-self: start;
 }
@@ -108,7 +108,7 @@
   flex-direction: column;
   align-items: center;
   gap: 14px;
-  background: #fdfdfb;
+  background: #ffffff;
 }
 .empty strong {
   font-size: 18px;
@@ -223,18 +223,18 @@
 
 /* A distinct report workspace, with no illustrative metrics or simulated activity. */
 .intro {
-  background: #11110f;
-  color: #fdfdfb;
-  padding: 32px;
-  border-radius: 12px;
+  background: #ffffff;
+  color: #11110f;
+  padding: 12px 0 28px;
+  border-radius: 0;
   position: relative;
-  border-bottom: 3px solid #b69a69;
+  border-bottom: 1px solid #e5e5e7;
 }
 .intro .eyebrow {
-  color: #d4b784;
+  color: #895516;
 }
 .intro > p:last-child {
-  color: #c4c0b8;
+  color: #62625d;
 }
 .intro h4 {
   max-width: 620px;
@@ -245,8 +245,8 @@
   margin-top: 24px;
 }
 .inputPanel {
-  border: 1px solid #d9d1c2;
-  background: #eee9df;
+  border: 1px solid #e5e5e7;
+  background: #ffffff;
 }
 .stepLabel {
   display: block;
@@ -258,12 +258,12 @@
 }
 .dashboard {
   background: white;
-  border-color: #d9d1c2;
-  box-shadow: 0 15px 40px -25px #3c332d50;
+  border-color: #e5e5e7;
+  box-shadow: 0 8px 32px -20px #11110f20;
   border-radius: 12px;
 }
 .dashboard header {
-  background: #f3f0e8;
+  background: #f5f5f7;
 }
 .status {
   background: white;
@@ -271,7 +271,7 @@
 }
 .empty {
   padding: 38px 24px;
-  background: #fdfdfb;
+  background: #ffffff;
 }
 .orbit {
   display: grid;
@@ -290,7 +290,7 @@
   letter-spacing: -0.04em;
 }
 .metrics {
-  background: #f3f0e8;
+  background: #f5f5f7;
 }
 .reportColumns {
   gap: 0;
@@ -306,9 +306,9 @@
   margin-bottom: 12px;
 }
 .help {
-  border-color: #d9d1c2;
+  border-color: #e5e5e7;
   border-left: 3px solid #a48a64;
-  background: #f3f0e8;
+  background: #ffffff;
 }
 .help h5 {
   font-size: 22px;
@@ -322,7 +322,7 @@
 }
 @media (max-width: 767px) {
   .intro {
-    padding: 24px 20px;
+    padding: 4px 0 24px;
   }
   .intro h4 {
     font-size: 32px;
