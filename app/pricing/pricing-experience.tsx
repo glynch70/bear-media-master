@@ -216,6 +216,11 @@ export function PricingExperience({
                         <ArrowUpRight size={16} aria-hidden />
                       </span>
                     </span>
+                    {route.image && (
+                      <span className={styles.routeThumb} aria-hidden="true">
+                        <Image src={route.image} alt="" fill sizes="160px" />
+                      </span>
+                    )}
                     <Icon
                       className={styles.routeIcon}
                       size={34}

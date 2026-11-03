@@ -20,6 +20,7 @@ export function VisibilityChecker({
       </div>
       <div className={styles.workspace}>
         <div className={styles.inputPanel}>
+          <span className={styles.stepLabel}>01 / Your starting point</span>
           <label htmlFor="visibility-website">Your website URL</label>
           <input
             id="visibility-website"
@@ -51,7 +52,9 @@ export function VisibilityChecker({
             <span className={styles.status}>Not run</span>
           </header>
           <div className={styles.empty}>
-            <Globe2 size={32} strokeWidth={1.2} aria-hidden />
+            <div className={styles.orbit} aria-hidden>
+              <Globe2 size={42} strokeWidth={1} />
+            </div>
             <strong>No report yet</strong>
             <p>
               This space is reserved for real findings from the connected
@@ -74,6 +77,7 @@ export function VisibilityChecker({
           </dl>
           <div className={styles.reportColumns}>
             <section>
+              <span className={styles.stepLabel}>02 / Understand</span>
               <h6>Findings &amp; evidence</h6>
               <p>
                 Verified observations and their sources will appear here when a
@@ -81,6 +85,7 @@ export function VisibilityChecker({
               </p>
             </section>
             <section>
+              <span className={styles.stepLabel}>03 / Move forward</span>
               <h6>Recommended next steps</h6>
               <p>
                 Any recommendations will be shown with context and limitations

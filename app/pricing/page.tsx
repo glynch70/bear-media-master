@@ -71,6 +71,25 @@ export default function PricingPage() {
             </span>
           </figure>
         </section>
+        <section
+          className={styles.projectStrip}
+          aria-label="Selected client work"
+        >
+          <p>
+            A few projects,
+            <br />
+            made personally.
+          </p>
+          <Link href="/projects/almond-vet-care">
+            Almond Vet Care <span>Website design ↗</span>
+          </Link>
+          <Link href="/projects/david-todd">
+            David Todd <span>Property marketing ↗</span>
+          </Link>
+          <Link href="/projects/cg-developments">
+            C&amp;G Developments <span>Photography &amp; video ↗</span>
+          </Link>
+        </section>
         <PricingExperience
           packages={publicPackages()}
           visibilityChecker={

@@ -50,3 +50,9 @@ No project dependencies or lockfile changes. The global pnpm 11 cannot use this 
 - All referenced image and video paths exist locally. No runtime page errors observed.
 
 No Lighthouse/Core Web Vitals score is claimed. Live Resend delivery and production Turnstile require the deployment’s credentials and were not exercised. No production configuration, domain, DNS, services route or training route was changed. No deploy was made. No deployment-preview workflow is defined in the repository (its only GitHub workflow is IndexNow); use the local preview for review before arranging a Vercel preview.
+
+## Visual refinement
+
+The follow-up styling pass adds larger service numbering, real project thumbnails on desktop, a linked selected-project strip, stronger selected/open card treatments, a warm calculator section with a highlighted annual-value result, and a dark final process section. The gated visibility checker now has a dark introduction, a framed report workspace and clearly numbered report areas. These introduce hierarchy without adding claims, prices, dependencies or more motion. Mobile layouts keep the service summaries compact.
+
+Validation after this pass: production build, TypeScript, changed-component ESLint, diff whitespace checks, existing pricing browser regression suite and the temporarily enabled visibility-checker suite passed. Both browser suites cover the six requested widths. The checker and partnership flags were restored to false and the public-hidden check was rerun. Updated screenshots remain in `artifacts/`. No deployment was made.
