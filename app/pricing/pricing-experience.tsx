@@ -441,8 +441,8 @@ export function PricingExperience({
           })}
         </div>
         <p className={styles.finePrint}>
-          Every project is subject to an agreed written scope. Package prices
-          are being reviewed; ask me for a tailored quote.
+          Every project is subject to an agreed written scope. Website prices are
+          shown above. For other services, ask me for a tailored quote.
         </p>
       </section>
       <Calculator />

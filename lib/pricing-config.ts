@@ -36,7 +36,7 @@ export const pricingPackages: PricingPackage[] = [
     optionalExtras: [],
     revisionAllowance: null,
     ctaLabel: "Discuss this package",
-    approvalStatus: "draft",
+    approvalStatus: "approved",
     scopeApproved: false,
   },
   {
@@ -55,7 +55,7 @@ export const pricingPackages: PricingPackage[] = [
     optionalExtras: [],
     revisionAllowance: null,
     ctaLabel: "Discuss this package",
-    approvalStatus: "draft",
+    approvalStatus: "approved",
     scopeApproved: false,
   },
   {
@@ -74,7 +74,7 @@ export const pricingPackages: PricingPackage[] = [
     optionalExtras: [],
     revisionAllowance: null,
     ctaLabel: "Discuss this package",
-    approvalStatus: "draft",
+    approvalStatus: "approved",
     scopeApproved: false,
   },
   {
