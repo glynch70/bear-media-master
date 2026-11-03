@@ -1,3 +1,4 @@
+import { pricingPackages } from '@/lib/pricing-config'
 import { Resend } from 'resend'
 import { enquiryServiceLabel } from '@/lib/enquiry-services'
 import { campaignAttribution } from '@/lib/campaign-attribution'
@@ -385,6 +386,13 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    const selectedPackage = typeof body.packageId === 'string' ? pricingPackages.find(p => p.id === body.packageId) : undefined
+    if (body.packageId && (!selectedPackage || selectedPackage.service !== service)) {
+      return NextResponse.json({ success: false, error: 'Please choose a valid package and service.' }, { status: 400 })
+    }
+    if (body.telephone && (typeof body.telephone !== 'string' || body.telephone.length > 40)) {
+      return NextResponse.json({ success: false, error: 'Please check your telephone number.' }, { status: 400 })
+    }
     const serviceLabel = enquiryServiceLabel(service)
     if (service && !serviceLabel) {
       return NextResponse.json({ success: false, error: 'Please choose a listed service.' }, { status: 400 })
@@ -393,6 +401,8 @@ export async function POST(request: NextRequest) {
     // Add the selected service only after validating the original message.
     const campaign = campaignAttribution(attribution)
     const context = [
+      selectedPackage ? `Package: ${selectedPackage.name}` : '',
+      body.telephone ? `Telephone: ${sanitizeInput(body.telephone)}` : '',
       serviceLabel ? `Service: ${serviceLabel}` : '',
       ...Object.entries(campaign).map(([key, value]) => `${key}: ${value}`),
     ].filter(Boolean).join('\n')

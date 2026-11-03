@@ -18,6 +18,7 @@ export function RedesignHeader({ fixed = false, surface = false }: RedesignHeade
       <nav className={styles.nav} aria-label="Main navigation">
         <Link href="/projects">Work</Link>
         <Link href="/services">Services</Link>
+        <Link href="/pricing">Pricing</Link>
         <Link href="/property">Property</Link>
         <Link href="/training">Training</Link>
         <Link href="/about">About</Link>
@@ -58,6 +59,7 @@ export function RedesignFooter() {
           <strong>Let&apos;s work together</strong>
           <Link href="/training">Practical AI training</Link>
           <Link href="/social-media-pricing">Social media packages</Link>
+          <Link href="/pricing">Services &amp; pricing</Link>
           <Link href="/contact">Get in touch</Link>
           <a href="mailto:info@bear-media.com">info@bear-media.com</a>
           <a href="tel:+447879011860">07879 011860</a>
