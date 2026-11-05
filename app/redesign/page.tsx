@@ -82,9 +82,9 @@ export default function RedesignPage() {
                 <span className={styles.heroBentoDesktopEyebrow}>01 / 09 · Bear Media · Edinburgh &amp; the Lothians</span>
                 <span className={styles.heroBentoMobileEyebrow}>Bear Media · Scotland</span>
               </p>
-              <h1 id="redesign-title">Content days &amp; websites.</h1>
+              <h1 id="redesign-title">Content days &amp; website design.</h1>
               <p className={styles.heroBentoDescription}>
-                Photography, video, drone, social media and websites for Scottish businesses.
+                Bear Media creates photography, video and social content through planned content days, and designs websites for businesses.
               </p>
               <div className={styles.heroBentoActions}>
                 <Link href="/contact" data-magnetic className={styles.heroBentoPrimaryAction}>
@@ -93,7 +93,7 @@ export default function RedesignPage() {
                 <Link href="/projects" className={styles.heroBentoSecondaryAction}>View recent work</Link>
               </div>
               <div className={styles.desktopIntro}>
-                <p>Planned content shoots and mobile-first website builds for local businesses. Based in West Lothian, working across Edinburgh and the Lothians.</p>
+                <p>Work directly with Garry Lynch on your content or website project. Tell me what you need, where the work will happen and any dates you have in mind.</p>
                 <div>
                   <Link href="/content-creation-west-lothian">Plan a content day <ArrowUpRight aria-hidden="true" /></Link>
                   <Link href="/website-design-west-lothian">Build a website <ArrowUpRight aria-hidden="true" /></Link>
@@ -299,7 +299,7 @@ export default function RedesignPage() {
         >
           <div data-reveal="text" className={styles.journeyGalleryHeading}>
             <p>06 / 09</p>
-            <h2 id="websites-title">Websites</h2>
+            <h2 id="websites-title">Website design</h2>
             <span>Swipe through completed Bear Media websites.</span>
           </div>
           <RedesignGallery label="website projects" variant="website">

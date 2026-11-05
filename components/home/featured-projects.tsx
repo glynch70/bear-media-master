@@ -258,7 +258,7 @@ export default function FeaturedProjects({ redesign = false }: { redesign?: bool
     <section id="selected-work" className={`${styles.journeyGalleryChapter} ${styles.workGalleryChapter}`} data-chapter="07" aria-labelledby="selected-work-title">
       <header data-reveal="text" className={styles.journeyGalleryHeading}>
         <p>07 / 09 · Selected work</p>
-        <h2 id="selected-work-title">Real businesses. Real work.</h2>
+        <h2 id="selected-work-title">Selected client projects</h2>
         <span>Explore photography, films, social campaigns and websites created for businesses across Scotland.</span>
       </header>
       <RedesignGallery label="selected work">

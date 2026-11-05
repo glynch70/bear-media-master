@@ -39,8 +39,7 @@ export function PriorityServiceLinks({ headingId }: { headingId: string }) {
         <div className="mb-6 max-w-2xl md:mb-9">
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent">Bear Media services</p>
           <h2 id={headingId} className="font-heading text-3xl font-medium leading-tight text-balance md:text-4xl">
-            <span className="md:hidden">Find your service.</span>
-            <span className="hidden md:inline">Content days, website builds and supporting services.</span>
+            Content days, websites and supporting services.
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
             Work directly with me across West Lothian, Edinburgh and Central Scotland.
