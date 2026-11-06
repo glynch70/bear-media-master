@@ -1,3 +1,5 @@
+import { campaignAttribution } from '@/lib/campaign-attribution'
+
 // Only the approved campaign values are carried into analytics, never arbitrary query text.
 export function trainingCampaign(search: string): Record<string, string> {
   const query = new URLSearchParams(search)
@@ -12,5 +14,6 @@ export function trainingCampaign(search: string): Record<string, string> {
       utm_campaign: 'ai_training_test',
     }
   }
-  return {}
+  const campaign = campaignAttribution(search)
+  return campaign.utm_campaign === 'nov2026_chatgpt_training' ? campaign : {}
 }

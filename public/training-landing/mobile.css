@@ -196,3 +196,17 @@ img { max-width: 100%; }
  .workflow-grid { grid-template-columns:1fr; }
  .workflow-grid .job p { max-width:100%; font-size:14px; }
 }
+
+/* Campaign short: native controls, no automatic playback. */
+.campaign-video { margin:0 auto; width:min(100%,320px); min-width:0; }
+.campaign-video video { display:block; width:100%; height:auto; aspect-ratio:9/16; background:#080b0c; border-radius:20px; box-shadow:8px 8px 0 var(--lime); }
+.campaign-video figcaption { display:grid; gap:6px; margin-top:18px; font-size:12px; line-height:1.5; }
+.campaign-video figcaption span { color:var(--muted); }
+.video-transcript { margin-top:12px; font-size:12px; line-height:1.6; }
+.video-transcript summary { cursor:pointer; min-height:44px; display:flex; align-items:center; text-decoration:underline; text-underline-offset:4px; }
+.video-transcript p { padding-bottom:12px; color:var(--muted); }
+.trainer-byline { display:flex; align-items:center; gap:12px; margin-top:28px; }
+.trainer-byline img { width:56px; height:56px; border-radius:50%; object-fit:cover; object-position:center 35%; }
+.trainer-byline p { font-size:12px; color:var(--muted); }
+.trainer-byline strong { color:var(--ink); }
+@media(max-width:760px) { .campaign-video { width:min(100%,320px); margin:20px auto 30px; } .hero { padding-bottom:90px; } }

@@ -1,9 +1,10 @@
 // Carry only known campaign labels, never arbitrary URL text or contact details.
 export type CampaignAttribution = Record<string, string>
 
-const sources = new Set(['facebook', 'instagram', 'linkedin', 'meta'])
+const sources = new Set(['facebook', 'instagram', 'linkedin', 'meta', 'tiktok', 'youtube', 'google_business_profile'])
 const media = new Set(['organic_social', 'paid_social'])
 const contents: Record<string, Set<string>> = {
+  nov2026_chatgpt_training: new Set(['short24', 'enquiry_example', 'training_followup']),
   nov2026_property: new Set(['p1', 'p2', 'p3', 'p4', 'pa', 'pb']),
   nov2026_social: new Set(['s1', 's2', 's3', 's4', 'sa', 'sb']),
 }

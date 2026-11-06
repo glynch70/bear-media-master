@@ -89,3 +89,23 @@ test('campaign routing preserves known tags and never arbitrary contact details'
   assert.deepEqual(JSON.parse(JSON.stringify(c.campaignAttribution('?utm_source=private@example.test&utm_medium=paid_social&utm_campaign=nov2026_social'))), {})
   assert.equal(c.campaignAttribution({ utm_source: 'meta', utm_medium: 'paid_social', utm_campaign: 'nov2026_social', utm_content: '<script>' }).utm_content, undefined)
 })
+
+
+test('training short retains channel attribution through the contact email and rejects unknown content', async () => {
+  const load = loader()
+  const training = load(path.join(root, 'lib/training-attribution.ts')).trainingCampaign
+  const search = '?utm_source=instagram&utm_medium=organic_social&utm_campaign=nov2026_chatgpt_training&utm_content=short24&email=private@example.test'
+  const campaign = training(search)
+  assert.equal(campaign.utm_source, 'instagram')
+  assert.equal(campaign.utm_content, 'short24')
+  assert.equal(campaign.email, undefined)
+  assert.equal(training(search.replace('nov2026_chatgpt_training', 'unknown')).utm_campaign, undefined)
+  assert.equal(training(search.replace('short24', 'private@example.test')).utm_content, undefined)
+  assert.equal(training('?utm_source=chatgpt&utm_medium=paid&utm_campaign=ai_training_test').utm_campaign, 'ai_training_test')
+  const h = handler()
+  const response = await h.POST(request({ ...valid, service: 'training', attribution: campaign }))
+  assert.equal(response.status, 200)
+  assert.match(h.sent[0].html, /nov2026_chatgpt_training/)
+  assert.match(h.sent[0].html, /short24/)
+  assert.doesNotMatch(h.sent[0].html, /private@example.test/)
+})
