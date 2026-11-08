@@ -83,7 +83,7 @@ export const projects: Project[] = [
     description:
       'Property photography, aerial imagery and marketing content that shows each home in context.',
     intro:
-      'A selection of property photography, aerial imagery and marketing content produced for David Todd Sales & Lettings.',
+      'At East Farm of Gilmerton, the exterior view shows where the flat sits in the building. Inside, the living room and kitchen photographs show how the space is laid out.',
     challenge:
       'Property listings need to communicate the space, detail and surroundings clearly across portals, websites and social media while maintaining a consistent, professional visual standard.',
     heroImage:
@@ -95,6 +95,9 @@ export const projects: Project[] = [
       position: '38% 50%',
     },
     images: [
+      { src: "/assets/portfolio/david-todd/gilmerton-exterior.webp", alt: "Cream frontage and red tiled roof at East Farm of Gilmerton" },
+      { src: "/assets/portfolio/david-todd/gilmerton-living-room.webp", alt: "East Farm of Gilmerton living room with a sofa beside the window" },
+      { src: "/assets/portfolio/david-todd/gilmerton-kitchen.webp", alt: "Wood-fronted cabinets and tiled splashback in the Gilmerton kitchen" },
       {
         src: '/images/2026-refresh/property/118-craigentinny-road-edinburgh-conservatory-garden.webp',
         alt: 'Open doors framing a conservatory and garden in Edinburgh',
@@ -164,6 +167,29 @@ export const projects: Project[] = [
       author: 'David Todd',
       role: 'David Todd Sales & Lettings',
     },
+  },
+  {
+    id: 11,
+    slug: 'winchburgh-heritage-trail',
+    title: 'Photographing the Winchburgh Heritage Trail',
+    clientName: 'Winchburgh Community Development Trust',
+    category: 'Photography · Drone · Heritage',
+    description: 'A street-level and aerial view of the Winchburgh Heritage Trail.',
+    intro: "From the air, a road bridge leads into Winchburgh. At street level, stone buildings, a heritage display and the canal tell the story at walking pace.",
+    challenge: 'The wider views place the village in its landscape. The closer photographs pick out details a visitor can find along the trail.',
+    heroImage: '/assets/portfolio/winchburgh-heritage-trail/road-bridge-from-above.webp',
+    heroAlt: 'Aerial view of a road bridge and homes in Winchburgh',
+    images: [
+      { src: "/assets/portfolio/winchburgh-heritage-trail/stone-frontage.webp", alt: "Sandstone frontage on a Winchburgh street" },
+      { src: "/assets/portfolio/winchburgh-heritage-trail/heritage-display.webp", alt: "Shale Trail map and metalwork at Winchburgh" },
+      { src: "/assets/portfolio/winchburgh-heritage-trail/canal.webp", alt: "Trees reflected in the canal at Winchburgh" },
+    ],
+    services: ['Photography', 'Drone Imagery'],
+    deliverables: [
+      { title: 'Location photography', description: 'Stone frontages, local landmarks and the canal photographed from the ground.' },
+      { title: 'Aerial photography', description: 'Views across the village showing the road bridge and surrounding landscape.' },
+    ],
+    stats: [{ label: 'Location', value: 'Winchburgh', context: 'West Lothian' }],
   },
   {
     id: 9,
@@ -708,7 +734,7 @@ export const projects: Project[] = [
     slug: 'almond-vet-care',
     title: 'Almond Vet Care Case Study',
     clientName: 'Almond Vet Care',
-    category: 'Website Design · Healthcare',
+    category: 'Website Design · Photography · Healthcare',
     description: 'Designing a clear, reassuring website presence for veterinary care.',
     intro:
       'Almond Vet Care needed a website that felt professional, accessible and reassuring for pet owners looking for local veterinary support.',
@@ -718,6 +744,9 @@ export const projects: Project[] = [
     heroAlt: 'Two Almond Vet Care team members holding a puppy at the practice',
     heroPosition: '50% 60%',
     images: [
+      { src: "/assets/portfolio/almond-vet-care/practice-team.webp", alt: "Almond Vet Care team standing together outside the practice" },
+      { src: "/assets/portfolio/almond-vet-care/practice-entrance.webp", alt: "Almond Vet Care sign above the glazed entrance" },
+      { src: "/assets/portfolio/almond-vet-care/practice-reception.webp", alt: "Reception desk with the Almond Vet Care sign behind it" },
       { src: '/assets/websites/almond-vet.webp', alt: 'Almond Vet Care website design by Bear Media' },
       { src: '/assets/client-work/almond-vet-care/clinic-entrance-golden-retriever.webp', alt: 'Golden retriever outside the Almond Vet Care clinic' },
       { src: '/assets/client-work/almond-vet-care/vet-caring-for-bulldog.webp', alt: 'Almond Vet Care vet caring for a bulldog patient' },
@@ -730,8 +759,8 @@ export const projects: Project[] = [
         description: 'A polished website presentation helped make the service feel clear and dependable.',
       },
       {
-        title: 'Healthcare Content',
-        description: 'The content structure focused on reassurance, clarity and simple next steps.',
+        title: 'Practice photography',
+        description: 'The October shoot follows the route a pet owner takes on arrival, from the signed entrance to reception and the team who work at the practice.',
       },
       {
         title: 'Local SEO',
