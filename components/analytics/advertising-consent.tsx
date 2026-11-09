@@ -29,6 +29,9 @@ export function AdvertisingConsent() {
 
   function choose(consent: MeasurementConsent) {
     try { localStorage.setItem(AD_CONSENT_KEY, consent) } catch { /* Fail closed if storage is unavailable. */ }
+    if (consent === 'declined') {
+      try { sessionStorage.removeItem('bear-media-enquiry-campaign-v1') } catch { /* Storage unavailable. */ }
+    }
     applyMeasurementConsent(readMeasurementConsent())
     setOpen(false)
   }

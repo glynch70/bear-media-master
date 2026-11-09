@@ -1,11 +1,11 @@
 export const trustedClientLinks = {
   cgDevelopments: 'https://www.facebook.com/CGDevelopmentsltd/',
   simplySheds: 'https://www.instagram.com/simplyshedsscotland/',
-  masterChefs: 'https://www.tiktok.com/@bearmediascotland/video/7558154058444393750',
+  masterChefs: undefined,
   seamusCorry: 'https://www.seamuscorry.co.uk/',
 } as const
 
-const trustedClientLinksByName: Record<string, string> = {
+const trustedClientLinksByName: Record<string, string | undefined> = {
   'C&G Developments': trustedClientLinks.cgDevelopments,
   'Simply Sheds Scotland': trustedClientLinks.simplySheds,
   'Master Chefs': trustedClientLinks.masterChefs,

@@ -1,3 +1,4 @@
+import { readMeasurementConsent } from '@/lib/openai-measurement'
 // Carry only known campaign labels, never arbitrary URL text or contact details.
 export type CampaignAttribution = Record<string, string>
 
@@ -30,6 +31,10 @@ export function campaignAttribution(value: unknown): CampaignAttribution {
 }
 
 export function rememberCampaign(search: string): CampaignAttribution {
+  if (readMeasurementConsent() !== 'accepted') {
+    try { window.sessionStorage.removeItem(storageKey) } catch { /* Storage unavailable. */ }
+    return {}
+  }
   const current = campaignAttribution(search)
   if (Object.keys(current).length) {
     try { window.sessionStorage.setItem(storageKey, JSON.stringify(current)) } catch { /* The URL still works without storage. */ }

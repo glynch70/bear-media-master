@@ -12,5 +12,6 @@ export default defineConfig([
       'react/no-unescaped-entities': 'off',
     },
   },
+  { files: ['scripts/**/*.cjs'], rules: { '@typescript-eslint/no-require-imports': 'off' } },
   globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts']),
 ])

@@ -26,7 +26,7 @@ export function YouTubeShort({ videoId, title, poster }: {
         <button
           type="button"
           onClick={() => setLoaded(true)}
-          aria-label={`Load video: ${title}`}
+          aria-label={`Allow YouTube and load video: ${title}`}
           className="group absolute inset-0 h-full w-full cursor-pointer focus-visible:outline-4 focus-visible:-outline-offset-4 focus-visible:outline-accent"
         >
           <Image
@@ -40,7 +40,7 @@ export function YouTubeShort({ videoId, title, poster }: {
             <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-black shadow-lg transition-transform group-hover:scale-105 motion-reduce:transition-none">
               <Play className="ml-1 h-6 w-6" fill="currentColor" aria-hidden="true" />
             </span>
-            <span className="rounded-full bg-black/75 px-4 py-2 text-sm font-medium text-white">Load video</span>
+            <span className="rounded-full bg-black/75 px-4 py-2 text-sm font-medium text-white">Allow YouTube &amp; load video (may use cookies)</span>
           </span>
         </button>
       )}

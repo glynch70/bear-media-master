@@ -124,7 +124,7 @@ export default function Footer({ compactMobile = false }: { compactMobile?: bool
               Premium creative services for businesses across Scotland. Photography, video, websites, and social media management.
             </p>
             <Link
-              href="/contact"
+              href="/contact#enquiry"
               className="inline-flex items-center justify-center px-4 py-2.5 bg-accent text-foreground text-sm font-medium rounded-full hover:opacity-90 transition-opacity"
             >
               Get Started
@@ -163,7 +163,7 @@ export default function Footer({ compactMobile = false }: { compactMobile?: bool
             <ul className="space-y-1">
               <li><Link href="/projects" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Projects</Link></li>
               <li><Link href="/about" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">About</Link></li>
-              <li><Link href="/contact" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Contact</Link></li>
+              <li><Link href="/contact#enquiry" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Contact</Link></li>
               <li><Link href="/services" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Services</Link></li>
               <li><Link href="/insights" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">The Bear Media Journal</Link></li>
             </ul>
@@ -190,6 +190,7 @@ export default function Footer({ compactMobile = false }: { compactMobile?: bool
           {/* Column 5: Policies */}
           <FooterGroup title="Policies" compactMobile={compactMobile}>
             <ul className="space-y-1">
+              <li><Link href="/privacy" className="inline-flex min-h-11 items-center text-sm underline">Privacy Policy</Link></li>
               <li><Link href="/terms-and-conditions" className="inline-flex min-h-11 items-center text-sm text-muted-foreground hover:text-foreground transition-colors">Terms &amp; Conditions</Link></li>
             </ul>
           </FooterGroup>

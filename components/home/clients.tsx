@@ -3,6 +3,15 @@
 import styles from '@/app/redesign/redesign.module.css'
 
 import Image from 'next/image'
+import { useSyncExternalStore } from 'react'
+
+const subscribeViewport = (callback: () => void) => {
+  const media = window.matchMedia('(min-width: 768px)')
+  media.addEventListener('change', callback)
+  return () => media.removeEventListener('change', callback)
+}
+const desktopViewport = () => window.matchMedia('(min-width: 768px)').matches
+const serverViewport = () => false
 import { Carousel, CarouselItem } from '@/components/carousel'
 import { RedesignGallery } from '@/app/redesign/redesign-gallery'
 import { getTrustedClientAriaLabel, trustedClientLinks } from '@/lib/trusted-client-links'
@@ -29,7 +38,7 @@ const clientsData: Client[] = [
   { name: 'K Lewis Joinery', sector: 'Construction', logo: '/07- CLIENT LOGOS/klewis.webp', href: 'https://www.facebook.com/klewisjoinery/' },
   { name: 'Johnstone & Robertson', sector: 'Property', logo: '/07- CLIENT LOGOS/johnstone&robertson.webp' },
   { name: 'We Buy Any Home', sector: 'Property', logo: '/07- CLIENT LOGOS/webuyanyhome.webp', href: 'https://www.webuyanyhome.com/' },
-  { name: 'The PYP', sector: 'Coaching & Wellbeing', logo: '/07- CLIENT LOGOS/the pyp.webp', href: 'https://www.seamuscorry.co.uk/' },
+  { name: 'The PYP', sector: 'Coaching & Wellbeing', logo: '/07- CLIENT LOGOS/the pyp.webp' },
 ]
 
 function ClientCard({ client }: { client: Client }) {
@@ -76,6 +85,7 @@ function RedesignClientCard({ client }: { client: Client }) {
 }
 
 export default function Clients({ redesign = false }: { redesign?: boolean }) {
+  const desktop = useSyncExternalStore(subscribeViewport, desktopViewport, serverViewport)
   if (redesign) return (
     <section id="clients" className={styles.restoredSection} aria-labelledby="clients-title">
       <header data-reveal="text" className={styles.restoredHeading}>
@@ -83,7 +93,7 @@ export default function Clients({ redesign = false }: { redesign?: boolean }) {
         <h2 id="clients-title">Businesses I’ve worked with.</h2>
         <span>From trades and property to healthcare, retail and independent brands across Scotland.</span>
       </header>
-      <div className={styles.clientMobileGallery}>
+      {!desktop ? <div className={styles.clientMobileGallery}>
         <RedesignGallery label="businesses I’ve worked with">
           {clientsData.map((client) => (
             <div className={styles.clientGalleryCard} key={client.name}>
@@ -92,11 +102,11 @@ export default function Clients({ redesign = false }: { redesign?: boolean }) {
           ))}
         </RedesignGallery>
       </div>
-      <ul className={`${styles.clientGrid} ${styles.clientDesktopGrid}`}>
+      : <ul className={`${styles.clientGrid} ${styles.clientDesktopGrid}`}>
         {clientsData.map((client) => (
           <li key={client.name}><RedesignClientCard client={client} /></li>
         ))}
-      </ul>
+      </ul>}
     </section>
   )
 

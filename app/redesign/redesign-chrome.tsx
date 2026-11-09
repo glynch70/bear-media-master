@@ -36,6 +36,7 @@ export function RedesignFooter() {
       <span>Bear Media</span>
       <span>West Lothian · Edinburgh &amp; the Lothians</span>
       <span>Property marketing · Content · Websites · AI training</span>
+      <Link href="/privacy">Privacy Policy</Link>
       <Link href="/terms-and-conditions">Terms &amp; Conditions</Link>
       <div className={styles.desktopFooterLinks}>
         <nav aria-label="Explore Bear Media">
