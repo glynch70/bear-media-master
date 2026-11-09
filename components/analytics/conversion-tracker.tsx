@@ -1,5 +1,6 @@
 'use client'
 
+import { readMeasurementConsent } from '@/lib/openai-measurement'
 import { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { rememberCampaign } from '@/lib/campaign-attribution'
@@ -13,6 +14,7 @@ declare global {
 }
 
 export function trackConversion(eventName: string, parameters: ConversionParameters = {}) {
+  if (readMeasurementConsent() !== 'accepted') return
   // Optional measurement must never interrupt a successful enquiry.
   try { window.gtag?.('event', eventName, parameters) } catch { /* Keep the form usable. */ }
 }

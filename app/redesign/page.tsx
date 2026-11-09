@@ -145,7 +145,7 @@ export default function RedesignPage() {
             >
               <Image
                 src="/assets/hero/mobile/content-day-poster.webp"
-                alt=""
+                alt="Property content day video preview"
                 fill
                 loading="eager"
                 sizes="(max-width: 767px) 48vw, 1px"
@@ -157,7 +157,7 @@ export default function RedesignPage() {
           </div>
           <Image
             src="/assets/hero/hero-poster.webp"
-            alt=""
+            alt="Bear Media photography and video work"
             fill
             sizes="(max-width: 767px) 1px, (max-width: 1023px) 100vw, 48vw"
             quality={75}

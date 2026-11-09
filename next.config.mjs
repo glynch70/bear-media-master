@@ -67,7 +67,7 @@ const nextConfig = {
             value: 'portfolio.bear-media.com',
           },
         ],
-        destination: 'https://bear-media.com/terms-and-conditions',
+        destination: 'https://bear-media.com/privacy',
         permanent: true,
       },
       {
@@ -259,8 +259,8 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: '/privacy',
-        destination: '/terms-and-conditions',
+        source: '/privacy-policy',
+        destination: '/privacy',
         permanent: true,
       },
       {

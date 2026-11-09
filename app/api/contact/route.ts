@@ -350,7 +350,7 @@ export async function POST(request: NextRequest) {
     const sanitizedName = sanitizeInput(name)
     const sanitizedEmail = email.trim().toLowerCase()
     const sanitizedBusiness = business ? sanitizeInput(business) : ''
-    const sanitizedMessage = sanitizeInput(message)
+    const sanitizedMessage = message.trim()
 
     // Validate email format
     if (!validateEmail(sanitizedEmail)) {
@@ -364,11 +364,11 @@ export async function POST(request: NextRequest) {
     }
 
     // Validate message length
-    if (sanitizedMessage.length < 10) {
+    if (sanitizedMessage.length < 10 || sanitizedMessage.length > 2000) {
       return NextResponse.json(
         {
           success: false,
-          error: 'Message must be at least 10 characters',
+          error: 'Message must be between 10 and 2,000 characters',
         },
         { status: 400 },
       )

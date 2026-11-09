@@ -45,7 +45,7 @@ export function MuxVideoPlayer({
         <button
           type="button"
           onClick={() => setHasStarted(true)}
-          aria-label={`Play ${title}`}
+          aria-label={`Allow Mux and play ${title}`}
           aria-describedby={descriptionId}
           className="group absolute inset-0 block h-full w-full cursor-pointer bg-black"
         >
@@ -59,6 +59,7 @@ export function MuxVideoPlayer({
           />
           <span className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-black/20 group-focus-visible:bg-black/20" />
           <span className="absolute left-1/2 top-1/2 grid min-h-14 min-w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/95 text-black shadow-2xl transition-transform group-hover:scale-105 group-focus-visible:scale-105 sm:min-h-16 sm:min-w-16">
+            <span className="absolute top-full mt-2 w-60 text-center text-sm text-white">Allow Mux &amp; play (may use cookies)</span>
             <Play className="ml-1 h-6 w-6 fill-current sm:h-7 sm:w-7" aria-hidden="true" />
           </span>
         </button>

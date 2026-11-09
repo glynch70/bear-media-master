@@ -183,7 +183,7 @@ export default function ContactPage() {
       icon: MapPin,
       label: 'Location',
       value: 'West Lothian',
-      href: '#',
+      href: undefined,
     },
   ]
 
@@ -356,12 +356,12 @@ export default function ContactPage() {
                       disabled={formState.loading}
                       rows={6}
                       minLength={10}
-                      maxLength={500}
+                      maxLength={2000}
                       aria-describedby="message-help"
                       className="w-full px-5 py-3.5 bg-background border border-foreground/10 rounded-2xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                       placeholder={messagePrompt}
                     />
-                    <p id="message-help" className="text-sm text-muted-foreground">{messagePrompt} A short outline is enough — 10–500 characters. I’ll confirm the deliverables, timings and fee before work starts.</p>
+                    <p id="message-help" className="text-sm text-muted-foreground">{messagePrompt} A short outline is enough — 10–2,000 characters. I’ll confirm the deliverables, timings and fee before work starts.</p>
                   </div>
                   <input
                     type="text"
@@ -393,6 +393,7 @@ export default function ContactPage() {
                   >
                     {formState.loading ? 'Sending...' : 'Send Message'}
                   </button>
+                  <p className="text-sm text-muted-foreground">Read our <a href="/privacy" className="underline">Privacy Policy</a> for how your enquiry is handled.</p>
                 </form>
               </>
             )}
@@ -447,7 +448,7 @@ export default function ContactPage() {
               Just practical support, professional content and straightforward advice.
             </p>
             <Link
-              href="#top"
+              href="#enquiry"
               onClick={(e) => {
                 e.preventDefault()
                 document.getElementById('enquiry')?.scrollIntoView({ behavior: 'smooth' })

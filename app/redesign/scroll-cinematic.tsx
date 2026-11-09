@@ -229,7 +229,7 @@ export function ScrollCinematic() {
         <div className={styles.cinematicMedia}>
           <Image
             src="/assets/hero-carousel/interview-setup.webp"
-            alt=""
+            alt="Professional interview filming setup with lighting and cameras"
             fill
             sizes="(max-width: 767px) 178vh, 100vw"
             quality={75}

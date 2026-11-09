@@ -10,8 +10,8 @@ function loader(overrides = {}, globals = {}) {
   const cache = new Map()
   function load(file) {
     if (cache.has(file)) return cache.get(file)
-    const module = { exports: {} }
-    cache.set(file, module.exports)
+    const loadedModule = { exports: {} }
+    cache.set(file, loadedModule.exports)
     const source = ts.transpileModule(readFileSync(file, 'utf8'), {
       compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, jsx: ts.JsxEmit.ReactJSX },
     }).outputText
@@ -21,11 +21,11 @@ function loader(overrides = {}, globals = {}) {
       return require(id)
     }
     vm.runInNewContext(source, {
-      exports: module.exports, module, require: localRequire, URL, URLSearchParams, Response, Map, Set,
+      exports: loadedModule.exports, module: loadedModule, require: localRequire, URL, URLSearchParams, Response, Map, Set,
       crypto: require('node:crypto'), console: { ...console, error() {}, log() {} },
       process: { env: { RESEND_API_KEY: 'local-test-only', CONTACT_EMAIL: 'owner@example.test' } }, ...globals,
     }, { filename: file })
-    return module.exports
+    return loadedModule.exports
   }
   return load
 }
@@ -79,13 +79,20 @@ test('invalid origins, payload types, services and empty names are rejected befo
 })
 test('campaign routing preserves known tags and never arbitrary contact details', () => {
   const store = new Map()
-  const load = loader({}, { window: { sessionStorage: { setItem: (k, v) => store.set(k, v), getItem: k => store.get(k) } } })
+  let consent = null
+  const load = loader({}, { window: { localStorage: { getItem: () => consent }, sessionStorage: { setItem: (k, v) => store.set(k, v), getItem: k => store.get(k), removeItem: k => store.delete(k) } } })
   const c = load(path.join(root, 'lib/campaign-attribution.ts'))
   const search = '?utm_source=facebook&utm_medium=organic_social&utm_campaign=nov2026_social&utm_content=s1&email=private@example.test'
   const href = c.campaignContactHref('/contact?service=social#enquiry', search)
   assert.match(href, /service=social/); assert.match(href, /utm_campaign=nov2026_social/); assert.match(href, /#enquiry$/); assert.doesNotMatch(href, /email|private/)
   c.rememberCampaign(search)
+  assert.equal(store.size, 0)
+  consent = 'accepted'
+  c.rememberCampaign(search)
   assert.equal(c.rememberCampaign('').utm_content, 's1')
+  consent = 'declined'
+  c.rememberCampaign('')
+  assert.equal(store.size, 0)
   assert.deepEqual(JSON.parse(JSON.stringify(c.campaignAttribution('?utm_source=private@example.test&utm_medium=paid_social&utm_campaign=nov2026_social'))), {})
   assert.equal(c.campaignAttribution({ utm_source: 'meta', utm_medium: 'paid_social', utm_campaign: 'nov2026_social', utm_content: '<script>' }).utm_content, undefined)
 })
@@ -108,4 +115,14 @@ test('training short retains channel attribution through the contact email and r
   assert.match(h.sent[0].html, /nov2026_chatgpt_training/)
   assert.match(h.sent[0].html, /short24/)
   assert.doesNotMatch(h.sent[0].html, /private@example.test/)
+})
+
+test('message limits accept 2,000 characters without truncation and reject longer messages', async () => {
+  const accepted = handler()
+  const message = 'a'.repeat(2000)
+  assert.equal((await accepted.POST(request({ ...valid, message }))).status, 200)
+  assert.ok(accepted.sent[0].html.includes(message))
+  const rejected = handler()
+  assert.equal((await rejected.POST(request({ ...valid, message: message + 'a' }))).status, 400)
+  assert.equal(rejected.sent.length, 0)
 })

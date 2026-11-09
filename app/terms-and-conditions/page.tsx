@@ -168,7 +168,7 @@ export default function TermsAndConditionsPage() {
             <section>
               <h2 className="mb-5 font-heading text-3xl font-medium text-foreground">11. Confidentiality, privacy and data</h2>
               <p>Each party must keep the other party’s confidential business information confidential and use it only for the Project, except where disclosure is required by law or necessary to deliver the services.</p>
-              <p>We process personal data in accordance with our Privacy Policy and applicable data-protection law. Where we process personal data on your instructions, the parties will agree any additional data-processing terms reasonably required.</p>
+              <p>We process personal data in accordance with our <a href="/privacy" className="underline">Privacy Policy</a> and applicable data-protection law. Where we process personal data on your instructions, the parties will agree any additional data-processing terms reasonably required.</p>
             </section>
 
             <section>
