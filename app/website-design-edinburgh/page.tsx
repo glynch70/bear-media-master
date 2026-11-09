@@ -5,7 +5,7 @@ import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import { FAQPageSchema, ServiceSchema } from '@/components/structured-data'
 import Link from 'next/link'
-import RecentWebsiteProjects from '@/components/services/recent-website-projects'
+import WebsitePortfolioSection from '@/components/website-portfolio-section'
 
 export const metadata: Metadata = {
   title: 'Website Design in Edinburgh | Bear Media',
@@ -93,8 +93,7 @@ export default function WebsiteDesignEdinburgh() {
           </div>
           <DesktopServiceImage src="/assets/websites/seamus-corry.webp" alt="Seamus Corry website designed by Bear Media" />
         </section>
-        <RecentWebsiteProjects />
-        <RecentWebsiteProjects kind="landing-pages" />
+        <WebsitePortfolioSection />
         <section className="px-4 py-16 md:px-6 md:py-20" aria-labelledby="edinburgh-website-work-title">
           <div className="mx-auto max-w-4xl">
             <h2 id="edinburgh-website-work-title" className="mb-4 text-3xl font-bold">More websites I have built</h2>

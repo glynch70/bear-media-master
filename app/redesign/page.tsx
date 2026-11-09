@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { websiteShowcaseProjects as websites } from '@/lib/website-projects'
+import WebsitePortfolioSection from '@/components/website-portfolio-section'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
@@ -291,48 +291,7 @@ export default function RedesignPage() {
           </RedesignGallery>
         </section>
 
-        <section
-          id="websites"
-          className={`${styles.journeyGalleryChapter} ${styles.websiteGalleryChapter}`}
-          data-chapter="06"
-          aria-labelledby="websites-title"
-        >
-          <div data-reveal="text" className={styles.journeyGalleryHeading}>
-            <p>06 / 09</p>
-            <h2 id="websites-title">Websites &amp; landing pages</h2>
-            <span>Explore client websites and focused landing page designs.</span>
-          </div>
-          <RedesignGallery label="website projects" variant="website">
-            {websites.map((website) => (
-              <Link
-                href={'caseStudy' in website ? website.caseStudy : website.url}
-                target={'caseStudy' in website ? undefined : '_blank'}
-                rel={'caseStudy' in website ? undefined : 'noopener noreferrer'}
-                className={styles.journeyWebsiteCard}
-                key={website.name}
-              >
-                <div className={styles.journeyWebsiteImage} data-gallery-media>
-                  <picture>
-                    <Image
-                      src={website.src}
-                      alt={'alt' in website ? website.alt : `${website.name} website designed by Bear Media`}
-                      fill
-                      sizes="(max-width: 767px) 86vw, 42vw"
-                      quality={85}
-                      className={styles.containImage}
-                    />
-                  </picture>
-                </div>
-                <span>
-                  <span>{website.name}</span>
-                  <ArrowUpRight aria-hidden="true" />
-                </span>
-                <p className={styles.websiteDescription}>{'category' in website ? <><strong>{website.category}</strong><br /></> : null}{website.description}</p>
-                {!('caseStudy' in website) ? <span className="sr-only">Opens in a new tab</span> : null}
-              </Link>
-            ))}
-          </RedesignGallery>
-        </section>
+        <WebsitePortfolioSection id="websites" chapter />
 
         <FeaturedProjects redesign />
         <Testimonials redesign />

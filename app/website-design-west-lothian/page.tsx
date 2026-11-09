@@ -1,5 +1,4 @@
-import { websiteProjects as completedWebsites } from '@/lib/website-projects'
-import RecentWebsiteProjects from '@/components/services/recent-website-projects'
+import WebsitePortfolioSection from '@/components/website-portfolio-section'
 import desktop from '@/components/desktop-refresh.module.css'
 import type { Metadata } from 'next'
 import Image from 'next/image'
@@ -51,20 +50,6 @@ export const metadata: Metadata = {
     canonical: pageUrl,
   },
 }
-
-const priorityProjects = ['Linven Property Inspections', 'Esk Valley Talking Therapies', 'AM Medical Aesthetics', 'Almond Vet Care']
-const websiteProjects = [...completedWebsites].sort((a, b) => {
-  const rank = (name: string) => {
-    const index = priorityProjects.indexOf(name)
-    return index < 0 ? priorityProjects.length : index
-  }
-  return rank(a.name) - rank(b.name)
-}).map((site) => ({
-  title: site.name, category: 'category' in site ? site.category : 'Website design', description: site.description, image: site.src,
-  alt: 'alt' in site ? site.alt : `${site.name} website designed by Bear Media`,
-  linkLabel: 'caseStudy' in site ? 'View case study' : 'Visit live website',
-  href: 'caseStudy' in site ? site.caseStudy : site.url,
-}))
 
 const services = [
   {
@@ -270,51 +255,7 @@ export default function WebsiteDesignWestLothian() {
           </div>
         </section>
 
-        <section id="recent-websites" className="scroll-mt-24 bg-background py-20 md:py-28">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Selected work</p>
-              <h2 className="mt-4 font-heading text-4xl font-medium tracking-tight text-balance md:text-6xl">
-                Completed websites for real organisations.
-              </h2>
-              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-                Explore client websites for Linven Property Inspections, Esk Valley Talking Therapies, AM Medical Aesthetics and other organisations, with links to the live site or a case study.
-              </p>
-            </div>
-
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
-              {websiteProjects.map((project) => (
-                <Link
-                  key={project.title}
-                  href={project.href}
-                  className="group overflow-hidden rounded-3xl border border-border bg-background shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4"
-                >
-                  <div className="relative aspect-square overflow-hidden bg-muted">
-                    <Image
-                      src={project.image}
-                      alt={project.alt}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      quality={85}
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">{project.category}</p>
-                    <h3 className="mt-3 font-heading text-2xl font-semibold">{project.title}</h3>
-                    <p className="mt-3 leading-relaxed text-muted-foreground">{project.description}</p>
-                    <span className="mt-6 inline-flex items-center gap-2 font-semibold text-foreground">
-                      {project.linkLabel}
-                      <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <RecentWebsiteProjects kind="landing-pages" />
+        <WebsitePortfolioSection />
 
         <section className="bg-primary py-20 text-primary-foreground md:py-28">
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-[0.72fr_1.28fr] lg:px-8">
