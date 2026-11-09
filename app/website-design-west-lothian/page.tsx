@@ -1,4 +1,5 @@
 import { websiteProjects as completedWebsites } from '@/lib/website-projects'
+import RecentWebsiteProjects from '@/components/services/recent-website-projects'
 import desktop from '@/components/desktop-refresh.module.css'
 import type { Metadata } from 'next'
 import Image from 'next/image'
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
   },
 }
 
-const priorityProjects = ['Esk Valley Talking Therapies', 'AM Medical Aesthetics', 'Almond Vet Care']
+const priorityProjects = ['Linven Property Inspections', 'Esk Valley Talking Therapies', 'AM Medical Aesthetics', 'Almond Vet Care']
 const websiteProjects = [...completedWebsites].sort((a, b) => {
   const rank = (name: string) => {
     const index = priorityProjects.indexOf(name)
@@ -277,7 +278,7 @@ export default function WebsiteDesignWestLothian() {
                 Completed websites for real organisations.
               </h2>
               <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-                These are completed client websites, with links to the live site or an existing case study. The examples include Esk Valley Talking Therapies, AM Medical Aesthetics and Almond Vet Care; no demonstration sites are included in this selection.
+                Explore client websites for Linven Property Inspections, Esk Valley Talking Therapies, AM Medical Aesthetics and other organisations, with links to the live site or a case study.
               </p>
             </div>
 
@@ -312,6 +313,8 @@ export default function WebsiteDesignWestLothian() {
             </div>
           </div>
         </section>
+
+        <RecentWebsiteProjects kind="landing-pages" />
 
         <section className="bg-primary py-20 text-primary-foreground md:py-28">
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-[0.72fr_1.28fr] lg:px-8">

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { websiteProjects as websites } from '@/lib/website-projects'
+import { websiteShowcaseProjects as websites } from '@/lib/website-projects'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
@@ -299,8 +299,8 @@ export default function RedesignPage() {
         >
           <div data-reveal="text" className={styles.journeyGalleryHeading}>
             <p>06 / 09</p>
-            <h2 id="websites-title">Website design</h2>
-            <span>Swipe through completed Bear Media websites.</span>
+            <h2 id="websites-title">Websites &amp; landing pages</h2>
+            <span>Explore client websites and focused landing page designs.</span>
           </div>
           <RedesignGallery label="website projects" variant="website">
             {websites.map((website) => (
@@ -315,7 +315,7 @@ export default function RedesignPage() {
                   <picture>
                     <Image
                       src={website.src}
-                      alt={`${website.name} website designed by Bear Media`}
+                      alt={'alt' in website ? website.alt : `${website.name} website designed by Bear Media`}
                       fill
                       sizes="(max-width: 767px) 86vw, 42vw"
                       quality={85}
@@ -327,7 +327,7 @@ export default function RedesignPage() {
                   <span>{website.name}</span>
                   <ArrowUpRight aria-hidden="true" />
                 </span>
-                <p className={styles.websiteDescription}>{website.description}</p>
+                <p className={styles.websiteDescription}>{'category' in website ? <><strong>{website.category}</strong><br /></> : null}{website.description}</p>
                 {!('caseStudy' in website) ? <span className="sr-only">Opens in a new tab</span> : null}
               </Link>
             ))}
