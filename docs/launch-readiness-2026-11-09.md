@@ -45,3 +45,9 @@ Removed v0.app generator. Existing shared SEO helper preserves canonical URLs, u
 - No production deployment, SSL scan, PageSpeed score, mailbox access or ICO account access performed.
 
 Not launch-approved until the policy gaps and outstanding owner confirmations above are resolved.
+
+## Owner confirmation after review
+
+Garry confirmed on 9 November: “I delete all after 12 months.” The policy now states that enquiries and related emails are deleted after 12 months. Provider backup/log retention, mailbox provider, transfer safeguards and ICO registration/exemption remain unconfirmed.
+
+Garry also confirmed IONOS as the business mailbox provider. Added to the privacy page; its account-specific retention and transfer safeguards remain to be checked.
