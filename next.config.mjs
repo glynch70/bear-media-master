@@ -71,6 +71,17 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/cookies',
+        has: [
+          {
+            type: 'host',
+            value: 'portfolio.bear-media.com',
+          },
+        ],
+        destination: 'https://bear-media.com/terms-and-conditions',
+        permanent: true,
+      },
+      {
         source: '/:path*',
         has: [
           {
@@ -249,6 +260,11 @@ const nextConfig = {
       },
       {
         source: '/privacy',
+        destination: '/terms-and-conditions',
+        permanent: true,
+      },
+      {
+        source: '/cookies',
         destination: '/terms-and-conditions',
         permanent: true,
       },
