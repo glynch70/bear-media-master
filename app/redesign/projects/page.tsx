@@ -60,7 +60,7 @@ export default function RedesignProjectsPage() {
               <div className={styles.projectIndexMedia} data-shared-image data-reveal="image">
                 <Image
                   src={project.cardImage?.src ?? project.heroImage}
-                  alt={project.cardImage?.alt ?? project.title}
+                  alt={project.cardImage?.alt ?? project.heroAlt ?? project.title}
                   style={project.cardImage?.position ? { objectPosition: project.cardImage.position } : undefined}
                   fill
                   preload={index === 0}

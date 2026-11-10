@@ -1,3 +1,4 @@
+import { contactFieldError } from '@/lib/contact-fields'
 import { Resend } from 'resend'
 import { enquiryServiceLabel } from '@/lib/enquiry-services'
 import { campaignAttribution } from '@/lib/campaign-attribution'
@@ -18,14 +19,18 @@ const logoUrl = 'https://bear-media.com/brand/bear-media-icon.png'
 // Simple in-memory rate limiting (store: IP -> count, timestamp)
 const rateLimitStore = new Map<string, { count: number; timestamp: number }>()
 
-function getRateLimitKey(ip: string | null): string {
-  return ip || 'unknown'
-}
+const rateLimitWindow = 60 * 60 * 1000
+let nextRateLimitCleanup = 0
 
 function checkRateLimit(ip: string | null): boolean {
-  const key = getRateLimitKey(ip)
+  const key = ip || 'unknown'
   const now = Date.now()
-  const oneHourInMs = 60 * 60 * 1000
+  if (now >= nextRateLimitCleanup) {
+    for (const [address, record] of rateLimitStore) {
+      if (now - record.timestamp >= rateLimitWindow) rateLimitStore.delete(address)
+    }
+    nextRateLimitCleanup = now + rateLimitWindow
+  }
 
   const record = rateLimitStore.get(key)
 
@@ -35,7 +40,7 @@ function checkRateLimit(ip: string | null): boolean {
   }
 
   // Reset if outside the 1-hour window
-  if (now - record.timestamp > oneHourInMs) {
+  if (now - record.timestamp >= rateLimitWindow) {
     rateLimitStore.set(key, { count: 1, timestamp: now })
     return true
   }
@@ -49,10 +54,6 @@ function checkRateLimit(ip: string | null): boolean {
   return true
 }
 
-function sanitizeInput(input: string): string {
-  return input.trim().substring(0, 500)
-}
-
 function escapeHtml(input: string): string {
   return input
     .replaceAll('&', '&amp;')
@@ -60,11 +61,6 @@ function escapeHtml(input: string): string {
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;')
     .replaceAll("'", '&#039;')
-}
-
-function validateEmail(email: string): boolean {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  return emailRegex.test(email)
 }
 
 function isSameSiteRequest(request: NextRequest): boolean {
@@ -148,21 +144,21 @@ async function sendEmails(
       `,
       })
     } catch (sendError) {
-      console.error('[v0] Notification email send failed:', sendError instanceof Error ? sendError.message : String(sendError))
+      console.error('[contact] Notification email send failed:', sendError instanceof Error ? sendError.message : String(sendError))
       throw sendError
     }
     
     if (!notificationResult.data?.id) {
-      console.error('[v0] Notification email failed - no ID returned')
+      console.error('[contact] Notification email failed - no ID returned')
       return {
         success: false,
-        error: 'Failed to send notification email',
+        error: 'Your enquiry could not be sent. Please try again or email info@bear-media.com.',
       }
     }
 
     // Send confirmation email to user
     try {
-      await resend.emails.send({
+      const confirmation = await resend.emails.send({
         from: senderEmail,
         to: email,
         replyTo: contactEmail,
@@ -206,13 +202,14 @@ async function sendEmails(
           </div>
         `,
       })
+      if (confirmation.error) console.error('[contact] Confirmation email was declined by the provider')
     } catch (confirmationError) {
-      console.error('[v0] Confirmation email send failed (non-blocking):', confirmationError instanceof Error ? confirmationError.message : String(confirmationError))
+      console.error('[contact] Confirmation email send failed (non-blocking):', confirmationError instanceof Error ? confirmationError.message : String(confirmationError))
     }
 
     return { success: true }
   } catch (error) {
-    console.error('[v0] sendEmails error:', error instanceof Error ? error.message : String(error))
+    console.error('[contact] sendEmails error:', error instanceof Error ? error.message : String(error))
     return {
       success: false,
       error: 'Failed to send email. Please try again or contact directly.',
@@ -241,7 +238,7 @@ async function verifyTurnstileToken(token: string): Promise<boolean> {
     const data = await response.json()
     return data.success === true
   } catch (error) {
-    console.error('[v0] Turnstile verification error:', error instanceof Error ? error.message : String(error))
+    console.error('[turnstile] verification error:', error instanceof Error ? error.message : String(error))
     return false
   }
 }
@@ -274,7 +271,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Parse request
-    const body = await request.json()
+    const body = await request.json().catch(() => null)
     if (!body || typeof body !== 'object' || Array.isArray(body)) {
       return NextResponse.json({ success: false, error: 'Invalid form data' }, { status: 400 })
     }
@@ -300,7 +297,7 @@ export async function POST(request: NextRequest) {
 
     // Honeypot check - silently reject spam bots
     if (honeypot) {
-      console.log('[v0] Honeypot field filled - likely spam bot')
+      console.log('[contact] Honeypot field filled - likely spam bot')
       return NextResponse.json(
         {
           success: true,
@@ -324,7 +321,7 @@ export async function POST(request: NextRequest) {
 
       const isValidToken = await verifyTurnstileToken(turnstileToken)
       if (!isValidToken) {
-        console.log('[v0] Turnstile verification failed')
+        console.log('[turnstile] verification failed')
         return NextResponse.json(
           {
             success: false,
@@ -335,47 +332,16 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Validate required fields
-    if (!name.trim() || !email.trim() || !message.trim()) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: 'Missing required fields',
-        },
-        { status: 400 },
-      )
-    }
+    const fieldError = contactFieldError(name, email, business ?? '', message)
+    if (fieldError) return NextResponse.json({ success: false, error: fieldError }, { status: 400 })
 
-    // Sanitize inputs
-    const sanitizedName = sanitizeInput(name)
+    const sanitizedName = name.trim()
     const sanitizedEmail = email.trim().toLowerCase()
-    const sanitizedBusiness = business ? sanitizeInput(business) : ''
+    const sanitizedBusiness = business?.trim() ?? ''
     const sanitizedMessage = message.trim()
 
-    // Validate email format
-    if (!validateEmail(sanitizedEmail)) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: 'Invalid email address',
-        },
-        { status: 400 },
-      )
-    }
-
-    // Validate message length
-    if (sanitizedMessage.length < 10 || sanitizedMessage.length > 2000) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: 'Message must be between 10 and 2,000 characters',
-        },
-        { status: 400 },
-      )
-    }
-
     if (isObviousSpam(sanitizedMessage)) {
-      console.log('[v0] Contact form content rejected as obvious spam')
+      console.log('[contact] Contact form content rejected as obvious spam')
       return NextResponse.json(
         {
           success: true,
@@ -418,7 +384,7 @@ export async function POST(request: NextRequest) {
       { status: 200 },
     )
   } catch (error) {
-    console.error('[v0] POST /api/contact error:', error instanceof Error ? error.message : String(error))
+    console.error('[contact] POST /api/contact error:', error instanceof Error ? error.message : String(error))
     return NextResponse.json(
       {
         success: false,

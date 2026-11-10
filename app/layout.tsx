@@ -6,7 +6,7 @@ import { MotionSystem } from '@/components/motion/motion-system'
 import { AdvertisingConsent } from '@/components/analytics/advertising-consent'
 import { ConversionTracker } from '@/components/analytics/conversion-tracker'
 import { BusinessSchema, PersonSchema, WebSiteSchema } from '@/components/structured-data'
-import { createMetadata, defaultOgImageUrl, siteUrl } from '@/lib/seo'
+import { createMetadata, siteUrl } from '@/lib/seo'
 
 const inter = Inter({
   variable: '--font-inter',
@@ -38,9 +38,6 @@ export const metadata: Metadata = {
       { url: `${siteUrl}/brand/bear-media-icon.png`, sizes: '512x512', type: 'image/png' },
     ],
     apple: [{ url: `${siteUrl}/brand/bear-media-apple-icon.png`, sizes: '180x180', type: 'image/png' }],
-  },
-  other: {
-    'og:image:secure_url': defaultOgImageUrl,
   },
 }
 

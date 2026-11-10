@@ -4,6 +4,7 @@ import Image from 'next/image'
 import styles from '@/app/redesign/redesign.module.css'
 import Link from 'next/link'
 import { RedesignFooter, RedesignHeader } from '@/app/redesign/redesign-chrome'
+import { NAME_MAX_LENGTH, EMAIL_MAX_LENGTH, BUSINESS_MAX_LENGTH, MESSAGE_MIN_LENGTH, MESSAGE_MAX_LENGTH, contactFieldError } from '@/lib/contact-fields'
 import { useState, useRef, useSyncExternalStore } from 'react'
 import { enquiryServices, enquiryServiceLabel } from '@/lib/enquiry-services'
 import { rememberCampaign } from '@/lib/campaign-attribution'
@@ -78,6 +79,11 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (submitting.current || formState.submitted) return
+    const error = contactFieldError(formState.name, formState.email, formState.business, formState.message)
+    if (error) {
+      setFormState((prev) => ({ ...prev, error }))
+      return
+    }
     submitting.current = true
     setFormState((prev) => ({ ...prev, loading: true, error: '' }))
 
@@ -114,9 +120,11 @@ export default function ContactPage() {
       const data = await response.json()
 
       if (!response.ok || data.success !== true) {
+        turnstileRef.current?.reset()
         setFormState((prev) => ({
           ...prev,
           loading: false,
+          turnstileToken: '',
           error: data.error || 'Failed to send message. Please try again.',
         }))
         return
@@ -155,7 +163,7 @@ export default function ContactPage() {
         turnstileRef.current.reset()
       }
     } catch (error) {
-      console.error('[v0] Form submission error:', error)
+      console.error('[contact] Form submission error:', error)
       setFormState((prev) => ({
         ...prev,
         loading: false,
@@ -259,7 +267,7 @@ export default function ContactPage() {
         <section id="enquiry" className="w-full bg-background pt-8 md:pt-10 pb-12 md:pb-16">
           <div className="max-w-3xl mx-auto px-6 lg:px-8">
             {formState.submitted ? (
-              <div className="text-center py-12">
+              <div role="status" className="text-center py-12">
                 <h2 className="font-heading text-4xl md:text-5xl font-medium text-foreground mb-4">
                   Thanks for reaching out.
                 </h2>
@@ -272,9 +280,9 @@ export default function ContactPage() {
                 <h2 className="font-heading text-4xl md:text-5xl font-medium text-foreground mb-10">
                   Send a Message
                 </h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form data-clarity-mask="true" aria-describedby={formState.error ? 'contact-error' : undefined} onSubmit={handleSubmit} className="space-y-6">
                   {formState.error && (
-                    <div className="p-4 rounded-2xl bg-red-50 border border-red-200">
+                    <div role="alert" id="contact-error" className="p-4 rounded-2xl bg-red-50 border border-red-200">
                       <p className="text-red-800 text-sm font-medium">{formState.error}</p>
                     </div>
                   )}
@@ -287,6 +295,7 @@ export default function ContactPage() {
                         type="text"
                         id="name"
                         name="name"
+                        maxLength={NAME_MAX_LENGTH}
                         value={formState.name}
                         onChange={handleChange}
                         required
@@ -303,6 +312,7 @@ export default function ContactPage() {
                         type="text"
                         id="business"
                         name="business"
+                        maxLength={BUSINESS_MAX_LENGTH}
                         value={formState.business}
                         onChange={handleChange}
                         disabled={formState.loading}
@@ -319,6 +329,7 @@ export default function ContactPage() {
                       type="email"
                       id="email"
                       name="email"
+                        maxLength={EMAIL_MAX_LENGTH}
                       value={formState.email}
                       onChange={handleChange}
                       required
@@ -355,8 +366,8 @@ export default function ContactPage() {
                       required
                       disabled={formState.loading}
                       rows={6}
-                      minLength={10}
-                      maxLength={2000}
+                      minLength={MESSAGE_MIN_LENGTH}
+                      maxLength={MESSAGE_MAX_LENGTH}
                       aria-describedby="message-help"
                       className="w-full px-5 py-3.5 bg-background border border-foreground/10 rounded-2xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                       placeholder={messagePrompt}
@@ -378,8 +389,10 @@ export default function ContactPage() {
                       <Turnstile
                         sitekey={turnstileSiteKey}
                         onVerify={handleTurnstileChange}
+                        onExpire={() => handleTurnstileChange('')}
+                        onError={() => setFormState(prev => ({ ...prev, turnstileToken: '', error: 'The security check could not load. Please retry or email info@bear-media.com.' }))}
                         theme="light"
-                        size="normal"
+                        size="flexible"
                       />
                     </div>
                   )}

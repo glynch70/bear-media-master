@@ -109,7 +109,7 @@ export default function RedesignServicesPage() {
             alt="Conference event photography captured by Bear Media"
             fill
             preload
-            sizes="(max-width: 760px) 190vw, 52vw"
+            sizes="(max-width: 760px) 100vw, 52vw"
             quality={90}
             className={styles.coverImage}
           />
@@ -204,7 +204,7 @@ export default function RedesignServicesPage() {
               src="/assets/client-work/cg-developments/new-build-rural-aerial.jpg"
               alt="Aerial view of a finished rural home captured for C&G Developments"
               fill
-              sizes="(max-width: 760px) 140vh, 100vw"
+              sizes="100vw"
               quality={90}
               className={styles.coverImage}
             />

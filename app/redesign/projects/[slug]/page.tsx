@@ -201,8 +201,7 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
 
         <section className={styles.caseDeliverables} aria-labelledby="case-deliverables-title">
           <div data-reveal="text" className={styles.caseSectionHeading}>
-            <p className={styles.eyebrow}>What Bear Media delivered</p>
-            <h2 id="case-deliverables-title">Built around the work.</h2>
+            <h2 id="case-deliverables-title">What I delivered</h2>
           </div>
           <div className={styles.caseDeliverableGrid}>
             {project.deliverables.map((deliverable, index) => (
@@ -217,8 +216,7 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
 
         <section className={styles.caseResults} aria-labelledby="case-results-title">
           <div data-reveal="text" className={styles.caseSectionHeading}>
-            <p className={styles.eyebrow}>Results</p>
-            <h2 id="case-results-title">Proof that belongs in the story.</h2>
+            <h2 id="case-results-title">Project details</h2>
           </div>
           <div className={styles.caseStats}>
             {project.stats.map((stat) => (
@@ -262,6 +260,9 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
             </p>
           </section>
         ) : null}
+        <div className={styles.projectEnquiry}>
+          <Link href="/contact#enquiry">Talk to Garry about your project <ArrowUpRight aria-hidden="true" /></Link>
+        </div>
       </article>
 
       <Link

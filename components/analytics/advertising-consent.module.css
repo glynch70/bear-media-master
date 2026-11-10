@@ -5,5 +5,9 @@
 .actions { display: flex; flex-wrap: wrap; gap: .75rem; }
 .actions button, .settings { border: 1px solid #444; border-radius: .5rem; padding: .7rem 1rem; background: #fff; color: #171717; cursor: pointer; }
 .actions button { flex: 1; min-height: 44px; font-weight: 600; }
-.settings { position: fixed; z-index: 90; bottom: .5rem; left: .5rem; font-size: .75rem; }
+.settings { display: block; width: 100%; min-height: 44px; border: 0; border-radius: 0; background: #171717; color: #fff; font-size: .85rem; text-decoration: underline; }
 .actions button:focus-visible, .settings:focus-visible { outline: 3px solid #c4402a; outline-offset: 3px; }
+.panel label { display: flex; align-items: center; gap: .65rem; min-height: 44px; }
+.panel label input { accent-color: #34332d; }
+.panel .actions { margin-top: .6rem; }
+.save { min-height: 44px; text-decoration: underline; cursor: pointer; }

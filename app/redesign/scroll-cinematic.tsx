@@ -231,7 +231,7 @@ export function ScrollCinematic() {
             src="/assets/hero-carousel/interview-setup.webp"
             alt="Professional interview filming setup with lighting and cameras"
             fill
-            sizes="(max-width: 767px) 178vh, 100vw"
+            sizes="100vw"
             quality={75}
             className={styles.cinematicPoster}
           />

@@ -21,7 +21,7 @@ export function campaignAttribution(value: unknown): CampaignAttribution {
   const content = query.utm_content
   if (typeof source !== 'string' || !sources.has(source)
     || typeof medium !== 'string' || !media.has(medium)
-    || typeof campaign !== 'string' || !contents[campaign]) return {}
+    || typeof campaign !== 'string' || !Object.hasOwn(contents, campaign)) return {}
   return {
     utm_source: source,
     utm_medium: medium,

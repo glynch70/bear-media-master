@@ -1,49 +1,76 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { AD_CONSENT_KEY, applyMeasurementConsent, readMeasurementConsent, type MeasurementConsent } from '@/lib/openai-measurement'
+import { useEffect, useRef, useState } from 'react'
+import { AD_CONSENT_KEY, applyMeasurementConsent, readMeasurementConsent } from '@/lib/openai-measurement'
+import { ANALYTICS_KEY, analyticsAllowed, syncAnalytics } from '@/lib/site-analytics'
 import styles from './advertising-consent.module.css'
+
+function applyChoices() {
+  const ads = readMeasurementConsent()
+  applyMeasurementConsent(ads)
+  syncAnalytics()
+  if (ads !== 'accepted') {
+    try { sessionStorage.removeItem('bear-media-enquiry-campaign-v1') } catch { /* Storage may be unavailable. */ }
+  }
+}
 
 export function AdvertisingConsent() {
   const [open, setOpen] = useState(false)
+  const [analytics, setAnalytics] = useState(false)
+  const [ads, setAds] = useState(false)
+
+  const settingsButton = useRef<HTMLButtonElement>(null)
+  const panel = useRef<HTMLElement>(null)
+  const openedManually = useRef(false)
+
+  function openSettings() {
+    setAnalytics(analyticsAllowed())
+    setAds(readMeasurementConsent() === 'accepted')
+    setOpen(true)
+  }
+
   useEffect(() => {
-    const showAfterFirstScroll = () => {
-      if (readMeasurementConsent() === null) setOpen(true)
+    applyChoices()
+    function prompt() {
+      try {
+        if (localStorage.getItem(ANALYTICS_KEY) === null) openSettings()
+      } catch { /* Optional tools stay off. */ }
     }
-    const sync = () => {
-      const consent = readMeasurementConsent()
-      applyMeasurementConsent(consent)
-      if (consent !== null) setOpen(false)
+    function sync(event: StorageEvent) {
+      if (!event.key || [ANALYTICS_KEY, AD_CONSENT_KEY].includes(event.key)) applyChoices()
     }
-    sync()
-    window.addEventListener('scroll', showAfterFirstScroll, { once: true, passive: true })
-    const onStorage = (event: StorageEvent) => {
-      if (event.key === AD_CONSENT_KEY || event.key === null) sync()
-    }
-    window.addEventListener('storage', onStorage)
+    window.addEventListener('scroll', prompt, { once: true, passive: true })
+    window.addEventListener('storage', sync)
     return () => {
-      window.removeEventListener('scroll', showAfterFirstScroll)
-      window.removeEventListener('storage', onStorage)
+      window.removeEventListener('scroll', prompt)
+      window.removeEventListener('storage', sync)
     }
   }, [])
 
-  function choose(consent: MeasurementConsent) {
-    try { localStorage.setItem(AD_CONSENT_KEY, consent) } catch { /* Fail closed if storage is unavailable. */ }
-    if (consent === 'declined') {
-      try { sessionStorage.removeItem('bear-media-enquiry-campaign-v1') } catch { /* Storage unavailable. */ }
-    }
-    applyMeasurementConsent(readMeasurementConsent())
+  useEffect(() => {
+    if (openedManually.current) (open ? panel.current : settingsButton.current)?.focus({ preventScroll: true })
+  }, [open])
+
+  function save(useAnalytics: boolean, useAds: boolean) {
+    try {
+      localStorage.setItem(ANALYTICS_KEY, useAnalytics ? 'accepted' : 'declined')
+      localStorage.setItem(AD_CONSENT_KEY, useAds ? 'accepted' : 'declined')
+    } catch { /* Read back only choices that were saved. */ }
+    applyChoices()
     setOpen(false)
   }
 
   return open ? (
-    <section className={styles.panel} aria-label="Advertising measurement preferences">
-      <h2>Advertising measurement</h2>
-      <p>Allow the OpenAI Pixel to measure whether ChatGPT ads lead to enquiries? The site works either way. <a href="/ad-measurement">Read the details</a>.</p>
+    <section ref={panel} tabIndex={-1} className={styles.panel} aria-label="Measurement preferences">
+      <h2>Measurement preferences</h2>
+      <p>You can browse and enquire with either option switched off. <a href="/privacy">Privacy policy</a></p>
+      <label><input type="checkbox" checked={analytics} onChange={e => setAnalytics(e.target.checked)} /> Site analytics (Google Analytics and Microsoft Clarity)</label>
+      <label><input type="checkbox" checked={ads} onChange={e => setAds(e.target.checked)} /> Advertising measurement (OpenAI Pixel)</label>
       <div className={styles.actions}>
-        <button type="button" onClick={() => choose('declined')}>Decline</button>
-        <button type="button" onClick={() => choose('accepted')}>Allow measurement</button>
+        <button type="button" onClick={() => save(false, false)}>Decline all</button>
+        <button type="button" onClick={() => save(true, true)}>Allow all</button>
       </div>
+      <button className={styles.save} type="button" onClick={() => save(analytics, ads)}>Save my choices</button>
     </section>
-  ) : <button type="button" className={styles.settings} onClick={() => setOpen(true)}>Ad measurement settings</button>
+  ) : <button type="button" ref={settingsButton} className={styles.settings} onClick={() => { openedManually.current = true; openSettings() }}>Measurement settings</button>
 }

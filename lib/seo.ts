@@ -62,8 +62,7 @@ export function createMetadata({
       images: [
         {
           url: imageUrl,
-          width: 1200,
-          height: 630,
+          ...(image === defaultOgImage ? { width: 1200, height: 630 } : {}),
           alt: imageAlt,
           type: getImageMimeType(imageUrl),
         },

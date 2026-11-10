@@ -36,9 +36,7 @@ const clientsData: Client[] = [
   { name: 'Master Chefs', sector: 'Hospitality', logo: '/07- CLIENT LOGOS/master chefs.webp', href: trustedClientLinks.masterChefs },
   { name: 'Muirhouse Medical Group', sector: 'Healthcare', logo: '/07- CLIENT LOGOS/muirhouse.webp', href: 'https://www.muirhousemedicalgroup.co.uk/' },
   { name: 'K Lewis Joinery', sector: 'Construction', logo: '/07- CLIENT LOGOS/klewis.webp', href: 'https://www.facebook.com/klewisjoinery/' },
-  { name: 'Johnstone & Robertson', sector: 'Property', logo: '/07- CLIENT LOGOS/johnstone&robertson.webp' },
   { name: 'We Buy Any Home', sector: 'Property', logo: '/07- CLIENT LOGOS/webuyanyhome.webp', href: 'https://www.webuyanyhome.com/' },
-  { name: 'The PYP', sector: 'Coaching & Wellbeing', logo: '/07- CLIENT LOGOS/the pyp.webp' },
 ]
 
 function ClientCard({ client }: { client: Client }) {

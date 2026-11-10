@@ -1,3 +1,4 @@
+import { IcoRegistration } from '@/components/ico-registration'
 import Link from '@/components/site-link'
 import { RedesignMobileMenu } from './redesign-mobile-menu'
 import styles from './redesign.module.css'
@@ -36,6 +37,7 @@ export function RedesignFooter() {
       <span>Bear Media</span>
       <span>West Lothian · Edinburgh &amp; the Lothians</span>
       <span>Property marketing · Content · Websites · AI training</span>
+      <IcoRegistration />
       <Link href="/privacy">Privacy Policy</Link>
       <Link href="/terms-and-conditions">Terms &amp; Conditions</Link>
       <div className={styles.desktopFooterLinks}>

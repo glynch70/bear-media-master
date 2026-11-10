@@ -1,7 +1,7 @@
 export const trustedClientLinks = {
   cgDevelopments: 'https://www.facebook.com/CGDevelopmentsltd/',
   simplySheds: 'https://www.instagram.com/simplyshedsscotland/',
-  masterChefs: undefined,
+  masterChefs: 'https://www.youtube.com/channel/UC1vC_n5OLaf3HP-0WqSaNLw',
   seamusCorry: 'https://www.seamuscorry.co.uk/',
 } as const
 

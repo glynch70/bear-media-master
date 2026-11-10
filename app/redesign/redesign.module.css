@@ -4128,229 +4128,54 @@
 .heroBentoTile { display: none; }
 
 @media (max-width: 767px) {
-  .journeyHero {
-    display: block;
-    min-height: 0;
-    height: auto;
-    padding: 6.5rem 0 max(3.5rem, calc(env(safe-area-inset-bottom) + 2.5rem));
-    background: #11110f;
-  }
-
+  .journeyHero { display: block; min-height: 0; height: auto; padding: 6.5rem 0 2rem; background: #11110f; }
   .heroBento {
-    position: relative;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: minmax(340px, auto) clamp(145px, 42vw, 210px);
-    gap: 18px 14px;
-    padding: 0 16px;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-rows: auto repeat(2, clamp(86px, 23vw, 145px)) clamp(80px, 23vw, 140px);
+    gap: 6px;
+    margin-inline: clamp(16px, 4.6vw, 30px);
   }
-
   .heroBentoCopy {
-    position: relative;
-    inset: auto;
-    z-index: 1;
-    grid-column: 1;
-    grid-row: 1;
-    display: flex;
-    width: auto;
-    min-width: 0;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 26px 4px 4px 0;
-    color: #fff;
+    position: relative; inset: auto; grid-column: 1 / -1; min-width: 0; width: 100%;
+    padding: 0 0 18px; color: white; text-shadow: none;
   }
-
-  .heroBentoEyebrow.heroBentoEyebrow {
-    display: none;
-    margin: 0;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    line-height: 1.35;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.68);
-  }
-
-  .heroBentoDesktopEyebrow {
-    display: none;
-  }
-
-  .heroBentoMobileEyebrow {
-    display: inline;
-  }
-
-  .heroBentoCopy h1 {
-    max-width: 8ch;
-    font-size: clamp(30px, 9.2vw, 46px);
-    font-weight: 520;
-    line-height: 0.91;
-    letter-spacing: -0.072em;
-    text-shadow: none;
-  }
-
+  .heroBentoEyebrow, .desktopIntro, .journeyHero .journeyShade, .journeyHero .journeyScrollCue { display: none; }
+  .heroBentoCopy h1 { max-width: 12ch; margin: 0; font-size: clamp(44px, 12vw, 72px); line-height: .98; letter-spacing: -.06em; text-wrap: balance; }
   .heroBentoCopy .heroBentoDescription {
-    display: block;
-    max-width: 19ch;
-    margin: 15px 0 0;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 14px;
-    line-height: 1.35;
-    font-weight: 400;
-    letter-spacing: 0;
-    text-transform: none;
-    text-shadow: none;
-    text-wrap: pretty;
+    display: block; max-width: 36ch; margin: 12px 0 0; color: #d5d4cf;
+    font-size: 15px; line-height: 1.45; font-weight: 400; letter-spacing: normal; text-transform: none;
   }
-
-  .heroBentoActions {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-    margin-top: 15px;
-  }
-
-  .heroBentoPrimaryAction,
-  .heroBentoSecondaryAction {
-    display: inline-flex;
-    min-height: 38px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    font-size: 13px;
-    font-weight: 600;
-    line-height: 1.2;
-  }
-
-  .heroBentoPrimaryAction {
-    gap: 12px;
-    padding: 0 16px;
-    border: 1px solid #d9b36d;
-    background: transparent;
-    color: #fff;
-    transition: transform 240ms var(--motion-spring), background-color 180ms ease;
-  }
-
-  .heroBentoPrimaryAction:active {
-    transform: scale(0.98);
-  }
-
-  .heroBentoSecondaryAction {
-    min-height: 28px;
-    color: rgba(255, 255, 255, 0.68);
-    font-size: 12px;
-    text-decoration: underline;
-    text-decoration-color: rgba(255, 255, 255, 0.42);
-    text-underline-offset: 4px;
-  }
-
-  .desktopIntro {
-    display: none;
-  }
-
+  .heroBentoActions { display: flex; align-items: center; gap: 16px; margin-top: 16px; }
+  .heroBentoActions a { display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; font-weight: 600; }
+  .heroBentoPrimaryAction { gap: 12px; padding: 0 17px; border-radius: 5px; background: #dfbc7c; color: #181712; }
+  .heroBentoSecondaryAction { color: #fff; text-decoration: underline; text-underline-offset: 4px; }
   .heroBentoTile {
-    position: relative;
-    display: block;
-    min-width: 0;
-    overflow: hidden;
-    isolation: isolate;
-    aspect-ratio: auto;
-    border-radius: 10px;
-    background: #22221f;
-    color: #fff;
-    -webkit-tap-highlight-color: transparent;
-    animation: heroTileReveal 540ms var(--motion-ease) both;
+    display: block; position: relative; overflow: hidden; min-width: 0;
+    grid-column: span 2; border-radius: 5px; background: #262621; color: white;
   }
-
-  .heroBentoLead {
-    grid-column: 2;
-    grid-row: 1;
-    animation-delay: 80ms;
+  @media (max-width: 359px) {
+    .heroBentoActions { gap: 12px; }
+    .heroBentoActions a { font-size: 13px; white-space: nowrap; }
+    .heroBentoPrimaryAction { gap: 6px; padding-inline: 12px; }
   }
-
-  .heroBentoDrone { grid-column: 1; grid-row: 2; animation-delay: 140ms; }
-  .heroBentoVideo { grid-column: 2; grid-row: 2; animation-delay: 200ms; }
-
-  .heroBentoTile::after {
-    position: absolute;
-    z-index: -1;
-    inset: 0;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.58), transparent 48%);
-    content: '';
-    pointer-events: none;
-  }
-
-  .heroBentoImage {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-    object-fit: cover;
-    transition: transform 520ms var(--motion-ease);
-  }
-
-  .heroBentoLead .heroBentoImage { object-position: 52% 50%; }
-  .heroBentoDrone .heroBentoImage { object-position: 50% 50%; }
-  .heroBentoVideo .heroBentoImage { object-position: 50% 50%; }
-
+  .heroBentoTile:first-of-type { grid-column: span 4; grid-row: span 2; }
+  .heroBentoImage { object-fit: cover; }
   .heroBentoLabel {
-    position: absolute;
-    right: 14px;
-    bottom: 13px;
-    left: 14px;
-    z-index: 1;
-    display: block;
-    width: fit-content;
-    max-width: calc(100% - 28px);
-    overflow: hidden;
-    padding: 0;
-    background: transparent;
-    color: #fff;
-    font-size: 11px;
-    font-weight: 620;
-    line-height: 1.2;
-    letter-spacing: 0.18em;
-    text-overflow: ellipsis;
-    text-transform: uppercase;
-    white-space: nowrap;
+    position: absolute; bottom: 7px; left: 7px; padding: 2px 5px;
+    border-radius: 2px; background: rgb(12 13 11 / 80%); color: white; font-size: 12px; line-height: 1.4;
   }
-
-  .heroBentoLead .heroBentoLabel {
-    right: 14px;
-    bottom: 13px;
-    left: 14px;
-    max-width: calc(100% - 28px);
-    padding: 0;
-    font-size: 11px;
+  .heroBento a:focus-visible { outline: 2px solid #f4c97d; outline-offset: 2px; }
+  @media (prefers-reduced-motion: no-preference) {
+    .heroBentoTile, .heroBentoDescription, .heroBentoActions { animation: heroTileReveal 320ms ease-out backwards; }
+    .heroBentoDescription { animation-delay: 30ms; }
+    .heroBentoActions { animation-delay: 60ms; }
+    .heroBentoTile { animation-delay: 85ms; }
+    .heroBentoTile:nth-last-child(-n+3) { animation-delay: 135ms; }
+    .heroBentoTile:active { transform: translateY(1px); }
+    .heroBentoImage { transition: transform 220ms ease; }
+    @media (hover: hover) { .heroBentoTile:hover .heroBentoImage { transform: scale(1.025); } }
   }
-
-  .heroBentoTile:focus-visible,
-  .heroBentoActions a:focus-visible {
-    outline: 2px solid #fff;
-    outline-offset: 3px;
-  }
-
-  .journeyHero .journeyShade,
-  .journeyScrollCue {
-    display: none;
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .heroBentoTile:hover .heroBentoImage { transform: scale(1.025); }
-  }
-}
-
-@media (max-width: 359px) {
-  .heroBento {
-    grid-template-rows: minmax(320px, auto) 135px;
-    gap: 16px 12px;
-    padding-right: 14px;
-    padding-left: 14px;
-  }
-  .heroBentoCopy { padding-top: 20px; }
-  .heroBentoCopy h1 { font-size: 30px; }
-  .heroBentoCopy .heroBentoDescription { font-size: 13px; }
-  .heroBentoLabel { font-size: 10px; }
 }
 
 @media (min-width: 768px) {
@@ -4358,7 +4183,7 @@
 }
 
 @keyframes heroTileReveal {
-  from { opacity: 0; transform: translateY(12px); clip-path: inset(9% 0 0); }
+  from { transform: translateY(4px); }
   to { opacity: 1; transform: translateY(0); clip-path: inset(0); }
 }
 
@@ -4433,3 +4258,7 @@
   }
   .serviceWebsiteCard figcaption span { font-size: 0.9rem; line-height: 1.5; }
 }
+
+.projectEnquiry { padding: 1rem clamp(1.25rem, 5vw, 5rem); background: var(--ink); color: white; }
+.projectEnquiry a { display: inline-flex; gap: .5rem; align-items: center; min-height: 44px; text-decoration: underline; text-underline-offset: .25em; }
+.projectEnquiry svg { width: 1.1em; }

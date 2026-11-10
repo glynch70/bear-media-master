@@ -550,6 +550,7 @@ export const projects: Project[] = [
     challenge:
       'The challenge was to create a professional presence that felt credible but still human, avoiding overly staged content while making every touchpoint feel consistent.',
     heroImage: '/assets/project-gallery/seamus-corry-seamus-portrait.webp',
+    heroAlt: 'Portrait of Seamus Corry',
     images: [
       { src: '/assets/project-gallery/seamus-corry-seamus-portrait.webp', alt: 'Seamus Corry personal brand portrait' },
       { src: '/assets/project-gallery/seamus-corry-seamus-at-work.webp', alt: 'Seamus Corry at work' },
@@ -607,6 +608,7 @@ export const projects: Project[] = [
     challenge:
       'Technical services can be hard to communicate online. The content had to make the training offer feel professional, tangible and trustworthy without overcomplicating the message.',
     heroImage: '/assets/project-gallery/m-and-mcompliance-classroom.webp',
+    heroAlt: 'Training room photographed for M&M Compliance',
     images: [
       { src: '/assets/project-gallery/m-and-mcompliance-classroom.webp', alt: 'M&M Compliance classroom training environment' },
       { src: '/assets/project-gallery/m-and-mcompliance-f-gas-training.webp', alt: 'F-gas training content for M&M Compliance' },
@@ -653,6 +655,7 @@ export const projects: Project[] = [
     challenge:
       'For a service built on trust, the visuals needed to feel warm and real. The goal was to show Colin, the dogs and the brand in a way that felt natural rather than overly posed.',
     heroImage: '/assets/project-gallery/colin-canines-colin-and-dog.webp',
+    heroAlt: 'Colin with a dog during a training session',
     images: [
       { src: '/assets/project-gallery/colin-canines-colin-and-dog.webp', alt: 'Colin’s Canines brand photography with a client dog' },
       { src: '/assets/project-gallery/colin-canines-colin-walking.webp', alt: 'Colin’s Canines dog walking content' },

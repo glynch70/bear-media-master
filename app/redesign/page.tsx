@@ -34,6 +34,15 @@ export const metadata: Metadata = {
   },
 }
 
+const mobileHeroTiles = [
+  { label: 'Photography', href: '/business-photography-west-lothian', src: '/assets/hero/mobile/photography-tile.webp', alt: 'A joiner shaping a curved timber frame in the workshop' },
+  { label: 'Drone', href: '/drone-photography-west-lothian', src: '/assets/hero/mobile/drone-tile.webp', alt: 'Aerial view of the waterfront at St Andrews' },
+  { label: 'Property', href: '/property', src: '/assets/hero/mobile/property-tile.webp', alt: 'Living room at East Farm of Gilmerton' },
+  { label: 'Video', href: '/video-production-west-lothian', src: '/assets/hero/mobile/video-tile.webp', alt: 'Camera and lighting set up for a shoot' },
+  { label: 'Editing', href: '/insights', src: '/assets/hero/mobile/editing-tile.webp', alt: 'Hands at the keyboard in the Bear Media workspace' },
+  { label: 'Garry', href: '/about', src: '/assets/hero/mobile/garry-tile.webp', alt: 'Garry Lynch working with a camera outdoors' },
+] as const
+
 const socialContent = [
   {
     src: '/assets/uploads/new-work/cg-outhouses-cover.webp',
@@ -82,9 +91,9 @@ export default function RedesignPage() {
                 <span className={styles.heroBentoDesktopEyebrow}>01 / 09 · Bear Media · Edinburgh &amp; the Lothians</span>
                 <span className={styles.heroBentoMobileEyebrow}>Bear Media · Scotland</span>
               </p>
-              <h1 id="redesign-title">Content days &amp; website design.</h1>
+              <h1 id="redesign-title">Content days &amp; websites.</h1>
               <p className={styles.heroBentoDescription}>
-                Bear Media creates photography, video and social content through planned content days, and designs websites for businesses.
+                Photography, video, drone, social media and websites for Scottish businesses.
               </p>
               <div className={styles.heroBentoActions}>
                 <Link href="/contact" data-magnetic className={styles.heroBentoPrimaryAction}>
@@ -100,60 +109,16 @@ export default function RedesignPage() {
                 </div>
               </div>
             </div>
-            <MotionLink
-              href="/business-photography-west-lothian"
-              data-motion-card
-              className={`${styles.heroBentoTile} ${styles.heroBentoLead}`}
-              aria-label="Photography: Bear Media camera on a client shoot"
-            >
-              <Image
-                src="/assets/hero/mobile/photography-camera.webp"
-                alt="Bear Media camera on a tripod outside Prestonpans pharmacy"
-                fill
-                preload
-                sizes="(max-width: 767px) 46vw, 1px"
-                quality={75}
-                data-shared-image
-                className={styles.heroBentoImage}
-              />
-              <span className={styles.heroBentoLabel}>Photography</span>
-            </MotionLink>
-            <MotionLink
-              href="/drone-photography-west-lothian"
-              data-motion-card
-              className={`${styles.heroBentoTile} ${styles.heroBentoDrone}`}
-              aria-label="Drone: Bear Media drone in flight"
-            >
-              <Image
-                src="/assets/hero/mobile/drone-flight.webp"
-                alt="Bear Media Mavic 3 drone hovering above a green field"
-            data-reveal="image"
-            data-mobile-reveal
-                fill
-                sizes="(max-width: 767px) 48vw, 1px"
-                quality={80}
-                data-shared-image
-                className={styles.heroBentoImage}
-              />
-              <span className={styles.heroBentoLabel}>Drone</span>
-            </MotionLink>
-            <MotionLink
-              href="/video-production-west-lothian"
-              data-motion-card
-              className={`${styles.heroBentoTile} ${styles.heroBentoVideo}`}
-              aria-label="Video: a property content day by Bear Media"
-            >
-              <Image
-                src="/assets/hero/mobile/content-day-poster.webp"
-                alt="Property content day video preview"
-                fill
-                loading="eager"
-                sizes="(max-width: 767px) 48vw, 1px"
-                quality={75}
-                className={styles.heroBentoImage}
-              />
-              <span className={styles.heroBentoLabel}>Video</span>
-            </MotionLink>
+            {mobileHeroTiles.map((tile, index) => (
+              <MotionLink key={tile.label} href={tile.href} prefetch={false} className={styles.heroBentoTile}>
+                <Image src={tile.src} alt={tile.alt} fill
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  fetchPriority={index === 0 ? 'high' : undefined}
+                  sizes={index === 0 ? '(max-width: 767px) 60vw, 1px' : '(max-width: 767px) 36vw, 1px'}
+                  className={styles.heroBentoImage} />
+                <span className={styles.heroBentoLabel}>{tile.label}</span>
+              </MotionLink>
+            ))}
           </div>
           <Image
             src="/assets/hero/hero-poster.webp"
