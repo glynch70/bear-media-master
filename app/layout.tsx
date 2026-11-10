@@ -35,7 +35,8 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: `${siteUrl}/favicon.ico`, sizes: '16x16 32x32 48x48', type: 'image/x-icon' },
-      { url: `${siteUrl}/brand/bear-media-icon.png`, sizes: '512x512', type: 'image/png' },
+      { url: '/brand/favicon-light.png', type: 'image/png', sizes: '32x32', media: '(prefers-color-scheme: light)' },
+      { url: '/brand/favicon-dark.png', type: 'image/png', sizes: '32x32', media: '(prefers-color-scheme: dark)' },
     ],
     apple: [{ url: `${siteUrl}/brand/bear-media-apple-icon.png`, sizes: '180x180', type: 'image/png' }],
   },
