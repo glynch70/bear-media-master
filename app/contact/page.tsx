@@ -278,8 +278,9 @@ export default function ContactPage() {
             ) : (
               <>
                 <h2 className="font-heading text-4xl md:text-5xl font-medium text-foreground mb-10">
-                  Send a Message
+                  {selectedService === 'property' ? 'Request your property quote' : 'Send a Message'}
                 </h2>
+                {selectedService === 'property' && <p className="mb-8 text-base leading-relaxed text-muted-foreground">From £260 for a 1–2 bedroom property. No VAT. Share the location, bedroom count, media required and target listing date. I’ll confirm what’s included and the total before you book.</p>}
                 <form data-clarity-mask="true" aria-describedby={formState.error ? 'contact-error' : undefined} onSubmit={handleSubmit} className="space-y-6">
                   {formState.error && (
                     <div role="alert" id="contact-error" className="p-4 rounded-2xl bg-red-50 border border-red-200">
@@ -404,7 +405,7 @@ export default function ContactPage() {
                     }
                     className="w-full bg-accent text-foreground px-8 py-4 rounded-full font-medium hover:opacity-90 transition-opacity text-lg disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {formState.loading ? 'Sending...' : 'Send Message'}
+                    {formState.loading ? 'Sending...' : selectedService === 'property' ? 'Send my quote enquiry' : 'Send Message'}
                   </button>
                   <p className="text-sm text-muted-foreground">Read our <a href="/privacy" className="underline">Privacy Policy</a> for how your enquiry is handled.</p>
                 </form>

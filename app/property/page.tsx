@@ -62,9 +62,10 @@ export default function PropertyPage() {
               <h1 id="property-title">PROPERTY MEDIA</h1>
               <p className={styles.intro}>Property photography, horizontal and vertical video, drone photography and floor plans, with optional 360° virtual tours for estate agents, letting agents and developers across Edinburgh, West Lothian, East Lothian and Central Scotland.</p>
               <div className={styles.actions}>
-                <Link href="/contact?service=property#enquiry" className={styles.button}>Discuss a property</Link>
+                <Link href="/contact?service=property#enquiry" className={styles.button}>Get a property quote <span aria-hidden="true">↗</span></Link>
                 <a href="#burnet-crescent" className={styles.secondary}>View property work</a>
               </div>
+              <p className={styles.startingPrice}><a href="#property-pricing">From £260 for a 1–2 bedroom property</a><span>No VAT · Scope and total confirmed before booking</span></p>
             </div>
             <figure>
               <Image src="/assets/projects/david-todd/images/david-todd-haddington-exterior-01.webp" alt="Detached Haddington home with a pale rendered exterior, pitched roofs and landscaped frontage" width={1080} height={1350} sizes="(max-width: 759px) calc(100vw - 40px), (max-width: 1440px) 48vw, 660px" preload quality={90} className={styles.heroImage} />
@@ -72,11 +73,40 @@ export default function PropertyPage() {
             </figure>
           </section>
           <nav aria-label="Property media services"><ul className={styles.services}>
-            {[['Photography', '#property-work'], ['Video', '#property-video'], ['Drone', '#property-drone'], ['Floor plans', '#floor-plans'], ['360° tours', '#virtual-tours'], ['Get in touch', '#property-pricing']].map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
+            {[['Photography', '#property-work'], ['Video', '#david-todd-film'], ['Drone', '#property-drone'], ['Floor plans', '#floor-plans'], ['360° tours', '#virtual-tours'], ['Starting price', '#property-pricing']].map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
           </ul></nav>
         </div>
+        <section id="property-pricing" className={`${styles.soft} ${styles.section}`} aria-labelledby="property-price-title"><div className={`${styles.wrap} ${styles.pricing}`}>
+          <div className={styles.heading}>
+            <p className={styles.eyebrow}>Straightforward starting price</p>
+            <h2 id="property-price-title">Plan your next listing.</h2>
+            <p>Tell me about the property and the media you need. I’ll confirm the scope, what’s included and the total price before you book.</p>
+            <p>Larger properties, additional media and ongoing work are quoted to suit the brief. Travel and any optional extras are confirmed in your quote.</p>
+          </div>
+          <div className={styles.priceCard}>
+            <h3>1–2 bedroom property</h3>
+            <p className={styles.price}><span>From</span> £260</p>
+            <p className={styles.tax}>No VAT</p>
+            <p className={styles.priceScope}>Your quote will specify the photography, video or other media included. The final price reflects the property and the agreed brief.</p>
+            <Link href="/contact?service=property#enquiry" className={styles.button}>Request my property quote <span aria-hidden="true">↗</span></Link>
+            <p className={styles.priceHelp}>Share the location, bedroom count and target listing date.</p>
+          </div>
+        </div></section>
         <BurnetCrescentGallery />
         <div className={styles.wrap}>
+          <section id="david-todd-film" className={styles.section} aria-labelledby="david-todd-film-title">
+            <div className={styles.heading}>
+              <p className={styles.eyebrow}>David Todd Sales &amp; Lettings · Property video</p>
+              <h2 id="david-todd-film-title">Step inside Burnet Crescent.</h2>
+              <p>See the same home in motion. This finished property film for David Todd Sales &amp; Lettings brings the rooms and outdoor spaces together in a landscape edit.</p>
+            </div>
+            <video className={styles.propertyFilm} controls playsInline preload="none" poster="/assets/projects/david-todd/video/burnet-crescent-poster.jpg" aria-label="10 Burnet Crescent property film for David Todd Sales and Lettings" aria-describedby="david-todd-film-description">
+              <source src="/assets/projects/david-todd/video/burnet-crescent-walkthrough.mp4" type="video/mp4" />
+              Your browser does not support this video. <a href="/assets/projects/david-todd/video/burnet-crescent-walkthrough.mp4">Open the Burnet Crescent property film</a>.
+            </video>
+            <p id="david-todd-film-description" className={styles.note}>10 Burnet Crescent, East Saltoun · 75-second property film by Bear Media for David Todd Sales &amp; Lettings. Use the player controls to watch with sound or full screen.</p>
+            <div className={styles.actions}><Link href="/contact?service=property#enquiry" className={styles.button}>Get a quote for your property</Link><Link href="/projects/david-todd" className={styles.secondary}>Explore the David Todd case study</Link></div>
+          </section>
           <section id="property-work" className={styles.section} aria-labelledby="work-title">
             <div className={styles.heading}><p className={styles.eyebrow}>Selected work</p><h2 id="work-title">A sense of the place</h2><p>Interiors, exteriors and details photographed for estate-agent and development work. Before the shoot, clear surfaces, open curtains and have each room ready to photograph.</p><Link href="/property-photography-west-lothian" className={styles.link}>Explore property photography in West Lothian <span aria-hidden="true">↗</span></Link></div>
             <div className={styles.gallery}>{gallery.map((photo) => <figure key={photo.src} className={photo.className}>
@@ -112,9 +142,9 @@ export default function PropertyPage() {
             </div>
           </section>
         </div>
-        <section id="property-pricing" className={`${styles.soft} ${styles.section}`} aria-labelledby="property-brief-title"><div className={styles.wrap}>
+        <section className={`${styles.soft} ${styles.section}`} aria-labelledby="property-brief-title"><div className={styles.wrap}>
           <div className={styles.heading}><p className={styles.eyebrow}>Let’s discuss your property</p><h2 id="property-brief-title">Built around the property</h2><p>Send the property address, type, approximate size, target listing date and the media you need. I’ll confirm access, discuss a suitable combination of services and quote for the agreed work.</p></div>
-          <Link href="/contact?service=property#enquiry" className={styles.button}>Contact me about a property</Link>
+          <Link href="/contact?service=property#enquiry" className={styles.button}>Request a tailored property quote</Link>
           <p className={styles.note}><strong>Regular property requirements?</strong> Get in touch to discuss ongoing property media support.</p>
         </div></section>
         <div className={styles.wrap}>
@@ -129,7 +159,8 @@ export default function PropertyPage() {
         </div>
         <section className={styles.soft} aria-labelledby="enquiry-title"><div className={`${styles.wrap} ${styles.closing}`}>
           <p className={styles.eyebrow}>Let’s talk</p><h2 id="enquiry-title">Need professional property marketing?</h2><p>Photography, video, drone footage, floor plans and 360° virtual tours on request for estate agents and property businesses across Edinburgh and the Lothians.</p>
-          <div className={styles.actions}><Link href="/contact?service=property#enquiry" className={styles.button}>Get in touch with Bear Media</Link></div>
+          <p>From £260 for a 1–2 bedroom property. No VAT. Your scope and total are confirmed before booking.</p>
+          <div className={styles.actions}><Link href="/contact?service=property#enquiry" className={styles.button}>Get my property quote <span aria-hidden="true">↗</span></Link><a href="#property-pricing" className={styles.secondary}>See starting price</a></div>
           <div className={styles.contactDetails}><a href="mailto:info@bear-media.com?subject=Property%20media%20enquiry">info@bear-media.com</a><a href="tel:+447879011860">07879 011860</a></div>
         </div></section>
       </main>
