@@ -186,6 +186,7 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
                     <Image
                       src={image.src}
                       alt={image.alt}
+                      title={image.title}
                       style={image.position ? { objectPosition: image.position } : undefined}
                       fill
                       sizes="(max-width: 760px) 84vw, 42vw"
@@ -193,6 +194,7 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
                       className={contain ? styles.containImage : styles.coverImage}
                     />
                   </div>
+                  {image.title && <figcaption className="px-5 py-3 text-sm leading-relaxed">{image.title}</figcaption>}
                 </figure>
               )
             })}

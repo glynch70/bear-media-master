@@ -11,7 +11,7 @@ type PhotographyCollection = {
   name: string
   title: string
   description: string
-  images: { src: string; alt: string }[]
+  images: { src: string; alt: string; title: string; width: number; height: number }[]
   previewCount?: number
   project?: { href: string; label: string }
 }
@@ -61,10 +61,13 @@ function PhotographyGallery({ collection }: { collection: PhotographyCollection 
             <>
               <div className={`grid gap-4 sm:grid-cols-2 ${collection.images.length > 2 ? 'lg:grid-cols-3' : ''}`}>
                 {collection.images.slice(0, collection.previewCount ?? 3).map((photo, index) => (
-                  <button key={photo.src} type="button" onClick={() => openLightbox(index)} aria-label={`Open ${photo.alt} fullscreen`} className={`group relative ${collection.images.length === 2 ? 'aspect-[4/5]' : 'aspect-[5/4]'} overflow-hidden rounded-xl bg-background focus-visible:outline-2 focus-visible:outline-offset-4`}>
-                    <Image src={photo.src} alt={photo.alt} fill sizes={collection.images.length === 2 ? '(max-width: 639px) calc(100vw - 2rem), (max-width: 1023px) 46vw, 500px' : '(max-width: 639px) calc(100vw - 2rem), (max-width: 1023px) 46vw, 330px'} quality={85} className="object-contain" />
+                  <figure key={photo.src} className="min-w-0">
+                  <button type="button" onClick={() => openLightbox(index)} aria-label={`View photo: ${photo.title}`} className={`group relative block w-full ${collection.images.length === 2 ? 'aspect-[4/5]' : 'aspect-[5/4]'} overflow-hidden rounded-xl bg-background focus-visible:outline-2 focus-visible:outline-offset-4`}>
+                    <Image src={photo.src} alt={photo.alt} title={photo.title} fill sizes={collection.images.length === 2 ? '(max-width: 639px) calc(100vw - 2rem), (max-width: 1023px) 46vw, 500px' : '(max-width: 639px) calc(100vw - 2rem), (max-width: 1023px) 46vw, 330px'} quality={85} className="object-contain" />
                     <span className="absolute bottom-3 right-3 rounded-full bg-black/70 px-3 py-1 text-xs text-white">View photo</span>
                   </button>
+                  <figcaption className="mt-3 text-sm leading-relaxed text-foreground">{photo.title}</figcaption>
+                  </figure>
                 ))}
               </div>
               <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3">

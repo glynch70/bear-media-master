@@ -16,6 +16,7 @@ export type ProjectDeliverable = {
 export type ProjectImage = {
   src: string
   alt: string
+  title?: string
   position?: string
 }
 
@@ -750,7 +751,7 @@ export const projects: Project[] = [
     cardImage: almondVetGallery[0],
     images: [
       ...almondVetGallery,
-      { src: '/assets/websites/almond-vet.webp', alt: 'Almond Vet Care website design by Bear Media' },
+      { src: '/assets/websites/almond-vet.webp', alt: 'Almond Vet Care website design by Bear Media', title: 'The Almond Vet Care website' },
     ],
     services: ['Photography', 'Website Design', 'Local SEO Direction'],
     deliverables: [
