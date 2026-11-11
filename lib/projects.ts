@@ -1,3 +1,4 @@
+import { almondVetGallery } from './almond-vet-gallery'
 import { trustedClientLinks } from './trusted-client-links'
 import { getServiceHref } from './service-links'
 
@@ -738,24 +739,20 @@ export const projects: Project[] = [
     title: 'Almond Vet Care Case Study',
     clientName: 'Almond Vet Care',
     category: 'Website Design · Photography · Healthcare',
-    description: 'Designing a clear, reassuring website presence for veterinary care.',
+    description: 'Practice photography and website design that introduce the people behind Almond Vet Care.',
     intro:
-      'Almond Vet Care needed a website that felt professional, accessible and reassuring for pet owners looking for local veterinary support.',
+      'I photographed the team, pets and spaces at Almond Vet Care, creating a set of images to sit alongside a clear, reassuring website for pet owners.',
     challenge:
       'Healthcare websites need to balance trust, clarity and warmth. The experience had to feel easy to use on mobile while giving visitors confidence quickly.',
-    heroImage: '/assets/client-work/almond-vet-care/vet-team-with-puppy.webp',
-    heroAlt: 'Two Almond Vet Care team members holding a puppy at the practice',
-    heroPosition: '50% 60%',
+    heroImage: almondVetGallery[1].src,
+    heroAlt: almondVetGallery[1].alt,
+    heroPosition: '50% 35%',
+    cardImage: almondVetGallery[0],
     images: [
-      { src: "/assets/portfolio/almond-vet-care/practice-team.webp", alt: "Almond Vet Care team standing together outside the practice" },
-      { src: "/assets/portfolio/almond-vet-care/practice-entrance.webp", alt: "Almond Vet Care sign above the glazed entrance" },
-      { src: "/assets/portfolio/almond-vet-care/practice-reception.webp", alt: "Reception desk with the Almond Vet Care sign behind it" },
+      ...almondVetGallery,
       { src: '/assets/websites/almond-vet.webp', alt: 'Almond Vet Care website design by Bear Media' },
-      { src: '/assets/client-work/almond-vet-care/clinic-entrance-golden-retriever.webp', alt: 'Golden retriever outside the Almond Vet Care clinic' },
-      { src: '/assets/client-work/almond-vet-care/vet-caring-for-bulldog.webp', alt: 'Almond Vet Care vet caring for a bulldog patient' },
-      { src: '/assets/client-work/almond-vet-care/vet-team-with-puppy.webp', alt: 'Almond Vet Care team with a puppy at the practice' },
     ],
-    services: ['Website Design', 'Healthcare Content', 'Local SEO Direction'],
+    services: ['Photography', 'Website Design', 'Local SEO Direction'],
     deliverables: [
       {
         title: 'Website Design',
@@ -763,7 +760,7 @@ export const projects: Project[] = [
       },
       {
         title: 'Practice photography',
-        description: 'The October shoot follows the route a pet owner takes on arrival, from the signed entrance to reception and the team who work at the practice.',
+        description: 'The October gallery brings together team portraits, staff with pets, clinical care, reception, treatment rooms and the practice exterior.',
       },
       {
         title: 'Local SEO',

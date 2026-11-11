@@ -1,5 +1,7 @@
 'use client'
 
+import { almondVetGallery } from '@/lib/almond-vet-gallery'
+
 import { MotionLink } from '@/components/motion/motion-link'
 
 import { RedesignGallery } from '@/app/redesign/redesign-gallery'
@@ -234,21 +236,8 @@ const featuredProjects = [
     id: 'almond-vet',
     title: 'Almond Vet Care',
     category: 'Veterinary Healthcare',
-    tags: ['Website', 'Healthcare'],
-    images: [
-      {
-        src: '/assets/client-work/almond-vet-care/clinic-entrance-golden-retriever.webp',
-        alt: 'Golden retriever outside the Almond Vet Care clinic',
-      },
-      {
-        src: '/assets/client-work/almond-vet-care/vet-team-with-puppy.webp',
-        alt: 'Almond Vet Care team with a puppy at the practice',
-      },
-      {
-        src: '/assets/websites/almond-vet.webp',
-        alt: 'Almond Vet Care website design by Bear Media',
-      },
-    ],
+    tags: ['Photography', 'Website'],
+    images: [almondVetGallery[0], almondVetGallery[1], almondVetGallery[2]],
     href: '/projects/almond-vet-care',
   },
 ]

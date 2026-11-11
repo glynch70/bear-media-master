@@ -178,10 +178,10 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
         <section className={styles.caseGallery} aria-label={`${project.clientName} image gallery`}>
           <RedesignGallery label={`${project.clientName} project images`}>
             {project.images.map((image) => {
-              const contain = image.src.includes('/websites/')
+              const contain = image.src.includes('/websites/') || project.slug === 'almond-vet-care'
 
               return (
-                <figure className={styles.caseGalleryItem} data-website={contain} key={image.src}>
+                <figure className={styles.caseGalleryItem} data-website={image.src.includes('/websites/')} key={image.src}>
                   <div className={styles.caseGalleryImage} data-gallery-media>
                     <Image
                       src={image.src}

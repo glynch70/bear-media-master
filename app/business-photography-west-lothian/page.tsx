@@ -1,3 +1,5 @@
+import { PhotographyGalleries } from '@/components/services/photography-galleries'
+import { almondVetGallery } from '@/lib/almond-vet-gallery'
 import desktop from '@/components/desktop-refresh.module.css'
 import { DesktopServiceImage } from '@/components/desktop-service-image'
 import Image from 'next/image'
@@ -100,9 +102,9 @@ export default function BusinessPhotographyWestLothian() {
             <a href="/contact#enquiry" className="inline-flex min-h-12 items-center justify-center bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
               Request a photography quote
             </a>
-            <a href="#photography-work" className="mt-3 inline-flex min-h-12 items-center justify-center px-6 py-3 font-semibold underline underline-offset-4 sm:ml-3">See real photography work</a>
+            <a href="#photography-galleries" className="mt-3 inline-flex min-h-12 items-center justify-center px-6 py-3 font-semibold underline underline-offset-4 sm:ml-3">See real photography work</a>
           </div>
-          <DesktopServiceImage src="/assets/hero-carousel/chef-hospitality.webp" alt="Hospitality photography by Bear Media" />
+          <DesktopServiceImage src={almondVetGallery[1].src} alt={almondVetGallery[1].alt} />
         </section>
 
         <section className="py-16 md:py-24 px-4 md:px-6">
@@ -115,6 +117,8 @@ export default function BusinessPhotographyWestLothian() {
             </p>
           </div>
         </section>
+
+        <PhotographyGalleries />
 
         <section id="photography-work" className="scroll-mt-24 py-16 md:py-24 px-4 md:px-6" aria-labelledby="photography-work-title">
           <div className="max-w-4xl mx-auto">
@@ -134,7 +138,6 @@ export default function BusinessPhotographyWestLothian() {
                 </article>
               ))}
             </div>
-            <p className="mt-8 leading-relaxed text-muted-foreground">For another example of how team imagery is used on a business website, explore the existing <Link href="/projects/almond-vet-care" className="underline underline-offset-4">Almond Vet Care website project</Link>.</p>
           </div>
         </section>
 
