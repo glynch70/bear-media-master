@@ -95,4 +95,3 @@ export const graduationGallery = [
     "alt": "Victoria sharing a joyful moment with a guest after her graduation"
   }
 ]
-
