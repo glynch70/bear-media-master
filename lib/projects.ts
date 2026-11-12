@@ -171,6 +171,52 @@ export const projects: Project[] = [
     },
   },
   {
+    id: 8,
+    slug: 'almond-vet-care',
+    title: 'Almond Vet Care Case Study',
+    clientName: 'Almond Vet Care',
+    category: 'Website Design · Photography · Healthcare',
+    description: 'Practice photography and website design that introduce the people behind Almond Vet Care.',
+    intro:
+      'I photographed the team, pets and spaces at Almond Vet Care, creating a set of images to sit alongside a clear, reassuring website for pet owners.',
+    challenge:
+      'Healthcare websites need to balance trust, clarity and warmth. The experience had to feel easy to use on mobile while giving visitors confidence quickly.',
+    heroImage: almondVetGallery[1].src,
+    heroAlt: almondVetGallery[1].alt,
+    heroPosition: '50% 35%',
+    cardImage: almondVetGallery[0],
+    images: [
+      ...almondVetGallery,
+      { src: '/assets/websites/almond-vet.webp', alt: 'Almond Vet Care website design by Bear Media', title: 'The Almond Vet Care website' },
+    ],
+    services: ['Photography', 'Website Design', 'Local SEO Direction'],
+    deliverables: [
+      {
+        title: 'Website Design',
+        description: 'A polished website presentation helped make the service feel clear and dependable.',
+      },
+      {
+        title: 'Practice photography',
+        description: 'The October gallery brings together team portraits, staff with pets, clinical care, reception, treatment rooms and the practice exterior.',
+      },
+      {
+        title: 'Local SEO',
+        description: 'The page direction supported local discovery and relevant service intent.',
+      },
+    ],
+    stats: [
+      { label: 'Sector', value: 'Vet Care', context: 'Healthcare' },
+      { label: 'Priority', value: 'Trust', context: 'Reassuring design' },
+      { label: 'Experience', value: 'Mobile', context: 'Easy browsing' },
+    ],
+    results: [
+      'A clearer and more reassuring digital presence.',
+      'A mobile-friendly website experience for local visitors.',
+      'A polished first impression for a healthcare-led service.',
+    ],
+    websiteUrl: 'https://www.almondvetcare.co.uk/',
+  },
+  {
     id: 11,
     slug: 'winchburgh-heritage-trail',
     title: 'Photographing the Winchburgh Heritage Trail',
@@ -734,52 +780,7 @@ export const projects: Project[] = [
     ],
     websiteUrl: 'https://herbandsoul.uk/',
   },
-  {
-    id: 8,
-    slug: 'almond-vet-care',
-    title: 'Almond Vet Care Case Study',
-    clientName: 'Almond Vet Care',
-    category: 'Website Design · Photography · Healthcare',
-    description: 'Practice photography and website design that introduce the people behind Almond Vet Care.',
-    intro:
-      'I photographed the team, pets and spaces at Almond Vet Care, creating a set of images to sit alongside a clear, reassuring website for pet owners.',
-    challenge:
-      'Healthcare websites need to balance trust, clarity and warmth. The experience had to feel easy to use on mobile while giving visitors confidence quickly.',
-    heroImage: almondVetGallery[1].src,
-    heroAlt: almondVetGallery[1].alt,
-    heroPosition: '50% 35%',
-    cardImage: almondVetGallery[0],
-    images: [
-      ...almondVetGallery,
-      { src: '/assets/websites/almond-vet.webp', alt: 'Almond Vet Care website design by Bear Media', title: 'The Almond Vet Care website' },
-    ],
-    services: ['Photography', 'Website Design', 'Local SEO Direction'],
-    deliverables: [
-      {
-        title: 'Website Design',
-        description: 'A polished website presentation helped make the service feel clear and dependable.',
-      },
-      {
-        title: 'Practice photography',
-        description: 'The October gallery brings together team portraits, staff with pets, clinical care, reception, treatment rooms and the practice exterior.',
-      },
-      {
-        title: 'Local SEO',
-        description: 'The page direction supported local discovery and relevant service intent.',
-      },
-    ],
-    stats: [
-      { label: 'Sector', value: 'Vet Care', context: 'Healthcare' },
-      { label: 'Priority', value: 'Trust', context: 'Reassuring design' },
-      { label: 'Experience', value: 'Mobile', context: 'Easy browsing' },
-    ],
-    results: [
-      'A clearer and more reassuring digital presence.',
-      'A mobile-friendly website experience for local visitors.',
-      'A polished first impression for a healthcare-led service.',
-    ],
-    websiteUrl: 'https://www.almondvetcare.co.uk/',
-  },
+
 ]
 
 export function getProject(slug: string) {

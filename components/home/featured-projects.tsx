@@ -36,6 +36,14 @@ const featuredProjects = [
     href: '/projects/david-todd',
   },
   {
+    id: 'almond-vet',
+    title: 'Almond Vet Care',
+    category: 'Veterinary Healthcare',
+    tags: ['Photography', 'Website'],
+    images: [almondVetGallery[0], almondVetGallery[1], almondVetGallery[2]],
+    href: '/projects/almond-vet-care',
+  },
+  {
     id: 'midlothian-wildflowers',
     title: 'Midlothian Wildflowers',
     category: 'Community & Conservation',
@@ -232,14 +240,7 @@ const featuredProjects = [
     ],
     href: '/projects/herb-soul',
   },
-  {
-    id: 'almond-vet',
-    title: 'Almond Vet Care',
-    category: 'Veterinary Healthcare',
-    tags: ['Photography', 'Website'],
-    images: [almondVetGallery[0], almondVetGallery[1], almondVetGallery[2]],
-    href: '/projects/almond-vet-care',
-  },
+
 ]
 
 export default function FeaturedProjects({ redesign = false }: { redesign?: boolean }) {
@@ -252,7 +253,7 @@ export default function FeaturedProjects({ redesign = false }: { redesign?: bool
       </header>
       <RedesignGallery label="selected work">
         {[...featuredProjects].sort((a, b) => {
-          const order = ['david-todd', 'cg-developments', 'simply-sheds', 'seamus-corry']
+          const order = ['david-todd', 'almond-vet', 'cg-developments', 'simply-sheds', 'seamus-corry']
           const rank = (id: string) => order.includes(id) ? order.indexOf(id) : order.length
           return rank(a.id) - rank(b.id)
         }).map((project) => (
