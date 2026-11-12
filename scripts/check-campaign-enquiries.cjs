@@ -42,8 +42,8 @@ function handler({ failNotification = false, failConfirmation = false } = {}) {
   return { POST: load(path.join(root, 'app/api/contact/route.ts')).POST, sent }
 }
 const valid = { name: 'Local QA', email: 'qa@example.test', business: 'Example', service: 'property', message: 'Please quote for a property shoot in West Lothian.' }
-test('photography and content session selections reach the owner with the correct starting price', async () => {
-  for (const [service, label] of [['photography', 'Photography session — from £200'], ['content-session', 'Content session — from £300']]) {
+test('package selections reach the owner with the correct service and starting price', async () => {
+  for (const [service, label] of [['photography', 'Photography session — from £200'], ['content-session', 'Content session — from £300'], ['video', 'Business video — from £350'], ['drone-photography', 'Drone photography — from £200'], ['drone-video', 'Drone photos &amp; video — from £300'], ['production', 'Tailored video / drone production']]) {
     const h = handler()
     const response = await h.POST(request({ ...valid, service, message: 'Please quote for a session at our workplace.' }))
     assert.equal(response.status, 200)

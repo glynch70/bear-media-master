@@ -91,7 +91,7 @@
   .videoPage > section:first-of-type p { color: #606459; }
   .videoPage > section:first-of-type > div > div { flex-direction: column; align-items: start; }
   .videoPage > section:first-of-type a { border-radius: 6px; }
-  .videoPage > section:first-of-type a[href='/contact'] { background: #20271e; color: white; }
+  .videoPage > section:first-of-type a[href='#packages'] { background: #20271e; color: white; }
   .videoPage > section:first-of-type a[href='#recent-projects'] { border-color: #c5c7bc; color: #171915; background: transparent; }
   .videoPage :global(#recent-projects) h3 { font-size: 28px; }
   .videoPage :global(#recent-projects) a { min-height: 340px; max-height: 380px; }

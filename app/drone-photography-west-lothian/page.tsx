@@ -1,3 +1,4 @@
+import { ProductionPackages } from '@/components/services/production-packages'
 import desktop from '@/components/desktop-refresh.module.css'
 import type { Metadata } from 'next'
 import Image from 'next/image'
@@ -7,7 +8,7 @@ import { FAQPageSchema, ServiceSchema } from '@/components/structured-data'
 
 export const metadata: Metadata = {
   title: 'Drone Photography West Lothian | Bear Media',
-  description: 'Drone photography and video in West Lothian for properties, events and marketing across Livingston, Broxburn and Linlithgow.',
+  description: 'Drone photography from £200 or photos and video from £300, with no VAT added. Aerial marketing imagery across West Lothian and Edinburgh.',
   openGraph: {
     title: 'Drone Photography West Lothian | Bear Media',
     description: 'Drone photography and aerial video for West Lothian properties, events and businesses.',
@@ -51,7 +52,7 @@ const faqs = [
   },
   {
     question: "How quickly can you turn around drone footage?",
-    answer: "The delivery time depends on the capture and editing required. I’ll discuss the timescale when you book.",
+    answer: "The starting drone packages include delivery within five working days of the shoot. Larger productions have a delivery date agreed in the quote.",
   },
 ] as const
 
@@ -79,8 +80,9 @@ export default function DronePhotographyWestLothian() {
             <p className="text-lg md:text-xl text-muted-foreground mb-8">
               I capture considered aerial perspectives of your West Lothian property, event or business, with photography and video shaped around where you plan to use the finished content.
             </p>
-            <a href="/contact" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
-              Book Your Drone Session
+            <p className="mb-5 font-semibold">Photography from £200 · photos and video from £300 · no VAT added</p>
+            <a href="#packages" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+              See drone packages
             </a>
             <figure className="mt-12 overflow-hidden rounded-3xl bg-muted shadow-sm">
               <Image
@@ -99,6 +101,8 @@ export default function DronePhotographyWestLothian() {
             </figure>
           </div>
         </section>
+
+        <ProductionPackages kind="drone" />
 
         <section className="py-16 md:py-24 px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
@@ -251,8 +255,8 @@ export default function DronePhotographyWestLothian() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready for Aerial Photography?</h2>
             <p className="text-lg mb-8 opacity-90">Let's capture stunning drone footage of your West Lothian property or event.</p>
-            <a href="/contact" className="inline-block bg-background text-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
-              Schedule Your Shoot
+            <a href="/contact?service=production#enquiry" className="inline-block bg-background text-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+              Discuss your drone project
             </a>
           </div>
         </section>

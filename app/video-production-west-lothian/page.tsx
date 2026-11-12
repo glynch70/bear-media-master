@@ -1,3 +1,4 @@
+import { ProductionPackages } from '@/components/services/production-packages'
 import mobile from './video-mobile.module.css'
 import desktop from '@/components/desktop-refresh.module.css'
 import type { Metadata } from 'next'
@@ -16,7 +17,7 @@ const pageUrl = `${siteUrl}/video-production-west-lothian`
 export const metadata: Metadata = {
   title: 'Video Production West Lothian & Edinburgh | Bear Media',
   description:
-    'I plan, film and edit promotional films, interviews, construction and property video, and social content across West Lothian, Edinburgh and Central Scotland.',
+    'Business video from £350 with no VAT added. Planning, filming and a 30–60-second edited film for businesses across West Lothian and Edinburgh.',
   alternates: { canonical: pageUrl },
   openGraph: {
     title: 'Video Production West Lothian & Edinburgh | Bear Media',
@@ -167,16 +168,17 @@ export default function VideoProductionWestLothianPage() {
             <p className="mt-5 max-w-3xl font-heading text-2xl font-medium leading-tight text-white sm:text-3xl">
               Promotional films, interviews and social video made around your business.
             </p>
+            <p className="mt-5 font-semibold text-white">Business films from £350 · no VAT added</p>
             <div className="mt-7 flex max-w-5xl flex-col gap-7 md:flex-row md:items-end md:justify-between">
               <p className="max-w-2xl text-base leading-relaxed text-white/78 sm:text-lg md:text-xl">
                 I plan, film and edit video for businesses in Broxburn, Livingston and Linlithgow, as well as Edinburgh and Central Scotland. From a project film to short social content, I’ll shape the work around what you want people to understand, feel or do.
               </p>
               <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
                 <Link
-                  href="/contact"
+                  href="#packages"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-medium text-black transition duration-300 hover:scale-[1.02] hover:bg-white/90"
                 >
-                  Start a project <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  See video packages <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
                 <Link
                   href="#recent-projects"
@@ -188,6 +190,8 @@ export default function VideoProductionWestLothianPage() {
             </div>
           </div>
         </section>
+
+        <ProductionPackages kind="video" />
 
         <section id="recent-projects" className="scroll-mt-20 overflow-hidden bg-background py-20 md:py-28 lg:py-32">
           <div className="mx-auto mb-12 max-w-7xl px-6 lg:px-8">
@@ -300,7 +304,7 @@ export default function VideoProductionWestLothianPage() {
               <div>
                 <h3 className="font-heading text-2xl font-medium">Planning your shoot</h3>
                 <p className="mt-4 text-lg leading-relaxed text-muted-foreground">Tell me the location, audience, intended channels and any deadline. I’ll discuss the filming, interviews and editing needed, then scope the work with you. Based in West Lothian, I work across Edinburgh and Central Scotland.</p>
-                <Link href="/contact#enquiry" className="mt-5 inline-flex min-h-11 items-center underline underline-offset-4">Send me your video brief</Link>
+                <Link href="/contact?service=production#enquiry" className="mt-5 inline-flex min-h-11 items-center underline underline-offset-4">Send me your video brief</Link>
               </div>
             </div>
           </div>
@@ -316,7 +320,7 @@ export default function VideoProductionWestLothianPage() {
               Tell me what you want people to understand, feel or do. I&apos;ll help turn it into video that works across your website and social channels.
             </p>
             <Link
-              href="/contact"
+              href="/contact?service=production#enquiry"
               className="mt-10 inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 font-medium text-black transition duration-300 hover:scale-[1.025] hover:bg-white/90"
             >
               Discuss your project <ArrowRight className="h-4 w-4" aria-hidden="true" />

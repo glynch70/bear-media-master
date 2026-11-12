@@ -7,6 +7,7 @@ import { RedesignFooter, RedesignHeader } from '@/app/redesign/redesign-chrome'
 import { NAME_MAX_LENGTH, EMAIL_MAX_LENGTH, BUSINESS_MAX_LENGTH, MESSAGE_MIN_LENGTH, MESSAGE_MAX_LENGTH, contactFieldError } from '@/lib/contact-fields'
 import { useState, useRef, useSyncExternalStore } from 'react'
 import { enquiryServices, enquiryServiceLabel } from '@/lib/enquiry-services'
+import { productionPackageFor } from '@/lib/production-packages'
 import { rememberCampaign } from '@/lib/campaign-attribution'
 import { trainingCampaign } from '@/lib/training-attribution'
 import { Phone, Mail, MapPin } from 'lucide-react'
@@ -42,7 +43,8 @@ export default function ContactPage() {
 
   const queryService = query.get('service')
   const selectedService = formState.service ?? (enquiryServiceLabel(queryService) ? queryService! : '')
-  const messagePrompt = selectedService === 'property'
+  const productionPackage = productionPackageFor(selectedService)
+  const messagePrompt = productionPackage?.prompt ?? (selectedService === 'property'
     ? 'Send the property location, approximate size, target listing date and the media you need.'
     : selectedService === 'photography'
       ? 'Tell me your location, the people or products to photograph and your preferred date.'
@@ -52,7 +54,7 @@ export default function ContactPage() {
           ? 'Tell me about your shoot, the locations, photos and videos you need, and any dates in mind.'
           : selectedService === 'social'
             ? 'Tell me your business, location, current channels and the enquiries you want to encourage.'
-            : 'What do you need, where is the work and when would you like it? For training, tell me which tasks take up your time.'
+            : 'What do you need, where is the work and when would you like it? For training, tell me which tasks take up your time.')
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
@@ -284,12 +286,13 @@ export default function ContactPage() {
             ) : (
               <>
                 <h2 className="font-heading text-4xl md:text-5xl font-medium text-foreground mb-10">
-                  {selectedService === 'property' ? 'Request your property quote' : selectedService === 'photography' ? 'Enquire about photography' : selectedService === 'content-session' ? 'Plan your content session' : selectedService === 'content' ? 'Plan your content shoot' : 'Send a Message'}
+                  {productionPackage?.action ?? (selectedService === 'property' ? 'Request your property quote' : selectedService === 'photography' ? 'Enquire about photography' : selectedService === 'content-session' ? 'Plan your content session' : selectedService === 'content' ? 'Plan your content shoot' : 'Send a Message')}
                 </h2>
                 {selectedService === 'property' && <p className="mb-8 text-base leading-relaxed text-muted-foreground">From £260 for a 1–2 bedroom property. No VAT. Share the location, bedroom count, media required and target listing date. I’ll confirm what’s included and the total before you book.</p>}
                 {selectedService === 'photography' && <p className="mb-8 text-base leading-relaxed text-muted-foreground">From £200 per session. Up to one hour at one location and 15 edited photographs, delivered within five working days. No VAT added. I’ll confirm the scope, travel and total before you book.</p>}
                 {selectedService === 'content-session' && <p className="mb-8 text-base leading-relaxed text-muted-foreground">From £300 per session. Up to one hour at one location, 15 edited photographs and two vertical reels of up to 30 seconds, delivered within five working days. No VAT added. I’ll confirm the scope, travel and total before you book.</p>}
                 {selectedService === 'content' && <p className="mb-8 text-base leading-relaxed text-muted-foreground">Half-day and full-day shoots are tailored to your brief. I’ll confirm the shoot time, deliverables, travel and total before you book. No VAT added.</p>}
+                {productionPackage && <p className="mb-8 text-base leading-relaxed text-muted-foreground">{productionPackage.enquiry} No VAT added. I’ll confirm the scope, travel and total before you book.{selectedService.startsWith('drone-') && ' Flights depend on the location and suitable conditions; rescheduling arrangements are agreed before booking.'}</p>}
                 <form data-clarity-mask="true" aria-describedby={formState.error ? 'contact-error' : undefined} onSubmit={handleSubmit} className="space-y-6">
                   {formState.error && (
                     <div role="alert" id="contact-error" className="p-4 rounded-2xl bg-red-50 border border-red-200">
@@ -414,7 +417,7 @@ export default function ContactPage() {
                     }
                     className="w-full bg-accent text-foreground px-8 py-4 rounded-full font-medium hover:opacity-90 transition-opacity text-lg disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {formState.loading ? 'Sending...' : ['property', 'photography', 'content-session', 'content'].includes(selectedService) ? 'Send my quote enquiry' : 'Send Message'}
+                    {formState.loading ? 'Sending...' : (productionPackage || ['property', 'photography', 'content-session', 'content'].includes(selectedService)) ? 'Send my quote enquiry' : 'Send Message'}
                   </button>
                   <p className="text-sm text-muted-foreground">Read our <a href="/privacy" className="underline">Privacy Policy</a> for how your enquiry is handled.</p>
                 </form>
