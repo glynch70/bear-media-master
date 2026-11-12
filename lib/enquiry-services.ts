@@ -1,5 +1,7 @@
 export const enquiryServices = [
   { value: 'property', label: 'Property marketing' },
+  { value: 'photography', label: 'Photography session — from £200' },
+  { value: 'content-session', label: 'Content session — from £300' },
   { value: 'content', label: 'Business content / content days' },
   { value: 'construction', label: 'Construction progress photography and video' },
   { value: 'websites', label: 'Website design' },

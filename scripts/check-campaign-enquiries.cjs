@@ -42,6 +42,14 @@ function handler({ failNotification = false, failConfirmation = false } = {}) {
   return { POST: load(path.join(root, 'app/api/contact/route.ts')).POST, sent }
 }
 const valid = { name: 'Local QA', email: 'qa@example.test', business: 'Example', service: 'property', message: 'Please quote for a property shoot in West Lothian.' }
+test('photography and content session selections reach the owner with the correct starting price', async () => {
+  for (const [service, label] of [['photography', 'Photography session — from £200'], ['content-session', 'Content session — from £300']]) {
+    const h = handler()
+    const response = await h.POST(request({ ...valid, service, message: 'Please quote for a session at our workplace.' }))
+    assert.equal(response.status, 200)
+    assert.ok(h.sent[0].html.includes(label))
+  }
+})
 function request(body, origin = 'http://localhost:3110') {
   return { headers: new Headers({ origin }), nextUrl: new URL('http://localhost:3110/api/contact'), json: async () => body }
 }

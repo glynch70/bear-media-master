@@ -1,3 +1,4 @@
+import { SessionPackages } from '@/components/services/session-packages'
 import desktop from '@/components/desktop-refresh.module.css'
 import { DesktopServiceImage } from '@/components/desktop-service-image'
 import type { Metadata } from 'next'
@@ -8,7 +9,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Content Days & Content Creation West Lothian | Bear Media',
-  description: 'Content days for West Lothian businesses: photography, short video and social assets from real work. Based in Broxburn, serving Edinburgh and the Lothians.',
+  description: 'Content sessions from £300 with no VAT added: 15 edited photos and two short reels. Half-day and full-day shoots across West Lothian and Edinburgh.',
   openGraph: {
     title: 'Content Creation West Lothian | Bear Media',
     description: 'Photography, videography and content creation for West Lothian businesses.',
@@ -35,8 +36,8 @@ const faqs = [
     answer: "I provide photography, video and drone content, with the scope agreed around what your business actually needs.",
   },
   {
-    question: "How much does professional photography cost?",
-    answer: "The quote reflects the shoot, travel, editing and final photographs or videos required. Tell me what you want to show, where the content will be used and any deadline so I can set out the scope clearly.",
+    question: "How much does a content session cost?",
+    answer: "Content sessions start at £300 with no VAT added. This includes up to one hour at one location, 15 edited photographs and two vertical reels of up to 30 seconds each, plus planning and one round of minor changes. Photography-only sessions start at £200. Half-day and full-day shoots are quoted around your brief.",
   },
   {
     question: "Can you do drone photography in West Lothian?",
@@ -48,7 +49,7 @@ const faqs = [
   },
   {
     question: "How quickly can you turn around content?",
-    answer: "The timeline depends on the scope. I’ll discuss delivery expectations with you before the work begins.",
+    answer: "The starting content session includes delivery within five working days. I’ll agree delivery dates for larger or more complex shoots before work begins.",
   },
   {
     question: "Can I use the content on all platforms?",
@@ -79,14 +80,17 @@ export default function ContentCreationWestLothian() {
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">Content days in West Lothian</h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8">
-              One planned shoot can give your business useful photography, short video and social assets. I work from West Lothian across West Lothian, Edinburgh and the Lothians, shaping each content day around what you actually need to show.
+              One planned shoot can give your business useful photography, short video and social assets. I work from Broxburn across West Lothian, Edinburgh and the Lothians, shaping each content day around what you actually need to show.
             </p>
-            <a href="/contact#enquiry" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
-              Plan a content day
+            <p className="mb-5 font-semibold">Sessions from £300 · photos and short reels · no VAT added</p>
+            <a href="#packages" className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+              See content packages
             </a>
           </div>
           <DesktopServiceImage src="/assets/services/photography-garry-setup.webp" alt="Garry setting up a Bear Media photography session" />
         </section>
+
+        <SessionPackages focus="content-session" />
 
         <section className="px-4 py-16 md:px-6 md:py-20" aria-labelledby="content-work-title">
           <div className="mx-auto max-w-4xl">
@@ -249,8 +253,8 @@ export default function ContentCreationWestLothian() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready for Professional Content?</h2>
             <p className="text-lg mb-8 opacity-90">Let's create compelling visual content that showcases your West Lothian business.</p>
-            <a href="/contact#enquiry" className="inline-block bg-background text-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
-              Schedule a Shoot
+            <a href="/contact?service=content-session#enquiry" className="inline-block bg-background text-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+              Enquire about a content session
             </a>
           </div>
         </section>

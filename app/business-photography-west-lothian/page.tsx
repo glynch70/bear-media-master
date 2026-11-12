@@ -1,3 +1,4 @@
+import { SessionPackages } from '@/components/services/session-packages'
 import { PhotographyGalleries } from '@/components/services/photography-galleries'
 import { almondVetGallery } from '@/lib/almond-vet-gallery'
 import desktop from '@/components/desktop-refresh.module.css'
@@ -11,7 +12,7 @@ import { BreadcrumbSchema, FAQPageSchema, ServiceSchema } from '@/components/str
 
 export const metadata: Metadata = {
   title: 'Business Photography & Headshots West Lothian | Bear Media',
-  description: 'I photograph business owners, teams and workplaces in West Lothian and Edinburgh, with corporate headshots and commercial imagery for websites and marketing.',
+  description: 'Business photography from £200 with no VAT added. A one-hour session and 15 edited images for businesses in West Lothian and Edinburgh.',
   openGraph: {
     title: 'Business Photography & Headshots West Lothian | Bear Media',
     description: 'Business photography, corporate headshots and workplace imagery across West Lothian and Edinburgh.',
@@ -42,7 +43,7 @@ const photographyWork = [
 const faqs = [
   {
     question: "How much do professional headshots cost?",
-    answer: "The quote depends on how many people need photographs, the location and the edited images required. Tell me whether you need individual headshots, team photos or a wider set of workplace images so I can scope the session.",
+    answer: "Photography sessions start at £200 with no VAT added: up to one hour at one location, 15 edited images, a planning call and high-resolution and web-ready files. Tell me how many people need headshots so I can confirm the scope, travel and total before you book.",
   },
   {
     question: "How long does a headshot session take?",
@@ -58,7 +59,7 @@ const faqs = [
   },
   {
     question: "How quickly will I get my photos?",
-    answer: "Delivery depends on the size of the session and the agreed editing. I’ll give you a clear timescale before the session.",
+    answer: "The starting photography session includes delivery within five working days. For larger shoots or specialist retouching, I’ll confirm the timescale in your quote.",
   },
   {
     question: "What should we wear for business photos?",
@@ -99,13 +100,16 @@ export default function BusinessPhotographyWestLothian() {
             <p className="text-lg md:text-xl text-muted-foreground mb-8">
               I photograph business owners, teams and workplaces in Broxburn, Livingston, Linlithgow and across West Lothian and Edinburgh. From corporate headshots to behind-the-scenes business content, I plan the images around your website, social channels and marketing.
             </p>
-            <a href="/contact#enquiry" className="inline-flex min-h-12 items-center justify-center bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
-              Request a photography quote
+            <p className="mb-5 font-semibold">Sessions from £200 · 15 edited photographs · no VAT added</p>
+            <a href="#packages" className="inline-flex min-h-12 items-center justify-center bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+              See photography packages
             </a>
             <a href="#photography-galleries" className="mt-3 inline-flex min-h-12 items-center justify-center px-6 py-3 font-semibold underline underline-offset-4 sm:ml-3">See real photography work</a>
           </div>
           <DesktopServiceImage src={almondVetGallery[1].src} alt={almondVetGallery[1].alt} />
         </section>
+
+        <SessionPackages focus="photography" />
 
         <section className="py-16 md:py-24 px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
@@ -291,7 +295,7 @@ export default function BusinessPhotographyWestLothian() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Tell me about the photographs you need</h2>
             <p className="text-lg mb-8 opacity-90">Send me your location, the number of people involved, the images you need and any deadline. I’ll discuss the brief and provide a quote for the agreed work.</p>
-            <a href="/contact#enquiry" className="inline-block bg-background text-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+            <a href="/contact?service=photography#enquiry" className="inline-block bg-background text-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
               Request a photography quote
             </a>
           </div>
