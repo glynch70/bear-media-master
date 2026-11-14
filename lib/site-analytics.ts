@@ -26,6 +26,7 @@ export function syncAnalytics() {
   if (!['www.bear-media.com', 'bear-media.com'].includes(location.hostname)) return
   const granted = analyticsAllowed()
   if (gaId) Reflect.set(window, 'ga-disable-' + gaId, !granted)
+  window.gtag?.('consent', 'update', { analytics_storage: granted ? 'granted' : 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' })
   if (!granted) {
     if (window.clarity) {
       window.clarity('consentv2', { analytics_Storage: 'denied', ad_Storage: 'denied' })
@@ -34,7 +35,7 @@ export function syncAnalytics() {
     for (const cookie of document.cookie.split(';')) {
       const name = cookie.split('=')[0].trim()
       if (/^(_ga(?:_|$)|_clck$|_clsk$)/.test(name)) {
-        for (const domain of ['', '; Domain=bear-media.com']) document.cookie = name + '=; Max-Age=0; Path=/' + domain
+        for (const domain of ['', '; Domain=' + location.hostname, '; Domain=bear-media.com']) document.cookie = name + '=; Max-Age=0; Path=/' + domain
       }
     }
     return

@@ -2375,7 +2375,7 @@
   gap: 0.35rem;
   border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: 50%;
-  background-color: #1769ff;
+  background-color: #25251f;
   color: white;
   box-shadow:
     0 0 0 3px rgba(253, 253, 251, 0.82),
@@ -2392,7 +2392,7 @@
 
 .redesignMenuButton:focus-visible,
 .redesignMenuTop button:focus-visible {
-  outline: 2px solid #1769ff;
+  outline: 2px solid #dfbc7c;
   outline-offset: 3px;
 }
 
@@ -4170,11 +4170,19 @@
     .heroBentoTile, .heroBentoDescription, .heroBentoActions { animation: heroTileReveal 320ms ease-out backwards; }
     .heroBentoDescription { animation-delay: 30ms; }
     .heroBentoActions { animation-delay: 60ms; }
-    .heroBentoTile { animation-delay: 85ms; }
-    .heroBentoTile:nth-last-child(-n+3) { animation-delay: 135ms; }
+    .heroBentoCopy h1 { animation: heroTileReveal 280ms ease-out backwards; }
+    .heroBentoTile { animation-delay: 85ms; transition: transform 220ms ease; }
+    .heroBentoTile:nth-of-type(2) { animation-delay: 110ms; }
+    .heroBentoTile:nth-of-type(3) { animation-delay: 135ms; }
+    .heroBentoTile:nth-of-type(4) { animation-delay: 160ms; }
+    .heroBentoTile:nth-of-type(5) { animation-delay: 185ms; }
+    .heroBentoTile:nth-of-type(6) { animation-delay: 210ms; }
     .heroBentoTile:active { transform: translateY(1px); }
     .heroBentoImage { transition: transform 220ms ease; }
-    @media (hover: hover) { .heroBentoTile:hover .heroBentoImage { transform: scale(1.025); } }
+    @media (hover: hover) {
+      .heroBentoTile:hover { transform: translateY(-2px); }
+      .heroBentoTile:hover .heroBentoImage { transform: scale(1.025); }
+    }
   }
 }
 

@@ -34,6 +34,7 @@ export const metadata: Metadata = {
   verification: googleVerification ? { google: googleVerification } : undefined,
   icons: {
     icon: [
+      { url: '/brand/bear-media-icon.png', sizes: '512x512', type: 'image/png' },
       { url: `${siteUrl}/favicon.ico`, sizes: '16x16 32x32 48x48', type: 'image/x-icon' },
       { url: '/brand/favicon-light.png', type: 'image/png', sizes: '32x32', media: '(prefers-color-scheme: light)' },
       { url: '/brand/favicon-dark.png', type: 'image/png', sizes: '32x32', media: '(prefers-color-scheme: dark)' },
