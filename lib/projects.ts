@@ -1,6 +1,7 @@
 import { almondVetGallery } from './almond-vet-gallery'
 import { trustedClientLinks } from './trusted-client-links'
 import { getServiceHref } from './service-links'
+import { featuredWebsiteProjects } from './website-projects'
 
 export type ProjectStat = {
   label: string
@@ -76,6 +77,63 @@ export type Project = {
 }
 
 export const projects: Project[] = [
+  {
+    id: 21,
+    slug: 'sage-house-therapy',
+    title: 'Website design for Sage House Therapy',
+    clientName: 'Sage House Therapy',
+    category: 'Website Design · Professional Services',
+    description: featuredWebsiteProjects[1].description,
+    intro: 'Sage House Therapy provides therapy for adults with Claire in Edinburgh. I created a website introducing Claire and helping visitors explore the support available.',
+    challenge: 'The content needed to feel approachable and explain the next step clearly. Dedicated information about the therapies, practical arrangements and enquiries helps visitors decide what to ask.',
+    heroImage: featuredWebsiteProjects[1].src,
+    heroAlt: featuredWebsiteProjects[1].alt,
+    images: [{ src: featuredWebsiteProjects[1].src, alt: featuredWebsiteProjects[1].alt }],
+    services: ['Website Design', 'Responsive Design', 'Content Structure'],
+    deliverables: [
+      { title: 'Responsive design', description: 'A clear website layout for visitors on desktop and mobile.' },
+      { title: 'Therapy information', description: 'An introduction to Claire, her approaches and the practical details of working together.' },
+      { title: 'Enquiry journey', description: 'Prominent links to an enquiry form so visitors can ask about support and availability.' },
+    ],
+    stats: [
+      { label: 'Business', value: 'Therapy', context: 'Edinburgh' },
+      { label: 'Design', value: 'Responsive', context: 'Desktop and mobile' },
+      { label: 'Next step', value: 'Enquire', context: 'A conversation with Claire' },
+    ],
+    websiteUrl: featuredWebsiteProjects[1].url,
+    relatedService: { href: '/website-design-west-lothian', label: 'Discuss your website' },
+    seoTitle: 'Sage House Therapy Website Design | Bear Media',
+    seoDescription: 'A responsive website for Sage House Therapy, introducing Claire, explaining therapy services and providing a clear enquiry journey.',
+  },
+  {
+    id: 22,
+    slug: 'am-medical-aesthetics',
+    title: 'Website design for AM Medical Aesthetics',
+    clientName: 'AM Medical Aesthetics',
+    category: 'Website Design · Supplied Photography',
+    description: featuredWebsiteProjects[2].description,
+    intro: 'AM Medical Aesthetics is Alex’s nurse-led aesthetics business. I built the website around her supplied photographs, an introduction to her work and clear service information.',
+    challenge: 'Visitors need to understand the business and find the next step. The responsive layout brings the information together and directs visitors to the existing consultation booking service.',
+    heroImage: featuredWebsiteProjects[2].src,
+    heroAlt: featuredWebsiteProjects[2].alt,
+    images: [{ src: featuredWebsiteProjects[2].src, alt: featuredWebsiteProjects[2].alt }],
+    services: ['Website Design', 'Responsive Design', 'Content Structure'],
+    deliverables: [
+      { title: 'Responsive design', description: 'A website designed for desktop and mobile using Alex’s supplied photography.' },
+      { title: 'Business and service information', description: 'A clear introduction to Alex and her aesthetics business, with answers to client questions.' },
+      { title: 'Consultation booking link', description: 'A direct route to the existing consultation booking service.' },
+    ],
+    stats: [
+      { label: 'Business', value: 'Aesthetics', context: 'Nurse-led services' },
+      { label: 'Images', value: 'Client supplied', context: 'Alex’s own photography' },
+      { label: 'Next step', value: 'Consultation', context: 'Existing booking service' },
+    ],
+    websiteUrl: featuredWebsiteProjects[2].url,
+    relatedService: { href: '/website-design-west-lothian', label: 'Discuss your website' },
+    seoTitle: 'AM Medical Aesthetics Website Design | Bear Media',
+    seoDescription: 'Website design for AM Medical Aesthetics using client-supplied photography, responsive layouts and a clear consultation booking link.',
+  },
+
   {
     id: 10,
     slug: 'david-todd',
@@ -694,49 +752,38 @@ export const projects: Project[] = [
   {
     id: 5,
     slug: 'colins-canines',
-    title: 'Colin’s Canines Case Study',
-    clientName: 'Colin’s Canines',
-    category: 'Brand Content · Photography · Social',
-    description: 'Creating friendly, trust-building content for a local dog training brand.',
-    intro:
-      'Colin’s Canines needed content that felt approachable, local and professional while showing the personality behind the service.',
-    challenge:
-      'For a service built on trust, the visuals needed to feel warm and real. The goal was to show Colin, the dogs and the brand in a way that felt natural rather than overly posed.',
-    heroImage: '/assets/project-gallery/colin-canines-colin-and-dog.webp',
-    heroAlt: 'Colin with a dog during a training session',
+    title: 'Website design for Colin Canines',
+    clientName: 'Colin Canines',
+    category: 'Website Design · Photography · Social',
+    description: featuredWebsiteProjects[0].description,
+    intro: 'Colin Canines is a dog walking and pet care business based in Livingston, West Lothian. I built a responsive website introducing Colin and explaining his services.',
+    challenge: 'Visitors need to find the walking options, understand the practical details and ask about availability. The website brings those steps together with clear service information, an enquiry form and direct contact links.',
+    heroImage: featuredWebsiteProjects[0].src,
+    heroAlt: featuredWebsiteProjects[0].alt,
     images: [
+      { src: featuredWebsiteProjects[0].src, alt: featuredWebsiteProjects[0].alt },
       { src: '/assets/project-gallery/colin-canines-colin-and-dog.webp', alt: 'Colin’s Canines brand photography with a client dog' },
       { src: '/assets/project-gallery/colin-canines-colin-walking.webp', alt: 'Colin’s Canines dog walking content' },
       { src: '/assets/project-gallery/colin-canines-colin-and-dogs.webp', alt: 'Colin’s Canines dog training group content' },
       { src: '/assets/project-gallery/colin-canines-colin-van.webp', alt: 'Colin’s Canines branded van photography' },
       { src: '/assets/project-gallery/colin-canines-colin-advert.webp', alt: 'Colin’s Canines advert creative' },
     ],
-    services: ['Photography', 'Social Media', 'Brand Content'],
+    services: ['Website Design', 'Responsive Design', 'Content Structure', 'Photography', 'Social Media'],
     deliverables: [
-      {
-        title: 'Photography',
-        description: 'Natural images showed Colin at work and gave potential customers a warmer first impression.',
-      },
-      {
-        title: 'Social Media',
-        description: 'The content was prepared for simple, regular posts that support local visibility.',
-      },
-      {
-        title: 'Brand Content',
-        description: 'Vehicle, service and personality-led images created a more complete visual story.',
-      },
+      { title: 'Responsive website', description: 'A modern layout for desktop and mobile, introducing Colin and his dog walking business.' },
+      { title: 'Clear service information', description: 'Walking options, pet care services, prices and practical details organised in one place.' },
+      { title: 'Customer enquiries', description: 'An availability enquiry form with direct phone, email and WhatsApp contact options.' },
+      { title: 'Existing photography and social content', description: 'The earlier photography and social content remain part of the project gallery.' },
     ],
     stats: [
-      { label: 'Content Formats', value: '5', context: 'Portrait, action, vehicle, advert' },
-      { label: 'Brand Feel', value: 'Warmer', context: 'Trust-led imagery' },
-      { label: 'Local Visibility', value: 'Stronger', context: 'Social-ready content' },
+      { label: 'Business', value: 'Dog walking', context: 'Livingston, West Lothian' },
+      { label: 'Design', value: 'Responsive', context: 'Desktop and mobile' },
+      { label: 'Next step', value: 'Enquire', context: 'Availability and pet care needs' },
     ],
-    results: [
-      'A friendlier and more professional visual presence.',
-      'A practical content set for local social media posts.',
-      'Clearer trust signals for dog owners considering the service.',
-    ],
-    websiteUrl: 'https://www.facebook.com/colinscanines/',
+    websiteUrl: featuredWebsiteProjects[0].url,
+    relatedService: { href: '/website-design-west-lothian', label: 'Discuss your website' },
+    seoTitle: 'Colin Canines Website Design Livingston | Bear Media',
+    seoDescription: 'Website design for Colin Canines, a Livingston dog walking business, with responsive layouts, clear service information and customer enquiries.',
   },
   {
     id: 7,

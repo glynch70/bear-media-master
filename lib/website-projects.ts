@@ -1,4 +1,36 @@
+// Featured completed sites, each represented once in the website gallery.
+export const featuredWebsiteProjects = [
+  {
+    name: 'Colin Canines',
+    category: 'Website design',
+    caseStudy: '/projects/colins-canines',
+    description: 'I created a modern, mobile-friendly website for Colin’s dog walking business in Livingston, with clear service information and straightforward customer enquiry options.',
+    src: '/assets/websites/recent/colin-canines.webp',
+    alt: 'Desktop and mobile views of the finished Colin Canines dog walking website',
+    url: 'https://colincanines.co.uk/',
+  },
+  {
+    name: 'Sage House Therapy',
+    category: 'Website design',
+    caseStudy: '/projects/sage-house-therapy',
+    description: 'I created a welcoming website for Claire’s therapy practice, introducing her approach, explaining the support available and giving visitors a clear way to enquire.',
+    src: '/assets/websites/recent/sage-house-therapy.webp',
+    alt: 'Sage House Therapy website introducing Claire and her therapy services',
+    url: 'https://sagehousetherapy.uk/',
+  },
+  {
+    name: 'AM Medical Aesthetics',
+    category: 'Website design with supplied photography',
+    caseStudy: '/projects/am-medical-aesthetics',
+    description: 'A website built around Alex’s own photographs, introducing her aesthetics business, answering client questions and guiding visitors towards booking a consultation.',
+    src: '/assets/websites/recent/am-medical-aesthetics.webp',
+    alt: 'Desktop and mobile views of the AM Medical Aesthetics website, with Alex’s introduction and consultation booking link',
+    url: 'https://ammedicalaesthetics.co.uk/',
+  },
+] as const
+
 export const recentWebsiteProjects = [
+  ...featuredWebsiteProjects,
   {
     name: 'Linven Property Inspections',
     category: 'Website design',
@@ -15,14 +47,7 @@ export const recentWebsiteProjects = [
     alt: 'Desktop and mobile views of Jess’s Esk Valley Talking Therapies website, featuring Bear Media’s portrait photography',
     url: 'https://eskvalleytalkingtherapies.co.uk/',
   },
-  {
-    name: 'AM Medical Aesthetics',
-    category: 'Website design with supplied photography',
-    description: 'A website built around Alex’s own photographs, introducing her aesthetics business, answering client questions and guiding visitors towards booking a consultation.',
-    src: '/assets/websites/recent/am-medical-aesthetics.webp',
-    alt: 'Desktop and mobile views of the AM Medical Aesthetics website, with Alex’s introduction and consultation booking link',
-    url: 'https://ammedicalaesthetics.co.uk/',
-  },
+
 ] as const
 
 export const landingPageProjects = [

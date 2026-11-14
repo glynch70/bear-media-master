@@ -96,7 +96,7 @@ const faqs = [
   {
     question: 'How much does a business website cost?',
     answer:
-      'Every website is scoped around the number of pages, content requirements and functionality involved. After a free discovery call, you’ll receive a clear written proposal with the deliverables, timescale and full cost before deciding whether to proceed.',
+      'The Starter Website costs £750 for one page with up to five sections, using your supplied content. Two revision rounds are included, with 50% payable as a deposit and 50% before launch. Hosting, domain costs and additional services are separate. Larger websites receive a written quote based on the agreed scope.',
   },
   {
     question: 'How long does a website take?',
@@ -138,6 +138,9 @@ export default function WebsiteDesignWestLothian() {
           provider="Bear Media"
           url={pageUrl}
           subjectOf={[
+            { name: 'Colin Canines Website Design', url: 'https://bear-media.com/projects/colins-canines' },
+            { name: 'Sage House Therapy Website Design', url: 'https://bear-media.com/projects/sage-house-therapy' },
+            { name: 'AM Medical Aesthetics Website Design', url: 'https://bear-media.com/projects/am-medical-aesthetics' },
             { name: "Midlothian Wildflowers Website Launch", url: 'https://bear-media.com/projects/midlothian-wildflowers' },
             { name: "Seamus Corry Case Study", url: 'https://bear-media.com/projects/seamus-corry' },
             { name: "Almond Vet Care Case Study", url: 'https://bear-media.com/projects/almond-vet-care' },
@@ -164,7 +167,7 @@ export default function WebsiteDesignWestLothian() {
               <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">You work directly with me for local, personal support, from planning to launch. I can provide copy, photography and video as part of your website project.</p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <Link
-                  href="/contact#enquiry"
+                  href="/contact?service=websites#enquiry"
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground transition hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 >
                   Arrange a free discovery call
@@ -237,6 +240,34 @@ export default function WebsiteDesignWestLothian() {
           </div>
         </section>
 
+        <section id="starter-website" className="bg-background py-16 md:py-20" aria-labelledby="starter-title">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="grid gap-8 rounded-3xl border border-border bg-secondary p-7 md:p-10 lg:grid-cols-2">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">A clear starting point</p>
+                <h2 id="starter-title" className="mt-4 font-heading text-4xl font-medium">Starter Website · £750</h2>
+                <p className="mt-5 text-lg text-muted-foreground">A focused, mobile-friendly website for your small business, built using your supplied words, branding and photographs.</p>
+                <p className="mt-4 text-muted-foreground">£375 deposit, with £375 due before launch. Two rounds of revisions included.</p>
+                <Link href="/contact?service=websites#enquiry" className="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground">Ask about a Starter Website</Link>
+              </div>
+              <div>
+                <h3 className="font-heading text-xl font-semibold">Included in your website</h3>
+                <ul className="mt-4 list-disc space-y-2 pl-5 text-muted-foreground">
+                  <li>One page with up to five sections</li>
+                  <li>Responsive desktop and mobile design</li>
+                  <li>Enquiry form, contact details and social links</li>
+                  <li>Basic on-page SEO and domain connection</li>
+                  <li>Testing and launch after your approval</li>
+                </ul>
+                <p className="mt-5 text-sm leading-relaxed text-muted-foreground">Domain purchase and renewal, hosting, photography, copywriting, extra pages, booking systems, ecommerce, integrations and ongoing maintenance are quoted separately.</p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">The projects below show examples of my work. Each had its own agreed scope and is not a list of features included in the Starter Website.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <WebsitePortfolioSection />
+
         <section className="bg-secondary py-20 md:py-28">
           <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 lg:px-8">
             <div>
@@ -254,8 +285,6 @@ export default function WebsiteDesignWestLothian() {
             </div>
           </div>
         </section>
-
-        <WebsitePortfolioSection />
 
         <section className="bg-primary py-20 text-primary-foreground md:py-28">
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-[0.72fr_1.28fr] lg:px-8">
@@ -297,7 +326,7 @@ export default function WebsiteDesignWestLothian() {
                 <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
                   I agree the pages, enquiry routes, content and functionality with you before the build. Your proposal sets out what is included, the cost and the schedule. Photography, video and copy can be scoped alongside the design.
                 </p>
-                <Link href="/contact#enquiry" className="mt-8 inline-flex items-center gap-2 font-semibold text-foreground hover:text-accent">
+                <Link href="/contact?service=websites#enquiry" className="mt-8 inline-flex items-center gap-2 font-semibold text-foreground hover:text-accent">
                   Discuss your website
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
@@ -380,7 +409,7 @@ export default function WebsiteDesignWestLothian() {
             </p>
             <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
               <Link
-                href="/contact#enquiry"
+                href="/contact?service=websites#enquiry"
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground transition hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-accent"
               >
                 Arrange a free discovery call
