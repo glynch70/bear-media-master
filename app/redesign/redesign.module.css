@@ -4278,7 +4278,7 @@
   .journeyHeroCopy { position: relative; inset: auto; width: 51%; padding: 0; color: #171915; text-shadow: none; }
   .journeyHeroCopy > p { color: #86612d; font-size: 10px; margin-bottom: 20px; }
   .journeyHeroCopy h1 { font-size: clamp(40px, 5.4vw, 54px); line-height: 1.05; color: #171915; }
-  .journeyHero > .desktopHeroMedia { inset: 8rem 2rem auto auto; width: 41%; height: 370px; border-radius: 10px; }
+  .journeyHero > .desktopHeroMedia { inset: 8rem 2rem auto auto !important; width: 41% !important; height: 370px !important; border-radius: 10px; }
   .journeyHero .journeyShade, .journeyHero .journeyScrollCue { display: none; }
   .desktopIntro { display: block; margin-top: 24px; }
   .desktopIntro > p { max-width: 32ch; color: #5d6057; font-size: 16px; line-height: 1.6; }
