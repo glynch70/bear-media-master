@@ -45,7 +45,7 @@ export function MuxVideoPlayer({
         <button
           type="button"
           onClick={() => setHasStarted(true)}
-          aria-label={`Allow Mux and play ${title}`}
+          aria-label={`Allow Mux & play (may use cookies): ${title}`}
           aria-describedby={descriptionId}
           className="group absolute inset-0 block h-full w-full cursor-pointer bg-black"
         >

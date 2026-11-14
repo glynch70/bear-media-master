@@ -17,6 +17,7 @@ export function ProjectHero({ project }: { project: Project }) {
             alt={project.heroAlt ?? `${project.clientName} project photography`}
             fill
             preload
+            fetchPriority="high"
             sizes="100vw"
             quality={90}
             style={{ objectPosition: project.heroPosition ?? '50% 50%' }}
