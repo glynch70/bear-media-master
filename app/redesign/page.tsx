@@ -114,7 +114,7 @@ export default function RedesignPage() {
                 <Image src={tile.src} alt={tile.alt} fill
                   loading={index === 0 ? 'eager' : 'lazy'}
                   fetchPriority={index === 0 ? 'high' : undefined}
-                  sizes={index === 0 ? '(max-width: 767px) 60vw, 1px' : '(max-width: 767px) 36vw, 1px'}
+                  sizes={index === 0 ? '(max-width: 767px) 60vw, 1px' : '(max-width: 767px) 30vw, 1px'}
                   className={styles.heroBentoImage} />
                 <span className={styles.heroBentoLabel}>{tile.label}</span>
               </MotionLink>
