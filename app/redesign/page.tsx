@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
 import { createMetadata } from '@/lib/seo'
+import { weeBothyGallery } from '@/lib/photography-galleries'
 import { JourneyProgress } from './journey-progress'
 import { RedesignFooter, RedesignHeader } from './redesign-chrome'
 import { RedesignGallery } from './redesign-gallery'
@@ -34,9 +35,9 @@ export const metadata: Metadata = {
 }
 
 const mobileHeroTiles = [
-  { label: 'Photography', href: '/business-photography-west-lothian', src: '/assets/hero/mobile/photography-tile.webp', alt: 'A joiner shaping a curved timber frame in the workshop' },
-  { label: 'Drone', href: '/drone-photography-west-lothian', src: '/assets/hero/mobile/drone-tile.webp', alt: 'Aerial view of the waterfront at St Andrews' },
-  { label: 'Property', href: '/property', src: '/assets/hero/mobile/property-tile.webp', alt: 'Living room at East Farm of Gilmerton' },
+  { label: 'Photography', href: '/business-photography-west-lothian', src: weeBothyGallery[0].src, alt: weeBothyGallery[0].alt },
+  { label: 'Drone', href: '/drone-photography-west-lothian', src: weeBothyGallery[2].src, alt: weeBothyGallery[2].alt },
+  { label: 'Property', href: '/property', src: '/images/2026-refresh/property/45-west-windygoul-gardens-tranent-kitchen.webp', alt: 'Kitchen with cream cabinets and wooden worktops at a home in Tranent' },
 ] as const
 
 const socialContent = [
@@ -117,8 +118,8 @@ export default function RedesignPage() {
             ))}
           </div>
           <Image
-            src="/assets/client-work/edinburgh-windows-doors/crafting-curved-timber-frame.webp"
-            alt="A joiner shaping a curved timber frame in the workshop"
+            src={weeBothyGallery[0].src}
+            alt={weeBothyGallery[0].alt}
             fill
             sizes="(max-width: 767px) 1px, (max-width: 1023px) 100vw, 48vw"
             quality={75}
