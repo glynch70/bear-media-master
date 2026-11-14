@@ -12,7 +12,8 @@
 .tabs button[aria-selected='true'] { color: #fff; background: #242a1e; box-shadow: 0 2px 5px #20231c12; }
 .tabs button span { font-size: 11px; font-variant-numeric: tabular-nums; opacity: .65; }
 .hint { color: var(--gallery-muted); font-size: 13px; }
-.viewport { overflow: hidden; touch-action: pan-y pinch-zoom; cursor: grab; border-radius: 20px; }
+.viewport {
+  position: relative; overflow: hidden; touch-action: pan-y pinch-zoom; cursor: grab; border-radius: 20px; }
 .viewport:active { cursor: grabbing; }
 .track { display: flex; gap: 24px; align-items: stretch; }
 .card { flex: 0 0 calc((100% - 24px) / 2); min-width: 0; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--gallery-line); border-radius: 20px; overflow: hidden; }

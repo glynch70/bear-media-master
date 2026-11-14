@@ -388,6 +388,7 @@
 }
 
 .galleryViewport {
+  position: relative;
   overflow: hidden;
   overscroll-behavior-x: contain;
   touch-action: pan-y pinch-zoom;

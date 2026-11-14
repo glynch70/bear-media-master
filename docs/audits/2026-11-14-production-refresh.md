@@ -45,3 +45,9 @@ Real ICO registration number when available. Confirm mailbox receipt of the sing
 1. Targeted development-tool dependency cleanup (Medium; no expected visitor performance change; no input needed).
 2. Monitor enquiry spam before considering shared rate limiting (Low to monitor / Medium to implement; a shared service adds request latency; no input until abuse warrants it). The current Map only limits a warm server instance, not all Vercel instances; it is a supplementary layer alongside Turnstile/origin/honeypot/content checks, not a global quota. No paid database added without evidence of need.
 3. Real-device mobile performance measurement (Low; measurement itself has no performance effect; optional Garry device feedback). Current transfer/overflow checks do not establish field LCP/INP.
+
+## Follow-up production QA
+
+Production deployment 0ab6ce5 passed the 51-route sweep and all nine homepage widths. A no-JavaScript check then reproduced a pre-hydration overflow: absolutely positioned carousel descendants escaped static viewport clipping until Embla set up its transforms. Gallery viewports now establish their own containing blocks with `position: relative`; this fixes the underlying cause without globally hiding overflow. The 48-page mobile sweep produced no runtime errors.
+
+Turnstile rendered its response input on live production, but the automated browser did not receive a token. Submit correctly remained disabled. **No test enquiry was sent**; final Turnstile completion, Resend notification and confirmation receipt need a normal-browser check. These are not claimed as verified deliveries.
