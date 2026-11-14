@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
 import { createMetadata } from '@/lib/seo'
-import { CinematicVideo } from './cinematic-video'
 import { JourneyProgress } from './journey-progress'
 import { RedesignFooter, RedesignHeader } from './redesign-chrome'
 import { RedesignGallery } from './redesign-gallery'
@@ -38,9 +37,6 @@ const mobileHeroTiles = [
   { label: 'Photography', href: '/business-photography-west-lothian', src: '/assets/hero/mobile/photography-tile.webp', alt: 'A joiner shaping a curved timber frame in the workshop' },
   { label: 'Drone', href: '/drone-photography-west-lothian', src: '/assets/hero/mobile/drone-tile.webp', alt: 'Aerial view of the waterfront at St Andrews' },
   { label: 'Property', href: '/property', src: '/assets/hero/mobile/property-tile.webp', alt: 'Living room at East Farm of Gilmerton' },
-  { label: 'Video', href: '/video-production-west-lothian', src: '/assets/hero/mobile/video-tile.webp', alt: 'Camera and lighting set up for a shoot' },
-  { label: 'Editing', href: '/insights', src: '/assets/hero/mobile/editing-tile.webp', alt: 'Hands at the keyboard in the Bear Media workspace' },
-  { label: 'Garry', href: '/about', src: '/assets/hero/mobile/garry-tile.webp', alt: 'Garry Lynch working with a camera outdoors' },
 ] as const
 
 const socialContent = [
@@ -88,7 +84,7 @@ export default function RedesignPage() {
           <div className={styles.heroBento} aria-label="Bear Media services and selected client work">
             <div className={`${styles.heroBentoCopy} ${styles.journeyHeroCopy}`}>
               <p className={styles.heroBentoEyebrow}>
-                <span className={styles.heroBentoDesktopEyebrow}>01 / 09 · Bear Media · Edinburgh &amp; the Lothians</span>
+                <span className={styles.heroBentoDesktopEyebrow}>Bear Media · West Lothian, Scotland</span>
                 <span className={styles.heroBentoMobileEyebrow}>Bear Media · Scotland</span>
               </p>
               <h1 id="redesign-title">Content days &amp; websites.</h1>
@@ -102,10 +98,10 @@ export default function RedesignPage() {
                 <Link href="/projects" className={styles.heroBentoSecondaryAction}>View recent work</Link>
               </div>
               <div className={styles.desktopIntro}>
-                <p>Work directly with Garry Lynch on your content or website project. Tell me what you need, where the work will happen and any dates you have in mind.</p>
+                <p>Photography, video, drone, social media and websites for Scottish businesses.</p>
                 <div>
-                  <Link href="/content-creation-west-lothian">Plan a content day <ArrowUpRight aria-hidden="true" /></Link>
-                  <Link href="/website-design-west-lothian">Build a website <ArrowUpRight aria-hidden="true" /></Link>
+                  <Link href="/contact">Start a project <ArrowUpRight aria-hidden="true" /></Link>
+                  <Link href="/projects">View recent work <ArrowUpRight aria-hidden="true" /></Link>
                 </div>
               </div>
             </div>
@@ -121,18 +117,12 @@ export default function RedesignPage() {
             ))}
           </div>
           <Image
-            src="/assets/hero/hero-poster.webp"
-            alt="Bear Media photography and video work"
+            src="/assets/client-work/edinburgh-windows-doors/crafting-curved-timber-frame.webp"
+            alt="A joiner shaping a curved timber frame in the workshop"
             fill
             sizes="(max-width: 767px) 1px, (max-width: 1023px) 100vw, 48vw"
             quality={75}
             className={`${styles.journeyCover} ${styles.desktopHeroMedia}`}
-          />
-          <CinematicVideo
-            className={`${styles.journeyCoverVideo} ${styles.desktopHeroMedia}`}
-            desktopOnly
-            poster="/assets/hero/hero-poster.webp"
-            src="/assets/hero/hero-desktop.mp4"
           />
           <div className={styles.journeyShade} />
           <a href="#photography" className={styles.journeyScrollCue}>

@@ -4133,8 +4133,8 @@
   .heroBento {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
-    grid-template-rows: auto repeat(2, clamp(86px, 23vw, 145px)) clamp(80px, 23vw, 140px);
-    gap: 6px;
+    grid-template-rows: auto repeat(2, clamp(100px, 26vw, 160px));
+    gap: 8px;
     margin-inline: clamp(16px, 4.6vw, 30px);
   }
   .heroBentoCopy {
@@ -4271,3 +4271,19 @@
 .projectEnquiry { padding: 1rem clamp(1.25rem, 5vw, 5rem); background: var(--ink); color: white; }
 .projectEnquiry a { display: inline-flex; gap: .5rem; align-items: center; min-height: 44px; text-decoration: underline; text-underline-offset: .25em; }
 .projectEnquiry svg { width: 1.1em; }
+
+/* Give the homepage introduction the same calm hierarchy on tablet. */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .journeyHero { min-height: 560px; height: auto; padding: 8rem 2rem 3rem; background: #f8f7f2; }
+  .journeyHeroCopy { position: relative; inset: auto; width: 51%; padding: 0; color: #171915; text-shadow: none; }
+  .journeyHeroCopy > p { color: #86612d; font-size: 10px; margin-bottom: 20px; }
+  .journeyHeroCopy h1 { font-size: clamp(40px, 5.4vw, 54px); line-height: 1.05; color: #171915; }
+  .journeyHero > .desktopHeroMedia { inset: 8rem 2rem auto auto; width: 41%; height: 370px; border-radius: 10px; }
+  .journeyHero .journeyShade, .journeyHero .journeyScrollCue { display: none; }
+  .desktopIntro { display: block; margin-top: 24px; }
+  .desktopIntro > p { max-width: 32ch; color: #5d6057; font-size: 16px; line-height: 1.6; }
+  .desktopIntro > div { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  .desktopIntro a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 10px 14px; border: 1px solid #c7c9bd; border-radius: 6px; font-size: 14px; }
+  .desktopIntro a:first-child { background: #20271e; color: white; border-color: #20271e; }
+  .desktopIntro svg { width: 16px; height: 16px; }
+}
