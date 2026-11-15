@@ -7,7 +7,7 @@ import RedesignPage from './redesign/page'
 export const metadata: Metadata = {
   ...createMetadata({
     title: 'Bear Media | Content Days & Website Design in Scotland',
-    description: 'Photography, video, drone, social media and mobile-first websites for Scottish businesses.',
+    description: 'Content days and mobile-first websites for Scottish businesses, with photography, video and drone support shaped around real projects.',
     path: '/',
     imageAlt: 'Bear Media creative services for businesses in Scotland',
   }),

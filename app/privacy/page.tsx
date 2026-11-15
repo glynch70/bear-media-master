@@ -2,7 +2,7 @@ import { IcoRegistration } from '@/components/ico-registration'
 import { createMetadata } from '@/lib/seo'
 import { RedesignFooter, RedesignHeader } from '@/app/redesign/redesign-chrome'
 
-export const metadata = createMetadata({ title: 'Privacy Policy | Bear Media', description: 'How Bear Media handles website enquiries, optional advertising measurement and your privacy rights.', path: '/privacy' })
+export const metadata = createMetadata({ title: 'Privacy Policy | Bear Media', description: 'Read how Bear Media handles website enquiries, analytics and advertising consent, data retention, service providers and your privacy rights.', path: '/privacy' })
 
 export default function PrivacyPage() {
   return <><RedesignHeader surface /><main id="main-content" className="mx-auto max-w-3xl px-6 py-16 leading-relaxed [&_h2]:mt-8 [&_h2]:text-2xl [&_p]:my-4 [&_a]:underline">
