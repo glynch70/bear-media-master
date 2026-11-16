@@ -1,3 +1,4 @@
+import WebsiteDesignStudio from '@/components/website-design-studio'
 import WebsitePortfolioSection from '@/components/website-portfolio-section'
 import desktop from '@/components/desktop-refresh.module.css'
 import type { Metadata } from 'next'
@@ -267,6 +268,8 @@ export default function WebsiteDesignWestLothian() {
         </section>
 
         <WebsitePortfolioSection />
+
+        <WebsiteDesignStudio />
 
         <section className="bg-secondary py-20 md:py-28">
           <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 lg:px-8">

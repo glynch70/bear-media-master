@@ -1,3 +1,4 @@
+import WebsiteDesignStudio from '@/components/website-design-studio'
 import type { Metadata } from 'next'
 import WebsitePortfolioSection from '@/components/website-portfolio-section'
 import Image from 'next/image'
@@ -248,6 +249,8 @@ export default function RedesignPage() {
         </section>
 
         <WebsitePortfolioSection id="websites" chapter />
+
+        <WebsiteDesignStudio />
 
         <FeaturedProjects redesign />
         <Testimonials redesign />

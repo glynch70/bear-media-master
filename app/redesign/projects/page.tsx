@@ -1,3 +1,4 @@
+import WebsiteDesignStudio from '@/components/website-design-studio'
 import { MotionLink } from '@/components/motion/motion-link'
 import type { Metadata } from 'next'
 import Image from 'next/image'
@@ -87,6 +88,8 @@ export default function RedesignProjectsPage() {
           )
         })}
       </section>
+
+      <WebsiteDesignStudio />
 
       <section data-reveal="text" className={styles.projectsCta}>
         <p className={styles.eyebrow}>Start a conversation</p>
