@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import styles from './website-design-studio.module.css'
 
-const concepts = [
+export const concepts = [
   {
     name: 'NORTH', industry: 'Property Development', tagline: 'Spaces worth living in',
     description: 'A premium property development concept combining cinematic architectural photography, refined typography, interactive galleries and elegant scrolling experiences.',
