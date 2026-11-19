@@ -11,13 +11,19 @@ type Service = { label: string; summary: string; href: string; src: string; alt:
 export default function MobileHeroGallery({ services }: { services: readonly Service[] }) {
   const rail = useRef<HTMLDivElement>(null)
   const [active, setActive] = useState(0)
+  const pending = useRef<number | null>(null)
 
   useEffect(() => {
     const element = rail.current
     if (!element) return
     const observer = new IntersectionObserver(entries => {
       const visible = entries.filter(entry => entry.intersectionRatio >= .65)
-      if (visible[0]) setActive(Number((visible[0].target as HTMLElement).dataset.index))
+      if (visible[0]) {
+        const index = Number((visible[0].target as HTMLElement).dataset.index)
+        if (pending.current !== null && pending.current !== index) return
+        pending.current = null
+        setActive(index)
+      }
     }, { root: element, threshold: [.65] })
     Array.from(element.children).forEach(card => observer.observe(card))
     return () => observer.disconnect()
@@ -27,6 +33,8 @@ export default function MobileHeroGallery({ services }: { services: readonly Ser
     const element = rail.current
     const card = element?.children[index] as HTMLElement | undefined
     if (!element || !card) return
+    pending.current = index
+    setActive(index)
     element.scrollTo({
       left: card.offsetLeft - (element.firstElementChild as HTMLElement).offsetLeft,
       behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
@@ -36,6 +44,7 @@ export default function MobileHeroGallery({ services }: { services: readonly Ser
   return <div className={styles.gallery} aria-label="Explore Bear Media services">
     <div className={styles.topline}><span>Explore my services</span><span>Swipe to explore</span></div>
     <div id="hero-service-gallery" ref={rail} className={styles.rail} role="region" aria-label="Service gallery" tabIndex={0}
+      onPointerDown={() => { pending.current = null }} onWheel={() => { pending.current = null }}
       onKeyDown={event => {
         if (event.target !== event.currentTarget) return
         if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
