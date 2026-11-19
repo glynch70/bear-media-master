@@ -1,3 +1,4 @@
+import WebsiteDemoPromo from '@/components/website-demo-promo'
 import { websiteProjects as websites } from '@/lib/website-projects'
 import type { Metadata } from 'next'
 import Image from 'next/image'
@@ -294,6 +295,8 @@ export default function RedesignServicesPage() {
           </RedesignGallery>
         </section>
       </div>
+
+      <WebsiteDemoPromo />
 
       <PriorityServiceLinks headingId="services-priority-pages" />
 

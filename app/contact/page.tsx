@@ -41,8 +41,12 @@ export default function ContactPage() {
     submissionTime: 0,
   })
 
+  const queryDemo = query.get('demo')?.toLowerCase() ?? ''
+  const [demoChoice, setDemoChoice] = useState<string | null>(null)
+  const selectedDemo = demoChoice ?? (['north', 'still', 'form'].includes(queryDemo) ? queryDemo : '')
   const queryService = query.get('service')
   const selectedService = formState.service ?? (enquiryServiceLabel(queryService) ? queryService! : '')
+  const demoPrefix = selectedService === 'websites' && selectedDemo ? 'Website style: ' + selectedDemo.toUpperCase() + '\n\n' : ''
   const productionPackage = productionPackageFor(selectedService)
   const messagePrompt = productionPackage?.prompt ?? (selectedService === 'property'
     ? 'Send the property location, approximate size, target listing date and the media you need.'
@@ -87,7 +91,7 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (submitting.current || formState.submitted) return
-    const error = contactFieldError(formState.name, formState.email, formState.business, formState.message)
+    const error = contactFieldError(formState.name, formState.email, formState.business, demoPrefix + formState.message)
     if (error) {
       setFormState((prev) => ({ ...prev, error }))
       return
@@ -118,7 +122,7 @@ export default function ContactPage() {
           email: formState.email,
           business: formState.business,
           service: selectedService,
-          message: formState.message,
+          message: demoPrefix + formState.message,
           honeypot: formState.honeypot,
           turnstileToken: formState.turnstileToken,
           attribution: rememberCampaign(search),
@@ -367,6 +371,12 @@ export default function ContactPage() {
                       {enquiryServices.map((service) => <option key={service.value} value={service.value}>{service.label}</option>)}
                     </select>
                   </div>
+                  {selectedService === 'websites' && <div className="space-y-2">
+                    <label htmlFor="demo" className="block text-sm font-medium text-foreground">Which demo caught your eye? <span className="font-normal text-muted-foreground">(optional)</span></label>
+                    <select id="demo" name="demo" value={selectedDemo} onChange={event => setDemoChoice(event.target.value)} disabled={formState.loading} className="w-full px-5 py-3.5 bg-background border border-foreground/10 rounded-2xl text-foreground">
+                      <option value="">Not sure yet</option><option value="north">North</option><option value="still">Still</option><option value="form">Form</option>
+                    </select>
+                  </div>}
                   <div className="space-y-2">
                     <label htmlFor="message" className="block text-sm font-medium text-foreground">
                       Message
@@ -380,7 +390,7 @@ export default function ContactPage() {
                       disabled={formState.loading}
                       rows={6}
                       minLength={MESSAGE_MIN_LENGTH}
-                      maxLength={MESSAGE_MAX_LENGTH}
+                      maxLength={MESSAGE_MAX_LENGTH - demoPrefix.length}
                       aria-describedby="message-help"
                       className="w-full px-5 py-3.5 bg-background border border-foreground/10 rounded-2xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                       placeholder={messagePrompt}

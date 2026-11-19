@@ -1,3 +1,4 @@
+import WebsiteDemoPromo from '@/components/website-demo-promo'
 import Image from 'next/image'
 import styles from '@/app/redesign/redesign.module.css'
 import Link from 'next/link'
@@ -473,6 +474,7 @@ export default function AboutPage() {
           </div>
         </section>
 
+        <WebsiteDemoPromo />
       </main>
       <RedesignFooter />
     </>
