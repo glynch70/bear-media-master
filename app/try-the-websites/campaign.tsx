@@ -3,7 +3,8 @@ import Image from "next/image";
 import { ArrowUpRight, ArrowDown, ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import ContactPage from "@/components/contact-page";
-import { featuredWebsiteProjects } from "@/lib/website-projects";
+import { campaignWebsiteProjects } from "@/lib/campaign-website-projects";
+import { CampaignWebsiteGallery } from "@/components/website-gallery";
 import { trackConversion } from "@/components/analytics/conversion-tracker";
 import "./campaign.css";
 const demos = [
@@ -386,25 +387,11 @@ export default function Campaign() {
       <section className="client-section wrap">
         <p className="eyebrow">Real client work</p>
         <h2 data-reveal>Real businesses I’ve worked with</h2>
-        <div className="client-grid">
-          {featuredWebsiteProjects.map((p) => (
-            <article key={p.name} data-reveal data-motion-card>
-              <a href={p.caseStudy}>
-                <Image
-                  src={p.src}
-                  width={900}
-                  height={650}
-                  sizes="(max-width: 760px) 100vw, 33vw"
-                  alt={p.alt}
-                />
-                <h3>
-                  {p.name} <ArrowUpRight size={18} aria-hidden="true" />
-                </h3>
-              </a>
-              <p>{p.description}</p>
-            </article>
-          ))}
-        </div>
+        <p className="gallery-intro">
+          Seven client websites, plus Bear Media’s own site. Swipe through,
+          enlarge a preview or visit a website to have a look around.
+        </p>
+        <CampaignWebsiteGallery projects={campaignWebsiteProjects} />
       </section>
       <section className="about-section wrap" data-reveal>
         <Image
