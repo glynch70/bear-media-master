@@ -1,0 +1,763 @@
+"use client";
+
+import Image from "next/image";
+import styles from "@/app/redesign/redesign.module.css";
+import Link from "next/link";
+import { RedesignFooter, RedesignHeader } from "@/app/redesign/redesign-chrome";
+import {
+  NAME_MAX_LENGTH,
+  EMAIL_MAX_LENGTH,
+  BUSINESS_MAX_LENGTH,
+  MESSAGE_MIN_LENGTH,
+  MESSAGE_MAX_LENGTH,
+  contactFieldError,
+} from "@/lib/contact-fields";
+import { useState, useRef, useSyncExternalStore } from "react";
+import { enquiryServices, enquiryServiceLabel } from "@/lib/enquiry-services";
+import { productionPackageFor } from "@/lib/production-packages";
+import { rememberCampaign } from "@/lib/campaign-attribution";
+import { trainingCampaign } from "@/lib/training-attribution";
+import { Phone, Mail, MapPin } from "lucide-react";
+import Turnstile from "react-turnstile";
+import type { BoundTurnstileObject } from "react-turnstile";
+import { measureTrainingLead } from "@/lib/openai-measurement";
+import { trackConversion } from "@/components/analytics/conversion-tracker";
+// Note: Metadata for client components must be set via metadata export in layout or through Head component
+// This page uses 'use client' so metadata is handled by route groups or must be moved to a layout
+
+const subscribeToSearch = () => () => {};
+const getSearch = () => window.location.search;
+const getServerSearch = () => "";
+
+export default function ContactPage({
+  campaign = false,
+  campaignDemo = "",
+  onCampaignDemo,
+}: {
+  campaign?: boolean;
+  campaignDemo?: string;
+  onCampaignDemo?: (demo: string) => void;
+}) {
+  const search = useSyncExternalStore(
+    subscribeToSearch,
+    getSearch,
+    getServerSearch,
+  );
+  const query = new URLSearchParams(search);
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+  const turnstileRef = useRef<BoundTurnstileObject | null>(null);
+  const [formState, setFormState] = useState({
+    name: "",
+    business: "",
+    service: campaign ? "websites" : (null as string | null),
+    website: "",
+    email: "",
+    message: "",
+    honeypot: "",
+    turnstileToken: "",
+    submitted: false,
+    loading: false,
+    error: "",
+    submissionTime: 0,
+  });
+
+  const queryDemo = campaign
+    ? campaignDemo
+    : (query.get("demo")?.toLowerCase() ?? "");
+  const [demoChoice, setDemoChoice] = useState<string | null>(null);
+  const selectedDemo = campaign
+    ? campaignDemo
+    : (demoChoice ??
+      (["north", "still", "form"].includes(queryDemo) ? queryDemo : ""));
+  const queryService = query.get("service");
+  const selectedService =
+    formState.service ??
+    (enquiryServiceLabel(queryService) ? queryService! : "");
+  const demoPrefix =
+    selectedService === "websites" && selectedDemo
+      ? "Fictional demo interest: " + selectedDemo.toUpperCase() + "\n\n"
+      : "";
+  const productionPackage = productionPackageFor(selectedService);
+  const messagePrompt = campaign ? 'Tell me about your business and the website you have in mind.' :
+    productionPackage?.prompt ??
+    (selectedService === "property"
+      ? "Send the property location, approximate size, target listing date and the media you need."
+      : selectedService === "photography"
+        ? "Tell me your location, the people or products to photograph and your preferred date."
+        : selectedService === "content-session"
+          ? "Tell me your business, shoot location, what you want to show in the photos and reels, and your preferred date."
+          : selectedService === "content"
+            ? "Tell me about your shoot, the locations, photos and videos you need, and any dates in mind."
+            : selectedService === "social"
+              ? "Tell me your business, location, current channels and the enquiries you want to encourage."
+              : "What do you need, where is the work and when would you like it? For training, tell me which tasks take up your time.");
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) => {
+    const { name, value } = e.target;
+    setFormState((prev) => ({
+      ...prev,
+      [name]: value,
+      error: "",
+      // Track when user first starts filling the form
+      submissionTime:
+        prev.submissionTime === 0 ? Date.now() : prev.submissionTime,
+    }));
+  };
+
+  const handleTurnstileChange = (
+    token: string,
+    boundTurnstile?: BoundTurnstileObject,
+  ) => {
+    if (boundTurnstile) {
+      turnstileRef.current = boundTurnstile;
+    }
+
+    setFormState((prev) => ({
+      ...prev,
+      turnstileToken: token,
+      // Track when user interacts with Turnstile
+      submissionTime:
+        prev.submissionTime === 0 ? Date.now() : prev.submissionTime,
+    }));
+  };
+
+  const submitting = useRef(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (submitting.current || formState.submitted) return;
+    const error = contactFieldError(
+      formState.name,
+      formState.email,
+      formState.business,
+      demoPrefix + formState.message,
+    );
+    if (error) {
+      setFormState((prev) => ({ ...prev, error }));
+      return;
+    }
+    submitting.current = true;
+    setFormState((prev) => ({ ...prev, loading: true, error: "" }));
+
+    try {
+      // Check if form was completed too quickly (less than 3 seconds)
+      const currentTime = Date.now();
+      const timeSinceStart = currentTime - formState.submissionTime;
+      if (formState.submissionTime > 0 && timeSinceStart < 3000) {
+        setFormState((prev) => ({
+          ...prev,
+          loading: false,
+          error: "Please take a moment to review the form before submitting.",
+        }));
+        return;
+      }
+
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formState.name,
+          email: formState.email,
+          business: formState.business,
+          service: selectedService,
+          message:
+            demoPrefix +
+            (campaign && formState.website
+              ? "Current website: " + formState.website + "\n\n"
+              : "") +
+            formState.message,
+          honeypot: formState.honeypot,
+          turnstileToken: formState.turnstileToken,
+          attribution: rememberCampaign(search),
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || data.success !== true) {
+        turnstileRef.current?.reset();
+        setFormState((prev) => ({
+          ...prev,
+          loading: false,
+          turnstileToken: "",
+          error: data.error || "Failed to send message. Please try again.",
+        }));
+        return;
+      }
+
+      const delivered =
+        typeof data.measurementEventId === "string" &&
+        data.measurementEventId.length > 0;
+      if (delivered) {
+        measureTrainingLead(selectedService, data.measurementEventId);
+        trackConversion("generate_lead", {
+          form_name: "contact",
+          ...(campaign
+            ? {
+                source_page: "try-the-websites",
+                demo: selectedDemo || "unsure",
+              }
+            : {}),
+          method: "website_form",
+          service: selectedService || "unspecified",
+          ...rememberCampaign(search),
+          ...(selectedService === "training" ? trainingCampaign(search) : {}),
+          ...(query.get("from") === "training"
+            ? { source_page: "training" }
+            : {}),
+        });
+        if (selectedService === "training") {
+          trackConversion("training_enquiry_submitted", {
+            method: "website_form",
+            ...trainingCampaign(search),
+          });
+        }
+      }
+
+      setFormState((prev) => ({
+        ...prev,
+        submitted: true,
+        loading: false,
+        name: "",
+        email: "",
+        business: "",
+        service: "",
+        message: "",
+        honeypot: "",
+        turnstileToken: "",
+      }));
+      // Reset Turnstile
+      if (turnstileRef.current) {
+        turnstileRef.current.reset();
+      }
+    } catch (error) {
+      console.error("[contact] Form submission error:", error);
+      setFormState((prev) => ({
+        ...prev,
+        loading: false,
+        error: "Network error. Please check your connection and try again.",
+      }));
+    } finally {
+      submitting.current = false;
+    }
+  };
+
+  const contactOptions = [
+    {
+      icon: Phone,
+      label: "Phone",
+      value: "07879 011860",
+      href: "tel:+447879011860",
+    },
+    {
+      icon: Mail,
+      label: "Email",
+      value: "info@bear-media.com",
+      href: "mailto:info@bear-media.com",
+    },
+    {
+      icon: MapPin,
+      label: "Location",
+      value: "West Lothian",
+      href: undefined,
+    },
+  ];
+
+  const steps = [
+    {
+      number: "1",
+      title: "Get In Touch",
+      description: "Send a message or give me a call to start a conversation.",
+    },
+    {
+      number: "2",
+      title: "Discovery Call",
+      description: "A relaxed chat about your business and where I can help.",
+    },
+    {
+      number: "3",
+      title: "Proposal",
+      description: "I'll outline a plan tailored to your specific needs.",
+    },
+    {
+      number: "4",
+      title: "Project Starts",
+      description: "Let's create something great together.",
+    },
+  ];
+
+  const enquiryStarted = useRef(false);
+  const contactForm = (
+    <section
+      id="enquiry"
+      className="w-full bg-background pt-8 md:pt-10 pb-12 md:pb-16"
+    >
+      <div className="max-w-3xl mx-auto px-6 lg:px-8">
+        {formState.submitted ? (
+          <div role="status" className="text-center py-12">
+            <h2 className="font-heading text-4xl md:text-5xl font-medium text-foreground mb-4">
+              Thanks for reaching out.
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              I&apos;ll review your enquiry personally and usually reply within
+              one working day.
+            </p>
+          </div>
+        ) : (
+          <>
+            <h2 className="font-heading text-4xl md:text-5xl font-medium text-foreground mb-10">
+              {campaign
+                ? "Let’s talk about your website"
+                : (productionPackage?.action ??
+                  (selectedService === "property"
+                    ? "Request your property quote"
+                    : selectedService === "photography"
+                      ? "Enquire about photography"
+                      : selectedService === "content-session"
+                        ? "Plan your content session"
+                        : selectedService === "content"
+                          ? "Plan your content shoot"
+                          : "Send a Message"))}
+            </h2>
+            {selectedService === "property" && (
+              <p className="mb-8 text-base leading-relaxed text-muted-foreground">
+                From £260 for a 1–2 bedroom property. No VAT. Share the
+                location, bedroom count, media required and target listing date.
+                I’ll confirm what’s included and the total before you book.
+              </p>
+            )}
+            {selectedService === "photography" && (
+              <p className="mb-8 text-base leading-relaxed text-muted-foreground">
+                From £200 per session. Up to one hour at one location and 15
+                edited photographs, delivered within five working days. No VAT
+                added. I’ll confirm the scope, travel and total before you book.
+              </p>
+            )}
+            {selectedService === "content-session" && (
+              <p className="mb-8 text-base leading-relaxed text-muted-foreground">
+                From £300 per session. Up to one hour at one location, 15 edited
+                photographs and two vertical reels of up to 30 seconds,
+                delivered within five working days. No VAT added. I’ll confirm
+                the scope, travel and total before you book.
+              </p>
+            )}
+            {selectedService === "content" && (
+              <p className="mb-8 text-base leading-relaxed text-muted-foreground">
+                Half-day and full-day shoots are tailored to your brief. I’ll
+                confirm the shoot time, deliverables, travel and total before
+                you book. No VAT added.
+              </p>
+            )}
+            {productionPackage && (
+              <p className="mb-8 text-base leading-relaxed text-muted-foreground">
+                {productionPackage.enquiry} No VAT added. I’ll confirm the
+                scope, travel and total before you book.
+                {selectedService.startsWith("drone-") &&
+                  " Flights depend on the location and suitable conditions; rescheduling arrangements are agreed before booking."}
+              </p>
+            )}
+            {campaign && (
+              <p className="mb-8">
+                Tell me about your business, what you need and which demo caught
+                your eye. I’ll help you work out the next step and give you a
+                clear price.
+              </p>
+            )}
+            <form
+              onFocusCapture={() => {
+                if (campaign && !enquiryStarted.current) {
+                  enquiryStarted.current = true;
+                  trackConversion("website_enquiry_started", {
+                    source_page: "try-the-websites",
+                  });
+                }
+              }}
+              data-clarity-mask="true"
+              aria-describedby={formState.error ? "contact-error" : undefined}
+              onSubmit={handleSubmit}
+              className="space-y-6"
+            >
+              {formState.error && (
+                <div
+                  role="alert"
+                  id="contact-error"
+                  className="p-4 rounded-2xl bg-red-50 border border-red-200"
+                >
+                  <p className="text-red-800 text-sm font-medium">
+                    {formState.error}
+                  </p>
+                </div>
+              )}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-foreground"
+                  >
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    maxLength={NAME_MAX_LENGTH}
+                    value={formState.name}
+                    onChange={handleChange}
+                    required
+                    disabled={formState.loading}
+                    className="w-full px-5 py-3.5 bg-background border border-foreground/10 rounded-2xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    placeholder="Your name"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label
+                    htmlFor="business"
+                    className="block text-sm font-medium text-foreground"
+                  >
+                    Business name — optional
+                  </label>
+                  <input
+                    type="text"
+                    id="business"
+                    name="business"
+                    maxLength={BUSINESS_MAX_LENGTH}
+                    value={formState.business}
+                    onChange={handleChange}
+                    disabled={formState.loading}
+                    className="w-full px-5 py-3.5 bg-background border border-foreground/10 rounded-2xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    placeholder="Your business"
+                  />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-foreground"
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  maxLength={EMAIL_MAX_LENGTH}
+                  value={formState.email}
+                  onChange={handleChange}
+                  required
+                  disabled={formState.loading}
+                  className="w-full px-5 py-3.5 bg-background border border-foreground/10 rounded-2xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  placeholder="your@email.com"
+                />
+              </div>
+              <div className="space-y-2" hidden={campaign}>
+                <label
+                  htmlFor="service"
+                  className="block text-sm font-medium text-foreground"
+                >
+                  What can I help with?{" "}
+                  <span className="font-normal text-muted-foreground">
+                    (optional)
+                  </span>
+                </label>
+                <select
+                  id="service"
+                  name="service"
+                  value={selectedService}
+                  onChange={handleChange}
+                  disabled={formState.loading}
+                  className="w-full px-5 py-3.5 bg-background border border-foreground/10 rounded-2xl text-foreground focus:outline-none focus:border-accent disabled:opacity-50"
+                >
+                  <option value="">Choose a service</option>
+                  {enquiryServices.map((service) => (
+                    <option key={service.value} value={service.value}>
+                      {service.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              {campaign && (
+                <div className="space-y-2">
+                  <label htmlFor="website">Current website — optional</label>
+                  <input
+                    id="website"
+                    name="website"
+                    type="url"
+                    maxLength={300}
+                    value={formState.website}
+                    onChange={handleChange}
+                    placeholder="https://"
+                    className="w-full px-5 py-3.5 border rounded-2xl"
+                  />
+                </div>
+              )}
+              {selectedService === "websites" && (
+                <div className="space-y-2">
+                  <label
+                    htmlFor="demo"
+                    className="block text-sm font-medium text-foreground"
+                  >
+                    Which demo caught your eye?{" "}
+                    <span className="font-normal text-muted-foreground">
+                      (optional)
+                    </span>
+                  </label>
+                  <select
+                    id="demo"
+                    name="demo"
+                    value={selectedDemo}
+                    onChange={(event) =>
+                      campaign
+                        ? onCampaignDemo?.(event.target.value)
+                        : setDemoChoice(event.target.value)
+                    }
+                    disabled={formState.loading}
+                    className="w-full px-5 py-3.5 bg-background border border-foreground/10 rounded-2xl text-foreground"
+                  >
+                    <option value="">Not sure yet</option>
+                    <option value="north">North</option>
+                    <option value="still">Still</option>
+                    <option value="form">Form</option>
+                  </select>
+                </div>
+              )}
+              <div className="space-y-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-foreground"
+                >
+                  What would you like help with?
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formState.message}
+                  onChange={handleChange}
+                  required
+                  disabled={formState.loading}
+                  rows={6}
+                  minLength={MESSAGE_MIN_LENGTH}
+                  maxLength={MESSAGE_MAX_LENGTH - demoPrefix.length}
+                  aria-describedby="message-help"
+                  className="w-full px-5 py-3.5 bg-background border border-foreground/10 rounded-2xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                  placeholder={messagePrompt}
+                />
+                <p id="message-help" className="text-sm text-muted-foreground">
+                  {messagePrompt} A short outline is enough — 10–2,000
+                  characters. I’ll confirm the deliverables, timings and fee
+                  before work starts.
+                </p>
+              </div>
+              <input
+                type="text"
+                name="honeypot"
+                value={formState.honeypot}
+                onChange={handleChange}
+                style={{ display: "none" }}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+              />
+              {turnstileSiteKey && (
+                <div className="flex justify-center mb-6">
+                  <Turnstile
+                    sitekey={turnstileSiteKey}
+                    onVerify={handleTurnstileChange}
+                    onExpire={() => handleTurnstileChange("")}
+                    onError={() =>
+                      setFormState((prev) => ({
+                        ...prev,
+                        turnstileToken: "",
+                        error:
+                          "The security check could not load. Please retry or email info@bear-media.com.",
+                      }))
+                    }
+                    theme="light"
+                    size="flexible"
+                  />
+                </div>
+              )}
+              <button
+                type="submit"
+                disabled={
+                  formState.loading ||
+                  Boolean(turnstileSiteKey && !formState.turnstileToken)
+                }
+                className="w-full bg-accent text-foreground px-8 py-4 rounded-full font-medium hover:opacity-90 transition-opacity text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {formState.loading
+                  ? "Sending..."
+                  : campaign
+                    ? "Send my website enquiry"
+                    : productionPackage ||
+                        [
+                          "property",
+                          "photography",
+                          "content-session",
+                          "content",
+                        ].includes(selectedService)
+                      ? "Send my quote enquiry"
+                      : "Send Message"}
+              </button>
+              <p className="text-sm text-muted-foreground">
+                Read our{" "}
+                <a href="/privacy" className="underline">
+                  Privacy Policy
+                </a>{" "}
+                for how your enquiry is handled.
+              </p>
+            </form>
+          </>
+        )}
+      </div>
+    </section>
+  );
+  if (campaign) return contactForm;
+
+  return (
+    <>
+      <RedesignHeader surface />
+      <main
+        id="top"
+        className={`w-full min-h-screen ${styles.contactDesktopPage}`}
+      >
+        {/* Hero Section */}
+        <section className="w-full bg-background py-16 md:py-20 lg:py-24">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h1 className="font-heading text-5xl md:text-6xl lg:text-6xl font-medium text-foreground mb-6 text-pretty">
+                  Let&apos;s Talk.
+                </h1>
+                <p className="text-xl text-muted-foreground leading-relaxed mb-8 text-pretty">
+                  Tell me what you need help with: property marketing, business
+                  content, a website or practical AI training. I’m based in West
+                  Lothian and work across Edinburgh and Central Scotland. Share
+                  a short brief, your location and any dates you have in mind,
+                  and I’ll discuss the scope and quote with you.
+                </p>
+              </div>
+              <div className="relative aspect-square rounded-3xl overflow-hidden bg-muted">
+                <Image
+                  src="/05-BTS/garry branding bts.webp"
+                  alt="Garry Lynch working on Bear Media branding"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-top"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Options */}
+        <section className="w-full bg-background pt-8 md:pt-10 pb-12 md:pb-16">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <h2 className="font-heading text-3xl md:text-4xl font-medium text-foreground mb-8">
+              Get In Touch
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {contactOptions.map((option) => {
+                const Icon = option.icon;
+                return (
+                  <a
+                    key={option.label}
+                    href={option.href}
+                    className="group flex flex-col items-start p-6 rounded-2xl border border-foreground/10 bg-background hover:border-accent transition-colors"
+                  >
+                    <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+                      <Icon
+                        className="w-6 h-6 text-accent"
+                        aria-hidden="true"
+                      />
+                    </div>
+                    <h3 className="text-sm font-medium text-muted-foreground mb-1">
+                      {option.label}
+                    </h3>
+                    <p className="text-lg font-medium text-foreground">
+                      {option.value}
+                    </p>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Form */}
+        {contactForm}
+
+        {/* What Happens Next */}
+        <section className="w-full bg-background pt-8 md:pt-10 pb-12 md:pb-16">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <h2 className="font-heading text-4xl md:text-5xl font-medium text-foreground mb-12">
+              What Happens Next
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {steps.map((step) => (
+                <div key={step.number} className="flex flex-col">
+                  <div className="w-12 h-12 rounded-full bg-accent text-foreground flex items-center justify-center font-heading text-xl font-medium mb-4">
+                    {step.number}
+                  </div>
+                  <h3 className="font-heading text-xl font-medium text-foreground mb-3">
+                    {step.title}
+                  </h3>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Final CTA Section */}
+        <section className="relative w-full h-96 md:h-screen flex items-center justify-center overflow-hidden">
+          {/* Image background */}
+          <Image
+            src="/assets/bts/event-photography.webp"
+            alt="Garry on location at an event shoot"
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+
+          {/* Overlays */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.3)_100%)] opacity-20" />
+
+          {/* Content */}
+          <div className="relative z-10 text-center px-6 max-w-2xl mx-auto">
+            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-medium text-white mb-6 text-pretty">
+              No Agency Jargon. No Complicated Process.
+            </h2>
+            <p className="text-lg md:text-xl text-white/80 mb-8 text-pretty">
+              Just practical support, professional content and straightforward
+              advice.
+            </p>
+            <Link
+              href="#enquiry"
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .getElementById("enquiry")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-foreground font-medium rounded-full hover:opacity-90 transition-opacity text-lg"
+            >
+              Get Started
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        </section>
+      </main>
+      <RedesignFooter />
+    </>
+  );
+}
