@@ -1,0 +1,25 @@
+.gallery { display: none; }
+@media (max-width: 767px) {
+  .heroLayout.heroLayout { --hero-gutter: clamp(16px, 4.6vw, 30px); display: block; }
+  .gallery { display: block; min-width: 0; padding-top: .2rem; }
+  .topline { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; margin-bottom: .8rem; color: #deddd7; font-size: .875rem; line-height: 1.4; }
+  .topline span:last-child { color: #bdbbb3; }
+  .rail { position: relative; display: flex; gap: 12px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: var(--hero-gutter, 16px); margin-inline: calc(-1 * var(--hero-gutter, 16px)); padding-inline: var(--hero-gutter, 16px); padding-bottom: 8px; scrollbar-width: none; }
+  .rail::-webkit-scrollbar { display: none; }
+  .card { position: relative; flex: 0 0 88%; min-width: 0; aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden; background: #2b2b26; scroll-snap-align: start; }
+  .link { display: block; position: absolute; inset: 0; color: #fff; text-decoration: none; }
+  .image { object-fit: cover; object-position: center; }
+  .shade { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 20%, rgba(0,0,0,.2) 45%, rgba(0,0,0,.88) 100%); pointer-events: none; }
+  .copy { position: absolute; inset: auto 18px 18px; display: grid; gap: 5px; }
+  .title { font-size: clamp(1.35rem, 5.5vw, 1.9rem); font-weight: 600; line-height: 1.1; letter-spacing: -.035em; }
+  .summary { color: #f0efeb; font-size: .875rem; line-height: 1.45; }
+  .controls { display: flex; justify-content: space-between; align-items: center; gap: .6rem; padding-top: 4px; }
+  .controls p { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin: 0; color: #deddd7; font-size: .875rem; line-height: 1.4; }
+  .count { color: #bdbbb3; font-variant-numeric: tabular-nums; }
+  .buttons { display: flex; flex-shrink: 0; gap: 6px; }
+  .buttons button { display: grid; place-items: center; min-width: 44px; min-height: 44px; border: 1px solid #68675f; border-radius: 50%; background: transparent; color: #fff; cursor: pointer; }
+  .buttons button:disabled { opacity: .35; cursor: default; }
+  .buttons svg { width: 20px; height: 20px; }
+  .rail:focus-visible, .buttons button:focus-visible { outline: 2px solid #f4c97d; outline-offset: 3px; }
+  .link:focus-visible { outline: 3px solid #f4c97d; outline-offset: -4px; border-radius: inherit; }
+}
