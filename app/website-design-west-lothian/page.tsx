@@ -175,10 +175,10 @@ export default function WebsiteDesignWestLothian() {
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
                 <Link
-                  href="#recent-websites"
+                  href="#website-design-studio"
                   className="inline-flex min-h-12 items-center justify-center rounded-full border border-border bg-background px-6 py-3 font-semibold text-foreground transition hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 >
-                  See recent websites
+                  Try the demo websites
                 </Link>
               </div>
               <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted-foreground">
@@ -241,6 +241,8 @@ export default function WebsiteDesignWestLothian() {
           </div>
         </section>
 
+        <WebsiteDesignStudio />
+
         <section id="starter-website" className="bg-background py-16 md:py-20" aria-labelledby="starter-title">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="grid gap-8 rounded-3xl border border-border bg-secondary p-7 md:p-10 lg:grid-cols-2">
@@ -268,8 +270,6 @@ export default function WebsiteDesignWestLothian() {
         </section>
 
         <WebsitePortfolioSection />
-
-        <WebsiteDesignStudio />
 
         <section className="bg-secondary py-20 md:py-28">
           <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 lg:px-8">

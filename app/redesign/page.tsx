@@ -97,13 +97,13 @@ export default function RedesignPage() {
                 <Link href="/contact" data-magnetic className={styles.heroBentoPrimaryAction}>
                   Start a project <span aria-hidden="true">→</span>
                 </Link>
-                <Link href="/projects" className={styles.heroBentoSecondaryAction}>View recent work</Link>
+                <Link href="#website-design-studio" className={styles.heroBentoSecondaryAction}>Try the demo websites</Link>
               </div>
               <div className={styles.desktopIntro}>
                 <p>Photography, video, drone, social media and websites for Scottish businesses.</p>
                 <div>
                   <Link href="/contact">Start a project <ArrowUpRight aria-hidden="true" /></Link>
-                  <Link href="/projects">View recent work <ArrowUpRight aria-hidden="true" /></Link>
+                  <Link href="#website-design-studio">Try the demo websites <ArrowUpRight aria-hidden="true" /></Link>
                 </div>
               </div>
             </div>
@@ -132,6 +132,8 @@ export default function RedesignPage() {
             <ArrowDown aria-hidden="true" />
           </a>
         </section>
+
+        <WebsiteDesignStudio />
 
         <PriorityServiceLinks headingId="homepage-priority-services" />
 
@@ -249,8 +251,6 @@ export default function RedesignPage() {
         </section>
 
         <WebsitePortfolioSection id="websites" chapter />
-
-        <WebsiteDesignStudio />
 
         <FeaturedProjects redesign />
         <Testimonials redesign />
