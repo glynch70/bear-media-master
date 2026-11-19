@@ -40,10 +40,7 @@ const mobileHeroServices = [
   { label: 'Website design', summary: 'Built around your business', href: '/website-design-west-lothian', src: '/assets/website-studio/north.webp', alt: 'North property website demo created by Bear Media' },
   { label: 'Photography', summary: 'People, places and products', href: '/business-photography-west-lothian', src: weeBothyGallery[0].src, alt: weeBothyGallery[0].alt },
   { label: 'Video production', summary: 'Bring your business to life', href: '/video-production-west-lothian', src: '/assets/hero-carousel/interview-setup.webp', alt: 'Camera, lighting and microphone ready for an interview shoot' },
-  { label: 'Drone', summary: 'A different point of view', href: '/drone-photography-west-lothian', src: weeBothyGallery[2].src, alt: weeBothyGallery[2].alt },
   { label: 'Property marketing', summary: 'Show every space at its best', href: '/property', src: '/images/2026-refresh/property/45-west-windygoul-gardens-tranent-kitchen.webp', alt: 'Kitchen with cream cabinets and wooden worktops at a home in Tranent' },
-  { label: 'Social media', summary: 'Content that keeps you visible', href: '/social-media-west-lothian', src: '/assets/uploads/new-work/cg-outhouses-cover.webp', alt: 'From Outhouses to Highland Living social content created for C&G Developments' },
-  { label: 'Content days', summary: 'Photos, video and social content', href: '/content-creation-west-lothian', src: '/assets/project-gallery/bear-media-content-day/studio-setup.jpg', alt: 'Lighting and camera equipment set up for a Bear Media content shoot' },
   { label: 'AI & digital training', summary: 'Practical help with everyday tasks', href: '/training', src: '/assets/bts/training.webp', alt: 'Garry working with a brochure and desktop design software' },
 ] as const
 
