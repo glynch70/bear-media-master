@@ -16,7 +16,9 @@ Demo features are explicitly scoped separately from the £750 Starter Website. T
 - North, Still and Form production builds and TypeScript checks passed using locally prepared dependencies.
 - Existing demo URLs returned HTTP 200.
 - `git diff --check` passed.
-- Local visual/browser tests were blocked by environment socket restrictions; a hosted preview is required to complete visual, swipe, return-navigation and enquiry-selection checks.
-- No enquiry submitted. No production merge or deployment authorised or performed.
+- Local browser tests were blocked by environment socket restrictions. Hosted preview verified at approximately 340px and 454px CSS viewport widths using browser zoom: no horizontal overflow; all three preview images loaded; named card navigation worked; a returned demo query selected the correct card; Form style enquiry selected both Website design and Form. No physical-phone or touch-swipe test was performed.
+- Mobile review capture: docs/qa/bear-media-mobile-showcase.jpg.
+- The persistent demo return bars still need hosted integration checks. North and Still hosting projects are unavailable to the current Vercel connection. Form reports a successful preview deployment on GitHub, but its hosting project is also unavailable to this connection. Existing North and Still links are deployment-specific: update them to the final approved deployment or a verified stable alias when releasing the companion bars.
+- No enquiry submitted. No production merge or deployment authorised or performed; the Bear Media review branch has a Vercel preview.
 
 Review the Bear Media and all three companion demo PRs together before release. Deploying the Bear Media page alone will not install the return bar on the demos.
