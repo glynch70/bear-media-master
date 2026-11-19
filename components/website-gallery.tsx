@@ -63,6 +63,13 @@ export default function WebsiteGallery({ idPrefix = 'website-work' }: { idPrefix
   )
 }
 
+/** Curated campaign selection, sharing the studio's slider and preview controls. */
+export function CampaignWebsiteGallery({ projects }: { projects: readonly Project[] }) {
+  return <div className={`${styles.shell} ${styles.campaignShell}`} data-website-gallery>
+    <ProjectCarousel projects={projects} label="Completed websites" />
+  </div>
+}
+
 function ProjectCarousel({ projects, label }: { projects: readonly Project[]; label: string }) {
   const [viewportRef, embla] = useEmblaCarousel({ align: 'start', containScroll: 'trimSnaps', slidesToScroll: 1, duration: 24 })
   const [position, setPosition] = useState({ index: 0, previous: false, next: projects.length > 1 })

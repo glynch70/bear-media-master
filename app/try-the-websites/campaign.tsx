@@ -1,8 +1,10 @@
 "use client";
 import Image from "next/image";
+import { ArrowUpRight, ArrowDown, ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import ContactPage from "@/components/contact-page";
-import { featuredWebsiteProjects } from "@/lib/website-projects";
+import { campaignWebsiteProjects } from "@/lib/campaign-website-projects";
+import { CampaignWebsiteGallery } from "@/components/website-gallery";
 import { trackConversion } from "@/components/analytics/conversion-tracker";
 import "./campaign.css";
 const demos = [
@@ -29,6 +31,34 @@ export default function Campaign() {
   const [selected, setSelected] = useState("");
   const [active, setActive] = useState(0);
   const rail = useRef<HTMLDivElement>(null);
+  const root = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const preference = matchMedia("(prefers-reduced-motion: reduce)");
+    if (preference.matches) return;
+    const animations = Array.from(
+      root.current?.querySelectorAll<HTMLElement>("[data-campaign-enter]") ??
+        [],
+    ).map((element, index) =>
+      element.animate(
+        [
+          { opacity: 0, translate: "0 14px" },
+          { opacity: 1, translate: "0 0" },
+        ],
+        {
+          duration: 650,
+          delay: index * 75,
+          easing: "cubic-bezier(.22,1,.36,1)",
+          fill: "backwards",
+        },
+      ),
+    );
+    const cancel = () => animations.forEach((animation) => animation.cancel());
+    preference.addEventListener("change", cancel);
+    return () => {
+      cancel();
+      preference.removeEventListener("change", cancel);
+    };
+  }, []);
   useEffect(() => {
     const frame = requestAnimationFrame(() => {
       const demo = new URLSearchParams(location.search).get("demo") || "";
@@ -45,6 +75,25 @@ export default function Campaign() {
     });
     return () => cancelAnimationFrame(frame);
   }, []);
+  function navigateTo(id: string) {
+    const target = document.getElementById(id);
+    if (!target) return;
+    target.setAttribute("tabindex", "-1");
+    target.scrollIntoView({
+      behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "instant"
+        : "smooth",
+      block: "start",
+    });
+    target.focus({ preventScroll: true });
+  }
+  function updatePreference(demo: string) {
+    setSelected(demo);
+    const url = new URL(location.href);
+    if (demo) url.searchParams.set("demo", demo);
+    else url.searchParams.delete("demo");
+    history.replaceState(null, "", url);
+  }
   function choose(i: number) {
     setActive(i);
     const r = rail.current;
@@ -64,10 +113,36 @@ export default function Campaign() {
     u.searchParams.set("demo", name.toLowerCase());
     u.hash = "enquiry";
     history.replaceState(null, "", u);
-    document.getElementById("enquiry")?.scrollIntoView();
+    const heading = document.querySelector<HTMLElement>("#enquiry h2");
+    heading?.setAttribute("tabindex", "-1");
+    navigateTo("enquiry");
+    heading?.focus({ preventScroll: true });
   }
   return (
-    <main className="website-campaign">
+    <main
+      className="website-campaign"
+      ref={root}
+      onClick={(event) => {
+        if (
+          event.defaultPrevented ||
+          event.button !== 0 ||
+          event.metaKey ||
+          event.ctrlKey ||
+          event.shiftKey ||
+          event.altKey
+        )
+          return;
+        const link = (event.target as Element).closest<HTMLAnchorElement>(
+          'a[href^="#"]',
+        );
+        if (!link) return;
+        const id = link.hash.slice(1);
+        if (!document.getElementById(id)) return;
+        event.preventDefault();
+        history.pushState(null, "", link.hash);
+        navigateTo(id);
+      }}
+    >
       <a className="skip" href="#website-design-studio">
         Skip to demos
       </a>
@@ -82,30 +157,32 @@ export default function Campaign() {
           />
         </a>
         <a className="button" href="#enquiry">
-          Let’s talk <span aria-hidden="true">↗</span>
+          Let’s talk <ArrowUpRight size={18} aria-hidden="true" />
         </a>
       </header>
       <section className="campaign-hero wrap">
         <div>
-          <p className="eyebrow">A fresh look. A better first impression.</p>
-          <h1>
+          <p className="eyebrow" data-campaign-enter>
+            A fresh look. A better first impression.
+          </p>
+          <h1 data-campaign-enter>
             Your business deserves a <em>better website.</em>
           </h1>
-          <p className="lead">
+          <p className="lead" data-campaign-enter>
             If your business has moved on but your website hasn’t, it might be
             time for a rethink. Explore three demo websites I’ve created and
             picture what could work for your business.
           </p>
-          <div className="actions">
+          <div className="actions" data-campaign-enter>
             <a className="button" href="#website-design-studio">
-              Explore the demos <span aria-hidden="true">↓</span>
+              Explore the demos <ArrowDown size={18} aria-hidden="true" />
             </a>
             <a className="text-link" href="#enquiry">
-              Talk to Garry ↗
+              Talk to Garry <ArrowUpRight size={17} aria-hidden="true" />
             </a>
           </div>
         </div>
-        <div className="campaign-art">
+        <div className="campaign-art" data-campaign-enter>
           <Image
             src="/assets/website-campaign/three-phones.webp"
             width={1024}
@@ -116,10 +193,15 @@ export default function Campaign() {
           />
         </div>
       </section>
-      <section className="demo-section" id="website-design-studio">
+      <section
+        className="demo-section"
+        id="website-design-studio"
+        tabIndex={-1}
+        aria-label="Website demos"
+      >
         <div className="wrap">
           <p className="eyebrow">Explore / Imagine / Make it yours</p>
-          <div className="section-heading">
+          <div className="section-heading" data-reveal>
             <h2>
               Three different businesses.
               <br />
@@ -135,15 +217,36 @@ export default function Campaign() {
               <button
                 key={d.name}
                 aria-pressed={active === i}
+                aria-controls={`demo-${d.name.toLowerCase()}`}
                 onClick={() => choose(i)}
               >
                 {d.name}
               </button>
             ))}
-            <span>Swipe to explore →</span>
+            <span className="demo-hint">Swipe or use the arrows</span>
           </div>
           <div
             className="demo-rail"
+            tabIndex={0}
+            role="region"
+            aria-label="Demo website cards. Use left and right arrow keys to browse."
+            onKeyDown={(event) => {
+              if (event.target !== event.currentTarget) return;
+              const next =
+                event.key === "ArrowRight"
+                  ? Math.min(2, active + 1)
+                  : event.key === "ArrowLeft"
+                    ? Math.max(0, active - 1)
+                    : event.key === "Home"
+                      ? 0
+                      : event.key === "End"
+                        ? 2
+                        : null;
+              if (next !== null) {
+                event.preventDefault();
+                choose(next);
+              }
+            }}
             ref={rail}
             onScroll={() => {
               const r = rail.current;
@@ -156,7 +259,13 @@ export default function Campaign() {
             }}
           >
             {demos.map((d, i) => (
-              <article className="demo-card" key={d.name}>
+              <article
+                className="demo-card"
+                id={`demo-${d.name.toLowerCase()}`}
+                data-active={active === i}
+                data-motion-card
+                key={d.name}
+              >
                 <a
                   href={d.url}
                   target="_blank"
@@ -201,15 +310,42 @@ export default function Campaign() {
                       })
                     }
                   >
-                    Explore {d.name} ↗
+                    Explore {d.name}{" "}
+                    <ArrowUpRight size={18} aria-hidden="true" />
                   </a>
                   <small>Opens in a new tab</small>
                   <button className="text-link" onClick={() => like(d.name)}>
-                    I like this style ↗
+                    I like this style{" "}
+                    <ArrowUpRight size={16} aria-hidden="true" />
                   </button>
                 </div>
               </article>
             ))}
+          </div>
+          <div className="demo-navigation">
+            <p aria-live="polite" aria-atomic="true">
+              <strong>{String(active + 1).padStart(2, "0")}</strong>
+              <span> / 03 — {demos[active]?.name}</span>
+            </p>
+            <div className="demo-progress" aria-hidden="true">
+              <span style={{ transform: `translateX(${active * 100}%)` }} />
+            </div>
+            <div className="demo-arrows">
+              <button
+                aria-label="Previous demo"
+                disabled={active === 0}
+                onClick={() => choose(active - 1)}
+              >
+                <ArrowLeft size={20} aria-hidden="true" />
+              </button>
+              <button
+                aria-label="Next demo"
+                disabled={active === 2}
+                onClick={() => choose(active + 1)}
+              >
+                <ArrowRight size={20} aria-hidden="true" />
+              </button>
+            </div>
           </div>
           <p className="disclosure">
             North, Form and Still are fictional design concepts created by Bear
@@ -219,7 +355,7 @@ export default function Campaign() {
       </section>
       <section className="build-section wrap">
         <p className="eyebrow">Your business. Your website.</p>
-        <div className="section-heading">
+        <div className="section-heading" data-reveal>
           <h2>
             A website built
             <br />
@@ -230,7 +366,7 @@ export default function Campaign() {
             and make it easy for customers to get in touch.
           </p>
         </div>
-        <div className="benefits">
+        <div className="benefits" data-reveal>
           {[
             "Designed for phones, tablets and desktop",
             "Clear services and straightforward enquiries",
@@ -250,26 +386,14 @@ export default function Campaign() {
       </section>
       <section className="client-section wrap">
         <p className="eyebrow">Real client work</p>
-        <h2>Real businesses I’ve worked with</h2>
-        <div className="client-grid">
-          {featuredWebsiteProjects.map((p) => (
-            <article key={p.name}>
-              <a href={p.caseStudy}>
-                <Image
-                  src={p.src}
-                  width={900}
-                  height={650}
-                  sizes="(max-width: 760px) 100vw, 33vw"
-                  alt={p.alt}
-                />
-                <h3>{p.name} ↗</h3>
-              </a>
-              <p>{p.description}</p>
-            </article>
-          ))}
-        </div>
+        <h2 data-reveal>Real businesses I’ve worked with</h2>
+        <p className="gallery-intro">
+          Seven client websites, plus Bear Media’s own site. Swipe through,
+          enlarge a preview or visit a website to have a look around.
+        </p>
+        <CampaignWebsiteGallery projects={campaignWebsiteProjects} />
       </section>
-      <section className="about-section wrap">
+      <section className="about-section wrap" data-reveal>
         <Image
           src="/assets/about/garry-restaurant.webp"
           width={700}
@@ -291,7 +415,8 @@ export default function Campaign() {
             content, with the scope and price agreed before work starts.
           </p>
           <a className="text-link" href="#enquiry">
-            Let’s talk about your business ↗
+            Let’s talk about your business{" "}
+            <ArrowUpRight size={17} aria-hidden="true" />
           </a>
         </div>
       </section>
@@ -299,7 +424,7 @@ export default function Campaign() {
         <ContactPage
           campaign
           campaignDemo={selected}
-          onCampaignDemo={setSelected}
+          onCampaignDemo={updatePreference}
         />
       </div>
       <footer className="wrap campaign-footer">

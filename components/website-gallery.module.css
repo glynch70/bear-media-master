@@ -94,3 +94,20 @@
 @media (prefers-reduced-motion: reduce) {
   .shell *, .shell *::before, .shell *::after { transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* Campaign theme reuses the studio slider without changing other galleries. */
+.campaignShell { --gallery-ink: #f7f6f0; --gallery-muted: #b9bdb6; --gallery-line: #ffffff30; margin-top: 30px; }
+.campaignShell .card { background: #1b1e1b; }
+.campaignShell .copy .category { color: #ffdf14; }
+.campaignShell .actions a { background: #ffdf14; color: #111; border-color: #ffdf14; }
+.campaignShell .actions .secondary { background: transparent; color: #f7f6f0; border-color: #ffffff40; }
+.campaignShell .controls button { background: #1b1e1b; color: #f7f6f0; }
+.campaignShell .thumbnails button[aria-current='true'] { border-color: #ffdf14; box-shadow: 0 0 0 2px #111312, 0 0 0 3px #ffdf14; }
+.campaignShell .dialog { --gallery-ink: #20231c; --gallery-muted: #64695e; --gallery-line: #d9ddd2; }
+.campaignShell .dialog .controls button { background: white; color: #20231c; }
+.campaignShell .dialogFooter > a { color: white; }
+.campaignShell .dialogHeader h2 { color: #20231c; }
+@media(hover:hover) {
+  .campaignShell .actions a:hover { background: #ffea6b; color: #111; }
+  .campaignShell .controls button:not(:disabled):hover { background: #ffdf14; color: #111; }
+}
