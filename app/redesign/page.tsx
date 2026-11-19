@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
 }
 
-const mobileHeroServices = [
+const heroServices = [
   { label: 'Website design', summary: 'Built around your business', href: '/website-design-west-lothian', src: '/assets/website-studio/north.webp', alt: 'North property website demo created by Bear Media' },
   { label: 'Photography', summary: 'People, places and products', href: '/business-photography-west-lothian', src: weeBothyGallery[0].src, alt: weeBothyGallery[0].alt },
   { label: 'Video production', summary: 'Bring your business to life', href: '/video-production-west-lothian', src: '/assets/hero-carousel/interview-setup.webp', alt: 'Camera, lighting and microphone ready for an interview shoot' },
@@ -82,7 +82,7 @@ export default function RedesignPage() {
       <div className={styles.journey}>
         <section
           id="introduction"
-          className={`${styles.journeyChapter} ${styles.journeyHero}`}
+          className={`${styles.journeyChapter} ${styles.journeyHero} ${heroGalleryStyles.heroSection}`}
           data-chapter="01"
           aria-labelledby="redesign-title"
         >
@@ -103,23 +103,16 @@ export default function RedesignPage() {
                 <Link href="#website-design-studio" className={styles.heroBentoSecondaryAction}>Try the demo websites</Link>
               </div>
               <div className={styles.desktopIntro}>
-                <p>Photography, video, drone, social media and websites for Scottish businesses.</p>
+                <p>I’m Garry, the person behind Bear Media. I build websites, create photography and video, help market properties and provide practical AI training for small businesses.</p>
+                <p className={heroGalleryStyles.localIntro}>Based in Broxburn, I work across West Lothian, Edinburgh and Central Scotland. You deal directly with me, from the first idea to the finished work.</p>
                 <div>
                   <Link href="/contact">Start a project <ArrowUpRight aria-hidden="true" /></Link>
                   <Link href="#website-design-studio">Try the demo websites <ArrowUpRight aria-hidden="true" /></Link>
                 </div>
               </div>
             </div>
-            <MobileHeroGallery services={mobileHeroServices} />
+            <MobileHeroGallery services={heroServices} />
           </div>
-          <Image
-            src={weeBothyGallery[0].src}
-            alt={weeBothyGallery[0].alt}
-            fill
-            sizes="(max-width: 767px) 1px, (max-width: 1023px) 100vw, 48vw"
-            quality={75}
-            className={`${styles.journeyCover} ${styles.desktopHeroMedia}`}
-          />
           <div className={styles.journeyShade} />
           <a href="#photography" className={styles.journeyScrollCue}>
             Explore the work

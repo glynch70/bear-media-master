@@ -42,7 +42,7 @@ export default function MobileHeroGallery({ services }: { services: readonly Ser
   }
 
   return <div className={styles.gallery} aria-label="Explore Bear Media services">
-    <div className={styles.topline}><span>Explore my services</span><span>Swipe to explore</span></div>
+    <div className={styles.topline}><span>Explore my services</span><span className={styles.swipeHint}>Swipe to explore</span><span className={styles.desktopHint}>Use the arrows to explore</span></div>
     <div id="hero-service-gallery" ref={rail} className={styles.rail} role="region" aria-label="Service gallery" tabIndex={0}
       onPointerDown={() => { pending.current = null }} onWheel={() => { pending.current = null }}
       onKeyDown={event => {
@@ -54,7 +54,7 @@ export default function MobileHeroGallery({ services }: { services: readonly Ser
       }}>
       {services.map((service, index) => <article className={styles.card} data-index={index} key={service.href} aria-label={service.label + ', ' + (index + 1) + ' of ' + services.length}>
         <MotionLink className={styles.link} href={service.href} prefetch={false}>
-          <Image src={service.src} alt={service.alt} fill sizes="(max-width: 767px) 84vw, 1px" quality={85}
+          <Image src={service.src} alt={service.alt} fill sizes="(max-width: 767px) 84vw, (max-width: 1023px) 70vw, 44vw" quality={85}
             loading={index === 0 ? 'eager' : 'lazy'} fetchPriority={index === 0 ? 'high' : undefined} className={styles.image} />
           <span className={styles.shade} aria-hidden="true" />
           <span className={styles.copy}><span className={styles.title}>{service.label}</span><span className={styles.summary}>{service.summary}</span></span>
