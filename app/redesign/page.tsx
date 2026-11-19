@@ -18,7 +18,8 @@ import Clients from '@/components/home/clients'
 import WhyBearMedia from '@/components/home/why-bear-media'
 import CTA from '@/components/home/cta'
 import { PropertyFeature } from '@/components/property/property-feature'
-import { MotionLink } from '@/components/motion/motion-link'
+import MobileHeroGallery from '@/components/mobile-hero-gallery'
+import heroGalleryStyles from '@/components/mobile-hero-gallery.module.css'
 
 export const metadata: Metadata = {
   ...createMetadata({
@@ -35,10 +36,15 @@ export const metadata: Metadata = {
   },
 }
 
-const mobileHeroTiles = [
-  { label: 'Photography', href: '/business-photography-west-lothian', src: weeBothyGallery[0].src, alt: weeBothyGallery[0].alt },
-  { label: 'Drone', href: '/drone-photography-west-lothian', src: weeBothyGallery[2].src, alt: weeBothyGallery[2].alt },
-  { label: 'Property', href: '/property', src: '/images/2026-refresh/property/45-west-windygoul-gardens-tranent-kitchen.webp', alt: 'Kitchen with cream cabinets and wooden worktops at a home in Tranent' },
+const mobileHeroServices = [
+  { label: 'Website design', summary: 'Built around your business', href: '/website-design-west-lothian', src: '/assets/website-studio/north.webp', alt: 'North property website demo created by Bear Media' },
+  { label: 'Photography', summary: 'People, places and products', href: '/business-photography-west-lothian', src: weeBothyGallery[0].src, alt: weeBothyGallery[0].alt },
+  { label: 'Video production', summary: 'Bring your business to life', href: '/video-production-west-lothian', src: '/assets/hero-carousel/interview-setup.webp', alt: 'Camera, lighting and microphone ready for an interview shoot' },
+  { label: 'Drone', summary: 'A different point of view', href: '/drone-photography-west-lothian', src: weeBothyGallery[2].src, alt: weeBothyGallery[2].alt },
+  { label: 'Property marketing', summary: 'Show every space at its best', href: '/property', src: '/images/2026-refresh/property/45-west-windygoul-gardens-tranent-kitchen.webp', alt: 'Kitchen with cream cabinets and wooden worktops at a home in Tranent' },
+  { label: 'Social media', summary: 'Content that keeps you visible', href: '/social-media-west-lothian', src: '/assets/uploads/new-work/cg-outhouses-cover.webp', alt: 'From Outhouses to Highland Living social content created for C&G Developments' },
+  { label: 'Content days', summary: 'Photos, video and social content', href: '/content-creation-west-lothian', src: '/assets/project-gallery/bear-media-content-day/studio-setup.jpg', alt: 'Lighting and camera equipment set up for a Bear Media content shoot' },
+  { label: 'AI & digital training', summary: 'Practical help with everyday tasks', href: '/training', src: '/assets/bts/training.webp', alt: 'Garry working with a brochure and desktop design software' },
 ] as const
 
 const socialContent = [
@@ -83,7 +89,7 @@ export default function RedesignPage() {
           data-chapter="01"
           aria-labelledby="redesign-title"
         >
-          <div className={styles.heroBento} aria-label="Bear Media services and selected client work">
+          <div className={`${styles.heroBento} ${heroGalleryStyles.heroLayout}`} aria-label="Bear Media services and selected client work">
             <div className={`${styles.heroBentoCopy} ${styles.journeyHeroCopy}`}>
               <p className={styles.heroBentoEyebrow}>
                 <span className={styles.heroBentoDesktopEyebrow}>Bear Media · West Lothian, Scotland</span>
@@ -107,16 +113,7 @@ export default function RedesignPage() {
                 </div>
               </div>
             </div>
-            {mobileHeroTiles.map((tile, index) => (
-              <MotionLink key={tile.label} href={tile.href} prefetch={false} className={styles.heroBentoTile}>
-                <Image src={tile.src} alt={tile.alt} fill
-                  loading={index === 0 ? 'eager' : 'lazy'}
-                  fetchPriority={index === 0 ? 'high' : undefined}
-                  sizes={index === 0 ? '(max-width: 767px) 60vw, 1px' : '(max-width: 767px) 30vw, 1px'}
-                  className={styles.heroBentoImage} />
-                <span className={styles.heroBentoLabel}>{tile.label}</span>
-              </MotionLink>
-            ))}
+            <MobileHeroGallery services={mobileHeroServices} />
           </div>
           <Image
             src={weeBothyGallery[0].src}
