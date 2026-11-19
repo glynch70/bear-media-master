@@ -1,6 +1,3 @@
-.gallery { display: none; }
-@media (max-width: 767px) {
-  .heroLayout.heroLayout { --hero-gutter: clamp(16px, 4.6vw, 30px); display: block; }
   .gallery { display: block; min-width: 0; padding-top: .2rem; }
   .topline { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; margin-bottom: .8rem; color: #deddd7; font-size: .875rem; line-height: 1.4; }
   .topline span:last-child { color: #bdbbb3; }
@@ -22,4 +19,32 @@
   .buttons svg { width: 20px; height: 20px; }
   .rail:focus-visible, .buttons button:focus-visible { outline: 2px solid #f4c97d; outline-offset: 3px; }
   .link:focus-visible { outline: 3px solid #f4c97d; outline-offset: -4px; border-radius: inherit; }
+
+.desktopHint { display: none; }
+@media (max-width: 767px) {
+  .heroLayout.heroLayout { --hero-gutter: clamp(16px, 4.6vw, 30px); display: block; }
+}
+@media (min-width: 768px) {
+  .heroSection.heroSection { display: block; height: auto; min-height: 0; }
+  .heroLayout.heroLayout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); align-items: center; gap: clamp(2rem, 4vw, 4rem); width: 100%; }
+  .heroLayout > :first-child { position: relative; inset: auto; width: 100%; min-width: 0; padding: 0; }
+  .heroLayout > :first-child > div > p { max-width: 43ch; }
+  .heroLayout .localIntro { margin-top: 1rem; font-size: 1rem; }
+  .gallery { padding-block: 1rem; }
+  .topline { color: #32352d; }
+  .topline span:last-child { color: #5d6057; }
+  .swipeHint { display: none; }
+  .desktopHint { display: inline; }
+  .rail { margin-inline: 0; padding-inline: 0; scroll-padding-inline: 0; }
+  .title { font-size: clamp(1.5rem, 2.4vw, 2rem); }
+  .summary { font-size: 1rem; }
+  .controls p { color: #32352d; }
+  .count { color: #5d6057; }
+  .buttons button { color: #171915; border-color: #b9bcb0; background: #fff; }
+  .rail:focus-visible, .buttons button:focus-visible { outline-color: #895516; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .heroLayout.heroLayout { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .heroLayout > :first-child > div > p { max-width: 60ch; }
+  .card { flex-basis: 70%; }
 }
