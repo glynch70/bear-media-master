@@ -7,16 +7,16 @@ import { trackConversion } from '@/components/analytics/conversion-tracker'
 import styles from './website-design-studio.module.css'
 
 const concepts = [
-  { name: 'NORTH', slug: 'north', industry: 'Property development', tagline: 'Property with presence',
-    description: 'Architectural imagery, considered typography and space to explore.',
+  { name: 'NORTH', slug: 'north', industry: 'Property developer website demo',
+    description: 'Explore how a property business could showcase developments, homes and its approach.',
     url: 'https://north-property-concept-hkn3801mv.vercel.app', image: '/assets/website-studio/north.webp',
     alt: 'NORTH demo website showing contemporary architecture and the headline Spaces worth living in' },
-  { name: 'STILL', slug: 'still', industry: 'Scottish retreat', tagline: 'Space to slow down',
-    description: 'Atmospheric landscapes and a quieter, more immersive experience.',
+  { name: 'STILL', slug: 'still', industry: 'Holiday retreat website demo',
+    description: 'See how accommodation, surroundings and guest experiences can come together.',
     url: 'https://still-scottish-retreat-4370ldr6g.vercel.app', image: '/assets/website-studio/still.webp',
     alt: 'STILL demo website showing a Scottish loch and the headline Somewhere to slow down' },
-  { name: 'FORM', slug: 'form', industry: 'Training club', tagline: 'Energy from the first tap',
-    description: 'Bold typography, strong imagery and an energetic fitness experience.',
+  { name: 'FORM', slug: 'form', industry: 'Gym website demo',
+    description: 'Explore a gym website with classes, membership options and a trial enquiry.',
     url: 'https://form-training-club.vercel.app', image: '/assets/website-studio/form.webp',
     alt: 'FORM demo website with lime typography and strength training photography' },
 ] as const
@@ -91,7 +91,6 @@ export default function WebsiteDesignStudio() {
                 <div className={styles.details}>
                   <p className={styles.industry}>{concept.industry}</p>
                   <h3 id={'studio-title-' + concept.slug}>{concept.name}</h3>
-                  <p className={styles.tagline}>{concept.tagline}</p>
                   <p className={styles.description}>{concept.description}</p>
                   <a className={styles.explore} href={href} onClick={() => trackConversion('demo_visit', { demo: concept.slug })}>Explore {concept.name.charAt(0) + concept.name.slice(1).toLowerCase()}</a>
                   <Link className={styles.styleLink} href={'/contact?service=websites&demo=' + concept.slug + '#enquiry'}>I like this style</Link>
