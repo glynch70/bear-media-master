@@ -1,240 +1,165 @@
 import Image from 'next/image'
-import { RedesignFooter, RedesignHeader } from '@/app/redesign/redesign-chrome'
+import { ArrowDown, ArrowUpRight } from 'lucide-react'
 import { BreadcrumbSchema, ServiceSchema } from '@/components/structured-data'
-import { TrainingExamples } from '@/components/training/training-examples'
 import { TrainingEnquiryLink } from '@/components/training/training-enquiry-link'
 import { createMetadata, siteUrl } from '@/lib/seo'
-import styles from './training.module.css'
+import { DemoLab, ProductPicker, SectorPicker, StoryMotion, Timeline, VoiceDemo, WorkingDay } from './interactions'
+import { Enquiry } from './enquiry'
+import s from './training.module.css'
+
+const url = `${siteUrl}/training`
+const description = 'Practical AI training for business professionals with Garry Lynch. Explore realistic ChatGPT and Microsoft Copilot examples. In person across Edinburgh and the Lothians, or online across the UK.'
 
 export const metadata = createMetadata({
-  title: 'Practical AI Training for Small Businesses | Bear Media',
-  description:
-    'Tailored AI training with Garry for business owners and small teams. Online across the UK, or in person across Edinburgh and the Lothians. Enquire today.',
+  title: 'Practical AI Training for Business Professionals | Bear Media',
+  description,
   path: '/training',
-  imageAlt: 'Practical AI training with Garry from Bear Media',
+  image: '/assets/brand/training-share.jpg',
+  imageAlt: 'Practical AI training with Garry Lynch from Bear Media',
 })
 
-const topics = [
-  [
-    'Customer enquiries',
-    'Turn a new enquiry into a helpful reply and a clear next step.',
-  ],
-  [
-    'Emails & follow-ups',
-    'Draft, shorten and adjust the tone of everyday messages.',
-  ],
-  [
-    'Business writing',
-    'Turn rough notes into clear updates, descriptions and documents.',
-  ],
-  [
-    'Planning & admin',
-    'Organise a busy week, summarise notes and pull out actions.',
-  ],
-]
+function StoryStep({ href, children }: { href: string, children: React.ReactNode }) {
+  return <a className={s.storyStep} href={href}>
+    <span>{children}</span><span className={s.storyArrow}><ArrowDown size={17} aria-hidden="true" /></span>
+  </a>
+}
 
 export default function TrainingPage() {
-  return (
-    <div className={styles.page}>
-      <a className={styles.skip} href="#training-main">
-        Skip to training
-      </a>
-      <RedesignHeader surface />
-      <main id="training-main">
-        <BreadcrumbSchema
-          items={[
-            { name: 'Home', url: siteUrl },
-            { name: 'AI training', url: `${siteUrl}/training` },
-          ]}
-        />
-        <ServiceSchema
-          name="Practical AI Training"
-          description="Tailored AI training for business owners and small teams, online across the UK and in person across Edinburgh and the Lothians."
-          serviceType="Practical AI training"
-          areaServed={[
-            'United Kingdom',
-            'Edinburgh',
-            'West Lothian',
-            'East Lothian',
-            'Midlothian',
-          ]}
-          provider="Bear Media"
-          url={`${siteUrl}/training`}
-        />
-        <section className={styles.hero} aria-labelledby="training-title">
-          <div>
-            <p className={styles.eyebrow}>Practical AI training · With Garry</p>
-            <h1 id="training-title">
-              Less staring at a blank page.
-              <br />
-              <span>More getting things done.</span>
-            </h1>
-            <p className={styles.intro}>
-              I help business owners and small teams use AI for the work that
-              fills their day — enquiries, emails, writing, planning and admin.
-            </p>
-            <p className={styles.delivery}>
-              Online across the UK.
-              <br />
-              In person across Edinburgh and the Lothians.
-            </p>
-            <div className={styles.actions}>
-              <TrainingEnquiryLink className={styles.primary} placement="hero">
-                Discuss your AI training <span aria-hidden="true">↗</span>
-              </TrainingEnquiryLink>
-              <a className={styles.textLink} href="#examples">
-                Try an everyday example <span aria-hidden="true">↓</span>
-              </a>
-            </div>
-            <p className={styles.small}>
-              Tailored to your business. Explained in plain English.
-            </p>
+  const deliveryConfigured = !!process.env.RESEND_API_KEY
+  return <div className={s.page}>
+    <a className={s.skip} href="#training-main">Skip to training</a>
+    <header className={s.header}>
+      <div className={s.headerInner}>
+        <a className={s.brand} href={siteUrl}>
+          <Image src="/assets/brand/training-wordmark-light.webp" alt="Bear Media" width={480} height={301} sizes="76px" />
+          <small>Practical AI training</small>
+        </a>
+        <nav aria-label="Training navigation">
+          <a href="#working-day">The working day</a><a href="#examples">The possibilities</a><a href="#training">The training</a>
+        </nav>
+        <TrainingEnquiryLink className={s.headerCTA} href="#enquire" placement="header">Enquire <ArrowUpRight size={16} /></TrainingEnquiryLink>
+      </div>
+      <div className={s.scrollTrack} aria-hidden="true"><span /></div>
+    </header>
+    <main id="training-main" tabIndex={-1}>
+      <StoryMotion />
+      <BreadcrumbSchema items={[{ name: 'Home', url: siteUrl }, { name: 'AI training', url }]} />
+      <ServiceSchema name="Practical AI Training" description={description} serviceType="Practical AI training" areaServed={['United Kingdom', 'Edinburgh', 'West Lothian', 'East Lothian', 'Midlothian']} provider="Bear Media" url={url} />
+      <section className={s.hero} aria-labelledby="hero-title">
+        <div className={`${s.shell} ${s.heroGrid}`}>
+          <div className={s.heroCopy}>
+            <p className={s.kicker}>Bear Media · Practical AI training</p>
+            <h1 id="hero-title"><span>Less admin.</span><span>More time for <em>your work.</em></span></h1>
+
+            <p className={s.lede}>Discover how AI can help with emails, meetings, documents, planning and everyday tasks. Practical, hands-on training built around the way you already work.</p>
+            <div className={s.actions}><a className={s.darkButton} href="#working-day">See AI in Action <ArrowDown size={17} /></a><TrainingEnquiryLink className={s.outline} href="#enquire" placement="hero">Enquire About Training <ArrowUpRight size={17} /></TrainingEnquiryLink></div>
           </div>
-          <figure className={styles.portrait}>
-            <Image
-              src="/assets/about/garry-portrait-4.webp"
-              alt="Garry Lynch from Bear Media"
-              width={1200}
-              height={1200}
-              sizes="(max-width: 760px) 90vw, 440px"
-              priority
-            />
-            <figcaption>
-              <strong>Your work. Your pace.</strong>
-              <span>Work directly with me, Garry.</span>
-            </figcaption>
+          <figure className={s.heroPortrait}>
+            <Image src="/assets/about/garry-training.webp" alt="Garry Lynch" width={1000} height={1778} sizes="(max-width: 780px) 90vw, 530px" loading="eager" />
+            <figcaption><strong>Garry Lynch</strong><span>Practical AI training · West Lothian</span></figcaption>
           </figure>
-        </section>
+        </div>
+        <div className={`${s.shell} ${s.delivery}`}>
+          <span>In person across Edinburgh and the Lothians</span><span>Online across the UK</span>
+          <a href="#voice">Go straight to the voice demo <ArrowDown size={15} /></a>
+        </div>
+      </section>
 
-        <section className={styles.topics} aria-labelledby="topics-title">
-          <div className={styles.sectionHead}>
-            <p className={styles.eyebrow}>Start with something useful</p>
-            <h2 id="topics-title">Bring the jobs you keep putting off.</h2>
-            <p>
-              I’ll help you find where tools such as ChatGPT fit into your
-              working day. We’ll use relevant examples and practise checking the
-              results together.
-            </p>
-          </div>
-          <div className={styles.topicGrid}>
-            {topics.map(([title, text], i) => (
-              <article key={title}>
-                <span className={styles.number}>0{i + 1}</span>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
+      <section id="working-day" className={`${s.shell} ${s.section} ${s.split} ${s.dayScene}`} aria-labelledby="day-title">
+        <span id="everyday" className={s.legacyAnchor} aria-hidden="true" />
+        <div className={s.chapterIntro} data-story-beat>
+          <p className={s.kicker}>A familiar working day</p>
+          <h2 id="day-title">It all lands <em>at once.</em></h2>
+          <p>A client changes a meeting. A supplier moves a delivery. The weekly update still needs written.</p>
+        </div>
+        <div className={s.workingVisual} data-story-beat><WorkingDay /></div>
+        <div className={s.dayOutro} data-story-beat>
+          <h3>What if some of that became easier?</h3>
+          <StoryStep href="#voice">Start with a voice note</StoryStep>
+        </div>
+      </section>
 
-        <section
-          id="examples"
-          className={styles.examples}
-          aria-labelledby="examples-title"
-        >
-          <div className={styles.sectionHead}>
-            <p className={styles.eyebrow}>Have a go</p>
-            <h2 id="examples-title">A little context makes a difference.</h2>
-            <p>
-              Choose a task. See how rough notes become a useful prompt and a
-              draft you can check and adapt.
-            </p>
+      <section id="voice" className={`${s.darkSection} ${s.section} ${s.voiceScene}`} aria-labelledby="voice-title">
+        <div className={s.shell}>
+          <div className={s.sceneIntro} data-story-beat>
+            <p className={s.kicker}>Your office on the move</p>
+            <h2 id="voice-title">Say it while it’s <em>fresh.</em></h2>
+            <p className={s.lede}>Discover how voice conversations can help you capture ideas, organise notes and prepare your next actions while you’re away from your desk.</p>
           </div>
-          <TrainingExamples />
-        </section>
+          <div data-story-beat><VoiceDemo /></div>
+          <p className={s.note}>This illustrative example uses a synthetic voice, a prepared transcript and drafts. Use voice hands-free only when it is safe and legal, keep your attention on driving, and park safely before reviewing the screen, sending anything or giving approval.</p>
+          <StoryStep href="#examples">Back at your desk, try another task</StoryStep>
+        </div>
+      </section>
 
-        <section className={styles.process} aria-labelledby="process-title">
-          <div className={styles.sectionHead}>
-            <p className={styles.eyebrow}>How we’ll work together</p>
-            <h2 id="process-title">Training built around your business.</h2>
-            <p>
-              New to AI, or already trying it? I’ll start with what you know and
-              the tasks you want help with.
-            </p>
-          </div>
-          <ol className={styles.steps}>
-            {[
-              [
-                'Talk through your day',
-                'Tell me what takes too long, what tools you use and whether you want to learn on your own or with your team.',
-              ],
-              [
-                'Practise together',
-                'We work through relevant examples online or in person. You try the prompts on your own device, ask questions and learn how to check the output.',
-              ],
-              [
-                'Make it repeatable',
-                'Keep the prompts and steps we work through, so you can use them again. I’ll agree the session focus, time, preparation and any follow-up with you before booking.',
-              ],
-            ].map(([title, text], i) => (
-              <li key={title}>
-                <span className={styles.number}>0{i + 1}</span>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </li>
-            ))}
-          </ol>
-        </section>
+      <section id="examples" className={`${s.shell} ${s.section}`} aria-labelledby="demos-title">
+        <span id="try" className={s.legacyAnchor} aria-hidden="true" />
+        <div className={s.chapterIntro} data-story-beat>
+          <p className={s.kicker}>Try AI for yourself</p><h2 id="demos-title">Turn loose ends <em>into next steps.</em></h2>
+          <p className={s.lede}>Choose a task and see what a useful first draft could look like.</p>
+        </div>
+        <div data-story-beat><DemoLab /></div>
+        <p className={s.note}>Prepared examples use fictional information. Check facts, figures, tone and commitments before using an AI draft.</p>
+        <StoryStep href="#professions">See how it fits your business</StoryStep>
+      </section>
 
-        <section className={styles.faq} aria-labelledby="questions-title">
-          <div>
-            <p className={styles.eyebrow}>A few useful details</p>
-            <h2 id="questions-title">Before we get started.</h2>
-          </div>
-          <div>
-            {[
-              [
-                'Do I need to be good with technology?',
-                'No. I’ll explain things in plain English and leave room for you to practise. Tell me what you already use and where you’d like help.',
-              ],
-              [
-                'Can we do the training online?',
-                'Yes. I work online with businesses across the UK, and in person across Edinburgh and the Lothians. We’ll agree the format, location and any travel before booking.',
-              ],
-              [
-                'What should I bring?',
-                'A laptop and a few non-sensitive examples of tasks you repeat are a useful starting point. I’ll agree any software or accounts you need in advance, including any separate software costs.',
-              ],
-              [
-                'How much does it cost?',
-                'I’ll quote for the agreed training focus, session time and preparation after we talk. Any follow-up, extra setup or integrations will be agreed separately.',
-              ],
-              [
-                'Will AI do the work for me?',
-                'It can help you draft and organise, but you stay in charge. We’ll cover checking facts, tone and commitments, and what information to keep out of AI tools.',
-              ],
-            ].map(([question, answer]) => (
-              <details key={question}>
-                <summary>
-                  {question}
-                  <span aria-hidden="true">+</span>
-                </summary>
-                <p>{answer}</p>
-              </details>
-            ))}
-          </div>
-        </section>
+      <section className={`${s.tinted} ${s.section}`} id="professions" aria-labelledby="sector-title">
+        <div className={s.shell}><div className={s.chapterIntro} data-story-beat><p className={s.kicker}>Choose your profession</p><h2 id="sector-title">Different businesses. <em>Familiar challenges.</em></h2></div>
+          <div data-story-beat><SectorPicker /></div><p className={s.note}>Use these examples to prepare work for review. Qualified professionals remain responsible for advice and decisions.</p></div>
+      </section>
 
-        <section className={styles.enquire} aria-labelledby="enquire-title">
-          <p className={styles.eyebrow}>Let’s find your starting point</p>
-          <h2 id="enquire-title">
-            What would you like
-            <br />a hand with?
-          </h2>
-          <p>
-            Tell me about your business and two or three jobs you’d like to make
-            easier. I’ll suggest a practical training focus and we can take it
-            from there.
-          </p>
-          <TrainingEnquiryLink className={styles.primary} placement="closing">
-            Talk to Garry about training <span aria-hidden="true">↗</span>
-          </TrainingEnquiryLink>
-          <p className={styles.small}>
-            Prefer to call? <a href="tel:+447879011860">07879 011860</a>
-          </p>
-        </section>
-      </main>
-      <RedesignFooter />
-    </div>
-  )
+      <section className={`${s.shell} ${s.section}`} aria-labelledby="products-title">
+        <div className={s.chapterIntro} data-story-beat><p className={s.kicker}>ChatGPT, Work &amp; Copilot</p><h2 id="products-title">Pick the tool <em>for the task.</em></h2></div>
+        <div data-story-beat><ProductPicker /></div><p className={s.note}>Features depend on your plan, connected services, permissions and organisational settings. Review drafts and give approval where required before third-party actions can proceed.</p>
+      </section>
+
+      <section className={`${s.tinted} ${s.section}`} aria-labelledby="timeline-title">
+        <div className={`${s.shell} ${s.split}`}>
+          <div className={s.chapterIntro} data-story-beat><p className={s.kicker}>A day in practice</p><h2 id="timeline-title">Small things <em>add up.</em></h2><p>Open a moment from a fictional workday to see how AI could help.</p><StoryStep href="#training">Make it part of your own working day</StoryStep></div>
+          <div data-story-beat><Timeline /></div>
+        </div>
+      </section>
+
+      <section id="training" className={`${s.shell} ${s.section}`} aria-labelledby="training-title">
+        <span id="how" className={s.legacyAnchor} aria-hidden="true" />
+        <div className={s.chapterIntro} data-story-beat>
+          <p className={s.kicker}>How the training works</p><h2 id="training-title">Bring real work. <em>Practise together.</em></h2>
+          <p className={s.lede}>I tailor sessions to individuals and business teams, starting with the tools and tasks you already use.</p>
+        </div>
+        <ol className={s.steps} data-story-beat>
+          {[
+            ['Find', 'We look for repetitive tasks that take up time and pick a few worth improving.'],
+            ['Set up', 'We explore suitable AI tools, settings and workflows for the way you work.'],
+            ['Use', 'You practise with relevant examples and learn how to check and refine the results.'],
+          ].map(([title, text], index) => <li key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></li>)}
+        </ol>
+        <TrainingEnquiryLink className={s.darkButton} href="#enquire" placement="training">Discuss AI Training <ArrowUpRight size={17} /></TrainingEnquiryLink>
+      </section>
+
+      <section id="garry" className={`${s.tinted} ${s.section}`} aria-labelledby="trainer-title">
+        <div className={`${s.shell} ${s.trainer}`}>
+          <div data-story-beat><p className={s.kicker}>Meet your trainer · West Lothian, Scotland</p><h2 id="trainer-title">Hi, I’m Garry Lynch.</h2></div>
+          <div className={s.trainerCopy} data-story-beat>
+            <p>I founded Bear Media to help businesses make practical use of digital tools. I’ve worked hands-on with business clients, helping them get comfortable with the tools they use day to day.</p>
+            <p>In an AI training session, we’ll start with a task you actually do, work through it together and leave time for questions and practice.</p></div>
+        </div>
+      </section>
+
+      <section id="enquire" className={`${s.darkSection} ${s.section}`} aria-labelledby="enquire-title">
+        <span id="contact" className={s.legacyAnchor} aria-hidden="true" />
+        <div className={`${s.shell} ${s.split}`}>
+          <div data-story-beat><p className={s.kicker}>Get started</p><h2 id="enquire-title">Let’s make your working day easier.</h2><p className={s.lede}>Tell me a little about your business and what you’d like help with. I’ll recommend a practical starting point.</p></div>
+          <Enquiry deliveryConfigured={deliveryConfigured} />
+        </div>
+      </section>
+    </main>
+    <footer className={s.footer}>
+      <div className={s.shell}>
+        <a href={siteUrl}><Image src="/assets/brand/training-wordmark-dark.webp" alt="Bear Media" width={480} height={293} sizes="88px" /></a>
+        <span>West Lothian, Scotland</span>
+        <a href="/privacy">Privacy</a>
+        <a href="#training-main">Back to top ↑</a>
+      </div>
+    </footer>
+  </div>
 }

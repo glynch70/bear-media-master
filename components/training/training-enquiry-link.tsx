@@ -8,15 +8,17 @@ export function TrainingEnquiryLink({
   children,
   className,
   placement,
+  href,
 }: {
   children: ReactNode
   className?: string
   placement: string
+  href?: string
 }) {
   return (
     <a
       className={className}
-      href="/contact?service=training&from=training#enquiry"
+      href={href ?? "/contact?service=training&from=training#enquiry"}
       onClick={(event) => {
         const campaign = trainingCampaign(window.location.search)
         const query = new URLSearchParams({
@@ -24,7 +26,7 @@ export function TrainingEnquiryLink({
           from: 'training',
           ...campaign,
         })
-        event.currentTarget.href = `/contact?${query}#enquiry`
+        if (!href) event.currentTarget.href = `/contact?${query}#enquiry`
         trackConversion('training_enquiry_click', {
           service: 'training',
           placement,
