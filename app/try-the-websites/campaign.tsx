@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { ArrowUpRight, ArrowDown, ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { YouTubeShort } from "@/components/projects/youtube-short";
 import ContactPage from "@/components/contact-page";
 import { campaignWebsiteProjects } from "@/lib/campaign-website-projects";
 import { CampaignWebsiteGallery } from "@/components/website-gallery";
@@ -182,15 +183,21 @@ export default function Campaign() {
             </a>
           </div>
         </div>
-        <div className="campaign-art" data-campaign-enter>
-          <Image
-            src="/assets/website-campaign/three-phones.webp"
-            width={1024}
-            height={1280}
-            sizes="(max-width: 760px) 100vw, 45vw"
-            alt="North, Form and Still demo websites displayed on three phones in the Bear Media campaign artwork"
-            priority
+        <div className="campaign-video" data-campaign-enter>
+          <YouTubeShort
+            videoId="ZRDR13IMyv0"
+            title="Three website designs — Bear Media"
+            poster="/assets/website-campaign/three-phones.webp"
+            posterAlt="North, Form and Still demo websites displayed on three phones in the Bear Media campaign artwork"
           />
+          <a
+            className="text-link"
+            href="https://www.youtube.com/shorts/ZRDR13IMyv0"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Watch on YouTube (opens in a new tab)
+          </a>
         </div>
       </section>
       <section

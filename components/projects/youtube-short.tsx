@@ -4,10 +4,11 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { Play } from 'lucide-react'
 
-export function YouTubeShort({ videoId, title, poster }: {
+export function YouTubeShort({ videoId, title, poster, posterAlt = "Bright kitchen extension with a skylight by C&G Developments" }: {
   videoId: string
   title: string
   poster: string
+  posterAlt?: string
 }) {
   const [loaded, setLoaded] = useState(false)
 
@@ -31,7 +32,7 @@ export function YouTubeShort({ videoId, title, poster }: {
         >
           <Image
             src={poster}
-            alt="Bright kitchen extension with a skylight by C&G Developments"
+            alt={posterAlt}
             fill
             sizes="(max-width: 640px) calc(100vw - 48px), 360px"
             className="object-contain"

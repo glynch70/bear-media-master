@@ -661,3 +661,18 @@
   }
 }
 .website-campaign .gallery-intro { max-width: 640px; color: #b9bdb6; line-height: 1.7; margin-top: 22px; }
+
+.campaign-video {
+  width: 100%;
+  max-width: 320px;
+  justify-self: center;
+  min-width: 0;
+}
+.campaign-video > a {
+  margin-top: 12px;
+}
+@media (max-width: 760px) {
+  .campaign-video {
+    margin: 32px auto 0;
+  }
+}
