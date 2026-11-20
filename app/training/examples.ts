@@ -46,11 +46,11 @@ export const voiceExamples: {
 }[] = [
   {
     label: 'Follow up a client meeting',
-    audio: '/training-audio/client-follow-up.mp3',
+    audio: '/training-audio/client-follow-up-scottish.mp3',
     cues: [
-      { at: 0.10, text: "Right, I’ve just come out of that client meeting." },
-      { at: 2.67, text: "We’ve agreed to start with a small pilot, and they’ll confirm who’s taking part on Friday." },
-      { at: 7.58, text: "Can you pull my notes together, draft a quick follow-up and give me a list of what I need to do next?" },
+      { at: 0.58, text: "Right, I’ve just come out of that client meeting." },
+      { at: 3.54, text: "We’ve agreed to start with a small pilot, and they’ll confirm who’s taking part on Friday." },
+      { at: 9.25, text: "Can you pull my notes together, draft a quick follow-up and give me a list of what I need to do next?" },
     ],
     output: [['Meeting summary', 'A small pilot was agreed. The client expects to confirm participants on Friday.'], ['Draft email', 'Thanks for meeting today. I’ll outline the pilot and share the draft for review once you’ve confirmed who’ll take part.'], ['Next actions', ['Draft the pilot outline.', 'Check for the participant list on Friday.', 'Review the email before sending.']]],
   },
