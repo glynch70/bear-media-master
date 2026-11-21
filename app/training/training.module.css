@@ -291,3 +291,12 @@
   .dayOutro .storyStep { margin-top: 0; }
 }
 .page .legacyAnchor { display: block; height: 0; min-width: 0; position: absolute; scroll-margin-top: 92px; }
+
+/* Dream garage: a single shared contact sheet keeps all six views ready to switch. */
+.garageControls { display: flex; flex-wrap: wrap; gap: 12px 28px; margin: 22px 0 16px; }
+.garageControls > div { min-width: 0; }
+.garageLabel { display: block; color: #fff3e2; font-weight: 650; font-size: .9rem; margin-bottom: 8px; }
+.garageControls .choices { margin: 0; }
+.garageControls .choices button { min-height: 44px; font-size: .875rem; }
+.garageCaption { flex-basis: 100%; margin: 0; color: #e5d6c4; font-size: .875rem; }
+.garageImage { position: absolute; inset: 0; z-index: -1; background-image: url('/training-images/dream-garage.webp'); background-size: 300% 200%; background-repeat: no-repeat; }

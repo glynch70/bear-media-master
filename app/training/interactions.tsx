@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { ArrowDown, ArrowUpRight, AudioLines, CalendarDays, Check, FileText, Inbox, ListChecks, Mail, Package, Pause, Play, RotateCcw } from 'lucide-react'
-import { ParkedCar } from './parked-car'
+import { ParkedCar, dreamCars, carViews } from './parked-car'
 import { demos, products, sectors, teamActionPlan, timeline, voiceExamples } from './examples'
 import s from './training.module.css'
 
@@ -94,6 +94,8 @@ export function WorkingDay() {
 }
 
 export function VoiceDemo() {
+  const [car, setCar] = useState(0)
+  const [carView, setCarView] = useState(0)
   const [selected, setSelected] = useState(0)
   const [stage, setStage] = useState(0)
   const [playing, setPlaying] = useState(false)
@@ -171,9 +173,19 @@ export function VoiceDemo() {
         setStage(window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 5 : 2)
       }}
     />
+    <div className={s.garageControls}>
+      <div><span className={s.garageLabel}>Choose your dream car</span>
+        <Choices label="Dream car" labels={dreamCars} selected={car} choose={setCar} />
+      </div>
+      <div><span className={s.garageLabel}>Choose your view</span>
+        <Choices label="Car view" labels={carViews} selected={carView} choose={setCarView} />
+      </div>
+      <p className={s.garageCaption} role="status">{dreamCars[car]} · {carViews[carView]} · Scottish loch</p>
+      <p className={s.garageCaption}>A little dream-garage inspiration. AI-generated illustrations, with details that may differ from the real cars.</p>
+    </div>
     <div className={s.dashboard}>
       <div className={s.carScene} data-playing={playing}>
-        <ParkedCar />
+        <ParkedCar car={car} view={carView} />
         <span className={s.parked}><i /> Parked after the meeting</span>
         <div className={s.voicePhone}>
           <div className={s.phoneNotch} aria-hidden="true" />
