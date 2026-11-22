@@ -1,0 +1,40 @@
+.layout { display: grid; border: 1px solid #d9dfd3; border-radius: 20px; overflow: hidden; background: white; box-shadow: 0 18px 50px #3445230c; }
+.scene { position: relative; min-height: 390px; isolation: isolate; background: #526044; }
+.scene img { object-fit: cover; object-position: right center; z-index: -2; }
+.scene::after { content: ''; position: absolute; inset: 25% 0 0; background: linear-gradient(transparent, #1f3021ec); z-index: -1; }
+.sceneLabel { display: inline-flex; align-items: center; gap: 6px; margin: 18px; padding: 6px 10px; border: 1px solid #ffffff55; background: #1e3022bd; color: white; font-size: 11px; border-radius: 30px; }
+.sceneCaption { position: absolute; inset: auto 0 0; padding: clamp(22px, 4vw, 38px); color: white; }
+.sceneCaption > span { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #ead9a4; font-weight: 700; }
+.sceneCaption h3 { font-size: clamp(27px, 3vw, 38px); line-height: 1.12; margin: 10px 0 12px; max-width: 16ch; color: white; }
+.sceneCaption p { color: #f1eee0; font-size: 14px; max-width: 34ch; }
+.sceneCaption small { display: block; font-size: 9px; color: #d8d9c8; margin-top: 22px; }
+.calculator { padding: clamp(22px, 4vw, 38px); min-width: 0; }
+.kicker { display: block; color: #6b6f3b; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; font-weight: 750; margin-bottom: 10px; }
+.calculator h3 { font-size: clamp(24px, 2.7vw, 32px); line-height: 1.12; letter-spacing: -.035em; margin-bottom: 12px; }
+.calculator .intro { color: #625b50; font-size: 13px; max-width: 45ch; }
+.field { margin-top: 22px; }
+.field label { display: block; font-size: 13px; font-weight: 700; color: #34442c; margin-bottom: 8px; }
+.inputRow { display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 8px 12px; border: 1px solid #c3cdb7; border-radius: 8px; background: #fcfdf9; }
+.inputRow > span, .inputRow svg { color: #61724f; font-size: 12px; flex: none; }
+.inputRow > span:first-child { font-size: 22px; }
+.inputRow input { width: 100%; min-width: 0; padding: 0; border: 0; background: transparent; font-size: 22px; font-weight: 700; color: #283d25; }
+.range { width: 100%; min-height: 34px; margin-top: 7px; accent-color: #667d43; cursor: pointer; }
+.scale { display: flex; justify-content: space-between; font-size: 10px; color: #72765e; }
+.results { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; margin-top: 24px; padding: 20px 16px; border: 1px solid #d1ddc4; background: #eef4e7; border-radius: 12px; }
+.results > div { min-width: 0; }
+.results > div + div { padding-left: 14px; border-left: 1px solid #cfd9c2; }
+.results strong { display: block; font-size: clamp(26px, 4vw, 37px); line-height: 1.1; letter-spacing: -.04em; color: #324a29; overflow-wrap: anywhere; }
+.results strong small { font-size: 14px; font-weight: 600; letter-spacing: 0; }
+.results span { display: block; font-size: 11px; margin-top: 8px; color: #586a49; }
+.calculator .equation { color: #667057; font-size: 10px; margin-top: 9px; }
+.priority { margin-top: 20px; }
+.priority p { color: #4b563e; font-size: 12px; font-weight: 700; margin-bottom: 8px; }
+.priority > div { display: flex; gap: 6px; flex-wrap: wrap; }
+.priority button { display: inline-flex; align-items: center; gap: 6px; min-height: 42px; padding: 8px; font-size: 11px; border: 1px solid #d7dccf; border-radius: 8px; background: white; color: #546045; }
+.priority button[aria-pressed=true] { color: #354b29; background: #e9f0df; border-color: #93a779; }
+.priority button:hover { border-color: #6a7b4a; }
+.cta { display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 48px; background: #253a29; border: 1px solid #253a29; color: white; border-radius: 8px; padding: 12px; margin-top: 24px; font-size: 13px; font-weight: 700; text-align: center; }
+.cta:hover { background: #455c36; }
+.calculator .note { color: #726d61; font-size: 10px; margin-top: 12px; }
+@media (min-width: 780px) { .layout { grid-template-columns: minmax(0,1.05fr) minmax(0,1fr); } .scene { min-height: 590px; } }
+@media (max-width: 360px) { .results { padding: 16px 10px; gap: 8px; } .results > div + div { padding-left: 10px; } .results strong { font-size: 25px; } .scene { min-height: 360px; } }

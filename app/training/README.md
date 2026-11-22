@@ -9,3 +9,5 @@ The enquiry form reuses `POST /api/contact` with the existing training service a
 The demonstrations are prepared examples and do not require accounts, microphones or AI services. Run `pnpm lint`, `pnpm exec tsc --noEmit` and `pnpm build` before publishing.
 
 The hero portrait flip card lives in `portrait-card.tsx`. The first task demonstration uses `calendar-demo.tsx`: fictional availability → time selection → editable invitation preview → explicit demo confirmation → draft follow-up. It never connects a calendar or sends an invitation. The shared page background is white; emphasis colours are confined to cards and selected states.
+
+`time-value.tsx` replaces the repeated workday timeline with a golf-themed illustration and a weekly time-value calculator. It multiplies the visitor’s estimated weekly hours by their entered hourly rate; it does not measure savings, promise income or connect to a calendar. The car selector uses illustrated Discovery, DB12 and Golf GTI scenes.

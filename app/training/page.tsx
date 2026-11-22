@@ -3,9 +3,10 @@ import { ArrowDown, ArrowUpRight } from 'lucide-react'
 import { BreadcrumbSchema, ServiceSchema } from '@/components/structured-data'
 import { TrainingEnquiryLink } from '@/components/training/training-enquiry-link'
 import { createMetadata, siteUrl } from '@/lib/seo'
-import { DemoLab, ProductPicker, SectorPicker, StoryMotion, Timeline, VoiceDemo, WorkingDay } from './interactions'
+import { DemoLab, ProductPicker, SectorPicker, StoryMotion, VoiceDemo, WorkingDay } from './interactions'
 import { Enquiry } from './enquiry'
 import { PortraitCard } from './portrait-card'
+import { TimeValue } from './time-value'
 import s from './training.module.css'
 
 const url = `${siteUrl}/training`
@@ -111,18 +112,16 @@ export default function TrainingPage() {
         <div data-story-beat><ProductPicker /></div><p className={s.note}>Features depend on your plan, connected services, permissions and organisational settings. Review drafts and give approval where required before third-party actions can proceed.</p>
       </section>
 
-      <section className={`${s.tinted} ${s.section}`} aria-labelledby="timeline-title">
-        <div className={`${s.shell} ${s.split}`}>
-          <div className={s.chapterIntro} data-story-beat><p className={s.kicker}>A day in practice</p><h2 id="timeline-title">Small things <em>add up.</em></h2><p>Open a moment from a fictional workday to see how AI could help.</p><StoryStep href="#training">Make it part of your own working day</StoryStep></div>
-          <div data-story-beat><Timeline /></div>
-        </div>
+      <section id="your-time" className={`${s.shell} ${s.section}`} aria-labelledby="time-value-title">
+        <div className={s.chapterIntro} data-story-beat><p className={s.kicker}>A little time back</p><h2 id="time-value-title">Less admin.<br /><em>More time for you.</em></h2><p className={s.lede}>Another client appointment. An earlier finish. A few holes before dinner. Explore what freeing up some time could mean to you.</p></div>
+        <div data-story-beat><TimeValue /></div>
       </section>
 
       <section id="training" className={`${s.shell} ${s.section}`} aria-labelledby="training-title">
         <span id="how" className={s.legacyAnchor} aria-hidden="true" />
         <div className={s.chapterIntro} data-story-beat>
           <p className={s.kicker}>How the training works</p><h2 id="training-title">Bring real work. <em>Practise together.</em></h2>
-          <p className={s.lede}>I tailor sessions to individuals and business teams, starting with the tools and tasks you already use.</p>
+          <p className={s.lede}>Hands-on AI training for individuals and small business teams. We start with your everyday tasks, practise useful prompts together and learn how to check the results.</p>
         </div>
         <ol className={s.steps} data-story-beat>
           {[
@@ -131,7 +130,7 @@ export default function TrainingPage() {
             ['Use', 'You practise with relevant examples and learn how to check and refine the results.'],
           ].map(([title, text], index) => <li key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></li>)}
         </ol>
-        <TrainingEnquiryLink className={s.darkButton} href="#enquire" placement="training">Discuss AI Training <ArrowUpRight size={17} /></TrainingEnquiryLink>
+        <TrainingEnquiryLink className={s.darkButton} href="#enquire" placement="training">Ask about your training session <ArrowUpRight size={17} /></TrainingEnquiryLink>
       </section>
 
       <section id="garry" className={`${s.tinted} ${s.section}`} aria-labelledby="trainer-title">
