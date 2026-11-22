@@ -10,7 +10,7 @@ import { TimeValue } from './time-value'
 import s from './training.module.css'
 
 const url = `${siteUrl}/training`
-const description = 'Practical AI training for business professionals with Garry Lynch. Explore realistic ChatGPT and Microsoft Copilot examples. In person across Edinburgh and the Lothians, or online across the UK.'
+const description = 'Practical AI training with Garry Lynch for business professionals. Realistic ChatGPT and Microsoft Copilot examples, in person or online across the UK.'
 
 export const metadata = createMetadata({
   title: 'Practical AI Training for Business Professionals | Bear Media',
