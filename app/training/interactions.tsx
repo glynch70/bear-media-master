@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { ArrowDown, ArrowUpRight, AudioLines, CalendarDays, Check, FileText, Inbox, ListChecks, Mail, Package, Pause, Play, RotateCcw } from 'lucide-react'
 import { ParkedCar, dreamCars, carViews } from './parked-car'
+import { CalendarDemo } from './calendar-demo'
 import { demos, products, sectors, teamActionPlan, timeline, voiceExamples } from './examples'
 import s from './training.module.css'
 
@@ -243,7 +244,7 @@ export function DemoLab() {
         }}><Icon size={19} aria-hidden="true" />{demo.label}<ArrowUpRight size={15} aria-hidden="true" /></button>
       })}
     </div>
-    <article className={s.labPanel}>
+    {selected === 0 ? <CalendarDemo /> : <article className={s.labPanel}>
       <span className={s.kicker}>Fictional scenario</span>
       <h3>{example.title}</h3><p>{example.scenario}</p>
       <div className={s.prompt}><strong>Example input</strong><p>{example.input}</p></div>
@@ -260,7 +261,7 @@ export function DemoLab() {
           <Output rows={example.output} />
         </>}
       </div>
-    </article>
+    </article>}
   </div>
 }
 

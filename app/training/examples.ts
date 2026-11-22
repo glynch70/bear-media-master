@@ -1,6 +1,6 @@
 export const demos = [
   {
-    label: 'Emails and correspondence', title: 'Reply to a change of plans',
+    label: 'Emails, calendars & appointments', title: 'Reply to a change of plans',
     scenario: 'A client wants to move a review meeting. You have two possible slots.',
     input: 'Draft a friendly reply. Thursday at 10 am or Friday at 2 pm are available. Ask them to choose before I send an invite.',
     output: [['Subject', 'New time for our review'], ['Draft reply', 'Hi, thanks for letting me know. Would Thursday at 10 am or Friday at 2 pm suit you? Once you’ve chosen a slot, I’ll send an updated invitation. Thanks!']],

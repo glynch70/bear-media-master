@@ -5,6 +5,7 @@ import { TrainingEnquiryLink } from '@/components/training/training-enquiry-link
 import { createMetadata, siteUrl } from '@/lib/seo'
 import { DemoLab, ProductPicker, SectorPicker, StoryMotion, Timeline, VoiceDemo, WorkingDay } from './interactions'
 import { Enquiry } from './enquiry'
+import { PortraitCard } from './portrait-card'
 import s from './training.module.css'
 
 const url = `${siteUrl}/training`
@@ -54,10 +55,7 @@ export default function TrainingPage() {
             <p className={s.lede}>Discover how AI can help with emails, meetings, documents, planning and everyday tasks. Practical, hands-on training built around the way you already work.</p>
             <div className={s.actions}><a className={s.darkButton} href="#working-day">See AI in Action <ArrowDown size={17} /></a><TrainingEnquiryLink className={s.outline} href="#enquire" placement="hero">Enquire About Training <ArrowUpRight size={17} /></TrainingEnquiryLink></div>
           </div>
-          <figure className={s.heroPortrait}>
-            <Image src="/assets/about/garry-training.webp" alt="Garry Lynch" width={1000} height={1778} sizes="(max-width: 780px) 90vw, 530px" loading="eager" />
-            <figcaption><strong>Garry Lynch</strong><span>Practical AI training · West Lothian</span></figcaption>
-          </figure>
+          <PortraitCard />
         </div>
         <div className={`${s.shell} ${s.delivery}`}>
           <span>In person across Edinburgh and the Lothians</span><span>Online across the UK</span>
@@ -155,7 +153,7 @@ export default function TrainingPage() {
     </main>
     <footer className={s.footer}>
       <div className={s.shell}>
-        <a href={siteUrl}><Image src="/assets/brand/training-wordmark-dark.webp" alt="Bear Media" width={480} height={293} sizes="88px" /></a>
+        <a href={siteUrl}><Image src="/assets/brand/training-wordmark-light.webp" alt="Bear Media" width={480} height={301} sizes="88px" /></a>
         <span>West Lothian, Scotland</span>
         <a href="/privacy">Privacy</a>
         <a href="#training-main">Back to top ↑</a>
