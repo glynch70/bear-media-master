@@ -306,3 +306,21 @@
 .playbackBar .reviewLink { flex-basis: 100%; justify-content: flex-end; margin: 0; }
 @media (min-width: 780px) { .scenePanel { border-radius: 17px 0 0 17px; } }
 @media (max-width: 460px) { .playbackBar .wave { display: none; } .playbackBar { padding: 12px; gap: 8px; } }
+
+.airFreshener { position: absolute; top: 21%; left: 49%; width: clamp(32px, 8%, 56px); z-index: 1; transform: rotate(6deg); pointer-events: none; filter: drop-shadow(2px 5px 3px #0006); }
+.airFreshener::before { content: ''; position: absolute; bottom: 100%; left: 50%; height: clamp(20px, 4vw, 45px); width: 1px; background: #d6c9ad; }
+.freshenerTag { display: block; position: relative; aspect-ratio: 1; border: 1px solid #b39a5c; border-radius: 5px; overflow: hidden; background: black; box-shadow: inset 0 0 0 2px #111; }
+.freshenerTag::after { content: ''; position: absolute; top: 2px; left: calc(50% - 1px); width: 2px; height: 2px; border-radius: 50%; background: #bba77b; }
+.freshenerTag img { object-fit: cover; }
+.productChoices { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 18px; }
+.productChoices button { display: inline-flex; align-items: center; gap: 10px; padding: 10px 14px; min-height: 58px; border: 1px solid var(--line); border-radius: 12px; font-weight: 700; font-size: .85rem; background: white; text-align: left; }
+.productChoices button:hover { border-color: #caa565; background: #fcf8f0; }
+.productChoices button[aria-pressed=true] { border-color: #b78636; background: #fbf2df; box-shadow: 0 3px 12px #b6852220; }
+.chatgptMark, .copilotMark { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 42px; height: 42px; border-radius: 11px; padding: 7px; }
+.chatgptMark { background: #10a37f; }
+.chatgptMark img { filter: brightness(0) invert(1); }
+.copilotMark { background: #eef4ff; }
+.productIdentity { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.productIdentity > span:first-child { width: 56px; height: 56px; padding: 8px; border-radius: 15px; }
+.productIdentity .kicker { margin: 0; }
+@media (max-width: 460px) { .productChoices { display: grid; grid-template-columns: 1fr; } .productChoices button { width: 100%; } }

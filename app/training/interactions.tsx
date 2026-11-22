@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { ArrowDown, ArrowUpRight, AudioLines, CalendarDays, Check, FileText, Inbox, ListChecks, Mail, Package, Pause, Play, RotateCcw } from 'lucide-react'
 import { ParkedCar, dreamCars, carViews } from './parked-car'
@@ -355,9 +357,11 @@ export function ProductPicker() {
   const [selected, setSelected] = useState(0)
   const product = products[selected]
   return <>
-    <Choices label="Choose an AI tool" labels={products.map(item => item.label)} selected={selected} choose={setSelected} />
+    <div className={s.productChoices} role="group" aria-label="Choose an AI tool">{products.map((item, index) => <button type="button" key={item.label} aria-pressed={index === selected} onClick={() => setSelected(index)}>
+      <span className={index === 2 ? s.copilotMark : s.chatgptMark}><Image src={`/training-logos/${index === 2 ? 'copilot' : 'chatgpt'}.svg`} alt="" width={28} height={28} /></span><span>{item.label}</span>
+    </button>)}</div>
     <article className={s.sectorCard} key={product.label} aria-live="polite">
-      <div><span className={s.kicker}>{product.label}</span><h3>{product.title}</h3><p>{product.description}</p></div>
+      <div><span className={s.productIdentity}><span className={selected === 2 ? s.copilotMark : s.chatgptMark}><Image src={`/training-logos/${selected === 2 ? 'copilot' : 'chatgpt'}.svg`} alt="" width={40} height={40} /></span><span className={s.kicker}>{product.label}</span></span><h3>{product.title}</h3><p>{product.description}</p></div>
       <div className={s.prompt}><strong>Example workflow</strong><p>{product.workflow}</p></div>
     </article>
   </>

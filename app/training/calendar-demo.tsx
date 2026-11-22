@@ -1,7 +1,7 @@
 'use client'
 
 import { Fragment, useRef, useState } from 'react'
-import { ArrowDown, ArrowRight, CalendarDays, Check, Copy, RotateCcw } from 'lucide-react'
+import { ArrowDown, ArrowRight, CalendarDays, Check, Copy, Mic, Keyboard, RotateCcw } from 'lucide-react'
 import s from './calendar-demo.module.css'
 
 const slots = [
@@ -16,10 +16,10 @@ const busy: Record<string, string> = {
 const stages = ['Check calendar', 'Choose a time', 'Review invite', 'Confirm']
 const headings = ['Start with your actual availability.', 'Two gaps. You choose.', 'Check it before it goes.', 'Appointment organised.']
 const descriptions = [
-  'A client needs a review appointment. Instead of opening your diary and writing several replies, ask AI to find times that fit around your existing work.',
-  'The calendar has been checked in this fictional example. Choose a time to prepare the invitation. Existing appointments stay in place.',
-  'AI prepares the details. You check the guest, time and agenda before giving the go-ahead.',
-  'The fictional appointment is now in the demo calendar. Keep the task moving by preparing a short confirmation email.',
+  'Say what you need. AI can check a connected work calendar and suggest times.',
+  'Two available times. Pick the one that works for your client.',
+  'Check the guest, time and agenda. You decide when to book.',
+  'Booked in the demo. Now ask for a short confirmation email.',
 ]
 
 function WorkCalendar({ stage, selected, title }: { stage: number, selected: number, title: string }) {
@@ -47,6 +47,7 @@ function WorkCalendar({ stage, selected, title }: { stage: number, selected: num
 
 export function CalendarDemo() {
   const [stage, setStage] = useState(0)
+  const [promptMode, setPromptMode] = useState<'voice' | 'text'>('voice')
   const [selected, setSelected] = useState(0)
   const [title, setTitle] = useState('Client review meeting')
   const [followup, setFollowup] = useState(false)
@@ -55,12 +56,19 @@ export function CalendarDemo() {
   const promptRef = useRef<HTMLParagraphElement>(null)
   const slot = slots[selected]
   const meetingTitle = title.trim() || 'Client review meeting'
-  const prompt = [
+  const typedPrompt = [
     'Check my work calendar for a free 30-minute slot on Thursday morning or Friday afternoon. Keep it within 9 am–5 pm and avoid existing appointments. Show me two options; don’t book anything yet.',
     `${slot.day} at ${selected === 0 ? '10 am' : '2 pm'} works for the client. Prepare a 30-minute calendar invitation with a short agenda, and show me the details before sending it.`,
     'Check the title, date, time and guest below. Only book this appointment when I confirm.',
     'Now draft a short follow-up email confirming the meeting time. Keep it friendly and leave it for me to review.',
   ][stage]
+  const spokenPrompt = [
+    'Find me half an hour for a client review on Thursday morning or Friday afternoon. Check my calendar and show me a couple of free times first.',
+    `${slot.day} at ${selected === 0 ? 'ten' : 'two'} works. Put together the invitation with a short agenda. Let me check it before you send anything.`,
+    'Show me the appointment details. Only book it when I give you the go-ahead.',
+    'Draft Alex a quick email confirming the time. Keep it friendly and let me check it before sending.',
+  ][stage]
+  const prompt = promptMode === 'voice' ? spokenPrompt : typedPrompt
 
   function goTo(next: number) {
     setStage(next)
@@ -71,6 +79,7 @@ export function CalendarDemo() {
     setSelected(0)
     setTitle('Client review meeting')
     setFollowup(false)
+    setPromptMode('voice')
     goTo(0)
   }
   async function copyPrompt() {
@@ -90,7 +99,7 @@ export function CalendarDemo() {
   }
 
   return <div className={s.demo}>
-    <div className={s.intro}><span className={s.kicker}>Emails, calendars &amp; appointments</span><h3>Your calendar.<br /><em>Less back-and-forth.</em></h3><p>With a supported work calendar connection, AI can find a suitable time and prepare an appointment for you to approve.</p>
+    <div className={s.intro}><span className={s.kicker}>Emails, calendars &amp; appointments</span><h3>Your calendar.<br /><em>Less back-and-forth.</em></h3><p>Say it or type it. Find a free time, prepare the invite and approve the booking.</p>
       <ul className={s.benefitStrip}>{['Check real availability', 'Avoid clashing appointments', 'Keep the final say'].map(text => <li key={text}><Check size={12} aria-hidden="true" />{text}</li>)}</ul>
     </div>
     <div className={s.panel}>
@@ -100,7 +109,15 @@ export function CalendarDemo() {
         <div className={s.story}>
           <span className={s.kicker}>{['Try this prompt', 'Choose a suggested slot', 'You stay in control', 'Keep the flow going'][stage]}</span>
           <h4 className={s.stageTitle} ref={headingRef} tabIndex={-1}>{headings[stage]}</h4><p>{descriptions[stage]}</p>
-          <div className={s.prompt}><div className={s.promptHeader}><strong>Example prompt</strong><button type="button" onClick={copyPrompt}><Copy size={12} aria-hidden="true" />{copyStatus}</button></div><p ref={promptRef}>{prompt}</p></div>
+          <div className={`${s.prompt} ${s.promptComposer}`}>
+            <div className={s.promptModes} role="group" aria-label="How to give the prompt">
+              <button type="button" aria-pressed={promptMode === 'voice'} onClick={() => { setPromptMode('voice'); setCopyStatus('Copy prompt') }}><Mic size={16} aria-hidden="true" />Say it</button>
+              <button type="button" aria-pressed={promptMode === 'text'} onClick={() => { setPromptMode('text'); setCopyStatus('Copy prompt') }}><Keyboard size={16} aria-hidden="true" />Type it</button>
+            </div>
+            <div className={s.composerIntro}><span className={s.micBadge}>{promptMode === 'voice' ? <Mic size={25} aria-hidden="true" /> : <Keyboard size={25} aria-hidden="true" />}</span><span><strong>{promptMode === 'voice' ? 'Just say what you need.' : 'Put it in a prompt.'}</strong><small>{promptMode === 'voice' ? 'You can ask naturally—just like this.' : 'A little context helps AI find the right time.'}</small></span></div>
+            <div className={s.promptBubble}><p ref={promptRef}>{prompt}</p></div>
+            <div className={s.promptHeader}><small>{promptMode === 'voice' ? 'Example voice prompt · no microphone used' : 'Example written prompt'}</small><button type="button" onClick={copyPrompt}><Copy size={12} aria-hidden="true" />{copyStatus}</button></div>
+          </div>
           {stage === 0 && <><button type="button" className={s.primary} onClick={() => goTo(1)}>Check demo availability <ArrowRight size={16} aria-hidden="true" /></button><p className={s.micro}>Try it here—no account or calendar access needed.</p></>}
           {stage === 1 && <><p className={s.micro}>Choose either highlighted time in the calendar panel.</p><button type="button" className={s.primary} onClick={() => goTo(2)}>Review this appointment <ArrowRight size={16} aria-hidden="true" /></button></>}
           {stage === 2 && <button type="button" className={s.reset} onClick={() => goTo(1)}>← Choose a different time</button>}
