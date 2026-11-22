@@ -175,31 +175,32 @@ export function VoiceDemo() {
       }}
     />
     <div className={s.garageControls}>
-      <div><span className={s.garageLabel}>Choose your dream car</span>
-        <Choices label="Dream car" labels={dreamCars} selected={car} choose={setCar} />
+      <div><span className={s.garageLabel}>Choose your drive</span>
+        <Choices label="Choose your drive" labels={dreamCars} selected={car} choose={setCar} />
       </div>
       <div><span className={s.garageLabel}>Choose your view</span>
         <Choices label="Car view" labels={carViews} selected={carView} choose={setCarView} />
       </div>
       <p className={s.garageCaption} role="status">{dreamCars[car]} · {carViews[carView]} · Scottish loch</p>
-      <p className={s.garageCaption}>A little dream-garage inspiration. AI-generated illustrations, with details that may differ from the real cars.</p>
+      <p className={s.garageCaption}>From a weekend dream to an everyday favourite. AI-generated illustrations; details may differ from the real cars.</p>
     </div>
     <div className={s.dashboard}>
-      <div className={s.carScene} data-playing={playing}>
+      <div className={s.scenePanel}>
+      <div className={s.carScene}>
         <ParkedCar car={car} view={carView} />
         <span className={s.parked}><i /> Parked after the meeting</span>
-        <div className={s.voicePhone}>
-          <div className={s.phoneNotch} aria-hidden="true" />
-          <div className={s.appBar}><AudioLines size={16} /><strong>Voice notes</strong></div>
+      </div>
+        <div className={s.playbackBar}>
+          <span className={s.playbackLabel}><AudioLines size={18} aria-hidden="true" /><strong>Voice note</strong></span>
           <div className={s.wave} data-playing={playing} aria-hidden="true">
             {[14, 24, 17, 38, 29, 53, 34, 62, 45, 26, 44, 25, 35, 16, 24, 12].map((height, index) =>
               <i key={index} style={{ height, '--order': index } as React.CSSProperties} />
             )}
           </div>
           <button className={s.goldButton} type="button" onClick={play}>
-            {playing ? <Pause size={16} /> : stage >= 2 ? <RotateCcw size={16} /> : <Play size={16} />}{playLabel}
+            {playing ? <Pause size={16} aria-hidden="true" /> : stage >= 2 ? <RotateCcw size={16} aria-hidden="true" /> : <Play size={16} aria-hidden="true" />}{playLabel}
           </button>
-          {stage === 5 && <a className={s.reviewLink} href="#voice-result">Review drafts <ArrowDown size={13} /></a>}
+          {stage === 5 && <a className={s.reviewLink} href="#voice-result">Review drafts <ArrowDown size={13} aria-hidden="true" /></a>}
         </div>
       </div>
       <div id="voice-result" className={s.voiceTranscript}>
@@ -217,7 +218,7 @@ export function VoiceDemo() {
             ? <blockquote key={selected}>{example.cues.slice(0, stage >= 2 ? undefined : cueCount).map((cue, index) => (
                 <span key={cue.at} className={playing && index === cueCount - 1 ? s.spokenPhrase : undefined}>{cue.text}{' '}</span>
               ))}</blockquote>
-            : <p>{stage ? 'Starting the voice note…' : 'Press play on the phone to hear the note and follow the transcript.'}</p>}
+            : <p>{stage ? 'Starting the voice note…' : 'Press play below the image to hear the note and follow the transcript.'}</p>}
           <div role="status" aria-atomic="false">
             {stage >= 3 && <Output rows={example.output} count={stage - 2} />}
           </div>
