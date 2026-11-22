@@ -55,6 +55,7 @@ export default function TrainingPage() {
 
             <p className={s.lede}>Discover how AI can help with emails, meetings, documents, planning and everyday tasks. Practical, hands-on training built around the way you already work.</p>
             <div className={s.actions}><a className={s.darkButton} href="#working-day">See AI in Action <ArrowDown size={17} /></a><TrainingEnquiryLink className={s.outline} href="#enquire" placement="hero">Enquire About Training <ArrowUpRight size={17} /></TrainingEnquiryLink></div>
+            <a className={s.priceLink} href="#packages">Three-hour sessions from £750 · No VAT charged <ArrowDown size={14} aria-hidden="true" /></a>
           </div>
           <PortraitCard />
         </div>
@@ -130,7 +131,27 @@ export default function TrainingPage() {
             ['Use', 'You practise with relevant examples and learn how to check and refine the results.'],
           ].map(([title, text], index) => <li key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></li>)}
         </ol>
-        <TrainingEnquiryLink className={s.darkButton} href="#enquire" placement="training">Ask about your training session <ArrowUpRight size={17} /></TrainingEnquiryLink>
+        <div id="packages" className={s.pricing} aria-labelledby="packages-title" data-story-beat>
+          <h3 id="packages-title">Choose your training session.</h3>
+          <p className={s.lede}>Every package is a three-hour session. Group prices cover the whole group, not each person.</p>
+          <div className={s.packageGrid}>
+            {[
+              { title: 'One-to-one', people: '1 person', price: '£750', text: 'Focused on your own tasks, questions and pace.', placement: 'one-to-one' },
+              { title: 'Small team', people: '2–3 people', price: '£950', text: 'Work through useful examples with a few colleagues.', placement: 'small-team' },
+              { title: 'Team workshop', people: '4–5 people', price: '£1,250', text: 'Practise together around an agreed shared workflow.', placement: 'team-workshop' },
+            ].map(item => <article className={s.packageCard} key={item.title}>
+              <span className={s.packagePeople}>{item.people} · 3 hours</span><h4>{item.title}</h4>
+              <p className={s.packagePrice}>{item.price}<span>per session · no VAT charged</span></p>
+              <p>{item.text}</p>
+              <TrainingEnquiryLink className={s.outline} href="#enquire" placement={`package-${item.placement}`}>Ask about {item.title.toLowerCase()} training <ArrowUpRight size={16} aria-hidden="true" /></TrainingEnquiryLink>
+            </article>)}
+          </div>
+          <div className={s.packageDetails}>
+            <p><strong>Where:</strong> In-person training in Edinburgh and the surrounding area, or online. Travel costs, if applicable, are agreed before booking.</p>
+            <p><strong>Extra time:</strong> Additional training is £250/hour, agreed beforehand.</p>
+            <p><strong>For teams:</strong> We agree a shared workflow and session scope before booking, so everyone gets useful practice.</p>
+          </div>
+        </div>
       </section>
 
       <section id="garry" className={`${s.tinted} ${s.section}`} aria-labelledby="trainer-title">
