@@ -196,6 +196,7 @@ export default function ContactPage({
         data.measurementEventId.length > 0;
       if (delivered) {
         measureTrainingLead(selectedService, data.measurementEventId);
+        trackConversion("contact_form_submit", { form_name: "contact", method: "website_form" });
         trackConversion("generate_lead", {
           form_name: "contact",
           ...(campaign

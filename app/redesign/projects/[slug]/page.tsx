@@ -168,6 +168,14 @@ export default async function RedesignProjectPage({ params }: ProjectPageProps) 
                 )
               })}
             </div>
+            {project.slug === 'cg-developments' ? (
+              <div className={styles.caseVideoFooter}>
+                <p>Want photos and short reels from your next job?</p>
+                <Link href="/content-creation-west-lothian">
+                  Explore my West Lothian content sessions <ArrowUpRight aria-hidden="true" />
+                </Link>
+              </div>
+            ) : null}
           </section>
         ) : null}
 

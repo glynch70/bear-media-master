@@ -1,6 +1,6 @@
 'use client'
 
-import { analyticsAllowed } from '@/lib/site-analytics'
+import { analyticsAllowed, gaId, isBearMediaHost } from '@/lib/site-analytics'
 import { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { rememberCampaign } from '@/lib/campaign-attribution'
@@ -8,9 +8,9 @@ import { rememberCampaign } from '@/lib/campaign-attribution'
 type ConversionParameters = Record<string, string | number | boolean>
 
 export function trackConversion(eventName: string, parameters: ConversionParameters = {}) {
-  if (!analyticsAllowed()) return
+  if (!gaId || !isBearMediaHost() || !analyticsAllowed()) return
   // Optional measurement must never interrupt a successful enquiry.
-  try { window.gtag?.('event', eventName, parameters) } catch { /* Keep the form usable. */ }
+  try { window.gtag?.('event', eventName, { ...parameters, send_to: gaId }) } catch { /* Keep the form usable. */ }
 }
 
 export function ConversionTracker() {

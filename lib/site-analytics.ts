@@ -15,6 +15,10 @@ export function analyticsAllowed() {
   try { return localStorage.getItem(ANALYTICS_KEY) === 'accepted' } catch { return false }
 }
 
+export function isBearMediaHost() {
+  return ['www.bear-media.com', 'bear-media.com'].includes(location.hostname)
+}
+
 function loadScript(src: string) {
   const script = document.createElement('script')
   script.async = true
@@ -23,7 +27,7 @@ function loadScript(src: string) {
 }
 
 export function syncAnalytics() {
-  if (!['www.bear-media.com', 'bear-media.com'].includes(location.hostname)) return
+  if (!isBearMediaHost()) return
   const granted = analyticsAllowed()
   if (gaId) Reflect.set(window, 'ga-disable-' + gaId, !granted)
   window.gtag?.('consent', 'update', { analytics_storage: granted ? 'granted' : 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' })
