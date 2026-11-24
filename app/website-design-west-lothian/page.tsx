@@ -149,9 +149,21 @@ export default function WebsiteDesignWestLothian() {
         />
         <FAQPageSchema questions={faqs} url={pageUrl} />
 
-        <section className="overflow-hidden bg-secondary pt-28 pb-16 md:pt-36 md:pb-24 lg:pt-40">
-          <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16 lg:px-8">
-            <div>
+        <section className="relative isolate overflow-hidden bg-white pt-28 pb-16 md:pt-36 md:pb-24 lg:pt-40">
+          <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+            <Image
+              src="/assets/website-studio/form-led-hero.webp"
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              quality={85}
+              className="scale-105 object-cover object-[65%_center] blur-[4px] lg:object-right"
+            />
+            <div className="absolute inset-0 bg-white/90 lg:bg-transparent lg:bg-gradient-to-r lg:from-white lg:via-white/95 lg:to-white/45" />
+          </div>
+          <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="max-w-2xl">
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium text-foreground shadow-sm">
                 <MapPin className="size-4 text-accent" aria-hidden="true" />
                 Based in West Lothian
@@ -189,38 +201,7 @@ export default function WebsiteDesignWestLothian() {
                   </span>
                 ))}
               </div>
-            </div>
-
-            <div className="relative">
-              <div className="absolute -inset-5 rounded-[2.5rem] bg-accent/10 blur-2xl" aria-hidden="true" />
-              <div className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-background p-2 shadow-[0_30px_80px_rgba(0,0,0,0.14)] md:p-3">
-                <div className="relative aspect-[3/2] overflow-hidden rounded-[1.45rem] bg-white">
-                  <Image
-                    src="/assets/website-studio/form-led-hero.webp"
-                    alt="Website design concepts across desktop, tablet and mobile, featuring FORM Training Club, STILL Scottish Retreat and NORTH Property"
-                    fill
-                    priority
-                    loading="eager"
-                    sizes="(max-width: 1024px) 100vw, 54vw"
-                    quality={90}
-                    className="object-contain"
-                  />
-                </div>
-              </div>
-              <div className="relative mx-5 -mt-6 flex items-center justify-between gap-4 rounded-2xl border border-border bg-background p-4 shadow-xl sm:mx-8 sm:p-5">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">Website Design Studio</p>
-                  <p className="mt-1 font-heading text-lg font-semibold">FORM · STILL · NORTH</p>
-                  <p className="mt-1 text-xs text-muted-foreground">AI-generated mockup of fictional website concepts</p>
-                </div>
-                <Link
-                  href="#website-design-studio"
-                  className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground transition hover:opacity-80"
-                  aria-label="Explore the FORM, STILL and NORTH demo websites"
-                >
-                  <ArrowRight className="size-4" aria-hidden="true" />
-                </Link>
-              </div>
+              <p className="mt-8 text-xs text-muted-foreground">Background: AI-generated mockup of the FORM, STILL and NORTH website concepts.</p>
             </div>
           </div>
         </section>
@@ -277,6 +258,20 @@ export default function WebsiteDesignWestLothian() {
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">The bigger picture</p>
               <h2 className="mt-4 font-heading text-4xl font-medium tracking-tight text-balance md:text-5xl">Website design with personal support</h2>
+              <div className="mt-8 grid grid-cols-2 gap-3">
+                <figure>
+                  <div className="relative aspect-square overflow-hidden rounded-2xl bg-background">
+                    <Image src="/assets/services/photography-garry-setup.webp" alt="Garry photographing a business portrait with studio lighting" fill sizes="(max-width: 1024px) 45vw, 18vw" className="object-cover" />
+                  </div>
+                  <figcaption className="mt-3 text-sm text-muted-foreground">Photography for your business</figcaption>
+                </figure>
+                <figure className="pt-8">
+                  <div className="relative aspect-square overflow-hidden rounded-2xl bg-background">
+                    <Image src="/assets/services/video-on-location.webp" alt="Cameras and lighting set up for an on-location business video" fill sizes="(max-width: 1024px) 45vw, 18vw" className="object-cover" />
+                  </div>
+                  <figcaption className="mt-3 text-sm text-muted-foreground">Video, on location</figcaption>
+                </figure>
+              </div>
             </div>
             <div className="max-w-3xl space-y-5 text-lg leading-relaxed text-muted-foreground">
               <p>A strong website needs more than a good-looking layout. I can help with the website, copy, photography, <Link href="/video-production-west-lothian" className="underline underline-offset-4">video</Link>, drone content and ongoing content that bring it to life.</p>
@@ -334,6 +329,12 @@ export default function WebsiteDesignWestLothian() {
                   Discuss your website
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
+                <figure className="mt-9">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-background">
+                    <Image src="/assets/websites/recent/linven-property-inspections.webp" alt="Linven Property Inspections website shown on desktop and mobile" fill sizes="(max-width: 1024px) 100vw, 36vw" className="object-contain" />
+                  </div>
+                  <figcaption className="mt-3 text-sm text-muted-foreground">Linven Property Inspections · Designed for desktop and mobile</figcaption>
+                </figure>
               </div>
               <div className="grid gap-5 sm:grid-cols-3 lg:grid-cols-1">
                 {services.map((service) => {
@@ -387,6 +388,12 @@ export default function WebsiteDesignWestLothian() {
               <p className="mt-5 leading-relaxed text-muted-foreground">
                 Still unsure? Send a quick message and you’ll get a straightforward answer—no obligation and no hard sell.
               </p>
+              <figure className="mt-8">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-background">
+                  <Image src="/assets/about/garry-with-camera.webp" alt="Garry Lynch taking photographs outdoors" fill sizes="(max-width: 1024px) 100vw, 32vw" className="object-cover" />
+                </div>
+                <figcaption className="mt-3 text-sm text-muted-foreground">Work directly with Garry, from the first conversation to launch.</figcaption>
+              </figure>
             </div>
             <div className="divide-y divide-border border-y border-border">
               {faqs.map((faq) => (
