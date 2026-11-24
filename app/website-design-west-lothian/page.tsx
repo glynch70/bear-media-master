@@ -22,11 +22,11 @@ const pageUrl = 'https://bear-media.com/website-design-west-lothian'
 export const metadata: Metadata = {
   title: 'Website Design West Lothian & Edinburgh | Bear Media',
   description:
-    'I design mobile-first websites for small businesses in Livingston, Broxburn, West Lothian and Edinburgh, with personal support, copy, photography and video.',
+    'I design mobile-first websites for businesses of every size in Livingston, Broxburn, West Lothian and Edinburgh, with personal support, copy, photography and video.',
   openGraph: {
     title: 'Website Design West Lothian & Edinburgh | Bear Media',
     description:
-      'Mobile-first websites for small businesses in West Lothian and Edinburgh, with personal support, copy, photography and video.',
+      'Mobile-first websites for businesses of every size in West Lothian and Edinburgh, with personal support, copy, photography and video.',
     url: pageUrl,
     siteName: 'Bear Media',
     images: [
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Website Design West Lothian & Edinburgh | Bear Media',
-    description: 'Mobile-first websites for small businesses in West Lothian and Edinburgh, with personal support, copy, photography and video.',
+    description: 'Mobile-first websites for businesses of every size in West Lothian and Edinburgh, with personal support, copy, photography and video.',
     images: ['https://bear-media.com/assets/websites/midlothian-wildflowers/desktop-home.webp'],
   },
   alternates: {
@@ -133,7 +133,7 @@ export default function WebsiteDesignWestLothian() {
         ]} />
         <ServiceSchema
           name="Website Design in West Lothian"
-          description="Mobile-first website design for small businesses across West Lothian, Edinburgh and Central Scotland, with personal support and content scoped around each project."
+          description="Mobile-first website design for businesses of every size across West Lothian, Edinburgh and Central Scotland, with personal support and content scoped around each project."
           serviceType="Website design and development"
           areaServed={['West Lothian', 'Edinburgh', 'Central Scotland']}
           provider="Bear Media"
@@ -163,7 +163,7 @@ export default function WebsiteDesignWestLothian() {
                 Mobile-first websites that make it easier to enquire
               </p>
               <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-                I design and build mobile-first websites for small businesses in Broxburn, Livingston, West Lothian, Edinburgh and Central Scotland. I make your services clear and give visitors a straightforward way to enquire.
+                I design and build mobile-first websites for businesses of every size in Broxburn, Livingston, West Lothian, Edinburgh and Central Scotland. I make your services clear and give visitors a straightforward way to enquire.
               </p>
               <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">You work directly with me for local, personal support, from planning to launch. I can provide copy, photography and video as part of your website project.</p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -249,7 +249,7 @@ export default function WebsiteDesignWestLothian() {
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">A clear starting point</p>
                 <h2 id="starter-title" className="mt-4 font-heading text-4xl font-medium">Starter Website · £750</h2>
-                <p className="mt-5 text-lg text-muted-foreground">A focused, mobile-friendly website for your small business, built using your supplied words, branding and photographs.</p>
+                <p className="mt-5 text-lg text-muted-foreground">A focused, mobile-friendly website for your business, built using your supplied words, branding and photographs.</p>
                 <p className="mt-4 text-muted-foreground">£375 deposit, with £375 due before launch. Two rounds of revisions included.</p>
                 <Link href="/contact?service=websites#enquiry" className="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground">Ask about a Starter Website</Link>
               </div>
@@ -275,7 +275,7 @@ export default function WebsiteDesignWestLothian() {
           <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 lg:px-8">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">The bigger picture</p>
-              <h2 className="mt-4 font-heading text-4xl font-medium tracking-tight text-balance md:text-5xl">Small business website design with personal support</h2>
+              <h2 className="mt-4 font-heading text-4xl font-medium tracking-tight text-balance md:text-5xl">Website design with personal support</h2>
             </div>
             <div className="max-w-3xl space-y-5 text-lg leading-relaxed text-muted-foreground">
               <p>A strong website needs more than a good-looking layout. I can help with the website, copy, photography, <Link href="/video-production-west-lothian" className="underline underline-offset-4">video</Link>, drone content and ongoing content that bring it to life.</p>
