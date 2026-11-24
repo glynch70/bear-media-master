@@ -70,6 +70,151 @@ function articleBody(paragraphs: string[]): InsightBodyBlock[] {
 }
 
 export const insights: InsightArticle[] = [
+{
+  "slug": "midlothian-wildflowers-community-website",
+  "title": "Making it easier to get involved: the Midlothian Wildflowers website",
+  "metaTitle": "Midlothian Wildflowers Website Design | Bear Media",
+  "metaDescription": "Explore how Bear Media brought clear content, welcoming design and simple navigation together for the Midlothian Wildflowers community website.",
+  "excerpt": "A look at how clear content, thoughtful navigation and a welcoming design help a community project explain its work.",
+  "standfirst": "A look at how clear content, thoughtful navigation and a welcoming design help a community project explain its work.",
+  "category": "Website Design",
+  "publishedDate": "2026-11-24",
+  "modifiedDate": "2026-11-24",
+  "readTime": "3 min read",
+  "author": {
+    "name": "Garry Lynch",
+    "role": "Founder of Bear Media",
+    "url": "/about"
+  },
+  "servicePaths": [
+    "/website-design-west-lothian"
+  ],
+  "contentLinks": [
+    {
+      "text": "explore the case study",
+      "href": "/projects/midlothian-wildflowers"
+    },
+    {
+      "text": "get in touch with Bear Media",
+      "href": "/contact"
+    }
+  ],
+  "featuredImage": {
+    "src": "/assets/client-work/midlothian-wildflowers/native-wildflower.webp",
+    "alt": "Purple wildflowers growing among green stems and meadow grasses.",
+    "caption": "Wildflower imagery from the Midlothian Wildflowers project portfolio.",
+    "aspectRatio": "1080 / 1350"
+  },
+  "body": [
+    {
+      "type": "paragraph",
+      "text": "A community project can have plenty happening: planting, outdoor learning, conservation work and people giving their time. Bringing all of that together on a website takes some thought."
+    },
+    {
+      "type": "paragraph",
+      "text": "Someone arriving for the first time needs a simple way in. What does the project do? Where does it work? How can they help?"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Midlothian Wildflowers website is one example from the Bear Media portfolio where those questions shaped the work."
+    },
+    {
+      "type": "heading",
+      "text": "Giving the activity a clear home"
+    },
+    {
+      "type": "paragraph",
+      "text": "Midlothian Wildflowers brings together community planting, outdoor learning and conservation across Midlothian."
+    },
+    {
+      "type": "paragraph",
+      "text": "The website needed to explain that activity while giving visitors a straightforward route into the parts that interested them. Project information, photographs, background and ways to get involved all needed their own place."
+    },
+    {
+      "type": "paragraph",
+      "text": "That structure matters because people arrive with different intentions. One visitor might want to understand the project. Another might be ready to volunteer. Someone else might have seen a photograph and want to find out what was happening."
+    },
+    {
+      "type": "paragraph",
+      "text": "Clear navigation helps each person take their next step."
+    },
+    {
+      "type": "heading",
+      "text": "Making the welcome visible"
+    },
+    {
+      "type": "paragraph",
+      "text": "The design uses nature-led colours and imagery to introduce the project’s character. The homepage combines a photograph of a butterfly with a short explanation of the work and prominent routes to explore projects or volunteer."
+    },
+    {
+      "type": "paragraph",
+      "text": "Those elements work together. The photograph gives a sense of the subject, the introduction explains the purpose, and the buttons offer something useful to do next."
+    },
+    {
+      "type": "paragraph",
+      "text": "For me, that is a helpful way to assess a homepage. Can someone understand it before they start scrolling through everything else?"
+    },
+    {
+      "type": "paragraph",
+      "text": "A strong opening should give people enough confidence to continue, without asking them to read the whole website first."
+    },
+    {
+      "type": "image",
+      "src": "/assets/websites/midlothian-wildflowers/desktop-home.webp",
+      "alt": "Midlothian Wildflowers homepage with a butterfly photograph, project introduction and volunteer buttons.",
+      "caption": "The homepage introduces the project and gives visitors clear routes to explore or volunteer.",
+      "width": 2400,
+      "height": 2000
+    },
+    {
+      "type": "heading",
+      "text": "Keeping the journey clear on a phone"
+    },
+    {
+      "type": "paragraph",
+      "text": "The project also needed a mobile-friendly experience, with straightforward routes into volunteering and local action."
+    },
+    {
+      "type": "paragraph",
+      "text": "That brings the focus back to practical decisions: readable text, recognisable links, manageable sections and buttons people can comfortably tap."
+    },
+    {
+      "type": "paragraph",
+      "text": "A useful exercise for any organisation is to open its website on a phone and try one real task. Find a contact detail. Look for a project. Work out how to get involved."
+    },
+    {
+      "type": "paragraph",
+      "text": "Notice where you hesitate. Those moments often reveal more than looking at the homepage as a finished design."
+    },
+    {
+      "type": "heading",
+      "text": "A useful lesson for other organisations"
+    },
+    {
+      "type": "paragraph",
+      "text": "The same questions apply to small businesses, clubs and local groups."
+    },
+    {
+      "type": "paragraph",
+      "text": "Start with the people visiting your website. Decide what they need to understand and what they should be able to do. Then organise the words, photographs and navigation around that journey."
+    },
+    {
+      "type": "paragraph",
+      "text": "The Midlothian Wildflowers project brought website design, content structure and community storytelling together. You can explore the case study to see the work."
+    },
+    {
+      "type": "paragraph",
+      "text": "If your own website has become difficult to navigate as your organisation has grown, get in touch with Bear Media. We can look at what visitors need and where a clearer structure would help."
+    }
+  ],
+  "source": {
+    "type": "structured",
+    "futureFormats": [
+      "md",
+      "mdx"
+    ]
+  }
+},
   {
     slug: 'recent-property-photography-and-video',
     title: 'Showing a home properly: recent property work at Bear Media',
