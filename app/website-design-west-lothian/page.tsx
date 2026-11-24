@@ -194,10 +194,10 @@ export default function WebsiteDesignWestLothian() {
             <div className="relative">
               <div className="absolute -inset-5 rounded-[2.5rem] bg-accent/10 blur-2xl" aria-hidden="true" />
               <div className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-background p-2 shadow-[0_30px_80px_rgba(0,0,0,0.14)] md:p-3">
-                <div className="relative aspect-[6/5] overflow-hidden rounded-[1.45rem] bg-muted">
+                <div className="relative aspect-[3/2] overflow-hidden rounded-[1.45rem] bg-white">
                   <Image
-                    src="/assets/websites/recent/linven-property-inspections.webp"
-                    alt="Desktop and mobile views of the Linven Property Inspections website designed by Bear Media"
+                    src="/assets/website-studio/form-led-hero.webp"
+                    alt="Website design concepts across desktop, tablet and mobile, featuring FORM Training Club, STILL Scottish Retreat and NORTH Property"
                     fill
                     priority
                     loading="eager"
@@ -209,13 +209,14 @@ export default function WebsiteDesignWestLothian() {
               </div>
               <div className="relative mx-5 -mt-6 flex items-center justify-between gap-4 rounded-2xl border border-border bg-background p-4 shadow-xl sm:mx-8 sm:p-5">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">Featured website</p>
-                  <p className="mt-1 font-heading text-lg font-semibold">Linven Property Inspections</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">Website Design Studio</p>
+                  <p className="mt-1 font-heading text-lg font-semibold">FORM · STILL · NORTH</p>
+                  <p className="mt-1 text-xs text-muted-foreground">AI-generated mockup of fictional website concepts</p>
                 </div>
                 <Link
-                  href="https://linvenpropertyinspections.co.uk/"
+                  href="#website-design-studio"
                   className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground transition hover:opacity-80"
-                  aria-label="View the Linven Property Inspections website"
+                  aria-label="Explore the FORM, STILL and NORTH demo websites"
                 >
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
