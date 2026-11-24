@@ -196,8 +196,8 @@ export default function WebsiteDesignWestLothian() {
               <div className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-background p-2 shadow-[0_30px_80px_rgba(0,0,0,0.14)] md:p-3">
                 <div className="relative aspect-[6/5] overflow-hidden rounded-[1.45rem] bg-muted">
                   <Image
-                    src="/assets/websites/midlothian-wildflowers/desktop-home.webp"
-                    alt="Midlothian Wildflowers responsive website designed by Bear Media"
+                    src="/assets/websites/recent/linven-property-inspections.webp"
+                    alt="Desktop and mobile views of the Linven Property Inspections website designed by Bear Media"
                     fill
                     priority
                     loading="eager"
@@ -209,13 +209,13 @@ export default function WebsiteDesignWestLothian() {
               </div>
               <div className="relative mx-5 -mt-6 flex items-center justify-between gap-4 rounded-2xl border border-border bg-background p-4 shadow-xl sm:mx-8 sm:p-5">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">Recent launch</p>
-                  <p className="mt-1 font-heading text-lg font-semibold">Midlothian Wildflowers</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">Featured website</p>
+                  <p className="mt-1 font-heading text-lg font-semibold">Linven Property Inspections</p>
                 </div>
                 <Link
-                  href="/projects/midlothian-wildflowers"
+                  href="https://linvenpropertyinspections.co.uk/"
                   className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground transition hover:opacity-80"
-                  aria-label="View the Midlothian Wildflowers website project"
+                  aria-label="View the Linven Property Inspections website"
                 >
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
