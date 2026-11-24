@@ -201,8 +201,20 @@ export default function WebsiteDesignWestLothian() {
                   </span>
                 ))}
               </div>
-              <p className="mt-8 text-xs text-muted-foreground">Background: AI-generated mockup of the FORM, STILL and NORTH website concepts.</p>
             </div>
+            <figure className="mt-10 md:mt-14">
+              <div className="relative aspect-[3/2] overflow-hidden rounded-3xl border border-border bg-white">
+                <Image
+                  src="/assets/website-studio/form-led-hero.webp"
+                  alt="FORM Training Club on a desktop monitor, STILL Scottish Retreat on a tablet and NORTH Property on a phone"
+                  fill
+                  sizes="(max-width: 1280px) 100vw, 1216px"
+                  quality={90}
+                  className="object-contain"
+                />
+              </div>
+              <figcaption className="mt-3 text-sm text-muted-foreground">FORM · STILL · NORTH — AI-generated mockup of fictional website concepts.</figcaption>
+            </figure>
           </div>
         </section>
 
